@@ -1199,7 +1199,7 @@ function getname(unit,pname_,pnot_)
 		else
 			result = "text"
 		end
-	elseif (string.sub(result, 1, 6) == "glyph_") then
+	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) then
 		result = "glyph"
 	end
 
@@ -1230,7 +1230,7 @@ function delunit(unitid)
 		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}
 		local unittype = unit.strings[UNITTYPE]
 		
-		if (unittype == "text") or (name == "glyph") then
+		if (unittype == "text") or (isglyph(unit)) then
 			updatecode = 1
 		end
 		

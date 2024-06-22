@@ -1764,7 +1764,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 	-- 	table.insert(conds, {"references", {" " .. string.sub(option[1], 6)}})
 	-- 	option[1] = "text" 
 	-- else
-	if (string.sub(option[1], 1, 6) == "glyph_") then
+	--[[
+	if (string.sub(option[1], 1, 6) == "glyph_") then --TODO: use metatext's method
 		print(option[1], option[2], option[3])
 		shownrule = copyrule({option, conds, ids, tags})
 		table.insert(conds, {"references", {" " .. string.sub(option[1], 7)}})
@@ -1794,7 +1795,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		table.insert(conds, {"never", {}})
 
 	end
-	
+	--]]
 	if (#option == 3) then
 
 		--@mods(xxenzz) Here's your operators
@@ -1919,7 +1920,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				effect = "not " .. target
 			end
 			rule = {{target,verb,effect},conds,ids,tags}
-		elseif metatext_istextnometa and (effect == "glyph" or effect == "not glyph") and verb == "is" and (string.sub(target,1,5) == "glyph_") then
+		elseif metatext_istextnometa and (effect == "glyph" or effect == "not glyph") and verb == "is" and (string.sub(target,1,6) == "glyph_") then
 			if effect == "glyph" then
 				effect = target
 			else
@@ -2122,9 +2123,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 							addoption(rule,newconds,ids,false,{effect,#featureindex[effect]},tags)
 						end
 					end
-				elseif (string.sub(targetnot_, 1, 5) == "glyph_") then
+				elseif (string.sub(targetnot_, 1, 6) == "glyph_") then
 					for i,mat in pairs(fullunitlist) do
-						if (i ~= targetnot_) and (string.sub(i, 1, 5) == "glyph_") then
+						if (i ~= targetnot_) and (string.sub(i, 1, 6) == "glyph_") then
 							local rule = {i,verb,effect}
 							local newconds = {}
 							for a,b in ipairs(conds) do
@@ -2266,7 +2267,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			end
 		elseif target == "glyph" and fullunitlist ~= nil then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 5) == "glyph_") then
+				if (string.sub(a, 1, 6) == "glyph_") then
 					local newconds = {}
 					local newtags = {}
 					local stop = false
@@ -2317,7 +2318,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			end
 			if verb == "mimic" and (effect == "glyph") then
 				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-					if (string.sub(a, 1, 5) == "glyph_") then
+					if (string.sub(a, 1, 6) == "glyph_") then
 						local stop = false
 						local newconds = {}
 						local newtags = {}
@@ -2509,7 +2510,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			end
 		elseif (effect == "glyph" or effect == "not glyph") and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write" then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 5) == "glyph_") then
+				if (string.sub(a, 1, 6) == "glyph_") then
 					local stop = false
 					local newconds = {}
 					local newtags = {}

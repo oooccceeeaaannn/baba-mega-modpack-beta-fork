@@ -1647,7 +1647,7 @@ function nearbyglyphs(x, y, base_id)
                 local unit = getunitfromid(j2)
                 local name = unit.strings[UNITNAME]
 				local dir = ndirs[unit.values[DIR]+1]
-                if (getname(unit) == "glyph") then
+                if (getname(unit, "glyph") == "glyph") then
                     if isprop(name, j2) then
                         table.insert(sub_result["prop"], {string.sub(name, 7), j2})
 					elseif isnoun(name, j2) then

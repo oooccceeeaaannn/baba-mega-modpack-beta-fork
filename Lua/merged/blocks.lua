@@ -440,7 +440,11 @@ function moveblock(onlystartblock_)
 							local odata = objectdata[v]
 							
 							if (odata.tele == nil) then
-								if ((targetname ~= name) or (metatext_fixquirks and (getname(vunit,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid)) or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name))))) and (v ~= unitid) then
+								if ((targetname ~= name) or ((metatext_fixquirks and
+										(getname(vunit,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid)))
+										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
+										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
+										and (v ~= unitid) then
 									local teles = istele
 									
 									if (#teles > 1) then
@@ -451,7 +455,10 @@ function moveblock(onlystartblock_)
 											local tele = mmf.newObject(b)
 											local telename = getname(tele)
 											
-											if (b ~= unitid) and (telename == name or ((metatext_fixquirks and getname(tele,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid,true))) or (getmetalevel(telename) == getmetalevel(name) and checkiftextrule(name,"is","tele",unitid,true,"meta"..getmetalevel(name)))) and (tele.flags[DEAD] == false) then
+											if (b ~= unitid) and (telename == name
+													or (metatext_fixquirks and getname(tele,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid,true))
+													or (getmetalevel(telename) == getmetalevel(name) and checkiftextrule(name,"is","tele",unitid,true,"meta"..getmetalevel(name)))
+													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))) and (tele.flags[DEAD] == false) then
 												table.insert(teletargets, b)
 											end
 										end
@@ -3103,10 +3110,6 @@ function levelblock()
 						for i,unit in ipairs(units) do
 							local name = unit.strings[UNITNAME]
 
-							if isglyph(unit) then
-								name = "glyph"
-							end
-							
 							if floating_level(unit.fixed) and (lsafe == false) then
 								local is_guarded = ack_endangered_unit(level_obj)
 								if not is_guarded then
@@ -3337,10 +3340,6 @@ function levelblock()
 						for a,unit in ipairs(units) do
 							local name = unit.strings[UNITNAME]
 
-							if isglyph(unit) then
-								name = "glyph"
-							end
-							
 							if floating_level(unit.fixed) then
 								if (lsafe == false) then
 									local is_guarded = ack_endangered_unit(level_obj)
@@ -3380,15 +3379,7 @@ function levelblock()
 						
 						for a,unit in ipairs(units) do
 							local name = unit.strings[UNITNAME]
-							
-							if (unit.strings[UNITTYPE] == "text") then
-								name = "text"
-							end
-							
-							if isglyph(unit) then
-								name = "glyph"
-							end
-							
+
 							if floating_level(unit.fixed) then
 								if (lsafe == false) then
 									local is_guarded = ack_endangered_unit(level_obj)
@@ -4347,10 +4338,6 @@ function startblock(light_)
 			name = "text"
 		end]]--
 
-		if isglyph(unit) then
-			name = "glyph"
-		end
-		
 		if (featureindex[name] ~= nil) then
 			for a,b in ipairs(featureindex[name]) do
 				local conds = b[2]
