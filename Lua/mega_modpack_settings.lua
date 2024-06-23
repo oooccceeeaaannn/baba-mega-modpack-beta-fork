@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.0.2 Stable"
+local mega_modpack_version = "1.0.31 Stable"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -258,7 +258,6 @@ menufuncs.mega_modpack_settings = {
             writetext(string.format("$0,2♄ %s - $%d,%d%s$0,3", mod_info.name, mod_info.color[1], mod_info.color[2], mod_info.author), -1, item_x, item_y, name)
         end
         item_y = item_y + f_tilesize * 1
-        writetext("...Damn, that's a lot of mods.", -1, item_x, item_y, name)
 
         -- make_plasma_button("metatextsettings", name, buttonid, "Metatext Settings", screenw * 0.15,item_y, false)
 
