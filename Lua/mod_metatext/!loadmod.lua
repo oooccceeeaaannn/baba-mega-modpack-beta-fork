@@ -12,7 +12,6 @@ local load_order = {
 	"syntax.lua",
 	"text_ prefix.lua",
 	"tools.lua",
-	"z_add_metatext_objects.lua"
 }
 
 for _, file in ipairs(load_order) do

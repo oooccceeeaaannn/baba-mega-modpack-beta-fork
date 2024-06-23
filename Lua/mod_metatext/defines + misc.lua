@@ -424,7 +424,7 @@ Examples:
 "text_text_" = 0
 "text_text_text_" = 1
 ]]
-function getmetalevel(string)
+function getmetalevel(string) --TODO: glyph_ support
 	local _, metalevel = string.gsub(string, "text_", "text_")
 	if string.sub(string, -5) == "text_" then
 		metalevel = metalevel - 1
