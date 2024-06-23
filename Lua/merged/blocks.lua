@@ -1157,25 +1157,55 @@ function block(small_)
 
 	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
 
-	for id,unit in ipairs(units) do
-		local toxic = findfeature(nil,"is","toxic")
-		local x,y = unit.values[XPOS],unit.values[YPOS]
+	for id, unit in ipairs(units) do
+		local toxic = findfeature(nil, "is", "toxic")
+		local x, y = unit.values[XPOS], unit.values[YPOS]
 
 		if (toxic ~= nil) then
-			for a,b in ipairs(toxic) do
-				local acid = findtype(b,x,y,0)
+			for a, b in ipairs(toxic) do
+				local acid = findtype(b, x, y, 0)
 
-				if (#acid > 0) and (issafe(unit.fixed) == false) and (isalkali(unit.fixed) == false) then
-					for c,d in ipairs(acid) do
-						if floating(d,unit.fixed,x,y) then
+				if (#acid > 0) and (issafe(unit.fixed) == false) and (hasfeature(getname(unit), "is", "alkali", unit.fixed) == nil) then
+					for c, d in ipairs(acid) do
+						if floating(d, unit.fixed, x, y) then
 							if (hasfeature(getname(unit), "is", "toxic", unit.fixed) == nil) then
-								local pmult,sound = checkeffecthistory("toxic")
-								MF_particles("smoke",x,y,5 * pmult,0,1,1,1)
+								local pmult, sound = checkeffecthistory("toxic")
+								MF_particles("smoke", x, y, 5 * pmult, 0, 1, 1, 1)
 								generaldata.values[SHAKE] = 5
 								removalshort = sound
 								removalsound = 9
 								table.insert(delthese, unit.fixed)
+								-- @mods(extrem x word salad) Hey you! Don't think you can just toxic other objects
+								-- and get around like that!
+								delthese,removalshort,removalsound = ws_karma(x,y,"toxic",unit.fixed,delthese,removalshort,removalsound)
+								break
+							end
+						end
+					end
+				end
+			end
+		end
 
+		local cells = findfeature(nil, "is", "volt")
+		local x, y = unit.values[XPOS], unit.values[YPOS]
+		if (cells ~= nil) then
+			for a, b in ipairs(cells) do
+				local batteries = findtype(b, x, y, 0)
+
+				if (#batteries > 0) and (issafe(unit.fixed) == false) then
+					for c, d in ipairs(batteries) do
+						if floating(d, unit.fixed, x, y) then
+
+							local volts = hasfeature_count(getname(unit), "is", "volt", unit.fixed)
+
+							if (volts < hasfeature_count(getname(mmf.newObject(d)), "is", "volt", d)) then
+								local pmult, sound = checkeffecthistory("volt")
+								MF_particles("smoke", x, y, 5 * pmult, 0, 1, 1, 1)
+								MF_particles("electricity", x, y, 5 * pmult, 2, 4, 1, 1)
+								generaldata.values[SHAKE] = 5
+								removalshort = sound
+								removalsound = 9
+								table.insert(delthese, unit.fixed)
 								-- @mods(extrem x word salad) Hey you! Don't think you can just toxic other objects
 								-- and get around like that!
 								delthese,removalshort,removalsound = ws_karma(x,y,"toxic",unit.fixed,delthese,removalshort,removalsound)
@@ -1188,14 +1218,17 @@ function block(small_)
 		end
 	end
 
+
 	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
 
 	
 	local isyou = getunitswitheffect("you",false,delthese)
 	local isyou2 = getunitswitheffect("you2",false,delthese)
 	local isyou3 = getunitswitheffect("3d",false,delthese)
-	local isyou4 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
-	
+	local isyou42 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
+	local isyou4 = getunitswitheffect("puppet", false, delthese)
+	local isyou5 = getunitswitheffect("youplus", false, delthese)
+
 	for i,v in ipairs(isyou2) do
 		table.insert(isyou, v)
 	end
@@ -1204,7 +1237,15 @@ function block(small_)
 		table.insert(isyou, v)
 	end
 	
-	for i,v in ipairs(isyou4) do
+	for i,v in ipairs(isyou42) do
+		table.insert(isyou, v)
+	end
+
+	for i, v in ipairs(isyou4) do
+		table.insert(isyou, v)
+	end
+
+	for i, v in ipairs(isyou5) do
 		table.insert(isyou, v)
 	end
 	
@@ -1557,86 +1598,70 @@ function block(small_)
 		local isprint = getunitswithverb("print",delthese)
 
 		--@Merge( print x extrem )
-		local istype = getunitswithverb("type",delthese)
+		local istype = getunitswithverb("type", delthese)
 
-		for _,v in ipairs(istype) do
-			table.insert(isprint,v)
-		end
-		
-		for id,ugroup in ipairs(isprint) do
+		for id, ugroup in ipairs(istype) do
 			local v = ugroup[1]
 			v = "text_" .. v
-			
-			for a,unit in ipairs(ugroup[2]) do
-				local x,y,dir,name = 0,0,4,""
-				
+
+			for a, unit in ipairs(ugroup[2]) do
+				local x, y, dir, name = 0, 0, 4, ""
+
 				local leveldata = {}
-				
+
 				if (ugroup[3] ~= "empty") then
-					x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
+					x, y, dir = unit.values[XPOS], unit.values[YPOS], unit.values[DIR]
 					name = getname(unit)
-					leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
+					leveldata = { unit.strings[U_LEVELFILE], unit.strings[U_LEVELNAME], unit.flags[MAPLEVEL], unit.values[VISUALLEVEL], unit.values[VISUALSTYLE], unit.values[COMPLETED], unit.strings[COLOUR], unit.strings[CLEARCOLOUR] }
 				else
 					x = math.floor(unit % roomsizex)
 					y = math.floor(unit / roomsizex)
 					name = "empty"
-					dir = emptydir(x,y)
+					dir = emptydir(x, y)
 				end
-				
+
 				if (dir == 4) then
-					dir = fixedrandom(0,3)
+					dir = fixedrandom(0, 3)
 				end
 
-
-				local exists = false
-				for b,mat in pairs(fullunitlist) do
-					if (b == v) then
-						exists = true
-						break
-					end
-				end
-				if not exists and string.sub(v,1,5) == "text_" then
-					exists = tryautogenerate(v)  --@Merge(metatext x patashu): call tryautogenerate() to make PRINT support generating metatext
-				end
-				
-				if exists then
+				if unitreference[v] ~= nil then
 					local domake = true
-					
+
 					if (name ~= "empty") then
-						local thingshere = findallhere(x,y)
-						
+						local thingshere = findallhere(x, y)
+
 						if (#thingshere > 0) then
-							for a,b in ipairs(thingshere) do
+							for a, b in ipairs(thingshere) do
 								local thing = mmf.newObject(b)
 								local thingname = thing.strings[UNITNAME]
-								
+
 								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
 									domake = false
 								end
 							end
 						end
 					end
-					
+
 					if domake then
-						if (findnoun(v,nlist.short, true) == false) then --@Merge(metatext x patashu): added bool param to make PRINT work with metatext
-							create(v,x,y,dir,x,y,nil,nil,leveldata)
+						if (findnoun(v, nlist.short) == false) then
+							create(v, x, y, dir, x, y, nil, nil, leveldata)
 						elseif (v == "text") then
 							if (name ~= "text") and (name ~= "all") then
-								create("text_" .. name,x,y,dir,x,y,nil,nil,leveldata)
+								create("text_" .. name, x, y, dir, x, y, nil, nil, leveldata)
 								updatecode = 1
 							end
 						elseif (string.sub(v, 1, 5) == "group") then
 							--[[
-							local mem = findgroup(v)
-							
-							for c,d in ipairs(mem) do
-								local thishere = findtype({d},x,y,nil,true)
-								
-								if (#thishere == 0) then
-									create(d,x,y,dir,x,y,nil,nil,leveldata)
-								end
-							end
-							]]--
+                            local mem = findgroup(v)
+
+                            for c,d in ipairs(mem) do
+                                local thishere = findtype({d},x,y,nil,true)
+
+                                if (#thishere == 0) then
+                                    create(d,x,y,dir,x,y,nil,nil,leveldata)
+                                end
+                            end
+                            ]]--
 						end
 					end
 				end
@@ -1649,8 +1674,10 @@ function block(small_)
 	isyou = getunitswitheffect("you",false,delthese)
 	isyou2 = getunitswitheffect("you2",false,delthese)
 	isyou3 = getunitswitheffect("3d",false,delthese)
-	isyou4 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
-	
+	isyou42 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
+	isyou4 = getunitswitheffect("puppet", false, delthese)
+	isyou5 = getunitswitheffect("youplus", false, delthese)
+
 	for i,v in ipairs(isyou2) do
 		table.insert(isyou, v)
 	end
@@ -1659,10 +1686,18 @@ function block(small_)
 		table.insert(isyou, v)
 	end
 	
-	for i,v in ipairs(isyou4) do
+	for i,v in ipairs(isyou42) do
 		table.insert(isyou, v)
 	end
-	
+
+	for i, v in ipairs(isyou4) do
+		table.insert(isyou, v)
+	end
+
+	for i, v in ipairs(isyou5) do
+		table.insert(isyou, v)
+	end
+
 	for id,unit in ipairs(isyou) do
 		if (unit.flags[DEAD] == false) and (delthese[unit.fixed] == nil) then
 			local x,y = unit.values[XPOS],unit.values[YPOS]
@@ -1832,6 +1867,14 @@ function block(small_)
 			destroylevel("infinity")
 			return
 		end
+
+		local isntpresent = getunitswitheffect("not present", false, delthese) -- Bruh what a way to use the function
+
+		if (#isntpresent > 0) then
+			HACK_INFINITY = -1
+			destroylevel("paradox")
+			return
+		end
 	end
 	
 	if doremovalsound then
@@ -1934,7 +1977,7 @@ function levelblock()
 								elseif (defeatpair == "defeat") then
 									defeat = true
 								end
-							elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d")) and testcond(conds,2,i,j) then
+							elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d") or (rule[3] == "puppet") or (rule[3] == "youplus")) and testcond(conds,2,i,j) then
 								candefeat = true
 								canwin = true
 								
@@ -3487,26 +3530,8 @@ function levelblock()
 							addundo({"bonus",1})
 						end
 					elseif (action == "visit") then
-						local yous = findfeature(nil,"is","you")
-						local yous2 = findfeature(nil,"is","you2")
-						local yous3 = findfeature(nil,"is","3d")
-						
-						if (yous == nil) then
-							yous = {}
-						end
-						
-						if (yous2 ~= nil) then
-							for i,v in ipairs(yous2) do
-								table.insert(yous, v)
-							end
-						end
-						
-						if (yous3 ~= nil) then
-							for i,v in ipairs(yous3) do
-								table.insert(yous, v)
-							end
-						end
-						
+						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
+
 						local canvisit = false
 						
 						if (yous ~= nil) then
@@ -3541,12 +3566,6 @@ function levelblock()
 						end
 					elseif (action == "win") then
 						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
-						
-						if (yous4 ~= nil) then
-							for i,v in ipairs(yous4) do
-								table.insert(yous, v)
-							end
-						end
 						
 						local canwin = false
 						
@@ -3943,7 +3962,7 @@ function levelblock()
 								local yous = findallfeature(nil,"is","you",true)
 								local yous2 = findallfeature(nil,"is","you2",true)
 								local yous3 = findallfeature(nil,"is","3d",true)
-								local yous4 = findallfeature(nil,"is","alive",true)
+								local yous42 = findallfeature(nil,"is","alive",true)
 								
 								if (#yous2 > 0) then
 									for a,b in ipairs(yous2) do
@@ -3957,8 +3976,8 @@ function levelblock()
 									end
 								end
 								
-								if (#yous4 > 0) then
-									for a,b in ipairs(yous4) do
+								if (#yous42 > 0) then
+									for a,b in ipairs(yous42) do
 										table.insert(yous, b)
 									end
 								end
@@ -4166,8 +4185,10 @@ function findplayer(undoing)
 	local players1 = findfeature(nil,"is","you")
 	local players2 = findfeature(nil,"is","you2")
 	local players3 = findfeature(nil,"is","3d")
-	local players4 = findfeature(nil,"is","alive") -- Get all ALIVE features
-	
+	local players24 = findfeature(nil,"is","alive") -- Get all ALIVE features
+	local players4 = findfeature(nil, "is", "puppet")
+	local players5 = findfeature(nil, "is", "youplus")
+
 	local vessels = findfeature(nil,"is","vessel") or {} -- Get all VESSEL features (used to keep music if option is enabled)
 	local vessels2 = findfeature(nil,"is","vessel2") or {}
 	
@@ -4184,8 +4205,20 @@ function findplayer(undoing)
 		end
 	end
 	
-	if (players4 ~= nil) then -- Add ALIVE features to the list of 2D players
-		for i,v in ipairs(players4) do
+	if (players24 ~= nil) then -- Add ALIVE features to the list of 2D players
+		for i,v in ipairs(players24) do
+			table.insert(players, v)
+		end
+	end
+
+	if (players4 ~= nil) then
+		for i, v in ipairs(players4) do
+			table.insert(players, v)
+		end
+	end
+
+	if (players5 ~= nil) then
+		for i, v in ipairs(players5) do
 			table.insert(players, v)
 		end
 	end

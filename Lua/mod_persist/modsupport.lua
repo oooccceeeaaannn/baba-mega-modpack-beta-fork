@@ -171,6 +171,7 @@ function findpersists(reason)
 		prevlevelpersist = {}
 	end
 	findpersistrules()
+	fillkeepruleslist()
 	--update persistent object info
 	persists = {}
 	levelpersist = {}
@@ -186,21 +187,6 @@ function findpersists(reason)
 		
 	ispersist = getunitswitheffect("persist",delthese)
 	for id,unit in ipairs(ispersist) do
-		x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
-		name = getname(unit)
-		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
-		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),unit.karma}}
-
-		local stableunit_entry = get_persist_stablestate_info(unit.fixed)
-		if stableunit_entry then
-			persistobjectdata[11] = stableunit_entry
-		end
-		--persistobjectdata = {unit.strings[UNITNAME],x,y,dir,unit.values[ID],y,nil,nil,leveldata,unit.followed,unit.back_init}
-		table.insert(persists,(persistobjectdata))
-	end
-
-	local keepunits = getkeepunits()
-	for unit,__ in pairs(keepunits) do
 		x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
 		name = getname(unit)
 		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}

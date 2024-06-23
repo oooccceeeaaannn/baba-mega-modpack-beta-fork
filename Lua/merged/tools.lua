@@ -150,7 +150,9 @@ function writerules(parent,name,x_,y_)
 							text = text .. "& "
 						end
 					else
-						if (#custom == 0) then
+						if cond[1] ~= "feelspast" and cond[1] ~= "feelsfuture" then
+
+							if (#custom == 0) then
 							-- EDIT: allow prefixes to have different visual names in the properties
 							local target = cond[1]
 							local isnot = string.sub(target, 1, 4)
@@ -166,9 +168,24 @@ function writerules(parent,name,x_,y_)
 								target = isnot .. word_names[target_]
 							end
 
-							text = target .. " " .. text
+								text = target .. " " .. text
+							else
+								text = custom .. " " .. text
+							end
 						else
-							text = custom .. " " .. text
+							if cond[1] == "feelspast" then
+								for a, b in ipairs(presenttense) do
+									if b == rule[2] then
+										rule[2] = pasttense[a]
+									end
+								end
+							elseif cond[1] == "feelsfuture" then
+								for a, b in ipairs(presenttense) do
+									if b == rule[2] then
+										rule[2] = futuretense[a]
+									end
+								end
+							end
 						end
 					end
 				end
@@ -201,7 +218,13 @@ function writerules(parent,name,x_,y_)
 					text = text .. " (mimic)"
 				end
 			end
-			
+
+			for a,b in ipairs(tags) do
+				if (b == "keep") then
+					text = text .. " (keep)"
+				end
+			end
+
 			if (allrules[text] == nil) then
 				allrules[text] = 1
 				count = count + 1
@@ -1449,10 +1472,7 @@ end
 
 function destroylevel(special_)
 	--@mods(eternal)
-	if et_ignoreinfloop then
-		return
-	end
-
+	isbeyond = true
 	destroylevel_check = true
 	destroylevel_style = special_ or ""
 	
@@ -1470,6 +1490,116 @@ function destroylevel(special_)
 	MF_musicstate(1)
 	generaldata2.values[NOPLAYER] = 1
 end
+
+function destroylevel_do()
+	--@mods(eternal)
+	if et_ignoreinfloop then
+		return
+	end
+	if (generaldata.values[MODE] ~= 5) and destroylevel_check then
+		MF_musicstate(1)
+		generaldata2.values[NOPLAYER] = 1
+
+		local should_reparse_rules = false
+
+		destroylevel_check = false
+		local special = destroylevel_style or ""
+		destroylevel_style = ""
+
+		local dellist = {}
+		for i, unit in ipairs(units) do
+			table.insert(dellist, unit.fixed)
+		end
+
+		if (#dellist > 0) then
+			for i, unitid in ipairs(dellist) do
+				local unit = mmf.newObject(unitid)
+				local c1, c2 = getcolour(unitid)
+				local pmult, sound = checkeffecthistory("destroylevel")
+
+				if (special ~= "infinity") and (special ~= "empty") and (special ~= "bonus") then
+					MF_particles("bling", unit.values[XPOS], unit.values[YPOS], 10 * pmult, c1, c2, 1, 1)
+				elseif (special == "bonus") then
+					MF_particles("win", unit.values[XPOS], unit.values[YPOS], 10 * pmult, 4, 1, 1, 1)
+				end
+
+				local name = getname(unit)
+				if hasfeature(name, "is", "secure", unitid, x, y) == nil then
+					if ((special == "infinity") or (special == "paradox")) and hasfeature(name, "is", "eternal", unitid, x, y) then
+
+					else
+						delete(unitid, nil, nil, true)
+					end
+				else
+					should_reparse_rules = true
+					updatecode = 1
+				end
+			end
+		end
+
+		if (special == "infinity") then
+			if (HACK_INFINITY <= 200) then
+				writetext(langtext("ingame_infiniteloop"), 0, screenw * 0.5 - 12, screenh * 0.5 + 60, 0, true, 3, true, { 4, 1 }, 3)
+				HACK_INFINITY = 0
+
+				MF_playsound("infinity")
+
+				local isignid = MF_specialcreate("Special_infinity")
+				local isign = mmf.newObject(isignid)
+
+				isign.x = screenw * 0.5
+				isign.y = screenh * 0.5 - 36
+				isign.layer = 2
+				MF_setcolour(isignid, 4, 1)
+			end
+		elseif (special == "paradox") then
+			if (HACK_INFINITY == -1) then
+				writetext("time paradox", 0, screenw * 0.5 - 12, screenh * 0.5 + 60, 0, true, 3, true, { 5, 3 }, 3)
+				HACK_INFINITY = 0
+
+				MF_playsound("infinity")
+
+				local isignid = MF_specialcreate("Special_infinity")
+				local isign = mmf.newObject(isignid)
+
+				isign.x = screenw * 0.5
+				isign.y = screenh * 0.5 - 36
+				isign.layer = 2
+				MF_setcolour(isignid, 5, 3)
+			end
+		elseif (special == "toocomplex") then
+			writetext(langtext("ingame_toocomplex"), 0, screenw * 0.5 - 12, screenh * 0.5, 0, true, 3, true, { 4, 1 }, 3)
+			HACK_INFINITY = 0
+
+			MF_playsound("infinity")
+		elseif (special == "doom") then
+			writetext("level destroyed", 0, screenw * 0.5 - 12, screenh * 0.5, 0, true, 3, true, { 2, 2 }, 3)
+			HACK_INFINITY = 0
+
+			MF_playsound("infinity")
+		elseif (special == "bonus") then
+			MF_playsound("bonus")
+		end
+
+		et_ignoreinfloop = true
+		code()
+		et_ignoreinfloop = false
+
+		if ((special == "infinity") and (hasfeature(name, "is", "eternal", unitid, x, y) == false)) and (hasfeature(name, "is", "secure", unitid, x, y) == false) then
+			MF_removeblockeffect(0)
+			updatecode = 1
+			features = {}
+			featureindex = {}
+			visualfeatures = {}
+			notfeatures = {}
+		end
+
+		collectgarbage()
+	elseif (generaldata.values[MODE] == 5) then
+		timedmessage("Destroylevel() called from editor. Report this!")
+	end
+end
+
 
 function findgroup(grouptype_,invert_,limit_,checkedconds_,notextnoun_)
 	local result = {}

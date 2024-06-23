@@ -25,20 +25,28 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 	
 	local levelmove = {}
 	local levelmove2 = {}
+	local levelmove3 = {}
+	local levelmove4 = {}
 	
 	arrow_prop_mod_globals.group_arrow_properties = false
 	if (playerid == 1) then -- EDIT: add support for LEVEL IS VESSEL/VESSEL2
 		levelmove = ws_findLevelVessel()
+		levelmove3 = findfeature("level", "is", "puppet")
+		levelmove4 = findfeature("level", "is", "youplus")
 	elseif (playerid == 2) then
 		levelmove = ws_findLevelVessel(2)
 		
 		if (levelmove == nil) then
 			levelmove = ws_findLevelVessel()
+			levelmove3 = findfeature("level", "is", "puppet")
+			levelmove4 = findfeature("level", "is", "youplus")
 		end
 	elseif (playerid == 3) then
 		levelmove = ws_findLevelVessel()
 		levelmove2 = ws_findLevelVessel(2)
-		
+		levelmove3 = findfeature("level", "is", "puppet")
+		levelmove4 = findfeature("level", "is", "youplus")
+
 		if (#levelmove > 0) and (dir_ ~= nil) then
 			levelmovedir = dir_
 		elseif (#levelmove2 > 0) and (dir_ ~= nil) then
@@ -93,6 +101,39 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				addundo({"levelupdate",Xoffset,Yoffset,Xoffset,Yoffset,mapdir,levelmovedir})
 			end
 			
+			if (levelmovedir ~= 4) then
+				mapdir = levelmovedir
+			end
+			updateundo = true
+		end
+	elseif (levelmove3 ~= nil) then
+		local valid = false
+
+		for i, v in ipairs(levelmove3) do
+			if (valid == false) and testcond(v[2], 1) then
+				valid = true
+			end
+		end
+
+		if (featureindex["reverse"] ~= nil) then
+			levelmovedir = reversecheck(1, levelmovedir)
+		end
+
+		if cantmove("level", 1, levelmovedir) then
+			valid = false
+		end
+
+		if valid then
+			local ndrs = ndirs[levelmovedir + 1]
+			local ox, oy = ndrs[1], ndrs[2]
+
+			if (isstill(1, nil, nil, levelmovedir) == false) then
+				addundo({ "levelupdate", Xoffset, Yoffset, Xoffset + ox * tilesize, Yoffset + oy * tilesize, mapdir, levelmovedir })
+				MF_scrollroom(ox * tilesize, oy * tilesize)
+			else
+				addundo({ "levelupdate", Xoffset, Yoffset, Xoffset, Yoffset, mapdir, levelmovedir })
+			end
+
 			if (levelmovedir ~= 4) then
 				mapdir = levelmovedir
 			end
@@ -167,13 +208,19 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				local players = {}
 				local players2 = {}
 				local players3 = {}
+				local players4 = {}
+				local players5 = {}
 				local empty = {}
 				local empty2 = {}
 				local empty3 = {}
+				local empty4 = {}
+				local empty5 = {}
 
 				arrow_prop_mod_globals.group_arrow_properties = false
 				if (playerid == 1) then -- EDIT: add support for X/EMPTY IS VESSEL/VESSEL2
 					players,empty = ws_findVessels()
+					players4, empty4 = findallfeature(nil, "is", "puppet")
+					players5, empty5 = findallfeature(nil, "is", "youplus")
 
 					local players_tt,empty_tt = do_directional_you(dir_)
 					for i,v in ipairs(players_tt) do
@@ -195,6 +242,8 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 					
 					if (#players == 0) then
 						players,empty = ws_findVessels()
+						players4, empty4 = findallfeature(nil, "is", "puppet")
+						players5, empty5 = findallfeature(nil, "is", "youplus")
 
 						players_tt,empty_tt = do_directional_you(dir_)
 						for i,v in ipairs(players_tt) do
@@ -207,7 +256,10 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				elseif (playerid == 3) then
 					players,empty = ws_findVessels()
 					players2,empty2 = ws_findVessels(2)
-					
+					players4, empty4 = findallfeature(nil, "is", "puppet")
+					players5, empty5 = findallfeature(nil, "is", "youplus")
+
+
 					local playersdir = {}
 					local emptydir = {}
 					local players2dir = {}
@@ -343,7 +395,159 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				end
 				
 				fdir = 4
-				
+
+				for i, v in ipairs(players4) do
+					local sleeping = false
+
+					local unit = mmf.newObject(v)
+					local origdir = unit.values[DIR]
+					fdir = dir_
+
+					if (v ~= 2) then
+						local unit = mmf.newObject(v)
+
+						local unitname = getname(unit)
+						local sleep = hasfeature(unitname, "is", "sleep", v)
+						local still = cantmove(unitname, v, fdir)
+
+						if (sleep ~= nil) then
+							sleeping = true
+						elseif still then
+							sleeping = true
+						end
+					else
+						local thisempty = empty[i]
+
+						for a, b in pairs(thisempty) do
+							local x = a % roomsizex
+							local y = math.floor(a / roomsizex)
+
+							local sleep = hasfeature("empty", "is", "sleep", 2, x, y)
+							local still = cantmove("empty", 2, fdir, x, y)
+
+							if (sleep ~= nil) or still then
+								thisempty[a] = nil
+							end
+						end
+					end
+
+					if (sleeping == false) and (fdir ~= 4) then
+						if (been_seen[v] == nil) then
+							local x, y = -1, -1
+							if (v ~= 2) then
+								local unit = mmf.newObject(v)
+								x, y = unit.values[XPOS], unit.values[YPOS]
+
+								table.insert(moving_units, { unitid = v, reason = "puppet", state = 0, moves = 1, dir = fdir, xpos = x, ypos = y })
+								been_seen[v] = #moving_units
+							else
+								local thisempty = empty[i]
+
+								for a, b in pairs(thisempty) do
+									x = a % roomsizex
+									y = math.floor(a / roomsizex)
+
+									table.insert(moving_units, { unitid = 2, reason = "puppet", state = 0, moves = 1, dir = fdir, xpos = x, ypos = y })
+									been_seen[v] = #moving_units
+								end
+							end
+						else
+							local id = been_seen[v]
+							local this = moving_units[id]
+							--this.moves = this.moves + 1
+						end
+					end
+				end
+
+				local fdir = 4
+
+				for i, v in ipairs(players5) do
+					local sleeping = false
+
+					fdir = dir_
+
+					if (playerid == 3) then
+						if (i > #players - #players2) then
+							fdir = dir_2
+						end
+					end
+
+					if (v ~= 2) then
+						local unit = mmf.newObject(v)
+
+						local unitname = getname(unit)
+						local sleep = hasfeature(unitname, "is", "sleep", v)
+						local still = cantmove(unitname, v, fdir)
+
+						if (sleep ~= nil) then
+							sleeping = true
+						elseif still then
+							sleeping = true
+
+							if (fdir ~= 4) then
+								updatedir(v, fdir)
+							end
+						else
+
+							if (fdir ~= 4) then
+								updatedir(v, fdir)
+							end
+						end
+					else
+						local thisempty = empty[i]
+
+						for a, b in pairs(thisempty) do
+							local x = a % roomsizex
+							local y = math.floor(a / roomsizex)
+
+							local sleep = hasfeature("empty", "is", "sleep", 2, x, y)
+							local still = cantmove("empty", 2, fdir, x, y)
+
+							if (sleep ~= nil) or still then
+								thisempty[a] = nil
+							end
+						end
+					end
+
+					if (sleeping == false) and (fdir ~= 4) then
+						if (been_seen[v] == nil) then
+							local x, y = -1, -1
+							if (v ~= 2) then
+								local unit = mmf.newObject(v)
+								x, y = unit.values[XPOS], unit.values[YPOS]
+								local unitname = unit.strings[NAME]
+								local moveamount = 0
+								if hasfeature(unitname, "is", "youplus", v) then
+									moveamount = #findfeature(unitname, "is", "youplus")
+								end
+
+								table.insert(moving_units, { unitid = v, reason = "you", state = 0, moves = moveamount, dir = fdir, xpos = x, ypos = y })
+								been_seen[v] = #moving_units
+							else
+								local thisempty = empty[i]
+
+								for a, b in pairs(thisempty) do
+									x = a % roomsizex
+									y = math.floor(a / roomsizex)
+									local moveamount = 0
+									if hasfeature("empty", "is", "youplus", 2) then
+										moveamount = #findfeature("empty", "is", "youplus")
+									end
+
+									table.insert(moving_units, { unitid = 2, reason = "you", state = 0, moves = moveamount, dir = fdir, xpos = x, ypos = y })
+									been_seen[v] = #moving_units
+								end
+							end
+						else
+							local id = been_seen[v]
+							local this = moving_units[id]
+							--this.moves = this.moves + 1
+						end
+					end
+				end
+
+				fdir = 4
+
 				if (featureindex["3d"] ~= nil) and (spritedata.values[CAMTARGET] ~= 0) and (spritedata.values[CAMTARGET] ~= 0.5) and (no3d == false) then
 					local sleeping = false
 					local domove = false
@@ -1015,7 +1219,7 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 			for i,data in ipairs(still_moving) do
 				if (data.unitid ~= 2) then
 					local unit = mmf.newObject(data.unitid)
-					
+
 					if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet") then
 						--@Turning Text(shift)
 						table.insert(moving_units, {
@@ -1035,7 +1239,7 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 						})
 					else
 						local newdir = unit.values[DIR]
-						if (data.reason == "launch") then
+						if (data.reason == "launch" or data.reason == "puppet") then
 							newdir = data.dir;
 						end
 						table.insert(moving_units, {unitid = data.unitid, reason = data.reason, state = data.state, moves = data.moves, dir = newdir, xpos = unit.values[XPOS], ypos = unit.values[YPOS]})
@@ -1085,7 +1289,11 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 					
 					if (data.unitid ~= 2) then
 						unit = mmf.newObject(data.unitid)
-						dir = unit.values[DIR]
+						if data.reason ~= "puppet" then
+							dir = unit.values[DIR]
+						else
+							dir = data.dir
+						end
 						name = getname(unit)
 						x,y = unit.values[XPOS],unit.values[YPOS]
 						holder = unit.holder or 0
@@ -1167,6 +1375,8 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 							returnolddir = true
 						elseif (data.reason == "nudgedown") then
 							dir = 3
+							returnolddir = true
+						elseif (data.reason == "puppet") then
 							returnolddir = true
 						end
 						
@@ -1338,15 +1548,20 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 											end
 										end
 									end
+
+									local pdir = olddir --@mods (extrem) weird merge for puppet
+									if data.reason == "puppet" then
+										pdir = mmf.newObject(data.unitid).values[DIR]
+									end
 									
 									if (#units > 1) then --STICKY case
 										for _,u in ipairs(units) do
 											local uunit =	mmf.newObject(u)
 											local xx,yy = uunit.values[XPOS],uunit.values[YPOS]
-											queue_move(u,ox,oy,olddir,specials_by_unitid[u],data.reason,xx,yy)
+											queue_move(u,ox,oy,pdir,specials_by_unitid[u],data.reason,xx,yy)
 										end
 									else
-										queue_move(data.unitid,ox,oy,olddir,specials,data.reason,x,y)
+										queue_move(data.unitid,ox,oy,pdir,specials,data.reason,x,y)
 									end
 									if (data.unitid == 2) and (data.moves > 1) then
 										data.xpos = x + ox
@@ -3238,7 +3453,7 @@ function add_moving_units(rule,newdata,data,been_seen,empty_)
 			if (rule == "chill") and (sleep == nil) then
 				local dir = fixedrandom(0,3)
 				
-				if (data.unitid ~= 2) then
+				if (data.unitid ~= 2) and (data.reason ~= "puppet") then
 					updatedir(v, dir)
 				end
 			end

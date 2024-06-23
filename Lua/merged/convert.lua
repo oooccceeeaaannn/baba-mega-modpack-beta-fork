@@ -1,3 +1,15 @@
+function findvirusobjs()
+	local viruses = {}
+
+	for i, v in ipairs(units) do
+		if hasfeature(v.strings[UNITNAME], "is", "virus", v.fixed) then
+			table.insert(viruses, v.strings[UNITNAME])
+		end
+	end
+
+	return viruses
+end
+
 function dolevelconversions()
 	--This line, added for the glitch mod, skips some checks if the level is turning into a glitch object.
 	--Also: Make sure the level wasn't just started! Otherwise the game breaks on a level that infinite loops from the starting state, for some reason.
@@ -12,7 +24,7 @@ function dolevelconversions()
 			local conds = matdata[2]
 			local mat2 = matdata[1]
 			local op = matdata[3]
-			
+
 			if (op == "write") or (op == "draw") then
 				mat2 = "text_" .. matdata[1]
 			end
@@ -747,7 +759,8 @@ function conversion(dolevels_)
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
 			  or ((operator == "inscribe") 
-			    and (getmat("glyph_" .. name) or getmat(name))) 
+			    and (getmat("glyph_" .. name) or getmat(name)))
+					or (thing == "infect") or (operator == "draw")
 			  then -- @Merge: Original glyph mod has "((string.sub(name, 1, 5) == "text_") and getmat_text(name))". I think this is its own version of metatext??? in which case maybe not include it?
 				
 				if (featureindex[name] ~= nil) and (alreadydone[name] == nil) then
@@ -782,6 +795,16 @@ function conversion(dolevels_)
 									end
 								end
 							end
+							if (verb == "is") and (object == "infect") then
+								local viruses = findvirusobjs()
+
+								if (#viruses > 0) then
+									for c, d in ipairs(viruses) do
+										table.insert(output, { d, conds, "is" })
+									end
+								end
+							end
+
 						elseif (verb == "write") or (operator == "draw") then
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								table.insert(output, {object, conds, "write"})

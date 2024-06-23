@@ -112,15 +112,16 @@ table.insert(mod_hook_functions["level_end"],
 -- Checks if the given property is a "player" property
 function ws_isPlayerProp(property)
 	return property == "you" or property == "you2" or property == "3d" or property == "alive"
+			or property == "puppet" or property == "youplus" --@mods (extrem x word salad)
 end
 
 
 -- Checks if the level is a "player"
 function ws_isLevelPlayer(i,j)
 	if (i == nil) or (j == nil) then
-		return (hasfeature("level","is","you",1) ~= nil) or (hasfeature("level","is","you2",1) ~= nil) or (hasfeature("level","is","3d",1) ~= nil) or (hasfeature("level","is","alive",1) ~= nil)
+		return (hasfeature("level","is","you",1) ~= nil) or (hasfeature("level","is","you2",1) ~= nil) or (hasfeature("level","is","3d",1) ~= nil) or (hasfeature("level","is","alive",1) ~= nil) or (hasfeature("level","is","youplus",1) ~= nil) or (hasfeature("level","is","puppet",1) ~= nil)
 	else
-		return (hasfeature("level","is","you",1,i,j) ~= nil) or (hasfeature("level","is","you2",1,i,j) ~= nil) or (hasfeature("level","is","3d",1,i,j) ~= nil) or (hasfeature("level","is","alive",1,i,j) ~= nil)
+		return (hasfeature("level","is","you",1,i,j) ~= nil) or (hasfeature("level","is","you2",1,i,j) ~= nil) or (hasfeature("level","is","3d",1,i,j) ~= nil) or (hasfeature("level","is","alive",1,i,j) ~= nil) or (hasfeature("level","is","puppet",1,i,j) ~= nil) or (hasfeature("level","is","youplus",1,i,j) ~= nil)
 	end
 end
 
@@ -130,7 +131,9 @@ function ws_findPlayers()
 	local yous = findfeature(nil,"is","you") or {}
 	local yous2 = findfeature(nil,"is","you2")
 	local yous3 = findfeature(nil,"is","3d")
-	local yous4 = findfeature(nil,"is","alive") -- Added check for ALIVE
+	local yous42 = findfeature(nil,"is","alive") -- Added check for ALIVE
+	local yous4 = findfeature(nil, "is", "puppet")
+	local yous5 = findfeature(nil, "is", "youplus")
 
 	if (yous2 ~= nil) then
 		for _,v in ipairs(yous2) do
@@ -144,20 +147,33 @@ function ws_findPlayers()
 		end
 	end
 
-	if (yous4 ~= nil) then -- Add ALIVE entities to "yous"
-		for _,v in ipairs(yous4) do
+	if (yous42 ~= nil) then -- Add ALIVE entities to "yous"
+		for _,v in ipairs(yous42) do
 			table.insert(yous, v)
 		end
 	end
-	
+
+
+	if (yous4 ~= nil) then
+		for i, v in ipairs(yous4) do
+			table.insert(yous, v)
+		end
+	end
+
+	if (yous5 ~= nil) then
+		for i, v in ipairs(yous5) do
+			table.insert(yous, v)
+		end
+	end
+
 	return yous
 end
 
 
 -- Checks if empty should be considered a player
 function ws_areTherePlayerEmpties()
-	return (#findallfeature("empty","is","you") > 0) or (#findallfeature("empty","is","you2") > 0) or (#findallfeature("empty","is","3d") > 0) or (#findallfeature("empty","is","alive") > 0)
-end
+	return ((#findallfeature("empty","is","you") > 0) or (#findallfeature("empty","is","you2") > 0) or (#findallfeature("empty","is","youplus") > 0) or (#findallfeature("empty","is","3d") > 0) or (#findallfeature("empty","is","alive") > 0)or (#findallfeature("empty", "is", "puppet") > 0))
+	end
 
 
 -- Returns all the features of the type "level is you-id" or "level is vessel-id"
@@ -203,8 +219,9 @@ function ws_findplayerfeatureat(x,y)
 	local result = findfeatureat(nil,"is","you",x,y) or {}
 	local you2 = findfeatureat(nil,"is","you2",x,y) or {}
 	local you3 = findfeatureat(nil,"is","3d",x,y) or {}
-	local you4 = findfeatureat(nil,"is","alive",x,y) or {}
-
+	local you42 = findfeatureat(nil,"is","alive",x,y) or {}
+	local you4 = findfeatureat(nil,"is","youplus",x,y) or {}
+	local you5 = findfeatureat(nil,"is","puppet",x,y) or {}
 	for _,v in ipairs(you2) do
 		table.insert(result, v)
 	end
@@ -213,7 +230,15 @@ function ws_findplayerfeatureat(x,y)
 		table.insert(result, v)
 	end
 
+	for _,v in ipairs(you42) do
+		table.insert(result, v)
+	end
+
 	for _,v in ipairs(you4) do
+		table.insert(result, v)
+	end
+
+	for _,v in ipairs(you5) do
 		table.insert(result, v)
 	end
 

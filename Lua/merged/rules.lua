@@ -1,3 +1,10 @@
+toreplace = { "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "was", "ate", "made", "had", "feared", "followed", "wrote", "mimicked", "willbe", "willhave", "willmake", "willfollow", "willwrite", "willeat", "willfear", "willmimic", "drew", "jotted", "typed", "acted", "performed", "willdraw", "willjot", "willtype", "willact", "willperform" }
+replacewith = { "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "is", "has", "make", "follow", "write", "eat", "fear", "mimic", "draw", "jot", "type", "act", "perform", "draw", "jot", "type", "act", "perform" }
+tense = { "present", "present", "present", "present", "present", "present", "present", "present", "past", "past", "past", "past", "past", "past", "past", "past", "future", "future", "future", "future", "future", "future", "future", "future", "past", "past", "past", "past", "past", "future", "future", "future", "future", "future" }
+pasttense = { "was", "ate", "made", "had", "feared", "followed", "wrote", "mimicked", "drew", "jotted", "typed", "acted", "performed" }
+presenttense = { "is", "eat", "made", "has", "fear", "follow", "write", "mimic", "draw", "jot", "type", "act", "perform" }
+futuretense = { "will be", "will eat", "will make", "will have", "will fear", "will follow", "will write", "will mimic", "will draw", "will jot", "will type", "will act", "will perform" }
+
 function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult_)
 	--[[ 
 		@mods(turning text) - Override reason: provide a hook to reinterpret turning text names based on their direction
@@ -1798,29 +1805,6 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 	--]]
 	if (#option == 3) then
 
-		--@mods(xxenzz) Here's your operators
-		if (option[2] == "equal") then
-			option[2] = "is"
-		elseif (option[2] == "approx") then
-			option[2] = "mimic"
-		elseif (option[2] == "elementof") then
-			option[2] = "has"
-		elseif (option[2] == "nequal") then
-			option[2] = "is"
-			if string.sub(option[3], 1, 4) == "not " then
-				option[3] = string.sub(option[3], 5, #option[3])
-			else
-				option[3] = "not " .. option[3]
-			end
-		elseif (option[2] == "nelementof") then
-			option[2] = "has"
-			if string.sub(option[3], 1, 4) == "not " then
-				option[3] = string.sub(option[3], 5, #option[3])
-			else
-				option[3] = "not " .. option[3]
-			end
-		end
-
 		local rule = {option,conds,ids,tags}
 		local allow_add_to_featureindex, is_pnoun_target, is_pnoun_effect, is_pnoun_rule = scan_added_feature_for_pnoun_rule(rule, visual)
 		if not allow_add_to_featureindex then
@@ -1831,6 +1815,19 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		local target = option[1]
 		local verb = option[2]
 		local effect = option[3]
+
+		for i, v in pairs(toreplace) do
+			if option[2] == toreplace[i] then
+				if tense[i] ~= "present" then
+					option[2] = replacewith[i]
+					table.insert(conds, { "feels" .. tense[i], {} })
+					if (featureindex[replacewith[i]] == nil) then
+						featureindex[replacewith[i]] = {}
+					end
+					table.insert(featureindex[replacewith[i]], rule)
+				end
+			end
+		end
 
 		-- EDIT: EXTREMELY HORRIBLE HACKY WAY TO IMPLEMENT AMBIENT @update: hopefully it doesn't mess w/ metatext
 		if (target == "ambient") then
@@ -2232,7 +2229,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if verb == "mimic" and (effect == "text" or string.sub(effect,1,4) == "meta") then
+			if (verb == "mimic" or verb == "perform") and (effect == "text" or string.sub(effect,1,4) == "meta") then --@mods (metatext x extrem)
 				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 					if (string.sub(a, 1, 5) == "text_") then
 						local stop = false
@@ -2316,7 +2313,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if verb == "mimic" and (effect == "glyph") then
+			if (verb == "mimic" or verb == "perform") and (effect == "glyph") then
 				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 					if (string.sub(a, 1, 6) == "glyph_") then
 						local stop = false
@@ -2413,7 +2410,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if verb == "mimic" and (effect == "text" or string.sub(effect,1,4) == "meta") then
+			if (verb == "mimic" or verb == "perform") and (effect == "text" or string.sub(effect,1,4) == "meta") then
 				if tonumber(level) ~= nil and tonumber(level) >= -1 then
 					for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 						local metalevel = getmetalevel(a)
@@ -2581,7 +2578,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if verb == "mimic" and isnot == false then
+			if (verb == "mimic" or verb == "perform") and isnot == false then
 				local newconds = {}
 				local newtags = {}
 
@@ -3104,6 +3101,23 @@ function postrules(alreadyrun_)
 		@mods(stable) - Override reason: "X is not Y" and "X is X" directly modifies rules in the featureindex. We don't want that to happen for stablerules 
 				(look for instances of has_stable_tag() )
 	 ]]
+
+	local scary = findfeature(nil, "is", "scary") --@mods (extrem)
+	local scared = findfeature(nil, "is", "scared")
+	if scary ~= nil and scared ~= nil then
+		for a, b in ipairs(scary) do
+			for c, d in ipairs(scared) do
+				local ids = b[3]
+				if d[3] ~= nil then
+					for e, f in ipairs(d[3]) do
+						table.insert(ids, f)
+					end
+				end
+				addoption({ d[1][1], "fear", b[1][1] }, {}, ids, false, {})
+			end
+		end
+	end
+
 	local protects = {}
 	local newruleids = {}
 	local ruleeffectlimiter = {}
@@ -3481,14 +3495,30 @@ function subrules()
 		end
 	end
 	
-	if (featureindex["mimic"] ~= nil) then
-		for i,rules in ipairs(featureindex["mimic"]) do
+	if (featureindex["mimic"] ~= nil) or (featureindex["perform"] ~= nil) then
+		local mimiclikes = {} --@mods(extrem)
+
+		if featureindex["mimic"] ~= nil then
+			for a, rules in ipairs(featureindex["mimic"]) do
+				table.insert(mimiclikes, rules)
+			end
+		elseif featureindex["perform"] ~= nil then
+			for a, rules in ipairs(featureindex["perform"]) do
+				table.insert(mimiclikes, rules)
+			end
+		end
+
+		for i, rules in ipairs(mimiclikes) do
 			local rule = rules[1]
 			local conds = rules[2]
 			local tags = rules[4]
 			
-			--@mods(stable) - 
-			if (rule[2] == "mimic") then
+			--@mods(stable), @mods(extrem)
+			if (rule[2] == "act") then
+				rule[2] = "is"
+			end
+
+			if (rule[2] == "mimic") or (rule[2] == "perform") then
 				local object = rule[1]
 				local target = rule[3]
 				
@@ -3512,9 +3542,22 @@ function subrules()
 	
 	local limiter = 0
 	local limit = 250
-	
-	if (featureindex["mimic"] ~= nil) then
-		for i,rules in ipairs(featureindex["mimic"]) do
+
+	if (featureindex["mimic"] ~= nil) or (featureindex["perform"] ~= nil) then
+		--@mods(extrem)
+		local mimiclikes = {}
+
+		if featureindex["mimic"] ~= nil then
+			for a, rules in ipairs(featureindex["mimic"]) do
+				table.insert(mimiclikes, rules)
+			end
+		elseif featureindex["perform"] ~= nil then
+			for a, rules in ipairs(featureindex["perform"]) do
+				table.insert(mimiclikes, rules)
+			end
+		end
+
+		for i, rules in ipairs(mimiclikes) do
 			local visualonly = false
 			local rule = rules[1]
 			local conds = rules[2]
@@ -3522,7 +3565,7 @@ function subrules()
 			local visual = true
 			local verbpair = {}
 			for i,v in ipairs(tags) do
-				if v == "text" or string.sub(v,1,4) == "meta" then
+				if v == "text" or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
 					visual = false
 				elseif v == "visualmimic" then
 					visualonly = true
@@ -3539,8 +3582,12 @@ function subrules()
 				- But since the unitid of THIS wasn't copied over to the subrule, we cannot process "THIS is blue"
 			]]
 			local mimic_ids = rules[3]
-			
-			if (rule[2] == "mimic" ) then
+
+			if (rule[2] == "act") then
+				rule[2] = "is"
+			end
+
+			if (rule[2] == "mimic") or (rule[2] == "perform") then
 				local object = rule[1]
 				local target = rule[3]
 				local mprotects = mimicprotects[object] or {}
@@ -3593,8 +3640,12 @@ function subrules()
 								break
 							end
 						end
-						
-						if (trule[1] == target) and (trule[2] ~= "mimic") and valid then
+
+						if (rule[2] == "perform") and (trule[2] ~= "act") then
+							valid = false
+						end
+
+						if (trule[1] == target) and (trule[2] ~= "mimic") and (trule[2] ~= "perform") and valid then
 							local newconds = {}
 							local newids = {}
 							local newtags = {}
@@ -3652,7 +3703,11 @@ function subrules()
 							local newword1 = object
 							local newword2 = trule[2]
 							local newword3 = trule[3]
-							
+
+							if (newword2 == "act") then
+								newword2 = "is"
+							end
+
 							local newrule = {newword1, newword2, newword3}
 							
 							limiter = limiter + 1
@@ -3695,11 +3750,13 @@ function subrules()
 	end
 end
 
-function addbaserule(rule1,rule2,rule3,conds_)
+function addbaserule(rule1,rule2,rule3,conds_,iskept_)
 	local conds = conds_ or {}
 	local rule = {rule1,rule2,rule3}
+	local tag = {"base"}
+	if iskept_ then tag = {"keep","base"} end
 
-	addoption(rule,conds,{},false,nil,{"base"})
+	addoption(rule,conds,{},false,nil,tag)
 end
 
 function grouprules()
