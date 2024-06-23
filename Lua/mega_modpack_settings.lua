@@ -1,6 +1,6 @@
-local mega_modpack_version = "2.0.3 Beta"
-local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare", mega_modpack_version)
-local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3", mega_modpack_version)
+local mega_modpack_version = "1.0.2 Stable"
+local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
+local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
 local mod_list = {
     {name = "Plasma's Modpack",     author = "Plasmaflare",             color={4,4}},
@@ -8,6 +8,7 @@ local mod_list = {
     {name = "Persist",              author = "Randomizer",              color={0,3}},
     {name = "Past",                 author = "EmilyEmmi",               color={3,1}},
     {name = "Metatext Mod",         author = "EmilyEmmi",               color={3,1}},
+    {name = "Delete Mod",           author = "EmilyEmmi",               color={3,1}},
     {name = "Stringwords",          author = "Wrecking Games",          color={3,4}},
     {name = "Word Salad",           author = "Huebird",                 color={2,1}},
     {name = "Visit",                author = "Btd456Creeper",           color={0,3}},
@@ -16,6 +17,7 @@ local mod_list = {
     {name = "Offset",               author = "Btd456Creeper",           color={0,3}},
     {name = "Local",                author = "Mathguy",                 color={1,3}},
     {name = "Glyph",                author = "Mathguy",                 color={1,3}},
+    {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
 }
 
 local mod_setting_data = {

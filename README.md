@@ -18,7 +18,8 @@ The beta branch currently includes these mods (author handles are from discord):
 - Stringwords (STARTS/CONTAINS/ENDS) - By Wrecking Games (@wreckinggames)
 - Word Salad (ALIVE/VESSEL/VESSEL2/KARMA/SINFUL/HOP) - By Huebaba (@huebird.)
 - Visit - By Btd456Creeper (@btd456creeper)
-- Metatext - By Emily (@emilyemmi)
+- Metatext, Delete Prop - By Emily (@emilyemmi)
+- Extrem's Modpack -By Extrem (@extrem_xxen)
 
 # How to install
 1. This modpack only works when you install into a levelpack. Pick an existing levelpack or create a new levelpack in the baba editor. (From baba title: `Level Editor -> Edit Levelpacks -> Create a new levelpack`)

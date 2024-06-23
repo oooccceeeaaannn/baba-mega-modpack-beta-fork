@@ -16,7 +16,7 @@ local function get_special_cut_mappings()
         nudgedown =      "nudge",
         ellipsis =       "ooo",    
         besideright =    "beside",    
-        besideleft =     "beside",    
+        besideleft =     "beside",
     }
 
     -- Arrow properties
@@ -43,7 +43,8 @@ end
 
 local function get_special_pack_mappings()
     local pack_mappings = {
-        ooo = "ellipsis"
+        ooo = "ellipsis",
+        textrefers = "text_"
     }
 
     for turning_prop, _ in pairs(turning_word_names) do

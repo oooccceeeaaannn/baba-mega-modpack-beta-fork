@@ -6,6 +6,7 @@ local load_order = {
 	"blocks.lua",
 	"conditions.lua",
 	"defines + misc.lua",
+	"glossary.lua",
 	"metaunmeta.lua",
 	"rules.lua",
 	"syntax.lua",
