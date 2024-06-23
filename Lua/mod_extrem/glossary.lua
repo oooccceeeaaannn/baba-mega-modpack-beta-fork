@@ -120,7 +120,7 @@ Using write will make "as text" be true.]],
         },
         {
             name = "tenses",
-            thumbnail_obj = "text_past",
+            thumbnail_obj = "text_pastprop",
             display_name = "tenses",
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
@@ -129,7 +129,7 @@ Using write will make "as text" be true.]],
 Past makes past tense verbs work and future makes future tense verbs work.
     
 Present does nothing by itself, but making something "not present" causes level destruction.]],
-            display_sprites = { "text_past", "text_present", "text_future" }
+            display_sprites = { "text_pastprop", "text_present", "text_future" }
         },
         {
             name = "tense_verbs",
