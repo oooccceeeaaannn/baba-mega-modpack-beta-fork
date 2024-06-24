@@ -1594,37 +1594,53 @@ function block(small_)
 				end
 			end
 		end
-		
+
 		local isprint = getunitswithverb("print",delthese)
 
 		--@Merge( print x extrem )
-		local istype = getunitswithverb("type", delthese)
+		local istype = getunitswithverb("type",delthese)
 
-		for id, ugroup in ipairs(istype) do
+		for _,v in ipairs(istype) do
+			table.insert(isprint,v)
+		end
+
+		for id,ugroup in ipairs(isprint) do
 			local v = ugroup[1]
 			v = "text_" .. v
 
-			for a, unit in ipairs(ugroup[2]) do
-				local x, y, dir, name = 0, 0, 4, ""
+			for a,unit in ipairs(ugroup[2]) do
+				local x,y,dir,name = 0,0,4,""
 
 				local leveldata = {}
 
 				if (ugroup[3] ~= "empty") then
-					x, y, dir = unit.values[XPOS], unit.values[YPOS], unit.values[DIR]
+					x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
 					name = getname(unit)
-					leveldata = { unit.strings[U_LEVELFILE], unit.strings[U_LEVELNAME], unit.flags[MAPLEVEL], unit.values[VISUALLEVEL], unit.values[VISUALSTYLE], unit.values[COMPLETED], unit.strings[COLOUR], unit.strings[CLEARCOLOUR] }
+					leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
 				else
 					x = math.floor(unit % roomsizex)
 					y = math.floor(unit / roomsizex)
 					name = "empty"
-					dir = emptydir(x, y)
+					dir = emptydir(x,y)
 				end
 
 				if (dir == 4) then
-					dir = fixedrandom(0, 3)
+					dir = fixedrandom(0,3)
 				end
 
-				if unitreference[v] ~= nil then
+
+				local exists = false
+				for b,mat in pairs(fullunitlist) do
+					if (b == v) then
+						exists = true
+						break
+					end
+				end
+				if not exists and (string.sub(v,1,6) == "glyph_" or string.sub(v,1,5) == "text_") then
+					exists = tryautogenerate(v)  --@Merge(metatext x patashu): call tryautogenerate() to make PRINT support generating metatext
+				end
+
+				if exists then
 					local domake = true
 
 					if (name ~= "empty") then
