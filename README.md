@@ -15,7 +15,7 @@ The beta branch currently includes these mods (author handles are from discord):
 - [Patashu's Modpack](https://github.com/Patashu/Baba-is-You-Pata-Redux-Mods) - By Patashu (@patashu)
 - Persist (From the levelpack "Persistence") - By Randomizer (@randomizer)
 - Past - By Emily (@emilyemmi)
-- Stringwords (STARTS/CONTAINS/ENDS) - By Wrecking Games (@wreckinggames)
+- Stringwords (STARTS/CONTAINS/ENDS), TRASH mod - By Wrecking Games (@wreckinggames)
 - Word Salad (ALIVE/VESSEL/VESSEL2/KARMA/SINFUL/HOP) - By Huebaba (@huebird.)
 - Visit - By Btd456Creeper (@btd456creeper)
 - Metatext, Delete Prop - By Emily (@emilyemmi)
