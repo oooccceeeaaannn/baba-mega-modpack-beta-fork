@@ -148,7 +148,7 @@ table.insert(mod_hook_functions["always"], writemetalevel)
 
 -- Try to add more metatext if it doesn't exist.
 function tryautogenerate(want, have)
-	if want == "text_" then
+	if want == "text_" or want == "glyph_" then
 		return false -- fix silly edgecase
 	elseif metatext_autogenerate ~= 0 then
 		if editor_objlist_reference[want] ~= nil then
@@ -213,6 +213,9 @@ function tryautogenerate(want, have)
 					if string.sub(test, 1, 5) == "text_" then
 						test = string.sub(test, 6)
 						count = count + 1
+					elseif string.sub(test,1,6) == "glyph_" then
+						test = string.sub(test, 7)
+						count = count + 1
 					else
 						local lowestlevel = "text_" .. test
 						if lowestlevel == "text_" then
@@ -252,6 +255,12 @@ function tryautogenerate(want, have)
 		if active ~= nil then
 			activeasstring = active[1] .. "," .. active[2]
 		end
+		local type = getactualdata_objlist(realname, "unittype")
+		if (string.sub(want,1,5) == "text_") then
+			type = "text"
+		elseif (string.sub(want,1,6) == "glyph_") then
+			type = "object"
+		end
 		local new =
 		{
 			want,
@@ -259,7 +268,7 @@ function tryautogenerate(want, have)
 			colourasstring,
 			getactualdata_objlist(realname, "tiling"),
 			0,
-			getactualdata_objlist(realname, "unittype"),
+			type,
 			activeasstring,
 			root,
 			getactualdata_objlist(realname, "layer"),
