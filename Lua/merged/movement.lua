@@ -2455,6 +2455,7 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 	local lockpartner = ""
 	local open = hasfeature(name,"is","open",unitid,x,y)
 	local shut = hasfeature(name,"is","shut",unitid,x,y)
+	local waste = hasfeature(name,"waste",nil,unitid,x,y)
 	local eat = hasfeature(name,"eat",nil,unitid,x,y)
 	local phantom = hasfeature(name,"is","phantom",unitid,x,y)
 	local cut = hasfeature(name,"is","cut",unitid,x,y)
@@ -2608,7 +2609,24 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 						table.insert(specials, {id, "eat"})
 					end
 				end
-				
+
+				if (waste ~= nil) and (pulling == false) then
+
+					local things = findwastefeature(unitid)
+
+
+					for _, j in ipairs(things) do
+						local wastes = hasfeature(obsname,"is",j,id,x+ox,y+oy)
+
+						if (wastes ~= nil) and (issafe(id,x+ox,y+oy) == false) and floating(id,unitid,x+ox,y+oy) then
+							valid = false
+							table.insert(specials, {id, "eat"})
+						end
+					end
+
+
+				end
+
 				local weak = hasfeature(obsname,"is","weak",id,x+ox,y+oy)
 				if (weak ~= nil) and (pulling == false) then
 					if (issafe(id,x+ox,y+oy) == false) and floating(id,unitid,x+ox,y+oy) then

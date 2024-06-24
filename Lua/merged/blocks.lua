@@ -1157,6 +1157,98 @@ function block(small_)
 
 	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
 
+	-- TRASH
+	--[[
+    ###
+    ###
+    ###
+    ###
+
+    ###
+    ###
+    ###
+    ###
+    ]]
+
+
+	local istrash = getunitswithverb("trash",delthese)
+	local istrashed = {}
+
+	for id,ugroup in ipairs(istrash) do
+		local v = ugroup[1]
+		local hasprop = findfeature(nil,"is",v)
+
+		if hasprop ~= nil and string.sub(v, 1, 4) ~= "not "  and ugroup[3] ~= "empty" then
+			for a,b in ipairs(hasprop) do
+				for a,unit in ipairs(ugroup[2]) do
+					local x,y = unit.values[XPOS],unit.values[YPOS]
+					local lava = findtype(b,x,y,0,unit.fixed)
+					if (#lava > 0) then
+						for c,d in ipairs(lava) do
+
+							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) and (istrashed[d] == nil) then
+								generaldata.values[SHAKE] = 4
+								table.insert(delthese, d)
+
+								istrashed[d] = 1
+
+								local pmult,sound = checkeffecthistory("eat")
+								MF_particles("eat",x,y,5 * pmult,0,3,1,1)
+								removalshort = sound
+								removalsound = 1
+							end
+
+						end
+					end
+				end
+			end
+		end
+
+
+	end
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound)
+
+
+
+	local iswaste = getunitswithverb("waste",delthese)
+	local iswasted = {}
+
+	for id,ugroup in ipairs(istrash) do
+		local v = ugroup[1]
+		local hasprop = findfeature(nil,"is",v)
+
+		if hasprop ~= nil and string.sub(v, 1, 4) ~= "not "  and ugroup[3] ~= "empty" then
+			for a,b in ipairs(hasprop) do
+				for a,unit in ipairs(ugroup[2]) do
+					local x,y = unit.values[XPOS],unit.values[YPOS]
+					local lava = findtype(b,x,y,0,unit.fixed)
+					if (#lava > 0) then
+						for c,d in ipairs(lava) do
+
+							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) and (istrashed[d] == nil) then
+								generaldata.values[SHAKE] = 4
+								table.insert(delthese, d)
+
+								iswasted[d] = 1
+
+								local pmult,sound = checkeffecthistory("eat")
+								MF_particles("eat",x,y,5 * pmult,0,3,1,1)
+								removalshort = sound
+								removalsound = 1
+							end
+
+						end
+					end
+				end
+			end
+		end
+
+
+	end
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound)
+
 	for id, unit in ipairs(units) do
 		local toxic = findfeature(nil, "is", "toxic")
 		local x, y = unit.values[XPOS], unit.values[YPOS]
@@ -1589,6 +1681,140 @@ function block(small_)
 								end
 							end
 							]]--
+						end
+					end
+				end
+			end
+		end
+
+
+
+		local isbuild = getunitswithverb("build",delthese)
+
+		for id,ugroup in ipairs(isbuild) do
+			local v = ugroup[1]
+
+			local buildthese = {}
+			local debug = ""
+			local hasprop = findfeature(nil,"is",v)
+			if hasprop ~= nil then
+				for i, j in ipairs(hasprop) do
+
+					if j[1] == "text" then
+						if #j[2] > 0 then
+							for l, m in ipairs(findall(j)) do
+								local munit = mmf.newObject(m)
+								if munit ~= nil then
+									local valid = true
+									for o, p in ipairs(buildthese) do
+										if p == munit.strings[UNITNAME] then
+											valid = false
+											break
+										end
+									end
+									if valid then
+										table.insert(buildthese, munit.strings[UNITNAME])
+										debug = debug .. munit.strings[UNITNAME]
+									end
+								end
+							end
+						else
+							local valid = true
+							for o, p in ipairs(buildthese) do
+								if p == "text" then
+									valid = false
+									break
+								end
+							end
+							if valid then
+								table.insert(buildthese, "text")
+								debug = debug .. "text"
+							end
+						end
+					elseif j[1] ~= "group" then
+						local valid = true
+						for o, p in ipairs(buildthese) do
+							if p == j[1] then
+								valid = false
+								break
+							end
+						end
+						if #j[2] > 0 and #findall(j) < 1 then
+							valid = false
+						end
+						if valid then
+							table.insert(buildthese, j[1])
+							debug = debug .. j[1]
+						end
+					end
+				end
+			end
+
+			for a,unit in ipairs(ugroup[2]) do
+				local x,y,dir,name = 0,0,4,""
+
+				local leveldata = {}
+
+				if (ugroup[3] ~= "empty") then
+					x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
+					name = getname(unit)
+					leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
+				else
+					x = math.floor(unit % roomsizex)
+					y = math.floor(unit / roomsizex)
+					name = "empty"
+					dir = emptydir(x,y)
+				end
+
+				for i, j in ipairs(buildthese) do
+					if j == "text" or j == "not all" then
+						table.insert(buildthese, {"text_" .. name})
+						hastext = true
+						break
+					end
+				end
+				for i, j in ipairs(buildthese) do
+					if j == "text_" .. name and hastext then
+						table.remove(buildthese, i)
+						break
+					end
+				end
+				for i, j in ipairs(buildthese) do
+					if type(j) == "table" then
+						buildthese[i] = j[1]
+					end
+				end
+
+				if (dir == 4) then
+					dir = fixedrandom(0,3)
+				end
+
+				local exists = true
+
+				if exists then
+					local domake = true
+
+					if (name ~= "empty") then
+						local thingshere = findallhere(x,y)
+
+						if (#thingshere > 0) then
+							for a,b in ipairs(thingshere) do
+								local thing = mmf.newObject(b)
+								local thingname = thing.strings[UNITNAME]
+								for i, j in ipairs(buildthese) do
+									if (thing.flags[CONVERTED] == false) and ((thingname == j) or ((thing.strings[UNITTYPE] == "text") and (string.sub(j, 1, 5) == "text"))) then
+										domake = false
+									end
+								end
+							end
+						end
+					end
+
+					if domake then
+						for i, j in ipairs(buildthese) do
+							if j ~= "text" and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
+								create(j,x,y,dir,x,y,nil,nil,leveldata)
+							end
 						end
 					end
 				end
@@ -2379,7 +2605,25 @@ function levelblock()
 				local conds = rules[2]
 				
 				--MF_alert(rule[1] .. " " .. rule[2] .. " " .. rule[3] .. ", " .. tostring(testcond(conds,1)))
-				
+
+				if rule[2] == "waste" or rule[2] == "trash" and testcond(conds,1) then
+					for i, bunit in ipairs(getunitswitheffect(rule[3])) do
+
+						local b = bunit.fixed
+						if (issafe(b) == false) then
+							local x,y = bunit.values[XPOS],bunit.values[YPOS]
+							generaldata.values[SHAKE] = 4
+
+							local pmult,sound = checkeffecthistory("eat")
+							MF_particles("eat",x,y,5 * pmult,0,3,1,1)
+							setsoundname("removal",1,sound)
+
+							delete(b,x,y)
+						end
+
+					end
+				end
+
 				-- EDIT: cleanse the level karma if it's REPENT
 				if levelKarma and lrepent then
 					ws_setLevelKarma(false)

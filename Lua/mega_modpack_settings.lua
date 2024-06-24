@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.0.31 Stable"
+local mega_modpack_version = "1.0.5 Stable"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -6,17 +6,12 @@ local mod_list = {
     {name = "Plasma's Modpack",     author = "Plasmaflare",             color={4,4}},
     {name = "Patashu's Modpack",    author = "Patashu",                 color={3,1}},
     {name = "Persist",              author = "Randomizer",              color={0,3}},
-    {name = "Past",                 author = "EmilyEmmi",               color={3,1}},
-    {name = "Metatext Mod",         author = "EmilyEmmi",               color={3,1}},
-    {name = "Delete Mod",           author = "EmilyEmmi",               color={3,1}},
-    {name = "Stringwords",          author = "Wrecking Games",          color={3,4}},
+    {name = "Past, Metatext, Delete",author = "EmilyEmmi",              color={3,1}},
+    {name = "Stringwords, TRASH",   author = "Wrecking Games",          color={3,4}},
     {name = "Word Salad",           author = "Huebird",                 color={2,1}},
-    {name = "Visit",                author = "Btd456Creeper",           color={0,3}},
-    {name = "Glitch",               author = "Btd456Creeper",           color={0,3}},
-    {name = "Nuhuh",                author = "Btd456Creeper",           color={0,3}},
-    {name = "Offset",               author = "Btd456Creeper",           color={0,3}},
-    {name = "Local",                author = "Mathguy",                 color={1,3}},
-    {name = "Glyph",                author = "Mathguy",                 color={1,3}},
+    {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
+    {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
+    {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
     {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
 }
 
@@ -259,6 +254,7 @@ menufuncs.mega_modpack_settings = {
         end
         item_y = item_y + f_tilesize * 1
 
+        writetext("...OMG, that's a lot of mods.", -1, item_x, item_y, name)
         -- make_plasma_button("metatextsettings", name, buttonid, "Metatext Settings", screenw * 0.15,item_y, false)
 
         local version_x = screenw-(#mega_modpack_name * 10) - 20
