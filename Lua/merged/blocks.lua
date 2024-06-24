@@ -1659,26 +1659,8 @@ function block(small_)
 					end
 
 					if domake then
-						if (findnoun(v, nlist.short) == false) then
-							create(v, x, y, dir, x, y, nil, nil, leveldata)
-						elseif (v == "text") then
-							if (name ~= "text") and (name ~= "all") then
-								create("text_" .. name, x, y, dir, x, y, nil, nil, leveldata)
-								updatecode = 1
-							end
-						elseif (string.sub(v, 1, 5) == "group") then
-							--[[
-                            local mem = findgroup(v)
-
-                            for c,d in ipairs(mem) do
-                                local thishere = findtype({d},x,y,nil,true)
-
-                                if (#thishere == 0) then
-                                    create(d,x,y,dir,x,y,nil,nil,leveldata)
-                                end
-                            end
-                            ]]--
-						end
+						create(v, x, y, dir, x, y, nil, nil, leveldata)
+						updatecode = 1
 					end
 				end
 			end
