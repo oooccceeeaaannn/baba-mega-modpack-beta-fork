@@ -1186,16 +1186,19 @@ function block(small_)
 					if (#lava > 0) then
 						for c,d in ipairs(lava) do
 
-							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) and (istrashed[d] == nil) then
-								generaldata.values[SHAKE] = 4
-								table.insert(delthese, d)
+							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) then
+								ws_setKarma(unit.fixed)
+								if (istrashed[d] == nil) then
+									generaldata.values[SHAKE] = 4
+									table.insert(delthese, d)
 
-								istrashed[d] = 1
+									istrashed[d] = 1
 
-								local pmult,sound = checkeffecthistory("eat")
-								MF_particles("eat",x,y,5 * pmult,0,3,1,1)
-								removalshort = sound
-								removalsound = 1
+									local pmult,sound = checkeffecthistory("trash")
+									MF_particles("eat",x,y,5 * pmult,0,3,1,1)
+									removalshort = sound
+									removalsound = 1
+								end
 							end
 
 						end
@@ -1203,8 +1206,6 @@ function block(small_)
 				end
 			end
 		end
-
-
 	end
 
 	delthese,doremovalsound = handledels(delthese,doremovalsound)
@@ -1214,7 +1215,7 @@ function block(small_)
 	local iswaste = getunitswithverb("waste",delthese)
 	local iswasted = {}
 
-	for id,ugroup in ipairs(istrash) do
+	for id,ugroup in ipairs(iswaste) do
 		local v = ugroup[1]
 		local hasprop = findfeature(nil,"is",v)
 
@@ -1226,16 +1227,19 @@ function block(small_)
 					if (#lava > 0) then
 						for c,d in ipairs(lava) do
 
-							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) and (istrashed[d] == nil) then
-								generaldata.values[SHAKE] = 4
-								table.insert(delthese, d)
+							if (issafe(d,nil,nil,unit.fixed) == false) and floating(d,unit.fixed,x,y) and (d ~= unit.fixed) then
+								ws_setKarma(unit.fixed)
+								if (istrashed[d] == nil) then
+									generaldata.values[SHAKE] = 4
+									table.insert(delthese, d)
 
-								iswasted[d] = 1
+									istrashed[d] = 1
 
-								local pmult,sound = checkeffecthistory("eat")
-								MF_particles("eat",x,y,5 * pmult,0,3,1,1)
-								removalshort = sound
-								removalsound = 1
+									local pmult,sound = checkeffecthistory("waste")
+									MF_particles("eat",x,y,5 * pmult,0,3,1,1)
+									removalshort = sound
+									removalsound = 1
+								end
 							end
 
 						end
@@ -2619,6 +2623,8 @@ function levelblock()
 							setsoundname("removal",1,sound)
 
 							delete(b,x,y)
+
+							levelKarma = true
 						end
 
 					end
