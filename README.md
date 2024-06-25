@@ -6,7 +6,7 @@ This...... is a big one. A **BIG** modpack that merges several (curated) Baba Is
 I am not motivated AT ALL to maintain the UNOFFICIAL Beta branch of the Mega Modpack. Therefore, expect it to rarely update. (Like, maybe a 10-year hiatus.)
 
 ## Alright, serious time over! Where are the goods?!
-### [Download the modpack in the Releases Section!](https://github.com/PlasmaFlare/baba-mega-modpack/releases)
+### [Download the modpack in the Releases Section!](https://github.com/oooccceeeaaannn/baba-mega-modpack-beta-fork/releases)
 
 **Compatable Baba version: 478f on PC**
 
