@@ -9,6 +9,8 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 
 	statusblock(nil,nil,true)
 	movelist = {}
+	locklist = {}
+	hasmovedyeah = {}
 	local debug_moves = 0
 	
 	local take = 0
@@ -1756,6 +1758,16 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 										end
 										
 										if (result == 1) then
+											for i0, j0 in pairs(specials) do
+												local b = j0[1]
+												local reason = j0[2]
+												local unitid = data.unitid
+												local bunit = mmf.newObject(b)
+												local bx,by = bunit.values[XPOS],bunit.values[YPOS]
+												if (reason == "lock3") then
+													table.insert(locklist, {j0, data})
+												end
+											end
 											for c,pushobs in ipairs(finalpushobs) do
 												pushedunits = {}
 												
@@ -1769,6 +1781,18 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 										end
 									end
 								elseif (result == 2) then
+									if (state > 2) then
+										for i0, j0 in pairs(specials) do
+											local b = j0[1]
+											local reason = j0[2]
+											local unitid = data.unitid
+											local bunit = mmf.newObject(b)
+											local bx,by = bunit.values[XPOS],bunit.values[YPOS]
+											if (reason == "lock3") then
+												table.insert(locklist, {j0, data})
+											end
+										end
+									end
 									if (state < 2) then
 										data.state = math.max(data.state, 2)
 										result_check = true
@@ -1951,7 +1975,99 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 					return
 				end
 			end
-			
+			if (#locklist > 0) then
+				for i0, j2 in pairs(locklist) do
+					local j0 = j2[1]
+					local data = j2[2]
+					local b = j0[1]
+					local reason = j0[2]
+					local unitid = data.unitid
+					local unit = mmf.newObject(unitid)
+					local bunit = mmf.newObject(b)
+					local bx,by = bunit.values[XPOS],bunit.values[YPOS]
+					mastermode = false
+					local valid = true
+					local soundshort = ""
+
+					if (b ~= 2) then
+
+						if bunit.flags[DEAD] then
+							valid = false
+						end
+					end
+
+					if (unitid ~= 2) and unit.flags[DEAD] then
+						valid = false
+					end
+
+					if valid then
+						local pmult = 1.0
+
+						soundshort = sound
+						MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
+						generaldata.values[SHAKE] = 8
+					end
+					setsoundname("turn",7,soundshort)
+					local color = j0[3][1]
+					local count = j0[3][2]
+					local counti = j0[3][4]
+					local tabler = j0[3][6]
+					local tablei = j0[3][7]
+					if tabler == nil then
+						tabler = {}
+						tablei = {}
+					end
+					local bid = bunit.values[ID]
+					if color ~= "rainbow" then
+						addundo({"updatekey", color, pickkeys[color], pickkeysi[color]})
+						if starval[color] ~= true then
+							pickkeys[color] = pickkeys[color] - count
+							pickkeysi[color] = pickkeysi[color] - counti
+						end
+					else
+						for i5, j5 in pairs(pickkeys) do
+							if (i5 ~= "blossom") and ((j5 ~= 0) or (pickkeysi[i5] ~= 0)) and (j5 ~= nil) then
+								addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+								if starval[i5] ~= true then
+									pickkeys[i5] = pickkeys[i5] - count
+									pickkeysi[i5] = pickkeysi[i5] - counti
+								end
+							end
+						end
+					end
+					for i5, j5 in pairs(tabler) do
+						if (j5 ~= nil) and (tablei[i5] ~= nil) then
+							addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+							if starval[i5] ~= true then
+								pickkeys[i5] = pickkeys[i5] - j5
+								pickkeysi[i5] = pickkeysi[i5] - tablei[i5]
+							end
+						end
+					end
+					if layers[bid] ~= nil then
+						addundo({"updatelayer", bid, layers[bid], layersi[bid]})
+						layers[bid] = j0[3][3]
+						layersi[bid] = j0[3][5]
+					end
+					if (combosync[bid] ~= nil) and (combodata[combosync[bid]][3] ~= nil) then
+						addundo({"updatecombolayer", combosync[bid], combodata[combosync[bid]][3], combodata[combosync[bid]][4]})
+						combodata[combosync[bid]][3] = j0[3][3]
+						combodata[combosync[bid]][4] = j0[3][5]
+					end
+					if not j0[4] then
+						addundo({"updateglitch", glitchcolor})
+						if not jammed then
+							glitchcolor = color
+							applyglitchcolor(color)
+							resetglitchdisplays()
+						end
+					end
+					updateundo = true
+				end
+			end
+
+			locklist = {}
+
 			movelist = {}
 			
 			if (smallest_state > state) then
@@ -2228,15 +2344,29 @@ function move(unitid,ox,oy,dir,specials_,instant_,simulate_,x_,y_)
 					local unlocked = false
 					local valid = true
 					local soundshort = ""
+					local bunit = nil
+					local bid = -1
+					local bname = ""
+					local id = -1
+					local name = ""
 					
 					if (b ~= 2) then
-						local bunit = mmf.newObject(b)
+						bunit = mmf.newObject(b)
+						bid = bunit.values[ID]
+						bname = bunit.strings[UNITNAME]
 						
 						if bunit.flags[DEAD] then
 							valid = false
 						end
 					end
-					
+
+					if (unitid ~= 2) then
+						if (unit ~= nil) then
+							id = unit.values[ID]
+							name = unit.strings[UNITNAME]
+						end
+					end
+
 					if (unitid ~= 2) and unit.flags[DEAD] then
 						valid = false
 					end
@@ -2282,7 +2412,208 @@ function move(unitid,ox,oy,dir,specials_,instant_,simulate_,x_,y_)
 					
 					if unlocked then
 						setsoundname("turn",7,soundshort)
+						if (salvaging ~= -1) and shutsalvage and (bid ~= -1) then
+							if v[3] then
+								setsalvage(salvageid[salvaging], origspecial[bid], bname)
+								doorsalvaged = true
+							elseif (id ~= -1) then
+								setsalvage(salvageid[salvaging], origspecial[id], name)
+								doorsalvaged = true
+							end
+						end
 					end
+				elseif (reason == "lock2") then
+					mastermode = false
+					local unlocked = false
+					local valid = true
+					local soundshort = ""
+					local bunit = nil
+					local bid = -1
+					local bname = ""
+
+					if (b ~= 2) then
+						bunit = mmf.newObject(b)
+						bid = bunit.values[ID]
+						bname = bunit.strings[UNITNAME]
+
+						if bunit.flags[DEAD] then
+							valid = false
+						end
+					end
+
+					if (unitid ~= 2) and unit.flags[DEAD] then
+						valid = false
+					end
+
+					if valid then
+						local pmult = 1.0
+						local effect1 = false
+
+						if (issafe(b,bx,by) == false) then
+							local sync = combosync[bid]
+							for i, j in pairs(combosync) do
+								if j == sync then
+									local unitid0 = MF_getfixed(i)
+									if (unitid0 ~= nil) and (unitid ~= b) then
+										local newunit = mmf.newObject(unitid0)
+										local newx, newy = newunit.values[XPOS], newunit.values[YPOS]
+										delete(unitid0,newx,newy)
+									end
+								end
+							end
+							delete(b,bx,by)
+							unlocked = not is_unit_guarded(b)
+							effect1 = true
+						end
+
+						if effect1 then
+							local pmult,sound = checkeffecthistory("unlock")
+							soundshort = sound
+						end
+
+						if effect1 then
+							MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
+							generaldata.values[SHAKE] = 8
+						end
+					end
+
+					if unlocked then
+						setsoundname("turn",7,soundshort)
+						local color = v[3][1]
+						local count = v[3][2]
+						local counti = v[3][4]
+						local tabler = v[3][6]
+						local tablei = v[3][7]
+						if tabler == nil then
+							tabler = {}
+							tablei = {}
+						end
+						if pickkeys[color] == nil then
+							pickkeys[color] = 0
+						end
+						if pickkeysi[color] == nil then
+							pickkeysi[color] = 0
+						end
+						if color ~= "rainbow" then
+							addundo({"updatekey", color, pickkeys[color], pickkeysi[color]})
+							if starval[color] ~= true then
+								pickkeys[color] = pickkeys[color] - count
+								pickkeysi[color] = pickkeysi[color] - counti
+							end
+						else
+							for i5, j5 in pairs(pickkeys) do
+								if (i5 ~= "blossom") and ((j5 ~= 0) or (pickkeysi[i5] ~= 0)) and (j5 ~= nil) then
+									addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+									if starval[i5] ~= true then
+										pickkeys[i5] = pickkeys[i5] - count
+										pickkeysi[i5] = pickkeysi[i5] - counti
+									end
+								end
+							end
+						end
+						for i5, j5 in pairs(tabler) do
+							if (j5 ~= nil) and (tablei[i5] ~= nil) then
+								addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+								if starval[i5] ~= true then
+									pickkeys[i5] = pickkeys[i5] - j5
+									pickkeysi[i5] = pickkeysi[i5] - tablei[i5]
+								end
+							end
+						end
+						if not v[4] then
+							addundo({"updateglitch", glitchcolor})
+							if not jammed then
+								glitchcolor = color
+								applyglitchcolor(color)
+								resetglitchdisplays()
+							end
+						end
+						updateundo = true
+						if (salvaging ~= -1) and (bid ~= -1) then
+							setsalvage(salvageid[salvaging], origspecial[bid], bname)
+							doorsalvaged = true
+						end
+					end
+				elseif (reason == "lock3") then
+					mastermode = false
+					local valid = true
+					local soundshort = ""
+					local bunit = mmf.newObject(b)
+
+					if (b ~= 2) then
+
+						if bunit.flags[DEAD] then
+							valid = false
+						end
+					end
+
+					if (unitid ~= 2) and unit.flags[DEAD] then
+						valid = false
+					end
+
+					if valid then
+						local pmult = 1.0
+
+						soundshort = sound
+						MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
+						generaldata.values[SHAKE] = 8
+					end
+					setsoundname("turn",7,soundshort)
+					local color = v[3][1]
+					local count = v[3][2]
+					local counti = v[3][4]
+					local tabler = v[3][6]
+					local tablei = v[3][7]
+					if tabler == nil then
+						tabler = {}
+						tablei = {}
+					end
+					local bid = bunit.values[ID]
+					if color ~= "rainbow" then
+						addundo({"updatekey", color, pickkeys[color], pickkeysi[color]})
+						if starval[color] ~= true then
+							pickkeys[color] = pickkeys[color] - count
+							pickkeysi[color] = pickkeysi[color] - counti
+						end
+					else
+						for i5, j5 in pairs(pickkeys) do
+							if (i5 ~= "blossom") and ((j5 ~= 0) or (pickkeysi[i5] ~= 0)) and (j5 ~= nil) then
+								addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+								if starval[i5] ~= true then
+									pickkeys[i5] = pickkeys[i5] - count
+									pickkeysi[i5] = pickkeysi[i5] - counti
+								end
+							end
+						end
+					end
+					for i5, j5 in pairs(tabler) do
+						if (j5 ~= nil) and (tablei[i5] ~= nil) then
+							addundo({"updatekey", i5, pickkeys[i5], pickkeysi[i5]})
+							if starval[i5] ~= true then
+								pickkeys[i5] = pickkeys[i5] - j5
+								pickkeysi[i5] = pickkeysi[i5] - tablei[i5]
+							end
+						end
+					end
+					if layers[bid] ~= nil then
+						addundo({"updatelayer", bid, layers[bid], layersi[bid]})
+						layers[bid] = v[3][3]
+						layersi[bid] = v[3][5]
+					end
+					if (combosync[bid] ~= nil) and (combodata[combosync[bid]][3] ~= nil) then
+						addundo({"updatecombolayer", combosync[bid], combodata[combosync[bid]][3], combodata[combosync[bid]][4]})
+						combodata[combosync[bid]][3] = v[3][3]
+						combodata[combosync[bid]][4] = v[3][5]
+					end
+					if not v[4] then
+						addundo({"updateglitch", glitchcolor})
+						if not jammed then
+							glitchcolor = color
+							applyglitchcolor(color)
+							resetglitchdisplays()
+						end
+					end
+					updateundo = true
 				elseif (reason == "eat") then -- EDIT: add karma for EAT, unless the eater is REPENT
 					if (b ~= 2) and (unitid ~= 2) and not ws_isrepent(unitid,x,y) then
 						ws_setKarma(unitid)
@@ -2324,6 +2655,9 @@ function move(unitid,ox,oy,dir,specials_,instant_,simulate_,x_,y_)
 	if (gone == false) and (simulate == false) and (unitid ~= 2) then
 		success = true
 		dir = apply_moonwalk(unitid, x, y, dir, nil, nil, true)
+		if (ox ~= 0) or (oy ~= 0) then
+			hasmovedyeah[unit.values[ID]] = 1
+		end
 		if instant then
 			update(unitid,x+ox,y+oy,dir)
 			MF_alert("Instant movement on " .. tostring(unitid))
@@ -2458,6 +2792,7 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 	local waste = hasfeature(name,"waste",nil,unitid,x,y)
 	local eat = hasfeature(name,"eat",nil,unitid,x,y)
 	local phantom = hasfeature(name,"is","phantom",unitid,x,y)
+	local you = isUnitIWLAlive(name,unitid,x,y)
 	local cut = hasfeature(name,"is","cut",unitid,x,y)
 	local pack = hasfeature(name,"is","pack",unitid,x,y)
 	
@@ -2588,16 +2923,16 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 					
 					if (partner ~= nil) and ((issafe(id,x+ox,y+oy) == false) or (issafe(unitid,x,y) == false)) and floating(id,unitid,x+ox,y+oy) then
 						valid = false
-						table.insert(specials, {id, "lock"})
+						table.insert(specials, {id, "lock", (lockpartner == "shut")})
 					end
 				end
 				
 				if (hasfeature(name,"opens",obsname,unitid,x+ox,y+oy) or hasfeature(obsname,"opens",name,id,x+ox,y+oy)) and (pulling == false) then
-					local partner = hasfeature(obsname,"is",lockpartner,id,x+ox,y+oy)
-					
+					local obsdoorlike = hasfeature(name,"opens",obsname,unitid,x+ox,y+oy)
+
 					if ((issafe(id,x+ox,y+oy) == false) or (issafe(unitid,x,y) == false)) and floating(id,unitid,x+ox,y+oy) then
 						valid = false
-						table.insert(specials, {id, "lock"})
+						table.insert(specials, {id, "lock", obsdoorlike})
 					end
 				end
 				
@@ -2634,6 +2969,33 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 						table.insert(specials, {id, "weak"})
 					end
 				end
+
+
+				local unlocky, usedmaster, hasKarma = unlockable(id)
+				if (you ~= nil) and (unlocky ~= "no") and (pulling == false) then
+					if floating(id,unitid,x+ox,y+oy) then
+						if (issafe(id,x+ox,y+oy) == false) then
+							if (unlocky[3] == 0) and (unlocky[5] == 0) then
+								valid = false
+								if hasKarma then
+									ws_setKarma(unitid)
+								end
+								table.insert(specials, {id, "lock2", unlocky, usedmaster})
+							else
+								if hasKarma then
+									ws_setKarma(unitid)
+								end
+								table.insert(specials, {id, "lock3", unlocky, usedmaster})
+							end
+						elseif (unlocky[3] ~= 0) or (unlocky[5] ~= 0) or safenullity then
+							if hasKarma then
+								ws_setKarma(unitid)
+							end
+							table.insert(specials, {id, "lock3", unlocky, usedmaster})
+						end
+					end
+				end
+
 
 				local cutdata = nil
 				if cut ~= nil then
@@ -2686,6 +3048,14 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 					local isswap = hasfeature(obsname,"is","swap",id,x+ox,y+oy) or (featureindex["swaps"] ~= nil and hasfeature(name,"swaps",obsname,unitid,x,y))
 					if (not isswap) then isswap = nil end
 					local isstill = cantmove(obsname,id,dir,x+ox,y+oy)
+					if gatesync[obsunit.values[ID]] ~= nil then
+						if gateclosed(id) then
+							isstop = true
+						else
+							isstop = nil
+						end
+					end
+
 					arrow_prop_mod_globals.group_arrow_properties = true
 					
 					-- @Turning Text(Push/pull/stop/swap)
@@ -2793,7 +3163,7 @@ function check(unitid,x,y,dir,pulling_,reason,ox,oy)
 			
 			if (partner ~= nil) and ((issafe(2,x+ox,y+oy) == false) or (issafe(unitid,x,y) == false)) and floating(unitid,2,x+ox,y+oy) then
 				valid = false
-				table.insert(specials, {2, "lock"})
+				table.insert(specials, {2, "lock", (lockpartner == "shut")})
 			end
 		end
 		

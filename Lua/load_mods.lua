@@ -8,6 +8,7 @@ local load_order = {
 	"mod_extrem",
     "mod_glitch",
 	"mod_glyph",
+	"mod_iwl",
 	"mod_local",
 	"mod_metatext",
 	"mod_nuhuh",

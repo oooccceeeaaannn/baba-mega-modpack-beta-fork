@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.0.5 Stable"
+local mega_modpack_version = "1.0.6 Stable"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -12,6 +12,7 @@ local mod_list = {
     {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
     {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
+    {name = "I Wanna Lockpick in Baba",author = "Mathguy",              color={1,3}},
     {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
 }
 

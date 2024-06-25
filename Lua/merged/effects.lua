@@ -14,6 +14,16 @@ function effects(timer)
 	doeffect(timer,nil,"sleep","sleep",1,2,60,{3,2})
 	doeffect(timer,nil,"broken","error",3,10,8,{2,2})
 	doeffect(timer,nil,"pet","pet",1,0,50,{3,1},"nojitter")
+	if (pickkeys["red"] ~= nil) and (pickkeys["red"] >= 1) then
+		doeffect(timer,nil,"you","unlock",1,2,20,{2,2})
+	end
+	if (pickkeys["green"] ~= nil) and (pickkeys["green"] >= 5) then
+		doeffect(timer,nil,"you","unlock",1,2,20,{5,2})
+	end
+	if (pickkeys["blue"] ~= nil) and (pickkeys["blue"] >= 3) then
+		doeffect(timer,nil,"you","unlock",1,2,20,{4,4})
+	end
+
 	doeffect(timer, nil, "toxic", "hot", 1, 80, 10, { 0, 1 })
 
 	doeffect(timer,nil,"power","electricity",2,5,8,{2,4})

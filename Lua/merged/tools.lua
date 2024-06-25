@@ -720,14 +720,16 @@ function simplecheck(x,y,noempty_,checkc)
 			else
 				local obsunit = mmf.newObject(id)
 				local obsname = getname(obsunit)
-				if ((hasfeature(obsname,"is","stop",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","push",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","pull",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","sidekick",id,x,y,checkc) ~= nil)
-				)
-				and (hasfeature(obsname,"is","hide",id,x,y,checkc) == nil)
-				and (hasfeature(obsname,"is","phantom",id,x,y,checkc) == nil) then
-					return 1
+				if not ((gatesync[obsunit.values[ID]] ~= nil) and not gateclosed(id)) then
+					if (gateclosed(id)
+							or (hasfeature(obsname,"is","stop",id,x,y,checkc) ~= nil)
+							or (hasfeature(obsname,"is","push",id,x,y,checkc) ~= nil)
+							or (hasfeature(obsname,"is","pull",id,x,y,checkc) ~= nil)
+							or (hasfeature(obsname,"is","sidekick",id,x,y,checkc) ~= nil))
+							and (hasfeature(obsname,"is","hide",id,x,y,checkc) == nil)
+							and (hasfeature(obsname,"is","phantom",id,x,y,checkc) == nil) then
+						return 1
+					end
 				end
 			end
 		end

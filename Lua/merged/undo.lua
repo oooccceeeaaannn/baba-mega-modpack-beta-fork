@@ -530,6 +530,94 @@ function undo()
 					if (unit ~= nil) then --paradox-proofing
 						unit.holder = line[3]
 					end
+				elseif (style == "updatekey") then
+					pickkeys[line[2]] = tonumber(line[3])
+					pickkeysi[line[2]] = tonumber(line[4])
+				elseif (style == "updateaura") then
+					auras[tonumber(line[2])] = tonumber(line[3])
+				elseif (style == "updatecolor") then
+					local id = tonumber(line[2])
+					doordata[id][1] = line[3]
+					resetdoordisplay(id)
+				elseif (style == "updatecolorspend") then
+					local id = tonumber(line[2])
+					doordata[id][4] = line[3]
+					resetdoordisplay(id)
+				elseif (style == "flipbrownkey") then
+					local id = tonumber(line[2])
+					if (iscursed[id] == false) or (iscursed[id] == nil) then
+						iscursed[id] = true
+					else
+						iscursed[id] = false
+					end
+				elseif (style == "updatestar") then
+					local color = line[2]
+					starval[color] = (not starval[color])
+				elseif (style == "updatelayer") then
+					local id = tonumber(line[2])
+					layers[id] = tonumber(line[3])
+					layersi[id] = tonumber(line[4])
+				elseif (style == "updatecombolayer") then
+					local sync = tonumber(line[2])
+					combodata[sync][3] = tonumber(line[3])
+					combodata[sync][4] = tonumber(line[4])
+				elseif (style == "updatecomboaura") then
+					local sync = tonumber(line[2])
+					combodata[sync][2] = tonumber(line[3])
+					resetcombodisplay(sync)
+				elseif (style == "updatecombocolor") then
+					local sync = tonumber(line[2])
+					local i2 = tonumber(line[3])
+					comboreq[sync][i2][1] = line[4]
+					resetcombodisplay(sync)
+				elseif (style == "updatecombocolorspend") then
+					local sync = tonumber(line[2])
+					combodata[sync][1] = line[3]
+					resetcombodisplay(sync)
+				elseif (style == "flipcombobrownkey") then
+					local sync = tonumber(line[2])
+					if (comboiscursed[sync] == false) or (comboiscursed[sync] == nil) then
+						comboiscursed[sync] = true
+					else
+						comboiscursed[sync] = false
+					end
+				elseif (style == "updateglitch") then
+					glitchcolor = line[2]
+					resetglitchdisplays()
+				elseif (style == "updatesalvage") then
+					salvaging = tonumber(line[2])
+				elseif (style == "updateglitchlock") then
+					glitchlocks[tonumber(line[2])][tonumber(line[3])] = line[4]
+				elseif (style == "updateterminal") then
+					terminalsid = tonumber(line[2])
+					terminallock = tonumber(line[3])
+					if line[4] == "nil" then
+						terminalcolor = nil
+					else
+						terminalcolor = line[4]
+					end
+				elseif (style == "graydoornegate") then
+					local id = tonumber(line[2])
+					if (grayed[id] == false) or (grayed[id] == nil) then
+						grayed[id] = true
+					else
+						grayed[id] = false
+					end
+					resetdoordisplay(id)
+				elseif (style == "graycombonegate") then
+					local sync = tonumber(line[2])
+					if (comboisgray[sync] == false) or (comboisgray[sync] == nil) then
+						comboisgray[sync] = true
+					else
+						comboisgray[sync] = false
+					end
+					resetcombodisplay(sync)
+				elseif (style == "flipjammer") then
+					if (jammed == false) or (jammed == nil) then
+						jammed = true
+					else
+						jammed = false
+					end
 				elseif (style == "offset") then --Second and final override for Offset starts here.
 					local unit = mmf.newObject(getunitid(line[2]))
 

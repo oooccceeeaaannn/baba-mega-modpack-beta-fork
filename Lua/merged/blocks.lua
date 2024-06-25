@@ -1691,6 +1691,288 @@ function block(small_)
 			end
 		end
 
+		isyou = getunitswitheffect("you",false,delthese)
+		isyou2 = getunitswitheffect("puppet",false,delthese)
+		isyou3 = getunitswitheffect("alive",false,delthese)
+		isyou4 = getunitswitheffect("youplus",false,delthese)
+
+		for i,v in ipairs(isyou2) do
+			table.insert(isyou, v)
+		end
+
+		for i,v in ipairs(isyou3) do
+			table.insert(isyou, v)
+		end
+
+		for i,v in ipairs(isyou4) do
+			table.insert(isyou, v)
+		end
+
+		for id, unit in pairs(isyou) do
+			if (unit.flags[DEAD] == false) and (delthese[unit.fixed] == nil) and (small == false) then
+				local x,y = unit.values[XPOS],unit.values[YPOS]
+				local keys0 = getkeys(x, y)
+				for c,d0 in ipairs(keys0) do
+					local d = d0[1]
+					local color = d0[2][1]
+					if color == "glitch" and (d0[2][3] ~= "omega") then
+						color = glitchcolor
+					end
+					local count = d0[2][2]
+					local kind = d0[2][3]
+					local counti = d0[2][4]
+					local inf = d0[2][5]
+					local dunit = mmf.newObject(d)
+					local id0 = dunit.values[ID]
+					local moves = (hasmovedyeah[id0] or hasmovedyeah[unit.values[ID]])
+					if floating(d,unit.fixed,x,y) and (issafe(d,x,y) == false) and (not inf or moves) and ((auras[id0] == 0) or (auras[id0] == nil)) then
+						if (kind ~= "omega") then
+							local pmult,sound = checkeffecthistory("pickkey")
+							setsoundname("turn",6)
+							local c3 = lookup2[color]
+							local c1, c2 = getcolour(d)
+							if showdoorcolor then
+								if color == "glitch" then
+									c3 = lookup2[glitchcolor]
+									if glitchcolor == "master" then
+										c3 = {2,4}
+									end
+								end
+								if color == "master" then
+									c3 = {2,4}
+								end
+								if c3 ~= nil then
+									c1, c2 = c3[1], c3[2]
+
+								end
+							end
+							MF_particles("bonus",x,y,10 * pmult,c1,c2,1,1)
+							removalshort = sound
+							removalsound = 2
+							if not inf then
+								generaldata.values[SHAKE] = 2
+								table.insert(delthese, d)
+							end
+							if pickkeys[color] == nil then
+								pickkeys[color] = 0
+							end
+							if pickkeysi[color] == nil then
+								pickkeysi[color] = 0
+							end
+							local post = pickkeys[color]
+							local posti = pickkeysi[color]
+							addundo({"updatekey", color, pickkeys[color], pickkeysi[color]})
+							if (kind == "exact") then
+								if starval[color] ~= true then
+									pickkeys[color] = count
+									pickkeysi[color] = counti
+								end
+							elseif (kind == "signflip") then
+								if starval[color] ~= true then
+									pickkeys[color] = pickkeys[color] * -1
+									pickkeysi[color] = pickkeysi[color] * -1
+								end
+							elseif (kind == "star") then
+								if starval[color] ~= true then
+									addundo({"updatestar",color,"ignore"})
+									starval[color] = true
+								end
+							elseif (kind == "unstar") then
+								if starval[color] == true then
+									addundo({"updatestar",color,"ignore"})
+									starval[color] = false
+								end
+							elseif (kind == "rotor") then
+								if starval[color] ~= true then
+									local temp = pickkeys[color]
+									pickkeys[color] = -1 * pickkeysi[color]
+									pickkeysi[color] = temp
+								end
+							elseif (kind == "unrotor") then
+								if starval[color] ~= true then
+									local temp = pickkeys[color]
+									pickkeys[color] = pickkeysi[color]
+									pickkeysi[color] = -temp
+								end
+							else
+								if starval[color] ~= true then
+									pickkeys[color] = pickkeys[color] + count
+									pickkeysi[color] = pickkeysi[color] + counti
+								end
+							end
+							post = pickkeys[color] - post
+							posti = pickkeysi[color] - posti
+							if color ~= "void" then
+								local starvoid = 1
+								if starval["void"] then
+									starvoid = 0
+								end
+								local starry = 1
+								if starval[color] then
+									starry = 0
+								end
+								local voidupdate = false
+								if (pickkeys["void"] > 0) and (post > 0) then
+									addundo({"updatekey", "void", pickkeys["void"], pickkeysi["void"]})
+									voidupdate = true
+									if (pickkeys["void"] > post) then
+										pickkeys[color] = pickkeys[color] - post * starry
+										pickkeys["void"] = pickkeys["void"] - post * starvoid
+									else
+										pickkeys[color] = pickkeys[color] - pickkeys["void"] * starry
+										pickkeys["void"] = pickkeys["void"] - pickkeys["void"] * starvoid
+									end
+								elseif (pickkeys["void"] < 0) and (post < 0) then
+									addundo({"updatekey", "void", pickkeys["void"], pickkeysi["void"]})
+									voidupdate = true
+									if (pickkeys["void"] < post) then
+										pickkeys[color] = pickkeys[color] - post * starry
+										pickkeys["void"] = pickkeys["void"] - post * starvoid
+									else
+										pickkeys[color] = pickkeys[color] - pickkeys["void"] * starry
+										pickkeys["void"] = pickkeys["void"] - pickkeys["void"] * starvoid
+									end
+								end
+								if (pickkeys["void"] > 0) and (posti > 0) then
+									if not voidupdate then
+										addundo({"updatekey", "void", pickkeys["void"], pickkeysi["void"]})
+									end
+									if (pickkeysi["void"] > posti) then
+										pickkeysi[color] = pickkeysi[color] - posti * starry
+										pickkeysi["void"] = pickkeysi["void"] - posti * starvoid
+									else
+										pickkeysi[color] = pickkeysi[color] - pickkeysi["void"] * starry
+										pickkeysi["void"] = pickkeysi["void"] - pickkeysi["void"] * starvoid
+									end
+								elseif (pickkeysi["void"] < 0) and (posti < 0) then
+									if not voidupdate then
+										addundo({"updatekey", "void", pickkeys["void"], pickkeysi["void"]})
+									end
+									if (pickkeysi["void"] < posti) then
+										pickkeysi[color] = pickkeysi[color] - posti * starry
+										pickkeysi["void"] = pickkeysi["void"] - posti * starvoid
+									else
+										pickkeysi[color] = pickkeysi[color] - pickkeysi["void"] * starry
+										pickkeysi["void"] = pickkeysi["void"] - pickkeysi["void"] * starvoid
+									end
+								end
+							end
+							updateundo = true
+						else
+							local pmult,sound = checkeffecthistory("pickkey")
+							MF_particles("bonus",x,y,10 * pmult,4,1,1,1)
+							removalshort = sound
+							removalsound = 2
+							MF_playsound("bonus")
+							addomega(d0[2][1])
+							generaldata.values[SHAKE] = 5
+							table.insert(delthese, d)
+						end
+					end
+				end
+				local sigils = getsigils(x, y)
+				for c,d0 in ipairs(sigils) do
+					local data = d0[2]
+					local d = d0[1]
+					if floating(d,unit.fixed,x,y) and (issafe(d,x,y) == false) then
+						if (data == "jammer") and (jammed == false) then
+							addundo({"flipjammer"})
+							table.insert(delthese, d)
+							jammed = true
+							updateundo = true
+						end
+					end
+				end
+				processterminal(unit.fixed, x, y)
+				delthese,removalshort,removalsound = ws_karma(x,y,"iwlkey",unit.fixed,delthese,removalshort,removalsound)
+			end
+		end
+
+		for id, unit in pairs(isyou) do
+			if (unit.flags[DEAD] == false) and (delthese[unit.fixed] == nil) and (small == false) then
+				local x,y = unit.values[XPOS],unit.values[YPOS]
+				if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] >= 1) then
+					applybrownkeys(x,y,1)
+				end
+				if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] <= -1) then
+					applybrownkeys(x,y,-1)
+				end
+				if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] >= 1) then
+					applygraykeys(x,y,1)
+				end
+				if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] <= -1) then
+					applygraykeys(x,y,-1)
+				end
+				if (pickkeys["red"] ~= nil) and (pickkeys["red"] >= 1) then
+					doauras(x, y, 1)
+				end
+				if (pickkeys["green"] ~= nil) and (pickkeys["green"] >= 5) then
+					doauras(x, y, 2)
+				end
+				if (pickkeys["blue"] ~= nil) and (pickkeys["blue"] >= 3) then
+					doauras(x, y, 4)
+				end
+			end
+		end
+
+		local _, emptyyou = findallfeature("empty", "is", "you")
+
+		for i0, j0 in pairs(emptyyou) do
+			if (small == false) then
+				for i, j in pairs(j0) do
+					local x, y = i % roomsizex, i // roomsizex
+					if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] >= 1) then
+						applybrownkeys(x,y,1)
+					end
+					if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] <= -1) then
+						applybrownkeys(x,y,-1)
+					end
+					if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] >= 1) then
+						applygraykeys(x,y,1)
+					end
+					if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] <= -1) then
+						applygraykeys(x,y,-1)
+					end
+					if (pickkeys["red"] ~= nil) and (pickkeys["red"] >= 1) then
+						doauras(x, y, 1)
+					end
+					if (pickkeys["green"] ~= nil) and (pickkeys["green"] >= 5) then
+						doauras(x, y, 2)
+					end
+					if (pickkeys["blue"] ~= nil) and (pickkeys["blue"] >= 3) then
+						doauras(x, y, 4)
+					end
+				end
+			end
+		end
+
+		local levelyou = hasfeature("level", "is", "you",1)
+		if levelyou and (small == false) then
+			if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] >= 1) then
+				applybrownkeyslevel(1)
+			end
+			if (pickkeys["brown"] ~= nil) and (pickkeys["brown"] <= -1) then
+				applybrownkeyslevel(-1)
+			end
+			if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] >= 1) then
+				applygraykeyslevel(1)
+			end
+			if (pickkeys["gray"] ~= nil) and (pickkeys["gray"] <= -1) then
+				applygraykeyslevel(-1)
+			end
+			if (pickkeys["red"] ~= nil) and (pickkeys["red"] >= 1) then
+				doauralevel(1)
+			end
+			if (pickkeys["green"] ~= nil) and (pickkeys["green"] >= 5) then
+				doauralevel(2)
+			end
+			if (pickkeys["blue"] ~= nil) and (pickkeys["blue"] >= 3) then
+				doauralevel(4)
+			end
+		end
+
+		--delthese,doremovalsound = handledels(delthese,doremovalsound)
+
 
 
 		local isbuild = getunitswithverb("build",delthese)
@@ -1926,6 +2208,12 @@ function block(small_)
 		table.insert(isyou, v)
 	end
 
+	local isyouog = {}
+
+	for i,v in ipairs(isyou) do
+		table.insert(isyouog, v)
+	end
+
 	for id,unit in ipairs(isyou) do
 		if (unit.flags[DEAD] == false) and (delthese[unit.fixed] == nil) then
 			local x,y = unit.values[XPOS],unit.values[YPOS]
@@ -1981,6 +2269,7 @@ function block(small_)
 											MF_particles("win",x,y,10 * pmult,2,4,1,1)
 											MF_end_single()
 											MF_win()
+											doorsalvaged = false
 											break
 										else
 											local pmult = checkeffecthistory("win")
@@ -1992,6 +2281,7 @@ function block(small_)
 												MF_end_single()
 												MF_win()
 												MF_credits(1)
+												doorsalvaged = false
 											end
 											break
 										end
@@ -2062,6 +2352,7 @@ function block(small_)
 									
 									MF_particles("win",x,y,10 * pmult,2,4,1,1)
 									MF_win()
+									doorsalvaged = false
 									break
 								end
 							end
@@ -2071,7 +2362,24 @@ function block(small_)
 			end
 		end
 	end
-	
+
+	for id,unit in ipairs(isyouog) do
+		if (unit.flags[DEAD] == false) and (delthese[unit.fixed] == nil) then
+			local x,y = unit.values[XPOS],unit.values[YPOS]
+
+			if (small == false) then
+				local inputs = findtype({"inputpoint",{}},x,y,0)
+				for i, j in pairs(inputs) do
+					local unit = mmf.newObject(j)
+					local id = unit.values[ID]
+					addundo({"updatesalvage", salvaging})
+					salvaging = id
+					updateundo = true
+				end
+			end
+		end
+	end
+
 	delthese,doremovalsound = handledels(delthese,doremovalsound)
 	
 	for i,unit in ipairs(units) do
@@ -2539,6 +2847,7 @@ function levelblock()
 						
 						if victory and alive then
 							MF_win()
+							doorsalvaged = false
 							return
 						end
 						
@@ -2546,11 +2855,13 @@ function levelblock()
 							if (editor.values[INEDITOR] ~= 0) then
 								MF_end_single()
 								MF_win()
+								doorsalvaged = false
 								return
 							else
 								MF_end_single()
 								MF_win()
 								MF_credits(1)
+								doorsalvaged = false
 								return
 							end
 						end
@@ -2579,6 +2890,7 @@ function levelblock()
 				local tileid = i + j * roomsizex
 				if (unitmap[tileid] == nil) or (#unitmap[tileid] == 0) then
 					MF_win()
+					doorsalvaged = false
 					return
 				end
 			end
@@ -2592,11 +2904,13 @@ function levelblock()
 					if (editor.values[INEDITOR] ~= 0) then
 						MF_end_single()
 						MF_win()
+						doorsalvaged = false
 						return
 					else
 						MF_end_single()
 						MF_win()
 						MF_credits(1)
+						doorsalvaged = false
 						return
 					end
 				end
@@ -3334,6 +3648,7 @@ function levelblock()
 						
 						if canwin then
 							MF_win()
+							doorsalvaged = false
 							return
 						end
 						
@@ -3341,14 +3656,21 @@ function levelblock()
 							if (editor.values[INEDITOR] ~= 0) then
 								MF_end_single()
 								MF_win()
+								doorsalvaged = false
 								return
 							else
 								MF_end_single()
 								MF_win()
 								MF_credits(1)
+								doorsalvaged = false
 								return
 							end
 						end
+
+						if isKeyPickerProp(action) then
+							getallkeyslevel()
+						end
+
 					elseif (action == "defeat") then
 						local yous = ws_findPlayers() -- EDIT: Replaced long repeated sequence with function
 						
@@ -3852,6 +4174,7 @@ function levelblock()
 						
 						if canwin then
 							if action == "win" then MF_win() else doreset = true end
+							doorsalvaged = false
 							return
 						end
 					elseif (action == "end") then
@@ -3900,11 +4223,13 @@ function levelblock()
 							if (editor.values[INEDITOR] ~= 0) then
 								MF_end_single()
 								MF_win()
+								doorsalvaged = false
 								break
 							else
 								MF_end_single()
 								MF_win()
 								MF_credits(1)
+								doorsalvaged = false
 								break
 							end
 						end
@@ -4150,6 +4475,7 @@ function levelblock()
 							MF_playsound("doneall_c")
 							MF_done_single()
 							MF_win()
+							doorsalvaged = false
 							break
 						elseif (#targets >= #units - #codeunits - #levelunits_) then
 							local pmult = checkeffecthistory("win")
@@ -4161,6 +4487,7 @@ function levelblock()
 								MF_done_single()
 								MF_win()
 								MF_credits(2)
+								doorsalvaged = false
 							end
 							break
 						end
@@ -4239,6 +4566,7 @@ function levelblock()
 										
 										MF_particles("win",x,y,10 * pmult,2,4,1,1)
 										MF_win()
+										doorsalvaged = false
 										break
 									end
 								end
@@ -4337,8 +4665,11 @@ function effectblock()
 		
 		if (unit.className ~= "level") then			
 			local name = unit.strings[UNITNAME]
+			local id0 = unit.values[ID]
+
 			local isred = hasfeature(name,"is","red",unit.fixed)
 			local isblue = hasfeature(name,"is","blue",unit.fixed)
+			local isyou = isUnitIWLAlive(name,unit.fixed,nil,nil)
 			local islime = hasfeature(name,"is","lime",unit.fixed)
 			local isgreen = hasfeature(name,"is","green",unit.fixed)
 			local isyellow = hasfeature(name,"is","yellow",unit.fixed)
@@ -4354,18 +4685,69 @@ function effectblock()
 			local iscyan = hasfeature(name,"is","cyan",unit.fixed)
 			
 			unit.colours = {}
-			
-			local colours = {isred, isorange, isyellow, islime, isgreen, iscyan, isblue, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown}
+			local blueval = (isblue == true) or ((isyou == true) and mastermode)
+			if blueval == false then
+				blueval = nil
+			end
+			local yellowval = (isyellow == true) or ((isyou == true) and imode)
+			if yellowval == false then
+				yellowval = nil
+			end
+
+			local colours = {isred, isorange, yellowval, islime, isgreen, iscyan, blueval, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown}
 			local ccolours = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1}}
-			
+
+			if (id0 == salvaging) then
+				colours = {nil, nil, nil, nil, true, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil}
+			end
+
 			local c1,c2,ca = -1,-1,-1
 			
 			unit.flags[PHANTOM] = false
 			local isphantom = hasfeature(name,"is","phantom",unit.fixed)
-			if (isphantom ~= nil) then
+			if (isphantom ~= nil) or ((gatesync[id0] ~= nil) and not gateclosed(unit.fixed)) then
 				unit.flags[PHANTOM] = true
 			end
-			
+
+			local doorcolor = nil
+			if showdoorcolor then
+				if doordata[id0] ~= nil then
+					local color = doordata[id0][4]
+					if color == "glitch" then
+						color = glitchlocks[id0][1]
+					end
+					doorcolor = lookup2[color]
+				end
+				if keydata[id0] ~= nil then
+					local color = keydata[id0][1]
+					if color ~= "void" then
+						if color == "glitch" and (keydata[id0][3] ~= "omega") then
+							color = glitchcolor
+						end
+						doorcolor = lookup2[color]
+						if color == "master" then
+							doorcolor = {2,4}
+						end
+					end
+				end
+				if combosync[id0] ~= nil then
+					local sync = combosync[id0]
+					local color = combodata[sync][1]
+					if color == "glitch" then
+						color = glitchlocks[id0][1]
+					end
+					if color ~= nil then
+						doorcolor = lookup2[color]
+					end
+				end
+				if (terminaldata[id0] ~= nil) and ((string.sub(terminaldata[id0],1,6) == "color_")) then
+					local color = string.sub(terminaldata[id0],7)
+					if (color ~= nil) and (terminaldata2[color] ~= nil) then
+						doorcolor = lookup2[color]
+					end
+				end
+			end
+
 			for a=1,#ccolours do
 				if (colours[a] ~= nil) then
 					local c = ccolours[a]
@@ -4387,13 +4769,20 @@ function effectblock()
 					unit.values[A] = ca
 				end
 			elseif (#unit.colours == 0) then
-				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if (unit.strings[UNITTYPE] ~= "text") or (unit.active == false) then
+				if ((unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A])) or (doorcolor ~= nil) then
+					if (doorcolor ~= nil) then
+						MF_setcolour(unit.fixed,doorcolor[1],doorcolor[2])
+						unit.colour = {doorcolor[1],doorcolor[2]}
+						unit.values[A] = ca
+					elseif (unit.strings[UNITTYPE] ~= "text") or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")
 					end
 					unit.values[A] = 0
+					if (doorcolor ~= nil) then
+						unit.values[A] = 99
+					end
 				end
 			else
 				unit.values[A] = ca

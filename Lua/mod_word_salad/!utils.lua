@@ -246,6 +246,28 @@ function ws_findplayerfeatureat(x,y)
 end
 
 
+-- Returns all the features at a certain position that are "keypickers"
+function ws_findkeypickerfeatureat(x,y)
+	local result = findfeatureat(nil,"is","you",x,y) or {}
+	local you42 = findfeatureat(nil,"is","alive",x,y) or {}
+	local you4 = findfeatureat(nil,"is","youplus",x,y) or {}
+	local you5 = findfeatureat(nil,"is","puppet",x,y) or {}
+	for _,v in ipairs(you42) do
+		table.insert(result, v)
+	end
+
+	for _,v in ipairs(you4) do
+		table.insert(result, v)
+	end
+
+	for _,v in ipairs(you5) do
+		table.insert(result, v)
+	end
+
+	return result
+end
+
+
 -------- KARMA/SINFUL/REPENT FUNCTIONS --------
 
 -- Sets the level karma to a new value (true by default) and adds it to the undo queue if it was changed
@@ -340,6 +362,13 @@ function ws_karma(x, y, reason, victimid, delthese, removalshort, removalsound)
 		for _,toxicid in ipairs(toxicfeatures) do
 			if floating(toxicid,victimid,x,y) then -- Only the acids on the same float level of the poisoned object are evil
 				delthese,removalshort,removalsound = ws_setKarmaOrDestroy(x,y,toxicid,delthese,removalshort,removalsound)
+			end
+		end
+	elseif reason == "iwlkey" then
+		local playerfeatures = ws_findkeypickerfeatureat(x,y) --(find all the features that are you, alive...)
+		for _,playerid in ipairs(playerfeatures) do
+			if floating(playerid,victimid,x,y) then
+				delthese,removalshort,removalsound = ws_setKarmaOrDestroy(x,y,playerid,delthese,removalshort,removalsound)
 			end
 		end
 	end

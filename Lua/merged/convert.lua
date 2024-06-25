@@ -215,6 +215,46 @@ function doconvert(data,extrarule_)
 			local baseingameid = mats2data[3]
 		
 			local unitname = ""
+
+			if (keydata[baseingameid] ~= nil) then
+				keydata[ingameid] = {keydata[baseingameid][1], keydata[baseingameid][2], keydata[baseingameid][3], keydata[baseingameid][4], keydata[baseingameid][5]}
+			end
+			if (doordata[baseingameid] ~= nil) then
+				doordata[ingameid] = {doordata[baseingameid][1], doordata[baseingameid][2], doordata[baseingameid][3], doordata[baseingameid][4], doordata[baseingameid][5]}
+			end
+			if (datanames[baseingameid] ~= nil) then
+				datanames[ingameid] = datanames[baseingameid]
+			end
+			if (auras[baseingameid] ~= nil) then
+				auras[ingameid] = auras[baseingameid]
+			end
+			if (layers[baseingameid] ~= nil) then
+				layers[ingameid] = layers[baseingameid]
+			end
+			if (cursed[baseingameid] ~= nil) then
+				cursed[ingameid] = cursed[baseingameid]
+			end
+			if (combosync[baseingameid] ~= nil) then
+				combosync[ingameid] = combosync[baseingameid]
+			end
+			if (gatesync[baseingameid] ~= nil) then
+				gatesync[ingameid] = gatesync[baseingameid]
+			end
+			if (origspecial[baseingameid] ~= nil) then
+				origspecial[ingameid] = origspecial[baseingameid]
+			end
+			if (salvageid[baseingameid] ~= nil) then
+				salvageid[ingameid] = salvageid[baseingameid]
+			end
+			if (sigils[baseingameid] ~= nil) then
+				sigils[ingameid] = sigils[baseingameid]
+			end
+			if (glitchlocks[baseingameid] ~= nil) and (ingameid ~= baseingameid) then
+				glitchlocks[ingameid] = {}
+				for i0, j0 in pairs(glitchlocks[baseingameid]) do
+					glitchlocks[ingameid][i0] = j0
+				end
+			end
 			
 			if (mat2 == "revert") and (unitid ~= 2) and (ogname ~= nil) then	
 				local originalname = ogname

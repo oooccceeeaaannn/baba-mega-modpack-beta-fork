@@ -1,6 +1,6 @@
 
 
-function command(key,player_,keyid,keyid2)
+function command(key,player_,keyid,keyid2, _noidle)
 	--[[ 
 		@mods(turning text) - Override reason: fixes a bug where if "level is auto" "baba is you" "bird is you2 (down)", pressing "S" will make both baba and bird move down. (Only bird should move down)
 		@mods(past) - Override reason: handles direct keyids, turns off during past turns, and add keys.
@@ -34,6 +34,7 @@ function command(key,player_,keyid,keyid2)
 			local dir = keyid
 			
 			last_key = keyid
+			noidle = (_noidle == true)
 			
 			if (auto_dir[player] == nil) then
 				auto_dir[player] = 4
