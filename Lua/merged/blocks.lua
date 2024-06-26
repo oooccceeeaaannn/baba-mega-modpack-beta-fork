@@ -1302,9 +1302,9 @@ function block(small_)
 								removalshort = sound
 								removalsound = 9
 								table.insert(delthese, unit.fixed)
-								-- @mods(extrem x word salad) Hey you! Don't think you can just toxic other objects
+								-- @mods(extrem x word salad) Hey you! Don't think you can just volt other objects
 								-- and get around like that!
-								delthese,removalshort,removalsound = ws_karma(x,y,"toxic",unit.fixed,delthese,removalshort,removalsound)
+								ws_setKarma(d)
 								break
 							end
 						end
