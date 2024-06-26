@@ -10,6 +10,11 @@ function moveblock(onlystartblock_)
 	if (onlystartblock == false) then
 		isshift = findallfeature(nil,"is","shift",true)
 		istele = findallfeature(nil,"is","tele",true)
+		-- NIMI MOD EDIT: make throw objects update their facing later in the turn like shift objects do
+		local isthrow = findallfeature(nil,"is","throw",true)
+		for i,v in ipairs(isthrow) do
+			table.insert(isshift,v)
+		end
 	end
 	
 	local doned = {}

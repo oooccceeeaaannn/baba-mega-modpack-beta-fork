@@ -236,6 +236,10 @@ oldaddundo = addundo
 function addundo(line,uid_)
 	local ename = line[1]
 	if (ename == "remove") then
+		-- NIMI MOD EDIT: make karma undo data always boolean (yes, THIS is what causes the offset undo bug)
+		if (line[22] == nil) then
+			line[22] = false
+		end
 		local unit = mmf.newObject(getunitid(line[6]))
 		line[XOFFSETUNDOLINE] = unit.xoffset
 		line[YOFFSETUNDOLINE] = unit.yoffset

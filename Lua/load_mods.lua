@@ -17,6 +17,7 @@ local load_order = {
 	"mod_persist",
 	"mod_plasma",
 	"mod_stringwords",
+	"mod_shrugsimontiger",
 	"mod_trash",
 	"mod_visit",
 	"mod_word_salad",

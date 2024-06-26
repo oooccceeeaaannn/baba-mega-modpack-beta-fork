@@ -12,7 +12,7 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 	local debug_moves = 0
 	
 	local take = 0
-	local takecount = 9
+	local takecount = 11
 	local finaltake = false
 	slipped = {}
 	local no3d = no3d_ or false
@@ -759,6 +759,46 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 					end
 				end
 			elseif (take == 8) then
+				-- NIMI MOD EDIT: merge throw
+				arrow_prop_mod_globals.group_arrow_properties = false
+				local throws = findallfeature(nil,"is","throw",true)
+
+				for i,v in ipairs(throws) do
+					if (v ~= 2) then
+						local affected = {}
+						local unit = mmf.newObject(v)
+
+						local x,y = unit.values[XPOS],unit.values[YPOS]
+						local tileid = x + y * roomsizex
+
+						if (unitmap[tileid] ~= nil) then
+							if (#unitmap[tileid] > 1) then
+								for a,b in ipairs(unitmap[tileid]) do
+									if (b ~= v) and floating(b,v,x,y) then
+
+										--updatedir(b, unit.values[DIR])
+
+										if (isstill_or_locked(b,x,y,unit.values[DIR]) == false) then
+											if (been_seen[b] == nil) then
+												table.insert(moving_units, {unitid = b, reason = "throw", state = 0, moves = 1, dir = unit.values[DIR], xpos = x, ypos = y})
+												been_seen[b] = #moving_units
+											else
+												local id = been_seen[b]
+												local this = moving_units[id]
+												this.moves = this.moves + 1
+											end
+
+											-- @Merge(plasma) - support net shifting
+											update_net_shift_data(unit.values[DIR], moving_units[been_seen[b]], 1)
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+				arrow_prop_mod_globals.group_arrow_properties = true
+			elseif (take == 9) then
 				if false then
 
 				else
@@ -1169,7 +1209,7 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				end
 
 				arrow_prop_mod_globals.group_arrow_properties = true
-			elseif (take == 9) then
+			elseif (take == 10) then
 				local topplers = findallfeature(nil,"is","topple",true)
 				for i,v in ipairs(topplers) do
 					if (v ~= 2) then
@@ -1215,12 +1255,80 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 					end
 				end
 			end
+		elseif (take == 11) then
+			-- NIMI MOD EDIT: merge unstack
+			local unstacks = findallfeature(nil,"is","unstack",true)
+
+			for i,v in ipairs(unstacks) do
+				if (v ~= 2) then
+					local affected = {}
+					local unit = mmf.newObject(v)
+					local unitname = getname(unit)
+
+					local x,y = unit.values[XPOS],unit.values[YPOS]
+					local tileid = x + y * roomsizex
+
+					if (unitmap[tileid] ~= nil) then
+						if (#unitmap[tileid] > 1) then
+
+							local same_name_and_facing = {}
+							local other_facings_exist = false
+							for a,b in ipairs(unitmap[tileid]) do
+								local unit2 = mmf.newObject(b)
+								local unitname2 = getname(unit2)
+								if (unitname == unitname2) then
+									if (unit.values[DIR] == unit2.values[DIR]) then
+										table.insert(same_name_and_facing, b)
+									else
+										other_facings_exist = true
+									end
+								end
+							end
+
+							if other_facings_exist then
+								if (isstill_or_locked(v,x,y,unit.values[DIR]) == false) then
+									if (been_seen[v] == nil) then
+										table.insert(moving_units, {unitid = v, reason = "unstack", state = 0, moves = 1, dir = unit.values[DIR], xpos = x, ypos = y})
+										been_seen[v] = #moving_units
+									else
+										local id = been_seen[v]
+										local this = moving_units[id]
+										this.moves = this.moves + 1
+									end
+								end
+							end
+
+							for a,b in ipairs(same_name_and_facing) do
+								if (b ~= v) then
+
+									--updatedir(b, unit.values[DIR])
+
+									if (isstill_or_locked(b,x,y,unit.values[DIR]) == false) then
+										if (been_seen[b] == nil) then
+											table.insert(moving_units, {unitid = b, reason = "unstack", state = 0, moves = 1, dir = unit.values[DIR], xpos = x, ypos = y})
+											been_seen[b] = #moving_units
+										else
+											local id = been_seen[b]
+											local this = moving_units[id]
+											this.moves = this.moves + 1
+										end
+
+										update_net_shift_data(unit.values[DIR], moving_units[been_seen[b]], 1)
+									end
+								else
+									break
+								end
+							end
+						end
+					end
+				end
+			end
 		else
 			for i,data in ipairs(still_moving) do
 				if (data.unitid ~= 2) then
 					local unit = mmf.newObject(data.unitid)
 
-					if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet") then
+					if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet" or data.reason ==  "throw") then
 						--@Turning Text(shift)
 						table.insert(moving_units, {
 							unitid = data.unitid, 
@@ -1345,14 +1453,14 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 						end
 
 						--@Turning Text(shift)
-						if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet") and data.unitid ~= 2 then
+						if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet" or data.reason == "throw") and data.unitid ~= 2 then
 							-- if data.state == 0 then
 							do_directional_shift_update_shift_state(data, false)
 							-- end
 							dir = data.dir
 						end
 
-						if (state == 0) and (data.reason == "shift" or data.reason == "yeet" or data.reason == "launch") and (data.unitid ~= 2) then
+						if (state == 0) and (data.reason == "shift" or data.reason == "yeet" or data.reason == "launch" or data.reason == "throw") and (data.unitid ~= 2) then
 							updatedir(data.unitid, data.dir)
 							dir = data.dir
 						end
@@ -1400,8 +1508,13 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 						end
 						
 						local ox,oy = ndrs[1],ndrs[2]
-						if (very_drunk or (data.reason ~= "shift" and data.reason ~= "yeet" and data.reason ~= "launch")) then
+						if (very_drunk or (data.reason ~= "shift" and data.reason ~= "yeet" and data.reason ~= "launch" and data.reason ~= "throw")) then
 							dir, ox, oy = apply_moonwalk(data.unitid,x,y,dir,ox,oy,false)
+						end
+						-- NIMI MOD EDIT: merge Throw
+						if (data.reason == "throw") then
+							ox = ox * 2
+							oy = oy * 2
 						end
 						local pushobslist = {}
 						
@@ -1858,7 +1971,7 @@ function movecommand(ox,oy,dir_,playerid_,dir_2,no3d_)
 				if solved then
 					data.moves = data.moves - 1
 
-					if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet") and data.unitid ~= 2 then
+					if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet" or data.reason == "throw") and data.unitid ~= 2 then
 						do_directional_shift_update_shift_state(data, true)
 					end
 					
@@ -2948,6 +3061,15 @@ function dopush(unitid,ox,oy,dir,pulling_,x_,y_,reason,pusherid,is_sticky,allPus
 		pulling = pulling_
 	end
 
+	-- NIMI MOD EDIT: make throw objects push differently
+	if THROW_PUSH and (pulling == false) then
+		local throwpusher_count = hasfeature_count(pushername,"is","throw",pusherid,x,y)
+		if (throwpusher_count > 0) then
+			ox = ox * (throwpusher_count * 2)
+			oy = oy * (throwpusher_count * 2)
+		end
+	end
+
 	local allPushables = allPushables_ or {} -- EDIT: add allPushables variable
 	
 	--sticky check! sticky things are pushed or pulled as a whole unit. and if we got this far, it succeeded.
@@ -3403,6 +3525,15 @@ function trypush(unitid,ox,oy,dir,pulling_,x_,y_,reason,pusherid,is_sticky)
 		pushername = getname(pusherunit);
 	end
 	local lazypusher = hasfeature(pushername,"is","lazy",pusherid,x,y) ~= nil
+
+	-- NIMI MOD EDIT: make throw objects push differently
+	if THROW_PUSH and (pulling == false) then
+		local throwpusher_count = hasfeature_count(pushername,"is","throw",pusherid,x,y)
+		if (throwpusher_count > 0) then
+			ox = ox * (throwpusher_count * 2)
+			oy = oy * (throwpusher_count * 2)
+		end
+	end
 
 	if (weak == nil) or pulling or ((weak ~= nil) and issafe(unitid,x_,y_)) then
 		local result = 0

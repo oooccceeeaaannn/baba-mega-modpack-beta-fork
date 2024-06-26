@@ -13,6 +13,7 @@ local mod_list = {
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
     {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
     {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
+    {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
 }
 
 local mod_setting_data = {
@@ -130,9 +131,28 @@ local mod_setting_data = {
             },
         },
         settings_order = {"infloop_level_glitch"}
+    },
+    -- NIMI MOD EDIT: add setting for throw
+    shrugsimontiger = {
+        key = "shrugsimontiger_settings",
+        button_label = "Shrugsimontiger Settings",
+        page_title = "$1,4Shrugsimontiger$0,3 Settings",
+        cfg_section = "shrugsimontiger",
+        color = {1,4},
+        settings_apply_func = apply_shrugsimontiger_settings,
+        settings = {
+            throw_push = {
+                name = "throw_push",
+                display = "Throw-push",
+                default = 1,
+                buttonfunc = "sh_throw_push",
+                tooltip = "If true, and a Throw object tries to push, Throw effects will apply to that too."
+            }
+        },
+        settings_order = {"throw_push"}
     }
 }
-local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper"}
+local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper", "shrugsimontiger"}
 
 local function setfenv(fn, env)
     local i = 1
