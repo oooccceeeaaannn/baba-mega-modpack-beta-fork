@@ -3715,7 +3715,7 @@ function subrules()
 							if has_stable_cond then
 								addoption(newrule,newconds,newids,false,nil,newtags,visualonly)
 							else
-								addoption(newrule,newconds,newids,true,nil,newtags,visualonly)
+								addoption(newrule,newconds,newids,visual,nil,newtags,visualonly)
 							end
 
 							if STABLE_LOGGING then
