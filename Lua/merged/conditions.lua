@@ -207,10 +207,6 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 	if (#params > 0) then
 		for a,b in ipairs(params) do
 			local pname = b
-			local metaparam = false
-			if (string.sub(pname, 1, 6) == "glyph_") or (string.sub(pname, 1, 5) == "text_") then
-				metaparam = true
-			end
 			local pnot = false
 			if (string.sub(b, 1, 4) == "not ") then
 				pnot = true
@@ -236,11 +232,8 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 									for c,d in ipairs(unitmap[tileid]) do
 										if (d ~= unitid) and (alreadyfound[d] == nil) then
 											local unit = mmf.newObject(d)
-											local name_ = getname(unit)
-											if metaparam then
-												name_ = unit.strings[UNITNAME]
-											end
-											
+											local name_ = getname(unit, pname, pnot)
+
 											if (pnot == false) then
 												if is_param_this then
 													if raycast_units[d] and alreadyfound[bcode] == nil then

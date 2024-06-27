@@ -417,3 +417,20 @@ function string_to_conds(string)
     end
     return conds
 end
+
+if keys.IS_WORD_GLOSSARY_PRESENT then
+    keys.WORD_GLOSSARY_FUNCS.register_author("Emily", nil, "$1,4Emily")
+    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+        -- A more customized word entry for directional you. This has a custom thumbnail, a custom title (display_name), and 4 display sprites for showing the 4 different directions of directional you when viewing the word entry in-game.
+        {
+            name = "delete",
+            thumbnail_obj = "text_delete",
+            display_name = "NOT property",
+            author = "Emily",
+            description = [[When X is delete, the level immediately restarts (ignoring NORESET),
+             EVERY instance of X is removed, and every rule containing X is considered invalid.
+             When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
+             EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
+        },
+    })
+end
