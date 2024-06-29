@@ -18,7 +18,7 @@ The beta branch currently includes these mods (author handles are from discord):
 - Stringwords (STARTS/CONTAINS/ENDS), TRASH mod - By Wrecking Games (@wreckinggames)
 - Word Salad (ALIVE/VESSEL/VESSEL2/KARMA/SINFUL/HOP) - By Huebaba (@huebird.)
 - Visit - By Btd456Creeper (@btd456creeper)
-- Metatext, Delete Prop - By Emily (@emilyemmi)
+- [Metatext](https://github.com/EmilyEmmi/Baba-Is-You---Metatext-Mod), Delete Prop - By Emily (@emilyemmi)
 - Extrem's Modpack -By Extrem (@extrem_xxen)
 
 # How to install
