@@ -5,6 +5,7 @@ local dir = pf_lua_dir
 local load_order = {
     "load_first",
     "merged",
+	"mod_cardinality",
 	"mod_extrem",
     "mod_glitch",
 	"mod_glyph",

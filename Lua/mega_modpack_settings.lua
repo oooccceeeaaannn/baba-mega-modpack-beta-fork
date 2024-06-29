@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.0.5 Stable"
+local mega_modpack_version = "1.0.6 Stable"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -8,6 +8,7 @@ local mod_list = {
     {name = "Persist",              author = "Randomizer",              color={0,3}},
     {name = "Past, Metatext, Delete",author = "EmilyEmmi",              color={3,1}},
     {name = "Stringwords, TRASH",   author = "Wrecking Games",          color={3,4}},
+    {name = "Cardinality Mod",      author = "JustImagineYT",           color={3,4}},
     {name = "Word Salad",           author = "Huebird",                 color={2,1}},
     {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
