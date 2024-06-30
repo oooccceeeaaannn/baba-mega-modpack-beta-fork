@@ -98,6 +98,7 @@ function addobj(objname, c, ac, tiling, c2, sprite)
 end
 
 addobj("buffer", { 0, 1 }, { 0, 3 }, 4)
+addobj("bsod",{4,3},{3,3},-1)
 addobj("fan", { 4, 0 }, { 4, 1 }, 4)
 addobj("puzzle", { 4, 0 }, { 4, 2 }, -1)
 addobj("pyramid", { 6, 1 }, { 3, 4 }, -1)
