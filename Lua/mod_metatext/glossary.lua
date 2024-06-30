@@ -9,8 +9,8 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
             author = "Emily",
             display_sprites = {"text_text_baba"},
             description = [[Metatext is text that refers to other text.
-             For example, Baba metatext refers to the text that refers to Baba.
-             So it's essentially modifying one kind of text block.]],
+For example, Baba metatext refers to the text that refers to Baba.
+So it's essentially modifying one kind of text block.]],
         },
         {
             name = "metaprefix",
@@ -19,7 +19,7 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
             author = "Emily",
             display_sprites = {"text_textpre"},
             description = [[This prefix goes before any word, parsing it as metatext. Make TEXT_ BABA IS YOU to make the piece of text that refers to BABA be YOU!
-            It's kind of like TEXT REFERS but not exactly the same when it comes to turning props.]],
+It's kind of like TEXT REFERS but not exactly the same when it comes to turning props.]],
         },
         {
             name = "metaunmeta",
@@ -40,7 +40,6 @@ These are considered transformations, so NOUN IS NOUN will disable them.]],
             author = "Emily",
             display_sprites = {"text_meta-1","text_meta0","text_meta1","text_meta2"},
             description = [[These special nouns refer to a specific level of metatext:
-
 META-1 refers to objects such as 'baba' and 'rock'
 META0 refers to text such as 'text_baba' and 'text_is'
 META1 refers to level 1 metatext such as 'text_text_baba'...

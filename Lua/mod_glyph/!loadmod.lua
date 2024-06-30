@@ -7,6 +7,7 @@ local load_order = {
 	"conditions.lua",
 	"convert.lua",
 	"features.lua",
+	"glossary.lua",
 	"glyph.lua",
 	"load.lua",
 	"map.lua",
