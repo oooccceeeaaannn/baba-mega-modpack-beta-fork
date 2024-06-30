@@ -31,7 +31,7 @@ infixargextras = {
 	glyph_on = {},
 	glyph_nextto = {}
 }
-glyphnames = {"baba", "glyph", "flag", "keke", "it", "text", "wall", "skull", "empty", "level", "me", "fofo", "water", "badbad", "jiji", "box", "lava", "bog", "key", "door", "hedge", "belt", "rock", "boat", "toometa", "line", "arrow", "cursor", "sign", "tile", "grass", "robot", "monster", "eye", "jelly", "cliff", "love", "cheese", "win", "you", "bonus", "defeat", "stop", "sink", "float", "push", "still", "you2", "tele", "shut", "open", "pull", "3d", "melt", "hot", "turn", "deturn", "shift", "move", "weak", "word", "swap", "hide", "symbol", "red", "select", "more", "not", "and", "become", "is", "write", "has", "inscribe", "lonely", "near", "on", "nextto", "feeling", "all", "glyph_", "text_", "group", "group2"}
+glyphnames = {"baba", "glyph", "flag", "keke", "it", "text", "wall", "skull", "empty", "level", "me", "fofo", "water", "badbad", "jiji", "box", "lava", "bog", "key", "door", "hedge", "belt", "rock", "boat", "toometa", "line", "arrow", "cursor", "sign", "tile", "grass", "robot", "monster", "eye", "jelly", "cliff", "love", "cheese", "win", "you", "bonus", "defeat", "stop", "sink", "float", "push", "still", "you2", "tele", "shut", "open", "pull", "3d", "melt", "hot", "turn", "deturn", "shift", "move", "weak", "word", "swap", "hide", "symbol", "red", "select", "more", "not", "and", "become", "is", "write", "has", "inscribe", "lonely", "near", "on", "nextto", "feeling", "all", "metaglyph", "metatext", "group", "group2"}
 glyphnear = {{0,1}, {1,0}, {0,-1}, {-1,0}}
 propsurroundings = {}
 nounsurroundings = {}
@@ -44,8 +44,8 @@ symbolmap = {}
 
 --[[ 
 	@Merge: A few changes to sprite names:
-	- "text_meta" => "text_glyph_"
-	- "glyph_meta" => "glyph_glyph_"
+	- "text_meta" => "text_metaglyph"
+	- "glyph_meta" => "glyph_metaglyph"
 
 	Reason for this is the metatext mod has its own "text_meta". "glyph_meta" also had to be renamed to keep the behavior of this arrangement:
 		glyph_metatext glyph_meta glyph_is glyph_win
@@ -138,15 +138,15 @@ table.insert(editor_objlist_order, "glyph_write")
 table.insert(editor_objlist_order, "glyph_is")
 table.insert(editor_objlist_order, "glyph_inscribe")
 table.insert(editor_objlist_order, "glyph_and")
-table.insert(editor_objlist_order, "glyph_glyph_")
-table.insert(editor_objlist_order, "glyph_text_")
+table.insert(editor_objlist_order, "glyph_metaglyph")
+table.insert(editor_objlist_order, "glyph_metatext")
 table.insert(editor_objlist_order, "glyph_group")
 table.insert(editor_objlist_order, "glyph_group2")
 table.insert(editor_objlist_order, "toometa")
 table.insert(editor_objlist_order, "text_toometa")
 table.insert(editor_objlist_order, "text_glyph_")
 
-editor_objlist["text_glyph"] = 
+editor_objlist["text_glyph"] =
 {
 	name = "text_glyph",
 	sprite_in_root = false,
@@ -508,10 +508,9 @@ editor_objlist["glyph_you2"] =
 	colour = {4, 0},
 	colour_active = {4, 1},
 }
-editor_objlist["glyph_glyph_"] =
+editor_objlist["glyph_metaglyph"] = 
 {
-	name = "glyph_glyph_",
-	sprite = "glyph_metaglyph",
+	name = "glyph_metaglyph",
 	sprite_in_root = false,
 	unittype = "object",
 	tags = {"abstract", "glyph"},
@@ -521,10 +520,9 @@ editor_objlist["glyph_glyph_"] =
 	colour = {3, 3},
 	colour_active = {4, 4},
 }
-editor_objlist["glyph_text_"] =
+editor_objlist["glyph_metatext"] = 
 {
-	name = "glyph_text_",
-	sprite = "glyph_metatext",
+	name = "glyph_metatext",
 	sprite_in_root = false,
 	unittype = "object",
 	tags = {"abstract", "glyph"},
@@ -1499,7 +1497,7 @@ function isgroupglyph(input_string, id)
 end
 
 function isglyphmeta(input_string, id)
-	return (input_string == "glyph_glyph_") or (input_string == "glyph_text_")
+	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext")
 end
 
 function isprefix(input_string, id)
@@ -1556,10 +1554,10 @@ function metaprefix(x, y)
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
-				if (name == "glyph_text_") then
+				if (name == "glyph_metatext") then
 					is_text = true
 					break
-				elseif (name == "glyph_glyph_") then
+				elseif (name == "glyph_metaglyph") then
 					is_meta = true
 					im_done = true
 					break
