@@ -252,11 +252,11 @@ function calculatesentences(unitid,x,y,dir,a,b,c,br_calling_calculatesentences_b
 						verbfound = true
 					end
 					
-					if v[4] == 4 and v[3] == "text_" then
+					if v[4] == 4 and is_str_special_prefix(v[3]) then
 						found_text_ = true
 					end
 					
-					if (v[4] == 0) or (v[4] == 4 and v[3] == "text_") then
+					if (v[4] == 0) or (v[4] == 4 and is_str_special_prefix(v[3])) then
 						objfound = true
 					end
 				
