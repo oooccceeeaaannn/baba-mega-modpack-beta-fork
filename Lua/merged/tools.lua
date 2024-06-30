@@ -1222,7 +1222,7 @@ function getname(unit,pname_,pnot_)
 		else
 			result = "text"
 		end
-	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,6) ~= "glyph") then
+	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,6) ~= "glyph_") then
 		result = "glyph"
 	end
 
