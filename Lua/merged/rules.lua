@@ -605,6 +605,8 @@ function calculatesentences(unitid,x,y,dir,a,b,c,br_calling_calculatesentences_b
 	return sentences,finals,maxpos,totalvariants,sentence_ids,firstwords,br_and_text_with_split_parsing, sentence_metadata
 end
 
+function is_str_special_prefix(str) return (str == "text_") or (str == "glyph_") end
+
 function docode(firstwords)
 	--[[ 
 		@mods(omni text) - Override reason: main implementation of omni text + calculate
@@ -976,20 +978,20 @@ function docode(firstwords)
 								8 = customobject
 							]]--
 							
-							if tiletype == 4 and tilename == "text_" and tryasnoun ~= wordid then --text_ logic starts here
+							if tiletype == 4 and (is_str_special_prefix(tilename)) and tryasnoun ~= wordid then --text_ logic starts here
 								if tryasnoun == 0 then --If this is the first
 									if wordid + 1 <= #sent then
 										if stage ~= 3 and not stage2reached then --False after infix conditions and verbs
 											local phase = 0
 											for fwordid=wordid + 1,#sent do --Now we start looking into the future
-												if (sent[fwordid][2] ~= 4 or sent[fwordid][1] ~= "text_") or (phase == 1 and sent[fwordid][1] == "text_") then --If this isn't a text_, unless we already encountered a noun.
+												if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) or (phase == 1 and is_str_special_prefix(sent[fwordid][1])) then --If this isn't a text_, unless we already encountered a noun.
 													if phase == 0 then --Move onto next phase if this is the first time
 														phase = 1
 													elseif (sent[fwordid][2] ~= 1 and sent[fwordid][2] ~= 6 and sent[fwordid][2] ~= 7 and sent[fwordid][2] ~= 4 and sent[fwordid][2] ~= pf_filler_text_type) then --Checks if this won't parse
                             							phase = 0
 														break
 													elseif sent[fwordid][2] ~= 4 then --stop if we know it will parse
-														prefix = "text_" .. prefix
+														prefix = tilename .. prefix
                             							phase = 0
 														break
 													end
@@ -998,18 +1000,18 @@ function docode(firstwords)
 												end
 											end
 										if phase == 1 then
-											prefix = "text_" .. prefix
+											prefix = tilename .. prefix
 										elseif tryasnoun ~= 0 and prefix == "" then
 												phase = 0
 												for fwordid=wordid + 1,#sent do
-													if (sent[fwordid][2] ~= 4 or sent[fwordid][1] ~= "text_") or (phase == 1 and sent[fwordid][1] == "text_") or (tryasnoun == fwordid) then
+													if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) or (phase == 1 and is_str_special_prefix(sent[fwordid][1])) or (tryasnoun == fwordid) then
 														if phase == 0 then
 															phase = 1
 														elseif (sent[fwordid][2] ~= 1 and sent[fwordid][2] ~= 6 and sent[fwordid][2] ~= 7) then
 															tiletype = 9
 															break
 														else
-															prefix = "text_" .. prefix
+															prefix = tilename .. prefix
 															break
 														end
 													end
@@ -1022,12 +1024,12 @@ function docode(firstwords)
 											end
 										else
 											for fwordid=wordid + 1,#sent do
-												if (sent[fwordid][2] ~= 4 or sent[fwordid][1] ~= "text_") then
+												if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) then
 													gottagoback = true
-													prefix = "text_" .. prefix
+													prefix = tilename .. prefix
 													break
 												elseif fwordid == #sent then
-													prefix = "text_" .. prefix
+													prefix = tilename .. prefix
 													tryasnoun = fwordid
 													break
 												end
@@ -1035,7 +1037,7 @@ function docode(firstwords)
 										end
 									end
 								else
-									prefix = "text_" .. prefix --stack
+									prefix = tilename .. prefix --stack
 								end
 							elseif prefix ~= "" then --Parse this word as a noun
 								tiletype = 0
@@ -1473,7 +1475,7 @@ function docode(firstwords)
 								else
 									table.insert(extraids_ifvalid, {prefix .. wname, wtype, wid})
 									extraids_current = wname
-									if wname == "text_" then
+									if is_str_special_prefix(wname) then
 										extraids_current = "text_butnoun"
 									end
 								end
@@ -1601,8 +1603,8 @@ function docode(firstwords)
 								end
 								
 								if (wtype == 4) then
-									if (wname == "text_") then
-										prefix = prefix .. "text_"
+									if is_str_special_prefix(wname) then
+										prefix = prefix .. wname
 									else
 										if (prefix == "not ") then
 											prefix = ""
