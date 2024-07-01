@@ -2827,8 +2827,8 @@ function code(alreadyrun_)
 				if BRANCHING_TEXT_LOGGING then
 					print("<<<<<<<<<<<<<start>")
 				end
-				
-                doglyphs(symbolunits)
+
+				local check = doglyphs(symbolunits)
 				docode(firstwords,wordunits)
 				if BRANCHING_TEXT_LOGGING then
 					print("<<<<<<<<<<<<<end>")
@@ -2840,7 +2840,11 @@ function code(alreadyrun_)
 				getallofflines()
 				playrulesound = postrules(alreadyrun)
 				updatecode = 0
-				
+
+				if check == "stop" then
+					return
+				end
+
 				local newwordunits,newwordidentifier,wordrelatedunits = findwordunits()
 				local stable_state_updated = update_stable_state(alreadyrun)
 				local _,newechoidentifier,echorelatedunits = ws_findechounits()
@@ -4641,7 +4645,7 @@ function ruleblockeffect()
 					elseif (handled[b] == 2) then
 						MF_removeblockeffect(b)
 						if glyphrule then
-							setcolour(b)
+							setcolour(b, "active")
 						end
 					end
 				end

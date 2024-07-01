@@ -1,26 +1,24 @@
 disable_toometa = true
 
 glyphunits = {}
-glyphnouns = { "baba", "glyph", "flag", "keke", "it", "text", "all", "wall", "skull", "empty", "level", "me", "fofo", "water", "badbad", "jiji", "box", "lava", "bog", "key", "door", "hedge", "belt", "rock", "boat", "toometa", "line", "arrow", "cursor", "sign", "tile", "grass", "robot", "monster", "eye", "jelly", "cliff", "love", "cheese"}
-glyphprops = {"win", "you", "bonus", "defeat", "stop", "sink", "float", "push", "still", "you2", "tele", "shut", "open", "pull", "3d", "melt", "hot", "turn", "deturn", "shift", "move", "weak", "word", "swap", "hide", "symbol", "red", "select", "more"}
-glyphverbs = {"become", "write", "has", "is", "inscribe"}
 verbargtypes = {
 	glyph_become = {0,3},
 	glyph_write = {0,2,3},
 	glyph_has = {0,3},
 	glyph_is = {0,2,3},
-	glyph_inscribe = {0,2,3}
+	glyph_inscribe = {0,2,3},
+	glyph_eat = {0,3},
+	glyph_make = {0,3}
 }
 verbargextras = {
 	glyph_become = {},
 	glyph_write = {},
 	glyph_has = {},
 	glyph_is = {},
-	glyph_inscribe = {}
-
+	glyph_inscribe = {},
+	glyph_eat = {},
+	glyph_make = {}
 }
-glyphprefixes = {"lonely"}
-glyphinfixes = {"near", "on", "nextto", "feeling"}
 infixargtypes = {
 	glyph_feeling = {2},
 	glyph_near = {0, 3},
@@ -33,16 +31,144 @@ infixargextras = {
 	glyph_on = {},
 	glyph_nextto = {}
 }
-glyphnames = {"baba", "glyph", "flag", "keke", "it", "text", "wall", "skull", "empty", "level", "me", "fofo", "water", "badbad", "jiji", "box", "lava", "bog", "key", "door", "hedge", "belt", "rock", "boat", "toometa", "line", "arrow", "cursor", "sign", "tile", "grass", "robot", "monster", "eye", "jelly", "cliff", "love", "cheese", "win", "you", "bonus", "defeat", "stop", "sink", "float", "push", "still", "you2", "tele", "shut", "open", "pull", "3d", "melt", "hot", "turn", "deturn", "shift", "move", "weak", "word", "swap", "hide", "symbol", "red", "select", "more", "not", "and", "become", "is", "write", "has", "inscribe", "lonely", "near", "on", "nextto", "feeling", "all", "metaglyph", "metatext", "group", "group2"}
 glyphnear = {{0,1}, {1,0}, {0,-1}, {-1,0}}
+glyphtypes = {
+	baba = 0,
+	glyph = 0,
+	flag = 0,
+	keke = 0,
+	it = 0,
+	text = 0,
+	all = 0,
+	wall = 0,
+	skull = 0,
+	empty = 0,
+	level = 0,
+	me = 0,
+	fofo = 0,
+	water = 0,
+	badbad = 0,
+	jiji = 0,
+	box = 0,
+	lava = 0,
+	bog = 0,
+	key = 0,
+	door = 0,
+	hedge = 0,
+	belt = 0,
+	rock = 0,
+	boat = 0,
+	toometa = 0,
+	line = 0,
+	arrow = 0,
+	cursor = 0,
+	sign = 0,
+	tile = 0,
+	grass = 0,
+	robot = 0,
+	monster = 0,
+	eye = 0,
+	jelly = 0,
+	cliff = 0,
+	love = 0,
+	cheese = 0,
+	orb = 0,
+	ghost = 0,
+	hand = 0,
+	arm = 0,
+	circle = 0,
+	square = 0,
+	donut = 0,
+	cake = 0,
+	gem = 0,
+	pipe = 0,
+	triangle = 0,
+	win = 2,
+	you = 2,
+	bonus = 2,
+	defeat = 2,
+	stop = 2,
+	sink = 2,
+	float = 2,
+	push = 2,
+	still = 2,
+	you2 = 2,
+	tele = 2,
+	shut = 2,
+	open = 2,
+	pull = 2,
+	melt = 2,
+	hot = 2,
+	turn = 2,
+	deturn = 2,
+	shift = 2,
+	move = 2,
+	weak = 2,
+	word = 2,
+	swap = 2,
+	hide = 2,
+	symbol = 2,
+	red = 2,
+	select = 2,
+	more = 2,
+	chill = 2,
+	revert = 2,
+	createall = 2,
+	up = 2,
+	down = 2,
+	left = 2,
+	right = 2,
+	best = 2,
+	fallright = 2,
+	fallleft = 2,
+	fallup = 2,
+	falldown = 2,
+	power = 2,
+	auto = 2,
+	blue = 2,
+	become = 1,
+	write = 1,
+	has = 1,
+	is = 1,
+	inscribe = 1,
+	eat = 1,
+	make = 1,
+	lonely = 7,
+	powered = 7,
+	near = 8,
+	on = 8,
+	nextto = 8,
+	feeling = 8,
+	meta = 5,
+	metatext = 5,
+	group = 3,
+	group2 = 3,
+	group3 = 3,
+}
+glyphtypes["3d"] = 2
+glyphtypes["end"] = 2
+glyphtypes["not"] = 4
+glyphtypes["and"] = 6
+glyphtypes["_NONE_"] = 3
 propsurroundings = {}
 nounsurroundings = {}
 surroundings = {}
 infixsurroundings = {}
 infixsurroundingsids = {}
 metaglyphdata = {}
+tilemetaglyphdata = {}
 negatetable = {}
 symbolmap = {}
+metaindicators = {}
+metatextindicators = {}
+
+nounandparam = {}
+propandparam = {}
+bothandparam = {}
+properbothandparam = {}
+prefixandparam = {}
+
+nearbysave = {}
 
 --[[ 
 	@Merge: A few changes to sprite names:
@@ -99,6 +225,17 @@ table.insert(editor_objlist_order, "glyph_jelly")
 table.insert(editor_objlist_order, "glyph_cliff")
 table.insert(editor_objlist_order, "glyph_love")
 table.insert(editor_objlist_order, "glyph_cheese")
+table.insert(editor_objlist_order, "glyph_orb")
+table.insert(editor_objlist_order, "glyph_ghost")
+table.insert(editor_objlist_order, "glyph_arm")
+table.insert(editor_objlist_order, "glyph_hand")
+table.insert(editor_objlist_order, "glyph_circle")
+table.insert(editor_objlist_order, "glyph_square")
+table.insert(editor_objlist_order, "glyph_donut")
+table.insert(editor_objlist_order, "glyph_cake")
+table.insert(editor_objlist_order, "glyph_gem")
+table.insert(editor_objlist_order, "glyph_pipe")
+table.insert(editor_objlist_order, "glyph_triangle")
 table.insert(editor_objlist_order, "glyph_win")
 table.insert(editor_objlist_order, "glyph_not")
 table.insert(editor_objlist_order, "glyph_you")
@@ -129,7 +266,24 @@ table.insert(editor_objlist_order, "glyph_symbol")
 table.insert(editor_objlist_order, "glyph_red")
 table.insert(editor_objlist_order, "glyph_select")
 table.insert(editor_objlist_order, "glyph_more")
+table.insert(editor_objlist_order, "glyph_chill")
+table.insert(editor_objlist_order, "glyph_revert")
+table.insert(editor_objlist_order, "glyph_createall")
+table.insert(editor_objlist_order, "glyph_end")
+table.insert(editor_objlist_order, "glyph_up")
+table.insert(editor_objlist_order, "glyph_down")
+table.insert(editor_objlist_order, "glyph_left")
+table.insert(editor_objlist_order, "glyph_right")
+table.insert(editor_objlist_order, "glyph_best")
+table.insert(editor_objlist_order, "glyph_fallright")
+table.insert(editor_objlist_order, "glyph_fallleft")
+table.insert(editor_objlist_order, "glyph_fallup")
+table.insert(editor_objlist_order, "glyph_falldown")
+table.insert(editor_objlist_order, "glyph_power")
+table.insert(editor_objlist_order, "glyph_auto")
+table.insert(editor_objlist_order, "glyph_blue")
 table.insert(editor_objlist_order, "glyph_lonely")
+table.insert(editor_objlist_order, "glyph_powered")
 table.insert(editor_objlist_order, "glyph_near")
 table.insert(editor_objlist_order, "glyph_on")
 table.insert(editor_objlist_order, "glyph_nextto")
@@ -139,11 +293,15 @@ table.insert(editor_objlist_order, "glyph_has")
 table.insert(editor_objlist_order, "glyph_write")
 table.insert(editor_objlist_order, "glyph_is")
 table.insert(editor_objlist_order, "glyph_inscribe")
+table.insert(editor_objlist_order, "glyph_eat")
+table.insert(editor_objlist_order, "glyph_make")
 table.insert(editor_objlist_order, "glyph_and")
 table.insert(editor_objlist_order, "glyph_metaglyph")
 table.insert(editor_objlist_order, "glyph_metatext")
 table.insert(editor_objlist_order, "glyph_group")
 table.insert(editor_objlist_order, "glyph_group2")
+table.insert(editor_objlist_order, "glyph__NONE_")
+table.insert(editor_objlist_order, "glyph_group3")
 table.insert(editor_objlist_order, "toometa")
 table.insert(editor_objlist_order, "text_toometa")
 table.insert(editor_objlist_order, "text_glyph_")
@@ -175,7 +333,7 @@ editor_objlist["text_glyph_"] =
 	colour_active = {3, 3},
 }
 
-editor_objlist["text_symbol"] = 
+editor_objlist["text_symbol"] =
 {
 	name = "text_symbol",
 	sprite_in_root = false,
@@ -188,7 +346,7 @@ editor_objlist["text_symbol"] =
 	colour_active = {4, 3},
 }
 
-editor_objlist["glyph_glyph"] = 
+editor_objlist["glyph_glyph"] =
 {
 	name = "glyph_glyph",
 	sprite_in_root = false,
@@ -200,7 +358,7 @@ editor_objlist["glyph_glyph"] =
 	colour = {3, 2},
 	colour_active = {3, 3},
 }
-editor_objlist["glyph_it"] = 
+editor_objlist["glyph_it"] =
 {
 	name = "glyph_it",
 	sprite_in_root = false,
@@ -214,7 +372,7 @@ editor_objlist["glyph_it"] =
 }
 
 
-editor_objlist["glyph_baba"] = 
+editor_objlist["glyph_baba"] =
 {
 	name = "glyph_baba",
 	sprite_in_root = false,
@@ -227,7 +385,7 @@ editor_objlist["glyph_baba"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_not"] = 
+editor_objlist["glyph_not"] =
 {
 	name = "glyph_not",
 	sprite_in_root = false,
@@ -240,7 +398,7 @@ editor_objlist["glyph_not"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_you"] = 
+editor_objlist["glyph_you"] =
 {
 	name = "glyph_you",
 	sprite_in_root = false,
@@ -253,7 +411,7 @@ editor_objlist["glyph_you"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_bonus"] = 
+editor_objlist["glyph_bonus"] =
 {
 	name = "glyph_bonus",
 	sprite_in_root = false,
@@ -266,7 +424,7 @@ editor_objlist["glyph_bonus"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_win"] = 
+editor_objlist["glyph_win"] =
 {
 	name = "glyph_win",
 	sprite_in_root = false,
@@ -280,7 +438,7 @@ editor_objlist["glyph_win"] =
 }
 
 
-editor_objlist["glyph_flag"] = 
+editor_objlist["glyph_flag"] =
 {
 	name = "glyph_flag",
 	sprite_in_root = false,
@@ -293,7 +451,7 @@ editor_objlist["glyph_flag"] =
 	colour_active = {2, 4},
 }
 
-editor_objlist["glyph_text"] = 
+editor_objlist["glyph_text"] =
 {
 	name = "glyph_text",
 	sprite_in_root = false,
@@ -306,7 +464,7 @@ editor_objlist["glyph_text"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_keke"] = 
+editor_objlist["glyph_keke"] =
 {
 	name = "glyph_keke",
 	sprite_in_root = false,
@@ -319,7 +477,7 @@ editor_objlist["glyph_keke"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_all"] = 
+editor_objlist["glyph_all"] =
 {
 	name = "glyph_all",
 	sprite_in_root = false,
@@ -332,7 +490,7 @@ editor_objlist["glyph_all"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_become"] = 
+editor_objlist["glyph_become"] =
 {
 	name = "glyph_become",
 	sprite_in_root = false,
@@ -345,7 +503,7 @@ editor_objlist["glyph_become"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_write"] = 
+editor_objlist["glyph_write"] =
 {
 	name = "glyph_write",
 	sprite_in_root = false,
@@ -358,7 +516,7 @@ editor_objlist["glyph_write"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_defeat"] = 
+editor_objlist["glyph_defeat"] =
 {
 	name = "glyph_defeat",
 	sprite_in_root = false,
@@ -371,7 +529,7 @@ editor_objlist["glyph_defeat"] =
 	colour_active = {2, 1},
 }
 
-editor_objlist["glyph_stop"] = 
+editor_objlist["glyph_stop"] =
 {
 	name = "glyph_stop",
 	sprite_in_root = false,
@@ -384,7 +542,7 @@ editor_objlist["glyph_stop"] =
 	colour_active = {2, 1},
 }
 
-editor_objlist["glyph_wall"] = 
+editor_objlist["glyph_wall"] =
 {
 	name = "glyph_wall",
 	sprite_in_root = false,
@@ -398,7 +556,7 @@ editor_objlist["glyph_wall"] =
 }
 
 
-editor_objlist["glyph_sink"] = 
+editor_objlist["glyph_sink"] =
 {
 	name = "glyph_sink",
 	sprite_in_root = false,
@@ -411,7 +569,7 @@ editor_objlist["glyph_sink"] =
 	colour_active = {1, 3},
 }
 
-editor_objlist["glyph_float"] = 
+editor_objlist["glyph_float"] =
 {
 	name = "glyph_float",
 	sprite_in_root = false,
@@ -424,7 +582,7 @@ editor_objlist["glyph_float"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_push"] = 
+editor_objlist["glyph_push"] =
 {
 	name = "glyph_push",
 	sprite_in_root = false,
@@ -437,7 +595,7 @@ editor_objlist["glyph_push"] =
 	colour_active = {6, 1},
 }
 
-editor_objlist["glyph_skull"] = 
+editor_objlist["glyph_skull"] =
 {
 	name = "glyph_skull",
 	sprite_in_root = false,
@@ -450,7 +608,7 @@ editor_objlist["glyph_skull"] =
 	colour_active = {2, 1},
 	sprite = "glyph_skull"
 }
-editor_objlist["glyph_and"] = 
+editor_objlist["glyph_and"] =
 {
 	name = "glyph_and",
 	sprite_in_root = false,
@@ -462,7 +620,7 @@ editor_objlist["glyph_and"] =
 	colour = {0, 2},
 	colour_active = {0, 3},
 }
-editor_objlist["glyph_empty"] = 
+editor_objlist["glyph_empty"] =
 {
 	name = "glyph_empty",
 	sprite_in_root = false,
@@ -474,7 +632,7 @@ editor_objlist["glyph_empty"] =
 	colour = {0, 1},
 	colour_active = {0, 3},
 }
-editor_objlist["glyph_level"] = 
+editor_objlist["glyph_level"] =
 {
 	name = "glyph_level",
 	sprite_in_root = false,
@@ -486,7 +644,7 @@ editor_objlist["glyph_level"] =
 	colour = {4, 0},
 	colour_active = {4, 1},
 }
-editor_objlist["glyph_still"] = 
+editor_objlist["glyph_still"] =
 {
 	name = "glyph_still",
 	sprite_in_root = false,
@@ -498,7 +656,7 @@ editor_objlist["glyph_still"] =
 	colour = {2, 0},
 	colour_active = {2, 1},
 }
-editor_objlist["glyph_you2"] = 
+editor_objlist["glyph_you2"] =
 {
 	name = "glyph_you2",
 	sprite_in_root = false,
@@ -510,7 +668,7 @@ editor_objlist["glyph_you2"] =
 	colour = {4, 0},
 	colour_active = {4, 1},
 }
-editor_objlist["glyph_metaglyph"] = 
+editor_objlist["glyph_metaglyph"] =
 {
 	name = "glyph_metaglyph",
 	sprite_in_root = false,
@@ -522,7 +680,7 @@ editor_objlist["glyph_metaglyph"] =
 	colour = {3, 3},
 	colour_active = {4, 4},
 }
-editor_objlist["glyph_metatext"] = 
+editor_objlist["glyph_metatext"] =
 {
 	name = "glyph_metatext",
 	sprite_in_root = false,
@@ -534,7 +692,7 @@ editor_objlist["glyph_metatext"] =
 	colour = {4, 1},
 	colour_active = {4, 2},
 }
-editor_objlist["glyph_me"] = 
+editor_objlist["glyph_me"] =
 {
 	name = "glyph_me",
 	sprite_in_root = false,
@@ -546,7 +704,7 @@ editor_objlist["glyph_me"] =
 	colour = {3, 0},
 	colour_active = {3, 1},
 }
-editor_objlist["glyph_fofo"] = 
+editor_objlist["glyph_fofo"] =
 {
 	name = "glyph_fofo",
 	sprite_in_root = false,
@@ -559,7 +717,7 @@ editor_objlist["glyph_fofo"] =
 	colour_active = {5, 2},
 }
 
-editor_objlist["glyph_water"] = 
+editor_objlist["glyph_water"] =
 {
 	name = "glyph_water",
 	sprite_in_root = false,
@@ -572,7 +730,7 @@ editor_objlist["glyph_water"] =
 	colour_active = {1, 3},
 }
 
-editor_objlist["glyph_badbad"] = 
+editor_objlist["glyph_badbad"] =
 {
 	name = "glyph_badbad",
 	sprite_in_root = false,
@@ -585,7 +743,7 @@ editor_objlist["glyph_badbad"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_group"] = 
+editor_objlist["glyph_group"] =
 {
 	name = "glyph_group",
 	sprite_in_root = false,
@@ -598,7 +756,7 @@ editor_objlist["glyph_group"] =
 	colour_active = {3, 3},
 }
 
-editor_objlist["glyph_tele"] = 
+editor_objlist["glyph_tele"] =
 {
 	name = "glyph_tele",
 	sprite_in_root = false,
@@ -611,7 +769,7 @@ editor_objlist["glyph_tele"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_jiji"] = 
+editor_objlist["glyph_jiji"] =
 {
 	name = "glyph_jiji",
 	sprite_in_root = false,
@@ -624,7 +782,7 @@ editor_objlist["glyph_jiji"] =
 	colour_active = {2, 3},
 }
 
-editor_objlist["glyph_box"] = 
+editor_objlist["glyph_box"] =
 {
 	name = "glyph_box",
 	sprite_in_root = false,
@@ -637,7 +795,7 @@ editor_objlist["glyph_box"] =
 	colour_active = {6, 1},
 }
 
-editor_objlist["glyph_shut"] = 
+editor_objlist["glyph_shut"] =
 {
 	name = "glyph_shut",
 	sprite_in_root = false,
@@ -650,7 +808,7 @@ editor_objlist["glyph_shut"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_open"] = 
+editor_objlist["glyph_open"] =
 {
 	name = "glyph_open",
 	sprite_in_root = false,
@@ -663,7 +821,7 @@ editor_objlist["glyph_open"] =
 	colour_active = {2, 4},
 }
 
-editor_objlist["glyph_lava"] = 
+editor_objlist["glyph_lava"] =
 {
 	name = "glyph_lava",
 	sprite_in_root = false,
@@ -676,7 +834,7 @@ editor_objlist["glyph_lava"] =
 	colour_active = {2, 3},
 }
 
-editor_objlist["glyph_bog"] = 
+editor_objlist["glyph_bog"] =
 {
 	name = "glyph_bog",
 	sprite_in_root = false,
@@ -690,7 +848,7 @@ editor_objlist["glyph_bog"] =
 }
 
 
-editor_objlist["glyph_pull"] = 
+editor_objlist["glyph_pull"] =
 {
 	name = "glyph_pull",
 	sprite_in_root = false,
@@ -703,7 +861,7 @@ editor_objlist["glyph_pull"] =
 	colour_active = {6, 2},
 }
 
-editor_objlist["glyph_3d"] = 
+editor_objlist["glyph_3d"] =
 {
 	name = "glyph_3d",
 	sprite_in_root = false,
@@ -716,7 +874,7 @@ editor_objlist["glyph_3d"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_melt"] = 
+editor_objlist["glyph_melt"] =
 {
 	name = "glyph_melt",
 	sprite_in_root = false,
@@ -729,7 +887,7 @@ editor_objlist["glyph_melt"] =
 	colour_active = {1, 3},
 }
 
-editor_objlist["glyph_hot"] = 
+editor_objlist["glyph_hot"] =
 {
 	name = "glyph_hot",
 	sprite_in_root = false,
@@ -742,7 +900,7 @@ editor_objlist["glyph_hot"] =
 	colour_active = {2, 3},
 }
 
-editor_objlist["glyph_key"] = 
+editor_objlist["glyph_key"] =
 {
 	name = "glyph_key",
 	sprite_in_root = false,
@@ -756,7 +914,7 @@ editor_objlist["glyph_key"] =
 	sprite = "glyph_key"
 }
 
-editor_objlist["glyph_door"] = 
+editor_objlist["glyph_door"] =
 {
 	name = "glyph_door",
 	sprite_in_root = false,
@@ -769,7 +927,7 @@ editor_objlist["glyph_door"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_hedge"] = 
+editor_objlist["glyph_hedge"] =
 {
 	name = "glyph_hedge",
 	sprite_in_root = false,
@@ -782,7 +940,7 @@ editor_objlist["glyph_hedge"] =
 	colour_active = {5, 1},
 }
 
-editor_objlist["glyph_lonely"] = 
+editor_objlist["glyph_lonely"] =
 {
 	name = "glyph_lonely",
 	sprite_in_root = false,
@@ -795,7 +953,7 @@ editor_objlist["glyph_lonely"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_near"] = 
+editor_objlist["glyph_near"] =
 {
 	name = "glyph_near",
 	sprite_in_root = false,
@@ -808,7 +966,7 @@ editor_objlist["glyph_near"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_turn"] = 
+editor_objlist["glyph_turn"] =
 {
 	name = "glyph_turn",
 	sprite_in_root = false,
@@ -821,7 +979,7 @@ editor_objlist["glyph_turn"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_deturn"] = 
+editor_objlist["glyph_deturn"] =
 {
 	name = "glyph_deturn",
 	sprite_in_root = false,
@@ -834,7 +992,7 @@ editor_objlist["glyph_deturn"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_shift"] = 
+editor_objlist["glyph_shift"] =
 {
 	name = "glyph_shift",
 	sprite_in_root = false,
@@ -847,7 +1005,7 @@ editor_objlist["glyph_shift"] =
 	colour_active = {1, 3},
 }
 
-editor_objlist["glyph_move"] = 
+editor_objlist["glyph_move"] =
 {
 	name = "glyph_move",
 	sprite_in_root = false,
@@ -860,7 +1018,7 @@ editor_objlist["glyph_move"] =
 	colour_active = {5, 3},
 }
 
-editor_objlist["glyph_weak"] = 
+editor_objlist["glyph_weak"] =
 {
 	name = "glyph_weak",
 	sprite_in_root = false,
@@ -873,7 +1031,7 @@ editor_objlist["glyph_weak"] =
 	colour_active = {1, 2},
 }
 
-editor_objlist["glyph_belt"] = 
+editor_objlist["glyph_belt"] =
 {
 	name = "glyph_belt",
 	sprite_in_root = false,
@@ -888,7 +1046,7 @@ editor_objlist["glyph_belt"] =
 
 -- write
 
-editor_objlist["glyph_rock"] = 
+editor_objlist["glyph_rock"] =
 {
 	name = "glyph_rock",
 	sprite_in_root = false,
@@ -901,7 +1059,7 @@ editor_objlist["glyph_rock"] =
 	colour_active = {6, 1},
 }
 
-editor_objlist["glyph_has"] = 
+editor_objlist["glyph_has"] =
 {
 	name = "glyph_has",
 	sprite_in_root = false,
@@ -914,7 +1072,7 @@ editor_objlist["glyph_has"] =
 	colour_active = {6, 1},
 }
 
-editor_objlist["glyph_word"] = 
+editor_objlist["glyph_word"] =
 {
 	name = "glyph_word",
 	sprite_in_root = false,
@@ -927,7 +1085,7 @@ editor_objlist["glyph_word"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_group2"] = 
+editor_objlist["glyph_group2"] =
 {
 	name = "glyph_group2",
 	sprite_in_root = false,
@@ -940,7 +1098,7 @@ editor_objlist["glyph_group2"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_boat"] = 
+editor_objlist["glyph_boat"] =
 {
 	name = "glyph_boat",
 	sprite_in_root = false,
@@ -953,7 +1111,7 @@ editor_objlist["glyph_boat"] =
 	colour_active = {6, 2},
 }
 
-editor_objlist["toometa"] = 
+editor_objlist["toometa"] =
 {
 	name = "toometa",
 	sprite_in_root = false,
@@ -965,7 +1123,7 @@ editor_objlist["toometa"] =
 	colour = {0, 3},
 }
 
-editor_objlist["text_toometa"] = 
+editor_objlist["text_toometa"] =
 {
 	name = "text_toometa",
 	sprite_in_root = false,
@@ -978,7 +1136,7 @@ editor_objlist["text_toometa"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_toometa"] = 
+editor_objlist["glyph_toometa"] =
 {
 	name = "glyph_toometa",
 	sprite_in_root = false,
@@ -991,7 +1149,7 @@ editor_objlist["glyph_toometa"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_line"] = 
+editor_objlist["glyph_line"] =
 {
 	name = "glyph_line",
 	sprite_in_root = false,
@@ -1004,7 +1162,7 @@ editor_objlist["glyph_line"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_arrow"] = 
+editor_objlist["glyph_arrow"] =
 {
 	name = "glyph_arrow",
 	sprite_in_root = false,
@@ -1017,7 +1175,7 @@ editor_objlist["glyph_arrow"] =
 	colour_active = {5, 2},
 }
 
-editor_objlist["glyph_cursor"] = 
+editor_objlist["glyph_cursor"] =
 {
 	name = "glyph_cursor",
 	sprite_in_root = false,
@@ -1030,7 +1188,7 @@ editor_objlist["glyph_cursor"] =
 	colour_active = {4, 2},
 }
 
-editor_objlist["glyph_sign"] = 
+editor_objlist["glyph_sign"] =
 {
 	name = "glyph_sign",
 	sprite_in_root = false,
@@ -1043,7 +1201,7 @@ editor_objlist["glyph_sign"] =
 	colour_active = {6, 2},
 }
 
-editor_objlist["glyph_tile"] = 
+editor_objlist["glyph_tile"] =
 {
 	name = "glyph_tile",
 	sprite_in_root = false,
@@ -1056,7 +1214,7 @@ editor_objlist["glyph_tile"] =
 	colour_active = {0, 1},
 }
 
-editor_objlist["glyph_grass"] = 
+editor_objlist["glyph_grass"] =
 {
 	name = "glyph_grass",
 	sprite_in_root = false,
@@ -1069,7 +1227,7 @@ editor_objlist["glyph_grass"] =
 	colour_active = {5, 3},
 }
 
-editor_objlist["glyph_robot"] = 
+editor_objlist["glyph_robot"] =
 {
 	name = "glyph_robot",
 	sprite_in_root = false,
@@ -1082,7 +1240,7 @@ editor_objlist["glyph_robot"] =
 	colour_active = {0, 1},
 }
 
-editor_objlist["glyph_monster"] = 
+editor_objlist["glyph_monster"] =
 {
 	name = "glyph_monster",
 	sprite_in_root = false,
@@ -1095,7 +1253,7 @@ editor_objlist["glyph_monster"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_eye"] = 
+editor_objlist["glyph_eye"] =
 {
 	name = "glyph_eye",
 	sprite_in_root = false,
@@ -1108,7 +1266,7 @@ editor_objlist["glyph_eye"] =
 	colour_active = {4, 2},
 }
 
-editor_objlist["glyph_jelly"] = 
+editor_objlist["glyph_jelly"] =
 {
 	name = "glyph_jelly",
 	sprite_in_root = false,
@@ -1121,7 +1279,7 @@ editor_objlist["glyph_jelly"] =
 	colour_active = {1, 4},
 }
 
-editor_objlist["glyph_cliff"] = 
+editor_objlist["glyph_cliff"] =
 {
 	name = "glyph_cliff",
 	sprite_in_root = false,
@@ -1134,7 +1292,7 @@ editor_objlist["glyph_cliff"] =
 	colour_active = {6, 2},
 }
 
-editor_objlist["glyph_swap"] = 
+editor_objlist["glyph_swap"] =
 {
 	name = "glyph_swap",
 	sprite_in_root = false,
@@ -1147,7 +1305,7 @@ editor_objlist["glyph_swap"] =
 	colour_active = {3, 1},
 }
 
-editor_objlist["glyph_hide"] = 
+editor_objlist["glyph_hide"] =
 {
 	name = "glyph_hide",
 	sprite_in_root = false,
@@ -1160,7 +1318,7 @@ editor_objlist["glyph_hide"] =
 	colour_active = {3, 3},
 }
 
-editor_objlist["glyph_is"] = 
+editor_objlist["glyph_is"] =
 {
 	name = "glyph_is",
 	sprite_in_root = false,
@@ -1172,7 +1330,7 @@ editor_objlist["glyph_is"] =
 	colour = {0, 1},
 	colour_active = {0, 3},
 }
-editor_objlist["glyph_symbol"] = 
+editor_objlist["glyph_symbol"] =
 {
 	name = "glyph_symbol",
 	sprite_in_root = false,
@@ -1185,7 +1343,7 @@ editor_objlist["glyph_symbol"] =
 	colour_active = {4, 3},
 }
 
-editor_objlist["text_inscribe"] = 
+editor_objlist["text_inscribe"] =
 {
 	name = "text_inscribe",
 	sprite_in_root = false,
@@ -1199,7 +1357,7 @@ editor_objlist["text_inscribe"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_red"] = 
+editor_objlist["glyph_red"] =
 {
 	name = "glyph_red",
 	sprite_in_root = false,
@@ -1212,7 +1370,7 @@ editor_objlist["glyph_red"] =
 	colour_active = {2, 2},
 }
 
-editor_objlist["glyph_on"] = 
+editor_objlist["glyph_on"] =
 {
 	name = "glyph_on",
 	sprite_in_root = false,
@@ -1225,7 +1383,7 @@ editor_objlist["glyph_on"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_nextto"] = 
+editor_objlist["glyph_nextto"] =
 {
 	name = "glyph_nextto",
 	sprite_in_root = false,
@@ -1238,7 +1396,7 @@ editor_objlist["glyph_nextto"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_select"] = 
+editor_objlist["glyph_select"] =
 {
 	name = "glyph_select",
 	sprite_in_root = false,
@@ -1251,7 +1409,7 @@ editor_objlist["glyph_select"] =
 	colour_active = {2, 4},
 }
 
-editor_objlist["glyph_love"] = 
+editor_objlist["glyph_love"] =
 {
 	name = "glyph_love",
 	sprite_in_root = false,
@@ -1264,7 +1422,7 @@ editor_objlist["glyph_love"] =
 	colour_active = {4, 2},
 }
 
-editor_objlist["glyph_more"] = 
+editor_objlist["glyph_more"] =
 {
 	name = "glyph_more",
 	sprite_in_root = false,
@@ -1277,7 +1435,7 @@ editor_objlist["glyph_more"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["glyph_inscribe"] = 
+editor_objlist["glyph_inscribe"] =
 {
 	name = "glyph_inscribe",
 	sprite_in_root = false,
@@ -1290,7 +1448,7 @@ editor_objlist["glyph_inscribe"] =
 	colour_active = {0, 2},
 }
 
-editor_objlist["text_metaglyph"] = 
+editor_objlist["text_metaglyph"] =
 {
 	name = "text_metaglyph",
 	sprite_in_root = false,
@@ -1303,7 +1461,7 @@ editor_objlist["text_metaglyph"] =
 	colour_active = {3, 3},
 }
 
-editor_objlist["text_metatext"] = 
+editor_objlist["text_metatext"] =
 {
 	name = "text_metatext",
 	sprite_in_root = false,
@@ -1316,7 +1474,7 @@ editor_objlist["text_metatext"] =
 	colour_active = {4, 1},
 }
 
-editor_objlist["text_become"] = 
+editor_objlist["text_become"] =
 {
 	name = "text_become",
 	sprite_in_root = false,
@@ -1329,7 +1487,7 @@ editor_objlist["text_become"] =
 	colour_active = {0, 3},
 }
 
-editor_objlist["glyph_feeling"] = 
+editor_objlist["glyph_feeling"] =
 {
 	name = "glyph_feeling",
 	sprite_in_root = false,
@@ -1342,7 +1500,7 @@ editor_objlist["glyph_feeling"] =
 	colour_active = {2, 4},
 }
 
-editor_objlist["glyph_cheese"] = 
+editor_objlist["glyph_cheese"] =
 {
 	name = "glyph_cheese",
 	sprite_in_root = false,
@@ -1353,6 +1511,424 @@ editor_objlist["glyph_cheese"] =
 	layer = 1,
 	colour = {6, 1},
 	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_eat"] =
+{
+	name = "glyph_eat",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = 0,
+	type = 0,
+	layer = 1,
+	colour = {0, 0},
+	colour_active = {0, 1},
+}
+
+editor_objlist["glyph_orb"] =
+{
+	name = "glyph_orb",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 0},
+	colour_active = {4, 1},
+}
+
+editor_objlist["glyph_chill"] =
+{
+	name = "glyph_chill",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 2},
+	colour_active = {3, 3},
+}
+
+editor_objlist["glyph_revert"] =
+{
+	name = "glyph_revert",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {2, 2},
+	colour_active = {2, 3},
+}
+
+editor_objlist["glyph_createall"] =
+{
+	name = "glyph_createall",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 20,
+	colour = {2, 2},
+	colour_active = {2, 3},
+	sprite = "glyph_all"
+}
+
+editor_objlist["glyph__NONE_"] =
+{
+	name = "glyph__NONE_",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 2},
+	colour_active = {3, 3},
+}
+
+editor_objlist["glyph_end"] =
+{
+	name = "glyph_end",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {0, 1},
+	colour_active = {0, 3},
+}
+
+editor_objlist["glyph_ghost"] =
+{
+	name = "glyph_ghost",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_up"] =
+{
+	name = "glyph_up",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 3},
+	colour_active = {1, 4},
+}
+
+editor_objlist["glyph_down"] =
+{
+	name = "glyph_down",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 3},
+	colour_active = {1, 4},
+}
+
+editor_objlist["glyph_right"] =
+{
+	name = "glyph_right",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 3},
+	colour_active = {1, 4},
+}
+
+editor_objlist["glyph_left"] =
+{
+	name = "glyph_left",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 3},
+	colour_active = {1, 4},
+}
+
+editor_objlist["glyph_best"] =
+{
+	name = "glyph_best",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {2, 3},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_fallright"] =
+{
+	name = "glyph_fallright",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 1},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_fallleft"] =
+{
+	name = "glyph_fallleft",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 1},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_fallup"] =
+{
+	name = "glyph_fallup",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 1},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_falldown"] =
+{
+	name = "glyph_falldown",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 1},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_make"] =
+{
+	name = "glyph_make",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = 0,
+	type = 0,
+	layer = 1,
+	colour = {0, 1},
+	colour_active = {0, 2},
+}
+
+editor_objlist["glyph_power"] =
+{
+	name = "glyph_power",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {6, 1},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_powered"] =
+{
+	name = "glyph_powered",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {6, 1},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_arm"] =
+{
+	name = "glyph_arm",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 0},
+	colour_active = {3, 1},
+}
+
+editor_objlist["glyph_hand"] =
+{
+	name = "glyph_hand",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 0},
+	colour_active = {3, 1},
+}
+
+editor_objlist["glyph_circle"] =
+{
+	name = "glyph_circle",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 1},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_square"] =
+{
+	name = "glyph_square",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 0},
+	colour_active = {4, 1},
+}
+
+editor_objlist["glyph_donut"] =
+{
+	name = "glyph_donut",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_cake"] =
+{
+	name = "glyph_cake",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_group3"] =
+{
+	name = "glyph_group3",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {5, 2},
+	colour_active = {5, 3},
+}
+
+editor_objlist["glyph_gem"] =
+{
+	name = "glyph_gem",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_pipe"] =
+{
+	name = "glyph_pipe",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 1},
+	colour_active = {0, 1},
+}
+
+editor_objlist["glyph_auto"] =
+{
+	name = "glyph_auto",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 0},
+	colour_active = {4, 1},
+}
+
+editor_objlist["glyph_triangle"] =
+{
+	name = "glyph_triangle",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 2},
+	colour_active = {3, 3},
+}
+
+editor_objlist["glyph_blue"] =
+{
+	name = "glyph_blue",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 2},
+	colour_active = {3, 3},
+	sprite = "glyph_red",
 }
 
 formatobjlist()
@@ -1413,7 +1989,14 @@ function foundbasereference(name)
 end
 
 condlist['references'] = function(params,checkedconds,checkedconds_,cdata)
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	if (cdata.unitid == 1) or (cdata.unitid == 2) then
+		return false
+	end
+	local unit = mmf.newObject(cdata.unitid)
+	if (unit  == nil) then
+		return false
+	end
+	local unitname = unit.strings[UNITNAME]
 	params[1] = string.sub(params[1], 2)
 	-- if (string.sub(unitname, 1, 5) == "text_") then
 	-- 	return (string.sub(unitname, 6) == params[1]), checkedconds
@@ -1443,47 +2026,68 @@ function referencesglyph(unit, param)
 end
 
 function isnoun(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return true
 	end
-    for i,j in pairs(glyphnouns) do
-        if ("glyph_" .. j == input_string) or ("glyph_glyph_" .. j == input_string) or ("glyph_text_" .. j == input_string) or ("glyph_not " .. j == input_string) or ("glyph_glyph_not " .. j == input_string) or ("glyph_text_not " .. j == input_string) then
-            return true
-        end
-    end
-	--@Merge(glyph x metatext)
+
+	-- for i,j in pairs(glyphnouns) do
+	--     if ("glyph_" .. j == input_string) or ("glyph_glyph_" .. j == input_string) or ("glyph_text_" .. j == input_string) or ("glyph_not " .. j == input_string) or ("glyph_glyph_not " .. j == input_string) or ("glyph_text_not " .. j == input_string) then
+	--         return true
+	--     end
+	-- end
 	if (string.sub(input_string,1,12) == "glyph_glyph_" and input_string ~= "glyph_glyph_") or
-		(string.sub(input_string,1,11) == "glyph_text_" and input_string ~= "glyph_text_") then
+			(string.sub(input_string,1,11) == "glyph_text_" and input_string ~= "glyph_text_") then
 		return true
 	end
-    return false
+	if (glyphtypes[string.sub(input_string,7)] == 0) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 0)) then
+		return true
+	end
+	return false
 end
 
 function isprop(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
-    for i,j in pairs(glyphprops) do
-        if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
-            return true
-        end
-    end
-    return false
+	-- for i,j in pairs(glyphprops) do
+	--     if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
+	--         return true
+	--     end
+	-- end
+	if (glyphtypes[string.sub(input_string,7)] == 2) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 2)) then
+		return true
+	end
+	return false
 end
 
 function isverb(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] == 1) then
 		return false
 	end
-	for i,j in pairs(glyphverbs) do
-        if ("glyph_" .. j == input_string) then
-            return true
-        end
-    end
-    return false
+	-- for i,j in pairs(glyphverbs) do
+	--     if ("glyph_" .. j == input_string) then
+	--         return true
+	--     end
+	-- end
+	if (glyphtypes[string.sub(input_string,7)] == 1) then
+		return true
+	end
+	return false
 end
 
 function isglyphnot(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
@@ -1491,6 +2095,9 @@ function isglyphnot(input_string, id)
 end
 
 function isglyphand(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
@@ -1498,38 +2105,56 @@ function isglyphand(input_string, id)
 end
 
 function isgroupglyph(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
-	return (string.sub(input_string, 1, 11) == "glyph_group")
+	return (string.sub(input_string, 1, 11) == "glyph_group") or (glyphtypes[string.sub(input_string,7)] == 3) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 3))
 end
 
 function isglyphmeta(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext")
 end
 
 function isprefix(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
-	for i,j in pairs(glyphprefixes) do
-        if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
-            return true
-        end
-    end
+	-- for i,j in pairs(glyphprefixes) do
+	--     if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
+	--         return true
+	--     end
+	-- end
+	if (glyphtypes[string.sub(input_string,7)] == 7) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 7)) then
+		return true
+	end
     return false
 end
 
 function isinfix(input_string, id)
+	if string.sub(input_string,1,6) ~= "glyph_" then
+		return false
+	end
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
-	for i,j in pairs(glyphinfixes) do
-        if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
-            return true
-        end
-    end
-    return false
+	-- for i,j in pairs(glyphinfixes) do
+	--     if ("glyph_" .. j == input_string) or ("glyph_not " .. j == input_string) then
+	--         return true
+	--     end
+	-- end
+	if (glyphtypes[string.sub(input_string,7)] == 8) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 8)) then
+		return true
+	end
+	return false
 end
 
 function donegateglyph(x, y)
@@ -1557,8 +2182,17 @@ function metaprefix(x, y)
 	local is_meta = false
 	local is_text = false
 	local im_done = false
+	if (tilemetaglyphdata[x + y * roomsizex] ~= nil) then
+		if tilemetaglyphdata[x + y * roomsizex] == 1 then
+			return "glyph_"
+		elseif tilemetaglyphdata[x + y * roomsizex] == 2 then
+			return "text_"
+		elseif tilemetaglyphdata[x + y * roomsizex] == 0 then
+			return ""
+		end
+	end
 	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
@@ -1577,10 +2211,13 @@ function metaprefix(x, y)
 		end
 	end
 	if is_meta then
+		tilemetaglyphdata[x + y * roomsizex] = 1
 		return "glyph_"
 	elseif is_text then
+		tilemetaglyphdata[x + y * roomsizex] = 2
 		return "text_"
 	else
+		tilemetaglyphdata[x + y * roomsizex] = 0
 		return ""
 	end
 end
@@ -1594,13 +2231,13 @@ end
 -- And - 6
 -- Prefix - 7
 -- Infix - 8
-function matchglyphtype(input_string, id, glyphtypes, glyphextras)
+function matchglyphtype(input_string, id, glyphtypes0, glyphextras)
 	for i, j in pairs(glyphextras) do
 		if ("glyph_" .. j == input_string) then
 			return true
 		end
 	end
-	for i,glyphtype in pairs(glyphtypes) do
+	for i,glyphtype in pairs(glyphtypes0) do
 		if (glyphtype == 0) then
 			if isnoun(input_string, id) then
 				return true
@@ -1638,12 +2275,15 @@ function matchglyphtype(input_string, id, glyphtypes, glyphextras)
 				return true
 			end
 		end
-		
+
 	end
 	return false
 end
 
 function nearbyglyphs(x, y, base_id)
+	if nearbysave[x + y * roomsizex] ~= nil then
+		return nearbysave[x + y * roomsizex]
+	end
     local return_table = {
 		noun = {},
 		prop = {},
@@ -1655,7 +2295,7 @@ function nearbyglyphs(x, y, base_id)
 		infix = {},
 	}
     for i,j in pairs(glyphnear) do
-        if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
             local sub_result = {
 				noun = {},
 				prop = {},
@@ -1758,7 +2398,8 @@ function nearbyglyphs(x, y, base_id)
             end
         end
     end
-    return return_table
+	nearbysave[x + y * roomsizex] = return_table
+	return return_table
 end
 
 function getandparams(base_id, x, y, evaluate_, id)
@@ -1766,7 +2407,7 @@ function getandparams(base_id, x, y, evaluate_, id)
 	local evaluate = evaluate_ or true
 	if evaluate then
 		for i,j in pairs(glyphnear) do
-			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					if (v2 == base_id) then
 						goto continue
@@ -1807,7 +2448,7 @@ function getinfixparams(infix_name, base_id, x, y, evaluate_, id)
 	end
 	if (evaluate_ == nil) then
 		for i,j in pairs(glyphnear) do
-			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					if (v2 == base_id) then
 						goto continue
@@ -1841,8 +2482,54 @@ function getinfixparams(infix_name, base_id, x, y, evaluate_, id)
 	end
 end
 
-function getnounandparams(x, y, id)
+local function getnounandparamstile(x, y, id)
 	local return_table = {}
+	if nounandparam[x + y * roomsizex] == nil then
+		local return_table2 = {}
+		for i,j in pairs(glyphnear) do
+			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
+				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
+					local unit = getunitfromid(v2)
+					local name = unit.strings[UNITNAME]
+					local meta_prefix = metaprefix(x + j[1], y +j[2])
+					if isnoun(name, v2) then
+						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
+							table.insert(return_table, {"not " ..string.sub(name, 7),v2})
+							table.insert(return_table2, {"not " ..string.sub(name, 7),v2})
+						elseif (meta_prefix ~= "") then
+							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
+							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2})
+						else
+							table.insert(return_table, {string.sub(name, 7),v2})
+							table.insert(return_table2, {string.sub(name, 7),v2})
+						end
+					end
+					if isglyphand(name, v2) then
+						for i3,j3 in pairs(getandparams(nil, x + j[1], y + j[2], false, v2)) do
+							if isnoun("glyph_" .. j3[1], j3[2]) or isgroupglyph("glyph_" .. j3[1], j3[2]) then
+								table.insert(return_table2, j3)
+								if j3[2] ~= id then
+									table.insert(return_table, j3)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		nounandparam[x + y * roomsizex] = return_table2
+	else
+		for i,j in pairs(nounandparam[x + y * roomsizex]) do
+			if j[2] ~= id then
+				table.insert(return_table, j)
+			end
+		end
+	end
+	return return_table
+end
+
+function getnounandparams(x, y, id)
+	local return_table = getnounandparamstile(x, y, id)
 	local noun = getunitfromid(id)
 	local am_i_meta = metaprefix(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
@@ -1851,31 +2538,6 @@ function getnounandparams(x, y, id)
 		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id})
 	else
 		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
-	end
-	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
-			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
-				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
-				local meta_prefix = metaprefix(x + j[1], y +j[2])
-				if isnoun(name, v2) then
-					if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
-						table.insert(return_table, {"not " ..string.sub(name, 7),v2})
-					elseif (meta_prefix ~= "") then
-						table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
-					else
-						table.insert(return_table, {string.sub(name, 7),v2})
-					end
-				end
-				if isglyphand(name, v2) then
-					for i3,j3 in pairs(getandparams(id, x + j[1], y + j[2], false, v2)) do
-						if isnoun("glyph_" .. j3[1], j3[2]) or isgroupglyph("glyph_" .. j3[1], j3[2]) then
-							table.insert(return_table, j3)
-						end
-					end
-				end
-			end
-		end
 	end
 	return return_table
 end
@@ -1889,7 +2551,7 @@ function getpropandparams(x, y, id)
 		table.insert(return_table, {string.sub(prop.strings[UNITNAME], 7),id})
 	end
 	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
@@ -1922,7 +2584,7 @@ function getbothandparams(x, y, id)
 		table.insert(return_table, {string.sub(group.strings[UNITNAME], 7),id})
 	end
 	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
@@ -1939,8 +2601,62 @@ function getbothandparams(x, y, id)
 	return return_table
 end
 
-function getproperbothandparams(x, y, id)
+local function getproperbothandparamstile(x, y, id)
 	local return_table = {}
+	local noun = getunitfromid(id)
+	local amnoun = isnoun(noun.strings[UNITNAME], id)
+	local trueid = 0
+	if amnoun then
+		trueid = (x + y * roomsizex) + ((roomsizex + 3) * (roomsizey + 3))
+	else
+		trueid = (x + y * roomsizex)
+	end
+	if properbothandparam[trueid] == nil then
+		local return_table2 = {}
+		for i,j in pairs(glyphnear) do
+			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
+				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
+					local unit = getunitfromid(v2)
+					local name = unit.strings[UNITNAME]
+					local meta_prefix = metaprefix(x + j[1], y +j[2])
+					if (isnoun(name, v2) and amnoun) or (isprop(name, v2) and not amnoun) then
+						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
+							table.insert(return_table, {"not " ..string.sub(name, 7),v2})
+							table.insert(return_table2, {"not " ..string.sub(name, 7),v2})
+						elseif (meta_prefix ~= "") then
+							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
+							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2})
+						else
+							table.insert(return_table, {string.sub(name, 7),v2})
+							table.insert(return_table2, {string.sub(name, 7),v2})
+						end
+					end
+					if isglyphand(name, v2) then
+						for i3,j3 in pairs(getandparams(nil, x + j[1], y + j[2], false, v2)) do
+							if isnoun("glyph_" .. j3[1], j3[2]) or isprop("glyph_" .. j3[1], j3[2]) or isgroupglyph("glyph_" .. j3[1], j3[2]) then
+								table.insert(return_table2, j3)
+								if (j3[2] ~= id) then
+									table.insert(return_table, j3)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		properbothandparam[trueid] = return_table2
+	else
+		for i,j in pairs(properbothandparam[trueid]) do
+			if j[2] ~= id then
+				table.insert(return_table, j)
+			end
+		end
+	end
+	return return_table
+end
+
+function getproperbothandparams(x, y, id)
+	local return_table = getproperbothandparamstile(x, y, id)
 	local noun = getunitfromid(id)
 	local am_i_meta = metaprefix(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
@@ -1949,32 +2665,6 @@ function getproperbothandparams(x, y, id)
 		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id})
 	else
 		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
-	end
-	local amnoun = isnoun(noun.strings[UNITNAME], id)
-	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
-			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
-				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
-				local meta_prefix = metaprefix(x + j[1], y +j[2])
-				if (isnoun(name, v2) and amnoun) or (isprop(name, v2) and not amnoun) then
-					if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
-						table.insert(return_table, {"not " ..string.sub(name, 7),v2})
-					elseif (meta_prefix ~= "") then
-						table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
-					else
-						table.insert(return_table, {string.sub(name, 7),v2})
-					end
-				end
-				if isglyphand(name, v2) then
-					for i3,j3 in pairs(getandparams(id, x + j[1], y + j[2], false, v2)) do
-						if isnoun("glyph_" .. j3[1], j3[2]) or isprop("glyph_" .. j3[1], j3[2]) or isgroupglyph("glyph_" .. j3[1], j3[2]) then
-							table.insert(return_table, j3)
-						end
-					end
-				end
-			end
-		end
 	end
 	return return_table
 end
@@ -1988,7 +2678,7 @@ function getprefixandparams(x, y, id)
 		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
 	end
 	for i,j in pairs(glyphnear) do
-		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) then
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
@@ -2012,6 +2702,10 @@ function getprefixandparams(x, y, id)
 	return return_table
 end
 
+function resetallmetaglyph()
+
+end
+
 function determinemetaglyphs(glyphtable)
 	for i, j in pairs(glyphtable) do
 		local unit = getunitfromid(j)
@@ -2020,11 +2714,15 @@ function determinemetaglyphs(glyphtable)
 		local prefix = metaprefix(x, y)
 		if (prefix == "glyph_") then
 			metaglyphdata[j] = 1
+			tilemetaglyphdata[x + y * roomsizex] = 1
 		elseif (prefix == "text_") then
 			metaglyphdata[j] = 2
+			tilemetaglyphdata[x + y * roomsizex] = 2
 		else
 			metaglyphdata[j] = 0
+			tilemetaglyphdata[x + y * roomsizex] = 0
 		end
+
 	end
 end
 
@@ -2062,6 +2760,13 @@ function doglyphs(symbols)
 	negatetable = {}
 	symbolmap = {}
 	local rulecount = 0
+	nounandparam = {}
+	propandparam = {}
+	bothandparam = {}
+	properbothandparam = {}
+	prefixandparam = {}
+	tilemetaglyphdata = {}
+	nearbysave = {}
 	newglyphunits = copytable(newglyphunits, glyphunits)[1]
 	for i, j in pairs(symbols) do
 		if testcond(j[2],j[1]) then
@@ -2076,6 +2781,9 @@ function doglyphs(symbols)
 				unittable.values[XPOS] = x
 				unittable.values[YPOS] = y
 				unittable.values[DIR] = dir
+				unittable.x = unit.x
+				unittable.y = unit.y
+				unittable.visible = unit.visible
 				unittable.strings[UNITNAME] = "glyph_" .. unitname
 				symbolmap[j[1]] =  unittable
 				table.insert(newglyphunits, j[1])
@@ -2084,6 +2792,7 @@ function doglyphs(symbols)
 	end
 	determinemetaglyphs(newglyphunits)
 	makenegatetable()
+	local complexindex = 0
 	for i,v in pairs(newglyphunits) do
         local unit = getunitfromid(v)
 		setcolour(unit.fixed)
@@ -2118,12 +2827,14 @@ function doglyphs(symbols)
 			local both = getproperbothandparams(x, y, v)
 			surroundings[v] = both
 			nounsurroundings[v] = nouns
+			complexindex = complexindex + #both
 		end
 		if isprop(name, v) then
 			local props = getpropandparams(x, y, v)
 			local both = getproperbothandparams(x, y, v)
 			surroundings[v] = both
 			propsurroundings[v] = props
+			complexindex = complexindex + #both
 		end
 		if isgroupglyph(name, v) then
 			local nouns = getnounandparams(x, y, v)
@@ -2132,6 +2843,7 @@ function doglyphs(symbols)
 			surroundings[v] = both
 			propsurroundings[v] = props
 			nounsurroundings[v] = nouns
+			complexindex = complexindex + #both
 		end
 		if isprefix(name, v) then
 			surroundings[v] = getprefixandparams(x, y, v)
@@ -2166,7 +2878,6 @@ function doglyphs(symbols)
 					if doinfix then
 						local table1, table2 = getinfixparams("glyph_" .. v3[1], v, nil, nil, 2,v3[2])
 						if #table1 > 0 then
-							destroylevel()
 							table.insert(basicsubconds[v3[1]], table1)
 							for i4, v4 in pairs(table2) do
 								table.insert(condids, v4)
@@ -2184,6 +2895,7 @@ function doglyphs(symbols)
 				end
             end
             for i2, v2 in pairs(nearglyphs["infix"]) do
+				local firstinfix = true
 				for i3, v3 in pairs(surroundings[v2[2]]) do
 					local doprefix = isprefix("glyph_" .. v3[1])
 					local doinfix = isinfix("glyph_" .. v3[1])
@@ -2195,7 +2907,12 @@ function doglyphs(symbols)
 						end
 					end
 					if doinfix then
-						local table1, table2 = getinfixparams("glyph_" .. v3[1], v, nil, nil, 2,v3[2])
+						local table1, table2 = 0,0
+						if firstinfix then
+							table1, table2 = getinfixparams("glyph_" .. v3[1], v, nil, nil, 2,v3[2])
+						else
+							table1, table2 = getinfixparams("glyph_" .. v3[1], nil, nil, nil, 2,v3[2])
+						end
 						if #table1 > 0 then
 							table.insert(basicsubconds[v3[1]], table1)
 							for i4, v4 in pairs(table2) do
@@ -2206,11 +2923,14 @@ function doglyphs(symbols)
 							elseif #basicsubconds[v3[1]] == 0 then
 								basicsubconds[v3[1]] = nil
 							end
+						elseif firstinfix then
+							break
 						end
 					elseif doprefix then
 						basicsubconds[v3[1]] = basicsubconds[v3[1]] + 1
 						table.insert(condids, v3[2])
 					end
+					firstinfix = false
 				end
             end
 			local subconds = {}
@@ -2239,6 +2959,10 @@ function doglyphs(symbols)
 							table.insert(ids, currentids)
 							table.insert(conds, subconds)
 						end
+						if rulecount > 3000 then
+							destroylevel("toocomplex")
+							return "stop"
+						end
 					end
 				end
             end
@@ -2255,6 +2979,10 @@ function doglyphs(symbols)
 							end
 							table.insert(ids, currentids)
 							table.insert(conds, subconds)
+						end
+						if rulecount > 3000 then
+							destroylevel("toocomplex")
+							return "stop"
 						end
 					end
 				end
@@ -2286,6 +3014,10 @@ function doglyphs(symbols)
 										table.insert(ids, currentids)
 										table.insert(conds, subconds)
 									end
+									if rulecount > 3000 then
+										destroylevel("toocomplex")
+										return "stop"
+									end
 								end
 							end
 						else
@@ -2308,6 +3040,10 @@ function doglyphs(symbols)
 										table.insert(ids, currentids)
 										table.insert(conds, subconds)
 									end
+									if rulecount > 3000 then
+										destroylevel("toocomplex")
+										return "stop"
+									end
 								end
 							end
 						end
@@ -2318,12 +3054,13 @@ function doglyphs(symbols)
     end
 	if (rulecount > 3000) then
 		destroylevel("toocomplex")
-		return
+		return "stop"
 	end
     for i, v in pairs(rules) do
-		if (string.sub(v[3], 1, 4) == "not ") then
-        	-- addoption({v[1], v[2], v[3]}, nil, ids[i], nil, {v[3], #featureindex[v[3]]})
-			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule"})
+		if (string.sub(v[1],1,6) == "glyph_") then
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaglyph", v[1]})
+		elseif string.sub(v[1],1,5) == "text_" then
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metatext", "glyph_" .. string.sub(v[1],6)})
 		else
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule"})
 		end
@@ -2347,10 +3084,10 @@ table.insert(nlist.full, "glyph")
 table.insert(nlist.short, "glyph")
 table.insert(nlist.objects, "glyph")
 
-for i,j in pairs(glyphnames) do
-    table.insert(nlist.full, "glyph_" .. j)
-    table.insert(nlist.short, "glyph_" .. j)
-    table.insert(nlist.objects, "glyph_" .. j)
+for i,j in pairs(glyphtypes) do
+	table.insert(nlist.full, "glyph_" .. i)
+	table.insert(nlist.short, "glyph_" .. i)
+	table.insert(nlist.objects, "glyph_" .. i)
 end
 
 function findsymbolunits()
@@ -2470,15 +3207,15 @@ function findsymbolunits()
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
 							local idunit = mmf.newObject(d)
-							
+
 							-- Tässä pitäisi testata myös Group!
-							if ((idunit.strings[UNITNAME] == "text_" .. rule[1]) and (tags[1] ~= "glyphrule")) or (idunit.strings[UNITNAME] == "glyph_" .. rule[1]) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] ~= "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "text")) then
+							if (((tags[2] == "metatext") or (tags[2] == "metaglyph")) and (idunit.strings[UNITNAME] == start)) or ((idunit.strings[UNITNAME] == "text_" .. start) and (tags[1] ~= "glyphrule")) or (idunit.strings[UNITNAME] == "glyph_" .. start) or ((idunit.strings[UNITNAME] == start) and (tags[1] ~= "glyphrule")) or ((start == "all") and (name ~= "text")) then
 								--MF_alert("Matching objects - found")
 								found = true
-							elseif (string.sub(rule[1], 1, 5) == "group") then
+							elseif (string.sub(start, 1, 5) == "group") then
 								--MF_alert("Group - found")
 								found = true
-							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "text")) or ((rule[1] == "not all") and (rule[1] == "text"))) then
+							elseif (start ~= checkname) and (((string.sub(start, 1, 3) == "not") and (start ~= "text")) or ((start == "not all") and (start == "text"))) then
 								--MF_alert("Not Object - found")
 								found = true
 							end
@@ -2545,3 +3282,5 @@ function checksymbolchanges(unitid,unitname)
 		end
 	end
 end
+
+gl_isnoun = isnoun

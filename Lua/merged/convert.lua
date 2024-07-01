@@ -739,10 +739,12 @@ function conversion(dolevels_)
 			local name = words[1]
 			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta")) and unitreference[thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			if (not dolevels) and (operator == "is" or operator == "become") and name ~= "glyph" and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta")) and unitreference[thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
-			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and string.sub(thing,1,5) == "text_" and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and name ~= "glyph" and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
+			elseif (not dolevels) and (operator == "inscribe") and name ~= "glyph" and name ~= "text" and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") then
+				tryautogenerate("glyph_" .. thing)
 			end
 
 			if (name ~= "text") --@Merge: omg beeeeg if block
@@ -773,8 +775,8 @@ function conversion(dolevels_)
 
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
-							if (target == name) and (object ~= "word") and (object ~= "echo") and ((object ~= name) or (verb == "become")) then
-								if (object ~= "text") and (object ~= "revert") and (object ~= "glyph") and (object ~= "meta") and (object ~= "unmeta") and (string.sub(object,1,4) ~= "meta") then
+							if (target == name) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
+								if (object ~= "text") and (object ~= "revert") and (object ~= "createall") and (object ~= "glyph") and (object ~= "meta") and (object ~= "unmeta") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 

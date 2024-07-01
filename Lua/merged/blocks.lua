@@ -1596,30 +1596,30 @@ function block(small_)
 				
 				local exists = false
 				
-				if (v ~= "text") and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
+				if (v ~= "text") and (v ~= "glyph") and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
 					for b,mat in pairs(fullunitlist) do
 						if (b == v) then
 							exists = true
 							break
 						end
 					end
-					if not exists and string.sub(v,1,5) == "text_" then
+					if not exists and string.sub(v,1,5) == "text_" or string.sub(v,1,6) == "glyph_" then
 						exists = tryautogenerate(v)
 					end
 				else
-					if (v ~= "text") and (string.sub(v,1,4) ~= "meta") then
+					if (v ~= "text") and (string.sub(v, 1, 4) ~= "meta") then
 						exists = true
-					elseif (v ~= "text") then
+					elseif (v ~= "text") and (string.sub(v, 1, 4) == "meta") then
 						local level = string.sub(v, 5)
 						if tonumber(level) ~= nil and tonumber(level) >= -1 then
-							local basename = string.gsub(name,"text_","")
+							local basename = string.gsub(name, "text_", "")
 							if basename == "" then
 								basename = "text_"
 							end
 							local newname = string.rep("text_", level + 1) .. basename
-							for b,mat in pairs(fullunitlist) do
-								if (b == newname) and (findnoun(newname,nlist.short,true) == false) then
-					exists = true
+							for b, mat in pairs(fullunitlist) do
+								if (b == newname) and (findnoun(newname, nlist.short, true) == false) then
+									exists = true
 									break
 								end
 							end
@@ -1627,15 +1627,25 @@ function block(small_)
 								exists = tryautogenerate(newname)
 							end
 						end
-					else
-						for b,mat in pairs(fullunitlist) do
+					elseif (v == "text") then
+						for b, mat in pairs(fullunitlist) do
 							if (b == "text_" .. name) then
 								exists = true
 								break
 							end
 						end
-						if not exists and string.sub(name,1,5) == "text_" then
+						if not exists and (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") then
 							exists = tryautogenerate("text_" .. name,name)
+						end
+					elseif (v == "glyph") then
+						for b, mat in pairs(fullunitlist) do
+							if (b == "glyph_" .. name) then
+								exists = true
+								break
+							end
+						end
+						if not exists and (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") then
+							exists = tryautogenerate("glyph_" .. name,name)
 						end
 					end
 				end
@@ -1677,6 +1687,11 @@ function block(small_)
 								if (name ~= "text") and (name ~= newname) and (name ~= "all") then
 									create(newname,x,y,dir,x,y,nil,nil,leveldata)
 								end
+							end
+						elseif (v == "glyph") then
+							if (name ~= "glyph") and (name ~= "all") then
+								create("glyph_" .. name,x,y,dir,x,y,nil,nil,leveldata)
+								updatecode = 1
 							end
 						elseif (string.sub(v, 1, 5) == "group") then
 							--[[
@@ -1823,6 +1838,9 @@ function block(small_)
 						for i, j in ipairs(buildthese) do
 							if j ~= "text" and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
 								create(j,x,y,dir,x,y,nil,nil,leveldata)
+								if (string.sub(j,1,5) == "text_" or string.sub(j,1,6) == "glyph_") then
+									updatecode = 1
+								end
 							end
 						end
 					end
@@ -4393,7 +4411,7 @@ function effectblock()
 				end
 			elseif (#unit.colours == 0) then
 				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if (unit.strings[UNITTYPE] ~= "text") or (unit.active == false) then
+					if ((unit.strings[UNITTYPE] ~= "text") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")
@@ -4403,7 +4421,7 @@ function effectblock()
 			else
 				unit.values[A] = ca
 				
-				if (unit.strings[UNITTYPE] == "text") then
+				if (unit.strings[UNITTYPE] == "text") or (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_") then
 					local curr = (unit.currcolour % #unit.colours) + 1
 					local c = unit.colours[curr]
 					

@@ -293,11 +293,9 @@ function addunit(id,undoing_,levelstart_)
 		fullunitlist[name_] = 1
 	end
 	local validglyph = false
-	for i,j in pairs(glyphnouns) do
-        if ("glyph_" .. j == name__) or ("glyph_glyph_" .. j == name__) or ("glyph_text_" .. j == name__) then
-            validglyph = true
-        end
-    end
+	if gl_isnoun(name__) then
+		validglyph = true
+	end
 	if (string.sub(name__, 1, 6) == "glyph_") and validglyph then
 		objectlist[string.sub(name__, 7)] = 1
 		fullunitlist[string.sub(name__, 7)] = 1 --@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
@@ -445,7 +443,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 										local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
 										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
 										
-										if (matdata[1] == "text") or (string.sub(matdata[1],1,5) == "text_") or (matdata[1] == "level") or (matdata[1] == "glyph") then
+										if (matdata[1] == "text") or (string.sub(matdata[1],1,6) == "glyph_") or (string.sub(matdata[1],1,5) == "text_") or (matdata[1] == "level") or (matdata[1] == "glyph") then
 											table.insert(delthese, v)
 										end
 									end

@@ -497,7 +497,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 							end
 						end
 					end
-				if not did and string.sub(object,1,5) == "text_" then
+				if not did and (string.sub(object,1,6) == "glyph_" or string.sub(object,1,5) == "text_") then
 					did = tryautogenerate(object)
 					if did then
 						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
