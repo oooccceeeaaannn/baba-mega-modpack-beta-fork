@@ -4645,7 +4645,13 @@ function ruleblockeffect()
 					elseif (handled[b] == 2) then
 						MF_removeblockeffect(b)
 						if glyphrule then
-							setcolour(b, "active")
+							local runit = mmf.newObject(b)
+							local name = getname(runit,"glyph")
+							if name == "glyph" then
+								setcolour(b, "active")
+							else
+								setcolour(b)
+							end
 						end
 					end
 				end

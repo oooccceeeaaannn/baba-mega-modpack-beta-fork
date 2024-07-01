@@ -4421,7 +4421,7 @@ function effectblock()
 			else
 				unit.values[A] = ca
 				
-				if (unit.strings[UNITTYPE] == "text") or (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_") then
+				if (unit.strings[UNITTYPE] == "text") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
 					local curr = (unit.currcolour % #unit.colours) + 1
 					local c = unit.colours[curr]
 					

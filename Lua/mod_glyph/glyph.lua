@@ -83,6 +83,13 @@ glyphtypes = {
 	gem = 0,
 	pipe = 0,
 	triangle = 0,
+	glyph_metatext = 0,
+	burger = 0,
+	foot = 0,
+	spike = 0,
+	sun = 0,
+	star = 0,
+	moon = 0,
 	win = 2,
 	you = 2,
 	bonus = 2,
@@ -126,6 +133,13 @@ glyphtypes = {
 	power = 2,
 	auto = 2,
 	blue = 2,
+	safe = 2,
+	crash = 2,
+	lockedleft = 2,
+	lockedright = 2,
+	lockedup = 2,
+	lockeddown = 2,
+	sleep = 2,
 	become = 1,
 	write = 1,
 	has = 1,
@@ -135,6 +149,7 @@ glyphtypes = {
 	make = 1,
 	lonely = 7,
 	powered = 7,
+	seldom = 7,
 	near = 8,
 	on = 8,
 	nextto = 8,
@@ -236,6 +251,12 @@ table.insert(editor_objlist_order, "glyph_cake")
 table.insert(editor_objlist_order, "glyph_gem")
 table.insert(editor_objlist_order, "glyph_pipe")
 table.insert(editor_objlist_order, "glyph_triangle")
+table.insert(editor_objlist_order, "glyph_burger")
+table.insert(editor_objlist_order, "glyph_foot")
+table.insert(editor_objlist_order, "glyph_sun")
+table.insert(editor_objlist_order, "glyph_spike")
+table.insert(editor_objlist_order, "glyph_star")
+table.insert(editor_objlist_order, "glyph_moon")
 table.insert(editor_objlist_order, "glyph_win")
 table.insert(editor_objlist_order, "glyph_not")
 table.insert(editor_objlist_order, "glyph_you")
@@ -282,8 +303,16 @@ table.insert(editor_objlist_order, "glyph_falldown")
 table.insert(editor_objlist_order, "glyph_power")
 table.insert(editor_objlist_order, "glyph_auto")
 table.insert(editor_objlist_order, "glyph_blue")
+table.insert(editor_objlist_order, "glyph_safe")
+table.insert(editor_objlist_order, "glyph_crash")
+table.insert(editor_objlist_order, "glyph_lockedup")
+table.insert(editor_objlist_order, "glyph_lockeddown")
+table.insert(editor_objlist_order, "glyph_lockedleft")
+table.insert(editor_objlist_order, "glyph_lockedright")
+table.insert(editor_objlist_order, "glyph_sleep")
 table.insert(editor_objlist_order, "glyph_lonely")
 table.insert(editor_objlist_order, "glyph_powered")
+table.insert(editor_objlist_order, "glyph_seldom")
 table.insert(editor_objlist_order, "glyph_near")
 table.insert(editor_objlist_order, "glyph_on")
 table.insert(editor_objlist_order, "glyph_nextto")
@@ -314,7 +343,7 @@ editor_objlist["text_glyph"] =
 	tags = {"text","abstract", "glyph"},
 	tiling = -1,
 	type = 0,
-	layer = 1,
+	layer = 20,
 	colour = {3, 2},
 	colour_active = {3, 3},
 }
@@ -328,7 +357,7 @@ editor_objlist["text_glyph_"] =
 	tags = {"text","abstract", "glyph"},
 	tiling = -1,
 	type = 4,
-	layer = 1,
+	layer = 20,
 	colour = {3, 2},
 	colour_active = {3, 3},
 }
@@ -341,7 +370,7 @@ editor_objlist["text_symbol"] =
 	tags = {"text","abstract", "glyph"},
 	tiling = -1,
 	type = 2,
-	layer = 1,
+	layer = 20,
 	colour = {1, 1},
 	colour_active = {4, 3},
 }
@@ -1931,10 +1960,215 @@ editor_objlist["glyph_blue"] =
 	sprite = "glyph_red",
 }
 
+editor_objlist["glyph_safe"] =
+{
+	name = "glyph_safe",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {0, 1},
+	colour_active = {0, 3},
+}
+
+editor_objlist["glyph_burger"] =
+{
+	name = "glyph_burger",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {6, 1},
+	colour_active = {2, 3},
+}
+
+editor_objlist["glyph_foot"] =
+{
+	name = "glyph_foot",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 0},
+	colour_active = {3, 1},
+}
+
+editor_objlist["glyph_crash"] =
+{
+	name = "glyph_crash",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 0},
+	colour_active = {4, 1},
+}
+
+editor_objlist["glyph_sun"] =
+{
+	name = "glyph_sun",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {2, 3},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_spike"] =
+{
+	name = "glyph_spike",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {1, 1},
+	colour_active = {0, 1},
+}
+
+editor_objlist["glyph_star"] =
+{
+	name = "glyph_star",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {6, 1},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_moon"] =
+{
+	name = "glyph_moon",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {6, 1},
+	colour_active = {2, 4},
+}
+
+editor_objlist["glyph_lockedright"] =
+{
+	name = "glyph_lockedright",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockedleft"] =
+{
+	name = "glyph_lockedleft",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockedup"] =
+{
+	name = "glyph_lockedup",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockeddown"] =
+{
+	name = "glyph_lockeddown",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 1},
+	colour_active = {4, 2},
+}
+
+editor_objlist["glyph_seldom"] =
+{
+	name = "glyph_seldom",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 2},
+	colour_active = {3, 3},
+}
+
+editor_objlist["glyph_sleep"] =
+{
+	name = "glyph_sleep",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 3},
+	colour_active = {3, 2},
+}
+
 formatobjlist()
 
 --@Merge: locally declare functions to prevent from polluting global namespace
 local foundreference,foundbasereference,referencestext,referencesglyph,isnoun,isprop,isverb,isglyphnot,isglyphand,isgroupglyph,isglyphmeta,isprefix,isinfix,donegateglyph,makenegatetable,metaprefix,matchglyphtype,nearbyglyphs,getandparams,getinfixparams,getnounandparams,getpropandparams,getbothandparams,getproperbothandparams,getprefixandparams,determinemetaglyphs,concatglyphtables,getunitfromid
+
+local function getmetas(x,y)
+	local metas = {}
+	local metatexts = {}
+	for i,j in pairs(glyphnear) do
+		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
+			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
+				local unit = getunitfromid(v2)
+				local name = unit.strings[UNITNAME]
+				if (name == "glyph_metatext") then
+					table.insert(metatexts, v2)
+				elseif (name == "glyph_metaglyph") then
+					table.insert(metas, v2)
+				end
+			end
+		end
+	end
+	if #metas == 0 then
+		return metatexts
+	else
+		return metas
+	end
+end
 
 function toometafunc(name)
 	if disable_toometa then return false end
@@ -2415,13 +2649,14 @@ function getandparams(base_id, x, y, evaluate_, id)
 					local unit = getunitfromid(v2)
 					local name = unit.strings[UNITNAME]
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
+					local currmetas = getmetas(x + j[1], y +j[2])
 					if isnoun(name, v2) or isprop(name, v2) or isgroupglyph(name, v2) or isprefix(name, v2) or isinfix(name, v2) then
 						if donegateglyph(x + j[1], y +j[2]) and (meta_prefix == "") then
-							table.insert(return_table, {"not " .. string.sub(name, 7),v2})
+							table.insert(return_table, {"not " .. string.sub(name, 7),v2,currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
+							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2,currmetas})
 						else
-							table.insert(return_table, {string.sub(name, 7),v2})
+							table.insert(return_table, {string.sub(name, 7),v2,currmetas})
 
 						end
 					end
@@ -2487,6 +2722,7 @@ local function getnounandparamstile(x, y, id)
 	if nounandparam[x + y * roomsizex] == nil then
 		local return_table2 = {}
 		for i,j in pairs(glyphnear) do
+			local currmetas = getmetas(x + j[1], y + j[2])
 			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					local unit = getunitfromid(v2)
@@ -2494,14 +2730,14 @@ local function getnounandparamstile(x, y, id)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					if isnoun(name, v2) then
 						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
-							table.insert(return_table, {"not " ..string.sub(name, 7),v2})
-							table.insert(return_table2, {"not " ..string.sub(name, 7),v2})
+							table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {"not " ..string.sub(name, 7),v2, currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
-							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2})
+							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2, currmetas})
 						else
-							table.insert(return_table, {string.sub(name, 7),v2})
-							table.insert(return_table2, {string.sub(name, 7),v2})
+							table.insert(return_table, {string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {string.sub(name, 7),v2, currmetas})
 						end
 					end
 					if isglyphand(name, v2) then
@@ -2532,12 +2768,13 @@ function getnounandparams(x, y, id)
 	local return_table = getnounandparamstile(x, y, id)
 	local noun = getunitfromid(id)
 	local am_i_meta = metaprefix(x, y)
+	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
-		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id, currmetas})
 	elseif (am_i_meta ~= "") then
-		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id, currmetas})
 	end
 	return return_table
 end
@@ -2545,21 +2782,23 @@ end
 function getpropandparams(x, y, id)
 	local return_table = {}
 	local prop = getunitfromid(id)
+	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) then
-		table.insert(return_table, {"not " .. string.sub(prop.strings[UNITNAME], 7),id})
+		table.insert(return_table, {"not " .. string.sub(prop.strings[UNITNAME], 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(prop.strings[UNITNAME], 7),id})
+		table.insert(return_table, {string.sub(prop.strings[UNITNAME], 7),id, currmetas})
 	end
 	for i,j in pairs(glyphnear) do
+		currmetas = getmetas(x + j[1], y + j[2])
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
 				local name = unit.strings[UNITNAME]
 				if isprop(name, v2) or isgroupglyph(name,v2) then
 					if donegateglyph(x + j[1], y+ j[2]) then
-						table.insert(return_table, {"not " ..string.sub(name, 7),v2})
+						table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
 					else
-						table.insert(return_table, {string.sub(name, 7),v2})
+						table.insert(return_table, {string.sub(name, 7),v2, currmetas})
 					end
 				end
 				if isglyphand(name, v2) then
@@ -2578,10 +2817,11 @@ end
 function getbothandparams(x, y, id)
 	local return_table = {}
 	local group = getunitfromid(id)
+	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) then
-		table.insert(return_table, {"not " .. string.sub(group.strings[UNITNAME], 7),id})
+		table.insert(return_table, {"not " .. string.sub(group.strings[UNITNAME], 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(group.strings[UNITNAME], 7),id})
+		table.insert(return_table, {string.sub(group.strings[UNITNAME], 7),id, currmetas})
 	end
 	for i,j in pairs(glyphnear) do
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
@@ -2613,7 +2853,9 @@ local function getproperbothandparamstile(x, y, id)
 	end
 	if properbothandparam[trueid] == nil then
 		local return_table2 = {}
+
 		for i,j in pairs(glyphnear) do
+			local currmetas = getmetas(x + j[1], y + j[2])
 			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					local unit = getunitfromid(v2)
@@ -2621,14 +2863,14 @@ local function getproperbothandparamstile(x, y, id)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					if (isnoun(name, v2) and amnoun) or (isprop(name, v2) and not amnoun) then
 						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
-							table.insert(return_table, {"not " ..string.sub(name, 7),v2})
-							table.insert(return_table2, {"not " ..string.sub(name, 7),v2})
+							table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {"not " ..string.sub(name, 7),v2, currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2})
-							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2})
+							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2, currmetas})
 						else
-							table.insert(return_table, {string.sub(name, 7),v2})
-							table.insert(return_table2, {string.sub(name, 7),v2})
+							table.insert(return_table, {string.sub(name, 7),v2, currmetas})
+							table.insert(return_table2, {string.sub(name, 7),v2, currmetas})
 						end
 					end
 					if isglyphand(name, v2) then
@@ -2659,12 +2901,13 @@ function getproperbothandparams(x, y, id)
 	local return_table = getproperbothandparamstile(x, y, id)
 	local noun = getunitfromid(id)
 	local am_i_meta = metaprefix(x, y)
+	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
-		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id,currmetas})
 	elseif (am_i_meta ~= "") then
-		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id,currmetas})
 	else
-		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id,currmetas})
 	end
 	return return_table
 end
@@ -2956,6 +3199,9 @@ function doglyphs(symbols)
 							for i5, v5 in pairs(condids) do
 								table.insert(currentids, {v5})
 							end
+							for i5, v5 in pairs(v3[3]) do
+								table.insert(currentids, {v5})
+							end
 							table.insert(ids, currentids)
 							table.insert(conds, subconds)
 						end
@@ -2975,6 +3221,9 @@ function doglyphs(symbols)
 							table.insert(rules, {v3[1], "is", v4[1]})
 							local currentids = {{v3[2]}, {v4[2]}}
 							for i5, v5 in pairs(condids) do
+								table.insert(currentids, {v5})
+							end
+							for i5, v5 in pairs(v3[3]) do
 								table.insert(currentids, {v5})
 							end
 							table.insert(ids, currentids)
@@ -3011,6 +3260,12 @@ function doglyphs(symbols)
 										for i6, v6 in pairs(condids) do
 											table.insert(currentids, {v6})
 										end
+										for i6, v6 in pairs(v4[3]) do
+											table.insert(currentids, {v6})
+										end
+										for i6, v6 in pairs(v5[3]) do
+											table.insert(currentids, {v6})
+										end
 										table.insert(ids, currentids)
 										table.insert(conds, subconds)
 									end
@@ -3035,6 +3290,12 @@ function doglyphs(symbols)
 										table.insert(rules, {v4[1], v2[1], v5[1], false})
 										local currentids = {{v4[2]}, {v5[2]}, {v2[2]}}
 										for i6, v6 in pairs(condids) do
+											table.insert(currentids, {v6})
+										end
+										for i6, v6 in pairs(v4[3]) do
+											table.insert(currentids, {v6})
+										end
+										for i6, v6 in pairs(v5[3]) do
 											table.insert(currentids, {v6})
 										end
 										table.insert(ids, currentids)

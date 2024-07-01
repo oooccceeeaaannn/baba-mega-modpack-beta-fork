@@ -1233,7 +1233,7 @@ function findnoun(noun,list_,ignoretext)
 	local list = list_ or nlist.full
 
 	for i,v in ipairs(list) do
-		if (v == noun) or ((v == "group") and (string.sub(noun, 1, 5) == "group")) or (string.sub(noun,1,5) == "text_" and v == "text" and ignoretext ~= true) or (string.sub(noun,1,4) == "meta" and v == "all") then
+		if (v == noun) or ((v == "group") and (string.sub(noun, 1, 5) == "group")) or (((string.sub(noun,1,6) == "glyph_" and v == "glyph") or (string.sub(noun,1,5) == "text_" and v == "text")) and ignoretext ~= true) or (string.sub(noun,1,4) == "meta" and v == "all") then
 			return true
 		end
 	end
