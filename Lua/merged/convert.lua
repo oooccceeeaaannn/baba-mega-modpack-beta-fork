@@ -739,7 +739,7 @@ function conversion(dolevels_)
 			local name = words[1]
 			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta")) and unitreference[thing] == nil and string.sub(thing,1,5) == "text_" and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			if (not dolevels) and (operator == "is" or operator == "become") and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta")) and unitreference[thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
 			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and string.sub(thing,1,5) == "text_" and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
@@ -807,7 +807,11 @@ function conversion(dolevels_)
 
 						elseif (verb == "write") or (operator == "draw") then
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
-								table.insert(output, {object, conds, "write"})
+								if toometafunc("text_" .. object) then
+									table.insert(output, {"toometa", conds, "is"})
+								else
+									table.insert(output, {object, conds, "write"})
+								end
 							end
 						elseif (verb == "inscribe") then
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
@@ -841,7 +845,7 @@ function conversion(dolevels_)
 								table.insert(conversions, {"createall",conds})
 							elseif (object == "text") or (object == "meta") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if string.sub(name,1,5) == "text_" and unitreference["text_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") and unitreference["text_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate("text_" .. name,name)
 								end
 								if valid then
@@ -859,8 +863,13 @@ function conversion(dolevels_)
 								local level = string.sub(object,5)
 								if tonumber(level) ~= nil and tonumber(level) >= -1 then
 									local basename,_ = string.gsub(name,"text_","")
+									basename,_ = string.gsub(basename,"glyph_","")
 									if basename == "" then
-										basename = "text_"
+										if string.sub(name,-2) == "h_" then
+											basename = "glyph_"
+										else
+											basename = "text_"
+										end
 									end
 									local newname = string.rep("text_",level + 1) .. basename
 									local valid = true -- don't attempt conversion the if object does not exist
@@ -876,7 +885,13 @@ function conversion(dolevels_)
 									end
 								end
 							elseif (object == "glyph") then
-								table.insert(conversions, {"glyph_" .. name,conds})
+								local valid = true -- don't attempt conversion if the object does not exist
+								if (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") and unitreference["glyph_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate("glyph_" .. name,name)
+								end
+								if valid then
+									table.insert(conversions, {"glyph_" .. name,conds})
+								end
 							end
 						elseif (op == "write") or (op == "inscribe") or (op == "draw") then
 							table.insert(conversions, v3)

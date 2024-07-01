@@ -74,12 +74,12 @@ metatext_settings_list = {
     },
     disable = check_meta_existence -- Will disable if this function retures true
   },
-  easter_egg = {
-    buttonfunc = "mtxt_egg", --The button func.
+  better_disp = {
+    buttonfunc = "mtxt_betterdisp", --The button func.
     boolean = true, -- If the two values are True and False, set this to True.
     default = true, -- The default value.
-    name = "Easter egg", -- Name that shows up in the menu.
-    tooltip = "An easter egg. Not telling you what.", --Tooltip.
+    name = "Better Overlay Display", -- Name that shows up in the menu.
+    tooltip = "Makes overlay display now include the glyph prefixes.", --Tooltip.
   },
   include_noun = {
     buttonfunc = "mtxt_include", --The button func.
@@ -97,7 +97,7 @@ metatext_settings_order = {
   "overlay_style",
   "auto_gen",
   "include_noun",
-  "easter_egg",
+  "better_disp",
 }
 
 -- Adds the setting button.

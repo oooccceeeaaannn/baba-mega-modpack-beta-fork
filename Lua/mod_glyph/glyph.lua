@@ -1,3 +1,5 @@
+disable_toometa = true
+
 glyphunits = {}
 glyphnouns = { "baba", "glyph", "flag", "keke", "it", "text", "all", "wall", "skull", "empty", "level", "me", "fofo", "water", "badbad", "jiji", "box", "lava", "bog", "key", "door", "hedge", "belt", "rock", "boat", "toometa", "line", "arrow", "cursor", "sign", "tile", "grass", "robot", "monster", "eye", "jelly", "cliff", "love", "cheese"}
 glyphprops = {"win", "you", "bonus", "defeat", "stop", "sink", "float", "push", "still", "you2", "tele", "shut", "open", "pull", "3d", "melt", "hot", "turn", "deturn", "shift", "move", "weak", "word", "swap", "hide", "symbol", "red", "select", "more"}
@@ -1359,6 +1361,7 @@ formatobjlist()
 local foundreference,foundbasereference,referencestext,referencesglyph,isnoun,isprop,isverb,isglyphnot,isglyphand,isgroupglyph,isglyphmeta,isprefix,isinfix,donegateglyph,makenegatetable,metaprefix,matchglyphtype,nearbyglyphs,getandparams,getinfixparams,getnounandparams,getpropandparams,getbothandparams,getproperbothandparams,getprefixandparams,determinemetaglyphs,concatglyphtables,getunitfromid
 
 function toometafunc(name)
+	if disable_toometa then return false end
 	if (string.sub(name,1,5) == "text_") then
 		local basefound = foundbasereference(name)
 		local textfound = foundreference(name)
@@ -1448,6 +1451,11 @@ function isnoun(input_string, id)
             return true
         end
     end
+	--@Merge(glyph x metatext)
+	if (string.sub(input_string,1,12) == "glyph_glyph_" and input_string ~= "glyph_glyph_") or
+		(string.sub(input_string,1,11) == "glyph_text_" and input_string ~= "glyph_text_") then
+		return true
+	end
     return false
 end
 

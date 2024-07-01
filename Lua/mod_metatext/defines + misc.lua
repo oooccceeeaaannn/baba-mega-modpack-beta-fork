@@ -34,7 +34,7 @@ Note that if the nonexistant text is available in the editor object list, that w
 
 	metatext_includenoun = get_setting("include_noun") --Includes nouns in NOT META#.
 
-	metatext_egg = get_setting("easter_egg")       --Easter egg. Set to FALSE to disable.
+	metatext_glyph_display = get_setting("better_disp")
 end
 )
 
@@ -79,7 +79,11 @@ function writemetalevel()
 		MF_letterclear("metaoverlay")
 		for id, unit in pairs(units) do
 			local unitname = unit.strings[UNITNAME]
-			if string.sub(unitname, 1, 10) == "text_text_" and unit.values[TYPE] == 0 and unit.visible then
+
+			local _, textmetalevel = string.gsub(unitname, "text_", "text_")
+			local _, glyphmetalevel = string.gsub(unitname, "glyph_", "glyph_")
+
+			if textmetalevel + glyphmetalevel >= 2 and unit.values[TYPE] == 0 and unit.visible then
 				local metalevel = getmetalevel(unitname)
 				local show = true
 				if metatext_overlaystyle == 1 then
@@ -94,43 +98,52 @@ function writemetalevel()
 					end
 				end
 				if show then
-					local color = { 4, 1 }
-					local unitcolor1, unitcolor2 = getcolour(unit.fixed)
-					if unit.colours ~= nil and #unit.colours > 0 then
-						local rosytaken = false
-						for z, c in pairs(unit.colours) do
-							unitcolor1, unitcolor2 = c[1], c[2]
-							if tonumber(unitcolor1) == 4 and tonumber(unitcolor2) == 2 then
-								rosytaken = true
-								if color == { 4, 2 } then
-									color = { 4, 0 }
-									break
-								end
-							end
-							if color[1] == tonumber(unitcolor1) and color[2] == tonumber(unitcolor2) then
-								if rosytaken then
-									color = { 4, 0 }
-									break
-								else
-									color = { 4, 2 }
-								end
-							end
+					-- imagine flag: print pink T text
+					if metatext_glyph_display then
+						local color = textoverlaycolor(unit, {4,1}, {4,2})
+						local sequenceText, sequenceGlyph = makemetastring(unitname)
+						writetext(sequenceText:sub(2), unit.fixed, (8 * unit.scaleX),
+								-(6 * unit.scaleY), "metaoverlay", true,
+								1, true, color)
+
+						--imagine flag: print blue lambda text. I had to flip it over which was crazy but looks amazing
+						local color = textoverlaycolor(unit, {3,3}, {1,4})
+						local _, glyphflip = writetext(sequenceGlyph:sub(2), unit.fixed, (8 * unit.scaleX),
+								-(6 * unit.scaleY), "metaoverlay", true,
+								1, true, color)
+						for _, table in ipairs(glyphflip) do
+							mmf.newObject(table[1]).angle = 180
 						end
 					else
-						if unit.active == true or generaldata.values[MODE] == 5 then
-							unitcolor1, unitcolor2 = getcolour(unit.fixed, "active")
-						end
-						if color[1] == tonumber(unitcolor1) and color[2] == tonumber(unitcolor2) then
-							color = { 4, 2 }
-						end
+						writetext(getmetalevel(getname(unit)), unit.fixed, (8 * unit.scaleX),
+								-(6 * unit.scaleY), "metaoverlay", true,
+								1, true, color)
 					end
-					writetext(metalevel, unit.fixed, (8 * unit.scaleX),
-							-(6 * unit.scaleY), "metaoverlay", true,
-							1, true, color)
 				end
 			end
 		end
 	end
+end
+
+function textoverlaycolor(unit, maincolor, backcolor)
+	local textcolor = maincolor
+	local unitcolor1, unitcolor2 = getcolour(unit.fixed)
+	if unit.colours ~= nil and #unit.colours > 0 then
+		for z, c in pairs(unit.colours) do
+			unitcolor1, unitcolor2 = c[1], c[2]
+			if textcolor[1] == tonumber(unitcolor1) and textcolor[2] == tonumber(unitcolor2) then
+				textcolor = backcolor
+			end
+		end
+	else
+		if unit.active == true or generaldata.values[MODE] == 5 then
+			unitcolor1, unitcolor2 = getcolour(unit.fixed, "active")
+		end
+		if textcolor[1] == tonumber(unitcolor1) and textcolor[2] == tonumber(unitcolor2) then
+			textcolor = backcolor
+		end
+	end
+	return textcolor
 end
 
 table.insert(mod_hook_functions["always"], writemetalevel)
@@ -433,13 +446,35 @@ Examples:
 "text_text_" = 0
 "text_text_text_" = 1
 ]]
-function getmetalevel(string) --TODO: glyph_ support
-	local _, metalevel = string.gsub(string, "text_", "text_")
-	if string.sub(string, -5) == "text_" then
+--flag imagine
+function getmetalevel(string)
+	local _, textmetalevel = string.gsub(string, "text_", "text_")
+	local _, glyphmetalevel = string.gsub(string, "glyph_", "glyph_")
+	local metalevel = glyphmetalevel + textmetalevel
+	if string.sub(string, -5) == "text_" or string.sub(string, -6) == "glyph_" then
 		metalevel = metalevel - 1
 	end
 	metalevel = metalevel - 1
 	return metalevel
+end
+
+function makemetastring(string)
+	local namestring = string
+	local sequenceText = ""
+	local sequenceGlyph = ""
+	while true do
+		if namestring:sub(1,5) == "text_" and #namestring > 5 then
+			sequenceText = sequenceText.."T"
+			sequenceGlyph = sequenceGlyph.." "
+			namestring = namestring.gsub(namestring, "text_", "", 1)
+		elseif namestring:sub(1,6) == "glyph_" and #namestring > 6 then
+			sequenceText = sequenceText.." "
+			sequenceGlyph = sequenceGlyph.."V"
+			namestring = namestring.gsub(namestring, "glyph_", "", 1)
+		else
+			return sequenceText, sequenceGlyph
+		end
+	end
 end
 
 -- Remove lines that include "text" rules if rule1 starts with "text_".
