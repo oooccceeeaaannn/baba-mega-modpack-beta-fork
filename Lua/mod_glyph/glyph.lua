@@ -1,4 +1,5 @@
 disable_toometa = true
+disable_text_metatext = false
 
 glyphunits = {}
 verbargtypes = {
@@ -154,7 +155,7 @@ glyphtypes = {
 	on = 8,
 	nextto = 8,
 	feeling = 8,
-	meta = 5,
+	metaglyph = 5,
 	metatext = 5,
 	group = 3,
 	group2 = 3,
@@ -2147,6 +2148,15 @@ formatobjlist()
 --@Merge: locally declare functions to prevent from polluting global namespace
 local foundreference,foundbasereference,referencestext,referencesglyph,isnoun,isprop,isverb,isglyphnot,isglyphand,isgroupglyph,isglyphmeta,isprefix,isinfix,donegateglyph,makenegatetable,metaprefix,matchglyphtype,nearbyglyphs,getandparams,getinfixparams,getnounandparams,getpropandparams,getbothandparams,getproperbothandparams,getprefixandparams,determinemetaglyphs,concatglyphtables,getunitfromid
 
+local function get_meta_connected(meta_prefix,name)
+	local result = meta_prefix .. string.sub(name, 7)
+	if disable_text_metatext then
+		if result == "text_metatext" then return "text_text_" end
+		if result == "text_metaglyph" then return "text_glyph_" end
+	end
+	return result
+end
+
 local function getmetas(x,y)
 	local metas = {}
 	local metatexts = {}
@@ -2654,7 +2664,7 @@ function getandparams(base_id, x, y, evaluate_, id)
 						if donegateglyph(x + j[1], y +j[2]) and (meta_prefix == "") then
 							table.insert(return_table, {"not " .. string.sub(name, 7),v2,currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2,currmetas})
+							table.insert(return_table, {get_meta_connected(meta_prefix,name),v2,currmetas})
 						else
 							table.insert(return_table, {string.sub(name, 7),v2,currmetas})
 
@@ -2695,7 +2705,7 @@ function getinfixparams(infix_name, base_id, x, y, evaluate_, id)
 						if donegateglyph(x + j[1], y +j[2]) and (meta_prefix == "") then
 							table.insert(return_table, "not " .. string.sub(name, 7))
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, meta_prefix .. string.sub(name, 7))
+							table.insert(return_table, get_meta_connected(meta_prefix,name))
 						else
 							table.insert(return_table, string.sub(name, 7))
 						end
@@ -2733,8 +2743,8 @@ local function getnounandparamstile(x, y, id)
 							table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
 							table.insert(return_table2, {"not " ..string.sub(name, 7),v2, currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2, currmetas})
-							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2, currmetas})
+							table.insert(return_table, {get_meta_connected(meta_prefix,name),v2, currmetas})
+							table.insert(return_table2, {get_meta_connected(meta_prefix,name),v2, currmetas})
 						else
 							table.insert(return_table, {string.sub(name, 7),v2, currmetas})
 							table.insert(return_table2, {string.sub(name, 7),v2, currmetas})
@@ -2866,8 +2876,8 @@ local function getproperbothandparamstile(x, y, id)
 							table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
 							table.insert(return_table2, {"not " ..string.sub(name, 7),v2, currmetas})
 						elseif (meta_prefix ~= "") then
-							table.insert(return_table, {meta_prefix .. string.sub(name, 7),v2, currmetas})
-							table.insert(return_table2, {meta_prefix .. string.sub(name, 7),v2, currmetas})
+							table.insert(return_table, {get_meta_connected(meta_prefix,name),v2, currmetas})
+							table.insert(return_table2, {get_meta_connected(meta_prefix,name),v2, currmetas})
 						else
 							table.insert(return_table, {string.sub(name, 7),v2, currmetas})
 							table.insert(return_table2, {string.sub(name, 7),v2, currmetas})
@@ -3545,3 +3555,45 @@ function checksymbolchanges(unitid,unitname)
 end
 
 gl_isnoun = isnoun
+
+function add_glyph_using_text(name)
+	local textname = "text_" .. name
+	local textdata = editor_objlist[textname]
+	if textdata == nil then
+		error("Glyph was attempted to be added before it's text was added")
+		return false
+	end
+
+	local type = textdata.type
+
+	if type == 5 then
+		error("Attempting to add a letter glyph - glyphs don't have letters")
+		return false
+	end
+	if type == 7 then type = 8
+	elseif type == 3 then type = 7 end
+	if string.sub(name,1,5) == "group" then type = 3 end
+
+	local glyph_data = {
+		name = "glyph_"..name,
+		sprite_in_root = false,
+		unittype = "object",
+		tags = {"abstract", "glyph"},
+		tiling = -1,
+		type = 0,
+		layer = 1,
+		colour = textdata.colour,
+		colour_active = textdata.colour_active,
+	}
+	glyphtypes[name] = type
+	if type == 1 then -- verb
+		verbargtypes["glyph_" .. name] = textdata.argtype
+		verbargextras["glyph_" .. name] = textdata.argextra or {}
+	elseif type == 8 then
+		infixargtypes["glyph_" .. name] = textdata.argtype
+		infixargextras["glyph_" .. name] = textdata.argextra or {}
+	end
+	table.insert(editor_objlist_order, "glyph_" .. name)
+	editor_objlist["glyph_" .. name] = glyph_data
+	return true
+end
