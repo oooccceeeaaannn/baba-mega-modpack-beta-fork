@@ -847,7 +847,7 @@ function conversion(dolevels_)
 								table.insert(conversions, {"createall",conds})
 							elseif (object == "text") or (object == "meta") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") and unitreference["text_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["text_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate("text_" .. name,name)
 								end
 								if valid then
@@ -888,7 +888,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "glyph") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") and unitreference["glyph_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["glyph_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate("glyph_" .. name,name)
 								end
 								if valid then

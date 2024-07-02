@@ -1607,7 +1607,7 @@ function block(small_)
 						exists = tryautogenerate(v)
 					end
 				else
-					if (v ~= "text") and (string.sub(v, 1, 4) ~= "meta") then
+					if (v ~= "text") and (string.sub(v, 1, 4) ~= "meta") and (v ~= "glyph") then
 						exists = true
 					elseif (v ~= "text") and (string.sub(v, 1, 4) == "meta") then
 						local level = string.sub(v, 5)
@@ -1634,7 +1634,7 @@ function block(small_)
 								break
 							end
 						end
-						if not exists and (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") then
+						if not exists then
 							exists = tryautogenerate("text_" .. name,name)
 						end
 					elseif (v == "glyph") then
@@ -1644,7 +1644,7 @@ function block(small_)
 								break
 							end
 						end
-						if not exists and (string.sub(name,1,5) == "text_" or string.sub(name,1,6) == "glyph_") then
+						if not exists then
 							exists = tryautogenerate("glyph_" .. name,name)
 						end
 					end
