@@ -289,7 +289,10 @@ function tryautogenerate(want, have)
 			nil,
 		}
 		if metatext_autogenerate == 1 or metatext_autogenerate == 2 then
-			local spritewanted = string.rep("text_", getmetalevel(want) + 1) .. string.gsub(sprite, "text_", "")
+			local spritewanted = string.rep("text_", getmetalevel(want) + 1) .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
+			if string.sub(want,1,6) == "glyph_" then
+				spritewanted = "glyph_" .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
+			end
 			if MF_findsprite(spritewanted .. "_0_1.png", false) then
 				sprite = spritewanted
 				new[2] = sprite
