@@ -780,7 +780,7 @@ function conversion(dolevels_)
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 
-									elseif (string.sub(object, 1, 5) == "text_") then
+									elseif (string.sub(object, 1, 5) == "text_") or (string.sub(object, 1, 6) == "glyph_") then
 										table.insert(output, {object, conds, "is"})
 									else
 										for d,mat in pairs(objectlist) do
