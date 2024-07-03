@@ -255,6 +255,9 @@ function tryautogenerate(want, have)
 				have = "text_" .. test
 			end
 		end
+		if (string.sub(have,1,5) ~= "text_") and (string.sub(have,1,6) ~= "glyph_") then
+			have = "text_" .. have
+		end
 		print("Trying to generate " .. want .. " from " .. have .. ".")
 		local realname = objectpalette[have]
 		local root = getactualdata_objlist(realname, "sprite_in_root")
@@ -289,14 +292,16 @@ function tryautogenerate(want, have)
 			nil,
 		}
 		if metatext_autogenerate == 1 or metatext_autogenerate == 2 then
-			local spritewanted = string.rep("text_", getmetalevel(want) + 1) .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
+			local spritewanted = ""
 			if string.sub(want,1,6) == "glyph_" then
 				spritewanted = "glyph_" .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
+			elseif string.sub(want,1,5) == "text_" then
+				spritewanted = "text_" .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
 			end
-			if MF_findsprite(spritewanted .. "_0_1.png", false) then
+			if MF_findsprite(spritewanted .. "_0_1.png", false) or MF_findsprite(spritewanted .. "_0_1.png", true) then
 				sprite = spritewanted
 				new[2] = sprite
-				root = false
+				root = MF_findsprite(spritewanted .. "_0_1.png", true)
 				new[8] = root
 			elseif metatext_autogenerate == 2 then
 				return false
