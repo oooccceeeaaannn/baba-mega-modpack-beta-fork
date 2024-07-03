@@ -1315,43 +1315,43 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                         end
                     end
                 end
-            else
-                for i, data in ipairs(still_moving) do
-                    if (data.unitid ~= 2) then
-                        local unit = mmf.newObject(data.unitid)
-
-                        if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet" or data.reason == "throw") then
-                            --@Turning Text(shift)
-                            table.insert(moving_units, {
-                                unitid = data.unitid,
-                                reason = data.reason,
-                                state = data.state,
-                                moves = data.moves,
-                                dir = data.dir,
-                                xpos = unit.values[XPOS],
-                                ypos = unit.values[YPOS],
-
-                                horsdir = data.horsdir,
-                                vertdir = data.vertdir,
-                                horsmove = data.horsmove,
-                                vertmove = data.vertmove,
-                                dirshiftstate = data.dirshiftstate
-                            })
-                        else
-                            local newdir = unit.values[DIR]
-                            if (data.reason == "launch" or data.reason == "puppet") then
-                                newdir = data.dir;
-                            end
-                            table.insert(moving_units, { unitid = data.unitid, reason = data.reason, state = data.state, moves = data.moves, dir = newdir, xpos = unit.values[XPOS], ypos = unit.values[YPOS] })
-                        end
-                    else
-                        -- MF_alert("Still moving: " .. tostring(data.xpos) .. ", " .. tostring(data.ypos) .. ", " .. tostring(data.moves))
-                        table.insert(moving_units, { unitid = data.unitid, reason = data.reason, state = data.state, moves = data.moves, dir = data.dir, xpos = data.xpos, ypos = data.ypos })
-                    end
-                end
-
-                still_moving = {}
             end
+        else
+            for i, data in ipairs(still_moving) do
+                if (data.unitid ~= 2) then
+                    local unit = mmf.newObject(data.unitid)
+
+                    if enable_directional_shift and (data.reason == "shift" or data.reason == "yeet" or data.reason == "throw") then
+                        --@Turning Text(shift)
+                        table.insert(moving_units, {
+                            unitid = data.unitid,
+                            reason = data.reason,
+                            state = data.state,
+                            moves = data.moves,
+                            dir = data.dir,
+                            xpos = unit.values[XPOS],
+                            ypos = unit.values[YPOS],
+
+                            horsdir = data.horsdir,
+                            vertdir = data.vertdir,
+                            horsmove = data.horsmove,
+                            vertmove = data.vertmove,
+                            dirshiftstate = data.dirshiftstate
+                        })
+                    else
+                        local newdir = unit.values[DIR]
+                        if (data.reason == "launch" or data.reason == "puppet") then
+                            newdir = data.dir;
+                        end
+                        table.insert(moving_units, { unitid = data.unitid, reason = data.reason, state = data.state, moves = data.moves, dir = newdir, xpos = unit.values[XPOS], ypos = unit.values[YPOS] })
+                    end
+                else
+                    -- MF_alert("Still moving: " .. tostring(data.xpos) .. ", " .. tostring(data.ypos) .. ", " .. tostring(data.moves))
+                    table.insert(moving_units, { unitid = data.unitid, reason = data.reason, state = data.state, moves = data.moves, dir = data.dir, xpos = data.xpos, ypos = data.ypos })
+                end
+            end
+
+            still_moving = {}
         end
 
         add_moving_units_to_exclude_from_cut_blocking(moving_units)
