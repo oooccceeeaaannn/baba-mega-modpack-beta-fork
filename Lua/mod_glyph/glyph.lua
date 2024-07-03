@@ -349,6 +349,8 @@ table.insert(editor_objlist_order, "glyph_group3")
 table.insert(editor_objlist_order, "toometa")
 table.insert(editor_objlist_order, "text_toometa")
 table.insert(editor_objlist_order, "text_glyph_")
+table.insert(editor_objlist_order, "glyph_text_")
+table.insert(editor_objlist_order, "glyph_glyph_")
 
 editor_objlist["text_glyph"] =
 {
@@ -369,6 +371,34 @@ editor_objlist["text_glyph_"] =
 	sprite = "text_glyphpre",
 	sprite_in_root = false,
 	unittype = "text",
+	tags = {"text","abstract", "glyph"},
+	tiling = -1,
+	type = 4,
+	layer = 20,
+	colour = {3, 2},
+	colour_active = {3, 3},
+}
+
+editor_objlist["glyph_text_"] =
+{
+	name = "glyph_text_",
+	sprite = "glyph_textpre",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract", "glyph"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {4, 0},
+	colour_active = {4, 1},
+}
+
+editor_objlist["glyph_glyph_"] =
+{
+	name = "glyph_glyph_",
+	sprite = "glyph_glyphpre",
+	sprite_in_root = false,
+	unittype = "object",
 	tags = {"text","abstract", "glyph"},
 	tiling = -1,
 	type = 4,
