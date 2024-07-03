@@ -21,19 +21,15 @@ function fillkeepruleslist()
             end
             if kept then
                 local conds = {}
-                local isthisrule = false
                 for e, f in ipairs(b[2]) do
                     if f[1] ~= "keep" then
                         table.insert(conds, f)
                     end
                     if f[1] == "this" then
-                        isthisrule = true
-                        break
+                        return
                     end
                 end
-                if not isthisrule then
-                    table.insert(keeprules, { rule, conds, b[3], b[4], b[5] })
-                end
+                table.insert(keeprules, { rule, conds, b[3], b[4], b[5] })
             end
         end
     end

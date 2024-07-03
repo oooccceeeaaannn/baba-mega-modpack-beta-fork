@@ -1753,9 +1753,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 	local tags = tags_ or {}
 	local shownrule = nil
 
-	--[[ 
+	--[[
 		@Merge(glyph x metatext): disable glyph mod's implementation of metatext. Metatext mod has the system all figured out.
-		
+
 		Also, the 'option[1] = "text"' causes the game to stack overflow. Metatext mod's way of treating text_text is similar to "all" where
 		the rule containing "text" is expanded to all text object types (with a few exceptions). For instance if "text is push", the rule will expand to:
 			- text_baba is push
@@ -1771,10 +1771,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 	-- if (string.sub(option[1], 1, 5) == "text_") then
 	-- 	shownrule = copyrule({option, conds, ids, tags})
 	-- 	table.insert(conds, {"references", {" " .. string.sub(option[1], 6)}})
-	-- 	option[1] = "text" 
+	-- 	option[1] = "text"
 	-- else
 	--[[
-	if (string.sub(option[1], 1, 6) == "glyph_") then --TODO: use metatext's method
+	if (string.sub(option[1], 1, 6) == "glyph_") then
 		print(option[1], option[2], option[3])
 		shownrule = copyrule({option, conds, ids, tags})
 		table.insert(conds, {"references", {" " .. string.sub(option[1], 7)}})

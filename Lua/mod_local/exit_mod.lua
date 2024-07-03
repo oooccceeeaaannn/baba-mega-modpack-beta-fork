@@ -172,6 +172,18 @@ editor_objlist["text_local3"] =
 	colour_active = {4, 4},
 }
 
+add_glyph_using_text("offline")
+add_glyph_using_text("router")
+add_glyph_using_text("local")
+add_glyph_using_text("channel1")
+add_glyph_using_text("channel2")
+add_glyph_using_text("channel3")
+add_glyph_using_text("offline1")
+add_glyph_using_text("offline2")
+add_glyph_using_text("offline3")
+add_glyph_using_text("local1")
+add_glyph_using_text("local2")
+add_glyph_using_text("local3")
 
 formatobjlist()
 
