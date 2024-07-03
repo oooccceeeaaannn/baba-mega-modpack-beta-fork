@@ -1,6 +1,20 @@
 disable_toometa = true
 disable_text_metatext = false
 
+text_and_glyph = {
+	text_metatext = "text_text_",
+	text_metaglyph = "text_glyph_",
+	glyph_text_ = "glyph_metatext",
+	glyph_glyph_ = "glyph_metaglyph",
+}
+
+function trueidentity(name)
+	if text_and_glyph[name] ~= nil then
+		return text_and_glyph[name]
+	end
+	return name
+end
+
 glyphunits = {}
 verbargtypes = {
 	glyph_become = {0,3},
@@ -2149,12 +2163,7 @@ formatobjlist()
 local foundreference,foundbasereference,referencestext,referencesglyph,isnoun,isprop,isverb,isglyphnot,isglyphand,isgroupglyph,isglyphmeta,isprefix,isinfix,donegateglyph,makenegatetable,metaprefix,matchglyphtype,nearbyglyphs,getandparams,getinfixparams,getnounandparams,getpropandparams,getbothandparams,getproperbothandparams,getprefixandparams,determinemetaglyphs,concatglyphtables,getunitfromid
 
 local function get_meta_connected(meta_prefix,name)
-	local result = meta_prefix .. string.sub(name, 7)
-	if disable_text_metatext then
-		if result == "text_metatext" then return "text_text_" end
-		if result == "text_metaglyph" then return "text_glyph_" end
-	end
-	return result
+	return meta_prefix .. string.sub(name, 7)
 end
 
 local function getmetas(x,y)
@@ -3355,11 +3364,13 @@ table.insert(nlist.full, "glyph")
 table.insert(nlist.short, "glyph")
 table.insert(nlist.objects, "glyph")
 
+--[[ NO BAD DON'T
 for i,j in pairs(glyphtypes) do
 	table.insert(nlist.full, "glyph_" .. i)
 	table.insert(nlist.short, "glyph_" .. i)
 	table.insert(nlist.objects, "glyph_" .. i)
 end
+--]]
 
 function findsymbolunits()
 	local result = {}

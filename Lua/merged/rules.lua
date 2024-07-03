@@ -1812,11 +1812,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		if not allow_add_to_featureindex then
 			return
 		end
-		
+
 		table.insert(features, rule)
-		local target = option[1]
-		local verb = option[2]
-		local effect = option[3]
 
 		for i, v in pairs(toreplace) do
 			if option[2] == toreplace[i] then
@@ -1830,6 +1827,15 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		end
+
+		if disable_text_metatext then
+			option[1] = trueidentity(option[1])
+			option[3] = trueidentity(option[3])
+		end
+
+		local target = option[1]
+		local verb = option[2]
+		local effect = option[3]
 
 		-- EDIT: EXTREMELY HORRIBLE HACKY WAY TO IMPLEMENT AMBIENT @update: hopefully it doesn't mess w/ metatext
 		if (target == "ambient") then
