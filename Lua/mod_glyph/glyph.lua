@@ -403,7 +403,7 @@ editor_objlist["glyph_glyph_"] =
 	tags = {"text","abstract", "glyph"},
 	tiling = -1,
 	type = 4,
-	layer = 20,
+	layer = 1,
 	colour = {3, 3},
 	colour_active = {3, 3},
 }
