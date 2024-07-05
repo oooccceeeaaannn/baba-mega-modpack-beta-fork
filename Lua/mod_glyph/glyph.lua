@@ -1,5 +1,6 @@
 disable_toometa = true
 disable_text_metatext = false
+enable_functional_glyph_text_ = true
 
 text_and_glyph = {
 	text_metatext = "text_text_",
@@ -389,7 +390,7 @@ editor_objlist["glyph_text_"] =
 	tiling = -1,
 	type = 0,
 	layer = 1,
-	colour = {4, 0},
+	colour = {4, 1},
 	colour_active = {4, 1},
 }
 
@@ -403,7 +404,7 @@ editor_objlist["glyph_glyph_"] =
 	tiling = -1,
 	type = 4,
 	layer = 20,
-	colour = {3, 2},
+	colour = {3, 3},
 	colour_active = {3, 3},
 }
 
@@ -2196,6 +2197,37 @@ local function get_meta_connected(meta_prefix,name)
 	return meta_prefix .. string.sub(name, 7)
 end
 
+local function get_name_with_glyph_text_(unit)
+	local result = unit.strings[UNITNAME]
+	if not enable_functional_glyph_text_ or (result == "glyph_text_" or result == "glyph_glyph_" ) then
+		return result
+	end
+	local pref = ""
+	if string.sub(result,1,5) == "text_" then
+		pref = "text_"
+		result = string.sub(result,6)
+	elseif string.sub(result,1,6) == "glyph_" then
+		pref = "glyph_"
+		result = string.sub(result,7)
+	end
+	local glayer, tlayer = 0, 0
+	local x,y = unit.values[XPOS], unit.values[YPOS]
+	if (unitmap[x + y * roomsizex] ~= nil) and (inbounds(x, y)) then
+		for _,v in pairs(unitmap[x + y * roomsizex]) do
+			local metaunit = getunitfromid(v)
+			local name = metaunit.strings[UNITNAME]
+			if unit ~= metaunit then
+				if (name == "glyph_text_") then
+					tlayer = tlayer + 1
+				elseif (name == "glyph_glyph_") then
+					glayer = glayer + 1
+				end
+			end
+		end
+	end
+	return pref .. string.rep("glyph_",glayer) .. string.rep("text_",tlayer) .. result
+end
+
 local function getmetas(x,y)
 	local metas = {}
 	local metatexts = {}
@@ -2203,7 +2235,7 @@ local function getmetas(x,y)
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
+				local name = get_name_with_glyph_text_(unit)
 				if (name == "glyph_metatext") then
 					table.insert(metatexts, v2)
 				elseif (name == "glyph_metaglyph") then
@@ -2293,7 +2325,7 @@ end
 
 
 function referencestext(unit, param)
-	local unitname = unit.strings[UNITNAME]
+	local unitname = get_name_with_glyph_text_(unit)
 	if (string.sub(unitname, 1, 5) == "text_") then
 		return (string.sub(unitname, 6) == params[1]), checkedconds
 	end
@@ -2301,7 +2333,7 @@ function referencestext(unit, param)
 end
 
 function referencesglyph(unit, param)
-	local unitname = unit.strings[UNITNAME]
+	local unitname = get_name_with_glyph_text_(unit)
 	if (string.sub(unitname, 1, 6) == "glyph_") then
 		return (string.sub(unitname, 7) == params[1]), checkedconds
 	end
@@ -2478,7 +2510,7 @@ function metaprefix(x, y)
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
+				local name = get_name_with_glyph_text_(unit)
 				if (name == "glyph_metatext") then
 					is_text = true
 					break
@@ -2591,7 +2623,7 @@ function nearbyglyphs(x, y, base_id)
 			}
             for i2, j2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
                 local unit = getunitfromid(j2)
-                local name = unit.strings[UNITNAME]
+                local name = get_name_with_glyph_text_(unit)
 				local dir = ndirs[unit.values[DIR]+1]
                 if (getname(unit, "glyph") == "glyph") then
                     if isprop(name, j2) then
@@ -2622,7 +2654,7 @@ function nearbyglyphs(x, y, base_id)
 							if (unitmap[(x + 2 * j[1]) + (y + 2 * j[2]) * roomsizex] ~= nil) then
 								for i3, j3 in pairs(unitmap[(x + 2 * j[1]) + (y + 2 * j[2]) * roomsizex]) do
 									local unit2 = getunitfromid(j3)
-									local name2 = unit2.strings[UNITNAME]
+									local name2 = get_name_with_glyph_text_(unit2)
 									local glyphtypes = matchglyphtype(name2, j3, verbargtypes[name], verbargextras[name])
 									if (glyphtypes or isgroupglyph(name2, j3)) and isglyph(unit2) then
 										if donegateglyph(x + 2 * j[1], y + 2 * j[2]) then
@@ -2696,7 +2728,7 @@ function getandparams(base_id, x, y, evaluate_, id)
 						goto continue
 					end
 					local unit = getunitfromid(v2)
-					local name = unit.strings[UNITNAME]
+					local name = get_name_with_glyph_text_(unit)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					local currmetas = getmetas(x + j[1], y +j[2])
 					if isnoun(name, v2) or isprop(name, v2) or isgroupglyph(name, v2) or isprefix(name, v2) or isinfix(name, v2) then
@@ -2738,7 +2770,7 @@ function getinfixparams(infix_name, base_id, x, y, evaluate_, id)
 						goto continue
 					end
 					local unit = getunitfromid(v2)
-					local name = unit.strings[UNITNAME]
+					local name = get_name_with_glyph_text_(unit)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					if matchglyphtype(name, v2, infixargtypes[infix_name], infixargextras[infix_name]) then
 						if donegateglyph(x + j[1], y +j[2]) and (meta_prefix == "") then
@@ -2775,7 +2807,7 @@ local function getnounandparamstile(x, y, id)
 			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					local unit = getunitfromid(v2)
-					local name = unit.strings[UNITNAME]
+					local name = get_name_with_glyph_text_(unit)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					if isnoun(name, v2) then
 						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
@@ -2819,11 +2851,11 @@ function getnounandparams(x, y, id)
 	local am_i_meta = metaprefix(x, y)
 	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
-		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {"not " .. string.sub(get_name_with_glyph_text_(noun), 7),id, currmetas})
 	elseif (am_i_meta ~= "") then
-		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {am_i_meta .. string.sub(get_name_with_glyph_text_(noun), 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {string.sub(get_name_with_glyph_text_(noun), 7),id, currmetas})
 	end
 	return return_table
 end
@@ -2833,16 +2865,16 @@ function getpropandparams(x, y, id)
 	local prop = getunitfromid(id)
 	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) then
-		table.insert(return_table, {"not " .. string.sub(prop.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {"not " .. string.sub(get_name_with_glyph_text_(prop), 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(prop.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {string.sub(get_name_with_glyph_text_(prop), 7),id, currmetas})
 	end
 	for i,j in pairs(glyphnear) do
 		currmetas = getmetas(x + j[1], y + j[2])
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
+				local name = get_name_with_glyph_text_(unit)
 				if isprop(name, v2) or isgroupglyph(name,v2) then
 					if donegateglyph(x + j[1], y+ j[2]) then
 						table.insert(return_table, {"not " ..string.sub(name, 7),v2, currmetas})
@@ -2868,15 +2900,15 @@ function getbothandparams(x, y, id)
 	local group = getunitfromid(id)
 	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) then
-		table.insert(return_table, {"not " .. string.sub(group.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {"not " .. string.sub(get_name_with_glyph_text_(group), 7),id, currmetas})
 	else
-		table.insert(return_table, {string.sub(group.strings[UNITNAME], 7),id, currmetas})
+		table.insert(return_table, {string.sub(get_name_with_glyph_text_(group), 7),id, currmetas})
 	end
 	for i,j in pairs(glyphnear) do
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
+				local name = get_name_with_glyph_text_(unit)
 				if isglyphand(name, v2) then
 					for i3,j3 in pairs(getandparams(id, x + j[1], y + j[2], false, v2)) do
 						if isgroupglyph("glyph_" .. j3[1], j3[2]) or isnoun("glyph_" .. j3[1], j3[2]) or isprop("glyph_" .. j3[1], j3[2]) then
@@ -2893,7 +2925,7 @@ end
 local function getproperbothandparamstile(x, y, id)
 	local return_table = {}
 	local noun = getunitfromid(id)
-	local amnoun = isnoun(noun.strings[UNITNAME], id)
+	local amnoun = isnoun(get_name_with_glyph_text_(noun))
 	local trueid = 0
 	if amnoun then
 		trueid = (x + y * roomsizex) + ((roomsizex + 3) * (roomsizey + 3))
@@ -2908,7 +2940,7 @@ local function getproperbothandparamstile(x, y, id)
 			if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 				for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 					local unit = getunitfromid(v2)
-					local name = unit.strings[UNITNAME]
+					local name = get_name_with_glyph_text_(unit)
 					local meta_prefix = metaprefix(x + j[1], y +j[2])
 					if (isnoun(name, v2) and amnoun) or (isprop(name, v2) and not amnoun) then
 						if donegateglyph(x + j[1], y+ j[2]) and (meta_prefix == "") then
@@ -2952,11 +2984,11 @@ function getproperbothandparams(x, y, id)
 	local am_i_meta = metaprefix(x, y)
 	local currmetas = getmetas(x, y)
 	if donegateglyph(x, y) and (am_i_meta == "") then
-		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id,currmetas})
+		table.insert(return_table, {"not " .. string.sub(get_name_with_glyph_text_(noun), 7),id,currmetas})
 	elseif (am_i_meta ~= "") then
-		table.insert(return_table, {am_i_meta .. string.sub(noun.strings[UNITNAME], 7),id,currmetas})
+		table.insert(return_table, {am_i_meta .. string.sub(get_name_with_glyph_text_(noun), 7),id,currmetas})
 	else
-		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id,currmetas})
+		table.insert(return_table, {string.sub(get_name_with_glyph_text_(noun), 7),id,currmetas})
 	end
 	return return_table
 end
@@ -2965,15 +2997,15 @@ function getprefixandparams(x, y, id)
 	local return_table = {}
 	local noun = getunitfromid(id)
 	if donegateglyph(x, y) then
-		table.insert(return_table, {"not " .. string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {"not " .. string.sub(get_name_with_glyph_text_(noun), 7),id})
 	else
-		table.insert(return_table, {string.sub(noun.strings[UNITNAME], 7),id})
+		table.insert(return_table, {string.sub(get_name_with_glyph_text_(noun), 7),id})
 	end
 	for i,j in pairs(glyphnear) do
 		if (unitmap[(x + j[1]) + (y + j[2]) * roomsizex] ~= nil) and inbounds(x + j[1], y + j[2]) then
 			for i2,v2 in pairs(unitmap[(x + j[1]) + (y + j[2]) * roomsizex]) do
 				local unit = getunitfromid(v2)
-				local name = unit.strings[UNITNAME]
+				local name = get_name_with_glyph_text_(unit)
 				if isprefix(name, v2) or isinfix(name, v2) then
 					if donegateglyph(x + j[1], y+ j[2]) then
 						table.insert(return_table, {"not " ..string.sub(name, 7),v2})
@@ -3002,7 +3034,6 @@ function determinemetaglyphs(glyphtable)
 	for i, j in pairs(glyphtable) do
 		local unit = getunitfromid(j)
 		local x, y = unit.values[XPOS], unit.values[YPOS]
-		local name = unit.strings[UNITNAME]
 		local prefix = metaprefix(x, y)
 		if (prefix == "glyph_") then
 			metaglyphdata[j] = 1
@@ -3088,7 +3119,7 @@ function doglyphs(symbols)
 	for i,v in pairs(newglyphunits) do
         local unit = getunitfromid(v)
 		setcolour(unit.fixed)
-        local name = unit.strings[UNITNAME]
+        local name = get_name_with_glyph_text_(unit)
         local x = unit.values[XPOS]
         local y = unit.values[YPOS]
 		if isglyphand(name, v) then
@@ -3098,7 +3129,7 @@ function doglyphs(symbols)
 	end
 	for i, v in pairs(newglyphunits) do
         local unit = getunitfromid(v)
-        local name = unit.strings[UNITNAME]
+        local name = get_name_with_glyph_text_(unit)
         local x = unit.values[XPOS]
         local y = unit.values[YPOS]
 		if isinfix(name, v) then
@@ -3111,7 +3142,7 @@ function doglyphs(symbols)
 	end
 	for i,v in pairs(newglyphunits) do
         local unit = getunitfromid(v)
-        local name = unit.strings[UNITNAME]
+        local name = get_name_with_glyph_text_(unit)
         local x = unit.values[XPOS]
         local y = unit.values[YPOS]
 		if isnoun(name, v) then
@@ -3147,7 +3178,7 @@ function doglyphs(symbols)
 
     for i,v in pairs(newglyphunits) do
         local unit = getunitfromid(v)
-        local name = unit.strings[UNITNAME]
+        local name = get_name_with_glyph_text_(unit)
         if isnoun(name, v) or isgroupglyph(name, v) then
             local x = unit.values[XPOS]
             local y = unit.values[YPOS]
@@ -3519,6 +3550,12 @@ function findsymbolunits()
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
 							local idunit = mmf.newObject(d)
+							local start = rule[1]
+							if tags[2] == "metaglyph" then
+								start = tags[3]
+							elseif tags[2] == "metatext" then
+								start = tags[3]
+							end
 
 							-- Tässä pitäisi testata myös Group!
 							if (((tags[2] == "metatext") or (tags[2] == "metaglyph")) and (idunit.strings[UNITNAME] == start)) or ((idunit.strings[UNITNAME] == "text_" .. start) and (tags[1] ~= "glyphrule")) or (idunit.strings[UNITNAME] == "glyph_" .. start) or ((idunit.strings[UNITNAME] == start) and (tags[1] ~= "glyphrule")) or ((start == "all") and (name ~= "text")) then
