@@ -1813,8 +1813,6 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			return
 		end
 
-		table.insert(features, rule)
-
 		for i, v in pairs(toreplace) do
 			if option[2] == toreplace[i] then
 				if tense[i] ~= "present" then

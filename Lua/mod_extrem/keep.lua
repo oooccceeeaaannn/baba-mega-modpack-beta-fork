@@ -3,10 +3,16 @@ condlist["keep"] = function(params, checkedconds, checkedconds_, cdata)
 end
 
 keeprules = {}
+metatags = {
+    verbtext = 1,
+    verbglyph = 1,
+    text = 1,
+    glyph = 1,
+}
 
 function fillkeepruleslist()
     keeprules = {}
-    for a, b in ipairs(visualfeatures) do
+    for a, b in ipairs(features) do
         if b[2] ~= nil then
             local kept = false
             local rule = b[1]
@@ -29,7 +35,12 @@ function fillkeepruleslist()
                         return
                     end
                 end
-                table.insert(keeprules, { rule, conds, b[3], b[4], b[5] })
+                local tags = {"keep"}
+                for _,tag in ipairs(b[4]) do
+                    table.insert(tags,tag)
+                    if metatags[tag] ~= nil then return end
+                end
+                table.insert(keeprules, { rule, conds, b[3], tags, b[5] })
             end
         end
     end

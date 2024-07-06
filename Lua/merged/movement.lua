@@ -513,7 +513,7 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                             if (v ~= 2) then
                                 local unit = mmf.newObject(v)
                                 x, y = unit.values[XPOS], unit.values[YPOS]
-                                local unitname = unit.strings[NAME]
+                                local unitname = unit.strings[UNITNAME] --@mods(extrem x metatext) Used UNITNAME instead of NAME.
                                 local moveamount = 0
                                 if hasfeature(unitname, "is", "youplus", v) then
                                     moveamount = #findfeature(unitname, "is", "youplus")
