@@ -97,17 +97,24 @@ function writemetalevel()
 						end
 					end
 				end
+				if textmetalevel + glyphmetalevel > 5 then
+					local mouse_x, mouse_y = MF_mouse()
+					local half_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT] / 2
+					if not (mouse_x >= unit.x - half_tilesize and mouse_x < unit.x + half_tilesize and mouse_y >= unit.y - half_tilesize and mouse_y < unit.y + half_tilesize) then
+						show = false
+					end
+				end
 				if show then
 					-- imagine flag: print pink T text
+					local color = textoverlaycolor(unit, {4,1}, {4,2})
 					if metatext_glyph_display then
-						local color = textoverlaycolor(unit, {4,1}, {4,2})
 						local sequenceText, sequenceGlyph = makemetastring(unitname)
 						writetext(sequenceText:sub(2), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
 								1, true, color)
 
 						--imagine flag: print blue lambda text. I had to flip it over which was crazy but looks amazing
-						local color = textoverlaycolor(unit, {3,3}, {1,4})
+						color = textoverlaycolor(unit, {3,3}, {1,4})
 						local _, glyphflip = writetext(sequenceGlyph:sub(2), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
 								1, true, color)
