@@ -3,6 +3,8 @@
 -- Adds object to editor.
 table.insert(editor_objlist_order,"text_meta")
 table.insert(editor_objlist_order,"text_unmeta")
+table.insert(editor_objlist_order,"text_mega")
+table.insert(editor_objlist_order,"text_unmega")
 table.insert(editor_objlist_order,"text_meta-1")
 table.insert(editor_objlist_order,"text_meta0")
 table.insert(editor_objlist_order,"text_meta1")
@@ -29,6 +31,28 @@ editor_objlist["text_unmeta"] = {
   layer = 20,
   colour = {3, 0},
   colour_active = {3, 1},
+}
+editor_objlist["text_mega"] = {
+  name = "text_mega",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {3, 2},
+  colour_active = {3, 3},
+}
+editor_objlist["text_unmega"] = {
+  name = "text_unmega",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {1, 3},
+  colour_active = {1, 4},
 }
 editor_objlist["text_meta-1"] = {
   name = "text_meta-1",
@@ -85,6 +109,12 @@ editor_objlist["text_meta3"] = {
   colour = {3, 0},
   colour_active = {3, 1},
 }
+
+add_glyph_using_text("meta")
+add_glyph_using_text("unmeta")
+add_glyph_using_text("mega")
+add_glyph_using_text("unmega")
+
 formatobjlist()
 
 -- Disables if X IS X, like REVERT.
