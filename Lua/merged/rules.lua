@@ -1876,6 +1876,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				elseif verb == "make" then
 					visualonly = true
 				end
+			elseif effect == "glyph" then
+				if verb == "has" or verb == "become" or verb == "make" then
+					effect = "glyph_text"
+				end
 			elseif string.sub(effect,1,5) == "group" or string.sub(effect,1,9) == "not group" then
 				if (verb == "has" or verb == "make" or verb == "become") and foundtag then
 					return
@@ -1883,7 +1887,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			end
 			rule = {{target,verb,effect},conds,ids,tags}
 		end
-		local foundtag = false
+		foundtag = false
 		if metatext_fixquirks then
 			for num,tag in pairs(tags) do
 				if tag == "glyph" then
@@ -1892,7 +1896,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		end
-		if foundtag then
+		if foundtag or (metatext_hasmaketextnometa and (string.sub(target,1,6) == "glyph_")) then
 			if effect == "glyph" then
 				if verb == "is" and foundtag then
 					effect = target
@@ -1908,6 +1912,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					effect = "not glyph_glyph"
 				elseif verb == "make" then
 					visualonly = true
+				end
+			elseif effect == "text" then
+				if verb == "has" or verb == "become" or verb == "make" then
+					effect = "text_glyph"
 				end
 			elseif string.sub(effect,1,5) == "group" or string.sub(effect,1,9) == "not group" then
 				if (verb == "has" or verb == "make" or verb == "become") and foundtag then
@@ -1929,6 +1937,12 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			else
 				effect = "not " .. target
 			end
+			rule = {{target,verb,effect},conds,ids,tags}
+		elseif metatext_istextnometa and (effect == "glyph") and verb == "is" and (string.sub(target,1,5) == "text_" or string.sub(target,1,4) == "meta") then
+			effect = "glyph_text"
+			rule = {{target,verb,effect},conds,ids,tags}
+		elseif metatext_istextnometa and (effect == "text") and verb == "is" and (string.sub(target,1,6) == "glyph_") then
+			effect = "text_glyph"
 			rule = {{target,verb,effect},conds,ids,tags}
 		elseif ((string.sub(effect, 1, 4) == "meta") or (string.sub(effect, 1, 8) == "not meta")) and (verb == "is" or verb == "become") then
 			local isnot = (string.sub(effect,1,8) == "not meta")
