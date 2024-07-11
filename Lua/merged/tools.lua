@@ -1381,7 +1381,7 @@ function delunit(unitid)
 			end
 		end
 		
-		if (#symbolunits > 0) and (unit.values[TYPE] == 0) and not isglyph(unit) then
+		if (#symbolunits > 0) and not isglyph(unit) then
 			for i,v in pairs(symbolunits) do
 				if (v[1] == unitid) then
 					local currentundo = undobuffer[1]

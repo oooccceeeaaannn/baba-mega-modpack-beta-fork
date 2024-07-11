@@ -3545,32 +3545,33 @@ function findsymbolunits()
 				local rule = v[1]
 				local ids = v[3]
 				local tags = v[4]
-				
-				if (rule[1] == b) or ((rule[1] == "glyph") and (string.sub(b, 1, 6) == "glyph_")) or (rule[1] == "all") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 3) == "not")) and (rule[3] == "symbol") then
+
+				-- Gotta change this to prevent some false infinite loops
+				if (rule[1] == b) or ((rule[1] == "glyph") and (string.sub(b, 1, 6) == "glyph_")) or (rule[1] == "all" and string.sub(b,1,5) ~= "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
+						or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
 							local idunit = mmf.newObject(d)
-							local start = rule[1]
-							if tags[2] == "metaglyph" then
-								start = tags[3]
-							elseif tags[2] == "metatext" then
-								start = tags[3]
-							end
 
 							-- Tässä pitäisi testata myös Group!
-							if (((tags[2] == "metatext") or (tags[2] == "metaglyph")) and (idunit.strings[UNITNAME] == start)) or ((idunit.strings[UNITNAME] == "text_" .. start) and (tags[1] ~= "glyphrule")) or (idunit.strings[UNITNAME] == "glyph_" .. start) or ((idunit.strings[UNITNAME] == start) and (tags[1] ~= "glyphrule")) or ((start == "all") and (name ~= "text")) then
+							if (idunit.strings[UNITNAME] == "text_" .. rule[1]) or ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) then
 								--MF_alert("Matching objects - found")
 								found = true
-							elseif (string.sub(start, 1, 5) == "group") then
+							elseif (string.sub(rule[1], 1, 5) == "group") then
 								--MF_alert("Group - found")
 								found = true
-							elseif (start ~= checkname) and (((string.sub(start, 1, 3) == "not") and (start ~= "text")) or ((start == "not all") and (start == "text"))) then
+							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
 								--MF_alert("Not Object - found")
+								found = true
+							elseif idunit.strings[UNITNAME] == "text_this" then
+								-- Note: this could match any "this is symbol" or "not this is symbol" rules. But we handle the raycast buisness in testcond
+								found = true
+							elseif (idunit.strings[UNITNAME] == "text_text_") then
 								found = true
 							end
 						end
 					end
-					
+
 					for c,g in ipairs(tags) do
 						if (g == "mimic") then
 							found = true

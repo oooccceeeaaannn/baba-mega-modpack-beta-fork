@@ -856,7 +856,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {"text_" .. name,conds})
 								end
 							elseif (object == "unmeta") and string.sub(name,1,5) == "text_" then
-								local valid = true -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
 								if (string.sub(name,6,10) == "text_" or string.sub(name,6,11) == "glyph_") and unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate(string.sub(name,6))
 								end
@@ -864,7 +864,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {string.sub(name,6),conds})
 								end
 							elseif (object == "unmega") and string.sub(name,1,6) == "glyph_" then
-								local valid = true -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
 								if (string.sub(name,7,11) == "text_" or string.sub(name,7,12) == "glyph_" ) and unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate(string.sub(name,7))
 								end
