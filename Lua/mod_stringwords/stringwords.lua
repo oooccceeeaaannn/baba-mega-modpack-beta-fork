@@ -166,8 +166,6 @@ condlist.starts = function(params,_,_,cdata)
 					local ray_name = ray_unit.strings[UNITNAME]
 					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
 						ray_name = string.sub(ray_name, 6, #ray_name)
-					elseif string.sub(ray_name, 1,6) == "glyph_" and removeatleastone then
-						ray_name = string.sub(ray_name, 7, #ray_name)
 					end
 					if string.sub(name, 0, string.len(ray_name)) == ray_name then
 						found_match = true
@@ -253,8 +251,6 @@ condlist.contain = function(params,_,_,cdata)
 					local ray_name = ray_unit.strings[UNITNAME]
 					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
 						ray_name = string.sub(ray_name, 6, #ray_name)
-					elseif string.sub(ray_name, 1,6) == "glyph_" and removeatleastone then
-						ray_name = string.sub(ray_name, 7, #ray_name)
 					end
 					if pnot then
 						ray_name = "not "..ray_name
@@ -337,8 +333,6 @@ condlist.ends = function(params,_,_,cdata)
 					local ray_name = ray_unit.strings[UNITNAME]
 					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
 						ray_name = string.sub(ray_name, 6, #ray_name)
-					elseif string.sub(ray_name, 1,6) == "glyph_" and removeatleastone then
-						ray_name = string.sub(ray_name, 7, #ray_name)
 					end
 					if string.sub(name, -string.len(ray_name)) == ray_name then
 						found_match = true
