@@ -1813,6 +1813,13 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			return
 		end
 
+		for a,b in ipairs(conds) do
+			if b[1] == "cancel" then
+				addoption({option[1],option[2],"not "..option[3]},{},rule[3],false,nil,rule[4])
+				visualonly = true
+			end
+		end
+
 		for i, v in pairs(toreplace) do
 			if option[2] == toreplace[i] then
 				if tense[i] ~= "present" then
@@ -2006,7 +2013,11 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		if is_pnoun_target then
 			featureindex[target] = {}
 		end
-		
+
+		if string.sub(effect, 1, 5) == "power" and effect ~= "power?" then
+			addoption({target,verb,"power?"},rule[2],rule[3],false,{effect,#featureindex[effect]},tags)
+		end
+
 		local groupcond = false
 		
 		if (string.sub(target, 1, 5) == "group") or (string.sub(effect, 1, 5) == "group" and (verb ~= "write" or not foundtag)) or (string.sub(target, 1, 9) == "not group") or (string.sub(effect, 1, 9) == "not group") then
@@ -3125,22 +3136,6 @@ function postrules(alreadyrun_)
 		@mods(stable) - Override reason: "X is not Y" and "X is X" directly modifies rules in the featureindex. We don't want that to happen for stablerules 
 				(look for instances of has_stable_tag() )
 	 ]]
-
-	local scary = findfeature(nil, "is", "scary") --@mods (extrem)
-	local scared = findfeature(nil, "is", "scared")
-	if scary ~= nil and scared ~= nil then
-		for a, b in ipairs(scary) do
-			for c, d in ipairs(scared) do
-				local ids = b[3]
-				if d[3] ~= nil then
-					for e, f in ipairs(d[3]) do
-						table.insert(ids, f)
-					end
-				end
-				addoption({ d[1][1], "fear", b[1][1] }, {}, ids, false, {})
-			end
-		end
-	end
 
 	local protects = {}
 	local newruleids = {}

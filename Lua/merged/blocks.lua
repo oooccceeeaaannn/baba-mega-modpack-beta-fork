@@ -1329,7 +1329,7 @@ function block(small_)
 	local isyou3 = getunitswitheffect("3d",false,delthese)
 	local isyou42 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
 	local isyou4 = getunitswitheffect("puppet", false, delthese)
-	local isyou5 = getunitswitheffect("youplus", false, delthese)
+	local isyou5 = getunitswitheffect("you+", false, delthese)
 
 	for i,v in ipairs(isyou2) do
 		table.insert(isyou, v)
@@ -1428,6 +1428,112 @@ function block(small_)
 
 								-- @mods(word salad x patashu): implement karma for DEFEATS. The thing that "defeats" another is to blame.
 								ws_setKarma(d)
+							end
+						end
+					end
+				end
+			end
+		end
+
+		delthese,doremovalsound = handledels(delthese,doremovalsound)
+
+		if editor.values[INEDITOR] == 0 then
+			local reload = findfeature(nil,"is","reload")
+
+			if (reload ~= nil) then
+				for a,b in ipairs(reload) do
+					if (b[1] ~= "empty") then
+						local portal = findtype(b,x,y,0)
+
+						if (#portal > 0) then
+							for c,d in ipairs(portal) do
+								local doit = false
+								local pmult,sound = checkeffecthistory("reload")
+
+								if (d ~= unit.fixed) then
+									if floating(d,unit.fixed,x,y) then
+										local kunit = mmf.newObject(d)
+										local kname = kunit.strings[UNITNAME]
+
+
+										local entering = {{nil, generaldata.strings[LEVELNAME], generaldata.strings[CURRLEVEL]}}
+
+										findpersists() --@Merge(Persist x Extrem)
+
+										generaldata.values[TRANSITIONREASON] = 9
+										generaldata.values[IGNORE] = 1
+										generaldata3.values[STOPTRANSITION] = 1
+										generaldata2.values[UNLOCK] = 0
+										generaldata2.values[UNLOCKTIMER] = 0
+										MF_particles("error",x,y,20 * pmult,3,1,1,1)
+										MF_loop("transition",1)
+									end
+								else
+									local kunit = mmf.newObject(d)
+									local kname = kunit.strings[UNITNAME]
+
+									local entering = {{nil, generaldata.strings[LEVELNAME], generaldata.strings[CURRLEVEL]}}
+
+									findpersists()
+
+									generaldata.values[TRANSITIONREASON] = 9
+									generaldata.values[IGNORE] = 1
+									generaldata3.values[STOPTRANSITION] = 1
+									generaldata2.values[UNLOCK] = 0
+									generaldata2.values[UNLOCKTIMER] = 0
+									MF_particles("error",x,y,20 * pmult,3,1,1,1)
+									MF_loop("transition",1)
+								end
+							end
+						end
+					end
+				end
+			end
+
+			local returns = findfeature(nil,"is","return")
+
+			if (returns ~= nil) then
+				for a,b in ipairs(returns) do
+					if (b[1] ~= "empty") then
+						local portal = findtype(b,x,y,0)
+
+						if (#portal > 0) then
+							for c,d in ipairs(portal) do
+								local doit = false
+								local pmult,sound = checkeffecthistory("return")
+
+								if (d ~= unit.fixed) then
+									if floating(d,unit.fixed,x,y) then
+										local kunit = mmf.newObject(d)
+										local kname = kunit.strings[UNITNAME]
+
+										local newlevelfile = uplevel()
+										local entering = {{nil, get_level_name_from_ld(newlevelfile), newlevelfile}}
+
+										findpersists()
+
+										generaldata.values[TRANSITIONREASON] = 9
+										generaldata.values[IGNORE] = 1
+										generaldata3.values[STOPTRANSITION] = 1
+										generaldata2.values[UNLOCK] = 0
+										generaldata2.values[UNLOCKTIMER] = 0
+										MF_particles("error",x,y,20 * pmult,3,1,1,1)
+										MF_loop("transition",1)
+									end
+								else
+									local newlevelfile = uplevel()
+									local entering = {{nil, get_level_name_from_ld(newlevelfile), newlevelfile}}
+
+									findpersists()
+
+									generaldata.values[TRANSITIONREASON] = 9
+									generaldata.values[IGNORE] = 1
+									generaldata3.values[STOPTRANSITION] = 1
+									generaldata2.values[UNLOCK] = 0
+									generaldata2.values[UNLOCKTIMER] = 0
+									MF_particles("error",x,y,20 * pmult,3,1,1,1)
+									MF_loop("transition",1)
+								end
 							end
 						end
 					end
@@ -1928,7 +2034,7 @@ function block(small_)
 	isyou3 = getunitswitheffect("3d",false,delthese)
 	isyou42 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
 	isyou4 = getunitswitheffect("puppet", false, delthese)
-	isyou5 = getunitswitheffect("youplus", false, delthese)
+	isyou5 = getunitswitheffect("you+", false, delthese)
 
 	for i,v in ipairs(isyou2) do
 		table.insert(isyou, v)
@@ -2229,7 +2335,7 @@ function levelblock()
 								elseif (defeatpair == "defeat") then
 									defeat = true
 								end
-							elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d") or (rule[3] == "puppet") or (rule[3] == "youplus")) and testcond(conds,2,i,j) then
+							elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d") or (rule[3] == "puppet") or (rule[3] == "you+")) and testcond(conds,2,i,j) then
 								candefeat = true
 								canwin = true
 								
@@ -4459,7 +4565,7 @@ function findplayer(undoing)
 	local players3 = findfeature(nil,"is","3d")
 	local players24 = findfeature(nil,"is","alive") -- Get all ALIVE features
 	local players4 = findfeature(nil, "is", "puppet")
-	local players5 = findfeature(nil, "is", "youplus")
+	local players5 = findfeature(nil, "is", "you+")
 
 	local vessels = findfeature(nil,"is","vessel") or {} -- Get all VESSEL features (used to keep music if option is enabled)
 	local vessels2 = findfeature(nil,"is","vessel2") or {}

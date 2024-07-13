@@ -57,6 +57,12 @@ table.insert(mod_hook_functions.rule_baserules, function()
     end
 end)
 
+table.insert(mod_hook_functions["level_end"],
+        function()
+            keeprules = {}
+        end
+)
+
 --Override to add the fillkeepruleslist() function in there
 --@Merge: merged many functions
 

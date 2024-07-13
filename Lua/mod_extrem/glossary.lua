@@ -18,9 +18,9 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Properties that let objects survive level destruction.
-    
+
 Eternal is only for infinite loops, whilst secure works for everything.]],
-            display_sprites = { "text_eternal", "text_secure" }
+            display_sprites = {"text_eternal","text_secure"}
         },
         {
             name = "draw",
@@ -65,7 +65,7 @@ This does not accept multiletters.]],
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Anything in front of an object that is watch(NUMBER) is "watched(NUMBER)".]],
-            display_sprites = { "text_watch", "text_watch2", "text_watch3" }
+            display_sprites = {"text_watch","text_watch2","text_watch3"}
         },
         {
             name = "watched",
@@ -74,7 +74,7 @@ This does not accept multiletters.]],
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[See "watch".]],
-            display_sprites = { "text_watched", "text_watched2", "text_watched3" }
+            display_sprites = {"text_watched","text_watched2","text_watched3"}
         },
         {
             name = "feeling_prefixes",
@@ -90,7 +90,7 @@ This does not accept multiletters.]],
 - sleepy is true for sleep
 - shiny is true for best
 - curious is true for wonder]],
-            display_sprites = { "text_hidden", "text_petted", "text_static", "text_sleepy", "text_shiny", "text_curious" }
+            display_sprites = {"text_hidden","text_petted","text_static","text_sleepy","text_shiny","text_curious"}
         },
         {
             name = "toxic",
@@ -115,7 +115,7 @@ This does not accept multiletters.]],
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[A condition that is like feeling, but accepts nouns.
-    
+
 Using write will make "as text" be true.]],
         },
         {
@@ -125,11 +125,11 @@ Using write will make "as text" be true.]],
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Properties for the three different tenses.
-    
+
 Past makes past tense verbs work and future makes future tense verbs work.
-    
+
 Present does nothing by itself, but making something "not present" causes level destruction.]],
-            display_sprites = { "text_pastprop", "text_present", "text_future" }
+            display_sprites = {"text_past","text_present","text_future"}
         },
         {
             name = "tense_verbs",
@@ -138,7 +138,7 @@ Present does nothing by itself, but making something "not present" causes level 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[See "past".]],
-            display_sprites = { "text_was", "text_had", "text_made", "text_wrote", "text_ate", "text_feared", "text_mimicked", "text_followed", "text_willbe", "text_willhave", "text_willmake", "text_willwrite", "text_willeat", "text_willfear", "text_willmimic", "text_willfollow" }
+            display_sprites = {"text_was","text_had","text_made","text_wrote","text_ate","text_feared","text_mimicked","text_followed","text_willbe","text_willhave","text_willmake","text_willwrite","text_willeat","text_willfear","text_willmimic","text_willfollow"}
         },
         {
             name = "willbehave",
@@ -147,7 +147,7 @@ Present does nothing by itself, but making something "not present" causes level 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Multiletters that are meant to spell the "will be" and "will have" verbs.]],
-            display_sprites = { "text_will", "text_be", "text_have" }
+            display_sprites = {"text_will","text_be","text_have"}
         },
         {
             name = "keep",
@@ -158,13 +158,27 @@ Present does nothing by itself, but making something "not present" causes level 
             description = [[A prefix that makes a rule persist into the next level.]],
         },
         {
+            name = "returnload",
+            thumbnail_obj = "text_reload",
+            display_name = "return & reload",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[Properties that activate when stepped on by a you object.
+
+Reload re-enters the current level whilst return mimics "return to map".
+
+These properties do not work in the editor.]],
+            display_sprites = {"text_reload","text_return"}
+
+        },
+        {
             name = "spin",
             thumbnail_obj = "text_spinright",
             display_name = "spin",
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Turn-like properties that turn until facing the direction of the arrow.]],
-            display_sprites = { "text_spinright", "text_spindown", "text_spinleft", "text_spinup", "text_despinright", "text_despindown", "text_despinleft", "text_despinup" }
+            display_sprites = {"text_spinright","text_spindown","text_spinleft","text_spinup","text_despinright","text_despindown","text_despinleft","text_despinup"}
         },
         {
             name = "act",
@@ -189,15 +203,16 @@ Present does nothing by itself, but making something "not present" causes level 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[Objects that are "infect" become everything that is "virus".]],
-            display_sprites = { "text_infect", "text_virus" }
+            display_sprites = {"text_infect","text_virus"}
         },
         {
             name = "you+",
-            thumbnail_obj = "text_youplus",
+            thumbnail_obj = "text_you+",
             display_name = "you+",
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[A variant of "you" that has stacking movement. Objects with you+ still interact with "win" and "defeat" objects.]],
+            display_sprites = {"text_youplus"}
         },
         {
             name = "puppet",
@@ -214,7 +229,7 @@ Present does nothing by itself, but making something "not present" causes level 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[A variant of toxic that stacks.
-    
+
 - Objects with less instances of volt are destroyed by objects with more.
 - Objects with the same amount of instances of volt ignore eachother.]],
         },
@@ -225,7 +240,7 @@ Present does nothing by itself, but making something "not present" causes level 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[An infix condition that is intended to be used on "text".
-    
+
 Doing "text refers baba is best" makes the text refering to baba be "best".
 If you do "(OBJECT) refers (object)" then it acts the same as "(object) feeling word".]],
         },
@@ -236,7 +251,7 @@ If you do "(OBJECT) refers (object)" then it acts the same as "(object) feeling 
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
             description = [[A group of prefixes that are true if exactly that amount of the object is present within the level.]],
-            display_sprites = { "text_one", "text_two", "text_three", "text_four", "text_five" }
+            display_sprites = {"text_one","text_two","text_three","text_four","text_five"}
         },
         {
             name = "equal",
@@ -262,5 +277,75 @@ If you do "(OBJECT) refers (object)" then it acts the same as "(object) feeling 
             group = "$4,2Extrem's $5,4Mods",
             description = [[An infix condition that is true if there is a lower amount of objects than the other parameter(s).]],
         },
+        {
+            name = "letters",
+            thumbnail_obj = "text_+",
+            display_name = "additional letters",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[New letters to spell words which don't just involve letters.]],
+            display_sprites = {"text_+","text_!","text_?","text_."},
+        },
+        {
+            name = "powered?",
+            thumbnail_obj = "text_powered?",
+            display_name = "powered? (any)",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[A variant of powered that is true if anything is power, regardless of what power it is.]],
+        },
+        {
+            name = "power?",
+            thumbnail_obj = "text_power?",
+            display_name = "power? (any)",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[Acts like any other power. Makes "powered?" return true if anything has the "power?" prop.]],
+        },
+        {
+            name = "original",
+            thumbnail_obj = "text_original",
+            display_name = "original",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[An infix condition that checks if the object was originally the parameter.]],
+        },
+        {
+            name = "triggered",
+            thumbnail_obj = "text_triggered",
+            display_name = "triggered",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[An prefix that is true if an object is stepped on by a "you" object.
+
+Triggered is also true if the object itself is "you".]],
+        },
+        {
+            name = "leveled",
+            thumbnail_obj = "text_leveled",
+            display_name = "leveled",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[A condition that is true if both objects are on the same float level.]],
+        },
+        {
+            name = "cancel",
+            thumbnail_obj = "text_cancel",
+            display_name = "cancel",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[A prefix that "not"s a statement.]],
+        },
+        --[=[
+        {
+            name = "deny",
+            thumbnail_obj = "text_deny",
+            display_name = "deny",
+            author = "Extrem",
+            group = "$4,2Extrem's $5,4Mods",
+            description = [[A property that nulifies a property if another object also has that property.]],
+        },
+        --]=]
+
     })
 end

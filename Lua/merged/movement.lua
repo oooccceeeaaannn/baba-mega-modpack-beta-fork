@@ -31,20 +31,20 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
         -- EDIT: add support for LEVEL IS VESSEL/VESSEL2
         levelmove = ws_findLevelVessel()
         levelmove3 = findfeature("level", "is", "puppet")
-        levelmove4 = findfeature("level", "is", "youplus")
+        levelmove4 = findfeature("level", "is", "you+")
     elseif (playerid == 2) then
         levelmove = ws_findLevelVessel(2)
 
         if (levelmove == nil) then
             levelmove = ws_findLevelVessel()
             levelmove3 = findfeature("level", "is", "puppet")
-            levelmove4 = findfeature("level", "is", "youplus")
+            levelmove4 = findfeature("level", "is", "you+")
         end
     elseif (playerid == 3) then
         levelmove = ws_findLevelVessel()
         levelmove2 = ws_findLevelVessel(2)
         levelmove3 = findfeature("level", "is", "puppet")
-        levelmove4 = findfeature("level", "is", "youplus")
+        levelmove4 = findfeature("level", "is", "you+")
 
         if (#levelmove > 0) and (dir_ ~= nil) then
             levelmovedir = dir_
@@ -220,7 +220,7 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                     -- EDIT: add support for X/EMPTY IS VESSEL/VESSEL2
                     players, empty = ws_findVessels()
                     players4, empty4 = findallfeature(nil, "is", "puppet")
-                    players5, empty5 = findallfeature(nil, "is", "youplus")
+                    players5, empty5 = findallfeature(nil, "is", "you+")
 
                     local players_tt, empty_tt = do_directional_you(dir_)
                     for i, v in ipairs(players_tt) do
@@ -243,7 +243,7 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                     if (#players == 0) then
                         players, empty = ws_findVessels()
                         players4, empty4 = findallfeature(nil, "is", "puppet")
-                        players5, empty5 = findallfeature(nil, "is", "youplus")
+                        players5, empty5 = findallfeature(nil, "is", "you+")
 
                         players_tt, empty_tt = do_directional_you(dir_)
                         for i, v in ipairs(players_tt) do
@@ -257,7 +257,7 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                     players, empty = ws_findVessels()
                     players2, empty2 = ws_findVessels(2)
                     players4, empty4 = findallfeature(nil, "is", "puppet")
-                    players5, empty5 = findallfeature(nil, "is", "youplus")
+                    players5, empty5 = findallfeature(nil, "is", "you+")
 
                     local playersdir = {}
                     local emptydir = {}
@@ -515,8 +515,8 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                                 x, y = unit.values[XPOS], unit.values[YPOS]
                                 local unitname = unit.strings[UNITNAME] --@mods(extrem x metatext) Used UNITNAME instead of NAME.
                                 local moveamount = 0
-                                if hasfeature(unitname, "is", "youplus", v) then
-                                    moveamount = #findfeature(unitname, "is", "youplus")
+                                if hasfeature(unitname, "is", "you+", v) then
+                                    moveamount = #findfeature(unitname, "is", "you+")
                                 end
 
                                 table.insert(moving_units, { unitid = v, reason = "you", state = 0, moves = moveamount, dir = fdir, xpos = x, ypos = y })
@@ -528,8 +528,8 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                                     x = a % roomsizex
                                     y = math.floor(a / roomsizex)
                                     local moveamount = 0
-                                    if hasfeature("empty", "is", "youplus", 2) then
-                                        moveamount = #findfeature("empty", "is", "youplus")
+                                    if hasfeature("empty", "is", "you+", 2) then
+                                        moveamount = #findfeature("empty", "is", "you+")
                                     end
 
                                     table.insert(moving_units, { unitid = 2, reason = "you", state = 0, moves = moveamount, dir = fdir, xpos = x, ypos = y })

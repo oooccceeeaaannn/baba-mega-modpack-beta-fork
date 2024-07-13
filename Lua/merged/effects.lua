@@ -16,6 +16,10 @@ function effects(timer)
 	doeffect(timer,nil,"pet","pet",1,0,50,{3,1},"nojitter")
 	doeffect(timer, nil, "toxic", "hot", 1, 80, 10, { 0, 1 })
 
+	doeffect(timer,nil,"past","glow",1,5,20,{4,4})
+	doeffect(timer,nil,"present","glow",1,5,20,{5,3})
+	doeffect(timer,nil,"future","glow",1,5,20,{2,4})
+
 	doeffect(timer,nil,"power","electricity",2,5,8,{2,4})
 	doeffect(timer,nil,"power2","electricity",2,5,8,{5,4})
 	doeffect(timer,nil,"power3","electricity",2,5,8,{4,4})
@@ -31,6 +35,10 @@ function effects(timer)
 	doeffect(timer, nil, "alkali", "hot", 10, 50, 8, { 4, rnd }, "inwards")
 	rnd = math.random(3, 4)
 	doeffect(timer, nil, "eternal", "infinity", 1, 40, 3, { 1, rnd })
+	rnd = math.random(0,1)
+	doeffect(timer,nil,"reload","glow",2,5,8,{3,rnd})
+	rnd = math.random(0,1)
+	doeffect(timer,nil,"return","unlock",2,5,8,{3,rnd})
 
 	do_mod_hook("effect_always")
 end

@@ -4,10 +4,9 @@ local dir = str:match("(.*/)")
 local load_order = {
     "addtexts.lua",
     "as.lua",
-    "feelprefix.lua",
     "glossary.lua",
     "keep.lua",
-    "number.lua",
+    "newconds.lua",
     "refers.lua",
     "spin.lua",
     "watch & watched.lua",
