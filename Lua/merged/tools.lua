@@ -431,6 +431,7 @@ end
 function inside(name,x,y,dir_,unitid,leveldata_)
 	local ins = {}
 	local wordins = {}
+	local glyphins = {}
 	local tileid = x + y * roomsizex
 	local maptile = unitmap[tileid] or {}
 	local dir = dir_
@@ -455,6 +456,9 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			end
 			if (target == name) and ((verb == "scrawl") or (verb == "jot")) then
 				table.insert(wordins, {object,conds})
+			end
+			if (target == name) and ((verb == "scribble")) then
+				table.insert(glyphins, {object,conds})
 			end
 		end
 	end
@@ -511,6 +515,18 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local object = "text_" .. v[1]
 			local conds = v[2]
 			if testcond(conds,unitid,x,y) then
+				if (unitreference[object] ~= nil) then
+					create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+				end
+			end
+		end
+	end
+	if (#glyphins > 0) then
+		for i,v in ipairs(glyphins) do
+			local object = "glyph_" .. v[1]
+			local conds = v[2]
+			if testcond(conds,unitid,x,y) then
+				tryautogenerate(object)
 				if (unitreference[object] ~= nil) then
 					create(object,x,y,dir,nil,nil,nil,nil,leveldata)
 				end

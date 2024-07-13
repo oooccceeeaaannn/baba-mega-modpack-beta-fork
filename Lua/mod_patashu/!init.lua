@@ -452,6 +452,34 @@ editor_objlist["text_print"] = {
 	colour_active = {0, 3},
 }
 
+table.insert(editor_objlist_order, "text_imprint")
+editor_objlist["text_imprint"] = {
+	name = "text_imprint",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text", "text_verb", "patashu"},
+	tiling = -1,
+	type = 1,
+	argtype = {0, 2},
+	layer = 20,
+	colour = {0, 2},
+	colour_active = {0, 3},
+}
+
+table.insert(editor_objlist_order, "text_scribble")
+editor_objlist["text_scribble"] = {
+	name = "text_scribble",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text", "text_verb", "patashu"},
+	tiling = -1,
+	type = 1,
+	argtype = {0, 2},
+	layer = 20,
+	colour = {0, 2},
+	colour_active = {0, 3},
+}
+
 table.insert(editor_objlist_order, "text_scrawl")
 editor_objlist["text_scrawl"] = {
 	name = "text_scrawl",
@@ -659,7 +687,22 @@ Think of as if "make text_" were combined into one word.]]
 
 Think of as if "has text_" were combined into one word.]]
 		},
+		{
+			name = "imprint",
+			author = "Patashu",
+			group = "Pata Redux Mods",
+			description = [[The targeted object creates instances of whatever glyph is the right of "print".
 
+Think of as if "make glyph_" were combined into one word.]]
+		},
+		{
+			name = "scribble",
+			author = "Patashu",
+			group = "Pata Redux Mods",
+			description = [[When the targeted object is destroyed, it creates instances of whatever glyph is the right of "scribble".
+
+Think of as if "has glyph_" were combined into one word.]]
+		},
 	})
 end
 

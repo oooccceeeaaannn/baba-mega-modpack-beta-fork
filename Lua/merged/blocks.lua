@@ -1996,8 +1996,72 @@ function block(small_)
 						break
 					end
 				end
-				if not exists and (string.sub(v,1,6) == "glyph_" or string.sub(v,1,5) == "text_") then
+				if not exists then
 					exists = tryautogenerate(v)  --@Merge(metatext x patashu): call tryautogenerate() to make PRINT support generating metatext
+				end
+
+				if exists then
+					local domake = true
+
+					if (name ~= "empty") then
+						local thingshere = findallhere(x, y)
+
+						if (#thingshere > 0) then
+							for a, b in ipairs(thingshere) do
+								local thing = mmf.newObject(b)
+								local thingname = thing.strings[UNITNAME]
+
+								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
+									domake = false
+								end
+							end
+						end
+					end
+
+					if domake then
+						create(v, x, y, dir, x, y, nil, nil, leveldata)
+						updatecode = 1
+					end
+				end
+			end
+		end
+
+		local isimprint = getunitswithverb("imprint",delthese)
+
+		for id,ugroup in ipairs(isimprint) do
+			local v = ugroup[1]
+			v = "glyph_" .. v
+
+			for a,unit in ipairs(ugroup[2]) do
+				local x,y,dir,name = 0,0,4,""
+
+				local leveldata = {}
+
+				if (ugroup[3] ~= "empty") then
+					x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
+					name = getname(unit)
+					leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
+				else
+					x = math.floor(unit % roomsizex)
+					y = math.floor(unit / roomsizex)
+					name = "empty"
+					dir = emptydir(x,y)
+				end
+
+				if (dir == 4) then
+					dir = fixedrandom(0,3)
+				end
+
+
+				local exists = false
+				for b,mat in pairs(fullunitlist) do
+					if (b == v) then
+						exists = true
+						break
+					end
+				end
+				if not exists then
+					exists = tryautogenerate(v)  --@Merge(metatext x patashu): call tryautogenerate() to make IMPRINT support generating metatext
 				end
 
 				if exists then
