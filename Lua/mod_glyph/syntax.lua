@@ -20,7 +20,10 @@ function createall_single(unitid,conds,x_,y_,id_,dolevels_,leveldata_)
 	if (unitid ~= 2) then
 		vunit = mmf.newObject(unitid)
 		x,y,dir,id = vunit.values[XPOS],vunit.values[YPOS],vunit.values[DIR],vunit.values[ID]
-		name = getname(vunit)
+		name = getname(vunit, "text")
+		if string.sub(name,1,6) == "glyph_" then
+			name = "glyph"
+		end
 	else
 		name = "empty"
 		dir = emptydir(x,y)
