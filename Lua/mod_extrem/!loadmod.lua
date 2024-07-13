@@ -7,7 +7,6 @@ local load_order = {
     "glossary.lua",
     "keep.lua",
     "newconds.lua",
-    "refers.lua",
     "spin.lua",
     "watch & watched.lua",
 }

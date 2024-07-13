@@ -1,4 +1,4 @@
-condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: metatext merge
+condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: THIS merge
 
     local allfound = 0
     local alreadyfound = {}
