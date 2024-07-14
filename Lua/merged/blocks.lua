@@ -32,14 +32,10 @@ function moveblock(onlystartblock_)
 						local followedfound = false
 
 						local gname = nil
-						if (unit.strings[UNITTYPE] == "text") then
-							gname = "text"
+						if is_str_special_prefixed(name) then
+							gname = get_broaded_str(name)
 						end
-						
-						if isglyph(unit) then
-							gname = "glyph"
-						end
-						
+
 						if (featureindex[name] ~= nil) then					
 							for a,b in ipairs(featureindex[name]) do
 								local baserule = b[1]
@@ -332,7 +328,7 @@ function moveblock(onlystartblock_)
 										newunit.followed = followed
 										newunit.back_init = back_init
 
-										if (newunit.strings[UNITTYPE] == "text") or isglyph(newunit) then
+										if (newunit.strings[UNITTYPE] == "text" or newunit.strings[UNITTYPE] == "node") or isglyph(newunit) then
 											updatecode = 1
 										end
 
@@ -340,6 +336,8 @@ function moveblock(onlystartblock_)
 										local undowordrelatedunits = currentundo.wordrelatedunits
 										local undosymbolunits = currentundo.wordunits
 										local undowordrelatedunits = currentundo.wordrelatedunits
+										local undobreakunits = currentundo.breakunits
+										local undobreakrelatedunits = currentundo.breakrelatedunits
 
 										if (#undowordunits > 0) then
 											for a,b in ipairs(undowordunits) do
@@ -359,6 +357,22 @@ function moveblock(onlystartblock_)
 
 										if (#undowordrelatedunits > 0) then
 											for a,b in ipairs(undowordrelatedunits) do
+												if (b == bline[6]) then
+													updatecode = 1
+												end
+											end
+										end
+
+										if (#undobreakunits > 0) then
+											for a,b in ipairs(undod) do
+												if (b == bline[6]) then
+													updatecode = 1
+												end
+											end
+										end
+
+										if (#undobreakrelatedunits > 0) then
+											for a,b in ipairs(undobreakrelatedunits) do
 												if (b == bline[6]) then
 													updatecode = 1
 												end
@@ -448,6 +462,8 @@ function moveblock(onlystartblock_)
 								if ((targetname ~= name) or ((metatext_fixquirks and
 										(getname(vunit,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid)))
 										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
+										or (getname(vunit,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
+										or (getname(vunit,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node"))
 										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
 										and (v ~= unitid) then
 									local teles = istele
@@ -463,7 +479,10 @@ function moveblock(onlystartblock_)
 											if (b ~= unitid) and (telename == name
 													or (metatext_fixquirks and getname(tele,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid,true))
 													or (getmetalevel(telename) == getmetalevel(name) and checkiftextrule(name,"is","tele",unitid,true,"meta"..getmetalevel(name)))
-													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))) and (tele.flags[DEAD] == false) then
+													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
+													or (getname(tele,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
+													or (getname(tele,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node")))
+													and (tele.flags[DEAD] == false) then
 												table.insert(teletargets, b)
 											end
 										end
@@ -829,7 +848,19 @@ function block(small_)
 			end
 		end
 	end
-	
+
+	local isdestroy = getunitswitheffect("destroy",false,delthese)
+	for id,unit in ipairs(isdestroy) do
+		if not issafe(unit.fixed) then
+			local x,y = unit.values[XPOS],unit.values[YPOS]
+			local pmult = checkeffecthistory("weak")
+			local c1,c2 = getcolour(unit.fixed)
+			MF_particles("destroy",x,y,5 * pmult,c1,c2,1,1)
+			table.insert(delthese, unit.fixed) --No need for karma for a suicide
+		end
+	end
+	delthese,doremovalsound = handledels(delthese,doremovalsound)
+
 	local issink = getunitswitheffect("sink",false,delthese)
 	
 	for id,unit in ipairs(issink) do
@@ -1703,18 +1734,18 @@ function block(small_)
 				
 				local exists = false
 				
-				if (v ~= "text") and (v ~= "glyph") and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
+				if (not is_str_special_prefix(v .. "_")) and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
 					for b,mat in pairs(fullunitlist) do
 						if (b == v) then
 							exists = true
 							break
 						end
 					end
-					if not exists and string.sub(v,1,5) == "text_" or string.sub(v,1,6) == "glyph_" then
+					if not exists and is_str_special_prefixed(v) then
 						exists = tryautogenerate(v)
 					end
 				else
-					if (v ~= "text") and (string.sub(v, 1, 4) ~= "meta") and (v ~= "glyph") then
+					if (not is_str_special_prefix(v .. "_")) and (string.sub(v, 1, 4) ~= "meta") then
 						exists = true
 					elseif (v ~= "text") and (string.sub(v, 1, 4) == "meta") then
 						local level = string.sub(v, 5)
@@ -1734,25 +1765,15 @@ function block(small_)
 								exists = tryautogenerate(newname)
 							end
 						end
-					elseif (v == "text") then
+					elseif is_str_special_prefix(v .. "_") then
 						for b, mat in pairs(fullunitlist) do
-							if (b == "text_" .. name) then
+							if (b == v .. "_" .. name) then
 								exists = true
 								break
 							end
 						end
 						if not exists then
-							exists = tryautogenerate("text_" .. name,name)
-						end
-					elseif (v == "glyph") then
-						for b, mat in pairs(fullunitlist) do
-							if (b == "glyph_" .. name) then
-								exists = true
-								break
-							end
-						end
-						if not exists then
-							exists = tryautogenerate("glyph_" .. name,name)
+							exists = tryautogenerate(v .. "_" .. name,name)
 						end
 					end
 				end
@@ -1778,9 +1799,9 @@ function block(small_)
 					if domake then
 						if (findnoun(v,nlist.short,true) == false) then
 							create(v,x,y,dir,x,y,nil,nil,leveldata)
-						elseif (v == "text") then
-							if (name ~= "text") and (name ~= "all") then
-								create("text_" .. name,x,y,dir,x,y,nil,nil,leveldata)
+						elseif is_str_special_prefix(v .. "_") then
+							if (name ~= v) and (name ~= "all") then
+								create(v .. "_" .. name,x,y,dir,x,y,nil,nil,leveldata)
 								updatecode = 1
 							end
 						elseif string.sub(v, 1, 4) == "meta" then
@@ -1794,11 +1815,6 @@ function block(small_)
 								if (name ~= "text") and (name ~= newname) and (name ~= "all") then
 									create(newname,x,y,dir,x,y,nil,nil,leveldata)
 								end
-							end
-						elseif (v == "glyph") then
-							if (name ~= "glyph") and (name ~= "all") then
-								create("glyph_" .. name,x,y,dir,x,y,nil,nil,leveldata)
-								updatecode = 1
 							end
 						elseif (string.sub(v, 1, 5) == "group") then
 							--[[
@@ -1945,7 +1961,7 @@ function block(small_)
 						for i, j in ipairs(buildthese) do
 							if j ~= "text" and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
 								create(j,x,y,dir,x,y,nil,nil,leveldata)
-								if (string.sub(j,1,5) == "text_" or string.sub(j,1,6) == "glyph_") then
+								if is_str_special_prefixed(j) then
 									updatecode = 1
 								end
 							end
@@ -4582,7 +4598,7 @@ function effectblock()
 				end
 			elseif (#unit.colours == 0) then
 				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if ((unit.strings[UNITTYPE] ~= "text") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
+					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")

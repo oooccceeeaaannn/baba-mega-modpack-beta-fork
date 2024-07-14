@@ -5,8 +5,12 @@ enable_functional_glyph_text_ = true
 text_and_glyph = {
 	text_metatext = "text_text_",
 	text_metaglyph = "text_glyph_",
+	text_metanode = "text_node_",
+	text_metaevent = "text_event_",
 	glyph_text_ = "glyph_metatext",
 	glyph_glyph_ = "glyph_metaglyph",
+	glyph_event_ = "glyph_metaevent",
+	glyph_node_ = "glyph_metanode",
 }
 
 function trueidentity(name)
@@ -15,6 +19,16 @@ function trueidentity(name)
 	end
 	return name
 end
+-- Types
+-- Noun - 0
+-- Verb - 1
+-- Property - 2
+-- Group - 3
+-- Not - 4
+-- Meta - 5
+-- And - 6
+-- Prefix - 7
+-- Infix - 8
 
 glyphunits = {}
 verbargtypes = {
@@ -39,13 +53,15 @@ infixargtypes = {
 	glyph_feeling = {2},
 	glyph_near = {0, 3},
 	glyph_on = {0, 3},
-	glyph_nextto = {0,3}
+	glyph_nextto = {0,3},
+	glyph_refers = {0, 2, 3}
 }
 infixargextras = {
 	glyph_feeling = {},
 	glyph_near = {},
 	glyph_on = {},
-	glyph_nextto = {}
+	glyph_nextto = {},
+	glyph_refers = {}
 }
 glyphnear = {{0,1}, {1,0}, {0,-1}, {-1,0}}
 glyphtypes = {
@@ -172,9 +188,17 @@ glyphtypes = {
 	feeling = 8,
 	metaglyph = 5,
 	metatext = 5,
+	metaevent = 5,
+	metanode = 5,
+	metaobj = 5,
+	metanot = 4,
+	node = 0,
 	group = 3,
 	group2 = 3,
 	group3 = 3,
+	refers = 8,
+	event = 0,
+	obj = 0,
 }
 glyphtypes["3d"] = 2
 glyphtypes["end"] = 2
@@ -2199,18 +2223,16 @@ end
 
 local function get_name_with_glyph_text_(unit)
 	local result = unit.strings[UNITNAME]
-	if not enable_functional_glyph_text_ or (result == "glyph_text_" or result == "glyph_glyph_" ) then
+	if not enable_functional_glyph_text_ or (result == "glyph_text_" or result == "glyph_glyph_" or result == "glyph_node_" or result == "glyph_event_") then
 		return result
 	end
 	local pref = ""
-	if string.sub(result,1,5) == "text_" then
-		pref = "text_"
-		result = string.sub(result,6)
-	elseif string.sub(result,1,6) == "glyph_" then
+	if string.sub(result,1,6) == "glyph_" then
 		pref = "glyph_"
 		result = string.sub(result,7)
 	end
-	local glayer, tlayer = 0, 0
+	local glayer, tlayer = 0, 0 -- node event glyph text
+	local nlayer, elayer = 0, 0
 	local x,y = unit.values[XPOS], unit.values[YPOS]
 	if (unitmap[x + y * roomsizex] ~= nil) and (inbounds(x, y)) then
 		for _,v in pairs(unitmap[x + y * roomsizex]) do
@@ -2221,11 +2243,16 @@ local function get_name_with_glyph_text_(unit)
 					tlayer = tlayer + 1
 				elseif (name == "glyph_glyph_") then
 					glayer = glayer + 1
+				elseif (name == "glyph_node_") then
+					nlayer = nlayer + 1
+				elseif (name == "glyph_event_") then
+					elayer = elayer + 1
 				end
 			end
 		end
 	end
-	return pref .. string.rep("glyph_",glayer) .. string.rep("text_",tlayer) .. result
+	result = string.rep("glyph_",glayer) .. string.rep("text_",tlayer) .. result
+	return pref .. string.rep("node_",nlayer) .. string.rep("event_",elayer) .. result
 end
 
 local function getmetas(x,y)
@@ -2263,6 +2290,18 @@ function toometafunc(name)
 		local basefound = foundbasereference(name)
 		local glyphfound = foundreference(name)
 		if (glyphfound ~= 1) and (basefound == 1) then
+			return true
+		end
+	elseif (string.sub(name,1,6) == "event_") then
+		local basefound = foundbasereference(name)
+		local glyphfound = foundreference(name)
+		if (glyphfound ~= 1) and (basefound == 1) then
+			return true
+		end
+	elseif (string.sub(name,1,5) == "node_") then
+		local basefound = foundbasereference(name)
+		local nodefound = foundreference(name)
+		if (nodefound ~= 1) and (basefound == 1) then
 			return true
 		end
 	end
@@ -2319,6 +2358,12 @@ condlist['references'] = function(params,checkedconds,checkedconds_,cdata)
 	if (string.sub(unitname, 1, 6) == "glyph_") then
 		return (string.sub(unitname, 7) == params[1]), checkedconds
 	end
+	if (string.sub(unitname, 1, 5) == "text_") or (string.sub(unitname, 1, 5) == "node_") then
+		return (string.sub(unitname, 6) == params[1]), checkedconds
+	end
+	if (string.sub(unitname, 1, 6) == "glyph_") or (string.sub(unitname, 1, 6) == "event_") then
+		return (string.sub(unitname, 7) == params[1]), checkedconds
+	end
 	return false, checkedconds
 end
 
@@ -2340,6 +2385,22 @@ function referencesglyph(unit, param)
 	return false, checkedconds
 end
 
+local function referencesevent(unit, param)
+	local unitname = unit.strings[UNITNAME]
+	if (string.sub(unitname, 1, 6) == "event_") then
+		return (string.sub(unitname, 7) == params[1]), checkedconds
+	end
+	return false, checkedconds
+end
+
+local function referencesnode(unit, param)
+	local unitname = unit.strings[UNITNAME]
+	if (string.sub(unitname, 1, 5) == "node_") then
+		return (string.sub(unitname, 6) == params[1]), checkedconds
+	end
+	return false, checkedconds
+end
+
 function isnoun(input_string, id)
 	if string.sub(input_string,1,6) ~= "glyph_" then
 		return false
@@ -2353,8 +2414,8 @@ function isnoun(input_string, id)
 	--         return true
 	--     end
 	-- end
-	if (string.sub(input_string,1,12) == "glyph_glyph_" and input_string ~= "glyph_glyph_") or
-			(string.sub(input_string,1,11) == "glyph_text_" and input_string ~= "glyph_text_") then
+	local refer = string.sub(input_string,7)
+	if is_str_special_prefixed(refer) and not is_str_special_prefix(refer) then
 		return true
 	end
 	if (glyphtypes[string.sub(input_string,7)] == 0) or ((string.sub(input_string,1,10) == "glyph_not ") and (glyphtypes[string.sub(input_string,11)] == 0)) then
@@ -2406,7 +2467,7 @@ function isglyphnot(input_string, id)
 	if (metaglyphdata[id] ~= 0) and (metaglyphdata[id] ~= nil) then
 		return false
 	end
-	return (input_string == "glyph_not")
+	return (input_string == "glyph_not" or input_string == "glyph_metanot")
 end
 
 function isglyphand(input_string, id)
@@ -2433,7 +2494,7 @@ function isglyphmeta(input_string, id)
 	if string.sub(input_string,1,6) ~= "glyph_" then
 		return false
 	end
-	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext")
+	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode")
 end
 
 function isprefix(input_string, id)
@@ -2491,17 +2552,41 @@ function makenegatetable()
 			end
 		end
 	end
+	if unitlists["glyph_metanot"] ~= nil then
+		for i, j in pairs(unitlists["glyph_metanot"]) do
+			local unit = mmf.newObject(j)
+			if isglyphnot("glyph_metanot", j) then
+				local x, y = unit.values[XPOS], unit.values[YPOS]
+				local tileid = x + y *roomsizex
+				for i,k in pairs(glyphnear) do
+					local x2, y2 = unit.values[XPOS] + k[1], unit.values[YPOS] + k[2]
+					local tileid2 = x2 + y2 * roomsizex
+					if negatetable[tileid2] == nil then
+						negatetable[tileid2] = true
+					else
+						negatetable[tileid2] = not negatetable[tileid2]
+					end
+				end
+			end
+		end
+	end
 end
 
 function metaprefix(x, y)
 	local is_meta = false
 	local is_text = false
+	local is_event = false
+	local is_node = false
 	local im_done = false
 	if (tilemetaglyphdata[x + y * roomsizex] ~= nil) then
 		if tilemetaglyphdata[x + y * roomsizex] == 1 then
 			return "glyph_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 2 then
 			return "text_"
+		elseif tilemetaglyphdata[x + y * roomsizex] == 3 then
+			return "event_"
+		elseif tilemetaglyphdata[x + y * roomsizex] == 4 then
+			return "node_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 0 then
 			return ""
 		end
@@ -2514,6 +2599,11 @@ function metaprefix(x, y)
 				if (name == "glyph_metatext") then
 					is_text = true
 					break
+				elseif (name == "glyph_metaevent") then
+					is_event = true
+					break
+				elseif (name == "glyph_metanode") then
+					is_node = true
 				elseif (name == "glyph_metaglyph") then
 					is_meta = true
 					im_done = true
@@ -2531,6 +2621,12 @@ function metaprefix(x, y)
 	elseif is_text then
 		tilemetaglyphdata[x + y * roomsizex] = 2
 		return "text_"
+	elseif is_event then
+		tilemetaglyphdata[x + y * roomsizex] = 3
+		return "event_"
+	elseif is_node then
+		tilemetaglyphdata[x + y * roomsizex] = 4
+		return "node_"
 	else
 		tilemetaglyphdata[x + y * roomsizex] = 0
 		return ""
@@ -3041,6 +3137,12 @@ function determinemetaglyphs(glyphtable)
 		elseif (prefix == "text_") then
 			metaglyphdata[j] = 2
 			tilemetaglyphdata[x + y * roomsizex] = 2
+		elseif (prefix == "event_") then
+			metaglyphdata[j] = 3
+			tilemetaglyphdata[x + y * roomsizex] = 3
+		elseif (prefix == "node_") then
+			metaglyphdata[j] = 4
+			tilemetaglyphdata[x + y * roomsizex] = 4
 		else
 			metaglyphdata[j] = 0
 			tilemetaglyphdata[x + y * roomsizex] = 0
@@ -3402,6 +3504,10 @@ function doglyphs(symbols)
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaglyph", v[1]})
 		elseif string.sub(v[1],1,5) == "text_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metatext", "glyph_" .. string.sub(v[1],6)})
+		elseif string.sub(v[1],1,6) == "event_" then
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaevent", "glyph_" .. string.sub(v[1],6)})
+		elseif string.sub(v[1],1,6) == "node_" then
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metanode", "glyph_" .. string.sub(v[1],5)})
 		else
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule"})
 		end
@@ -3554,7 +3660,7 @@ function findsymbolunits()
 							local idunit = mmf.newObject(d)
 
 							-- Tässä pitäisi testata myös Group!
-							if (idunit.strings[UNITNAME] == "text_" .. rule[1]) or ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) then
+							if ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) then
 								--MF_alert("Matching objects - found")
 								found = true
 							elseif (string.sub(rule[1], 1, 5) == "group") then
@@ -3562,11 +3668,6 @@ function findsymbolunits()
 								found = true
 							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
 								--MF_alert("Not Object - found")
-								found = true
-							elseif idunit.strings[UNITNAME] == "text_this" then
-								-- Note: this could match any "this is symbol" or "not this is symbol" rules. But we handle the raycast buisness in testcond
-								found = true
-							elseif (idunit.strings[UNITNAME] == "text_text_") then
 								found = true
 							end
 						end

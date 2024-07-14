@@ -260,8 +260,8 @@ function addunit(id,undoing_,levelstart_)
 	if (unitlists[name] == nil) then
 		unitlists[name] = {}
 	end
-	
-	if (string.sub(name_, 1, 5) == "text_") then
+
+	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") or (string.sub(name_, 1, 4) == "obj_") then
 		unit.flags[META] = true
 	end
 	
@@ -288,7 +288,12 @@ function addunit(id,undoing_,levelstart_)
 		fullunitlist[name__] = 1
 	end
 
-	if (unit.strings[UNITTYPE] ~= "text") or ((unit.strings[UNITTYPE] == "text") and (unit.values[TYPE] == 0)) then
+	if (unitlists["unit"] == nil) then
+		unitlists["unit"] = {}
+	end
+	table.insert(unitlists["unit"], unit.fixed)
+
+	if (unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") or ((unit.strings[UNITTYPE] == "text") and (unit.values[TYPE] == 0)) or ((unit.strings[UNITTYPE] == "node") and node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0) then
 		objectlist[name_] = 1
 		fullunitlist[name_] = 1
 	end
@@ -299,6 +304,15 @@ function addunit(id,undoing_,levelstart_)
 	if (string.sub(name__, 1, 6) == "glyph_") and validglyph then
 		objectlist[string.sub(name__, 7)] = 1
 		fullunitlist[string.sub(name__, 7)] = 1 --@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
+	end
+
+	if (string.sub(name__, 1, 6) == "event_" and event_text_types[string.sub(name__, 7)] == "noun") then
+		objectlist[string.sub(name__, 7)] = 1
+		fullunitlist[string.sub(name__, 7)] = 1--@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
+	end
+
+	if get_pref(name__) ~= "" then
+		fullunitlist[get_ref(name__)] = 1
 	end
 
 	-- Adds units to meta# unitlist
@@ -314,14 +328,15 @@ function addunit(id,undoing_,levelstart_)
 	if (unit.strings[UNITTYPE] == "text") then
 		table.insert(codeunits, unit.fixed)
 		updatecode = 1
-
-		if (unit.values[TYPE] == 0) then
-			local matname = string.sub(unit.strings[UNITNAME], 6)
-			if (unitlists[matname] == nil) then
-				unitlists[matname] = {}
+		if not string.sub(unit.values[UNITNAME], 1, 5) == "event_" then
+			if (unit.values[TYPE] == 0) then
+				local matname = string.sub(unit.strings[UNITNAME], 6)
+				if (unitlists[matname] == nil) then
+					unitlists[matname] = {}
+				end
+			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and unit.strings[UNITNAME] == "text_text_")) then
+				table.insert(letterunits, unit.fixed)
 			end
-		elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and unit.strings[UNITNAME] == "text_text_")) then
-			table.insert(letterunits, unit.fixed)
 		end
 	end
 	
@@ -443,7 +458,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 										local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
 										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
 										
-										if (matdata[1] == "text") or (string.sub(matdata[1],1,6) == "glyph_") or (string.sub(matdata[1],1,5) == "text_") or (matdata[1] == "level") or (matdata[1] == "glyph") then
+										if (is_str_broad_noun(matdata[1])) or (get_pref(matdata[1]) ~= "") or (matdata[1] == "level") or (matdata[1] == "glyph") then
 											table.insert(delthese, v)
 										end
 									end

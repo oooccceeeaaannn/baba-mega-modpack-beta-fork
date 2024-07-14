@@ -64,6 +64,7 @@ function mapcursor_move(ox_,oy_,mdir)
 			updateundo = true
 			
 			checkwordchanges(unit.fixed,unit.strings[UNITNAME])
+			checkbreakchanges(unit.fixed,unit.strings[UNITNAME])
 			ws_checkechochanges(unit.fixed) -- Added check for ECHO
 			checksymbolchanges(unit.fixed,unit.strings[UNITNAME])
 			

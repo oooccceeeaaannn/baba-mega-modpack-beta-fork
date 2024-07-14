@@ -616,6 +616,15 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                 local amovers, aempty = findallfeature(nil, "is", "auto")
                 moving_units, been_seen = add_moving_units("auto", amovers, moving_units, been_seen, aempty)
 
+                amovers,aempty = findallfeature(nil,"is","nudgebackward")
+                moving_units, been_seen = add_moving_units("nudgebackward",amovers,moving_units,been_seen,aempty)
+
+                amovers,aempty = findallfeature(nil,"is","nudgearoundleft")
+                moving_units, been_seen = add_moving_units("nudgearoundleft",amovers,moving_units,been_seen,aempty)
+
+                amovers,aempty = findallfeature(nil,"is","nudgearoundright")
+                moving_units, been_seen = add_moving_units("nudgearoundright",amovers,moving_units,been_seen,aempty)
+
                 local chillers, cempty = findallfeature(nil, "is", "chill")
                 moving_units, been_seen = add_moving_units("chill", chillers, moving_units, been_seen, cempty)
             elseif (take == 3) then
@@ -1477,6 +1486,15 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                             returnolddir = true
                         elseif (data.reason == "nudgedown") then
                             dir = 3
+                            returnolddir = true
+                        elseif (data.reason == "nudgebackward") then
+                            dir = rotate(dir)
+                            returnolddir = true
+                        elseif (data.reason == "nudgearoundleft") then
+                            dir = (dir + 1) % 4
+                            returnolddir = true
+                        elseif (data.reason == "nudgearoundright") then
+                            dir = (dir - 1) % 4
                             returnolddir = true
                         elseif (data.reason == "puppet") then
                             returnolddir = true

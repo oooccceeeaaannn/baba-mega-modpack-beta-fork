@@ -13,7 +13,7 @@ condlist.on = function(params,checkedconds,checkedconds_,cdata)
 			for a,b in ipairs(params) do
 				local pname = b
 				local metaparam = false
-				if (string.sub(pname, 1, 6) == "glyph_") or (string.sub(pname, 1, 5) == "text_") then
+				if is_str_special_prefixed(pname) then
 					metaparam = true
 				end
 				local pnot = false
@@ -158,12 +158,12 @@ condlist.on = function(params,checkedconds,checkedconds_,cdata)
 						if (surrounds["o"] ~= nil) then
 							for c,d in ipairs(surrounds["o"]) do
 								if (pnot == false) then
-									if d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+									if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
 								else
-									if d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+									if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
@@ -373,12 +373,12 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 						if (e ~= "dir") then
 							for c,d in ipairs(f) do
 								if (pnot == false) then
-									if (ulist == false) and d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+									if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
 								else
-									if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+									if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
@@ -412,7 +412,7 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 		for a,b in ipairs(params) do
 			local pname = b
 			local metaparam = false
-			if (string.sub(pname, 1, 6) == "glyph_") or (string.sub(pname, 1, 5) == "text_") then
+			if is_str_special_prefixed(pname) then
 				metaparam = true
 			end
 			local pnot = false
@@ -580,12 +580,12 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 						if (e ~= "dir") and (e ~= "o") then
 							for c,d in ipairs(f) do
 								if (pnot == false) then
-									if (ulist == false) and d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+									if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
 								else
-									if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+									if (ulist == false) and diff_or_excluded(d, pname) and (alreadyfound[bcode] == nil) then
 										alreadyfound[bcode] = 1
 										ulist = true
 									end
@@ -729,12 +729,12 @@ condlist.facing = function(params,checkedconds,checkedconds_,cdata)
 				if (surrounds[dirid] ~= nil) then
 					for c,d in ipairs(surrounds[dirid]) do
 						if (pnot == false) then
-							if d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+							if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 								alreadyfound[bcode] = 1
 								allfound = allfound + 1
 							end
 						else
-							if d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+							if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 								alreadyfound[bcode] = 1
 								allfound = allfound + 1
 							end
@@ -895,12 +895,12 @@ condlist.seeing = function(params,checkedconds,checkedconds_,cdata)
 				if (surrounds[dirid] ~= nil) then
 					for c,d in ipairs(surrounds[dirid]) do
 						if (pnot == false) then
-							if d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+							if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 								alreadyfound[bcode] = 1
 								allfound = allfound + 1
 							end
 						else
-							if d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+							if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 								alreadyfound[bcode] = 1
 								allfound = allfound + 1
 							end
@@ -1209,12 +1209,12 @@ condlist.above = function(params,checkedconds,checkedconds_,cdata)
 					if (surrounds.d ~= nil) then
 						for c,d in ipairs(surrounds.d) do
 							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
 							else
-								if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") or (pname == "glyph" and string.sub(d,1,6) == "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
@@ -1399,12 +1399,12 @@ condlist.below = function(params,checkedconds,checkedconds_,cdata)
 					if (surrounds.u ~= nil) then
 						for c,d in ipairs(surrounds.u) do
 							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and (d == pname or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or (pname == "text" and string.sub(d,1,5) == "text_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
 							else
-								if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
@@ -1589,12 +1589,12 @@ condlist.besideright = function(params,checkedconds,checkedconds_,cdata)
 					if (surrounds.l ~= nil) then
 						for c,d in ipairs(surrounds.l) do
 							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and (d == pname or (pname == "text" and string.sub(d,1,5) == "text_") or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and d ~= "-" and  equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
 							else
-								if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
@@ -1779,12 +1779,12 @@ condlist.besideleft = function(params,checkedconds,checkedconds_,cdata)
 					if (surrounds.r ~= nil) then
 						for c,d in ipairs(surrounds.r) do
 							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and (d == pname or (pname == "text" and string.sub(d,1,5) == "text_") or (pname == "glyph" and string.sub(d,1,6) == "glyph_") or ("meta" .. getmetalevel(d) == pname)) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
 							else
-								if (ulist == false) and d ~= pname and (((pname ~= "text" or string.sub(d,1,5) ~= "text_") and (pname ~= "glyph" or string.sub(d,1,6) ~= "glyph_") and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta") or (string.sub(pname,1,5) == "text_" and string.sub(d,1,5) == "text_") or ("meta"..getmetalevel(d) ~= pname and (metatext_includenoun or getmetalevel(d) >= 0))) and (alreadyfound[bcode] == nil) then
+								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									ulist = true
 								end
@@ -2120,7 +2120,7 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 							table.insert(params, 1, b)
 						end
 
-						if (string.sub(b, 1, 5) == "group") or (string.sub(b, 1, 9) == "not group") then
+						if ((string.sub(b, 1, 5) == "group") or (string.sub(b, 1, 9) == "not group")) and condtype ~= "refers" then
 							handlegroup = true
 						end
 					end

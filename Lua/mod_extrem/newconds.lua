@@ -126,10 +126,7 @@ condlist["original"] = function(params,checkedconds,checkedconds_,cdata)
 	local unit = mmf.newObject(cdata.unitid)
 	local oname = unit.originalname
 	for a,b in ipairs(params) do
-		if oname ~= b
-				and (b ~= "text" or string.sub(oname, 1, 5) ~= "text_")
-				and (b ~= "glyph" or string.sub(oname, 1, 6) ~= "glyph_")
-				and (string.sub(b,1,4) ~= "meta" or "meta"..tostring(getmetalevel(oname)) ~= b) then
+		if not equals_or_included(oname,b) and (string.sub(b,1,4) ~= "meta" or "meta"..tostring(getmetalevel(oname)) ~= b) then
 			return false,checkedconds,true
 		end
 	end
@@ -765,32 +762,24 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 		local _params = pname
 		local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
 		if not is_param_this then
-			if (string.sub(unitname, 1, 5) == "text_") then
-				if (string.sub(unitname, 6) == _params) then
-					return true, checkedconds
-				end
-			elseif (string.sub(unitname, 1, 6) == "glyph_") then
-				if (string.sub(unitname, 7) == _params) then
-					return true, checkedconds
-				end
-			end
+			return get_ref(unitname) == _params, checkedconds
 		else
+			local ray_exists = false
 			for ray_unitid, _ in pairs(raycast_units) do
+				ray_exists = true
 				local ray_unit = mmf.newObject(ray_unitid)
 				local ray_name = ray_unit.strings[UNITNAME]
 				if (string.sub(ray_name, 1, 5) == "text_") then
-					if (string.sub(ray_name, 6) == _params) then
-						return true, checkedconds
-					end
-				elseif (string.sub(ray_name, 1, 6) == "glyph_") then
-					if (string.sub(ray_name, 7) == _params) then
-						return true, checkedconds
-					end
+					ray_name = string.sub(ray_name,6)
 				end
+				if not (get_ref(unitname) == ray_name) then return false end
 			end
+			return ray_exists, checkedconds
 		end
 
 		if hasfeature(unitname, "is", "word", cdata.unitid) and (unitname == _params) then
+			return true, checkedconds
+		elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (unitname == _params) then
 			return true, checkedconds
 		end
 	end

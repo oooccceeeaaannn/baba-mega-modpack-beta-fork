@@ -57,12 +57,14 @@ function undo()
 								unit.direction = unit.values[DIR] * 8 + unit.values[VISUALDIR]
 							end
 							
-							if (unit.strings[UNITTYPE] == "text") or isglyph(unit) then
+							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") or isglyph(unit) then
 								updatecode = 1
 							end
 							
 							local undowordunits = currentundo.wordunits
 							local undowordrelatedunits = currentundo.wordrelatedunits
+							local undobreakunits = currentundo.breakunits
+							local undobreakrelatedunits = currentundo.breakrelatedunits
 							local undosymbolunits = currentundo.symbolunits
 							local undosymbolrelatedunits = currentundo.symbolrelatedunits
 							
@@ -73,7 +75,15 @@ function undo()
 									end
 								end
 							end
-							
+
+							if (#undobreakunits > 0) then
+								for a,b in pairs(undobreakunits) do
+									if (b == line[9]) then
+										updatecode = 1
+									end
+								end
+							end
+
 							if (#undosymbolunits > 0) then
 								for a,b in pairs(undosymbolunits) do
 									if (b == line[9]) then
@@ -89,7 +99,15 @@ function undo()
 									end
 								end
 							end
-						
+
+							if (#undobreakrelatedunits > 0) then
+								for a,b in pairs(undobreakrelatedunits) do
+									if (b == line[9]) then
+										updatecode = 1
+									end
+								end
+							end
+
 							-- EDIT: ECHO units again
 							local undoechounits = currentundo.echounits
 							local undoechorelatedunits = currentundo.echorelatedunits
@@ -294,7 +312,7 @@ function undo()
 							MF_remove(unitid)
 							dynamicat(x,y)
 							
-							if (unittype == "text") or isglyph(unit, unitname) then
+							if (unittype == "text" or unittype == "node") or isglyph(unit, unitname) then
 								updatecode = 1
 							end
 							
@@ -645,6 +663,8 @@ function newundo(resetundo)
 		thisundo.wordrelatedunits = {}
 		thisundo.symbolunits = {}
 		thisundo.symbolrelatedunits = {}
+		thisundo.breakunits = {}
+		thisundo.breakrelatedunits = {}
 		thisundo.visiontargets = {}
 		-- EDIT: store echo units???
 		thisundo.echounits = {}
@@ -654,6 +674,13 @@ function newundo(resetundo)
 			for i,v in ipairs(wordunits) do
 				local wunit = mmf.newObject(v[1])
 				table.insert(thisundo.wordunits, wunit.values[ID])
+			end
+		end
+
+		if (#breakunits > 0) then
+			for i,v in ipairs(breakunits) do
+				local wunit = mmf.newObject(v[1])
+				table.insert(thisundo.breakunits, wunit.values[ID])
 			end
 		end
 
@@ -706,6 +733,17 @@ function newundo(resetundo)
 					table.insert(thisundo.symbolrelatedunits, wunit.values[ID])
 				else
 					--table.insert(thisundo.symbolrelatedunits, wunit.values[ID])
+				end
+			end
+		end
+
+		if (#breakrelatedunits > 0) then
+			for i,v in ipairs(breakrelatedunits) do
+				if (v[1] ~= 2) then
+					local wunit = mmf.newObject(v[1])
+					table.insert(thisundo.breakrelatedunits, wunit.values[ID])
+				else
+					--table.insert(thisundo.wordrelatedunits, wunit.values[ID])
 				end
 			end
 		end

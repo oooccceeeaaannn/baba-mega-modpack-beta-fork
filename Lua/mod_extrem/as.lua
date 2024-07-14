@@ -22,13 +22,13 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
                     if (checkedconds[tostring(dconds)] == nil) then
                         if (pnot == false) then
                             if (drule[1] == name) and (((drule[2] == "is") or (drule[2] == "become") and (drule[3] == b
-                                    or ((drule[3] == "text" or drule[3] == "glyph") and b == drule[3] .. "_" .. name)))
+                                    or ((is_str_broad_noun(name)) and b == drule[3] .. "_" .. name)))
                                     or (drule[2] == "is" and drule[3] == "meta" and b == "text_" .. name)
                                     or (drule[2] == "is" and drule[3] == "unmeta" and string.sub(name,1,5) == "text_" and b == string.sub(name,6))
                                     or (drule[2] == "is" and drule[3] == "mega" and b == "glyph_" .. name)
                                     or (drule[2] == "is" and drule[3] == "unmega" and string.sub(name,1,6) == "glyph_" and b == string.sub(name,7))
                                     or ((b == "text" or b == "text_" .. drule[3]) and (drule[2] == "write" or drule[2] == "draw"))
-                                    or ((b == "glyph" or b == "glyph_" .. drule[3]) and (drule[2] == "inscribe"))) then
+                                    or ((b == "glyph" or b == "glyph_" .. drule[3]) and (drule[2] == "inscribe"))) then --TODO: conversion
                                 checkedconds[tostring(dconds)] = 1
 
                                 if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then

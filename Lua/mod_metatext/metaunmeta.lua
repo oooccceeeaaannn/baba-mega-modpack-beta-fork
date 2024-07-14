@@ -5,6 +5,11 @@ table.insert(editor_objlist_order,"text_meta")
 table.insert(editor_objlist_order,"text_unmeta")
 table.insert(editor_objlist_order,"text_mega")
 table.insert(editor_objlist_order,"text_unmega")
+table.insert(editor_objlist_order,"text_meea")
+table.insert(editor_objlist_order,"text_unmeea")
+table.insert(editor_objlist_order,"text_mena")
+table.insert(editor_objlist_order,"text_unmena")
+table.insert(editor_objlist_order,"text_unmexa")
 table.insert(editor_objlist_order,"text_meta-1")
 table.insert(editor_objlist_order,"text_meta0")
 table.insert(editor_objlist_order,"text_meta1")
@@ -53,6 +58,61 @@ editor_objlist["text_unmega"] = {
   layer = 20,
   colour = {1, 3},
   colour_active = {1, 4},
+}
+editor_objlist["text_meea"] = {
+  name = "text_meea",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {5, 2},
+  colour_active = {5, 3},
+}
+editor_objlist["text_unmeea"] = {
+  name = "text_unmeea",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {5, 1},
+  colour_active = {5, 2},
+}
+editor_objlist["text_mena"] = {
+  name = "text_mena",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {6, 1},
+  colour_active = {2, 4},
+}
+editor_objlist["text_unmena"] = {
+  name = "text_unmena",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {2, 1},
+  colour_active = {2, 2},
+}
+editor_objlist["text_unmexa"] = {
+  name = "text_unmexa",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {0, 1},
+  colour_active = {0, 3},
 }
 editor_objlist["text_meta-1"] = {
   name = "text_meta-1",

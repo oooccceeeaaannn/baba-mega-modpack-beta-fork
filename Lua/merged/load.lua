@@ -69,6 +69,8 @@ function init(tilemapid,roomsizex_,roomsizey_,tilesize_,Xoffset_,Yoffset_,genera
 	deletereference = {}
 	poweredstatus = {}
 	specialtiling = {}
+	breakunits = {}
+	breakrelatedunits = {}
 	
 	generaldata.values[CURRID] = 1
 	updatecode = 1

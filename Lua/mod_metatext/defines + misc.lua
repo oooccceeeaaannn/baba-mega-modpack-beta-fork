@@ -80,11 +80,9 @@ function writemetalevel()
 		for id, unit in pairs(units) do
 			local unitname = unit.strings[UNITNAME]
 
-			local _, textmetalevel = string.gsub(unitname, "text_", "text_")
-			local _, glyphmetalevel = string.gsub(unitname, "glyph_", "glyph_")
+			local metalevel = getmetalevel(unitname)
 
-			if textmetalevel + glyphmetalevel >= 2 and unit.values[TYPE] == 0 and unit.visible then
-				local metalevel = getmetalevel(unitname)
+			if metalevel >= 0 and unit.values[TYPE] == 0 and unit.visible then
 				local show = true
 				if metatext_overlaystyle == 1 then
 					local c = changes[unit.className] or {}
@@ -97,7 +95,7 @@ function writemetalevel()
 						end
 					end
 				end
-				if textmetalevel + glyphmetalevel > 5 then
+				if metalevel > 4 then
 					local mouse_x, mouse_y = MF_mouse()
 					local half_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT] / 2
 					if not (mouse_x >= unit.x - half_tilesize and mouse_x < unit.x + half_tilesize and mouse_y >= unit.y - half_tilesize and mouse_y < unit.y + half_tilesize) then
@@ -108,7 +106,7 @@ function writemetalevel()
 					-- imagine flag: print pink T text
 					local color = textoverlaycolor(unit, {4,1}, {4,2})
 					if metatext_glyph_display then
-						local sequenceText, sequenceGlyph = makemetastring(unitname)
+						local sequenceText, sequenceGlyph, sN, sE = makemetastring(unitname)
 						writetext(sequenceText:sub(2), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
 								1, true, color)
@@ -121,6 +119,15 @@ function writemetalevel()
 						for _, table in ipairs(glyphflip) do
 							mmf.newObject(table[1]).angle = 180
 						end
+
+						color = textoverlaycolor(unit, {2,4}, {3,4})
+						writetext(sN:sub(2), unit.fixed, (8 * unit.scaleX),
+								-(6 * unit.scaleY), "metaoverlay", true,
+								1, true, color)
+						color = textoverlaycolor(unit, {5,4}, {5,3})
+						writetext(sE:sub(2), unit.fixed, (8 * unit.scaleX),
+								-(6 * unit.scaleY), "metaoverlay", true,
+								1, true, color)
 					else
 						writetext(getmetalevel(getname(unit)), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
@@ -169,7 +176,7 @@ table.insert(mod_hook_functions["always"], writemetalevel)
 -- Try to add more metatext if it doesn't exist.
 function tryautogenerate(want, have)
 	if objectpalette[want] ~= nil then return true end
-	if want == "text_" or want == "glyph_" then
+	if is_str_special_prefix(want) then
 		return false -- fix silly edgecase
 	elseif metatext_autogenerate ~= 0 then
 		if editor_objlist_reference[want] ~= nil then
@@ -231,11 +238,8 @@ function tryautogenerate(want, have)
 			local count = 0
 			if objectpalette["text_" .. test] == nil then
 				while objectpalette[test] == nil do
-					if string.sub(test, 1, 5) == "text_" then
-						test = string.sub(test, 6)
-						count = count + 1
-					elseif string.sub(test,1,6) == "glyph_" then
-						test = string.sub(test, 7)
+					if is_str_special_prefixed(test) and not is_str_special_prefix(test) then
+						test = get_ref(test)
 						count = count + 1
 					else
 						local lowestlevel = "text_" .. test
@@ -243,7 +247,7 @@ function tryautogenerate(want, have)
 							lowestlevel = "text_text_"
 						end
 						local SAFETY = 0
-						while (not getmat_text(lowestlevel)) and SAFETY < 1000 do
+						while (not getmat_text(lowestlevel)) and SAFETY <= 1000 do
 							lowestlevel = "text_" .. lowestlevel
 							SAFETY = SAFETY + 1
 						end
@@ -262,8 +266,8 @@ function tryautogenerate(want, have)
 				have = "text_" .. test
 			end
 		end
-		if (string.sub(have,1,5) ~= "text_") and (string.sub(have,1,6) ~= "glyph_") then
-			have = "text_" .. have
+		if get_pref(have) == "" then
+			have = get_pref(want) .. have
 		end
 		print("Trying to generate " .. want .. " from " .. have .. ".")
 		local realname = objectpalette[have]
@@ -280,10 +284,12 @@ function tryautogenerate(want, have)
 			activeasstring = active[1] .. "," .. active[2]
 		end
 		local type = getactualdata_objlist(realname, "unittype")
-		if (string.sub(want,1,5) == "text_") then
+		if (string.sub(want,1,5) == "text_" or string.sub(want,1,6) == "event_") then
 			type = "text"
 		elseif (string.sub(want,1,6) == "glyph_") then
 			type = "object"
+		elseif string.sub(want,1,5) == "node_" then
+			type = "node"
 		end
 		local new =
 		{
@@ -299,12 +305,12 @@ function tryautogenerate(want, have)
 			nil,
 		}
 		if metatext_autogenerate == 1 or metatext_autogenerate == 2 then
-			local spritewanted = ""
-			if string.sub(want,1,6) == "glyph_" then
-				spritewanted = "glyph_" .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
-			elseif string.sub(want,1,5) == "text_" then
-				spritewanted = "text_" .. string.gsub(string.gsub(sprite, "text_", ""),"glyph_","")
+			local spritewanted = get_pref(want)
+			local base = want
+			for _,k in ipairs(special_prefixes) do
+				base = string.gsub(base,k,"")
 			end
+			spritewanted = spritewanted..base
 			if MF_findsprite(spritewanted .. "_0_1.png", false) or MF_findsprite(spritewanted .. "_0_1.png", true) then
 				sprite = spritewanted
 				new[2] = sprite
@@ -384,7 +390,7 @@ function editor_trynamechange(object,newname_,fixed,objlistid,oldname_)
 		end
 	end
 
-	if (#newname == 0) or (newname == "level") or (newname == "text_crash") or (newname == "text_error") or (newname == "crash") or (newname == "error") or (newname == "text_never") or (newname == "never") or (newname == "text_") then
+	if (#newname == 0) or (newname == "level") or (newname == "text_crash") or (newname == "text_error") or (newname == "crash") or (newname == "error") or (newname == "text_never") or (newname == "never") then
 		valid = false
 	end
 
@@ -453,6 +459,8 @@ function doconvert(data, extrarule_)
 	olddoconvert(data, extrarule_)
 end
 
+special_prefixes = {"glyph_", "text_", "node_", "event_"}
+
 --[[ Gets the meta level of a string
 (times "text_" appears, minus 1, minus 1 again if the string ends with "text_")
 Examples:
@@ -463,12 +471,12 @@ Examples:
 "text_text_text_" = 1
 ]]
 --flag imagine
-function getmetalevel(string)
-	local _, textmetalevel = string.gsub(string, "text_", "text_")
-	local _, glyphmetalevel = string.gsub(string, "glyph_", "glyph_")
-	local metalevel = glyphmetalevel + textmetalevel
-	if string.sub(string, -5) == "text_" or string.sub(string, -6) == "glyph_" then
-		metalevel = metalevel - 1
+function getmetalevel(str)
+	local metalevel = 0
+	for _,v in ipairs(special_prefixes) do
+		local _,delta = string.gsub(str,v,v)
+		metalevel = metalevel + delta
+		if string.sub(str,-#v) == v then metalevel = metalevel - 1 end
 	end
 	metalevel = metalevel - 1
 	return metalevel
@@ -476,21 +484,81 @@ end
 
 function makemetastring(string)
 	local namestring = string
-	local sequenceText = ""
-	local sequenceGlyph = ""
+	local sT, sG, sN, sE = "", "", "", ""
 	while true do
 		if namestring:sub(1,5) == "text_" and #namestring > 5 then
-			sequenceText = sequenceText.."T"
-			sequenceGlyph = sequenceGlyph.." "
+			sT = sT.."T"
+			sG = sG.." "
+			sN = sN.." "
+			sE = sE.." "
 			namestring = namestring.gsub(namestring, "text_", "", 1)
 		elseif namestring:sub(1,6) == "glyph_" and #namestring > 6 then
-			sequenceText = sequenceText.." "
-			sequenceGlyph = sequenceGlyph.."V"
+			sT = sT.." "
+			sG = sG.."V"
+			sN = sN.." "
+			sE = sE.." "
 			namestring = namestring.gsub(namestring, "glyph_", "", 1)
+		elseif namestring:sub(1, 5) == "node_" and #namestring > 5 then
+			sT = sT .. " "
+			sG = sG .. " "
+			sN = sN .. "N"
+			sE = sE .. " "
+			namestring = namestring.gsub(namestring, "node_", "", 1)
+		elseif namestring:sub(1, 6) == "event_" and #namestring > 6 then
+			sT = sT .. " "
+			sG = sG .. " "
+			sN = sN .. " "
+			sE = sE .. "E"
+			namestring = namestring.gsub(namestring, "event_", "", 1)
 		else
-			return sequenceText, sequenceGlyph
+			return sT, sG, sN, sE
 		end
 	end
+end
+
+function is_str_special_prefix(str)
+	for _,v in ipairs(special_prefixes) do
+		if str == v then return true end
+	end
+	return false
+end
+
+function get_pref(name)
+	for _,v in ipairs(special_prefixes) do
+		if v == string.sub(name, 1, #v) then return v end
+	end
+	return ""
+end
+
+function get_ref(name)
+	for _,v in ipairs(special_prefixes) do
+		if v == string.sub(name, 1, #v) then return string.sub(name, #v + 1) end
+	end
+	return name
+end
+
+function is_str_special_prefixed(name)
+	for _,v in ipairs(special_prefixes) do
+		if v == string.sub(name, 1, #v) then return true end
+	end
+	return false
+end
+
+function equals_or_included(a,b)
+	if a == b then return true end
+	if ("meta"..getmetalevel(a) == b) then return true end
+	if get_pref(a) == b .. "_" then return true end
+	return false
+end
+
+function diff_or_excluded(a,b)
+	if a ~= b then
+		if get_pref(a) == get_pref(b) then return true end
+		if ("meta"..getmetalevel(a) ~= b) and (metatext_includenoun or getmetalevel(a) >= 0) then
+			if get_pref(a) ~= b .. "_" then return true end
+		end
+	end
+	return false
 end
 
 -- Remove lines that include "text" rules if rule1 starts with "text_".

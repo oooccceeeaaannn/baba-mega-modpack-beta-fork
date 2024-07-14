@@ -468,10 +468,8 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local object = v[1]
 			local conds = v[2]
 			if testcond(conds,unitid,x,y) then
-				if (object == "text") then
-					object = "text_" .. name
-				elseif (object == "glyph") then
-					object = "glyph_" .. name
+				if (is_str_broad_noun(object)) then
+					object = object .. "_" .. name
 				elseif string.sub(object,1,4) == "meta" then
 					local level = string.sub(object,5)
 					if tonumber(level) ~= nil and tonumber(level) >= -1 then
@@ -501,7 +499,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 							end
 						end
 					end
-				if not did and (string.sub(object,1,6) == "glyph_" or string.sub(object,1,5) == "text_") then
+				if not did and (get_pref(object) ~= "") then
 					did = tryautogenerate(object)
 					if did then
 						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
@@ -1104,13 +1102,16 @@ function update(unitid,x,y,dir_)
 				dynamicat(oldx,oldy)
 			end
 			
-			if (unittype == "text") or isglyph(unit) then
+			if (unittype == "text") or isglyph(unit) or (unittype == "node") then
 				updatecode = 1
 			end
 			
 			-- Add check for ECHO along with WORD
 			if (featureindex["word"] ~= nil) then
 				checkwordchanges(unitid,unitname)
+			end
+			if (featureindex["break"] ~= nil) then
+				checkbreakchanges(unitid,unitname)
 			end
 			if (featureindex["echo"] ~= nil) then
 				ws_checkechochanges(unitid)
@@ -1150,7 +1151,7 @@ function findtype(typedata,x,y,unitid_,just_testing_,group_text_together_)
 			if (v ~= unitid) then
 				local unit = mmf.newObject(v)
 
-				if (unit.strings[UNITNAME] == name) or (group_text_together and ((unit.strings[UNITTYPE] == "text") and (name == "text"))) or (isglyph(unit) and (name == "glyph")) then
+				if getname(unit,name) == name then
 					if testcond(conds,v) then
 						table.insert(result, v)
 
@@ -1220,6 +1221,12 @@ function getname(unit,pname_,pnot_)
 		result = "text"
 	elseif (unit.strings[UNITTYPE] ~= "text") and (string.sub(pname,1,5) == "text_") and (pnot == true) then
 		result = "text"
+	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta")  and (string.sub(pname,1,6) ~= "glyph_") then
+		result = "glyph"
+	elseif (string.sub(result, 1, 6) == "event_") and ((pname == "event") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta")  and (string.sub(pname,1,6) ~= "event_") then
+		result = "event"
+	elseif (string.sub(result, 1, 5) == "node_") and ((pname == "node") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "node_") then
+		result = "node"
 	elseif string.sub(pname,1,4) == "meta" then
 		if metatext_includenoun or pnot == false or unit.strings[UNITTYPE] == "text" then
 			local include = false
@@ -1238,8 +1245,6 @@ function getname(unit,pname_,pnot_)
 		else
 			result = "text"
 		end
-	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,6) ~= "glyph_") then
-		result = "glyph"
 	end
 
 	return result
@@ -1249,7 +1254,7 @@ function findnoun(noun,list_,ignoretext)
 	local list = list_ or nlist.full
 
 	for i,v in ipairs(list) do
-		if (v == noun) or ((v == "group") and (string.sub(noun, 1, 5) == "group")) or (((string.sub(noun,1,6) == "glyph_" and v == "glyph") or (string.sub(noun,1,5) == "text_" and v == "text")) and ignoretext ~= true) or (string.sub(noun,1,4) == "meta" and v == "all") then
+		if (v == noun) or ((v == "group") and (string.sub(noun, 1, 5) == "group")) or ((is_str_broad_noun(v) and get_pref(noun) == v .. "_") and ignoretext ~= true) or (string.sub(noun,1,4) == "meta" and v == "all") then
 			return true
 		end
 	end
@@ -1269,7 +1274,7 @@ function delunit(unitid)
 		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}
 		local unittype = unit.strings[UNITTYPE]
 		
-		if (unittype == "text") or (isglyph(unit)) then
+		if (unittype == "text" or unittype == "node") or (isglyph(unit)) then
 			updatecode = 1
 		end
 		
@@ -1773,7 +1778,7 @@ function updatedir(unitid,dir,noundo_)
 			end
 			unit.values[DIR] = dir
 			
-			if (unittype == "text") or isglyph(unit) then
+			if (unittype == "text") or isglyph(unit) or (unittype == "node") then
 				updatecode = 1
 			end
 		end
@@ -1785,17 +1790,37 @@ end
 function findall(name_,ignorebroken_,just_testing_)
 	local result = {}
 	local name = name_[1]
-	local meta = true
+	local meta = ""
 	
 	local checklist = unitlists[name]
 	
 	if (name == "text") then
 		checklist = codeunits
-		meta = false
+		meta = "text" --@Merge(Metatext x Glyph)
 	end
 
 	if (name == "glyph") then
 		checklist = glyphunits
+	elseif (name == "node") then
+		checklist = {}
+		meta = "node" --@Merge(Metatext x Glyph)
+		for name, list in pairs(unitlists) do
+			if (string.sub(name, 1, 5) == "node_") then
+				for i, unitid in ipairs(list) do
+					table.insert(checklist, unitid)
+				end
+			end
+		end
+	elseif (name == "event") then
+		local q = {}
+		for i, j in ipairs(codeunits) do
+			local unit = mmf.newObject(j)
+			if getname(unit) == "event" then
+				table.insert(q, j)
+			end
+		end
+		checklist = q
+		meta = "event" --@Merge(Metatext x Glyph)
 	end
 	
 	local ignorebroken = ignorebroken_ or false

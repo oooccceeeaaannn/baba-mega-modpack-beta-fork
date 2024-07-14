@@ -135,14 +135,13 @@ condlist.starts = function(params,_,_,cdata)
    end
 
 	local dof = true
-	if string.sub(name, 1,5) == "text_" and removeatleastone then
-		name = string.sub(name, 6, #name)
-	elseif string.sub(name, 1,6) == "glyph_" and removeatleastone then
-		name = string.sub(name, 7, #name)
+	if removeatleastone then
+		name = get_ref(name)
 	end
 	if removealltext_s then
-		name = string.gsub(name, "text_", "")
-		name = string.gsub(name, "glyph_", "")
+		for _,k in ipairs(special_prefixes) do
+			name = string.gsub(name,k,"")
+		end
 	end
 	for i, j in ipairs(params) do
 		local pnot = false
@@ -164,7 +163,7 @@ condlist.starts = function(params,_,_,cdata)
 				for ray_unitid, _ in pairs(raycast_units) do 
 					local ray_unit = mmf.newObject(ray_unitid)
 					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
+					if string.sub(ray_name, 1,5) == "text_" then
 						ray_name = string.sub(ray_name, 6, #ray_name)
 					end
 					if string.sub(name, 0, string.len(ray_name)) == ray_name then
@@ -216,14 +215,13 @@ condlist.contain = function(params,_,_,cdata)
 
 
 	local dof = true
-	if string.sub(name, 1,5) == "text_" and removeatleastone then
-		name = string.sub(name, 6, #name)
-	elseif string.sub(name, 1,6) == "glyph_" and removeatleastone then
-		name = string.sub(name, 7, #name)
+	if removeatleastone then
+		name = get_ref(name)
 	end
 	if removealltext_s then
-		name = string.gsub(name, "text_", "")
-		name = string.gsub(name, "glyph_", "")
+		for _,k in ipairs(special_prefixes) do
+			name = string.gsub(name,k,"")
+		end
 	end
 	local count_table = {}
 	for i, j in ipairs(params) do
@@ -249,7 +247,7 @@ condlist.contain = function(params,_,_,cdata)
 				for ray_unitid, _ in pairs(raycast_units) do
 					local ray_unit = mmf.newObject(ray_unitid)
 					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
+					if string.sub(ray_name, 1,5) == "text_" then
 						ray_name = string.sub(ray_name, 6, #ray_name)
 					end
 					if pnot then
@@ -301,14 +299,13 @@ condlist.ends = function(params,_,_,cdata)
    end
 
 	local dof = true
-	if string.sub(name, 1,5) == "text_" and removeatleastone then
-		name = string.sub(name, 6, #name)
-	elseif string.sub(name, 1,6) == "glyph_" and removeatleastone then
-		name = string.sub(name, 7, #name)
+	if removeatleastone then
+		name = get_ref(name)
 	end
 	if removealltext_s then
-		name = string.gsub(name, "text_", "")
-		name = string.gsub(name, "glyph_", "")
+		for _,k in ipairs(special_prefixes) do
+			name = string.gsub(name,k,"")
+		end
 	end
 	for i, j in ipairs(params) do
 
@@ -331,7 +328,7 @@ condlist.ends = function(params,_,_,cdata)
 				for ray_unitid, _ in pairs(raycast_units) do 
 					local ray_unit = mmf.newObject(ray_unitid)
 					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" and removeatleastone then
+					if string.sub(ray_name, 1,5) == "text_" then
 						ray_name = string.sub(ray_name, 6, #ray_name)
 					end
 					if string.sub(name, -string.len(ray_name)) == ray_name then

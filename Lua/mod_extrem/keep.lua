@@ -5,7 +5,6 @@ end
 keeprules = {}
 metatags = {
     verbtext = 1,
-    verbglyph = 1,
     text = 1,
     glyph = 1,
 }

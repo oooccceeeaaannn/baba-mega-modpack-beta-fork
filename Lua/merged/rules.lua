@@ -36,7 +36,7 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 			local w = 1
 			
 			if (v.values[TYPE] ~= 5) and (v.flags[DEAD] == false) then
-				if (v.strings[UNITTYPE] == "text") and not metatext_textisword then
+				if (v.strings[UNITTYPE] == "text" or v.strings[UNITTYPE] == "node") and not metatext_textisword then
 					
 					--Check for Nuh Uh! here
                     if (gettilenegated(x,y) == false) then
@@ -605,7 +605,6 @@ function calculatesentences(unitid,x,y,dir,a,b,c,br_calling_calculatesentences_b
 	return sentences,finals,maxpos,totalvariants,sentence_ids,firstwords,br_and_text_with_split_parsing, sentence_metadata
 end
 
-function is_str_special_prefix(str) return (str == "text_") or (str == "glyph_") end
 
 function docode(firstwords)
 	--[[ 
@@ -955,6 +954,10 @@ function docode(firstwords)
 							local tiletype = s[2]
 							local tileid = s[3][1]
 							local tilewidth = s[4]
+
+							if (string.sub(tilename, 1, 6) == "event_" and tilename ~= "event_") then
+								stop = true
+							end
 							
 							local wordtile = false
 							
@@ -1722,6 +1725,17 @@ function docode(firstwords)
 	end
 end
 
+extra_broad_nouns = {"text","glyph","node","event"}
+function is_str_broad_noun(str)
+	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event")
+end
+function is_str_notted_broad_noun(str)
+	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event")
+end
+function get_broaded_str(str)
+	local res = get_pref(str)
+	return res:sub(1,-2)
+end
 function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 	--[[ 
 		@mods(this) - Override reason: hook for registering any pnoun rules in th_text_this.lua.
@@ -1798,11 +1812,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		newconds = copyconds(newconds, conds)
 		addoption({option[3], "is", "glyph"}, newconds,ids,false,notrule,tags_)
 	end
-
+	--]]
 	if (option[1] == "level") and (option[2] == "become") and (option[3] == "level") then
-		shownrule = copyrule({option, conds, ids, tags})
-		table.insert(conds, {"never", {}})
-
+		visualonly = true
 	end
 	--]]
 	if (#option == 3) then
@@ -1856,115 +1868,71 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		elseif (effect == "not ambient") then
 			effect = "not "..ws_ambientObject
 		end
-
-		local foundtag = false
-		if metatext_fixquirks then
-			for num,tag in pairs(tags) do
-				if tag == "text" or (string.sub(tag,1,4) == "meta" and tag ~= "meta-1") then
-					foundtag = true
-					break
+		local foundtag
+		for _, v in ipairs(extra_broad_nouns) do
+			foundtag = false
+			if metatext_fixquirks then
+				for num, tag in pairs(tags) do
+					if tag == v or (string.sub(tag, 1, 4) == "meta" and tag ~= "meta-1") then
+						foundtag = true
+						break
+					end
 				end
 			end
-		end
-		if foundtag or (metatext_hasmaketextnometa and (string.sub(target,1,5) == "text_" or string.sub(target,1,4) == "meta")) then
-			if effect == "text" then
-				if verb == "is" and foundtag then
-					effect = target
-				elseif verb == "has" or verb == "become" then
-					effect = "text_text"
-				elseif verb == "make" then
-					visualonly = true
+			if foundtag or (metatext_hasmaketextnometa and (get_pref(target) == v .. "_" or string.sub(target, 1, 4) == "meta")) then
+				if effect == v then
+					if verb == "is" and foundtag then
+						effect = target
+					elseif verb == "has" or verb == "become" then
+						effect = v .. "_" .. v
+					elseif verb == "make" then
+						visualonly = true
+					end
+				elseif effect == "not " .. v then
+					if verb == "is" and foundtag then
+						effect = "not " .. target
+					elseif verb == "has" or verb == "become" then
+						effect = "not " .. v .. "_" .. v
+					elseif verb == "make" then
+						visualonly = true
+					end
+				elseif is_str_broad_noun(effect) then
+					if verb == "has" or verb == "become" or verb == "make" then
+						effect = effect .. v
+					end
+				elseif string.sub(effect, 1, 5) == "group" or string.sub(effect, 1, 9) == "not group" then
+					if (verb == "has" or verb == "make" or verb == "become") and foundtag then
+						return
+					end
 				end
-			elseif effect == "not text" then
-				if verb == "is" and foundtag then
-					effect = "not " .. target
-				elseif verb == "has" or verb == "become" then
-					effect = "not text_text"
-				elseif verb == "make" then
-					visualonly = true
-				end
-			elseif effect == "glyph" then
-				if verb == "has" or verb == "become" or verb == "make" then
-					effect = "glyph_text"
-				end
-			elseif string.sub(effect,1,5) == "group" or string.sub(effect,1,9) == "not group" then
-				if (verb == "has" or verb == "make" or verb == "become") and foundtag then
-					return
-				end
-			end
-			rule = {{target,verb,effect},conds,ids,tags}
-		end
-		foundtag = false
-		if metatext_fixquirks then
-			for num,tag in pairs(tags) do
-				if tag == "glyph" then
-					foundtag = true
-					break
-				end
+				rule = { { target, verb, effect }, conds, ids, tags }
 			end
 		end
-		if foundtag or (metatext_hasmaketextnometa and (string.sub(target,1,6) == "glyph_")) then
-			if effect == "glyph" then
-				if verb == "is" and foundtag then
-					effect = target
-				elseif verb == "has" or verb == "become" then
-					effect = "glyph_glyph"
-				elseif verb == "make" then
-					visualonly = true
-				end
-			elseif effect == "not glyph" then
-				if verb == "is" and foundtag then
-					effect = "not " .. target
-				elseif verb == "has" or verb == "become" then
-					effect = "not glyph_glyph"
-				elseif verb == "make" then
-					visualonly = true
-				end
-			elseif effect == "text" then
-				if verb == "has" or verb == "become" or verb == "make" then
-					effect = "text_glyph"
-				end
-			elseif string.sub(effect,1,5) == "group" or string.sub(effect,1,9) == "not group" then
-				if (verb == "has" or verb == "make" or verb == "become") and foundtag then
-					return
-				end
-			end
-			rule = {{target,verb,effect},conds,ids,tags}
-		end
-		if metatext_istextnometa and (effect == "text" or effect == "not text") and verb == "is" and (string.sub(target,1,5) == "text_" or string.sub(target,1,4) == "meta") then
-			if effect == "text" then
+		if metatext_istextnometa and (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and verb == "is" and (get_pref(target) ~= "" or string.sub(target, 1, 4) == "meta") then
+			if effect == get_broaded_str(target) then
 				effect = target
-			else
+			elseif effect == "not "..get_broaded_str(target) then
 				effect = "not " .. target
+			elseif string.sub(target, 1, 4) ~= "meta" then
+				if is_str_broad_noun(effect) then
+					effect = effect .. "_" .. get_broaded_str(target)
+				end
 			end
-			rule = {{target,verb,effect},conds,ids,tags}
-		elseif metatext_istextnometa and (effect == "glyph" or effect == "not glyph") and verb == "is" and (string.sub(target,1,6) == "glyph_") then
-			if effect == "glyph" then
-				effect = target
-			else
-				effect = "not " .. target
-			end
-			rule = {{target,verb,effect},conds,ids,tags}
-		elseif metatext_istextnometa and (effect == "glyph") and verb == "is" and (string.sub(target,1,5) == "text_" or string.sub(target,1,4) == "meta") then
-			effect = "glyph_text"
-			rule = {{target,verb,effect},conds,ids,tags}
-		elseif metatext_istextnometa and (effect == "text") and verb == "is" and (string.sub(target,1,6) == "glyph_") then
-			effect = "text_glyph"
-			rule = {{target,verb,effect},conds,ids,tags}
+			rule = { { target, verb, effect }, conds, ids, tags }
 		elseif ((string.sub(effect, 1, 4) == "meta") or (string.sub(effect, 1, 8) == "not meta")) and (verb == "is" or verb == "become") then
-			local isnot = (string.sub(effect,1,8) == "not meta")
-			local level = string.sub(effect,5)
+			local isnot = (string.sub(effect, 1, 8) == "not meta")
+			local level = string.sub(effect, 5)
 			if isnot then
-				level = string.sub(effect,9)
+				level = string.sub(effect, 9)
 			end
 			if tonumber(level) ~= nil and tonumber(level) >= -1 then
 				local metalevel = getmetalevel(target)
-				if metalevel == tonumber(level) and (findnoun(target,nlist.brief) == false and target ~= "text") then
+				if metalevel == tonumber(level) and (findnoun(target, nlist.brief) == false and target ~= "text") then
 					effect = target
 					if isnot then
 						effect = "not " .. target
 					end
-					rule = {{target,verb,effect},conds,ids,tags}
+					rule = { { target, verb, effect }, conds, ids, tags }
 				end
 			end
 		end
@@ -2074,7 +2042,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					addedto[condname] = 1
 				end
 				
-				if (cond[2] ~= nil and condname ~= "stable") then
+				if (cond[2] ~= nil and condname ~= "stable" and condname ~= "refers") then
 					if (#cond[2] > 0) then
 						local newconds = {}
 						
@@ -2107,8 +2075,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 								end
 							elseif (b == "not all") then
 								table.insert(newconds, "empty")
-								table.insert(newconds, "text")
-								table.insert(newconds, "glyph")
+								for _,v in extra_broad_nouns do
+									table.insert(newconds, v)
+								end
 							end
 							
 							if (string.sub(b, 1, 5) == "group") or (string.sub(b, 1, 9) == "not group") then
@@ -2140,20 +2109,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		
 		if (targetnot == "not ") and (objectlist[targetnot_] ~= nil) and (string.sub(targetnot_, 1, 5) ~= "group") and (string.sub(effect, 1, 5) ~= "group") and (string.sub(effect, 1, 9) ~= "not group") or (((string.sub(effect, 1, 5) == "group") or (string.sub(effect, 1, 9) == "not group")) and (targetnot_ == "all")) then
 			if (targetnot_ ~= "all") then
-				if (string.sub(targetnot_, 1, 5) == "text_") then
+				if (get_pref(targetnot) ~= "") then
+					local pref = get_pref(targetnot)
 					for i,mat in pairs(fullunitlist) do
-						if (i ~= targetnot_) and (string.sub(i, 1, 5) == "text_") then
-							local rule = {i,verb,effect}
-							local newconds = {}
-							for a,b in ipairs(conds) do
-								table.insert(newconds, b)
-							end
-							addoption(rule,newconds,ids,false,{effect,#featureindex[effect]},tags)
-						end
-					end
-				elseif (string.sub(targetnot_, 1, 6) == "glyph_") then
-					for i,mat in pairs(fullunitlist) do
-						if (i ~= targetnot_) and (string.sub(i, 1, 6) == "glyph_") then
+						if (i ~= targetnot_) and (get_pref(i) == pref) then
 							local rule = {i,verb,effect}
 							local newconds = {}
 							for a,b in ipairs(conds) do
@@ -2197,7 +2156,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 				end
 			else
-				local mats = {"empty","text", "glyph"}
+				local mats = {"empty","text", "glyph","node","event"}
 				
 				for m,i in pairs(mats) do
 					local rule = {i,verb,effect}
@@ -2209,9 +2168,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		end
-		if target == "text" and fullunitlist ~= nil then
+		if is_str_broad_noun(target) and fullunitlist ~= nil then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 5) == "text_") then
+				if (get_pref(a) == target .. "_") then
 					local newconds = {}
 					local newtags = {}
 					local stop = false
@@ -2224,7 +2183,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						table.insert(newtags, d)
 					end
 
-					table.insert(newtags, "text")
+					table.insert(newtags, target)
 
 					local newword1 = a
 					local newword2 = verb
@@ -2232,19 +2191,19 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					if objectlist[a] == nil then
 						objectlist[a] = 1
 					end
-					if newword3 == "text" then
+					if newword3 == target then
 						if newword2 == "is" then
 							newword3 = newword1
 						elseif newword2 == "has" or newword2 == "become" then
-							newword3 = "text_text"
+							newword3 = target .. "_" .. target
 						elseif newword2 == "make" then
 							stop = true
 						end
-					elseif newword3 == "not text" then
+					elseif newword3 == "not " .. target then
 						if newword2 == "is" then
 							newword3 = "not " .. newword1
 						elseif newword2 == "has" or newword2 == "become" then
-							newword3 = "not text_text"
+							newword3 = "not " .. target .. "_" .. target
 						elseif newword2 == "make" then
 							stop = true
 						end
@@ -2260,9 +2219,9 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if (verb == "mimic" or verb == "perform") and (effect == "text" or string.sub(effect,1,4) == "meta") then --@mods (metatext x extrem)
+			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or string.sub(effect,1,4) == "meta") then --@mods (metatext x extrem)
 				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-					if (string.sub(a, 1, 5) == "text_") then
+					if (get_pref(a) == effect .. "_") then
 						local stop = false
 						local newconds = {}
 						local newtags = {}
@@ -2280,91 +2239,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						end
 
 						table.insert(newtags, "visualmimic")
-						table.insert(newtags, "verbtext")
-
-						local newword1 = target
-						local newword2 = verb
-						local newword3 = a
-
-						local newrule = {newword1, newword2, newword3}
-						if not stop then
-							addoption(newrule,newconds,ids,false,nil,newtags)
-						end
-					end
-				end
-			end
-		elseif target == "glyph" and fullunitlist ~= nil then
-			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 6) == "glyph_") then
-					local newconds = {}
-					local newtags = {}
-					local stop = false
-
-					for c,d in ipairs(conds) do
-						table.insert(newconds, d)
-					end
-
-					for c,d in ipairs(tags) do
-						table.insert(newtags, d)
-					end
-
-					table.insert(newtags, "glyph")
-
-					local newword1 = a
-					local newword2 = verb
-					local newword3 = effect
-					if objectlist[a] == nil then
-						objectlist[a] = 1
-					end
-					if newword3 == "glyph" then
-						if newword2 == "is" then
-							newword3 = newword1
-						elseif newword2 == "has" or newword2 == "become" then
-							newword3 = "glyph_glyph"
-						elseif newword2 == "make" then
-							stop = true
-						end
-					elseif newword3 == "not glyph" then
-						if newword2 == "is" then
-							newword3 = "not " .. newword1
-						elseif newword2 == "has" or newword2 == "become" then
-							newword3 = "not glyph_glyph"
-						elseif newword2 == "make" then
-							stop = true
-						end
-					elseif string.sub(newword3,1,5) == "group" or string.sub(newword3,1,9) == "not group" then
-						if newword2 == "become" or newword2 == "has" or newword2 == "make" then
-							stop = true
-						end
-					end
-
-					local newrule = {newword1, newword2, newword3}
-					if not stop then
-						addoption(newrule,newconds,ids,false,nil,newtags)
-					end
-				end
-			end
-			if (verb == "mimic" or verb == "perform") and (effect == "glyph") then
-				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-					if (string.sub(a, 1, 6) == "glyph_") then
-						local stop = false
-						local newconds = {}
-						local newtags = {}
-
-						for c,d in ipairs(conds) do
-							table.insert(newconds, d)
-						end
-
-						for c,d in ipairs(tags) do
-							if d == "dontadd" then
-								stop = true
-								break
-							end
-							table.insert(newtags, d)
-						end
-
-						table.insert(newtags, "visualmimic")
-						table.insert(newtags, "verbglyph")
+						table.insert(newtags, "verbtext") --Note: keep as this
 
 						local newword1 = target
 						local newword2 = verb
@@ -2400,19 +2275,19 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						local newword1 = a
 						local newword2 = verb
 						local newword3 = effect
-						if newword3 == "text" and metalevel >= 0 then
+						if newword3 == get_broaded_str(a) and metalevel >= 0 then
 							if newword2 == "is" then
 								newword3 = newword1
 							elseif newword2 == "has" or newword2 == "become" then
-								newword3 = "text_text"
+								newword3 = newword3.."_"..newword3
 							elseif newword2 == "make" then
 								stop = true
 							end
-						elseif newword3 == "not text" and metalevel >= 0 then
+						elseif newword3 == "not "..get_broaded_str(a) and metalevel >= 0 then
 							if newword2 == "is" then
 								newword3 = "not " .. newword1
 							elseif newword2 == "has" or newword2 == "become" then
-								newword3 = "not text_text"
+								newword3 = "not "..newword3.."_"..newword3
 							elseif newword2 == "make" then
 								stop = true
 							end
@@ -2477,7 +2352,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						end
 					end
 				end
-				if effect ~= "text" then
+				if string.sub(effect,1,4) == "meta" then
 					local newconds = {}
 					local newtags = {}
 
@@ -2502,9 +2377,13 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					addoption(newrule,newconds,ids,false,nil,newtags)
 				end
 			end
-		elseif (effect == "text" or effect == "not text") and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write" then
+		elseif (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 5) == "text_") then
+				local reale = effect
+				local isnot = string.sub(effect, 1, 4) == "not "
+				if isnot then reale = string.sub(effect, 5) end
+				if (get_pref(a) == reale .. "_") then
 					local stop = false
 					local newconds = {}
 					local newtags = {}
@@ -2526,7 +2405,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					local newword1 = target
 					local newword2 = verb
 					local newword3 = a
-					if effect == "not text" then
+					if isnot then
 						newword3 = "not " .. a
 					end
 
@@ -2536,41 +2415,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-		elseif (effect == "glyph" or effect == "not glyph") and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write" then
-			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-				if (string.sub(a, 1, 6) == "glyph_") then
-					local stop = false
-					local newconds = {}
-					local newtags = {}
-
-					for c,d in ipairs(conds) do
-						table.insert(newconds, d)
-					end
-
-					for c,d in ipairs(tags) do
-						if d == "dontadd" then
-							stop = true
-							break
-						end
-						table.insert(newtags, d)
-					end
-
-					table.insert(newtags, "verbglyph")
-
-					local newword1 = target
-					local newword2 = verb
-					local newword3 = a
-					if effect == "not glyph" then
-						newword3 = "not " .. a
-					end
-
-					local newrule = {newword1, newword2, newword3}
-					if not stop then
-						addoption(newrule,newconds,ids,false,nil,newtags)
-					end
-				end
-			end
-		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write" then
+		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" then
 			local isnot = (string.sub(effect,1,8) == "not meta")
 			local level = string.sub(effect,5)
 			if isnot then
@@ -2666,7 +2512,8 @@ function code(alreadyrun_)
 	end
     -- print("running code() with updatecode = ", updatecode)
 
-	if (updatecode == 1) then
+	local event_rules = event_code()
+	if (updatecode == 1) or event_rules then
 		HACK_INFINITY = HACK_INFINITY + 1
 		--MF_alert("code being updated!")
 		
@@ -2702,7 +2549,22 @@ function code(alreadyrun_)
 					end
 				end
 			end
-			
+
+			local breakidentifier = ""
+			breakunits,breakidentifier,breakrelatedunits = findbreakunits()
+			local breakunitresult = {}
+
+			if (#breakunits > 0) then
+				for i,v in ipairs(breakunits) do
+					if testcond(v[2],v[1]) then
+						breakunitresult[v[1]] = 1
+						table.insert(checkthese, v[1])
+					else
+						breakunitresult[v[1]] = 0
+					end
+				end
+			end
+
 			if (#echounits > 0) then -- Check {unitid, conditions} pairs for ECHO ?
 				for _,v in ipairs(echounits) do
 					if testcond(v[2],v[1]) then
@@ -2747,7 +2609,15 @@ function code(alreadyrun_)
 			if not turning_text_mod_globals.tt_executing_code then
 				formlettermap()
 			end
-			
+
+			for name, list in pairs(unitlists) do
+				if (string.sub(name, 1, 5) == "node_") then
+					for i, unitid in ipairs(list) do
+						table.insert(checkthese, unitid)
+					end
+				end
+			end
+
 			if (#codeunits > 0) then
 				for i,v in ipairs(codeunits) do
 					if metatext_textisword then
@@ -2764,6 +2634,12 @@ function code(alreadyrun_)
 					local x,y = unit.values[XPOS],unit.values[YPOS]
 					local ox,oy,nox,noy = 0,0
 					local tileid = x + y * roomsizex
+					--[[
+					local name = unit.strings[UNITNAME]
+					if string.sub(name, 1, 5) == "node_" then
+						name = "node"
+					end
+					--]]
 
 					setcolour(unit.fixed)
 					
@@ -2858,6 +2734,8 @@ function code(alreadyrun_)
 				end
 
 				local check = doglyphs(symbolunits)
+				event_code()
+				parsearrows(breakunitresult)
 				docode(firstwords,wordunits)
 				if BRANCHING_TEXT_LOGGING then
 					print("<<<<<<<<<<<<<end>")
@@ -2878,11 +2756,12 @@ function code(alreadyrun_)
 				local stable_state_updated = update_stable_state(alreadyrun)
 				local _,newechoidentifier,echorelatedunits = ws_findechounits()
 				local newsymbolunits,newsymbolidentifier,newsymbolrelatedunits = findsymbolunits()
-				
+				local newbreakunits,newbreakidentifier,breakrelatedunits = findbreakunits()
+
 				--MF_alert("ID comparison: " .. newwordidentifier .. " - " .. wordidentifier)
 				
 				--@mods(stable) - handles the case where this run of code() caused the stablestate to update. In this case, rerun code()
-				if (newwordidentifier ~= wordidentifier) or (newechoidentifier ~= echoidentifier) or (stable_state_updated) then
+				if (newwordidentifier ~= wordidentifier) or (newechoidentifier ~= echoidentifier) or (stable_state_updated) or (newbreakidentifier ~= breakidentifier) then
 					updatecode = 1
 					code(true)
 				elseif (newsymbolidentifier ~= symbolidentifier) then
@@ -3063,7 +2942,7 @@ function findwordunits()
 				local tags = v[4]
 				
 				-- Gotta change this to prevent some false infinite loops
-				if (rule[1] == b) or ((rule[1] == "glyph") and (string.sub(b, 1, 6) == "glyph_")) or (rule[1] == "all" and string.sub(b,1,5) ~= "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
+				if (equals_or_included(b, rule[1])) or (rule[1] == "all" and get_pref(b) == "") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
 				or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
@@ -3190,7 +3069,7 @@ function postrules(alreadyrun_)
 							if (b ~= 0) then
 								local bunit = mmf.newObject(b)
 								
-								if (bunit.strings[UNITTYPE] == "text") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
+								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
 									bunit.active = true
 									setcolour(b,"active")
 								end

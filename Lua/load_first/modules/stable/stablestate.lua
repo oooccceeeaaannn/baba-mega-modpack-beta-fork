@@ -311,7 +311,8 @@ end
 local function metatext_stabledisplay(text)
     local metalevel = getmetalevel(text)
     if metalevel >= 3 then
-        return string.gsub(string.gsub(text,"text_","t_"),"glyph_","g_") --@Merge: Now glyph_ prefix is considered.
+        local res = string.gsub(string.gsub(text,"text_","t_"),"glyph_","g_") --@Merge: Now glyph_ prefix is considered.
+        return string.gsub(string.gsub(res,"node_","n_"),"event_","e_")
     end
     return text
 

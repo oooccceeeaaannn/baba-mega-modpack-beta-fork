@@ -6,8 +6,8 @@ function clearunits(restore_)
 	oldclearunits(restore_)
 end
 local oldinit = init
-function init(tilemapid,roomsizex_,roomsizey_,tilesize_,Xoffset_,Yoffset_,generaldataid,generaldataid2,generaldataid3,generaldataid4,generaldataid5,spritedataid,vardataid,screenw_,screenh_)
+function init(...)
 	fullunitlist = {}
-	oldinit(tilemapid,roomsizex_,roomsizey_,tilesize_,Xoffset_,Yoffset_,generaldataid,generaldataid2,generaldataid3,generaldataid4,generaldataid5,spritedataid,vardataid,screenw_,screenh_)
+	oldinit(...)
 	unitreference["level"] = "level" -- fix stupid bug
 end

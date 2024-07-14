@@ -441,7 +441,7 @@ function doconvert(data,extrarule_)
 		if delthis and (unit.flags[DEAD] == false) then
 			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,unit.karma}) -- EDIT: keep karma when undoing
 			
-			if (unit.strings[UNITTYPE] == "text") then
+			if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") then
 				updatecode = 1
 			end
 			
@@ -495,11 +495,23 @@ function doconvert(data,extrarule_)
 				
 				emptydata[tileid]["conv"] = true
 				
-				if (newunit.strings[UNITTYPE] == "text") then
+				if (newunit.strings[UNITTYPE] == "text" or newunit.strings[UNITTYPE] == "node") then
 					updatecode = 1
 				else
 					if (featureindex["word"] ~= nil) then
 						for i,v in ipairs(featureindex["word"]) do
+							local rule = v[1]
+							if (rule[1] == newunit.strings[UNITNAME]) then
+								updatecode = 1
+							elseif (unitid ~= 2) then
+								if (rule[1] == unit.strings[UNITNAME]) then
+									updatecode = 1
+								end
+							end
+						end
+					end
+					if (featureindex["break"] ~= nil) then
+						for i,v in ipairs(featureindex["break"]) do
 							local rule = v[1]
 							if (rule[1] == newunit.strings[UNITNAME]) then
 								updatecode = 1
@@ -739,11 +751,11 @@ function conversion(dolevels_)
 			local name = words[1]
 			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and name ~= "glyph" and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta") and (thing ~= "mega") and (thing ~= "unmega")) and unitreference[thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta") and (thing ~= "meea") and (thing ~= "unmeea") and (thing ~= "mena") and (thing ~= "unmena") and (thing ~= "mega") and (thing ~= "unmega")) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
-			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and name ~= "glyph" and name ~= "text" and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
-			elseif (not dolevels) and (operator == "inscribe") and name ~= "glyph" and name ~= "text" and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil and (string.sub(thing,1,5) == "text_" or string.sub(thing,1,6) == "glyph_") then
+			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil and (get_pref(thing) ~= "") then
 				tryautogenerate("glyph_" .. thing)
 			end
 
@@ -753,9 +765,8 @@ function conversion(dolevels_)
 			  	or (thing == "not " .. name)
 				or (thing == "all")
 				or (unitreference[thing] ~= nil)
-				or ((thing == "text") and (unitreference["text_text"] ~= nil))
+				or (is_str_special_prefix(thing .. "_") and (unitreference["text_text"] ~= nil))
 				or (thing == "revert")
-				or (thing == "glyph")
 				or (thing == "meta")
 				or (thing == "unmeta")
 					or (thing == "mega")
@@ -778,11 +789,12 @@ function conversion(dolevels_)
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if (object ~= "text") and (object ~= "revert") and (object ~= "createall") and (object ~= "glyph") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (string.sub(object,1,4) ~= "meta") then
+								if not is_str_special_prefix(object .. "_") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
+										and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 
-									elseif (string.sub(object, 1, 5) == "text_") or (string.sub(object, 1, 6) == "glyph_") then
+									elseif get_pref(object) ~= "" then
 										table.insert(output, {object, conds, "is"})
 									else
 										for d,mat in pairs(objectlist) do
@@ -792,7 +804,7 @@ function conversion(dolevels_)
 										end
 									end
 								elseif (name ~= object) or (verb == "become") then
-									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then
+									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then --Note: I don't actually think meta/unmeta needs to be placed at the front.
 										table.insert(output, {object, conds, "is"})
 									else
 										table.insert(output, 1, {object, conds, "is"})
@@ -839,7 +851,7 @@ function conversion(dolevels_)
 
 						if (op == "is") then
 							-- EDIT: add check for ECHO
-							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and (object ~= "text") and (object ~= "glyph") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then
+							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_special_prefix(object .. "_") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
 								--[[
@@ -857,7 +869,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmeta") and string.sub(name,1,5) == "text_" then
 								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
-								if (string.sub(name,6,10) == "text_" or string.sub(name,6,11) == "glyph_") and unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate(string.sub(name,6))
 								end
 								if valid then
@@ -865,23 +877,48 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmega") and string.sub(name,1,6) == "glyph_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
-								if (string.sub(name,7,11) == "text_" or string.sub(name,7,12) == "glyph_" ) and unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
 									table.insert(conversions, {string.sub(name,7),conds})
 								end
+							elseif (object == "unmeea") and string.sub(name,1,6) == "event_" then
+								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate(string.sub(name,7))
+								end
+								if valid then
+									table.insert(conversions, {string.sub(name,7),conds})
+								end
+							elseif (object == "unmena") and string.sub(name,1,5) == "node_" then
+								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate(string.sub(name,6))
+								end
+								if valid then
+									table.insert(conversions, {string.sub(name,6),conds})
+								end
+							elseif (object == "unmexa") and get_pref(name) ~= "" then
+								local unmetad = get_ref(name)
+								local valid = (unmetad ~= nil or unitreference[unmetad] ~= nil) -- don't attempt conversion if the object does not exist
+								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate(unmetad)
+								end
+								if valid then
+									table.insert(conversions, {unmetad,conds})
+								end
 							elseif (string.sub(object,1,4) == "meta") then
 								local level = string.sub(object,5)
 								if tonumber(level) ~= nil and tonumber(level) >= -1 then
-									local basename,_ = string.gsub(name,"text_","")
-									basename,_ = string.gsub(basename,"glyph_","")
+									local basename,_ = name
+									local last = ""
+									for _,k in ipairs(special_prefixes) do
+										basename = string.gsub(basename,k,"")
+										if string.sub(name,-#k) == k then last = k end
+									end
 									if basename == "" then
-										if string.sub(name,-2) == "h_" then
-											basename = "glyph_"
-										else
-											basename = "text_"
-										end
+										basename = last
 									end
 									local newname = string.rep("text_",level + 1) .. basename
 									local valid = true -- don't attempt conversion the if object does not exist
@@ -903,6 +940,22 @@ function conversion(dolevels_)
 								end
 								if valid then
 									table.insert(conversions, {"glyph_" .. name,conds})
+								end
+							elseif (object == "event") or (object == "meea") then
+								local valid = true -- don't attempt conversion if the object does not exist
+								if unitreference["event_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate("event_" .. name,name)
+								end
+								if valid then
+									table.insert(conversions, {"event_" .. name,conds})
+								end
+							elseif (object == "node") or (object == "mena") then
+								local valid = true -- don't attempt conversion if the object does not exist
+								if unitreference["node_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate("node_" .. name,name)
+								end
+								if valid then
+									table.insert(conversions, {"node_" .. name,conds})
 								end
 							end
 						elseif (op == "write") or (op == "inscribe") or (op == "draw") then

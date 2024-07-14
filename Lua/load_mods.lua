@@ -6,6 +6,7 @@ local load_order = {
     "load_first",
     "merged",
 	"mod_cardinality",
+	"mod_event_node",
 	"mod_extrem",
     "mod_glitch",
 	"mod_glyph",
