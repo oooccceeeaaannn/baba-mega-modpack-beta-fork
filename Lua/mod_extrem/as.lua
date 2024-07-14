@@ -28,7 +28,7 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
                                     or (drule[2] == "is" and drule[3] == "mega" and b == "glyph_" .. name)
                                     or (drule[2] == "is" and drule[3] == "unmega" and string.sub(name,1,6) == "glyph_" and b == string.sub(name,7))
                                     or ((b == "text" or b == "text_" .. drule[3]) and (drule[2] == "write" or drule[2] == "draw"))
-                                    or ((b == "glyph" or b == "glyph_" .. drule[3]) and (drule[2] == "inscribe"))) then --TODO: conversion
+                                    or ((b == "glyph" or b == "glyph_" .. drule[3]) and (drule[2] == "inscribe"))) then --TODO: TODO: conversion
                                 checkedconds[tostring(dconds)] = 1
 
                                 if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then
