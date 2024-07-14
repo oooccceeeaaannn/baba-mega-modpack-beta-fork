@@ -15,11 +15,12 @@ The beta branch currently includes these mods (author handles are from discord):
 - [Patashu's Modpack](https://github.com/Patashu/Baba-is-You-Pata-Redux-Mods) - By Patashu (@patashu)
 - Persist (From the levelpack "Persistence") - By Randomizer (@randomizer)
 - Past - By Emily (@emilyemmi)
-- Stringwords (STARTS/CONTAINS/ENDS), TRASH mod - By Wrecking Games (@wreckinggames)
+- Stringwords (STARTS/CONTAINS/ENDS), TRASH mod, Events - By Wrecking Games (@wreckinggames)
 - Word Salad (ALIVE/VESSEL/VESSEL2/KARMA/SINFUL/HOP) - By Huebaba (@huebird.)
 - Visit - By Btd456Creeper (@btd456creeper)
 - [Metatext](https://github.com/EmilyEmmi/Baba-Is-You---Metatext-Mod), Delete Prop - By Emily (@emilyemmi)
-- Extrem's Modpack -By Extrem (@extrem_xxen)
+- Extrem's Modpack - By Extrem (@extrem_xxen)
+- Nodes - By Mathman
 
 # How to install
 1. This modpack only works when you install into a levelpack. Pick an existing levelpack or create a new levelpack in the baba editor. (From baba title: `Level Editor -> Edit Levelpacks -> Create a new levelpack`)
