@@ -1898,7 +1898,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					elseif verb == "make" then
 						visualonly = true
 					end
-				elseif is_str_broad_noun(effect) then
+				elseif is_str_broad_noun(effect) and metatext_hasmaketextnometa then
 					if verb == "has" or verb == "become" or verb == "make" then
 						effect = effect .. "_" .. v
 					end

@@ -325,7 +325,7 @@ function addunit(id,undoing_,levelstart_)
 	end
 	fullunitlist[name__] = 1
 
-	if (unit.strings[UNITTYPE] == "text") then
+	if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") then
 		table.insert(codeunits, unit.fixed)
 		updatecode = 1
 		if not string.sub(unit.strings[UNITNAME], 1, 5) == "event_" then

@@ -283,6 +283,7 @@ function tryautogenerate(want, have)
 		if active ~= nil then
 			activeasstring = active[1] .. "," .. active[2]
 		end
+		local tiling = getactualdata_objlist(realname, "tiling")
 		local type = getactualdata_objlist(realname, "unittype")
 		if (string.sub(want,1,5) == "text_" or string.sub(want,1,6) == "event_") then
 			type = "text"
@@ -290,13 +291,14 @@ function tryautogenerate(want, have)
 			type = "object"
 		elseif string.sub(want,1,5) == "node_" then
 			type = "node"
+			tiling = 0
 		end
 		local new =
 		{
 			want,
 			sprite,
 			colourasstring,
-			getactualdata_objlist(realname, "tiling"),
+			tiling,
 			0,
 			type,
 			activeasstring,
