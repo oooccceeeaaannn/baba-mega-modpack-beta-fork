@@ -1900,7 +1900,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				elseif is_str_broad_noun(effect) then
 					if verb == "has" or verb == "become" or verb == "make" then
-						effect = effect .. v
+						effect = effect .. "_" .. v
 					end
 				elseif string.sub(effect, 1, 5) == "group" or string.sub(effect, 1, 9) == "not group" then
 					if (verb == "has" or verb == "make" or verb == "become") and foundtag then

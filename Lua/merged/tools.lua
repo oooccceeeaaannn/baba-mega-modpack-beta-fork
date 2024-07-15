@@ -451,7 +451,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local verb = baserule[2]
 			local object = baserule[3]
 			
-			if (target == name) and (verb == "has") and (findnoun(object,nlist.short) or (unitreference[object] ~= nil)) then
+			if (target == name) and (verb == "has") and (findnoun(object,nlist.short,true) or (unitreference[object] ~= nil)) then
 				table.insert(ins, {object,conds})
 			end
 			if (target == name) and ((verb == "scrawl") or (verb == "jot")) then
@@ -495,7 +495,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 							end
 							elseif (object == "all") then
 								createall(v,x,y,unitid,nil,leveldata)
-							did = true
+								did = true
 							end
 						end
 					end
@@ -513,8 +513,20 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local object = "text_" .. v[1]
 			local conds = v[2]
 			if testcond(conds,unitid,x,y) then
-				if (unitreference[object] ~= nil) then
-					create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+				local did = false -- changes start here
+				for a,mat in pairs(fullunitlist) do -- main change
+					if (a == object) and (object ~= "empty") then
+						if unitreference[object] ~= nil then
+							create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+							did = true
+						end
+					end
+				end
+				if not did and (get_pref(object) ~= "") then
+					did = tryautogenerate(object)
+					if did then
+						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+					end
 				end
 			end
 		end
@@ -524,9 +536,20 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local object = "glyph_" .. v[1]
 			local conds = v[2]
 			if testcond(conds,unitid,x,y) then
-				tryautogenerate(object)
-				if (unitreference[object] ~= nil) then
-					create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+				local did = false -- changes start here
+				for a,mat in pairs(fullunitlist) do -- main change
+					if (a == object) and (object ~= "empty") then
+						if unitreference[object] ~= nil then
+							create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+							did = true
+						end
+					end
+				end
+				if not did and (get_pref(object) ~= "") then
+					did = tryautogenerate(object)
+					if did then
+						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+					end
 				end
 			end
 		end
@@ -537,10 +560,12 @@ function isgone(unitid)
 	if (issafe(unitid) == false) then
 		local unit = mmf.newObject(unitid)
 		local x,y,name = unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME]
-		
+
+		--[[
 		if (unit.strings[UNITTYPE] == "text") then
-			-- name = "text"
+			name = "text"
 		end
+		--]]
 		
 		-- Added check for ALIVE here
 		local isyou = hasfeature(name,"is","you",unitid,x,y) or hasfeature(name,"is","you2",unitid,x,y) or hasfeature(name,"is","3d",unitid,x,y) or hasfeature(name,"is","alive",unitid,x,y)
