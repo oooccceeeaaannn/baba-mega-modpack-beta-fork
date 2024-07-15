@@ -7,7 +7,8 @@ function parsearrows(breakunitresult)
                 setcolour(unitid)
                 local unit = mmf.newObject(unitid)
                 isarrow[unitid] = true
-                if node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0 then
+                local name = string.sub(unit.strings[UNITNAME], 6, -1)
+                if node_types[name] == 0 or (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
                     table.insert(firstarrows, unitid)
                 end
             end
@@ -93,6 +94,7 @@ function parsearrows(breakunitresult)
             unit = mmf.newObject(unitid)
             local name = string.sub(unit.strings[UNITNAME], 6, -1)
             local texttype = node_types[name]
+            if is_str_special_prefixed(name) and not is_str_special_prefix(name) then texttype = 0 end
             if dirnames[name] ~= nil then
                 name = dirnames[name][unit.values[DIR] + 1]
             end
@@ -1021,7 +1023,8 @@ function find_events(x, y, type, havenot)
                 hasbackslash = true
             end
 
-            if event_text_types[realname] == type or type == nil or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective")) then
+            if event_text_types[realname] == type or type == nil or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective"))
+             or (type == "noun" and is_str_special_prefixed(realname) and not is_str_special_prefix(realname))then
                 table.insert(the_targets, realname)
                 table.insert(the_ids, k)
             end

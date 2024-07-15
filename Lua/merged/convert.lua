@@ -874,7 +874,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {"text_" .. name,conds})
 								end
 							elseif (object == "unmeta") and string.sub(name,1,5) == "text_" then
-								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) and not is_str_broad_noun(string.sub(name,6)) and (string.sub(name,6) ~= "all") -- don't attempt conversion if the object does not exist
 								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
 									valid = tryautogenerate(string.sub(name,6))
 								end
@@ -882,7 +882,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {string.sub(name,6),conds})
 								end
 							elseif (object == "unmega") and string.sub(name,1,6) == "glyph_" then
-								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
 								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
 									valid = tryautogenerate(string.sub(name,7))
 								end
@@ -890,7 +890,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {string.sub(name,7),conds})
 								end
 							elseif (object == "unmeea") and string.sub(name,1,6) == "event_" then
-								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
 								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
 									valid = tryautogenerate(string.sub(name,7))
 								end
@@ -898,7 +898,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {string.sub(name,7),conds})
 								end
 							elseif (object == "unmena") and string.sub(name,1,5) == "node_" then
-								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
+								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) and not is_str_broad_noun(string.sub(name,6)) and (string.sub(name,6) ~= "all") -- don't attempt conversion if the object does not exist
 								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
 									valid = tryautogenerate(string.sub(name,6))
 								end
@@ -907,8 +907,8 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmexa") and get_pref(name) ~= "" then
 								local unmetad = get_ref(name)
-								local valid = (unmetad ~= nil or unitreference[unmetad] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(get_ref(name)) ~= "" then
+								local valid = (getmat(unmetad) ~= nil or unitreference[unmetad] ~= nil) and not is_str_broad_noun(unmetad) and (unmetad ~= "all") -- don't attempt conversion if the object does not exist
+								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(unmetad) ~= "" then
 									valid = tryautogenerate(unmetad)
 								end
 								if valid then
