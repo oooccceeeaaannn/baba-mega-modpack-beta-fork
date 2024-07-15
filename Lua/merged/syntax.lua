@@ -261,7 +261,7 @@ function addunit(id,undoing_,levelstart_)
 		unitlists[name] = {}
 	end
 
-	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") or (string.sub(name_, 1, 4) == "obj_") then
+	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") then
 		unit.flags[META] = true
 	end
 	
@@ -328,13 +328,13 @@ function addunit(id,undoing_,levelstart_)
 	if (unit.strings[UNITTYPE] == "text") then
 		table.insert(codeunits, unit.fixed)
 		updatecode = 1
-		if not string.sub(unit.values[UNITNAME], 1, 5) == "event_" then
+		if not string.sub(unit.strings[UNITNAME], 1, 5) == "event_" then
 			if (unit.values[TYPE] == 0) then
 				local matname = string.sub(unit.strings[UNITNAME], 6)
 				if (unitlists[matname] == nil) then
 					unitlists[matname] = {}
 				end
-			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and unit.strings[UNITNAME] == "text_text_")) then
+			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(unit.strings[UNITNAME]))) then
 				table.insert(letterunits, unit.fixed)
 			end
 		end

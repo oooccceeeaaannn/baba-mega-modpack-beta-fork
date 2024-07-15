@@ -319,6 +319,14 @@ menufuncs.currobjlist =
 				end
 				
 				buildmenustructure(dynamic_structure)
+				if keys.IS_WORD_GLOSSARY_PRESENT == true then --EDIT: add word glossary support.
+
+					local buttonstring = "Word Glossary"
+					local x = screenw-( (#buttonstring + 5) * 10)
+					local y = f_tilesize * 14
+
+					createbutton("word_glossary", screenw - f_tilesize * 5, f_tilesize * 14, 2, 8,1, buttonstring, "currobjlist",3,2, menufuncs.currobjlist.button)
+				end
 			end,
 		leave = 
 			function(parent,name)

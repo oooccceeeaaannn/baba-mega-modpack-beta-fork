@@ -1215,9 +1215,7 @@ function getname(unit,pname_,pnot_)
 		pname = ""
 	end
 
-	if (unit.strings[UNITTYPE] == "text") and (string.sub(result, 1, 5) ~= "text_") then
-		result = "text_" .. result -- Makes mesatext not refer to itself. There are probably other oddities though
-	elseif (unit.strings[UNITTYPE] == "text") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
+	if (unit.strings[UNITTYPE] == "text") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
 		result = "text"
 	elseif (unit.strings[UNITTYPE] ~= "text") and (string.sub(pname,1,5) == "text_") and (pnot == true) then
 		result = "text"
@@ -1790,7 +1788,7 @@ end
 function findall(name_,ignorebroken_,just_testing_)
 	local result = {}
 	local name = name_[1]
-	local meta = ""
+	local meta
 	
 	local checklist = unitlists[name]
 	
@@ -1815,7 +1813,7 @@ function findall(name_,ignorebroken_,just_testing_)
 		local q = {}
 		for i, j in ipairs(codeunits) do
 			local unit = mmf.newObject(j)
-			if getname(unit) == "event" then
+			if getname(unit, "event") == "event" then
 				table.insert(q, j)
 			end
 		end
@@ -1830,6 +1828,7 @@ function findall(name_,ignorebroken_,just_testing_)
 		for i,unitid in ipairs(checklist) do
 			local unit = mmf.newObject(unitid)
 			local unitname = getname(unit,meta)
+			print(unitname)
 			
 			local oldbroken = unit.broken
 			if ignorebroken then

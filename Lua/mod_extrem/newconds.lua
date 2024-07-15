@@ -9,7 +9,7 @@ end
 
 condlist["two"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = false
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	if #unitlists[unitname] == 2 then
 		pass = true
@@ -20,7 +20,7 @@ end
 
 condlist["three"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = false
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	if #unitlists[unitname] == 3 then
 		pass = true
@@ -31,7 +31,7 @@ end
 
 condlist["four"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = false
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	if #unitlists[unitname] == 4 then
 		pass = true
@@ -42,7 +42,7 @@ end
 
 condlist["five"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = false
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	if #unitlists[unitname] == 5 then
 		pass = true
@@ -53,7 +53,7 @@ end
 
 condlist["equal"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = true
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	for a, b in ipairs(params) do
 		if #unitlists[unitname] ~= count_object(b) then
@@ -67,7 +67,7 @@ end
 
 condlist["greaterthan"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = true
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	for a, b in ipairs(params) do
 		if #unitlists[unitname] < count_object(b) then
@@ -81,7 +81,7 @@ end
 
 condlist["lessthan"] = function(params, checkedconds, checkedconds_, cdata)
 	local pass = true
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+	local unitname = cdata.name
 
 	for a, b in ipairs(params) do
 		if #unitlists[unitname] > count_object(b) then

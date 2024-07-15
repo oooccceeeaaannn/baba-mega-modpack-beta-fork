@@ -36,8 +36,8 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 			local w = 1
 			
 			if (v.values[TYPE] ~= 5) and (v.flags[DEAD] == false) then
-				if (v.strings[UNITTYPE] == "text" or v.strings[UNITTYPE] == "node") and not metatext_textisword then
-					
+				--if (v.strings[UNITTYPE] == "text" or v.strings[UNITTYPE] == "node") and not metatext_textisword then
+				if (v.strings[UNITTYPE] == "text" and string.sub(v.strings[UNITNAME],1,6) ~= "event_") and not metatext_textisword then
 					--Check for Nuh Uh! here
                     if (gettilenegated(x,y) == false) then
 						--@Turning text: reinterpret the meaning of the turning text by replacing its parsed name with an existing name
@@ -955,9 +955,11 @@ function docode(firstwords)
 							local tileid = s[3][1]
 							local tilewidth = s[4]
 
+							--[[
 							if (string.sub(tilename, 1, 6) == "event_" and tilename ~= "event_") then
 								stop = true
 							end
+							--]]
 							
 							local wordtile = false
 							

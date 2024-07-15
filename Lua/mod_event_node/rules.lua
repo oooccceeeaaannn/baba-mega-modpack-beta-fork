@@ -1010,7 +1010,7 @@ function find_events(x, y, type, havenot)
     for i, k in ipairs(findallhere(x, y)) do
 
         local kunit = mmf.newObject(k)
-        local name = getname(kunit, true)
+        local name = getname(kunit)
 
         if string.sub(name, 1, 6) == "event_" then
 
@@ -1051,7 +1051,7 @@ function find_events(x, y, type, havenot)
         for i, k in ipairs(findallhere(x + 1, y)) do
 
             local kunit = mmf.newObject(k)
-            local name = getname(kunit, true)
+            local name = getname(kunit)
 
             if string.sub(name, 1, 5) == "text_" then
 
@@ -1114,7 +1114,7 @@ function find_event_targets(x, y, eventname, havenot_)
 
     for i, m in ipairs(findallhere(x, y)) do
         local munit = mmf.newObject(m)
-        local name = getname(munit, true)
+        local name = getname(munit)
 
 
 
@@ -1189,7 +1189,7 @@ function find_event_targets(x, y, eventname, havenot_)
     if isbackslashed then
         for i, m in ipairs(findallhere(x + 1, y)) do
             local munit = mmf.newObject(m)
-            local name = getname(munit, true)
+            local name = getname(munit)
 
 
 

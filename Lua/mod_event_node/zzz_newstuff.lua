@@ -50,7 +50,7 @@ editor_objlist["glyph_event_"] =
 	tiling = -1,
 	type = 0,
 	layer = 1,
-	colour = {5, 2},
+	colour = {5, 3},
 	colour_active = {5, 3},
 }
 
@@ -169,7 +169,7 @@ editor_objlist["glyph_node_"] =
 	tiling = -1,
 	type = 0,
 	layer = 1,
-	colour = {6, 1},
+	colour = {2, 4},
 	colour_active = {2, 4},
 }
 

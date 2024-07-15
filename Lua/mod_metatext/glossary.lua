@@ -13,11 +13,14 @@ For example, Baba metatext refers to the text that refers to Baba.
 So it's essentially modifying one kind of text block.]],
         },
         {
-            name = "metaprefix",
-            thumbnail_obj = "text_text",
+            name = "text_",
+            thumbnail = { sprite = "text_textpre",
+                          sprite_in_root = false,
+                          color = { 4, 1 },
+                          colour = { 4, 1 },
+            },
             display_name = "text_ Prefix",
             author = "Emily",
-            display_sprites = {"text_textpre"},
             description = [[This prefix goes before any word, parsing it as metatext. Make TEXT_ BABA IS YOU to make the piece of text that refers to BABA be YOU!
 It's kind of like TEXT REFERS but not exactly the same when it comes to turning props.]],
         },

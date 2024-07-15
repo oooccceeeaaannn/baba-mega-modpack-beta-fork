@@ -771,6 +771,11 @@ function conversion(dolevels_)
 				or (thing == "unmeta")
 					or (thing == "mega")
 					or (thing == "unmega")
+					or (thing == "meea")
+					or (thing == "unmeea")
+					or (thing == "mena")
+					or (thing == "unmena")
+					or (thing == "unmexa")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
 			  or ((operator == "inscribe") 
@@ -790,7 +795,7 @@ function conversion(dolevels_)
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
 								if not is_str_special_prefix(object .. "_") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-										and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
+										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 
@@ -804,7 +809,7 @@ function conversion(dolevels_)
 										end
 									end
 								elseif (name ~= object) or (verb == "become") then
-									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then --Note: I don't actually think meta/unmeta needs to be placed at the front.
+									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then --Note: I don't actually think meta/unmeta needs to be placed at the front.
 										table.insert(output, {object, conds, "is"})
 									else
 										table.insert(output, 1, {object, conds, "is"})
@@ -851,7 +856,8 @@ function conversion(dolevels_)
 
 						if (op == "is") then
 							-- EDIT: add check for ECHO
-							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_special_prefix(object .. "_") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") then
+							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_special_prefix(object .. "_") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
+									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
 								--[[
@@ -869,7 +875,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmeta") and string.sub(name,1,5) == "text_" then
 								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
 									valid = tryautogenerate(string.sub(name,6))
 								end
 								if valid then
@@ -877,7 +883,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmega") and string.sub(name,1,6) == "glyph_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
@@ -885,7 +891,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmeea") and string.sub(name,1,6) == "event_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
@@ -893,7 +899,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmena") and string.sub(name,1,5) == "node_" then
 								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
 									valid = tryautogenerate(string.sub(name,6))
 								end
 								if valid then
@@ -902,7 +908,7 @@ function conversion(dolevels_)
 							elseif (object == "unmexa") and get_pref(name) ~= "" then
 								local unmetad = get_ref(name)
 								local valid = (unmetad ~= nil or unitreference[unmetad] ~= nil) -- don't attempt conversion if the object does not exist
-								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(get_ref(name)) ~= "" then
 									valid = tryautogenerate(unmetad)
 								end
 								if valid then
