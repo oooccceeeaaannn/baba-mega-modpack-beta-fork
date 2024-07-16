@@ -125,7 +125,7 @@ addtext("crash",2,{2,1},{2,2})
 addtext("eternal",2,{1,3},{1,4})
 addtext("secure",2,{1,3},{1,4})
 
-local letters = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
+local letters = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","?",".","!","+"}
 
 addtext("draw",1,{0,1},{0,3},letters,{8})
 addtext("jot",1,{0,1},{0,3},letters,{8})
