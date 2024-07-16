@@ -174,6 +174,11 @@ add_glyph_using_text("meta")
 add_glyph_using_text("unmeta")
 add_glyph_using_text("mega")
 add_glyph_using_text("unmega")
+add_glyph_using_text("mena")
+add_glyph_using_text("unmena")
+add_glyph_using_text("meea")
+add_glyph_using_text("unmeea")
+add_glyph_using_text("unmexa")
 
 formatobjlist()
 
