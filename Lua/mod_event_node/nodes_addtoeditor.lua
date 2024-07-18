@@ -73,32 +73,47 @@ editor_objlist["text_break"] =
     colour_active = {2, 2}
 }
 
-add_node(true, "baba", 0, {4, 0}, {4, 1})
-add_node(true, "flag", 0, {6, 1}, {2, 4})
-add_node(true, "rock", 0, {6, 0}, {6, 1})
-add_node(true, "wall", 0, {1, 1}, {0, 1})
-add_node(true, "keke", 0, {2, 1}, {2, 2})
-add_node(true, "text", 0, {4, 0}, {4, 1})
-add_node(true, "node", 0, {6, 1}, {2, 4})
-add_node(true, "you", 2, {4, 0}, {4, 1})
-add_node(true, "win", 2, {6, 1}, {2, 4})
-add_node(true, "push", 2, {6, 0}, {6, 1})
-add_node(true, "stop", 2, {5, 0}, {5, 1})
-add_node(true, "dir", 2, {1, 3}, {1, 4})
-add_node(true, "break", 2, {2, 1}, {2, 2})
-add_node(true, "and", 6, {0, 1}, {0, 3})
-add_node(true, "not", 4, {2, 1}, {2, 2})
-add_node(true, "lonely", 3, {2, 1}, {2, 2})
-add_node(true, "on", 7, {0, 1}, {0, 3}, {0})
-add_node(true, "facing", 7, {0, 1}, {0, 3}, {0}, {"up", "down", "left", "right"})
-add_node(true, "has", 1, {0, 1}, {0, 3})
-add_node(true, "nil", -1, {6, 1}, {2, 4})
+-- Nouns
+add_node(true, "baba", 0, { 4, 0 }, { 4, 1 })
+add_node(true, "flag", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "rock", 0, { 6, 0 }, { 6, 1 })
+add_node(true, "wall", 0, { 1, 1 }, { 0, 1 })
+add_node(true, "keke", 0, { 2, 1 }, { 2, 2 })
+add_node(true, "text", 0, { 4, 0 }, { 4, 1 })
+add_node(true, "node", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "water", 0, { 1, 2 }, { 1, 3 })
+add_node(true, "key", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "door", 0, { 2, 1 }, { 2, 2 })
+-- Properties
+add_node(true, "you", 2, { 4, 0 }, { 4, 1 })
+add_node(true, "win", 2, { 6, 1 }, { 2, 4 })
+add_node(true, "push", 2, { 6, 0 }, { 6, 1 })
+add_node(true, "stop", 2, { 5, 0 }, { 5, 1 })
+add_node(true, "dir", 2, { 1, 3 }, { 1, 4 })
+add_node(true, "break", 2, { 2, 1 }, { 2, 2 })
+add_node(true, "open", 2, { 6, 1 }, { 2, 4 })
+add_node(true, "shut", 2, { 2, 1 }, { 2, 2 })
+add_node(true, "move", 2, { 5, 1 }, { 5, 3 })
+add_node(true, "sink", 2, { 1, 2 }, { 1, 3 })
+add_node(true, "shift", 2, { 1, 2 }, { 1, 3 })
+-- Conditions
+add_node(true, "lonely", 3, { 2, 1 }, { 2, 2 })
+add_node(true, "on", 7, { 0, 1 }, { 0, 3 }, { 0 })
+add_node(true, "facing", 7, { 0, 1 }, { 0, 3 }, { 0 }, { "up", "down", "left", "right" })
+add_node(true, "has", 1, { 0, 1 }, { 0, 3 })
+add_node(true, "eat", 1, { 2, 1 }, { 2, 2 })
+add_node(true, "mimic", 1, { 2, 1 }, { 2, 2 })
+-- Miscellaneous
+add_node(true, "and", 6, { 0, 1 }, { 0, 3 })
+add_node(true, "not", 4, { 2, 1 }, { 2, 2 })
+add_node(true, "nil", -1, { 6, 1 }, { 2, 4 })
 
 dirnames = {
     dir = {"right", "up", "left", "down"},
     fall = {"fallright", "fallup", "fallleft", "fall"},
     nudge = {"nudgeright", "nudgeup", "nudgeleft", "nudgedown"},
     locked = {"lockedright", "lockedup", "lockedleft", "lockeddown"},
+    beside = {"besideright", "above", "besideleft", "below"},
 }
 
 formatobjlist()

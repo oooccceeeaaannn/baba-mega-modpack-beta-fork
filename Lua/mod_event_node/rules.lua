@@ -1,6 +1,7 @@
 function parsearrows(breakunitresult)
     isarrow = {}
     firstarrows = {}
+    hoverhints = {}
     for name, list in pairs(unitlists) do
         if (string.sub(name, 1, 5) == "node_") then
             for i, unitid in ipairs(list) do
@@ -140,7 +141,7 @@ function parsearrows(breakunitresult)
                             break
                         end
                         for i, v in ipairs(effects) do
-                            table.insert(rulestoapply, {{target, v[1], v[2]}, conds, {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}, {"noderule"}})
+                            table.insert(rulestoapply, {{target, v[1], v[2]}, copyqwe(conds), {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}, {"noderule"}})
                         end
                         effects = {}
                         conds = {}

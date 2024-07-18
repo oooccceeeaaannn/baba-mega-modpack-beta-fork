@@ -36,7 +36,6 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 			local w = 1
 			
 			if (v.values[TYPE] ~= 5) and (v.flags[DEAD] == false) then
-				--if (v.strings[UNITTYPE] == "text" or v.strings[UNITTYPE] == "node") and not metatext_textisword then
 				if (v.strings[UNITTYPE] == "text" and string.sub(v.strings[UNITNAME],1,6) ~= "event_") and not metatext_textisword then
 					--Check for Nuh Uh! here
                     if (gettilenegated(x,y) == false) then
@@ -2610,14 +2609,6 @@ function code(alreadyrun_)
 			-- @mods(turning text) - weirdchamp thing to do. This tries to prevent the immensive lag spike when you have turning_dir and a rectangle of letters in one level
 			if not turning_text_mod_globals.tt_executing_code then
 				formlettermap()
-			end
-
-			for name, list in pairs(unitlists) do
-				if (string.sub(name, 1, 5) == "node_") then
-					for i, unitid in ipairs(list) do
-						table.insert(checkthese, unitid)
-					end
-				end
 			end
 
 			if (#codeunits > 0) then
