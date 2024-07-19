@@ -1240,7 +1240,7 @@ function getname(unit,pname_,pnot_)
 		pname = ""
 	end
 
-	if (unit.strings[UNITTYPE] == "text") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
+	if (string.sub(result, 1, 5) == "text_") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
 		result = "text"
 	elseif (unit.strings[UNITTYPE] ~= "text") and (string.sub(pname,1,5) == "text_") and (pnot == true) then
 		result = "text"
@@ -1251,7 +1251,7 @@ function getname(unit,pname_,pnot_)
 	elseif (string.sub(result, 1, 5) == "node_") and ((pname == "node") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "node_") then
 		result = "node"
 	elseif string.sub(pname,1,4) == "meta" then
-		if metatext_includenoun or pnot == false or unit.strings[UNITTYPE] == "text" then
+		if metatext_includenoun or pnot == false or is_str_special_prefixed(result) then
 			local include = false
 			local level = string.sub(pname,5)
 			if tonumber(level) ~= nil and tonumber(level) >= -1 then
@@ -1261,12 +1261,10 @@ function getname(unit,pname_,pnot_)
 				end
 			end
 			if include == pnot then
-				result = "text"
+				result = pname
 			elseif not pnot then
 				result = pname
 			end
-		else
-			result = "text"
 		end
 	end
 

@@ -55,12 +55,12 @@ condlist.on = function(params,checkedconds,checkedconds_,cdata)
 										end
 									else
 										if is_param_this then
-											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 												alreadyfound[bcode] = 1
 												alreadyfound[d] = 1
 												allfound = allfound + 1
 											end
-										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 											alreadyfound[bcode] = 1
 											alreadyfound[d] = 1
 											allfound = allfound + 1
@@ -248,12 +248,12 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 												end
 											else
 												if is_param_this then
-													if not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+													if not raycast_units[d] and alreadyfound[bcode] == nil then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 													alreadyfound[bcode] = 1
 													alreadyfound[d] = 1
 													allfound = allfound + 1
@@ -459,12 +459,12 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 													end
 												else
 													if is_param_this then
-														if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+														if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 															alreadyfound[bcode] = 1
 															alreadyfound[d] = 1
 															allfound = allfound + 1
 														end
-													elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+													elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
@@ -666,12 +666,12 @@ condlist.facing = function(params,checkedconds,checkedconds_,cdata)
 										end
 									else
 										if is_param_this then
-											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 												alreadyfound[bcode] = 1
 												alreadyfound[d] = 1
 												allfound = allfound + 1
 											end
-										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 											alreadyfound[bcode] = 1
 											alreadyfound[d] = 1
 											allfound = allfound + 1
@@ -850,12 +850,12 @@ condlist.seeing = function(params,checkedconds,checkedconds_,cdata)
 								end
 							else
 								if is_param_this then
-									if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+									if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 										alreadyfound[bcode] = 1
 										alreadyfound[d] = 1
 										allfound = allfound + 1
 									end
-								elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+								elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 									alreadyfound[bcode] = 1
 									alreadyfound[d] = 1
 									allfound = allfound + 1
@@ -1098,12 +1098,12 @@ condlist.above = function(params,checkedconds,checkedconds_,cdata)
 												end
 											else
 												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 													alreadyfound[bcode] = 1
 													alreadyfound[d] = 1
 													allfound = allfound + 1
@@ -1288,12 +1288,12 @@ condlist.below = function(params,checkedconds,checkedconds_,cdata)
 												end
 											else
 												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 													alreadyfound[bcode] = 1
 													alreadyfound[d] = 1
 													allfound = allfound + 1
@@ -1478,12 +1478,12 @@ condlist.besideright = function(params,checkedconds,checkedconds_,cdata)
 												end
 											else
 												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 													alreadyfound[bcode] = 1
 													alreadyfound[d] = 1
 													allfound = allfound + 1
@@ -1668,12 +1668,12 @@ condlist.besideleft = function(params,checkedconds,checkedconds_,cdata)
 												end
 											else
 												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil and name_ ~= "text" then
+													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
 														alreadyfound[bcode] = 1
 														alreadyfound[d] = 1
 														allfound = allfound + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
+												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
 													alreadyfound[bcode] = 1
 													alreadyfound[d] = 1
 													allfound = allfound + 1
