@@ -62,12 +62,13 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 						
 						if valid then
 							if (gettilenegated(x,y) == false) then
-								if metatext_textisword then
+								local uname = v.strings[UNITNAME]
+								if metatext_textisword and string.sub(uname,1,5) == "text_" then
 									table.insert(result, {{b}, w, v.strings[NAME], v.values[TYPE], cdir})
-								elseif not isglyph(v) then
-									table.insert(result, {{b}, w, v.strings[UNITNAME], v.values[TYPE], cdir})
+								elseif not is_str_special_prefixed(uname) then
+									table.insert(result, {{b}, w, uname, v.values[TYPE], cdir})
 								else
-									table.insert(result, {{b}, w, "glyph", 0, cdir})
+									table.insert(result, {{b}, w, get_broaded_str(uname), 0, cdir})
 								end
 							end
 						end
@@ -2728,7 +2729,11 @@ function code(alreadyrun_)
 
 				local check = doglyphs(symbolunits)
 				event_code()
-				parsearrows(breakunitresult)
+				if NODE_LEGACY_PARSING then
+					parselegacyarrows(breakunitresult)
+				else
+					parsearrows(breakunitresult)
+				end
 				docode(firstwords,wordunits)
 				if BRANCHING_TEXT_LOGGING then
 					print("<<<<<<<<<<<<<end>")

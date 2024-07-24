@@ -1,4 +1,4 @@
-function parsearrows(breakunitresult)
+function parselegacyarrows(breakunitresult)
     isarrow = {}
     firstarrows = {}
     hoverhints = {}
@@ -9,7 +9,7 @@ function parsearrows(breakunitresult)
                 local unit = mmf.newObject(unitid)
                 isarrow[unitid] = true
                 local name = string.sub(unit.strings[UNITNAME], 6, -1)
-                if node_types[name] == 0 or (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
+                if node_types[name] == 0 then
                     table.insert(firstarrows, unitid)
                 end
             end
@@ -95,7 +95,6 @@ function parsearrows(breakunitresult)
             unit = mmf.newObject(unitid)
             local name = string.sub(unit.strings[UNITNAME], 6, -1)
             local texttype = node_types[name]
-            if is_str_special_prefixed(name) and not is_str_special_prefix(name) then texttype = 0 end
             if dirnames[name] ~= nil then
                 name = dirnames[name][unit.values[DIR] + 1]
             end
@@ -264,6 +263,204 @@ function parsearrows(breakunitresult)
             end
         end
     end
+end
+
+function parsearrows(breakunitresult)
+    isarrow = {}
+    firstarrows = {}
+    hoverhints = {}
+    for name, list in pairs(unitlists) do
+        if (string.sub(name, 1, 5) == "node_") then
+            for i, unitid in ipairs(list) do
+                setcolour(unitid)
+                local unit = mmf.newObject(unitid)
+                isarrow[unitid] = true
+                if node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0 then
+                    table.insert(firstarrows, unitid)
+                end
+            end
+        end
+    end
+    pointedby = {}
+    nilfinder = {}
+    notunitids = {}
+    notnils = {}
+    local nils
+    for unitid, _ in pairs(isarrow) do
+        local unit = mmf.newObject(unitid)
+        local dir = unit.values[DIR]
+        local drs = ndirs[dir + 1]
+        local ox,oy = drs[1],drs[2]
+        local xpos,ypos = unit.values[XPOS],unit.values[YPOS]
+        xpos = xpos + ox
+        ypos = ypos + oy
+        local done = false
+        nils = {}
+        nots = {}
+        while xpos > 0 and xpos < roomsizex and ypos > 0 and ypos < roomsizey do
+            for i, unitid2 in ipairs(findallhere(xpos, ypos)) do
+                if breakunitresult[unitid2] == 1 then
+                    done = true
+                    break
+                end
+                if isarrow[unitid2] then
+                    local unit2 = mmf.newObject(unitid2)
+                    if node_types[unit2.strings[UNITNAME]:sub(6, -1)] == -1 then
+                        dir = unit2.values[DIR]
+                        drs = ndirs[dir + 1]
+                        ox,oy = drs[1],drs[2]
+                        table.insert(nils, unitid2)
+                    elseif node_types[unit.strings[UNITNAME]:sub(6, -1)] == 4 then
+                        pointedby[unitid2] = pointedby[unitid2] or {}
+                        table.insert(pointedby[unitid2], unitid)
+                        nilfinder[unitid2] = nilfinder[unitid2] or {}
+                        table.insert(nilfinder[unitid2], table_copy(nils))
+                        notunitids[unitid2] = notunitids[unitid2] or {}
+                        table.insert(notunitids[unitid2], unitid)
+                        notnils[unitid2] = notnils[unitid2] or {}
+                        for _, nilunitid in ipairs(nils) do
+                            table.insert(notnils[unitid2], nilunitid)
+                        end
+                        nils = {}
+                        done = true
+                    else
+                        pointedby[unitid2] = pointedby[unitid2] or {}
+                        table.insert(pointedby[unitid2], unitid)
+                        nilfinder[unitid2] = nilfinder[unitid2] or {}
+                        table.insert(nilfinder[unitid2], table_copy(nils))
+                        done = true
+                        nils = {}
+                    end
+                end
+            end
+            if done then
+                break
+            end
+            xpos = xpos + ox
+            ypos = ypos + oy
+        end
+    end
+
+    for i, unitid in ipairs(firstarrows) do
+        local unit = mmf.newObject(unitid)
+        local targetname = unit.strings[UNITNAME]:sub(6, -1)
+        local nots = notunitids[unitid] or {}
+        if (#nots % 2) == 1 then
+            targetname = "not " .. targetname
+        end
+        local extraunitids = table_copy(nots)
+        for _, nilunitid in ipairs(notnils[unitid] or {}) do
+            table.insert(extraunitids, nilunitid)
+        end
+        for j, verbunitid in ipairs(pointedby[unitid] or {}) do
+            local verbunit = mmf.newObject(verbunitid)
+            local verbnils = nilfinder[unitid][j]
+            if node_types[verbunit.strings[UNITNAME]:sub(6, -1)] == 1 then
+                -- find the objects and conditions
+                local actions = {}
+                local actionunitids = {}
+                local conditions = {}
+                local condunitids = {}
+                for k, childunitid in ipairs(pointedby[verbunitid] or {}) do
+                    local childunit = mmf.newObject(childunitid)
+                    local childtype = node_types[childunit.strings[UNITNAME]:sub(6, -1)]
+                    local childnils = nilfinder[verbunitid][k]
+                    local childnots = notunitids[childunitid] or {}
+                    local childnotnils = notnils[childunitid]
+                    local childname = getnodename(childunit)
+                    local nextup = {childunitid}
+                    for _, v in ipairs(childnils or {}) do
+                        table.insert(nextup, v)
+                    end
+                    for _, v in ipairs(childnots or {}) do
+                        table.insert(nextup, v)
+                    end
+                    for _, v in ipairs(childnotnils or {}) do
+                        table.insert(nextup, v)
+                    end
+                    if (#childnots % 2) == 1 then
+                        childname = "not " .. childname
+                    end
+                    if childtype == 0 or childtype == 2 then
+                        local legal = false
+                        for _, v in ipairs(node_argtypes[verbunit.strings[UNITNAME]:sub(6, -1)] or {}) do
+                            if v == childtype then
+                                legal = true
+                                break
+                            end
+                        end
+                        for _, v in ipairs(node_argextras[verbunit.strings[UNITNAME]:sub(6, -1)] or {}) do
+                            if v == childname then
+                                legal = true
+                                break
+                            end
+                        end
+                        if legal then
+                            table.insert(actions, childname)
+                            table.insert(actionunitids, nextup)
+                        end
+                    elseif childtype == 3 then
+                        table.insert(condunitids, {childunitid})
+                        table.insert(conditions, {childname, {}})
+                    elseif childtype == 7 then
+                        local args = {}
+                        for l, argunitid in ipairs(pointedby[childunitid] or {}) do
+                            local argunit = mmf.newObject(argunitid)
+                            local arg_type = node_types[argunit.strings[UNITNAME]:sub(6, -1)]
+                            local argname = getnodename(argunit)
+                            local argnots = notunitids[argunitid] or {}
+                            if (#argnots % 2) == 1 then
+                                argname = "not " .. argname
+                            end
+                            local extraargunitids = table_copy(argnots)
+                            for _, nilunitid in ipairs(notnils[argunitid] or {}) do
+                                table.insert(extraargunitids, nilunitid)
+                            end
+                            for _, nilunitid in ipairs(nilfinder[childunitid][l] or {}) do
+                                table.insert(extraargunitids, nilunitid)
+                            end
+                            local legal = false
+                            for _, v in ipairs(node_argtypes[childunit.strings[UNITNAME]:sub(6, -1)] or {}) do
+                                if v == arg_type then
+                                    legal = true
+                                    break
+                                end
+                            end
+                            for _, v in ipairs(node_argextras[childunit.strings[UNITNAME]:sub(6, -1)] or {}) do
+                                if v == argname then
+                                    legal = true
+                                    break
+                                end
+                            end
+                            if legal then
+                                table.insert(args, argname)
+                                table.insert(condunitids, {argunitid, table.unpack(extraargunitids)})
+                            end
+                        end
+                        if #args > 0 then
+                            table.insert(conditions, {childname, args})
+                            table.insert(condunitids, nextup)
+                        end
+                    end
+                end
+                for l, action in ipairs(actions) do
+                    local ids = {{unitid}, extraunitids, {verbunitid}, verbnils, table.unpack(actionunitids)}
+                    for _, toadd in ipairs(condunitids) do
+                        table.insert(ids, toadd)
+                    end
+                    addoption({targetname, verbunit.strings[UNITNAME]:sub(6, -1), action}, table_copy(conditions), table_copy(ids), nil, nil, {"noderule"})
+                end
+            end
+        end
+    end
+end
+
+function getnodename(unit)
+    local name = unit.strings[UNITNAME]:sub(6, -1)
+    if dirnames[name] then
+        name = dirnames[name][unit.values[DIR]]
+    end
+    return name
 end
 
 function findbreakunits()

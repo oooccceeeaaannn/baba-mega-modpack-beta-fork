@@ -29,3 +29,15 @@ function copyqwe(obj)
     for k, v in pairs(obj) do res[copyqwe(k)] = copyqwe(v) end
     return res
 end
+
+table_copy = copyqwe
+
+function get_text_type(name)
+    if is_str_special_prefixed(name) and not is_str_special_prefix(name) then return 0 end
+    name = "text_"..name
+    if objectpallete[name] ~= nil then
+        local altname = objectpalette[name]
+        return getactualdata_objlist(altname, "type")
+    end
+    return editor_objlist[name].type
+end

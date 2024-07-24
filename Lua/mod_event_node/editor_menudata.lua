@@ -173,7 +173,7 @@ menufuncs.currobjlist =
 							end
 						end
 						
-						local v = editor_objlist[id]
+						local v = editor_objlist[id] or {}
 						local name = getactualdata_objlist(obj.object, "name")
 						
 						local objword = editor2.values[OBJECTWORDSWAP]
