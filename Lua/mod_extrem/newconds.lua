@@ -781,6 +781,8 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 			return true, checkedconds
 		elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (unitname == _params) then
 			return true, checkedconds
+		elseif hasfeature(unitname,"is","object",cdata.unitid) and (unitname == _params) then
+			return true, checkedconds
 		end
 	end
 	return false, checkedconds

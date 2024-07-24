@@ -35,9 +35,11 @@ table_copy = copyqwe
 function get_text_type(name)
     if is_str_special_prefixed(name) and not is_str_special_prefix(name) then return 0 end
     name = "text_"..name
-    if objectpallete[name] ~= nil then
+    if objectpalette[name] ~= nil then
         local altname = objectpalette[name]
         return getactualdata_objlist(altname, "type")
     end
-    return editor_objlist[name].type
+    local result = editor_objlist[name]
+    if result ~= nil then return result.type end
+    return -2
 end

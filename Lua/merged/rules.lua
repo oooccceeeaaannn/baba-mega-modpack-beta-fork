@@ -5,7 +5,7 @@ pasttense = { "was", "ate", "made", "had", "feared", "followed", "wrote", "mimic
 presenttense = { "is", "eat", "made", "has", "fear", "follow", "write", "mimic", "draw", "jot", "type", "act", "perform" }
 futuretense = { "will be", "will eat", "will make", "will have", "will fear", "will follow", "will write", "will mimic", "will draw", "will jot", "will type", "will act", "will perform" }
 
-function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult_)
+function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult_,classunitresult_)
 	--[[ 
 		@mods(turning text) - Override reason: provide a hook to reinterpret turning text names based on their direction
 	 ]]
@@ -18,7 +18,8 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 	local justletters = false
 	local cdir = cdir_ or 0
 	local wordunitresult = wordunitresult_ or {}
-	local echounitresult = echounitresult_ or {} -- EDIT: add echounitresult var
+	local echounitresult = echounitresult_ or {}-- EDIT: add echounitresult var
+	local classunitresult = classunitresult_ or {}
 	
 	local ignore_end = false
 	if (ignore_end_ ~= nil) then
@@ -46,6 +47,28 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 						table.insert(result, {{b}, w, v_name, v.values[TYPE], cdir})
 					end
 				else
+					if (#classunits > 0) then
+						local valid = false
+
+						if (classunitresult[b] ~= nil) and (classunitresult[b] == 1) then
+							valid = true
+						elseif (classunitresult[b] == nil) then
+							for c,d in ipairs(classunits) do
+								if (b == d[1]) and testcond(d[2],d[1]) then
+									valid = true
+									break
+								end
+							end
+						end
+
+						if valid then
+							local name = v.strings[UNITNAME]
+							if (gettilenegated(x,y) == false) and string.sub(name,1,4) == "obj_" then
+								name = string.sub(name,5)
+								table.insert(result, {{b}, w, name, get_text_type(name), cdir})
+							end
+						end
+					end
 					if (#wordunits > 0) then
 						local valid = false
 						
@@ -1727,12 +1750,12 @@ function docode(firstwords)
 	end
 end
 
-extra_broad_nouns = {"text","glyph","node","event"}
+extra_broad_nouns = {"text","glyph","node","event","obj"}
 function is_str_broad_noun(str)
-	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event")
+	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event") or (str == "obj")
 end
 function is_str_notted_broad_noun(str)
-	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event")
+	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event") or (str == "not obj")
 end
 function get_broaded_str(str)
 	local res = get_pref(str)
@@ -2158,7 +2181,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 				end
 			else
-				local mats = {"empty","text", "glyph","node","event"}
+				local mats = {"empty","text", "glyph","node","event","obj"}
 				
 				for m,i in pairs(mats) do
 					local rule = {i,verb,effect}
@@ -2418,7 +2441,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "becobj" then
 			local isnot = (string.sub(effect,1,8) == "not meta")
 			local level = string.sub(effect,5)
 			if isnot then
@@ -2535,11 +2558,14 @@ function code(alreadyrun_)
 			local checkthese = {}
 			local wordidentifier = ""
 			local echoidentifier = ""
+			local classid = ""
 			wordunits,wordidentifier,wordrelatedunits = findwordunits()
 			echounits,echoidentifier,echorelatedunits = ws_findechounits()
 			symbolunits,symbolidentifier,symbolrelatedunits = findsymbolunits()
+			classunits,classid,classrelatedunits = findclassunits()
 			local wordunitresult = {}
 			local echounitresult = {}
+			local classunitresult = {}
 			
 			if (#wordunits > 0) then
 				for i,v in ipairs(wordunits) do
@@ -2548,6 +2574,17 @@ function code(alreadyrun_)
 						table.insert(checkthese, v[1])
 					else
 						wordunitresult[v[1]] = 0
+					end
+				end
+			end
+
+			if (#classunits > 0) then
+				for i,v in ipairs(classunits) do
+					if testcond(v[2],v[1]) then
+						classunitresult[v[1]] = 1
+						table.insert(checkthese, v[1])
+					else
+						classunitresult[v[1]] = 0
 					end
 				end
 			end
@@ -2617,9 +2654,9 @@ function code(alreadyrun_)
 					if metatext_textisword then
 						setcolour(v)
 					else
-					table.insert(checkthese, v)
+						table.insert(checkthese, v)
+					end
 				end
-			end
 			end
 			
 			if (#checkthese > 0) or (#letterunits > 0) or (#glyphunits > 0) then
@@ -2662,8 +2699,8 @@ function code(alreadyrun_)
 							
 							--MF_alert("Doing firstwords check for " .. unit.strings[UNITNAME] .. ", dir " .. tostring(i))
 							
-							local hm = codecheck(unitid,ox,oy,i,nil,wordunitresult,echounitresult)
-							local hm2 = codecheck(unitid,nox,noy,forward_dir,nil,wordunitresult,echounitresult)
+							local hm = codecheck(unitid,ox,oy,i,nil,wordunitresult,echounitresult,classunitresult)
+							local hm2 = codecheck(unitid,nox,noy,forward_dir,nil,wordunitresult,echounitresult,classunitresult)
 							
 							if (#hm == 0) and (#hm2 > 0) then
 								--MF_alert("Added " .. unit.strings[UNITNAME] .. " to firstwords, dir " .. tostring(i))
@@ -2755,11 +2792,12 @@ function code(alreadyrun_)
 				local _,newechoidentifier,echorelatedunits = ws_findechounits()
 				local newsymbolunits,newsymbolidentifier,newsymbolrelatedunits = findsymbolunits()
 				local newbreakunits,newbreakidentifier,breakrelatedunits = findbreakunits()
+				local newclassunits, newclassid, newclassrel = findclassunits()
 
 				--MF_alert("ID comparison: " .. newwordidentifier .. " - " .. wordidentifier)
 				
 				--@mods(stable) - handles the case where this run of code() caused the stablestate to update. In this case, rerun code()
-				if (newwordidentifier ~= wordidentifier) or (newechoidentifier ~= echoidentifier) or (stable_state_updated) or (newbreakidentifier ~= breakidentifier) then
+				if (newwordidentifier ~= wordidentifier) or (newechoidentifier ~= echoidentifier) or (stable_state_updated) or (newbreakidentifier ~= breakidentifier) or (classid ~= newclassid) then
 					updatecode = 1
 					code(true)
 				elseif (newsymbolidentifier ~= symbolidentifier) then
@@ -2844,7 +2882,7 @@ function findwordunits()
 			local subid = ""
 			
 			if (rule[2] == "is") then
-				if ((fullunitlist[name] ~= nil) or ((name == "glyph") and (#glyphunits > -1))) and (findnoun(name,nlist.short,true) == false) and (metatext_textisword or string.sub(name,1,5) ~= "text_") and (alreadydone[name] == nil) then
+				if ((fullunitlist[name] ~= nil) or (is_str_broad_noun(name))) and (name ~= "text") and (metatext_textisword or string.sub(name,1,5) ~= "text_") and (alreadydone[name] == nil) then
 					-- @mods(stable) originally it was "findall({name, {}})". But we are assuming that passing nil conds = don't test conditions.
 					local these = findall({name})
 					alreadydone[name] = 1
@@ -3027,6 +3065,9 @@ function postrules(alreadyrun_)
 		end
 		
 		unit.active = false
+		if unit.strings[UNITTYPE] == "obj" then
+			setcolour(unit.fixed)
+		end
 	end
 	
 	local limit = #features
@@ -3067,7 +3108,7 @@ function postrules(alreadyrun_)
 							if (b ~= 0) then
 								local bunit = mmf.newObject(b)
 								
-								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
+								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "obj" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
 									bunit.active = true
 									setcolour(b,"active")
 								end

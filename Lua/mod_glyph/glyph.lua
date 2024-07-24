@@ -2298,6 +2298,12 @@ function toometafunc(name)
 		if (glyphfound ~= 1) and (basefound == 1) then
 			return true
 		end
+	elseif (string.sub(name,1,6) == "obj_") then
+		local basefound = foundbasereference(name)
+		local objfound = foundreference(name)
+		if (objfound ~= 1) and (basefound == 1) then
+			return true
+		end
 	elseif (string.sub(name,1,5) == "node_") then
 		local basefound = foundbasereference(name)
 		local nodefound = foundreference(name)
@@ -2355,8 +2361,8 @@ condlist['references'] = function(params,checkedconds,checkedconds_,cdata)
 	-- if (string.sub(unitname, 1, 5) == "text_") then
 	-- 	return (string.sub(unitname, 6) == params[1]), checkedconds
 	-- end --@Merge(glyph x metatext): disable glyph mod's implementation of metatext. Metatext mod has the system all figured out
-	if (string.sub(unitname, 1, 6) == "glyph_") then
-		return (string.sub(unitname, 7) == params[1]), checkedconds
+	if (string.sub(unitname, 1, 4) == "obj_") then
+		return (string.sub(unitname, 5) == params[1]), checkedconds
 	end
 	if (string.sub(unitname, 1, 5) == "text_") or (string.sub(unitname, 1, 5) == "node_") then
 		return (string.sub(unitname, 6) == params[1]), checkedconds
@@ -2397,6 +2403,14 @@ local function referencesnode(unit, param)
 	local unitname = unit.strings[UNITNAME]
 	if (string.sub(unitname, 1, 5) == "node_") then
 		return (string.sub(unitname, 6) == params[1]), checkedconds
+	end
+	return false, checkedconds
+end
+
+local function referencesobj(unit, param)
+	local unitname = unit.strings[UNITNAME]
+	if (string.sub(unitname, 1, 4) == "obj_") then
+		return (string.sub(unitname, 5) == params[1]), checkedconds
 	end
 	return false, checkedconds
 end
@@ -2494,7 +2508,7 @@ function isglyphmeta(input_string, id)
 	if string.sub(input_string,1,6) ~= "glyph_" then
 		return false
 	end
-	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode")
+	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode") or (input_string == "glyph_metaobj")
 end
 
 function isprefix(input_string, id)
@@ -2577,6 +2591,7 @@ function metaprefix(x, y)
 	local is_text = false
 	local is_event = false
 	local is_node = false
+	local is_obj = false
 	local im_done = false
 	if (tilemetaglyphdata[x + y * roomsizex] ~= nil) then
 		if tilemetaglyphdata[x + y * roomsizex] == 1 then
@@ -2587,6 +2602,8 @@ function metaprefix(x, y)
 			return "event_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 4 then
 			return "node_"
+		elseif tilemetaglyphdata[x + y * roomsizex] == 5 then
+			return "obj_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 0 then
 			return ""
 		end
@@ -2604,6 +2621,9 @@ function metaprefix(x, y)
 					break
 				elseif (name == "glyph_metanode") then
 					is_node = true
+				elseif (name == "glyph_metaobj") then
+					is_obj = true
+					break
 				elseif (name == "glyph_metaglyph") then
 					is_meta = true
 					im_done = true
@@ -2627,6 +2647,9 @@ function metaprefix(x, y)
 	elseif is_node then
 		tilemetaglyphdata[x + y * roomsizex] = 4
 		return "node_"
+	elseif is_obj then
+		tilemetaglyphdata[x + y * roomsizex] = 5
+		return "obj_"
 	else
 		tilemetaglyphdata[x + y * roomsizex] = 0
 		return ""
@@ -3143,6 +3166,9 @@ function determinemetaglyphs(glyphtable)
 		elseif (prefix == "node_") then
 			metaglyphdata[j] = 4
 			tilemetaglyphdata[x + y * roomsizex] = 4
+		elseif (prefix == "obj_") then
+			metaglyphdata[j] = 5
+			tilemetaglyphdata[x + y * roomsizex] = 5
 		else
 			metaglyphdata[j] = 0
 			tilemetaglyphdata[x + y * roomsizex] = 0
@@ -3506,8 +3532,10 @@ function doglyphs(symbols)
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metatext", "glyph_" .. string.sub(v[1],6)})
 		elseif string.sub(v[1],1,6) == "event_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaevent", "glyph_" .. string.sub(v[1],6)})
-		elseif string.sub(v[1],1,6) == "node_" then
+		elseif string.sub(v[1],1,5) == "node_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metanode", "glyph_" .. string.sub(v[1],5)})
+		elseif string.sub(v[1],1,4) == "obj_" then
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaobj", "glyph_" .. string.sub(v[1],4)})
 		else
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule"})
 		end

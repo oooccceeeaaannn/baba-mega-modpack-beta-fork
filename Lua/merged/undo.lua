@@ -108,6 +108,25 @@ function undo()
 								end
 							end
 
+							local undoclassunits = currentundo.classunits
+							local undoclassrelatedunits = currentundo.classrelatedunits
+
+							if (#undoclassunits > 0) then
+								for a,b in pairs(undoclassunits) do
+									if (b == line[9]) then
+										updatecode = 1
+									end
+								end
+							end
+
+							if (#undoclassrelatedunits > 0) then
+								for a,b in pairs(undoclassrelatedunits) do
+									if (b == line[9]) then
+										updatecode = 1
+									end
+								end
+							end
+
 							-- EDIT: ECHO units again
 							local undoechounits = currentundo.echounits
 							local undoechorelatedunits = currentundo.echorelatedunits
@@ -242,6 +261,26 @@ function undo()
 								end
 							end
 
+
+							local undoclassunits = currentundo.classunits
+							local undoclassrelatedunits = currentundo.classrelatedunits
+
+							if (#undoclassunits > 0) then
+								for a,b in pairs(undoclassunits) do
+									if (b == line[6]) then
+										updatecode = 1
+									end
+								end
+							end
+
+							if (#undoclassrelatedunits > 0) then
+								for a,b in pairs(undoclassrelatedunits) do
+									if (b == line[6]) then
+										updatecode = 1
+									end
+								end
+							end
+
 							-- EDIT: echo again
 							local undoechounits = currentundo.echounits
 							local undoechorelatedunits = currentundo.echorelatedunits
@@ -344,6 +383,26 @@ function undo()
 									end
 								end
 							end
+
+
+							local undoclassunits = currentundo.classunits
+							local undoclassrelatedunits = currentundo.classrelatedunits
+
+							if (#undoclassunits > 0) then
+								for a,b in pairs(undoclassunits) do
+									if (b == line[3]) then
+										updatecode = 1
+									end
+								end
+							end
+
+							if (#undoclassrelatedunits > 0) then
+								for a,b in pairs(undoclassrelatedunits) do
+									if (b == line[3]) then
+										updatecode = 1
+									end
+								end
+							end
 						
 							-- EDIT: echo again
 							local undoechounits = currentundo.echounits
@@ -432,6 +491,8 @@ function undo()
 					-- EDIT: ECHO once more
 					local undoechounits = currentundo.echounits
 					local undoechorelatedunits = currentundo.echorelatedunits
+					local undoclassunits = currentundo.classunits
+					local undoclassrelatedunits = currentundo.classrelatedunits
 					local undosymbolunits = currentundo.symbolunits
 					local undosymbolrelatedunits = currentundo.symbolrelatedunits
 					
@@ -484,7 +545,23 @@ function undo()
 							end
 						end
 					end
-					
+
+					if (#undoclassunits > 0) then
+						for a,b in pairs(undoclassunits) do
+							if (b == line[10]) then
+								updatecode = 1
+							end
+						end
+					end
+
+					if (#undoclassrelatedunits > 0) then
+						for a,b in pairs(undoclassrelatedunits) do
+							if (b == line[10]) then
+								updatecode = 1
+							end
+						end
+					end
+
 					if (#undosymbolrelatedunits > 0) then
 						for a,b in pairs(undosymbolrelatedunits) do
 							if (b == line[10]) then
@@ -590,6 +667,8 @@ function undo()
 		-- EDIT: pass echo units (could this be handled better?)
 		nextundo.echounits = {}
 		nextundo.echorelatedunits = {}
+		nextundo.classunits = {}
+		nextundo.classrelatedunits = {}
 		nextundo.symbolunits = {}
 		nextundo.symbolrelatedunits = {}
 		nextundo.visiontargets = {}
@@ -615,7 +694,12 @@ function undo()
 		for i,v in ipairs(currentundo.echorelatedunits) do
 			table.insert(nextundo.echorelatedunits, v)
 		end
-		
+		for i,v in ipairs(currentundo.classunits) do
+			table.insert(nextundo.classunits, v)
+		end
+		for i,v in ipairs(currentundo.classrelatedunits) do
+			table.insert(nextundo.classrelatedunits, v)
+		end
 		if (#currentundo.visiontargets > 0) then
 			visiontargets = {}
 			for i,v in ipairs(currentundo.visiontargets) do
@@ -669,6 +753,8 @@ function newundo(resetundo)
 		-- EDIT: store echo units???
 		thisundo.echounits = {}
 		thisundo.echorelatedunits = {}
+		thisundo.classunits = {}
+		thisundo.classrelatedunits = {}
 
 		if (#wordunits > 0) then
 			for i,v in ipairs(wordunits) do
@@ -722,6 +808,22 @@ function newundo(resetundo)
 				if (v[1] ~= 2) then
 					local eunit = mmf.newObject(v[1])
 					table.insert(thisundo.echorelatedunits, eunit.values[ID])
+				end
+			end
+		end
+
+		if (#classunits > 0) then
+			for i,v in ipairs(classunits) do
+				local eunit = mmf.newObject(v[1])
+				table.insert(thisundo.classunits, eunit.values[ID])
+			end
+		end
+
+		if (#classrelatedunits > 0) then
+			for i,v in ipairs(classrelatedunits) do
+				if (v[1] ~= 2) then
+					local eunit = mmf.newObject(v[1])
+					table.insert(thisundo.classrelatedunits, eunit.values[ID])
 				end
 			end
 		end

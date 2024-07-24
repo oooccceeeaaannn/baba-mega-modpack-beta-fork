@@ -13,11 +13,7 @@ function dochanges(unitid)
 			name = c.name
 			unit.strings[UNITNAME] = c.name
 			
-			if (string.sub(c.name, 1, 5) == "text_") or (string.sub(c.name, 1, 5) == "node_") then
-				name_ = string.sub(c.name, 6)
-			else
-				name_ = c.name
-			end
+			name_ = get_ref(c.name)
 			
 			unit.strings[NAME] = name_
 			

@@ -402,6 +402,117 @@ function doconvert(data,extrarule_)
 							end
 						end
 					end
+
+					if (featureindex["symbol"] ~= nil) then
+						for i,v in ipairs(featureindex["symbol"]) do
+							local rule = v[1]
+							local conds = v[2]
+
+							if (rule[2] == "is") and (rule[3] == "symbol") then
+								if (rule[1] == newname) then
+									updatecode = 1
+									break
+								elseif (unitid ~= 2) then
+									if (rule[1] == unitname) then
+										updatecode = 1
+										break
+									end
+								end
+
+								if (#conds > 0) then
+									for a,b in ipairs(conds) do
+										if (b[2] ~= nil) and (#b[2] > 0) then
+											for c,d in ipairs(b[2]) do
+												if (d == newname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= newname)) then
+													updatecode = 1
+													break
+												elseif (unitid ~= 2) then
+													if (d == unitname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= unitname)) then
+														updatecode = 1
+														break
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+
+					if (featureindex["break"] ~= nil) then
+						for i,v in ipairs(featureindex["break"]) do
+							local rule = v[1]
+							local conds = v[2]
+
+							if (rule[2] == "is") and (rule[3] == "break") then
+								if (rule[1] == newname) then
+									updatecode = 1
+									break
+								elseif (unitid ~= 2) then
+									if (rule[1] == unitname) then
+										updatecode = 1
+										break
+									end
+								end
+
+								if (#conds > 0) then
+									for a,b in ipairs(conds) do
+										if (b[2] ~= nil) and (#b[2] > 0) then
+											for c,d in ipairs(b[2]) do
+												if (d == newname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= newname)) then
+													updatecode = 1
+													break
+												elseif (unitid ~= 2) then
+													if (d == unitname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= unitname)) then
+														updatecode = 1
+														break
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+
+					if (featureindex["class"] ~= nil) then
+						for i,v in ipairs(featureindex["class"]) do
+							local rule = v[1]
+							local conds = v[2]
+
+							if (rule[2] == "is") and (rule[3] == "class") then
+								if (rule[1] == newname) then
+									updatecode = 1
+									break
+								elseif (unitid ~= 2) then
+									if (rule[1] == unitname) then
+										updatecode = 1
+										break
+									end
+								end
+
+								if (#conds > 0) then
+									for a,b in ipairs(conds) do
+										if (b[2] ~= nil) and (#b[2] > 0) then
+											for c,d in ipairs(b[2]) do
+												if (d == newname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= newname)) then
+													updatecode = 1
+													break
+												elseif (unitid ~= 2) then
+													if (d == unitname) or ((string.sub(d, 1, 4) == "not ") and (string.sub(d, 5) ~= unitname)) then
+														updatecode = 1
+														break
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
 				end
 				
 				delthis = true
@@ -595,6 +706,16 @@ function convert(stuff,mats,dolevels_)
 							
 							if (op == "write") or (op == "draw") then
 								mat2 = "text_" .. matdata[1]
+							elseif (op == "becobj") then
+								mat2 = "obj_" .. matdata[1]
+							elseif (mat2 == "_") and (op == "is") then
+								local uname = unit.strings[UNITNAME]
+								if is_str_special_prefixed(uname) then
+									uname = get_broaded_str(uname)
+								end
+								if uname ~= "text" and uname ~= "glyph" and uname ~= "node" and uname ~= "event" then
+									mat2 = uname .. "_" .. uname
+								end
 							end
 							
 							if (op == "inscribe") then
@@ -746,7 +867,7 @@ function conversion(dolevels_)
 		
 		local operator = words[2]
 		
-		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") then
+		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "becobj") then
 			local output = {}
 			local name = words[1]
 			local thing = words[3]
@@ -757,6 +878,8 @@ function conversion(dolevels_)
 				tryautogenerate("text_" .. thing)
 			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil and (get_pref(thing) ~= "") then
 				tryautogenerate("glyph_" .. thing)
+			elseif (not dolevels) and (operator == "becobj") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["obj_" .. thing] == nil and (get_pref(thing) ~= "") then
+				tryautogenerate("obj_" .. thing)
 			end
 
 			if (name ~= "text") --@Merge: omg beeeeg if block
@@ -776,6 +899,7 @@ function conversion(dolevels_)
 					or (thing == "mena")
 					or (thing == "unmena")
 					or (thing == "unmexa")
+					or (thing == "deobj") or (thing == "_")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
 			  or ((operator == "inscribe") 
@@ -793,8 +917,8 @@ function conversion(dolevels_)
 
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
-							if (target == name) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_special_prefix(object .. "_") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
+							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
+								if not is_str_special_prefix(object .. "_") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "deobj") and (object ~= "_")
 										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
@@ -840,6 +964,14 @@ function conversion(dolevels_)
 									table.insert(output, {"toometa", conds, "is"})
 								else
 									table.insert(output, {object, conds, "inscribe"})
+								end
+							end
+						elseif (verb == "becobj") then
+							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
+								if toometafunc("obj_" .. object) then
+									table.insert(output, {"toometa", conds, "is"})
+								else
+									table.insert(output, {object, conds, "becobj"})
 								end
 							end
 						end
@@ -905,6 +1037,14 @@ function conversion(dolevels_)
 								if valid then
 									table.insert(conversions, {string.sub(name,6),conds})
 								end
+							elseif (object == "deobj") and string.sub(name,1,4) == "obj_" then
+								local valid = (getmat(string.sub(name,5)) ~= nil or unitreference[string.sub(name,5)] ~= nil) and not is_str_broad_noun(string.sub(name,5)) and (string.sub(name,5) ~= "all") -- don't attempt conversion if the object does not exist
+								if unitreference[string.sub(name,5)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,5)) ~= "" then
+									valid = tryautogenerate(string.sub(name,5))
+								end
+								if valid then
+									table.insert(conversions, {string.sub(name,5),conds})
+								end
 							elseif (object == "unmexa") and get_pref(name) ~= "" then
 								local unmetad = get_ref(name)
 								local valid = (getmat(unmetad) ~= nil or unitreference[unmetad] ~= nil) and not is_str_broad_noun(unmetad) and (unmetad ~= "all") -- don't attempt conversion if the object does not exist
@@ -963,8 +1103,16 @@ function conversion(dolevels_)
 								if valid then
 									table.insert(conversions, {"node_" .. name,conds})
 								end
+							elseif (object == "obj") or (object == "enobj") then
+								local valid = true -- don't attempt conversion if the object does not exist
+								if unitreference["obj_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate("node_" .. name,name)
+								end
+								if valid then
+									table.insert(conversions, {"node_" .. name,conds})
+								end
 							end
-						elseif (op == "write") or (op == "inscribe") or (op == "draw") then
+						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "becobj") then
 							table.insert(conversions, v3)
 						end
 					end

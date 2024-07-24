@@ -67,6 +67,7 @@ function mapcursor_move(ox_,oy_,mdir)
 			checkbreakchanges(unit.fixed,unit.strings[UNITNAME])
 			ws_checkechochanges(unit.fixed) -- Added check for ECHO
 			checksymbolchanges(unit.fixed,unit.strings[UNITNAME])
+			checkclasschanges(unit.fixed)
 			
 			if (levelfound == false) then
 				editor.values[NAMEFLAG] = 0

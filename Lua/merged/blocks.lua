@@ -335,9 +335,27 @@ function moveblock(onlystartblock_)
 										local undowordunits = currentundo.wordunits
 										local undowordrelatedunits = currentundo.wordrelatedunits
 										local undosymbolunits = currentundo.wordunits
-										local undowordrelatedunits = currentundo.wordrelatedunits
+										local undosymbolrelatedunits = currentundo.wordrelatedunits
 										local undobreakunits = currentundo.breakunits
 										local undobreakrelatedunits = currentundo.breakrelatedunits
+										local undoclassunits = currentundo.classunits
+										local undoclassrelatedunits = currentundo.classrelatedunits
+
+										if (#undoclassunits > 0) then
+											for a,b in ipairs(undoclassunits) do
+												if (b == bline[6]) then
+													updatecode = 1
+												end
+											end
+										end
+
+										if (#undoclassrelatedunits > 0) then
+											for a,b in ipairs(undoclassrelatedunits) do
+												if (b == bline[6]) then
+													updatecode = 1
+												end
+											end
+										end
 
 										if (#undowordunits > 0) then
 											for a,b in ipairs(undowordunits) do
@@ -355,8 +373,8 @@ function moveblock(onlystartblock_)
 											end
 										end
 
-										if (#undowordrelatedunits > 0) then
-											for a,b in ipairs(undowordrelatedunits) do
+										if (#undosymbolrelatedunits > 0) then
+											for a,b in ipairs(undosymbolrelatedunits) do
 												if (b == bline[6]) then
 													updatecode = 1
 												end
@@ -464,6 +482,7 @@ function moveblock(onlystartblock_)
 										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
 										or (getname(vunit,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
 										or (getname(vunit,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node"))
+										or (getname(vunit,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
 										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
 										and (v ~= unitid) then
 									local teles = istele
@@ -481,6 +500,7 @@ function moveblock(onlystartblock_)
 													or (getmetalevel(telename) == getmetalevel(name) and checkiftextrule(name,"is","tele",unitid,true,"meta"..getmetalevel(name)))
 													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
 													or (getname(tele,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
+													or (getname(tele,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
 													or (getname(tele,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node")))
 													and (tele.flags[DEAD] == false) then
 												table.insert(teletargets, b)
@@ -4598,7 +4618,7 @@ function effectblock()
 				end
 			elseif (#unit.colours == 0) then
 				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
+					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") and (unit.strings[UNITTYPE] ~= "obj") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")
@@ -4608,7 +4628,7 @@ function effectblock()
 			else
 				unit.values[A] = ca
 				
-				if (unit.strings[UNITTYPE] == "text") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
+				if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "obj") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
 					local curr = (unit.currcolour % #unit.colours) + 1
 					local c = unit.colours[curr]
 					

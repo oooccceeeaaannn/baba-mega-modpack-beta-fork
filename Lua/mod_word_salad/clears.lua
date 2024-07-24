@@ -5,6 +5,8 @@ clearunits = function(restore_)
 	echounits = {}
 	echorelatedunits = {}
 	echomap = {}
+	classunits = {}
+	classrelatedunits = {}
 
 	clearunits_old(restore_)
 end
@@ -15,6 +17,8 @@ clear = function()
 	-- EDIT: clear all echo units
 	echounits = {}
 	echorelatedunits = {}
+	classunits = {}
+	classrelatedunits = {}
 	echomap = {}
 
 	clear_old()

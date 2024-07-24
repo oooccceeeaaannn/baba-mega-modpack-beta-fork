@@ -359,7 +359,12 @@ function create(name,x,y,dir,oldx_,oldy_,float_,skipundo_,leveldata_,customdata)
 	if ((hasfeature(testname,"is","word",newunitid,x,y) ~= nil) or (hasfeature(testname,"is","echo",newunitid,x,y) ~= nil)) then
 		updatecode = 1
 	end
-	
+	if ((hasfeature(testname,"is","break",newunitid,x,y) ~= nil) or (hasfeature(testname,"is","symbol",newunitid,x,y) ~= nil)) then
+		updatecode = 1
+	end
+	if (hasfeature(testname,"is","class",newunitid,x,y) ~= nil) then
+		updatecode = 1
+	end
 	return newunit.fixed,id
 end
 
@@ -1144,6 +1149,9 @@ function update(unitid,x,y,dir_)
 			if (featureindex["symbol"] ~= nil) then
 				checksymbolchanges(unitid,unitname)
 			end
+			if (featureindex["class"] ~= nil) then
+				checkclasschanges(unitid)
+			end
 		end
 	else
 		MF_alert("Tried to update a nil unit")
@@ -1250,6 +1258,8 @@ function getname(unit,pname_,pnot_)
 		result = "event"
 	elseif (string.sub(result, 1, 5) == "node_") and ((pname == "node") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "node_") then
 		result = "node"
+	elseif (string.sub(result, 1, 4) == "obj_") and ((pname == "obj") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,4) ~= "obj_") then
+		result = "obj"
 	elseif string.sub(pname,1,4) == "meta" then
 		if metatext_includenoun or pnot == false or is_str_special_prefixed(result) then
 			local include = false
@@ -1468,6 +1478,30 @@ function delunit(unitid)
 					updatecode = 1
 					v = {}
 					table.remove(echorelatedunits, i)
+				end
+			end
+		end
+
+		if (#classunits > 0) and (unit.strings[UNITTYPE] == "obj") then
+			for i,v in pairs(classunits) do
+				if (v[1] == unitid) then
+					local currentundo = undobuffer[1]
+					table.insert(currentundo.classunits, unit.values[ID])
+					updatecode = 1
+					v = {}
+					table.remove(classunits, i)
+				end
+			end
+		end
+
+		if (#classrelatedunits > 0) then
+			for i,v in pairs(classrelatedunits) do
+				if (v[1] == unitid) then
+					local currentundo = undobuffer[1]
+					table.insert(currentundo.classrelatedunits, unit.values[ID])
+					updatecode = 1
+					v = {}
+					table.remove(classrelatedunits, i)
 				end
 			end
 		end
@@ -1818,6 +1852,8 @@ function findall(name_,ignorebroken_,just_testing_)
 	if (name == "text") then
 		checklist = codeunits
 		meta = "text" --@Merge(Metatext x Glyph)
+	elseif (name == "obj") then
+		meta = "obj"
 	end
 
 	if (name == "glyph") then

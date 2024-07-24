@@ -5,5 +5,7 @@ init = function(tilemapid,roomsizex_,roomsizey_,tilesize_,Xoffset_,Yoffset_,gene
 	-- EDIT: clear echo lists
 	echounits = {}
 	echorelatedunits = {}
+	classunits = {}
+	classrelatedunits = {}
 	echomap = {} 
 end

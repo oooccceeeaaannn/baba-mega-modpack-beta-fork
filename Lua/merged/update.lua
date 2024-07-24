@@ -18,6 +18,22 @@ function doupdate()
 					end
 				end
 			end
+
+			if (#classunits > 0) then
+				for a,b in ipairs(classunits) do
+					if (b[1] == data[1]) then
+						updatecode = 1
+					end
+				end
+			end
+
+			if (#classrelatedunits > 0) then
+				for a,b in ipairs(classrelatedunits) do
+					if (b[1] == data[1]) then
+						updatecode = 1
+					end
+				end
+			end
 			
 			-- EDIT: ECHO
 			if (#echounits > 0) then
