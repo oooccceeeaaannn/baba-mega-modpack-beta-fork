@@ -67,7 +67,21 @@ function findclassunits()
 
                 --MF_alert("Going through " .. name)
 
-                if (#ids > 0) then else
+                if (#ids > 0) then
+                    if (#ids[1] == 1) then
+                        local firstunit = mmf.newObject(ids[1][1])
+
+                        local notname = name
+                        if (string.sub(name, 1, 4) == "not ") then
+                            notname = string.sub(name, 5)
+                        end
+
+                        if (firstunit.strings[UNITNAME] ~= "text_" .. name) and (firstunit.strings[UNITNAME] ~= "text_" .. notname) then
+                            --MF_alert("Checking recursion for " .. name)
+                            table.insert(checkrecursion, {name, i})
+                        end
+                    end
+                else
                     MF_alert("No ids listed in Word-related rule! rules.lua line 1302 - this needs fixing asap (related to grouprules line 1118)")
                 end
             end
@@ -83,6 +97,82 @@ function findclassunits()
 
     end
 
+    for a,checkname_ in ipairs(checkrecursion) do
+        local found = false
+
+        local checkname = checkname_[1]
+
+        local b = checkname
+        if (string.sub(b, 1, 4) == "not ") then
+            b = string.sub(checkname, 5)
+        end
+
+        for i,v in ipairs(featureindex["class"]) do
+            local rule = v[1]
+            local ids = v[3]
+            local tags = v[4]
+
+            -- Gotta change this to prevent some false infinite loops
+            if (equals_or_included(b, rule[1])) or (rule[1] == "all" and get_pref(b) == "") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
+                    or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
+                for c,g in ipairs(ids) do
+                    for a,d in ipairs(g) do
+                        local idunit = mmf.newObject(d)
+
+                        -- Tässä pitäisi testata myös Group!
+                        if (idunit.strings[UNITNAME] == "text_" .. rule[1]) or ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) then
+                            --MF_alert("Matching objects - found")
+                            found = true
+                        elseif (string.sub(rule[1], 1, 5) == "group") then
+                            --MF_alert("Group - found")
+                            found = true
+                        elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
+                            --MF_alert("Not Object - found")
+                            found = true
+                        elseif idunit.strings[UNITNAME] == "text_this" then
+                            -- Note: this could match any "this is word" or "not this is word" rules. But we handle the raycast buisness in testcond
+                            found = true
+                        elseif (idunit.strings[UNITNAME] == "text_text_") then
+                            found = true
+                        end
+                    end
+                end
+
+                for c,g in ipairs(tags) do
+                    if (g == "mimic") then
+                        found = true
+                    end
+                end
+            end
+        end
+
+        if (found == false) then
+            --MF_alert("Wordunit status for " .. b .. " is unstable!")
+            identifier = "null"
+            wordunits = {}
+
+            for i,v in pairs(featureindex["class"]) do
+                local rule = v[1]
+                local ids = v[3]
+
+                --MF_alert("Checking to disable: " .. rule[1] .. " " .. ", not " .. b)
+
+                if (rule[1] == b) or (rule[1] == "not " .. b) then
+                    v[2] = {{"never",{}}}
+                end
+            end
+
+            if (string.sub(checkname, 1, 4) == "not ") then
+                local notrules_word = notfeatures["class"]
+                local notrules_id = checkname_[2]
+                local disablethese = notrules_word[notrules_id]
+
+                for i,v in ipairs(disablethese) do
+                    v[2] = {{"never",{}}}
+                end
+            end
+        end
+    end
     --MF_alert("Current id (end): " .. identifier)
 
     return result,identifier,related

@@ -1,4 +1,4 @@
-local objobjlist = {"baba","keke","rock","tile","flag","triangle","key","obj","is","wall", "you", "door", "obj_baba","arrow","text_obj","jiji","bog","water","empty","obj_obj_baba","obj_obj_obj_baba","dot","tree","it","fungus","jelly","cliff","pillar","obj_obj_obj_obj_baba"}
+local objobjlist = {"baba","keke","rock","tile","flag","triangle","key","obj","is","wall", "you", "door", "obj_baba","arrow","text_obj","jiji","bog","water","empty","obj_obj_baba","obj_obj_obj_baba","dot","tree","it","fungus","jelly","cliff","pillar","obj_obj_obj_obj_baba","win"}
 local objobjtiling = {0,3,-1,-1,-1,-1,-1,-1,0,-1,0,-1,0,0,-1,0,1,-1,-1,0,0,-1,-1,-1,-1,-1,0,-1,0,-1,0}
 local objobjcolors = {
 	bog = {5,0},
@@ -8,7 +8,7 @@ local objobjcolors = {
 	["obj_obj_obj_baba"] = {1,0},
 	["obj_obj_obj_obj_baba"] = {6,4},
 	["text_obj"] = {0,0},
-	empty = {2,0}
+	empty = {2,0},
 }
 local objobjactives = {
 	bog = {5,2},
@@ -57,6 +57,7 @@ local objobjtypes = {
 	jelly = 0,
 	cliff = 0,
 	pillar = 0,
+	win = -1,
 }
 
 table.insert(nlist.full, "obj")

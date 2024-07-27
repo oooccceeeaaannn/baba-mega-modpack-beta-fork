@@ -508,13 +508,13 @@ function makemetastring(string)
 			sE = sE.." "
 			sO = sO.." "
 			namestring = namestring.gsub(namestring, "glyph_", "", 1)
-		elseif namestring:sub(1,4) == "glyph_" and #namestring > 6 then
+		elseif namestring:sub(1,4) == "obj_" and #namestring > 4 then
 			sT = sT.." "
 			sG = sG.." "
 			sN = sN.." "
 			sE = sE.." "
 			sO = sO.."O"
-			namestring = namestring.gsub(namestring, "glyph_", "", 1)
+			namestring = namestring.gsub(namestring, "obj_", "", 1)
 		elseif namestring:sub(1, 5) == "node_" and #namestring > 5 then
 			sT = sT .. " "
 			sG = sG .. " "

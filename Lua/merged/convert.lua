@@ -901,7 +901,8 @@ function conversion(dolevels_)
 					or (thing == "unmexa")
 					or (thing == "deobj") or (thing == "_")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
-				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
+				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name))
+			or ((operator == "becobj")))
 			  or ((operator == "inscribe") 
 			    and (getmat("glyph_" .. name) or getmat(name)))
 					or (thing == "infect") or (operator == "draw")
@@ -989,7 +990,7 @@ function conversion(dolevels_)
 						if (op == "is") then
 							-- EDIT: add check for ECHO
 							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_special_prefix(object .. "_") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then
+									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (object ~= "deobj") then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
 								--[[
@@ -1106,10 +1107,10 @@ function conversion(dolevels_)
 							elseif (object == "obj") or (object == "enobj") then
 								local valid = true -- don't attempt conversion if the object does not exist
 								if unitreference["obj_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
-									valid = tryautogenerate("node_" .. name,name)
+									valid = tryautogenerate("obj_" .. name,name)
 								end
 								if valid then
-									table.insert(conversions, {"node_" .. name,conds})
+									table.insert(conversions, {"obj_" .. name,conds})
 								end
 							end
 						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "becobj") then

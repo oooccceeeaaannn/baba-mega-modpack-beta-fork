@@ -1614,7 +1614,7 @@ function destroylevel_do()
 		end
 
 		if (special == "infinity") then
-			if (HACK_INFINITY <= 200) then
+			if (HACK_INFINITY >= 200) then
 				writetext(langtext("ingame_infiniteloop"), 0, screenw * 0.5 - 12, screenh * 0.5 + 60, 0, true, 3, true, { 4, 1 }, 3)
 				HACK_INFINITY = 0
 
