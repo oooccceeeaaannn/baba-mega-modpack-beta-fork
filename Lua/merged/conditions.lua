@@ -968,7 +968,7 @@ condlist.without = function(params,checkedconds,checkedconds_,cdata)
 						elseif (unitlists[b] ~= nil) and (#unitlists[b] > 0) then
 							local found = false
 							
-							if (b ~= name) and (b ~= "text" or string.sub(name,1,5) ~= "text_") and ("meta" .. getmetalevel(name) ~= b) then
+							if (b ~= name) and not equals_or_included(name,b) then
 								if (#unitlists[b] < unitcount[b]) then
 									found = true
 								end

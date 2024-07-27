@@ -220,22 +220,22 @@ end
 
 function addunit(id,undoing_,levelstart_)
 	local unitid = #units + 1
-	
+
 	units[unitid] = {}
 	units[unitid] = mmf.newObject(id)
-	
+
 	local unit = units[unitid]
 	local undoing = undoing_ or false
 	local levelstart = levelstart_ or false
-	
+
 	getmetadata(unit)
-	
+
 	local truename = unit.className
-	
+
 	if (changes[truename] ~= nil) then
 		dochanges(id)
 	end
-	
+
 	if (unit.values[ID] == -1) then
 		unit.values[ID] = newid()
 	end
@@ -243,20 +243,21 @@ function addunit(id,undoing_,levelstart_)
 	if (unit.values[XPOS] > 0) and (unit.values[YPOS] > 0) then
 		addunitmap(id,unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME])
 	end
-	
+
 	if (unit.values[TILING] == 1) then
 		table.insert(tiledunits, unit.fixed)
 	end
-	
+
 	if (unit.values[TILING] > 1) then
 		table.insert(animunits, unit.fixed)
 	end
-	
-	local name = getname(unit)
+
 	local name_ = unit.strings[NAME]
 	local name__ = unit.strings[UNITNAME]
+	local name = get_broaded_str(name__)
+	if name == "" then name = name__ end
 	unit.originalname = unit.strings[UNITNAME]
-	
+
 	if (unitlists[name] == nil) then
 		unitlists[name] = {}
 	end
@@ -264,9 +265,9 @@ function addunit(id,undoing_,levelstart_)
 	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") then
 		unit.flags[META] = true
 	end
-	
+
 	table.insert(unitlists[name], unit.fixed)
-	
+
 	if (name ~= name__) then
 		if (unitlists[name__] == nil) then
 			unitlists[name__] = {}
@@ -340,31 +341,31 @@ function addunit(id,undoing_,levelstart_)
 			end
 		end
 	end
-	
-    if (string.sub(name__, 1, 6) == "glyph_") then
+
+	if (string.sub(name__, 1, 6) == "glyph_") then
 		table.insert(glyphunits, unit.fixed)
 		local matname = string.sub(unit.strings[UNITNAME], 7)
-			if (unitlists[matname] == nil) then
-				unitlists[matname] = {}
-			end
-        updatecode = 1
+		if (unitlists[matname] == nil) then
+			unitlists[matname] = {}
+		end
+		updatecode = 1
 	end
 
 	unit.colour = {}
-	
+
 	if (unit.strings[UNITNAME] ~= "level") and (unit.className ~= "specialobject") then
 		local cc1,cc2 = setcolour(unit.fixed)
 		unit.colour = {cc1,cc2}
 	end
-	
+
 	unit.back_init = 0
 	unit.broken = 0
-	
+
 	if (unit.className ~= "path") and (unit.className ~= "specialobject") then
 		statusblock({id},undoing)
 		MF_animframe(id,math.random(0,2))
 	end
-	
+
 	unit.active = false
 	unit.new = true
 	unit.colours = {}
@@ -373,7 +374,7 @@ function addunit(id,undoing_,levelstart_)
 	unit.holder = 0
 	unit.xpos = unit.values[XPOS]
 	unit.ypos = unit.values[YPOS]
-	
+
 	if (spritedata.values[VISION] == 1) and (undoing == false) then
 		local hasvision = hasfeature(name,"is","3d",id,unit.values[XPOS],unit.values[YPOS])
 		if (hasvision ~= nil) then
@@ -382,17 +383,17 @@ function addunit(id,undoing_,levelstart_)
 			visionmode(0,0,nil,{unit.values[XPOS],unit.values[YPOS],unit.values[DIR]})
 		end
 	end
-	
+
 	if (spritedata.values[VISION] == 1) and (spritedata.values[CAMTARGET] ~= unit.values[ID]) then
 		if (unit.values[ZLAYER] <= 15) then
 			if (unit.values[ZLAYER] > 10) then
 				setupvision_wall(unit.fixed)
 			end
-			
+
 			MF_setupvision_single(unit.fixed)
 		end
 	end
-	
+
 	if generaldata.flags[LOGGING] and (generaldata.flags[RESTARTED] == false) then
 		if levelstart then
 			dolog("init_object","event",unit.strings[UNITNAME] .. ":" .. tostring(unit.values[XPOS]) .. ":" .. tostring(unit.values[YPOS]))
