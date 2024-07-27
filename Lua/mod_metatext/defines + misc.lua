@@ -580,6 +580,12 @@ function diff_or_excluded(a,b)
 	return false
 end
 
+function get_broad_name(unit)
+	local result = getname(unit)
+	local res = get_broaded_str(result)
+	if res ~= "" then return res end
+	return result
+end
 -- Remove lines that include "text" rules if rule1 starts with "text_".
 
 --[[ @Merge: hasfeature() was merged ]]

@@ -1299,7 +1299,7 @@ function delunit(unitid)
 	-- MF_alert("DELUNIT " .. unit.strings[UNITNAME])
 
 	if (unit ~= nil) then
-		local name = getname(unit, "text")
+		local name = get_broad_name(unit)
 		local x,y = unit.values[XPOS],unit.values[YPOS]
 		local unitlist = unitlists[name]
 		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}

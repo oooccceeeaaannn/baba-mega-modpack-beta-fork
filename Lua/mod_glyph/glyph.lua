@@ -3224,7 +3224,7 @@ function doglyphs(symbols)
 			local unit = mmf.newObject(j[1])
 			if unit ~= nil and not isglyph(unit) then
 				local x, y, dir = unit.values[XPOS], unit.values[YPOS], unit.values[DIR]
-				local unitname = getname(unit, "text")
+				local unitname = get_broad_name(unit)
 				local unittable = {}
 				unittable.values = {}
 				unittable.strings = {}

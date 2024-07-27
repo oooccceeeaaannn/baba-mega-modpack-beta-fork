@@ -882,7 +882,7 @@ function conversion(dolevels_)
 				tryautogenerate("obj_" .. thing)
 			end
 
-			if (name ~= "text") --@Merge: omg beeeeg if block
+			if (not is_str_broad_noun(name)) --@Merge: omg beeeeg if block
 			  and (string.sub(name,1,4) ~= "meta")
 			  and ((getmat(thing) ~= nil)
 			  	or (thing == "not " .. name)

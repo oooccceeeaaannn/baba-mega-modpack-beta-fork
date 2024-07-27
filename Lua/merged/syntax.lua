@@ -254,9 +254,8 @@ function addunit(id,undoing_,levelstart_)
 
 	local name_ = unit.strings[NAME]
 	local name__ = unit.strings[UNITNAME]
-	local name = get_broaded_str(name__)
-	if name == "" then name = name__ end
-	unit.originalname = unit.strings[UNITNAME]
+	local name = get_broad_name(unit)
+	unit.originalname = name__
 
 	if (unitlists[name] == nil) then
 		unitlists[name] = {}
