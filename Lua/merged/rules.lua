@@ -63,8 +63,8 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 
 						if valid then
 							local name = v.strings[UNITNAME]
-							if (gettilenegated(x,y) == false) and string.sub(name,1,4) == "obj_" then
-								name = string.sub(name,5)
+							if (gettilenegated(x,y) == false) then
+								name = get_ref(name)
 								table.insert(result, {{b}, w, name, get_text_type(name), cdir})
 							end
 						end

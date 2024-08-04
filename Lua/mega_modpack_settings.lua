@@ -16,6 +16,7 @@ local mod_list = {
     {name = "Events",               author = "Mathman",                 color={5,4}},
     {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
     {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
+    {name = "Obj & Parsers Merge",  author = "DizzyAndy",               color={3,3}},
 }
 
 local mod_setting_data = {
@@ -276,7 +277,6 @@ menufuncs.mega_modpack_settings = {
         end
         item_y = item_y + f_tilesize * 1
 
-        writetext("...OMG, that's a lot of mods.", -1, item_x, item_y, name)
         -- make_plasma_button("metatextsettings", name, buttonid, "Metatext Settings", screenw * 0.15,item_y, false)
 
         local version_x = screenw-(#mega_modpack_name * 10) - 20

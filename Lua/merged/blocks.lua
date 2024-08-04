@@ -943,7 +943,25 @@ function block(small_)
 			end
 		end
 	end
-	
+
+	local isclass = getunitswitheffect("cl_ass",false,delthese)
+	local doclass = {}
+	for id,unit in ipairs(isclass) do
+		if get_broaded_str(getname(unit)) == "obj" then
+			table.insert(doclass, {unit.fixed, unit.values[XPOS], unit.values[YPOS]})
+		end
+	end
+	if #doclass > 2 then
+		for i, j in pairs(doclass) do
+			delete(j[1],j[2],j[3],nil,true)
+		end
+		if math.random(1,100) == 100 then
+			error(nil)
+		else
+			error("no thanks")
+		end
+	end
+
 	local issinks = getunitswithverb("sinks",delthese)
 	local issinksed = {}
 	
@@ -4518,9 +4536,10 @@ function effectblock()
 		local isbrown = hasfeature("level","is","brown",1)
 		local isorange = hasfeature("level","is","orange",1)
 		local iscyan = hasfeature("level","is","cyan",1)
-	
-		local colours = {isred, isorange, isyellow, islime, isgreen, iscyan, isblue, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown}
-		local ccolours = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1}}
+		local isclass = hasfeature("level","is","cl_ass",1)
+
+		local colours = {isred, isorange, isyellow, islime, isgreen, iscyan, isblue, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown, isclass}
+		local ccolours = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1},{3,0}}
 		
 		leveldata.colours = {}
 		local c1,c2 = -1,-1
@@ -4582,12 +4601,13 @@ function effectblock()
 			local isbrown = hasfeature(name,"is","brown",unit.fixed)
 			local isorange = hasfeature(name,"is","orange",unit.fixed)
 			local iscyan = hasfeature(name,"is","cyan",unit.fixed)
-			
+			local isclass = hasfeature(name,"is","cl_ass",unit.fixed)
+
 			unit.colours = {}
-			
-			local colours = {isred, isorange, isyellow, islime, isgreen, iscyan, isblue, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown}
-			local ccolours = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1}}
-			
+
+			local colours = {isred, isorange, isyellow, islime, isgreen, iscyan, isblue, ispurple, ispink, isrosy, isblack, isgrey, issilver, iswhite, isbrown, isclass}
+			local ccolours = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1},{3,0}}
+
 			local c1,c2,ca = -1,-1,-1
 			
 			unit.flags[PHANTOM] = false

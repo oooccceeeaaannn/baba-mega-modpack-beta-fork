@@ -21,7 +21,7 @@ function findclassunits()
             local name = rule[1]
             local subid = ""
 
-            if (rule[2] == "is") and (name == "obj" or string.sub(name,1,4) == "obj_") then
+            if (rule[2] == "is") and (is_str_broad_noun(name) or is_str_special_prefixed(name)) and (name ~= "text") and (get_broaded_str(name) ~= "text") then
                 if (objectlist[name] ~= nil) and (alreadydone[name] == nil) then
                     local these = findall({name,{}})
                     alreadydone[name] = 1
