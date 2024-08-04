@@ -314,6 +314,7 @@ function addunit(id,undoing_,levelstart_)
 	if string.sub(name__, 1, 4) == "obj_" and get_text_type(string.sub(name__, 5)) == 0 then
 		objectlist[string.sub(name__, 5)] = 1
 		fullunitlist[string.sub(name__, 5)] = 1--@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
+		updatecode = 1
 	end
 
 	-- Adds units to meta# unitlist
@@ -329,7 +330,7 @@ function addunit(id,undoing_,levelstart_)
 	if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") then
 		table.insert(codeunits, unit.fixed)
 		updatecode = 1
-		if not string.sub(unit.strings[UNITNAME], 1, 5) == "event_" then
+		if not (string.sub(unit.strings[UNITNAME], 1, 5) == "event_") then
 			if (unit.values[TYPE] == 0) then
 				local matname = string.sub(unit.strings[UNITNAME], 6)
 				if (unitlists[matname] == nil) then
