@@ -25,6 +25,20 @@ function writerules(parent,name,x_,y_)
 		local text = ""
 		local rule = rules[1]
 
+		local tags = rules[4]
+
+		if SPLITRULETYPES then
+			for a,b in ipairs(tags) do
+				if b == "textrule" then
+					text = text .. "$4,1(t) "
+				elseif b == "logicrule" then
+					text = text .. "$3,1(l) "
+				elseif b == "glyphrule" then
+					text = text .. "$3,3(g) "
+				end
+			end
+		end
+
 		if (#custom == 0) then
 			-- EDIT: implement AMBIENT
 			local target = rule[1]
@@ -46,7 +60,6 @@ function writerules(parent,name,x_,y_)
 		
 		local conds = rules[2]
 		local ids = rules[3]
-		local tags = rules[4]
 		
 		local fullinvis = true
 		for a,b in ipairs(ids) do
@@ -1132,7 +1145,7 @@ function update(unitid,x,y,dir_)
 				dynamicat(oldx,oldy)
 			end
 			
-			if (unittype == "text") or isglyph(unit) or (unittype == "node") then
+			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
 				updatecode = 1
 			end
 			
@@ -1240,6 +1253,7 @@ function getmat_text(name)
 end
 
 function getname(unit,pname_,pnot_)
+	if unit == nil then return nil end
 	local result = unit.strings[UNITNAME]
 	local pname = pname_ or ""
 	local pnot = pnot_ or false
@@ -1260,6 +1274,8 @@ function getname(unit,pname_,pnot_)
 		result = "node"
 	elseif (string.sub(result, 1, 4) == "obj_") and ((pname == "obj") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,4) ~= "obj_") then
 		result = "obj"
+	elseif (string.sub(result, 1, 6) == "logic_") and ((pname == "logic") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,6) ~= "logic_") then
+		result = "logic"
 	elseif string.sub(pname,1,4) == "meta" then
 		if metatext_includenoun or pnot == false or is_str_special_prefixed(result) then
 			local include = false
@@ -1305,7 +1321,7 @@ function delunit(unitid)
 		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}
 		local unittype = unit.strings[UNITTYPE]
 		
-		if (unittype == "text" or unittype == "node") or (isglyph(unit)) then
+		if (unittype == "text" or unittype == "node") or (isglyph(unit)) or (unittype == "logic") then
 			updatecode = 1
 		end
 		
@@ -1833,7 +1849,7 @@ function updatedir(unitid,dir,noundo_)
 			end
 			unit.values[DIR] = dir
 			
-			if (unittype == "text") or isglyph(unit) or (unittype == "node") then
+			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
 				updatecode = 1
 			end
 		end
@@ -1851,35 +1867,12 @@ function findall(name_,ignorebroken_,just_testing_)
 	
 	if (name == "text") then
 		checklist = codeunits
-		meta = "text" --@Merge(Metatext x Glyph)
-	elseif (name == "obj") then
-		meta = "obj"
+	elseif (name == "glyph") then
+		checklist = glyphunits
 	end
 
-	if (name == "glyph") then
-		checklist = glyphunits
-	elseif (name == "node") then
-		checklist = {}
-		meta = "node" --@Merge(Metatext x Glyph)
-		for name, list in pairs(unitlists) do
-			if (string.sub(name, 1, 5) == "node_") then
-				for i, unitid in ipairs(list) do
-					table.insert(checklist, unitid)
-				end
-			end
-		end
-	elseif (name == "event") then
-		local q = {}
-		for i, j in ipairs(codeunits) do
-			local unit = mmf.newObject(j)
-			if getname(unit, "event") == "event" then
-				table.insert(q, j)
-			end
-		end
-		checklist = q
-		meta = "event" --@Merge(Metatext x Glyph)
-	end
-	
+	if is_str_broad_noun(name) then meta = name end
+
 	local ignorebroken = ignorebroken_ or false
 	local just_testing = just_testing_ or false
 	

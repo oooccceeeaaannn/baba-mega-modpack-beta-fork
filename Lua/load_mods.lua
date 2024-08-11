@@ -11,6 +11,7 @@ local load_order = {
     "mod_glitch",
 	"mod_glyph",
 	"mod_local",
+	"mod_logic",
 	"mod_metatext",
 	"mod_nuhuh",
 	"mod_offset",

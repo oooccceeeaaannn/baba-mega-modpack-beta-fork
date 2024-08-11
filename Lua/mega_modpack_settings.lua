@@ -14,7 +14,7 @@ local mod_list = {
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
     {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
     {name = "Events",               author = "Mathman",                 color={5,4}},
-    {name = "Extrem's Mods",        author = "Extrem",                  color={4,2}},
+    {name = "Extrem's Mods, Logic", author = "Extrem",                  color={4,2}},
     {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
     {name = "Obj & Parsers Merge",  author = "DizzyAndy",               color={3,3}},
 }

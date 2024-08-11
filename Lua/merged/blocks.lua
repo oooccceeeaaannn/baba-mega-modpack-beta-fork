@@ -328,7 +328,7 @@ function moveblock(onlystartblock_)
 										newunit.followed = followed
 										newunit.back_init = back_init
 
-										if (newunit.strings[UNITTYPE] == "text" or newunit.strings[UNITTYPE] == "node") or isglyph(newunit) then
+										if (newunit.strings[UNITTYPE] == "text" or newunit.strings[UNITTYPE] == "logic" or newunit.strings[UNITTYPE] == "node") or isglyph(newunit) then
 											updatecode = 1
 										end
 
@@ -483,6 +483,7 @@ function moveblock(onlystartblock_)
 										or (getname(vunit,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
 										or (getname(vunit,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node"))
 										or (getname(vunit,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
+										or (getname(vunit,"logic") == "logic" and getname(unit,"logic") == "logic" and checkiftextrule(name,"is","tele",unitid,true,"logic"))
 										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
 										and (v ~= unitid) then
 									local teles = istele
@@ -501,6 +502,7 @@ function moveblock(onlystartblock_)
 													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
 													or (getname(tele,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
 													or (getname(tele,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
+													or (getname(tele,"logic") == "logic" and getname(unit,"logic") == "logic" and checkiftextrule(name,"is","tele",unitid,true,"logic"))
 													or (getname(tele,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node")))
 													and (tele.flags[DEAD] == false) then
 												table.insert(teletargets, b)
@@ -1772,7 +1774,7 @@ function block(small_)
 				
 				local exists = false
 				
-				if (not is_str_special_prefix(v .. "_")) and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
+				if (not is_str_broad_noun(v)) and (v ~= "all") and (string.sub(v,1,4) ~= "meta") then
 					for b,mat in pairs(fullunitlist) do
 						if (b == v) then
 							exists = true
@@ -1783,9 +1785,9 @@ function block(small_)
 						exists = tryautogenerate(v)
 					end
 				else
-					if (not is_str_special_prefix(v .. "_")) and (string.sub(v, 1, 4) ~= "meta") then
+					if (not is_str_broad_noun(v)) and (string.sub(v, 1, 4) ~= "meta") then
 						exists = true
-					elseif (v ~= "text") and (string.sub(v, 1, 4) == "meta") then
+					elseif (string.sub(v, 1, 4) == "meta") then
 						local level = string.sub(v, 5)
 						if tonumber(level) ~= nil and tonumber(level) >= -1 then
 							local basename = string.gsub(name, "text_", "")
@@ -1803,7 +1805,7 @@ function block(small_)
 								exists = tryautogenerate(newname)
 							end
 						end
-					elseif is_str_special_prefix(v .. "_") then
+					elseif is_str_broad_noun(v) then
 						for b, mat in pairs(fullunitlist) do
 							if (b == v .. "_" .. name) then
 								exists = true
@@ -1837,7 +1839,7 @@ function block(small_)
 					if domake then
 						if (findnoun(v,nlist.short,true) == false) then
 							create(v,x,y,dir,x,y,nil,nil,leveldata)
-						elseif is_str_special_prefix(v .. "_") then
+						elseif is_str_broad_noun(v) then
 							if (name ~= v) and (name ~= "all") then
 								create(v .. "_" .. name,x,y,dir,x,y,nil,nil,leveldata)
 								updatecode = 1
@@ -3187,7 +3189,7 @@ function levelblock()
 						end
 					end
 				end
-				if (rule[1] == "level") and (rule[2] == "sinks") and (rule[3] ~= level) and testcond(conds,1) then
+				if (rule[1] == "level") and (rule[2] == "sinks") and (rule[3] ~= "level") and testcond(conds,1) then
 					local target = rule[3]
 					local eaten = {}
 						
@@ -4638,7 +4640,7 @@ function effectblock()
 				end
 			elseif (#unit.colours == 0) then
 				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") and (unit.strings[UNITTYPE] ~= "obj") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
+					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node" and unit.strings[UNITTYPE] ~= "logic") and (unit.strings[UNITTYPE] ~= "obj") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")
@@ -4648,7 +4650,7 @@ function effectblock()
 			else
 				unit.values[A] = ca
 				
-				if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "obj") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
+				if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or (unit.strings[UNITTYPE] == "obj") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
 					local curr = (unit.currcolour % #unit.colours) + 1
 					local c = unit.colours[curr]
 					
@@ -4881,7 +4883,7 @@ function startblock(light_)
 			--local isfollow = xthis(unitrules,name,"follow")
 			local isfloat = isthis(unitrules,"float")
 			local sleep = isthis(unitrules,"sleep")
-			local ismake = xthis(unitrules,name,"make")
+			--local ismake = xthis(unitrules,name,"make")
 			
 			--[[
 			local isright = isthis(unitrules,"right")

@@ -57,7 +57,7 @@ function undo()
 								unit.direction = unit.values[DIR] * 8 + unit.values[VISUALDIR]
 							end
 							
-							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") or isglyph(unit) then
+							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") or isglyph(unit) or (unit.strings[UNITTYPE] == "logic") then
 								updatecode = 1
 							end
 							
@@ -223,7 +223,7 @@ function undo()
 							unit.yoffset = line[YOFFSETUNDOLINE]
 							--First override for Offset ends here.
 
-							if (unit.strings[UNITTYPE] == "text") or isglyph(unit) then
+							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node" or unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
 								updatecode = 1
 							end
 							
@@ -351,7 +351,7 @@ function undo()
 							MF_remove(unitid)
 							dynamicat(x,y)
 							
-							if (unittype == "text" or unittype == "node") or isglyph(unit, unitname) then
+							if (unittype == "text" or unittype == "node") or isglyph(unit, unitname) or (unittype == "logic") then
 								updatecode = 1
 							end
 							
@@ -500,7 +500,7 @@ function undo()
 					if (unitid ~= nil) and (unitid ~= 0) then
 						local unit = mmf.newObject(unitid)
 						
-						if (unit.strings[UNITTYPE] == "text") or isglyph(unit) then
+						if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
 							updatecode = 1
 						end
 					end

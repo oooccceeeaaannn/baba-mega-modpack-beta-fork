@@ -322,7 +322,7 @@ function doconvert(data,extrarule_)
 				newunit.new = false
 				newunit.originalname = unit.originalname
 				
-				if (newunit.strings[UNITTYPE] == "text") then
+				if (newunit.strings[UNITTYPE] == "text") or (newunit.strings[UNITTYPE] == "logic") or (newunit.strings[UNITTYPE] == "node") or isglyph(newunit) then
 					updatecode = 1
 				else
 					local newname = newunit.strings[UNITNAME]
@@ -552,7 +552,7 @@ function doconvert(data,extrarule_)
 		if delthis and (unit.flags[DEAD] == false) then
 			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,unit.karma}) -- EDIT: keep karma when undoing
 			
-			if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") then
+			if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node" or isglyph(unit)) or (unit.strings[UNITTYPE] == "logic") then
 				updatecode = 1
 			end
 			
@@ -708,6 +708,8 @@ function convert(stuff,mats,dolevels_)
 								mat2 = "text_" .. matdata[1]
 							elseif (op == "becobj") then
 								mat2 = "obj_" .. matdata[1]
+							elseif (op == "log") then
+								mat2 = "logic_" .. matdata[1]
 							elseif (mat2 == "_") and (op == "is") then
 								local uname = unit.strings[UNITNAME]
 								if is_str_special_prefixed(uname) then
@@ -810,11 +812,17 @@ function convert(stuff,mats,dolevels_)
 							local mat2 = matdata[1]
 							local conds = matdata[2]
 							local op = matdata[3]
-							
+
 							if (op == "write") or (op == "draw") then
 								mat2 = "text_" .. matdata[1]
+							elseif (op == "becobj") then
+								mat2 = "obj_" .. matdata[1]
+							elseif (op == "log") then
+								mat2 = "logic_" .. matdata[1]
+							elseif (mat2 == "_") and (op == "is") then
+								mat2 = "empty_empty"
 							end
-							
+
 							if (op == "inscribe") then
 								mat2 = "glyph_" .. matdata[1]
 							end
@@ -867,7 +875,7 @@ function conversion(dolevels_)
 		
 		local operator = words[2]
 		
-		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "becobj") then
+		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "becobj") or (operator == "log") then
 			local output = {}
 			local name = words[1]
 			local thing = words[3]
@@ -880,6 +888,8 @@ function conversion(dolevels_)
 				tryautogenerate("glyph_" .. thing)
 			elseif (not dolevels) and (operator == "becobj") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["obj_" .. thing] == nil and (get_pref(thing) ~= "") then
 				tryautogenerate("obj_" .. thing)
+			elseif (not dolevels) and (operator == "log") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["logic_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+				tryautogenerate("logic_" .. thing)
 			end
 
 			if (not is_str_broad_noun(name)) --@Merge: omg beeeeg if block
@@ -888,7 +898,7 @@ function conversion(dolevels_)
 			  	or (thing == "not " .. name)
 				or (thing == "all")
 				or (unitreference[thing] ~= nil)
-				or (is_str_special_prefix(thing .. "_") and (unitreference["text_text"] ~= nil))
+				or (is_str_broad_noun(thing))
 				or (thing == "revert")
 				or (thing == "meta")
 				or (thing == "unmeta")
@@ -903,9 +913,9 @@ function conversion(dolevels_)
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name))
 			or ((operator == "becobj")))
-			  or ((operator == "inscribe") 
+			  or ((operator == "inscribe")
 			    and (getmat("glyph_" .. name) or getmat(name)))
-					or (thing == "infect") or (operator == "draw")
+					or (thing == "infect") or (operator == "draw") or ((operator == "log") and (getmat("logic_" .. name) ~= nil))
 			  then -- @Merge: Original glyph mod has "((string.sub(name, 1, 5) == "text_") and getmat_text(name))". I think this is its own version of metatext??? in which case maybe not include it?
 				
 				if (featureindex[name] ~= nil) and (alreadydone[name] == nil) then
@@ -919,7 +929,7 @@ function conversion(dolevels_)
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_special_prefix(object .. "_") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "deobj") and (object ~= "_")
+								if not is_str_broad_noun(object) and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "deobj") and (object ~= "_")
 										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
@@ -959,6 +969,14 @@ function conversion(dolevels_)
 									table.insert(output, {object, conds, "write"})
 								end
 							end
+						elseif (verb == "log") then
+							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
+								if toometafunc("logic_" .. object) then
+									table.insert(output, {"toometa", conds, "is"})
+								else
+									table.insert(output, {object, conds, "log"})
+								end
+							end
 						elseif (verb == "inscribe") then
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								if toometafunc("glyph_" .. object) then
@@ -989,7 +1007,7 @@ function conversion(dolevels_)
 
 						if (op == "is") then
 							-- EDIT: add check for ECHO
-							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_special_prefix(object .. "_") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
+							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
 									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (object ~= "deobj") then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
@@ -1112,8 +1130,16 @@ function conversion(dolevels_)
 								if valid then
 									table.insert(conversions, {"obj_" .. name,conds})
 								end
+							elseif (object == "logic") then
+								local valid = true -- don't attempt conversion if the object does not exist
+								if unitreference["logic_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+									valid = tryautogenerate("logic_" .. name,name)
+								end
+								if valid then
+									table.insert(conversions, {"logic_" .. name,conds})
+								end
 							end
-						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "becobj") then
+						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "becobj") or (op == "log") then
 							table.insert(conversions, v3)
 						end
 					end

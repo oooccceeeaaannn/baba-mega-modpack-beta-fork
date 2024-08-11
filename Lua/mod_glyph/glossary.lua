@@ -15,7 +15,7 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
         {
             name = "Inscribe",
             thumbnail_obj = "text_inscribe",
-            display_name = "symbol",
+            display_name = "inscribe",
             author = "Mathguy",
             group = "$1,3Glyph",
             description = [[Similar to write, it transforms objects into the glyph counterpart of the target.]],

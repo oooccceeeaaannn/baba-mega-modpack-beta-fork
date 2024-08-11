@@ -1714,7 +1714,7 @@ function docode(firstwords)
 										if is_dangling_and then
 											table.insert(addoption_buffer, {rule=rule,finalconds=finalconds,ids=ids})
 										else
-											addoption(rule,finalconds,ids)
+											addoption(rule,finalconds,ids,nil,nil,{"textrule"})
 										end
 									end
 								end
@@ -1750,12 +1750,12 @@ function docode(firstwords)
 	end
 end
 
-extra_broad_nouns = {"text","glyph","node","event","obj"}
+extra_broad_nouns = {"text","glyph","node","event","obj","logic"}
 function is_str_broad_noun(str)
-	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event") or (str == "obj")
+	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event") or (str == "obj") or (str == "logic")
 end
 function is_str_notted_broad_noun(str)
-	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event") or (str == "not obj")
+	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event") or (str == "not obj") or (str == "not logic")
 end
 function get_broaded_str(str)
 	local res = get_pref(str)
@@ -1790,7 +1790,6 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		MF_alert("nil conditions in rule: " .. option[1] .. ", " .. option[2] .. ", " .. option[3])
 	end
 	local tags = tags_ or {}
-	local shownrule = nil
 
 	--[[
 		@Merge(glyph x metatext): disable glyph mod's implementation of metatext. Metatext mod has the system all figured out.
@@ -1989,11 +1988,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		if visual and not is_pnoun_rule then
 			local originalrule = {option,conds,ids,tags}
 			local visualrule = copyrule(originalrule)
-			if (shownrule == nil) then
-				table.insert(visualfeatures, visualrule)
-			else
-				table.insert(visualfeatures, shownrule)
-			end
+			table.insert(visualfeatures, visualrule)
+
 			if visualonly then
 				return
 			end
@@ -2403,7 +2399,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" and verb ~= "becobj" then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 				local reale = effect
 				local isnot = string.sub(effect, 1, 4) == "not "
@@ -2441,7 +2437,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "becobj" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "becobj" and verb ~= "log" then
 			local isnot = (string.sub(effect,1,8) == "not meta")
 			local level = string.sub(effect,5)
 			if isnot then
@@ -2548,6 +2544,7 @@ function code(alreadyrun_)
 		
 		MF_removeblockeffect(0)
 		wordrelatedunits = {}
+		flowrelatedunits = {}
 		
 		do_mod_hook("rule_update",{alreadyrun})
 		
@@ -2559,7 +2556,9 @@ function code(alreadyrun_)
 			local wordidentifier = ""
 			local echoidentifier = ""
 			local classid = ""
+			local flowidentifier = ""
 			wordunits,wordidentifier,wordrelatedunits = findwordunits()
+			flowunits,flowidentifier,flowrelatedunits = findflowunits()
 			echounits,echoidentifier,echorelatedunits = ws_findechounits()
 			symbolunits,symbolidentifier,symbolrelatedunits = findsymbolunits()
 			classunits,classid,classrelatedunits = findclassunits()
@@ -2705,10 +2704,10 @@ function code(alreadyrun_)
 							if (#hm == 0) and (#hm2 > 0) then
 								--MF_alert("Added " .. unit.strings[UNITNAME] .. " to firstwords, dir " .. tostring(i))
 								
-								if not isglyph(unit) then	
+								if not is_str_special_prefixed(unit.strings[UNITNAME]) then
 									table.insert(firstwords, {{unitid}, i, 1, unit.strings[UNITNAME], unit.values[TYPE], {}})
 								else
-									table.insert(firstwords, {{unitid}, i, 1, "glyph", 0, {}})
+									table.insert(firstwords, {{unitid}, i, 1, get_broaded_str(unit.strings[UNITNAME]), 0, {}})
 								end
 								
 								if (alreadyused[tileid] == nil) then
@@ -2772,6 +2771,7 @@ function code(alreadyrun_)
 					parsearrows(breakunitresult)
 				end
 				docode(firstwords,wordunits)
+				dologic(flowunits)
 				if BRANCHING_TEXT_LOGGING then
 					print("<<<<<<<<<<<<<end>")
 				end
@@ -2793,6 +2793,7 @@ function code(alreadyrun_)
 				local newsymbolunits,newsymbolidentifier,newsymbolrelatedunits = findsymbolunits()
 				local newbreakunits,newbreakidentifier,breakrelatedunits = findbreakunits()
 				local newclassunits, newclassid, newclassrel = findclassunits()
+				local newflowunits,newflowidentifier,flowrelatedunits = findflowunits()
 
 				--MF_alert("ID comparison: " .. newwordidentifier .. " - " .. wordidentifier)
 				
@@ -2801,6 +2802,9 @@ function code(alreadyrun_)
 					updatecode = 1
 					code(true)
 				elseif (newsymbolidentifier ~= symbolidentifier) then
+					updatecode = 1
+					code(true)
+				elseif (newflowidentifier ~= flowidentifier) then
 					updatecode = 1
 					code(true)
 				else
@@ -2839,6 +2843,14 @@ function code(alreadyrun_)
 			
 			if generaldata.flags[LOGGING] then
 				updatelogrules()
+			end
+
+			for _,v in ipairs(flowunits) do
+				table.insert(wordunits,v) --@Merge(Logic) Add the flowunits to the wordunits, to trigger "updatecode = 1."
+			end
+
+			for _,v in ipairs(flowrelatedunits) do
+				table.insert(wordrelatedunits,v)
 			end
 		end
 
@@ -3065,7 +3077,7 @@ function postrules(alreadyrun_)
 		end
 		
 		unit.active = false
-		if unit.strings[UNITTYPE] == "obj" then
+		if unit.strings[UNITTYPE] == "obj" or unit.strings[UNITTYPE] == "logic" then
 			setcolour(unit.fixed)
 		end
 	end
@@ -3108,7 +3120,7 @@ function postrules(alreadyrun_)
 							if (b ~= 0) then
 								local bunit = mmf.newObject(b)
 								
-								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "obj" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
+								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "logic" or bunit.strings[UNITTYPE] == "obj" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
 									bunit.active = true
 									setcolour(b,"active")
 								end
@@ -3173,6 +3185,10 @@ function postrules(alreadyrun_)
 					table.insert(targetlists, "write")
 				end
 
+				if (verb == "is") and (neweffect == "logic") and (featureindex["log"] ~= nil) then
+					table.insert(targetlists, "log")
+				end
+
 				-- @mods(stable) - to handle cases of "X is X" and "X is not Y" directly modifying the featureindex with conditions,
 				-- the general rule is this: Normal features can only modify other normal features. Stable features can only modify other stable features.
 				-- There cannot be a crisscross between normal and stable features. - 3/6/22
@@ -3187,7 +3203,7 @@ function postrules(alreadyrun_)
 						local same = comparerules(newbaserule,b[1])
 						local target_rule_has_stable_tag = has_stable_tag(b[4])
 						
-						if (same or ((g == "inscribe") and (target == b[1][1]) and (b[1][2] == "inscribe")) or ((g == "write") and (target == b[1][1]) and (b[1][2] == "write")) or ((((neweffect == "text") and (string.sub(b[1][3], 1, 5)=="text_")) or ((neweffect == "glyph") and (string.sub(b[1][3], 1, 6)=="glyph_"))) and (target == b[1][1]) and (verb == b[1][2]))) and (not_rule_has_stable_tag == target_rule_has_stable_tag or newbaserule == "stable") then
+						if (same or ((g == "inscribe") and (target == b[1][1]) and (b[1][2] == "inscribe")) or ((g == "write") and (target == b[1][1]) and (b[1][2] == "write")) or ((g == "log") and (target == b[1][1]) and (b[1][2] == "log")) or ((((neweffect == "text") and (string.sub(b[1][3], 1, 5)=="text_")) or ((neweffect == "glyph") and (string.sub(b[1][3], 1, 6)=="glyph_"))) and (target == b[1][1]) and (verb == b[1][2]))) and (not_rule_has_stable_tag == target_rule_has_stable_tag or newbaserule == "stable") then
 							--MF_alert(rule[1] .. ", " .. rule[2] .. ", " .. neweffect .. ": " .. b[1][1] .. ", " .. b[1][2] .. ", " .. b[1][3])
 							local theseconds = b[2]
 							
@@ -3296,7 +3312,8 @@ function postrules(alreadyrun_)
 						if (targetrule[1] == target) --@Merge: omg beeeeg if block
 						  and (((targetrule[2] == "is") and (target ~= object)) 
 						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))
-						  	  or ((targetrule[2] == "write") and (string.sub(object, 1, 4) ~= "not ")))
+						  	  or ((targetrule[2] == "write") and (string.sub(object, 1, 4) ~= "not "))
+							  or ((targetrule[2] == "log") and (string.sub(object, 1, 4) ~= "not ")))
 						  and ((getmat(object) ~= nil)
 						  	  or (object == "revert")
 						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))

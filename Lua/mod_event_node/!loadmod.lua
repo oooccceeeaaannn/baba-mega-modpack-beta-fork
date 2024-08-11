@@ -10,6 +10,7 @@ local load_order = {
     "colours.lua",
     "editor_menudata.lua",
     "events_add_To_editor.lua",
+    "glossary.lua",
     "nodes_addtoeditor.lua",
     "obj.lua",
     "rules.lua",

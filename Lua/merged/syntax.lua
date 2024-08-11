@@ -261,7 +261,7 @@ function addunit(id,undoing_,levelstart_)
 		unitlists[name] = {}
 	end
 
-	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") then
+	if (string.sub(name_, 1, 5) == "text_" or string.sub(name_, 1, 5) == "node_") or (string.sub(name_, 1, 6) == "logic_") then
 		unit.flags[META] = true
 	end
 
@@ -293,7 +293,7 @@ function addunit(id,undoing_,levelstart_)
 	end
 	table.insert(unitlists["unit"], unit.fixed)
 
-	if (unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node" and unit.strings[UNITTYPE] ~= "obj") or ((unit.strings[UNITTYPE] == "text") and (unit.values[TYPE] == 0)) or ((unit.strings[UNITTYPE] == "node") and node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0) then
+	if ((unit.strings[UNITTYPE] == "text") and (unit.values[TYPE] == 0)) or ((unit.strings[UNITTYPE] == "node") and node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0) then
 		objectlist[name_] = 1
 		fullunitlist[name_] = 1
 	end
@@ -305,7 +305,11 @@ function addunit(id,undoing_,levelstart_)
 		objectlist[string.sub(name__, 7)] = 1
 		fullunitlist[string.sub(name__, 7)] = 1 --@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
 	end
+	if (string.sub(name__, 1, 6) == "logic_") and get_text_type(string.sub(name__, 7)) == 0 then
+		objectlist[string.sub(name__, 7)] = 1
+		fullunitlist[string.sub(name__, 7)] = 1 --@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
 
+	end
 	if (string.sub(name__, 1, 6) == "event_" and event_text_types[string.sub(name__, 7)] == "noun") then
 		objectlist[string.sub(name__, 7)] = 1
 		fullunitlist[string.sub(name__, 7)] = 1--@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
@@ -330,7 +334,7 @@ function addunit(id,undoing_,levelstart_)
 	if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") then
 		table.insert(codeunits, unit.fixed)
 		updatecode = 1
-		if not (string.sub(unit.strings[UNITNAME], 1, 5) == "event_") then
+		if not (string.sub(unit.strings[UNITNAME], 1, 6) == "event_") then
 			if (unit.values[TYPE] == 0) then
 				local matname = string.sub(unit.strings[UNITNAME], 6)
 				if (unitlists[matname] == nil) then
@@ -348,6 +352,10 @@ function addunit(id,undoing_,levelstart_)
 		if (unitlists[matname] == nil) then
 			unitlists[matname] = {}
 		end
+		updatecode = 1
+	end
+
+	if (string.sub(name__, 1, 6) == "logic_") then
 		updatecode = 1
 	end
 
