@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.0.6 Stable"
+local mega_modpack_version = "1.10.1"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -7,13 +7,13 @@ local mod_list = {
     {name = "Patashu's Modpack",    author = "Patashu",                 color={3,1}},
     {name = "Persist",              author = "Randomizer",              color={0,3}},
     {name = "Past, Metatext, Delete",author = "EmilyEmmi",              color={3,1}},
-    {name = "Stringwords, TRASH, Nodes",author = "Wrecking Games",      color={3,4}},
+    {name = "Stringwords, TRASH, Events",author = "Wrecking Games",      color={3,4}},
     {name = "Cardinality Mod",      author = "JustImagineYT",           color={3,4}},
     {name = "Word Salad",           author = "Huebird",                 color={2,1}},
     {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
     {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
-    {name = "Events",               author = "Mathman",                 color={5,4}},
+    {name = "Nodes",               author = "Mathman",                 color={5,4}},
     {name = "Extrem's Mods, Logic", author = "Extrem",                  color={4,2}},
     {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
     {name = "Obj & Parsers Merge",  author = "DizzyAndy",               color={3,3}},
@@ -344,20 +344,10 @@ for name, data in pairs(mod_setting_data) do
             make_plasma_button(revert_settings_key, name, buttonid, "Restore default settings", 20, item_y)
             table.insert(dynamic_structure, {{revert_settings_key}})
 
-            gd = MF_create("object001")
-            MF_loadsprite(gd,"text_persist_0",27,true)
-            local testunit = mmf.newObject(gd)
-            testunit.layer = 2
-            testunit.direction = 27
-            testunit.values[XPOS] = 619
-            testunit.values[YPOS] = 294
-            testunit.values[ONLINE] = 1
-
             buildmenustructure(dynamic_structure)
         end,
         leave = function(parent,name)
-            MF_cleanremove(gd)
-            gd = nil
+
         end
     }
 

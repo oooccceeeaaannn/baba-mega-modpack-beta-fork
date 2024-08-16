@@ -12,7 +12,7 @@ function add_node(insert, name, type_, colour, colour_active, argtype, argextras
     node_argextras[name] = argextras
     name = "node_" .. name
     if insert then
-    table.insert(editor_objlist_order, name)
+        table.insert(editor_objlist_order, name)
     end
     editor_objlist[name] =
     {
@@ -121,10 +121,3 @@ dirnames = {
 }
 
 formatobjlist()
-
-setmetatable(node_types, {__index = function(tab, name)
-    if (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
-        return 0
-    end
-    return nil
-end})

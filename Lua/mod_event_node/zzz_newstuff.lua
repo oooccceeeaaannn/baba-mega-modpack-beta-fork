@@ -14,6 +14,7 @@ table.insert(editor_objlist_order, "glyph_node_")
 table.insert(editor_objlist_order, "text_metanode")
 table.insert(editor_objlist_order, "event_node")
 table.insert(editor_objlist_order, "node_glyph")
+table.insert(editor_objlist_order, "node_logic")
 table.insert(editor_objlist_order, "glyph_obj")
 table.insert(editor_objlist_order, "glyph_metaobj")
 table.insert(editor_objlist_order, "text_metaobj")
@@ -232,6 +233,7 @@ editor_objlist["text__NONE_"] =
 
 add_node(false, "glyph", 0, {3, 2}, {3, 3})
 add_node(false, "event", 0, {5, 2}, {5, 3})
+add_node(false, "logic", 0, {3, 0}, {3, 1})
 add_node(false, "refers", 7, {1, 2}, {1, 4}, {0, 2})
 editor_objlist["text_metaobj"] =
 {

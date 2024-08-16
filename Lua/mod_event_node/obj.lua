@@ -196,6 +196,7 @@ editor_objlist["ect"] =
 	colour = {1, 4},
 }
 
+table.insert(editor_objlist_order, "text_cl_ass")
 editor_objlist["text_cl_ass"] = {
 	name = "text_cl_ass",
 	sprite_in_root = false,

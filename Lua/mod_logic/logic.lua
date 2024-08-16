@@ -15,6 +15,8 @@ editor_objlist["text_logic"] =
 	colour_active = {3, 1},
 }
 
+add_glyph_using_text("logic")
+
 table.insert(editor_objlist_order, "text_logic_")
 
 editor_objlist["text_logic_"] =
@@ -280,26 +282,7 @@ function logicbaserule()
 	addbaserule("logic", "is", "push")
 end
 
-function logfix()
-	for a,b in ipairs(units) do
-		if b.strings[UNITTYPE] == "object" then
-			objectlist["logic_" .. b.strings[UNITNAME]] = 1
-		end
-		if b.strings[UNITTYPE] == "text" then
-			local textrefer = string.sub(b.strings[UNITNAME],6)
-			objectlist["logic_"..textrefer] = 1
-		end
-		if b.strings[UNITTYPE] == "logic" then
-			if logic_types[b.strings[UNITNAME]] == 0 then
-				local logicrefer = string.sub(b.strings[UNITNAME],7)
-				objectlist[logicrefer] = 1
-			end
-		end
-	end
-end
-
 table.insert(mod_hook_functions.rule_baserules, logicbaserule)
-table.insert(mod_hook_functions.level_start, logfix)
 
 function hotbar_updatethumbnail(object,thumbid,slotid)
 	local thumb = mmf.newObject(thumbid)

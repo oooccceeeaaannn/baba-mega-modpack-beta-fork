@@ -34,7 +34,7 @@ formatobjlist()
 local vvvvvv = {"baba", "flag", "start", "destroy", "turn", "on", "become", "move", "tile", "event", "text",
 "keke", "you", "win", "hot", "rock", "wall", "push", "stop", "melt", "water", "lava", "sink", "make", "box", "pull",
 "be", "key", "door", "open", "shut", "skull", "defeat", "grass", "belt", "shift", "lonely", "power", "powered", "when", "group", "eat", "near", "never", "not",
- "backslash", "then", "forward", "backward", "aroundleft", "aroundright", "up", "down", "left", "right", "repeat", "1", "2", "3", "4", "5", "6", "7", "8", "9", "glyph"}
+ "backslash", "then", "forward", "backward", "aroundleft", "aroundright", "up", "down", "left", "right", "repeat", "1", "2", "3", "4", "5", "6", "7", "8", "9", "glyph", "logic"}
 
 local fakecolors = {}
 fakecolors["destroy"] = {colour = {2,1}, colour_active = {2,2}}
@@ -53,6 +53,7 @@ fakecolors["aroundright"] = {colour = {1,2}, colour_active = {1,4}}
 fakecolors["forward"] = {colour = {1,2}, colour_active = {1,4}}
 fakecolors["backward"] = {colour = {1,2}, colour_active = {1,4}}
 fakecolors["glyph"] = {colour = {3,2}, colour_active = {3,3}}
+fakecolors["logic"] = {colour = {3, 0},colour_active = {3, 1},}
 for i, j in ipairs(vvvvvv) do
   local eventj = "event_" .. j
   table.insert(editor_objlist_order, eventj)

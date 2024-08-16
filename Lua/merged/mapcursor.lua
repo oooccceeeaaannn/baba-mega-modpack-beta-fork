@@ -74,7 +74,7 @@ function mapcursor_move(ox_,oy_,mdir)
 				unit.values[CURSOR_ONLEVEL] = 0
 			end
 			
-			if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
+			if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "node") or (unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
 				updatecode = 1
 			end
 			

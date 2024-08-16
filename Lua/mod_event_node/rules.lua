@@ -1,3 +1,10 @@
+setmetatable(node_types, {__index = function(tab, name)
+    if (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
+        return 0
+    end
+    return nil
+end})
+
 function parselegacyarrows(breakunitresult)
     isarrow = {}
     firstarrows = {}
@@ -731,6 +738,13 @@ number_extensions = {"power", "group", "powered"}
 
 never_opposites = {}
 never_opposites["not destroy"] = "safe"
+
+setmetatable(event_text_types, {__index = function(tab, name)
+    if (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
+        return "noun"
+    end
+    return nil
+end})
 
 function event_code()
 
