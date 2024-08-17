@@ -55,7 +55,7 @@ Example: glyph_baba -> text_baba, glyph_is -> text_is]],
         {
             name = "glyph",
             thumbnail_obj = "glyph_baba",
-            display_name = "Glyphs",
+            display_name = "glyph",
             author = "Mathguy",
             group = "$1,3Glyph",
             description = [[Similar to text in that when arranged in certain ways rules are formed.

@@ -1,1 +1,1 @@
-NODE_LEGACY_PARSING = false -- Enables legacy parsing.
+NODE_LEGACY_PARSING = true -- Enables legacy parsing.

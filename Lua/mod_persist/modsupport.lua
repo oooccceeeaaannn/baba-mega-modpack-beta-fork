@@ -184,11 +184,11 @@ function findpersists(reason)
 		persistxoffset = (Xoffset-Xoffsetorig)/tilesize
 		persistyoffset = (Yoffset-Yoffsetorig)/tilesize
 	end
-		
-	ispersist = getunitswitheffect("persist",delthese)
+
+	local ispersist = getunitswitheffect("persist")
 	for id,unit in ipairs(ispersist) do
-		x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
-		name = getname(unit)
+		local x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
+		local name = getname(unit)
 		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
 		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),unit.karma}}
 
@@ -201,22 +201,101 @@ function findpersists(reason)
 	end
 end
 
-function trygeneratepair(name)
-	if findnoun(name,nil,true) == false then
-		tryautogenerate(name)
-		--tryautogenerate("text_"..name)
+local function add_if_in_pal(want)
+	if objectlist[want] ~= nil then return true end
+	if editor_objlist_reference[want] ~= nil then
+		local data = editor_objlist[editor_objlist_reference[want]]
+		local root = data.sprite_in_root
+		if root == nil then
+			root = true
+		end
+		local colour = data.colour
+		local active = data.colour_active
+		local colourasstring = colour[1] .. "," .. colour[2]
+		local activeasstring = "0,0"
+		if active ~= nil then
+			activeasstring = active[1] .. "," .. active[2]
+		end
+		local argtype
+		if data.argtype ~= nil then
+			argtype = ""
+			for k,v in ipairs(data.argtype) do
+				argtype = argtype .. tostring(v) .. ","
+			end
+			argtype = string.sub(argtype,1,-2)
+		end
+		local new =
+		{
+			want,
+			data.sprite or data.name,
+			colourasstring,
+			data.tiling,
+			data.type or 0,
+			data.unittype,
+			activeasstring,
+			root,
+			data.layer or 10,
+			argtype,
+		}
+		local target = "100"
+		while target ~= "156" do
+			local done = true
+			for objname, data in pairs(objectpalette) do
+				if data == "object" .. target then
+					done = false
+					target = tostring(tonumber(target) + 1)
+					while string.len(target) < 3 do
+						target = "0" .. target
+					end
+				end
+			end
+			if done then break end
+		end
+		if target == "156" then
+			return -1
+		else
+			savechange("object" .. target, new, nil, true)
+			dochanges_full("object" .. target)
+			objectpalette[want] = "object" .. target
+			objectlist[want] = 1
+			if root == true then
+				fullunitlist[want] = "fixroot" .. (data.sprite or data.name)
+			else
+				fullunitlist[want] = "fix" .. (data.sprite or data.name)
+			end
+			return true
+		end
 	end
+	return false
 end
 
-table.insert(mod_hook_functions["level_start"], 
+function trygeneratepair(name)
+	local want
+	if get_pref(name) == "" then
+		for _,v in ipairs(special_prefixes) do
+			want = v .. name
+			local res = add_if_in_pal(want)
+			if res == -1 then return false end
+			if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
+		end
+	end
+	want = name
+	local res = add_if_in_pal(want)
+	if res == -1 then return false end
+	if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
+	return true
+end
+
+table.insert(mod_hook_functions["level_start"],
 	function()
+		persists_inited = false
 		currentlevel = generaldata.strings[CURRLEVEL]
 
 		if exitedlevel == true then
 			getprevpersists()
 		end
 		exitedlevel = false
-		
+
 		--check for persistent rules
 		for level,v in pairs(persistbaserules) do
 			for j,rule in ipairs(v) do
@@ -226,8 +305,8 @@ table.insert(mod_hook_functions["level_start"],
 				end
 			end
 		end
-		
-	
+
+
 		Xoffsetorig = Xoffset
 		Yoffsetorig = Yoffset
 		--create persistent objects from previous level
@@ -238,21 +317,23 @@ table.insert(mod_hook_functions["level_start"],
 		if persists ~= nil then
 			for i,v in pairs(persists) do
 				--do not bring persistent objects if their persistence is disabled in the new level
-				if hasfeature(v[1], "is","not persist") == nil and not (hasfeature("all", "is","not persist") and not (string.sub(v[1], 1, 5) == "text_")) and not ((string.sub(v[1], 1, 5) == "text_") and (hasfeature("text", "is","not persist"))) then
-					local newunitid, id = create(v[1],v[2],v[3],v[4],v[5],v[6],nil,true,v[9],v[10])
-					created_new_persist_units = true
+				if hasfeature(v[1], "is","not persist") == nil and not (hasfeature("all", "is","not persist") and not is_str_special_prefixed(v[1])) then
+					if trygeneratepair(v[1]) then
+						local newunitid, id = create(v[1],v[2],v[3],v[4],v[5],v[6],nil,true,v[9],v[10])
+						created_new_persist_units = true
 
-					if v[11] then
-						table.insert(stable_persists_to_apply, {newunitid, v[11]})
-					end
+						if v[11] then
+							table.insert(stable_persists_to_apply, {newunitid, v[11]})
+						end
 
-					prevpersists[currentlevel][i] = {}
-					--backup to prevpersists; if entry is a table (leveldata) make sure it copies the whole table
-					for j,k in pairs(v) do
-						if type(k) == "table" then
-							prevpersists[currentlevel][i][j] = utils.deep_copy_table(k)
-						else
-							prevpersists[currentlevel][i][j] = k
+						prevpersists[currentlevel][i] = {}
+						--backup to prevpersists; if entry is a table (leveldata) make sure it copies the whole table
+						for j,k in pairs(v) do
+							if type(k) == "table" then
+								prevpersists[currentlevel][i][j] = utils.deep_copy_table(k)
+							else
+								prevpersists[currentlevel][i][j] = k
+							end
 						end
 					end
 				end
@@ -263,7 +344,7 @@ table.insert(mod_hook_functions["level_start"],
 		if created_new_persist_units then
 			animate()
 		end
-		
+
 		prevlevelpersist[currentlevel] = {}
 		if levelpersist ~= nil then
 			for i,j in ipairs(levelpersist) do
@@ -276,17 +357,17 @@ table.insert(mod_hook_functions["level_start"],
 				MF_levelrotation(maprotation)
 			end
 		end
-		
+
 		persistbaserulestoadd = {}
 		updatecode = 1
 
 		-- @mods(plasma x persist) - if we are going to apply persist stablerules, don't update the stablestate until
-		-- the call to code() after. This is to account 
+		-- the call to code() after. This is to account
 		if #stable_persists_to_apply > 0 then
 			GLOBAL_disable_stablerule_update = true
 		end
 
-		code(alreadyrun_) --reparse any new rules formed by persisted text
+		code() --reparse any new rules formed by persisted text
 
 		if #stable_persists_to_apply > 0 then
 			GLOBAL_disable_stablerule_update = false
@@ -297,7 +378,7 @@ table.insert(mod_hook_functions["level_start"],
 			local newunitid = stable_persist[1]
 			local stableunit_entry = stable_persist[2]
 			local newunit = mmf.newObject(newunitid)
-			
+
 			if stableunit_entry and hasfeature(newunit.strings[NAME], "is", "stable", newunitid) then
 				apply_persist_stablestate_info(newunitid, stableunit_entry)
 				updatecode = 1
@@ -306,13 +387,13 @@ table.insert(mod_hook_functions["level_start"],
 		GLOBAL_checking_stable = false
 
 		if updatecode == 1 then
-			code(alreadyrun_)
+			code()
 		end
 	end
 )
 
 
-table.insert(mod_hook_functions["level_end"], 
+table.insert(mod_hook_functions["level_end"],
 	function()
 		--if the player exits the level via the menu
 		exitedlevel = true
@@ -322,7 +403,7 @@ table.insert(mod_hook_functions["level_end"],
 table.insert(mod_hook_functions["level_win"], findpersists)
 
 table.insert(editor_objlist_order, "text_persist")
-editor_objlist["text_persist"] = 
+editor_objlist["text_persist"] =
 {
 	name = "text_persist",
 	sprite_in_root = false,

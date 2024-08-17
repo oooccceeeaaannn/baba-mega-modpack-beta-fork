@@ -25,7 +25,7 @@ table.insert(editor_objlist_order, "glyph_refers")
 table.insert(editor_objlist_order, "event_refers")
 table.insert(editor_objlist_order, "node_refers")
 table.insert(editor_objlist_order, "text__NONE_")
-table.insert(objlistdata.alltags, "glyphs")
+table.insert(objlistdata.alltags, "glyph")
 table.insert(objlistdata.alltags, "events")
 table.insert(objlistdata.alltags, "nodes")
 table.insert(objlistdata.alltags, "obj")
@@ -78,7 +78,7 @@ editor_objlist["glyph_metanot"] =
 	name = "glyph_metanot",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -117,7 +117,7 @@ editor_objlist["glyph_metanode"] =
 	name = "glyph_metanode",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -156,7 +156,7 @@ editor_objlist["glyph_node"] =
 	name = "glyph_node",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -170,7 +170,7 @@ editor_objlist["glyph_node_"] =
 	sprite = "glyph_nodepre",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -197,7 +197,7 @@ editor_objlist["glyph_refers"] =
 	name = "glyph_refers",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -253,7 +253,7 @@ editor_objlist["glyph_metaobj"] =
 	name = "glyph_metaobj",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,
@@ -266,7 +266,7 @@ editor_objlist["glyph_obj"] =
 	name = "glyph_obj",
 	sprite_in_root = false,
 	unittype = "object",
-	tags = {"abstract", "glyphs"},
+	tags = {"abstract", "glyph"},
 	tiling = -1,
 	type = 0,
 	layer = 1,

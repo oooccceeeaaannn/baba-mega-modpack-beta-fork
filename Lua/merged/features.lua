@@ -476,7 +476,7 @@ function getunitswitheffect(rule3,nolevels_,ignorethese_,checkedconds)
 			local rule = v[1]
 			local conds = v[2]
 			
-			if (rule[2] == "is") and (conds[1] ~= "never") and (findnoun(rule[1],nlist.brief) == false) then
+			if (rule[2] == "is") and (conds[1] ~= "never") and (findnoun(rule[1],nlist.brief) == false) and not is_str_broad_noun(rule[1]) then
 				table.insert(group, {rule[1], conds})
 			end
 		end

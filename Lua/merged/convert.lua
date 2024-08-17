@@ -884,9 +884,9 @@ function conversion(dolevels_)
 				tryautogenerate(thing)
 			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
-			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil and (get_pref(thing) ~= "") then
+			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil then
 				tryautogenerate("glyph_" .. thing)
-			elseif (not dolevels) and (operator == "becobj") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["obj_" .. thing] == nil and (get_pref(thing) ~= "") then
+			elseif (not dolevels) and (operator == "becobj") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["obj_" .. thing] == nil then
 				tryautogenerate("obj_" .. thing)
 			elseif (not dolevels) and (operator == "log") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["logic_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("logic_" .. thing)

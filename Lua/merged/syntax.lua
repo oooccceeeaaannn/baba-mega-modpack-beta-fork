@@ -293,7 +293,7 @@ function addunit(id,undoing_,levelstart_)
 	end
 	table.insert(unitlists["unit"], unit.fixed)
 
-	if ((unit.strings[UNITTYPE] == "text") and (unit.values[TYPE] == 0) and (name ~= "event")) or ((unit.strings[UNITTYPE] == "node") and node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0) then
+	if ((name == "text") and (unit.values[TYPE] == 0)) or ((unit.strings[UNITTYPE] == "node") and node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0) then
 		objectlist[name_] = 1
 		fullunitlist[name_] = 1
 	end
