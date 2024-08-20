@@ -1750,12 +1750,12 @@ function docode(firstwords)
 	end
 end
 
-extra_broad_nouns = {"text","glyph","node","event","obj","logic"}
+extra_broad_nouns = {"text","glyph","node","event","logic"}
 function is_str_broad_noun(str)
-	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event") or (str == "obj") or (str == "logic")
+	return (str == "text") or (str == "glyph") or (str == "node") or (str == "event") or (str == "logic")
 end
 function is_str_notted_broad_noun(str)
-	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event") or (str == "not obj") or (str == "not logic")
+	return (str == "not text") or (str == "not glyph") or (str == "not node") or (str == "not event") or (str == "not logic")
 end
 function get_broaded_str(str)
 	local res = get_pref(str)

@@ -317,7 +317,8 @@ table.insert(mod_hook_functions["level_start"],
 		if persists ~= nil then
 			for i,v in pairs(persists) do
 				--do not bring persistent objects if their persistence is disabled in the new level
-				if hasfeature(v[1], "is","not persist") == nil and not (hasfeature("all", "is","not persist") and not is_str_special_prefixed(v[1])) then
+				if hasfeature(v[1], "is","not persist") == nil and not (hasfeature("all", "is","not persist") and not is_str_special_prefixed(v[1]))
+						and not hasfeature(get_broaded_str(v[1]), "is","not persist") then
 					if trygeneratepair(v[1]) then
 						local newunitid, id = create(v[1],v[2],v[3],v[4],v[5],v[6],nil,true,v[9],v[10])
 						created_new_persist_units = true

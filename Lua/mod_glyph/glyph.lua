@@ -7,13 +7,11 @@ text_and_glyph = {
 	text_metaglyph = "text_glyph_",
 	text_metanode = "text_node_",
 	text_metaevent = "text_event_",
-	text_metaobj = "text_obj_",
 	text_metalogic = "text_logic_",
 	glyph_text_ = "glyph_metatext",
 	glyph_glyph_ = "glyph_metaglyph",
 	glyph_event_ = "glyph_metaevent",
 	glyph_node_ = "glyph_metanode",
-	glyph_obj_ = "glyph_metaobj",
 	glyph_logic_ = "glyph_metalogic",
 }
 
@@ -195,7 +193,6 @@ glyphtypes = {
 	metaevent = 5,
 	metanode = 5,
 	metalogic = 5,
-	metaobj = 5,
 	metanot = 4,
 	node = 0,
 	group = 3,
@@ -203,7 +200,6 @@ glyphtypes = {
 	group3 = 3,
 	refers = 8,
 	event = 0,
-	obj = 0,
 }
 glyphtypes["3d"] = 2
 glyphtypes["end"] = 2
@@ -2306,12 +2302,6 @@ function toometafunc(name)
 		if (glyphfound ~= 1) and (basefound == 1) then
 			return true
 		end
-	elseif (string.sub(name,1,6) == "obj_") then
-		local basefound = foundbasereference(name)
-		local objfound = foundreference(name)
-		if (objfound ~= 1) and (basefound == 1) then
-			return true
-		end
 	elseif (string.sub(name,1,5) == "node_") then
 		local basefound = foundbasereference(name)
 		local nodefound = foundreference(name)
@@ -2369,9 +2359,6 @@ condlist['references'] = function(params,checkedconds,checkedconds_,cdata)
 	-- if (string.sub(unitname, 1, 5) == "text_") then
 	-- 	return (string.sub(unitname, 6) == params[1]), checkedconds
 	-- end --@Merge(glyph x metatext): disable glyph mod's implementation of metatext. Metatext mod has the system all figured out
-	if (string.sub(unitname, 1, 4) == "obj_") then
-		return (string.sub(unitname, 5) == params[1]), checkedconds
-	end
 	if (string.sub(unitname, 1, 5) == "text_") or (string.sub(unitname, 1, 5) == "node_") then
 		return (string.sub(unitname, 6) == params[1]), checkedconds
 	end
@@ -2411,14 +2398,6 @@ local function referencesnode(unit, param)
 	local unitname = unit.strings[UNITNAME]
 	if (string.sub(unitname, 1, 5) == "node_") then
 		return (string.sub(unitname, 6) == params[1]), checkedconds
-	end
-	return false, checkedconds
-end
-
-local function referencesobj(unit, param)
-	local unitname = unit.strings[UNITNAME]
-	if (string.sub(unitname, 1, 4) == "obj_") then
-		return (string.sub(unitname, 5) == params[1]), checkedconds
 	end
 	return false, checkedconds
 end
@@ -2516,7 +2495,7 @@ function isglyphmeta(input_string, id)
 	if string.sub(input_string,1,6) ~= "glyph_" then
 		return false
 	end
-	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode") or (input_string == "glyph_metaobj") or (input_string == "glyph_metalogic")
+	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode") or (input_string == "glyph_metalogic")
 end
 
 function isprefix(input_string, id)
@@ -2611,8 +2590,6 @@ function metaprefix(x, y)
 			return "event_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 4 then
 			return "node_"
-		elseif tilemetaglyphdata[x + y * roomsizex] == 5 then
-			return "obj_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 6 then
 			return "logic_"
 		elseif tilemetaglyphdata[x + y * roomsizex] == 0 then
@@ -2632,12 +2609,6 @@ function metaprefix(x, y)
 					break
 				elseif (name == "glyph_metanode") then
 					is_node = true
-					break
-				elseif (name == "glyph_metaobj") then
-					is_obj = true
-					break
-				elseif (name == "glyph_metalogic") then
-					is_logic = true
 					break
 				elseif (name == "glyph_metaglyph") then
 					is_meta = true
@@ -2662,9 +2633,6 @@ function metaprefix(x, y)
 	elseif is_node then
 		tilemetaglyphdata[x + y * roomsizex] = 4
 		return "node_"
-	elseif is_obj then
-		tilemetaglyphdata[x + y * roomsizex] = 5
-		return "obj_"
 	elseif is_logic then
 		tilemetaglyphdata[x + y * roomsizex] = 6
 		return "logic_"
@@ -3184,9 +3152,6 @@ function determinemetaglyphs(glyphtable)
 		elseif (prefix == "node_") then
 			metaglyphdata[j] = 4
 			tilemetaglyphdata[x + y * roomsizex] = 4
-		elseif (prefix == "obj_") then
-			metaglyphdata[j] = 5
-			tilemetaglyphdata[x + y * roomsizex] = 5
 		elseif (prefix == "logic_") then
 			metaglyphdata[j] = 6
 			tilemetaglyphdata[x + y * roomsizex] = 6
@@ -3555,8 +3520,6 @@ function doglyphs(symbols)
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaevent", "glyph_" .. string.sub(v[1],6)})
 		elseif string.sub(v[1],1,5) == "node_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metanode", "glyph_" .. string.sub(v[1],5)})
-		elseif string.sub(v[1],1,4) == "obj_" then
-			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaobj", "glyph_" .. string.sub(v[1],4)})
 		elseif string.sub(v[1],1,6) == "logic_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metalogic", "glyph_" .. string.sub(v[1],6)})
 		else

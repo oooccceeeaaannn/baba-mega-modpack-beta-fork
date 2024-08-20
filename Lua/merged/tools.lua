@@ -1272,8 +1272,6 @@ function getname(unit,pname_,pnot_)
 		result = "event"
 	elseif (string.sub(result, 1, 5) == "node_") and ((pname == "node") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "node_") then
 		result = "node"
-	elseif (string.sub(result, 1, 4) == "obj_") and ((pname == "obj") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,4) ~= "obj_") then
-		result = "obj"
 	elseif (string.sub(result, 1, 6) == "logic_") and ((pname == "logic") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,6) ~= "logic_") then
 		result = "logic"
 	elseif string.sub(pname,1,4) == "meta" then

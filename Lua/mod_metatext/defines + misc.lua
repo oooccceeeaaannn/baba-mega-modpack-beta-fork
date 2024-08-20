@@ -106,7 +106,7 @@ function writemetalevel()
 					-- imagine flag: print pink T text
 					local color = textoverlaycolor(unit, {4,1}, {4,2})
 					if metatext_glyph_display then
-						local sequenceText, sequenceGlyph, sN, sE, sO, sL = makemetastring(unitname)
+						local sequenceText, sequenceGlyph, sN, sE, sL = makemetastring(unitname)
 						writetext(sequenceText:sub(2), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
 								1, true, color)
@@ -126,10 +126,6 @@ function writemetalevel()
 								1, true, color)
 						color = textoverlaycolor(unit, {5,4}, {5,3})
 						writetext(sE:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
-						color = textoverlaycolor(unit, {0,2}, {0,1})
-						writetext(sO:sub(2), unit.fixed, (8 * unit.scaleX),
 								-(6 * unit.scaleY), "metaoverlay", true,
 								1, true, color)
 						color = textoverlaycolor(unit, {3,1}, {3,0})
@@ -297,8 +293,6 @@ function tryautogenerate(want, have)
 			type = "text"
 		elseif (string.sub(want,1,6) == "glyph_") then
 			type = "object"
-		elseif (string.sub(want,1,4) == "obj_") then
-			type = "obj"
 		elseif (string.sub(want,1,6) == "logic_") then
 			type = "logic"
 		elseif string.sub(want,1,5) == "node_" then
@@ -473,7 +467,7 @@ function doconvert(data, extrarule_)
 	olddoconvert(data, extrarule_)
 end
 
-special_prefixes = {"glyph_", "text_", "node_", "event_", "obj_", "logic_"}
+special_prefixes = {"glyph_", "text_", "node_", "event_", "logic_"}
 
 --[[ Gets the meta level of a string
 (times "text_" appears, minus 1, minus 1 again if the string ends with "text_")
@@ -498,14 +492,13 @@ end
 
 function makemetastring(string)
 	local namestring = string
-	local sT, sG, sN, sE, sO, sL = "", "", "", "", "", ""
+	local sT, sG, sN, sE, sL = "", "", "", "", ""
 	while true do
 		if namestring:sub(1,5) == "text_" and #namestring > 5 then
 			sT = sT.."T"
 			sG = sG.." "
 			sN = sN.." "
 			sE = sE.." "
-			sO = sO.." "
 			sL = sL.." "
 			namestring = namestring.gsub(namestring, "text_", "", 1)
 		elseif namestring:sub(1,6) == "glyph_" and #namestring > 6 then
@@ -513,23 +506,13 @@ function makemetastring(string)
 			sG = sG.."V"
 			sN = sN.." "
 			sE = sE.." "
-			sO = sO.." "
 			sL = sL.." "
 			namestring = namestring.gsub(namestring, "glyph_", "", 1)
-		elseif namestring:sub(1,4) == "obj_" and #namestring > 4 then
-			sT = sT.." "
-			sG = sG.." "
-			sN = sN.." "
-			sE = sE.." "
-			sO = sO.."O"
-			sL = sL.." "
-			namestring = namestring.gsub(namestring, "obj_", "", 1)
 		elseif namestring:sub(1, 5) == "node_" and #namestring > 5 then
 			sT = sT .. " "
 			sG = sG .. " "
 			sN = sN .. "N"
 			sE = sE .. " "
-			sO = sO .. " "
 			sL = sL .. " "
 			namestring = namestring.gsub(namestring, "node_", "", 1)
 		elseif namestring:sub(1, 6) == "event_" and #namestring > 6 then
@@ -537,7 +520,6 @@ function makemetastring(string)
 			sG = sG .. " "
 			sN = sN .. " "
 			sE = sE .. "E"
-			sO = sO .. " "
 			sL = sL .. " "
 			namestring = namestring.gsub(namestring, "event_", "", 1)
 		elseif namestring:sub(1, 6) == "logic_" and #namestring > 6 then
@@ -545,11 +527,10 @@ function makemetastring(string)
 			sG = sG .. " "
 			sN = sN .. " "
 			sE = sE .. " "
-			sO = sO .. " "
 			sL = sL .. "L"
 			namestring = namestring.gsub(namestring, "logic_", "", 1)
 		else
-			return sT, sG, sN, sE, sO, sL
+			return sT, sG, sN, sE, sL
 		end
 	end
 end

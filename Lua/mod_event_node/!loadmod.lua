@@ -12,7 +12,6 @@ local load_order = {
     "events_add_To_editor.lua",
     "glossary.lua",
     "nodes_addtoeditor.lua",
-    "obj.lua",
     "rules.lua",
     "utils.lua",
     "zzz_newstuff.lua"

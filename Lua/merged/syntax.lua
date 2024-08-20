@@ -314,13 +314,7 @@ function addunit(id,undoing_,levelstart_)
 		objectlist[string.sub(name__, 7)] = 1
 		fullunitlist[string.sub(name__, 7)] = 1--@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
 	end
-
-	if string.sub(name__, 1, 4) == "obj_" and get_text_type(string.sub(name__, 5)) == 0 then
-		objectlist[string.sub(name__, 5)] = 1
-		fullunitlist[string.sub(name__, 5)] = 1--@Merge (metatext x glyph): added this line since metatext also uses fullunitlist.
-		updatecode = 1
-	end
-
+	
 	-- Adds units to meta# unitlist
 	local level = getmetalevel(name__)
 	if level >= -1 then

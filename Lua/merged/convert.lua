@@ -706,18 +706,8 @@ function convert(stuff,mats,dolevels_)
 							
 							if (op == "write") or (op == "draw") then
 								mat2 = "text_" .. matdata[1]
-							elseif (op == "becobj") then
-								mat2 = "obj_" .. matdata[1]
 							elseif (op == "log") then
 								mat2 = "logic_" .. matdata[1]
-							elseif (mat2 == "_") and (op == "is") then
-								local uname = unit.strings[UNITNAME]
-								if is_str_special_prefixed(uname) then
-									uname = get_broaded_str(uname)
-								end
-								if uname ~= "text" and uname ~= "glyph" and uname ~= "node" and uname ~= "event" then
-									mat2 = uname .. "_" .. uname
-								end
 							end
 							
 							if (op == "inscribe") then
@@ -739,6 +729,10 @@ function convert(stuff,mats,dolevels_)
 									end
 								else
 									objectfound = true
+								end
+
+								if not objectfound and getmetalevel(mat2) > 0 and not disable_toometa then
+									mat2 = "toometa"
 								end
 								
 								if testcond(conds,unit.fixed) and objectfound then
@@ -815,8 +809,6 @@ function convert(stuff,mats,dolevels_)
 
 							if (op == "write") or (op == "draw") then
 								mat2 = "text_" .. matdata[1]
-							elseif (op == "becobj") then
-								mat2 = "obj_" .. matdata[1]
 							elseif (op == "log") then
 								mat2 = "logic_" .. matdata[1]
 							elseif (mat2 == "_") and (op == "is") then
@@ -886,8 +878,6 @@ function conversion(dolevels_)
 				tryautogenerate("text_" .. thing)
 			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil then
 				tryautogenerate("glyph_" .. thing)
-			elseif (not dolevels) and (operator == "becobj") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["obj_" .. thing] == nil then
-				tryautogenerate("obj_" .. thing)
 			elseif (not dolevels) and (operator == "log") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["logic_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("logic_" .. thing)
 			end
@@ -985,14 +975,6 @@ function conversion(dolevels_)
 									table.insert(output, {object, conds, "inscribe"})
 								end
 							end
-						elseif (verb == "becobj") then
-							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
-								if toometafunc("obj_" .. object) then
-									table.insert(output, {"toometa", conds, "is"})
-								else
-									table.insert(output, {object, conds, "becobj"})
-								end
-							end
 						end
 					end
 				end
@@ -1056,14 +1038,6 @@ function conversion(dolevels_)
 								if valid then
 									table.insert(conversions, {string.sub(name,6),conds})
 								end
-							elseif (object == "deobj") and string.sub(name,1,4) == "obj_" then
-								local valid = (getmat(string.sub(name,5)) ~= nil or unitreference[string.sub(name,5)] ~= nil) and not is_str_broad_noun(string.sub(name,5)) and (string.sub(name,5) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,5)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,5)) ~= "" then
-									valid = tryautogenerate(string.sub(name,5))
-								end
-								if valid then
-									table.insert(conversions, {string.sub(name,5),conds})
-								end
 							elseif (object == "unmexa") and get_pref(name) ~= "" then
 								local unmetad = get_ref(name)
 								local valid = (getmat(unmetad) ~= nil or unitreference[unmetad] ~= nil) and not is_str_broad_noun(unmetad) and (unmetad ~= "all") -- don't attempt conversion if the object does not exist
@@ -1121,14 +1095,6 @@ function conversion(dolevels_)
 								end
 								if valid then
 									table.insert(conversions, {"node_" .. name,conds})
-								end
-							elseif (object == "obj") or (object == "enobj") then
-								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["obj_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
-									valid = tryautogenerate("obj_" .. name,name)
-								end
-								if valid then
-									table.insert(conversions, {"obj_" .. name,conds})
 								end
 							elseif (object == "logic") then
 								local valid = true -- don't attempt conversion if the object does not exist

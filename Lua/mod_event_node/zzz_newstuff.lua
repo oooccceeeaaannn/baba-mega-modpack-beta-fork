@@ -15,9 +15,6 @@ table.insert(editor_objlist_order, "text_metanode")
 table.insert(editor_objlist_order, "event_node")
 table.insert(editor_objlist_order, "node_glyph")
 table.insert(editor_objlist_order, "node_logic")
-table.insert(editor_objlist_order, "glyph_obj")
-table.insert(editor_objlist_order, "glyph_metaobj")
-table.insert(editor_objlist_order, "text_metaobj")
 table.insert(editor_objlist_order, "text_metanot")
 table.insert(editor_objlist_order, "glyph_metanot")
 --table.insert(editor_objlist_order, "text_refers")
@@ -28,9 +25,19 @@ table.insert(editor_objlist_order, "text__NONE_")
 table.insert(objlistdata.alltags, "glyph")
 table.insert(objlistdata.alltags, "events")
 table.insert(objlistdata.alltags, "nodes")
-table.insert(objlistdata.alltags, "obj")
 
-
+table.insert(editor_objlist_order, "text_class")
+editor_objlist["text_class"] = {
+	name = "text_class",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"abstract","text"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 2},
+	colour_active = {0, 3}
+}
 
 editor_objlist["glyph_event"] =
 {
@@ -244,32 +251,6 @@ editor_objlist["text_metaobj"] =
 	tiling = -1,
 	type = -1,
 	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 2},
-}
-
-editor_objlist["glyph_metaobj"] =
-{
-	name = "glyph_metaobj",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
-	type = 0,
-	layer = 1,
-	colour = {0, 1},
-	colour_active = {0, 2},
-}
-
-editor_objlist["glyph_obj"] =
-{
-	name = "glyph_obj",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
-	type = 0,
-	layer = 1,
 	colour = {0, 1},
 	colour_active = {0, 2},
 }
