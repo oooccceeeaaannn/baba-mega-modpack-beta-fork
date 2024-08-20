@@ -242,17 +242,5 @@ add_node(false, "glyph", 0, {3, 2}, {3, 3})
 add_node(false, "event", 0, {5, 2}, {5, 3})
 add_node(false, "logic", 0, {3, 0}, {3, 1})
 add_node(false, "refers", 7, {1, 2}, {1, 4}, {0, 2})
-editor_objlist["text_metaobj"] =
-{
-	name = "text_metaobj",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract"},
-	tiling = -1,
-	type = -1,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 2},
-}
 
 formatobjlist()

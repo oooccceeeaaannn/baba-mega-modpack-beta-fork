@@ -1496,7 +1496,7 @@ function delunit(unitid)
 			end
 		end
 
-		if (#classunits > 0) and (unit.strings[UNITTYPE] == "obj") then
+		if (#classunits > 0) then
 			for i,v in pairs(classunits) do
 				if (v[1] == unitid) then
 					local currentundo = undobuffer[1]

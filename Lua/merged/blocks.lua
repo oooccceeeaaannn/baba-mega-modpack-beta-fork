@@ -482,7 +482,6 @@ function moveblock(onlystartblock_)
 										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
 										or (getname(vunit,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
 										or (getname(vunit,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node"))
-										or (getname(vunit,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
 										or (getname(vunit,"logic") == "logic" and getname(unit,"logic") == "logic" and checkiftextrule(name,"is","tele",unitid,true,"logic"))
 										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
 										and (v ~= unitid) then
@@ -501,7 +500,6 @@ function moveblock(onlystartblock_)
 													or (getmetalevel(telename) == getmetalevel(name) and checkiftextrule(name,"is","tele",unitid,true,"meta"..getmetalevel(name)))
 													or (getname(tele,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
 													or (getname(tele,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
-													or (getname(tele,"obj") == "obj" and getname(unit,"obj") == "obj" and checkiftextrule(name,"is","tele",unitid,true,"obj"))
 													or (getname(tele,"logic") == "logic" and getname(unit,"logic") == "logic" and checkiftextrule(name,"is","tele",unitid,true,"logic"))
 													or (getname(tele,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node")))
 													and (tele.flags[DEAD] == false) then
@@ -943,24 +941,6 @@ function block(small_)
 			if sunk then
 				table.insert(delthese, unit.fixed)
 			end
-		end
-	end
-
-	local isclass = getunitswitheffect("cl_ass",false,delthese)
-	local doclass = {}
-	for id,unit in ipairs(isclass) do
-		if get_broaded_str(getname(unit)) == "obj" then
-			table.insert(doclass, {unit.fixed, unit.values[XPOS], unit.values[YPOS]})
-		end
-	end
-	if #doclass > 2 then
-		for i, j in pairs(doclass) do
-			delete(j[1],j[2],j[3],nil,true)
-		end
-		if math.random(1,100) == 100 then
-			error(nil)
-		else
-			error("no thanks")
 		end
 	end
 
@@ -4640,7 +4620,7 @@ function effectblock()
 				end
 			elseif (#unit.colours == 0) then
 				if (unit.values[A] > 0) and (math.floor(unit.values[A]) == unit.values[A]) then
-					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node" and unit.strings[UNITTYPE] ~= "logic") and (unit.strings[UNITTYPE] ~= "obj") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
+					if ((unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node" and unit.strings[UNITTYPE] ~= "logic") and (string.sub(unit.strings[UNITNAME],1,6) ~= "glyph_")) or (unit.active == false) then
 						setcolour(unit.fixed)
 					else
 						setcolour(unit.fixed,"active")
@@ -4650,7 +4630,7 @@ function effectblock()
 			else
 				unit.values[A] = ca
 				
-				if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or (unit.strings[UNITTYPE] == "obj") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
+				if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or (string.sub(unit.strings[UNITNAME],1,6) == "glyph_") then
 					local curr = (unit.currcolour % #unit.colours) + 1
 					local c = unit.colours[curr]
 					

@@ -101,16 +101,26 @@ add_node(true, "lonely", 3, { 2, 1 }, { 2, 2 })
 add_node(true, "on", 7, { 0, 1 }, { 0, 3 }, { 0 })
 add_node(true, "facing", 7, { 0, 1 }, { 0, 3 }, { 0 }, { "up", "down", "left", "right" })
 -- Verbs
-add_node(true, "is", 1, {0, 1}, {0, 3}, {0, 2})
-add_node(true, "has", 1, { 0, 1 }, { 0, 3 })
-add_node(true, "eat", 1, { 2, 1 }, { 2, 2 })
-add_node(true, "mimic", 1, { 2, 1 }, { 2, 2 })
+
+if not NODE_LEGACY_PARSING then
+    add_node(true,"is", 1, {0, 1}, {0, 3}, {0, 2})
+end
+add_node(true,"has", 1, {0, 1}, {0, 3}, {0})
+add_node(true,"eat", 1, {2, 1}, {2, 2}, {0})
+add_node(true,"mimic", 1, {2, 1}, {2, 2}, {0})
 -- Miscellaneous
 if NODE_LEGACY_PARSING then
-    add_node("and", 6, {0, 1}, {0, 3})
+    add_node(true,"and", 6, {0, 1}, {0, 3})
 end
-add_node(true, "not", 4, { 2, 1 }, { 2, 2 })
-add_node(true, "nil", -1, { 6, 1 }, { 2, 4 })
+add_node(true,"not", 4, {2, 1}, {2, 2})
+-- Nil
+add_node(true,"nil", -1, {6, 1}, {2, 4})
+if not NODE_LEGACY_PARSING then
+    add_node(true,"nil_perp", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_branch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_debranch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_spread", -1, {6, 1}, {2, 4})
+end
 
 dirnames = {
     dir = {"right", "up", "left", "down"},
@@ -121,3 +131,7 @@ dirnames = {
 }
 
 formatobjlist()
+
+inspect = require "inspect"
+
+print(inspect(node_types))

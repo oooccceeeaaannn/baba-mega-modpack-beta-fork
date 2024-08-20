@@ -867,7 +867,7 @@ function conversion(dolevels_)
 		
 		local operator = words[2]
 		
-		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "becobj") or (operator == "log") then
+		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "log") then
 			local output = {}
 			local name = words[1]
 			local thing = words[3]
@@ -899,10 +899,8 @@ function conversion(dolevels_)
 					or (thing == "mena")
 					or (thing == "unmena")
 					or (thing == "unmexa")
-					or (thing == "deobj") or (thing == "_")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
-				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name))
-			or ((operator == "becobj")))
+				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
 			  or ((operator == "inscribe")
 			    and (getmat("glyph_" .. name) or getmat(name)))
 					or (thing == "infect") or (operator == "draw") or ((operator == "log") and (getmat("logic_" .. name) ~= nil))
@@ -919,7 +917,7 @@ function conversion(dolevels_)
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_broad_noun(object) and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "deobj") and (object ~= "_")
+								if not is_str_broad_noun(object) and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
 										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
@@ -990,7 +988,7 @@ function conversion(dolevels_)
 						if (op == "is") then
 							-- EDIT: add check for ECHO
 							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (object ~= "deobj") then
+									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
 								--[[
@@ -1000,7 +998,7 @@ function conversion(dolevels_)
 								table.insert(conversions, {"createall",conds})
 							elseif (object == "text") or (object == "meta") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["text_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["text_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("text_" .. name,name)
 								end
 								if valid then
@@ -1074,7 +1072,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "glyph") or (object == "mega") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["glyph_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["glyph_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("glyph_" .. name,name)
 								end
 								if valid then
@@ -1082,7 +1080,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "event") or (object == "meea") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["event_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["event_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("event_" .. name,name)
 								end
 								if valid then
@@ -1090,7 +1088,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "node") or (object == "mena") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["node_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["node_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("node_" .. name,name)
 								end
 								if valid then
@@ -1098,14 +1096,14 @@ function conversion(dolevels_)
 								end
 							elseif (object == "logic") then
 								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["logic_" .. name] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 then
+								if unitreference["logic_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("logic_" .. name,name)
 								end
 								if valid then
 									table.insert(conversions, {"logic_" .. name,conds})
 								end
 							end
-						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "becobj") or (op == "log") then
+						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "log") then
 							table.insert(conversions, v3)
 						end
 					end

@@ -40,6 +40,8 @@ function effects(timer)
 	rnd = math.random(0,1)
 	doeffect(timer,nil,"return","unlock",2,5,8,{3,rnd})
 
+	doeffect(timer,nil,"baserule","infinity",1,2,100,{0,3})
+
 	do_mod_hook("effect_always")
 end
 

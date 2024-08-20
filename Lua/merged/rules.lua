@@ -2177,7 +2177,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 				end
 			else
-				local mats = {"empty","text", "glyph","node","event","obj"}
+				local mats = {"empty","text","glyph","node","event","logic"}
 				
 				for m,i in pairs(mats) do
 					local rule = {i,verb,effect}
@@ -2399,7 +2399,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" and verb ~= "becobj" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 				local reale = effect
 				local isnot = string.sub(effect, 1, 4) == "not "
@@ -2437,7 +2437,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "becobj" and verb ~= "log" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" then
 			local isnot = (string.sub(effect,1,8) == "not meta")
 			local level = string.sub(effect,5)
 			if isnot then
@@ -2626,20 +2626,24 @@ function code(alreadyrun_)
 			local firstwords = {}
 			local alreadyused = {}
 
-			do_mod_hook("rule_baserules")
-			for i,v in ipairs(baserulelist) do
-				addbaserule(v[1],v[2],v[3],v[4])
-			end
-			if metatext_textisword then
-				addbaserule("text","is","word")
-			end
-
 			--add persistent rules to base rules
+			local baserule_added = false
 			for level,levelrules in pairs(persistbaserules) do
 				if level ~= generaldata.strings[CURRLEVEL] then
 					for j,w in ipairs(levelrules) do
 						addbaserule(w[1],w[2],w[3])
 					end
+					baserule_added = true
+				end
+			end
+
+			if (objectlist["text_baserule"] == nil) and (not baserule_added) then
+				do_mod_hook("rule_baserules")
+				for i,v in ipairs(baserulelist) do
+					addbaserule(v[1],v[2],v[3],v[4])
+				end
+				if metatext_textisword then
+					addbaserule("text","is","word")
 				end
 			end
 			
@@ -3077,7 +3081,7 @@ function postrules(alreadyrun_)
 		end
 		
 		unit.active = false
-		if unit.strings[UNITTYPE] == "obj" or unit.strings[UNITTYPE] == "logic" then
+		if unit.strings[UNITTYPE] == "logic" then
 			setcolour(unit.fixed)
 		end
 	end
@@ -3120,7 +3124,7 @@ function postrules(alreadyrun_)
 							if (b ~= 0) then
 								local bunit = mmf.newObject(b)
 								
-								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "logic" or bunit.strings[UNITTYPE] == "obj" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
+								if (bunit.strings[UNITTYPE] == "text" or bunit.strings[UNITTYPE] == "logic" or bunit.strings[UNITTYPE] == "node") or (string.sub(bunit.strings[UNITNAME], 1, 6) == "glyph_") then
 									bunit.active = true
 									setcolour(b,"active")
 								end

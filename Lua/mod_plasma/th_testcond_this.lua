@@ -9,10 +9,12 @@ function get_this_parms_in_conds(conds, ids)
         -- skip through all extraids (aka ands and nots and filler texts)
         while id_index <= #ids do
             local unit = mmf.newObject(ids[id_index][1])
-            local type = unit.values[TYPE]
+            if unit ~= nil then
+                local type = unit.values[TYPE]
 
-            if type ~= 4 and type ~= 6 and type ~= 11 then
-                break
+                if type ~= 4 and type ~= 6 and type ~= 11 then
+                    break
+                end
             end
             id_index = id_index + 1
         end

@@ -417,6 +417,20 @@ editor_objlist["text_persist"] =
 	colour_active = {0, 3},
 }
 
+table.insert(editor_objlist_order, "text_baserule")
+editor_objlist["text_baserule"] =
+{
+	name = "text_baserule",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text", "abstract", "text_quality", "persist"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 1},
+	colour_active = {0, 3},
+}
+
 -- @Merge: Word Glossary Mod support
 if keys.IS_WORD_GLOSSARY_PRESENT then
 	keys.WORD_GLOSSARY_FUNCS.register_author("Randomizer", {0,3} )

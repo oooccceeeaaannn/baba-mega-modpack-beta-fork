@@ -30,7 +30,12 @@ function copyqwe(obj)
     return res
 end
 
-table_copy = copyqwe
+function table_copy(obj)
+    if type(obj) ~= 'table' then return obj end
+    local res = {}
+    for k, v in pairs(obj) do res[table_copy(k)] = table_copy(v) end
+    return res
+end
 
 function get_text_type(name)
     if is_str_special_prefixed(name) and not is_str_special_prefix(name) then return 0 end
