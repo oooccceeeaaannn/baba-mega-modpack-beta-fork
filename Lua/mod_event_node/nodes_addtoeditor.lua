@@ -131,7 +131,3 @@ dirnames = {
 }
 
 formatobjlist()
-
-inspect = require "inspect"
-
-print(inspect(node_types))
