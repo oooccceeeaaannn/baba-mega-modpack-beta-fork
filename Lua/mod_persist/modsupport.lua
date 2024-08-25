@@ -202,7 +202,7 @@ function findpersists(reason)
 end
 
 local function add_if_in_pal(want)
-	if objectlist[want] ~= nil then return true end
+	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
 	if editor_objlist_reference[want] ~= nil then
 		local data = editor_objlist[editor_objlist_reference[want]]
 		local root = data.sprite_in_root
@@ -270,19 +270,26 @@ local function add_if_in_pal(want)
 end
 
 function trygeneratepair(name)
-	local want
+	local want, is_refer, res
 	if get_pref(name) == "" then
 		for _,v in ipairs(special_prefixes) do
 			want = v .. name
-			local res = add_if_in_pal(want)
+			res = add_if_in_pal(want)
 			if res == -1 then return false end
 			if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
 		end
+	else
+		is_refer = true
 	end
 	want = name
-	local res = add_if_in_pal(want)
+	res = add_if_in_pal(want)
 	if res == -1 then return false end
 	if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
+	if is_refer then
+		want = get_ref(name)
+		res = add_if_in_pal(want)
+		if res == -1 then return false end
+	end
 	return true
 end
 
@@ -416,6 +423,8 @@ editor_objlist["text_persist"] =
 	colour = {0, 1},
 	colour_active = {0, 3},
 }
+
+add_glyph_using_text("persist")
 
 table.insert(editor_objlist_order, "text_baserule")
 editor_objlist["text_baserule"] =

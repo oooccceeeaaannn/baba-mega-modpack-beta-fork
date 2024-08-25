@@ -874,7 +874,7 @@ function conversion(dolevels_)
 
 			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta") and (thing ~= "meea") and (thing ~= "unmeea") and (thing ~= "mena") and (thing ~= "unmena") and (thing ~= "mega") and (thing ~= "unmega")) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
-			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
 			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil then
 				tryautogenerate("glyph_" .. thing)

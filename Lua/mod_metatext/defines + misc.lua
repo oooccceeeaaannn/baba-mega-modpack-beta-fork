@@ -179,7 +179,7 @@ table.insert(mod_hook_functions["always"], writemetalevel)
 
 -- Try to add more metatext if it doesn't exist.
 function tryautogenerate(want, have)
-	if objectpalette[want] ~= nil then return true end
+	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
 	if is_str_special_prefix(want) then
 		return false -- fix silly edgecase
 	elseif metatext_autogenerate ~= 0 then

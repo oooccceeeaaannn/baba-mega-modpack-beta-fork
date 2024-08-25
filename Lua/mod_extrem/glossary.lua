@@ -239,9 +239,9 @@ These properties do not work in the editor.]],
             display_name = "refers",
             author = "Extrem",
             group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that is intended to be used on "text".
+            description = [[An infix condition that is intended to be used on parsers.
 
-Doing "text refers baba is best" makes the text refering to baba be "best".
+Doing "text refers baba is best" makes the text refering to baba be "best". This applys to other parsers as well.
 If you do "(OBJECT) refers (object)" then it acts the same as "(object) feeling word".]],
         },
         {
