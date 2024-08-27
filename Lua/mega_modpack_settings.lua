@@ -13,10 +13,10 @@ local mod_list = {
     {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
     {name = "Nuhuh, Offset",        author = "Btd456Creeper",           color={0,3}},
     {name = "Local, Glyph",         author = "Mathguy",                 color={1,3}},
-    {name = "Nodes",               author = "Mathman",                 color={5,4}},
+    {name = "Nodes",                author = "Mathman",                 color={5,4}},
     {name = "Extrem's Mods, Logic", author = "Extrem",                  color={4,2}},
     {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
-    {name = "Obj & Parsers Merge",  author = "DizzyAndy",               color={3,3}},
+    {name = "Parsers Merge",        author = "DizzyAndy",               color={3,3}},
 }
 
 local mod_setting_data = {

@@ -84,6 +84,14 @@ add_node(true, "node", 0, { 6, 1 }, { 2, 4 })
 add_node(true, "water", 0, { 1, 2 }, { 1, 3 })
 add_node(true, "key", 0, { 6, 1 }, { 2, 4 })
 add_node(true, "door", 0, { 2, 1 }, { 2, 2 })
+if not NODE_LEGACY_PARSING then
+    add_node(true,"ice", 0, {1, 2}, {1, 3})
+    add_node(true,"tile", 0, {1, 1}, {0, 1})
+    add_node(true,"box", 0, {6, 0}, {6, 1})
+    add_node(true,"hedge", 0, {5, 0}, {5, 1})
+    add_node(true,"level", 0, {4, 0}, {4, 1})
+    add_node(true,"all", 0, {0, 1}, {0, 3})
+end
 -- Properties
 add_node(true, "you", 2, { 4, 0 }, { 4, 1 })
 add_node(true, "win", 2, { 6, 1 }, { 2, 4 })
