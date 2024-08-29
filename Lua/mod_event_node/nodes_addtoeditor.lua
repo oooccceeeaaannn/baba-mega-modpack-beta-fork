@@ -104,6 +104,12 @@ add_node(true, "shut", 2, { 2, 1 }, { 2, 2 })
 add_node(true, "move", 2, { 5, 1 }, { 5, 3 })
 add_node(true, "sink", 2, { 1, 2 }, { 1, 3 })
 add_node(true, "shift", 2, { 1, 2 }, { 1, 3 })
+if not NODE_LEGACY_PARSING then
+    --add_node("shift", 2, {1, 2}, {1, 3})
+    add_node(true,"melt", 2, {1, 2}, {1, 3})
+    add_node(true,"hot", 2, {2, 2}, {2, 3})
+    add_node(true,"bonus", 2, {4, 0}, {4, 1})
+end
 -- Conditions
 add_node(true, "lonely", 3, { 2, 1 }, { 2, 2 })
 add_node(true, "on", 7, { 0, 1 }, { 0, 3 }, { 0 })
@@ -128,6 +134,11 @@ if not NODE_LEGACY_PARSING then
     add_node(true,"nil_branch", -1, {6, 1}, {2, 4})
     add_node(true,"nil_debranch", -1, {6, 1}, {2, 4})
     add_node(true,"nil_spread", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_perp", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_branch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_debranch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_spread", -1, {6, 1}, {2, 4})
 end
 
 dirnames = {

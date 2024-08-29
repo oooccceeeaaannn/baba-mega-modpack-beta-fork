@@ -298,7 +298,7 @@ function parsearrows(breakunitresult)
     for unitid, _ in pairs(isarrow) do
         local unit = mmf.newObject(unitid)
         if node_types[unit.strings[UNITNAME]:sub(6, -1)] ~= -1 then
-            table.insert(starts, {unitid, unit.values[XPOS], unit.values[YPOS], unit.values[DIR], {}})
+            table.insert(starts, {unitid, unit.values[XPOS], unit.values[YPOS], unit.values[DIR], {}, {[0] = {}, [1] = {}, [2] = {}, [3] = {}}})
         end
     end
     local totalruns = 0
@@ -321,6 +321,7 @@ function parsearrows(breakunitresult)
         ypos = ypos + oy
         local done = false
         nils = start[5]
+        local nilcheck = start[6]
         while xpos > 0 and xpos < roomsizex and ypos > 0 and ypos < roomsizey do
             for i, unitid2 in ipairs(findallhere(xpos, ypos)) do
                 if breakunitresult[unitid2] == 1 then
@@ -330,11 +331,9 @@ function parsearrows(breakunitresult)
                 if isarrow[unitid2] then
                     local unit2 = mmf.newObject(unitid2)
                     if node_types[unit2.strings[UNITNAME]:sub(6, -1)] == -1 then
-                        for i, v in ipairs(nils) do
-                            if v == unitid2 then
-                                done = true
-                                break
-                            end
+                        if nilcheck[dir][unitid2] then
+                            done = true
+                            break
                         end
                         local nodename = unit2.strings[UNITNAME]:sub(6, -1)
                         if nodename == "nil" then
@@ -342,31 +341,76 @@ function parsearrows(breakunitresult)
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
                         elseif nodename == "nil_perp" then
                             dir = (unit2.values[DIR] + 1) % 4
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_branch" then
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_debranch" then
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils)})
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_spread" then
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils)})
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
+                        elseif nodename == "nil_bump" then
+                            bumpdir = unit2.values[DIR]
+                            drs = ndirs[bumpdir + 1]
+                            table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
+                            xpos = xpos + drs[1] - ox
+                            ypos = ypos + drs[2] - oy
+                        elseif nodename == "nil_bump_perp" then
+                            bumpdir = (unit2.values[DIR] + 1) % 4
+                            drs = ndirs[bumpdir + 1]
+                            table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos - drs[1], ypos - drs[2], dir, table_copy(nils), table_copy(nilcheck)})
+                            xpos = xpos + drs[1] - ox
+                            ypos = ypos + drs[2] - oy
+                        elseif nodename == "nil_bump_branch" then
+                            bumpdir = unit2.values[DIR]
+                            drs = ndirs[bumpdir + 1]
+                            table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            xpos = xpos + drs[1] - ox
+                            ypos = ypos + drs[2] - oy
+                        elseif nodename == "nil_bump_debranch" then
+                            bumpdir = unit2.values[DIR]
+                            drs = ndirs[bumpdir + 1]
+                            table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            xpos = xpos + drs[1] - ox
+                            ypos = ypos + drs[2] - oy
+                        elseif nodename == "nil_bump_spread" then
+                            bumpdir = unit2.values[DIR]
+                            drs = ndirs[bumpdir + 1]
+                            table.insert(nils, unitid2)
+                            nilcheck[dir][unitid2] = true
+                            table.insert(starts, {unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts, {unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            xpos = xpos + drs[1] - ox
+                            ypos = ypos + drs[2] - oy
                         end
                     elseif node_types[unit.strings[UNITNAME]:sub(6, -1)] == 4 then
                         pointedby[unitid2] = pointedby[unitid2] or {}
@@ -512,6 +556,7 @@ function parsearrows(breakunitresult)
         end
     end
 end
+
 
 function getnodename(unit)
     local name = unit.strings[UNITNAME]:sub(6, -1)
