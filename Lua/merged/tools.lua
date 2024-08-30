@@ -304,6 +304,11 @@ function create(name,x,y,dir,oldx_,oldy_,float_,skipundo_,leveldata_,customdata)
 		unitname = "error"
 		MF_alert("Couldn't find object for " .. tostring(name) .. "!")
 	end
+
+	if toometafunc(name) and (not disable_toometa) and (unitreference["toometa"] ~= nil) then
+		unitname = unitreference["toometa"]
+		name = "toometa"
+	end
 	
 	local newunitid = MF_emptycreate(unitname,oldx,oldy)
 	local newunit = mmf.newObject(newunitid)
@@ -1237,9 +1242,6 @@ function getmat(m,checkallunit)
 end
 
 function getmat_text(name)
-	if string.sub(name,1,10) == "text_text_" then
-		name = string.sub(name,6)
-	end
 	local base = unitreference[name]
 	local changed = objectpalette[name]
 
@@ -1878,7 +1880,6 @@ function findall(name_,ignorebroken_,just_testing_)
 		for i,unitid in ipairs(checklist) do
 			local unit = mmf.newObject(unitid)
 			local unitname = getname(unit,meta)
-			print(unitname)
 			
 			local oldbroken = unit.broken
 			if ignorebroken then

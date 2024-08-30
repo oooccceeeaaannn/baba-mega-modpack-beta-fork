@@ -179,10 +179,12 @@ table.insert(mod_hook_functions["always"], writemetalevel)
 
 -- Try to add more metatext if it doesn't exist.
 function tryautogenerate(want, have)
+
 	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
 	if is_str_special_prefix(want) then
 		return false -- fix silly edgecase
-	elseif metatext_autogenerate ~= 0 then
+	else
+		if metatext_autogenerate ~= 0 then
 		if editor_objlist_reference[want] ~= nil then
 			local data = editor_objlist[editor_objlist_reference[want]]
 			local root = data.sprite_in_root
@@ -357,7 +359,8 @@ function tryautogenerate(want, have)
 			return true
 		end
 	end
-	return false
+		return not disable_toometa
+	end
 end
 
 -- Allows metatext to be named in editor.

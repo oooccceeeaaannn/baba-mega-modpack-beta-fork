@@ -1,4 +1,5 @@
 PF_MEGA_MODPACK_INITIALIZED = true
+disable_toometa = false
 
 -- These are initialized in the respective modpacks
 -- table.insert(objlistdata.alltags, "plasma's mods")

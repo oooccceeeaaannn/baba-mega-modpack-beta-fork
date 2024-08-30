@@ -731,8 +731,9 @@ function convert(stuff,mats,dolevels_)
 									objectfound = true
 								end
 
-								if not objectfound and getmetalevel(mat2) > 0 and not disable_toometa then
+								if not objectfound and toometafunc(mat2) and (not disable_toometa) and (unitreference["toometa"] ~= nil) then
 									mat2 = "toometa"
+									objectfound = true
 								end
 								
 								if testcond(conds,unit.fixed) and objectfound then

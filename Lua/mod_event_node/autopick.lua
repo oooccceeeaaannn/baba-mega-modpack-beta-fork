@@ -67,12 +67,6 @@ function editor_autopick(text)
 			prefix = globalprefix
 		end
 
-		if (string.sub(word, 1, #prefix) == prefix) then
-			word = string.sub(word, #prefix)
-		end
-		
-		--word = string.gsub(word, "_", " ")
-
 		for i,v in ipairs(editor_currobjlist) do
 			if (v.name == prefix .. word) then
 				obj = v.object

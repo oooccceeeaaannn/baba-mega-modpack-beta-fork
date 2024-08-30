@@ -1,4 +1,3 @@
-disable_toometa = true
 disable_text_metatext = false
 enable_functional_glyph_text_ = true
 
@@ -2284,36 +2283,18 @@ end
 
 function toometafunc(name)
 	if disable_toometa then return false end
-	if (string.sub(name,1,5) == "text_") then
-		local basefound = foundbasereference(name)
-		local textfound = foundreference(name)
-		if (textfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,6) == "glyph_") then
-		local basefound = foundbasereference(name)
-		local glyphfound = foundreference(name)
-		if (glyphfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,6) == "event_") then
-		local basefound = foundbasereference(name)
-		local glyphfound = foundreference(name)
-		if (glyphfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,5) == "node_") then
-		local basefound = foundbasereference(name)
-		local nodefound = foundreference(name)
-		if (nodefound ~= 1) and (basefound == 1) then
-			return true
-		end
+
+	local basefound = foundbasereference(name)
+	local found = foundreference(name)
+	if (found ~= 1) and (basefound == 1) then
+		return true
 	end
+
 	return false
 end
 
 function foundreference(name)
-	if (name == "text") or (name == "glyph") then
+	if is_str_broad_noun(name) then
 		return 1
 	end
 	if (string.sub(name,1,5) == "text_") then
@@ -2321,28 +2302,18 @@ function foundreference(name)
 			return 1
 		end
 		return 0
-	elseif (string.sub(name,1,6) == "glyph_") then
+	elseif is_str_special_prefixed(name) then
 		if (unitreference[name] ~= nil) then
 				return 1
 			end
-		-- if unitreference[name] ~= nil then
-		-- 	return 1
-		-- end
 		return 0
 	else
-		return objectlist[name]
+		return fullunitlist[name]
 	end
 end
 
 function foundbasereference(name)
-	local base = name
-	if (string.sub(base,1,5) == "text_") or (string.sub(base,1,6) == "glyph_") then
-		if (string.sub(base,1,5) == "text_") then
-			base = string.sub(base, 6)
-		elseif (string.sub(base,1,6) == "glyph_") then
-			base = string.sub(base, 7)
-		end
-	end
+	local base = get_ref(name)
 	return foundreference(base)
 end
 
