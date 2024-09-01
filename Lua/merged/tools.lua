@@ -1263,7 +1263,7 @@ function getname(unit,pname_,pnot_)
 		--Guys I fixed the bug that keeps getting reported
 		pname = ""
 	elseif pnot then
-		if (get_pref(result) ~= get_pref(pname)) then
+		if (get_pref(result) ~= get_pref(pname)) and (string.sub(pname,1,4) ~= "meta") then
 			result = pname
 		end
 	end

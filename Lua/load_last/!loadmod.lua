@@ -4,7 +4,8 @@ local dir = str:match("(.*/)")
 local load_order = {
     "clears + load.lua",
 	"{{mod_injections}}.lua",
-    "z_add_metatext_objects.lua"
+    "z_add_metatext_objects.lua",
+    "test_stuff.lua"
 }
 
 for _, file in ipairs(load_order) do

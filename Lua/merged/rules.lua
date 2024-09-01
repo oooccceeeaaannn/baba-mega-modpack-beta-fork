@@ -2260,7 +2260,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						end
 
 						table.insert(newtags, "visualmimic")
-						table.insert(newtags, "verbtext") --Note: keep as this
+						table.insert(newtags, "verb"..effect)
 
 						local newword1 = target
 						local newword2 = verb
@@ -2359,7 +2359,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 							end
 
 							table.insert(newtags, "visualmimic")
-							table.insert(newtags, "verbtext")
+							table.insert(newtags, "verb"..effect)
 							table.insert(newtags, "verbmeta" .. level)
 
 							local newword1 = target
@@ -2421,7 +2421,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						table.insert(newtags, d)
 					end
 
-					table.insert(newtags, "verbtext")
+					table.insert(newtags, "verb"..reale)
 
 					local newword1 = target
 					local newword2 = verb
@@ -3525,7 +3525,7 @@ function subrules()
 			local visual = true
 			local verbpair = {}
 			for i,v in ipairs(tags) do
-				if v == "text" or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
+				if is_str_notted_broad_noun(v) or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
 					visual = false
 				elseif v == "visualmimic" then
 					visualonly = true
@@ -3554,7 +3554,7 @@ function subrules()
 				local extraconds = {}
 				
 				local valid = true
-				if object == "text" or string.sub(object,1,4) == "meta" then
+				if is_str_broad_noun(object) or string.sub(object,1,4) == "meta" then
 					visualonly = true
 				end
 				
