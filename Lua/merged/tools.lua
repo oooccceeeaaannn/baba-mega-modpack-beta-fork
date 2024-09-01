@@ -1262,11 +1262,13 @@ function getname(unit,pname_,pnot_)
 	if type(pname) ~= "string" then
 		--Guys I fixed the bug that keeps getting reported
 		pname = ""
+	elseif pnot then
+		if (get_pref(result) ~= get_pref(pname)) then
+			result = pname
+		end
 	end
 
 	if (string.sub(result, 1, 5) == "text_") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
-		result = "text"
-	elseif (unit.strings[UNITTYPE] ~= "text") and (string.sub(pname,1,5) == "text_") and (pnot == true) then
 		result = "text"
 	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta")  and (string.sub(pname,1,6) ~= "glyph_") then
 		result = "glyph"

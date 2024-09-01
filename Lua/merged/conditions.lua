@@ -2095,13 +2095,13 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 						--[[ Test most specific to least specific
 						NOUN -> (NOT) META# -> NOT NOUN+TEXT
 						]]
-						if (string.sub(b, 1, 4) == "not ") or b == "text" then
+						if (string.sub(b, 1, 4) == "not ") or is_str_broad_noun(b) then
 							table.insert(params, b)
 						elseif (string.sub(b, 1, 4) == "meta") or (string.sub(b, 1, 8) == "not meta") then
 							local insert = #params
 							if insert < 2 then
 								local param = params[1] or ""
-								if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+								if (not is_str_broad_noun(param)) and (string.sub(param, 1, 4) ~= "not ") then
 									table.insert(params, b)
 								else
 									table.insert(params, 1, b)
@@ -2109,7 +2109,7 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 							else
 								while insert > 1 do
 									local param = params[insert]
-									if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+									if (not is_str_broad_noun(param)) and (string.sub(param, 1, 4) ~= "not ") then
 										break
 									end
 									insert = insert - 1
@@ -2166,13 +2166,13 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 
 							if (mem ~= nil) then
 								for c,d in ipairs(mem) do
-									if notnoun or d == "text" then
+									if notnoun or is_str_broad_noun(d) then
 										table.insert(params, d)
 									elseif (string.sub(d, 1, 4) == "meta") then
 										local insert = #params
 										if insert < 2 then
 											local param = params[1] or ""
-											if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+											if (not is_str_broad_noun(param)) and (string.sub(param, 1, 4) ~= "not ") then
 												table.insert(params, d)
 											else
 												table.insert(params, 1, d)
@@ -2180,7 +2180,7 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 										else
 											while insert > 1 do
 												local param = params[insert]
-												if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+												if (not is_str_broad_noun(param)) and (string.sub(param, 1, 4) ~= "not ") then
 													break
 												end
 												insert = insert - 1

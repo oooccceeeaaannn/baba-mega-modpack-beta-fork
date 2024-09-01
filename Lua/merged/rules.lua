@@ -2130,8 +2130,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		
 		if (targetnot == "not ") and (objectlist[targetnot_] ~= nil) and (string.sub(targetnot_, 1, 5) ~= "group") and (string.sub(effect, 1, 5) ~= "group") and (string.sub(effect, 1, 9) ~= "not group") or (((string.sub(effect, 1, 5) == "group") or (string.sub(effect, 1, 9) == "not group")) and (targetnot_ == "all")) then
 			if (targetnot_ ~= "all") then
-				if (get_pref(targetnot) ~= "") then
-					local pref = get_pref(targetnot)
+				if (get_pref(targetnot_) ~= "") then
+					local pref = get_pref(targetnot_)
 					for i,mat in pairs(fullunitlist) do
 						if (i ~= targetnot_) and (get_pref(i) == pref) then
 							local rule = {i,verb,effect}
@@ -2337,7 +2337,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if (verb == "mimic" or verb == "perform") and (effect == "text" or string.sub(effect,1,4) == "meta") then
+			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or string.sub(effect,1,4) == "meta") then
 				if tonumber(level) ~= nil and tonumber(level) >= -1 then
 					for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 						local metalevel = getmetalevel(a)
