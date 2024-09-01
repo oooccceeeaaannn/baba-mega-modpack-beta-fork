@@ -775,7 +775,7 @@ local function simulate_raycast_with_pnoun(pnoun_unitid, raycast_settings)
                             local ray_unit = mmf.newObject(ray_unitid)
                             local ray_unit_name
                             if ortho_this then
-                                ray_unit_name = getname(ray_unit) -- If the unit is a text block, we want the name to be "text"
+                                ray_unit_name = get_broad_name(ray_unit) -- If the unit is a text block, we want the name to be "text"
                             else
                                 ray_unit_name = ray_unit.strings[UNITNAME]
                             end
@@ -1417,8 +1417,8 @@ local function process_pnoun_features(pnoun_features, feature_extradata, filter_
                             else
                                 local ray_unit = mmf.newObject(ray_unitid)
                                 ray_name = ray_unit.strings[UNITNAME]
-                                if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                                    ray_name = "text"
+                                if ortho_this then
+                                    ray_name = get_broad_name(ray_unit)
                                 end
                             end
 
@@ -1444,8 +1444,8 @@ local function process_pnoun_features(pnoun_features, feature_extradata, filter_
                         else
                             local ray_unit = mmf.newObject(ray_unitid)
                             ray_name = ray_unit.strings[UNITNAME]
-                            if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                                ray_name = "text"
+                            if ortho_this then
+                                ray_name = get_broad_name(ray_unit)
                             end
                         end
 
@@ -1567,8 +1567,8 @@ local function commit_raycast_data(pnoun_unitid, raycast_simulation_data, pnoun_
                 else
                     local ray_unit = mmf.newObject(ray_unitid)
                     local ray_unit_name = ray_unit.strings[UNITNAME]
-                    if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                        ray_unit_name = "text"
+                    if ortho_this then
+                        ray_name = get_broad_name(ray_unit)
                     end
                     has_prop = hasfeature(ray_unit_name, "is", op, ray_unitid)
                     has_not_prop = hasfeature(ray_unit_name, "is", "not "..op, ray_unitid)

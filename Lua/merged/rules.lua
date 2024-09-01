@@ -4082,9 +4082,9 @@ function grouprules()
 		if (string.sub(name_, 1, 4) ~= "not ") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
 			namelist = {name_}
 		elseif (name_ ~= "not all") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
-			if string.sub(name_, 5, 9) == "text_" then --Exceptions for NOT METATEXT and NOT META#
+			if get_pref(get_ref(name_)) ~= "" then --Exceptions for NOT METATEXT and NOT META#
 				for a,b in pairs(fullunitlist) do
-					if (string.sub(a, 1, 5) == "text_") and (a ~= string.sub(name_, 5)) then
+					if (get_pref(a) ~= "") and (a ~= get_ref(name_)) then
 						table.insert(namelist, a)
 					end
 				end
@@ -4174,9 +4174,9 @@ function grouprules()
 						newconds = copyconds(newconds,conds)
 						newconds = copyconds(newconds,gconds)
 
-						if (#prevents == 0) and name_ ~= "text" and string.sub(name_,1,4) ~= "meta" then
+						if (#prevents == 0) and (not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta" then
 							table.insert(combined, {newrule,newconds,newids,newtags})
-						elseif name_ ~= "text" and string.sub(name_,1,4) ~= "meta" then
+						elseif (not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta" then
 							newconds = copyconds(newconds,prevents)
 							table.insert(combined, {newrule,newconds,newids,newtags})
 						end
@@ -4355,14 +4355,14 @@ function grouprules()
 			if (memberships[rule[3]] ~= nil) then
 				for a,b in ipairs(memberships[rule[3]]) do
 					local foundtag = false
-					if metatext_fixquirks and (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write") and b[1] ~= "text" and string.sub(b[1],1,4) ~= "meta" then
+					if metatext_fixquirks and (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "follow") and (not is_str_broad_noun(b[1])) and string.sub(b[1],1,4) ~= "meta" then
 						for num,tag in ipairs(b[3]) do
-							if tag == "text" or string.sub(tag,1,4) == "meta" then
+							if is_str_broad_noun(tag) or string.sub(tag,1,4) == "meta" then
 								foundtag = true
 								break
 							end
 						end
-					elseif (b[1] == "text" or string.sub(b[1],1,4) == "meta") and (rule[2] ~= "become" and rule[2] ~= "has" and rule[2] ~= "make" and rule[2] ~= "write") then
+					elseif (is_str_broad_noun(b[1]) or string.sub(b[1],1,4) == "meta") and (not (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "follow")) then
 						foundtag = true
 					end
 					if not foundtag then

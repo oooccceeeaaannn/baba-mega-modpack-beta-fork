@@ -14,18 +14,8 @@ function getmetadata(unit)
 			local layer = data.layer or 10
 			
 			unit.strings[UNITNAME] = name
-			unit.strings[NAME] = name
-			
-			if (string.sub(name, 1, 5) == "text_") then
-				name = string.sub(name, 6)
-				unit.strings[NAME] = name
-			end
-			
-			-- if (string.sub(name, 1, 6) == "glyph_") then
-			-- 	name = string.sub(name, 7)
-			-- 	unit.strings[NAME] = name
-			-- end
-			
+			unit.strings[NAME] = get_ref(name)
+
 			unit.strings[UNITTYPE] = unittype
 			unit.values[TILING] = tiling
 			unit.values[TYPE] = type
