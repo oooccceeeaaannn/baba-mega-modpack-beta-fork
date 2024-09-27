@@ -760,29 +760,44 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 		local pname = j
 		local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
 		local _params = pname
-		local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+		local unit = mmf.newObject(cdata.unitid)
+		local unitname = "empty"
+		if unit ~= nil then
+			unitname = unit.strings[UNITNAME]
+		end
+
+		if get_pref(unitname) ~= "" then
+			if not is_param_this then
+				return get_ref(unitname) == _params, checkedconds
+			else
+				local ray_exists = false
+				for ray_unitid, _ in pairs(raycast_units) do
+					ray_exists = true
+					local ray_unit = mmf.newObject(ray_unitid)
+					local ray_name = ray_unit.strings[UNITNAME]
+					if not (get_ref(unitname) == ray_name) then return false end
+				end
+				return ray_exists, checkedconds
+			end
+		end
+
 		if not is_param_this then
-			return get_ref(unitname) == _params, checkedconds
+			if hasfeature(unitname, "is", "word", cdata.unitid) and (unitname == _params) then
+				return true, checkedconds
+			elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (unitname == _params) then
+				return true, checkedconds
+			end
 		else
 			local ray_exists = false
 			for ray_unitid, _ in pairs(raycast_units) do
 				ray_exists = true
 				local ray_unit = mmf.newObject(ray_unitid)
 				local ray_name = ray_unit.strings[UNITNAME]
-				if (string.sub(ray_name, 1, 5) == "text_") then
-					ray_name = string.sub(ray_name,6)
+				if not ((hasfeature(unitname,"is","word",ray_unitid) or hasfeature(unitname,"is","symbol",ray_unitid)) and (unitname == ray_name)) then
+					return false, checkedconds
 				end
-				if not (get_ref(unitname) == ray_name) then return false end
 			end
 			return ray_exists, checkedconds
-		end
-
-		if hasfeature(unitname, "is", "word", cdata.unitid) and (unitname == _params) then
-			return true, checkedconds
-		elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (unitname == _params) then
-			return true, checkedconds
-		elseif hasfeature(unitname,"is","object",cdata.unitid) and (unitname == _params) then
-			return true, checkedconds
 		end
 	end
 	return false, checkedconds

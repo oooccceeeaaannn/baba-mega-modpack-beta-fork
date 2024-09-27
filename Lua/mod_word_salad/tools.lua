@@ -27,3 +27,29 @@
 -- OVERRIDE: also keep track of ECHO units
 
 --[[ @Merge: delunit() was merged ]]
+
+-- OVERRIDE: replace "ambient" when looking for units
+function findunits(name,db,conds)
+    local result = db or {}
+
+    if (name ~= "empty") and (name ~= "all") then
+        local checkthese = {}
+        if (name == "ambient") then
+            checkthese = {ws_ambientObject}
+        elseif (string.sub(name, 1, 5) ~= "group") then
+            checkthese = {name}
+        else
+            checkthese = findgroup(name)
+        end
+
+        for a,b in ipairs(checkthese) do
+            if (unitlists[b] ~= nil) then
+                for i,v in ipairs(unitlists[b]) do
+                    table.insert(result, {v, conds})
+                end
+            end
+        end
+    end
+
+    return result
+end

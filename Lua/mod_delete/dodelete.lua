@@ -29,18 +29,6 @@ function colourstring(text_, display_, custom)
         c1, c2 = 0, 3
     end
     local insert = custom or display
-    -- metatext display
-    if true then
-        local textcount = 0
-        insert, textcount = string.gsub(insert, "text_", "")
-        if insert == "" then
-            insert = "text_"
-            textcount = textcount - 1
-        end
-        if textcount > 0 then
-            insert = insert .. "(" .. textcount .. ")"
-        end
-    end
     if (c1 ~= 0 or c2 ~= 3) then
         result = result .. "$" .. c1 .. "," .. c2 .. insert .. "$0,3"
     elseif result ~= "" then
@@ -221,7 +209,7 @@ function rekill()
         local name = getname(unit)
 
         local dead = get_dead_status(name)
-        local referdead = get_dead_status(unit.strings[NAME])
+        local referdead = get_dead_status(get_ref(name))
 
         local dokill = false
         local dotextglitch = false
@@ -248,7 +236,6 @@ function rekill()
                 end
                 table.insert(delthese, unit.fixed)
                 killed = true
-                local firsttime = MF_read("world", "deadunits", "firsttime")
             end
         elseif dotextglitch then
             if MF_keydown("v") and editor.values[INEDITOR] == 1 then
@@ -260,11 +247,9 @@ function rekill()
             end
         end
     end
-    if MF_keydown("v") and editor.values[INEDITOR] == 1 then
-        MF_store("world", "deadunits", "firsttime", 0)
-    end
-
+    GLOBAL_disable_guard_checking = true
     handledels(delthese, false)
+    GLOBAL_disable_guard_checking = false
     undobuffer = {}
     updatecode = 1
     code(true)
@@ -319,14 +304,12 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
     end
     if dead == "yes" then
         option[1] = "$2,2NOT FOUND$0,3"
-        visualonly_ = true
         if notpref then
             option[1] = "not "..option[1]
         end
     end
     if dead2 == "yes" then
         option[3] = "$2,2NOT FOUND$0,3"
-        visualonly_ = true
         if notpref2 then
             option[3] = "not "..option[3]
         end
@@ -413,10 +396,9 @@ function string_to_conds(string)
     return conds
 end
 
-if keys.IS_WORD_GLOSSARY_PRESENT then
+if keys.IS_WORD_GLOSSARY_PRESENT then --@Merge: Word Glossary Support
     keys.WORD_GLOSSARY_FUNCS.register_author("Emily", nil, "$1,4Emily")
     keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
-        -- A more customized word entry for directional you. This has a custom thumbnail, a custom title (display_name), and 4 display sprites for showing the 4 different directions of directional you when viewing the word entry in-game.
         {
             name = "delete",
             thumbnail_obj = "text_delete",

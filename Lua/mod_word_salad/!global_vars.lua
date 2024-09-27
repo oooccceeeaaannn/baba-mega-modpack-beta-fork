@@ -10,3 +10,14 @@ ws_ambientObject = "level"
 -- Global variables to keep track of whether the outer level was aligned
 ws_levelAlignedRow = false
 ws_levelAlignedColumn = false
+
+-- Global table to keep track of what object types where destroyed
+ws_deathCounter = {}
+
+-- Global variable to keep track of the level bungee offset
+ws_levelBungeeOffset = nil
+
+-- Global set to keep track of which units/empties are waiting to be DOMINOed
+ws_pendingDomino,ws_pendingDominoE = {},{}
+-- Global set to keep track of objects that should be temporarily immune to DOMINO (things dropped)
+ws_immuneToDomino={}

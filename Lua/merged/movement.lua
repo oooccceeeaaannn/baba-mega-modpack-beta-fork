@@ -1911,6 +1911,9 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                                                 local weak = hasfeature(name, "is", "weak", data.unitid, x, y)
 
                                                 if (weak ~= nil) and (issafe(data.unitid, x, y) == false) then
+                                                    if domino then
+                                                        ws_doDomino({},{data.unitid},data.unitid)
+                                                    end
                                                     delete(data.unitid, x, y)
                                                     generaldata.values[SHAKE] = 3
 
@@ -1919,16 +1922,17 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
                                                     setsoundname("removal", 1, sound)
                                                     data.moves = 1
 
-                                                    for a, b in ipairs(allobs) do
-                                                        -- EDIT: implement karma for WEAK moving into obstacle
-                                                        if (b ~= 2) and (b ~= -1) and (obslist[a] >= 1) and not ws_isrepent(b, x + ox, y + oy) then
-                                                            -- Blame the solid obstacles (?)
-                                                            ws_setKarma(b)
-                                                        elseif (b == -1) and not hasfeature("level", "is", "repent", 1) then
-                                                            -- Set the level karma to true if the level isn't REPENT
+                                                    for a,b in ipairs(allobs) do -- EDIT: implement karma for WEAK moving into obstacle
+                                                        if (b ~= 2) and (b ~= -1) and (obslist[a] >= 1) and not ws_isrepent(b,x+ox,y+oy) and not ws_pendingDomino[b] then -- Blame the solid obstacles (?)
+                                                            ws_doImmediateKarma(b,x+ox,y+oy)
+                                                        elseif (b == 2) and not ws_pendingDominoE[ws_toTileId(x+ox,y+oy)] then
+                                                            ws_emptyKarma(x+ox,y+oy)
+                                                        elseif (b == -1) and not hasfeature("level","is","repent",1) then -- Set the level karma to true if the level isn't REPENT
                                                             ws_setLevelKarma()
                                                         end
                                                     end
+                                                    ws_deleteDominos()
+                                                    ws_immuneToDomino = {}
                                                 end
                                                 solved = true
                                             end
@@ -2265,6 +2269,8 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
 
     doupdate()
     code()
+    ws_clearMorphData()
+    ws_updateMorphUnits()
     conversion()
     doupdate()
     code()
@@ -2287,7 +2293,7 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
     if (#units > 0) and (no3d == false) then
         local vistest, vt2 = findallfeature(nil, "is", "3d", true)
         if (#vistest > 0) or (#vt2 > 0) then
-            local target = vistest[1] or vt2[1] or vess3d[1] or evess3d[1]
+            local target = vistest[1] or vt2[1]
             visionmode(1)
         elseif (spritedata.values[VISION] == 1) then
             local vistest2 = findfeature(nil, "is", "3d")
@@ -2380,12 +2386,18 @@ function move(unitid, ox, oy, dir, specials_, instant_, simulate_, x_, y_)
                         local effect2 = false
 
                         if (issafe(b, bx, by) == false) then
+                            if ws_isdomino(b,bx,by) then -- EDIT: domino
+                                ws_doDomino({},{b},b)
+                            end
                             delete(b, bx, by)
                             unlocked = true
                             effect1 = true
                         end
 
                         if (issafe(unitid, x, y) == false) then
+                            if ws_isdomino(unitid,x,y) then
+                                ws_doDomino({},{unitid},unitid)
+                            end
                             delete(unitid, x, y)
                             unlocked = true
                             gone = true
@@ -2412,6 +2424,8 @@ function move(unitid, ox, oy, dir, specials_, instant_, simulate_, x_, y_)
                             MF_particles("unlock", x, y, 15 * pmult, 2, 4, 1, 1)
                             generaldata.values[SHAKE] = 8
                         end
+                        ws_deleteDominos()
+                        ws_immuneToDomino = {}
                     end
 
                     if unlocked then
@@ -2420,11 +2434,16 @@ function move(unitid, ox, oy, dir, specials_, instant_, simulate_, x_, y_)
                 elseif (reason == "eat") then
                     -- EDIT: add karma for EAT, unless the eater is REPENT
                     if (b ~= 2) and (unitid ~= 2) and not ws_isrepent(unitid, x, y) then
-                        ws_setKarma(unitid)
+                        ws_doImmediateKarma(unitid,x,y)
+                    elseif (b ~= 2) and (unitid == 2) then
+                        ws_emptyKarma(x,y) -- If the eater is EMPTY, try to kill by karma at the position where the eated object is
                     end
                     local pmult, sound = checkeffecthistory("eat")
                     MF_particles("eat", bx, by, 10 * pmult, 0, 3, 1, 1)
                     generaldata.values[SHAKE] = 3
+                    if ws_isdomino(b,bx,by) then
+                        ws_doDomino({},{b},b)
+                    end
                     delete(b, bx, by)
 
                     setsoundname("removal", 1, sound)
@@ -2436,6 +2455,9 @@ function move(unitid, ox, oy, dir, specials_, instant_, simulate_, x_, y_)
                         delete(b, bx, by)
 
                         setsoundname("removal", 1, sound)
+
+                        ws_deleteDominos()
+                        ws_immuneToDomino = {}
                     end
                 elseif reason == "cut" then
                     if b == 2 then
@@ -3288,6 +3310,7 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 
         local weak = hasfeature(name, "is", "weak", unitid, x_, y_)
         local hop = hasfeature(name, "is", "hop", unitid, x_, y_) or hasfeature(name, "hops", nil, unitid, x_, y_) -- EDIT: check if we need to deal with hop
+        local domino = hasfeature(name,"is","domino",unitid,x_,y_)
 
         local nextPushables = {} -- EDIT: get the pushables in the next tile
 
@@ -3388,6 +3411,9 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
                 hm = 1
 
                 if (weak ~= nil) then
+                    if domino then
+                        ws_doDomino({},{unitid},unitid)
+                    end
                     delete(unitid, x, y)
 
                     local pmult, sound = checkeffecthistory("weak")
@@ -3399,13 +3425,18 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 
                     for a, b in ipairs(hms) do
                         -- EDIT: add karma to obstacles, unless they're REPENT
-                        if (b ~= 2) and (b ~= -1) and (hmlist[a] >= 1) and not ws_isrepent(b, x + ox, y + oy) then
-                            ws_setKarma(b)
+                        if (b ~= 2) and (b ~= -1) and (hmlist[a] >= 1) and not ws_isrepent(b,x+ox,y+oy) and not ws_pendingDomino[b] then
+                            ws_doImmediateKarma(b,x+ox,y+oy)
+                        elseif (b == 2) and not ws_pendingDominoE[ws_toTileId(x+ox,y+oy)] then -- If it bumps into an empty tile, try to apply EMPTY IS KARMA
+                            ws_emptyKarma(x+ox,y+oy)
                         elseif (b == -1) then
                             -- Apparently REPENT already words on level?
                             ws_setLevelKarma()
                         end
                     end
+                    ws_deleteDominos()
+
+                    ws_immuneToDomino = {}
                 elseif hop then
                     -- EDIT: implement HOP/HOPS
                     local canActuallyHop = true -- Pushable objects that are HOP or HOPS something won't jump if they overlap another pushable that can't hop

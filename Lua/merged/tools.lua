@@ -35,6 +35,10 @@ function writerules(parent,name,x_,y_)
 					text = text .. "$3,1(l) "
 				elseif b == "glyphrule" then
 					text = text .. "$3,3(g) "
+				elseif b == "noderule" then
+					text = text .. "$2,4(n) "
+				elseif b == "eventrule" then
+					text = text .. "$5,4(e) "
 				end
 			end
 		end
@@ -50,7 +54,7 @@ function writerules(parent,name,x_,y_)
 				isnot = ""
 			end
 			if (target_ == "ambient") then -- EDIT: implement AMBIENT
-				text = text .. isnot .. target_ .. " (" .. ws_ambientObject .. ") "
+				text = text .. isnot .. ws_ambientObject .. " (a) " --Note: this might be confused with the parsers display
 			else
 				text = text .. target .. " "
 			end
@@ -217,7 +221,7 @@ function writerules(parent,name,x_,y_)
 			if (word_names[target_] ~= nil) then
 				target = isnot .. word_names[target_]
 			elseif (target_ == "ambient") then -- EDIT: implement AMBIENT
-				target = isnot .. target_ .. " (" .. ws_ambientObject .. ")"
+				target = isnot .. ws_ambientObject .. " (a)"
 			end
 			
 			if (#custom == 0) then
@@ -326,7 +330,13 @@ function create(name,x,y,dir,oldx_,oldy_,float_,skipundo_,leveldata_,customdata)
 
 	if customdata ~= nil then
 		persistreverts[id]=customdata[1]
-		newunit.karma=customdata[2]
+		ws_extradata = customdata[2]
+		local karma = ws_extradata.karma
+		local trapped = ws_extradata.trapped
+		local bungee_pos = ws_extradata.bungee_pos
+		newunit.karma = karma
+		newunit.trapped = trapped
+		newunit.bungee_pos = bungee_pos
 	end
 
 	
@@ -433,7 +443,7 @@ function delete(unitid,x_,y_,total_,noinside_)
 				changevisiontarget(unit.fixed)
 			end
 			
-			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,unit.karma},unitid)
+			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,ws_extraData(unit)},unitid)
 			unit = {}
 			delunit(unitid)
 			MF_remove(unitid)
@@ -446,6 +456,7 @@ function delete(unitid,x_,y_,total_,noinside_)
 		end
 		
 		deleted[check] = 1
+		ws_updateDeathCounter(insidename)
 	else
 		MF_alert("already deleted")
 	end
@@ -473,6 +484,8 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 			local target = baserule[1]
 			local verb = baserule[2]
 			local object = baserule[3]
+			-- EDIT: AMBIENT
+			if (object == "ambient") then object = ws_ambientObject end
 			
 			if (target == name) and (verb == "has") and (findnoun(object,nlist.short,true) or (unitreference[object] ~= nil)) then
 				table.insert(ins, {object,conds})
@@ -513,11 +526,15 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 						if (a == object) and (object ~= "empty") then
 							if (object ~= "all") and (string.sub(object, 1, 5) ~= "group") then
 							if unitreference[object] ~= nil then
-								create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+								local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
 								did = true
+								ws_immuneToDomino[newunitid] = true
 							end
 							elseif (object == "all") then
-								createall(v,x,y,unitid,nil,leveldata)
+								local newUnitIds = createall(v,x,y,unitid,nil,leveldata)
+								for _,newunitid in pairs(newUnitIds) do
+									ws_immuneToDomino[newunitid] = true
+								end
 								did = true
 							end
 						end
@@ -525,7 +542,8 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 				if not did and (get_pref(object) ~= "") then
 					did = tryautogenerate(object)
 					if did then
-						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+						local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+						ws_immuneToDomino[newunitid] = true
 					end
 				end
 			end
@@ -540,15 +558,17 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 				for a,mat in pairs(fullunitlist) do -- main change
 					if (a == object) and (object ~= "empty") then
 						if unitreference[object] ~= nil then
-							create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+							local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
 							did = true
+							ws_immuneToDomino[newunitid] = true
 						end
 					end
 				end
 				if not did and (get_pref(object) ~= "") then
 					did = tryautogenerate(object)
 					if did then
-						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+						local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+						ws_immuneToDomino[newunitid] = true
 					end
 				end
 			end
@@ -1061,7 +1081,9 @@ function getlevelsurrounds(levelid)
 	-- EDIT: keep the "sinful" status of a level upon entering
 	ws_wasLevelSinful = level.karma
 	-- EDIT: keep track of what object the current level is for AMBIENT (ideally this should be stored somewhere)
-	ws_ambientObject = getname(level)
+	local thisLevelIs = getname(level)
+	ws_ambientObject = thisLevelIs
+	MF_store("save",level.strings[U_LEVELFILE],"ws_ambient",thisLevelIs)
 	-- EDIT: check if the level is aligned
 	local columnFail, rowFail = false, false -- columnFail = object in different column, rowFail = object in different row
 	for _,u in pairs(unitlists[ws_ambientObject]) do
@@ -1866,7 +1888,8 @@ function findall(name_,ignorebroken_,just_testing_)
 	local meta
 	
 	local checklist = unitlists[name]
-	
+
+	--[[
 	if (name == "text") then
 		checklist = codeunits
 	elseif (name == "glyph") then
@@ -1874,6 +1897,7 @@ function findall(name_,ignorebroken_,just_testing_)
 	end
 
 	if is_str_broad_noun(name) then meta = name end
+	--]]
 
 	local ignorebroken = ignorebroken_ or false
 	local just_testing = just_testing_ or false

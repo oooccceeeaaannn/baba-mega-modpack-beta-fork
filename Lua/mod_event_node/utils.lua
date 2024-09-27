@@ -6,6 +6,10 @@ function table_to_string(tbl)
             result = result.."[\""..k.."\"]".."="
         end
 
+        if type(k) == "number" then
+            result = result.."[\"".. k%100 .."\"]".."="
+        end
+
         -- Check the value type
         if type(v) == "table" then
             result = result..table_to_string(v)

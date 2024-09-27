@@ -138,7 +138,7 @@ local function get_stablerules_from_name(name)
                             meta# - on subrules made by "meta# X Y" 
                             text - on subrules made by "text X Y"
                      ]]
-                    if tag == "stable" or tag == "mimic" or tag == "verbtext" then
+                    if tag == "stable" or tag == "mimic" or string.sub(tag,1,4) == "verb" then
                         copy_this_rule = false
                         break
                     end

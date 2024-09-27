@@ -3,13 +3,19 @@
 function moveblock(onlystartblock_)
 	-- @Mods(Turning Text) - Override reason: directional shift updates the shifted objects direction here
 	local onlystartblock = onlystartblock_ or false
-	
-	local isshift,istele = {},{}
+
+	local isshift,istele,isrescue = {},{},{} -- EDIT: implement RESCUE
 	local isfollow = findfeature(nil,"follow",nil,true)
 	
 	if (onlystartblock == false) then
 		isshift = findallfeature(nil,"is","shift",true)
 		istele = findallfeature(nil,"is","tele",true)
+		isrescue = findallfeature(nil,"is","rescue",true) -- EDIT: implement RESCUE
+		emptyrescue = ws_findEmptiesWithProperty("rescue")
+		isalign_d = findallfeature(nil,"is","aligndown",true) -- EDIT: implement ALIGN
+		isalign_r = findallfeature(nil,"is","alignright",true)
+		isalign_u = findallfeature(nil,"is","alignup",true)
+		isalign_l = findallfeature(nil,"is","alignleft",true)
 		-- NIMI MOD EDIT: make throw objects update their facing later in the turn like shift objects do
 		local isthrow = findallfeature(nil,"is","throw",true)
 		for i,v in ipairs(isthrow) do
@@ -429,7 +435,8 @@ function moveblock(onlystartblock_)
 									end
 								end
 
-								addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,unit.karma})
+								-- EDIT: keep karma, trapped and bungee when undoing
+								addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],ws_extraData(unit)})
 
 								for a,b in ipairs(delname) do
 									MF_alert("added undo for " .. b[1] .. " with ID " .. tostring(b[2]))
@@ -447,6 +454,99 @@ function moveblock(onlystartblock_)
 		end
 
 		doupdate()
+
+
+		-- EDIT: Handle bungee and rescue (bungee has priority over rescue)
+		local isLevelRescue = (hasfeature("level","is","rescue",1) ~= nil)
+		local totalRescue = #isrescue + #emptyrescue
+		local doRescue = totalRescue > 0 or isLevelRescue
+		for _,unit in ipairs(units) do
+			-- Tele back units that aren't bungee anymore
+			if (unit.ws_bungee_pos ~= nil) then
+				local x,y,name,unitid = unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME],unit.fixed
+				local isbungee = hasfeature(name,"is","bungee",unitid,x,y)
+				if (isbungee == nil) then -- If the unit ISN'T bungee, then try to tele back
+					local tileid = unit.ws_bungee_pos
+					local tx,ty = math.floor(tileid % roomsizex), math.floor(tileid / roomsizex)
+					unit.ws_bungee_pos = nil
+					addundo({"ws_bungee_pos",unit.values[ID],tileid}) -- Add undo with previous position
+					local isstill = hasfeature(name,"is","still",unitid,x,y)
+					if (isstill == nil) and (unit.flags[DEAD] == false) then
+						update(unitid,tx,ty)
+						local c1,c2 = getcolour(unitid)
+						local pmult,sound = checkeffecthistory("bungee")
+
+						MF_particles("glow",x,y,3 * pmult,c1,c2,1,1)
+						if (tx ~= x) or (ty ~= y) then
+							MF_particles("glow",tx,ty,3 * pmult,c1,c2,1,1)
+						end
+						setsoundname("turn",6,sound)
+
+						-- Mark object as having teled
+						ws_markAsTeled(unitid)
+					end
+				end
+			end
+			if doRescue and (inbounds(unit.values[XPOS],unit.values[YPOS],1) == false) then
+				local unitid = unit.fixed
+				if isLevelRescue then -- If the level is rescue, tele this unit to a random place
+					local rx,ry = fixedrandom(1,roomsizex-2),fixedrandom(1,roomsizey-2)
+					update(unitid,rx,ry)
+
+					local pmult,sound = checkeffecthistory("rescue")
+					MF_particles("wonder",rx,ry,5 * pmult,1,2,1,1)
+					setsoundname("turn",6,sound)
+					-- Mark object as having teled
+					ws_markAsTeled(unitid)
+				else -- Otherwise, tele this unit to a random RESCUE unit
+					local randomtarget = fixedrandom(1, totalRescue)
+					if (randomtarget <= #isrescue) then
+						local targetrescue = isrescue[randomtarget]
+
+						--[[
+						if (targetrescue == unitid) and (#isrescue == 1) then -- The unit being rescued is the only one being oob, we can skip rescue altogether because units would end oob anyway
+							doRescue = false
+							break
+						end
+						--]]
+
+						local limit = 0
+						while (targetrescue == unitid) and (limit < 10) do
+							randomtarget = fixedrandom(1, #isrescue)
+							targetrescue = isrescue[randomtarget]
+							limit = limit + 1
+						end
+
+						local rescue = mmf.newObject(targetrescue)
+						local rx,ry = rescue.values[XPOS],rescue.values[YPOS]
+
+						update(unitid,rx,ry)
+
+						local pmult,sound = checkeffecthistory("rescue")
+						MF_particles("wonder",rx,ry,5 * pmult,1,2,1,1)
+						setsoundname("turn",6,sound)
+
+						-- Mark object as having teled
+						ws_markAsTeled(unitid)
+					else -- Tele to one of the empties
+						local targetrescue = emptyrescue[randomtarget - #isrescue]
+						local rx,ry = math.floor(targetrescue % roomsizex), math.floor(targetrescue / roomsizex)
+
+						update(unitid,rx,ry)
+
+						local pmult,sound = checkeffecthistory("rescue")
+						MF_particles("wonder",rx,ry,5 * pmult,1,2,1,1)
+						setsoundname("turn",6,sound)
+
+						-- Mark object as having teled
+						ws_markAsTeled(unitid)
+					end
+				end
+			end
+		end
+
+		doupdate()
+		-----------------------------------------------------
 
 		for i,unitid in ipairs(istele) do
 			if (isgone(unitid) == false) then
@@ -541,6 +641,14 @@ function moveblock(onlystartblock_)
 			end
 		end
 
+		-------- Implement ALIGN --------
+		local outerCoords = {}
+
+		ws_doAlign(outerCoords,isalign_d,4)
+		ws_doAlign(outerCoords,isalign_r,2)
+		ws_doAlign(outerCoords,isalign_u,3)
+		ws_doAlign(outerCoords,isalign_l,1)
+		---------------------------------
 
 		if enable_directional_shift then
 			--@Turning Text(shift)
@@ -640,6 +748,25 @@ function block(small_)
 			end
 		end
 
+		--@Merge TODO: add turning fill + align?
+		-------- Implement FILL props --------
+
+		local filledTiles = {}
+		local isfill = getunitswitheffect("fill",false,delthese)
+		local isfill_d = getunitswitheffect("filldown",false,delthese)
+		local isfill_r = getunitswitheffect("fillright",false,delthese)
+		local isfill_u = getunitswitheffect("fillup",false,delthese)
+		local isfill_l = getunitswitheffect("fillleft",false,delthese)
+
+		ws_nondirFill(isfill,filledTiles)
+		ws_doFill(isfill_d,0,1)
+		ws_doFill(isfill_r,1,0)
+		ws_doFill(isfill_u,0,-1)
+		ws_doFill(isfill_l,-1,0)
+
+		-- hell yeah this was easy
+		--------------------------------------
+
 		local ismore = getunitswitheffect("more",false,delthese)
 		--@Turning Text(more)
 		ismore = do_directional_more(ismore, delthese)
@@ -732,7 +859,7 @@ function block(small_)
 	end
 	
 	-- EDIT: Destroy units by KARMA
-	local iskarma = getunitswitheffect("karma",false,delthese) 
+	local iskarma = getunitswitheffect("karma",false,delthese)
 	for id,unit in ipairs(iskarma) do
 		if unit.karma and (issafe(unit.fixed) == false) then
 			local x,y = unit.values[XPOS],unit.values[YPOS]
@@ -744,7 +871,9 @@ function block(small_)
 			table.insert(delthese, unit.fixed)
 		end
 	end
-	
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
+
 	-- EDIT: Implement LEVEL IS ENTER (disabled in the editor)
 	-- LEVEL IS ENTER will attempt to enter the first opened inner level it finds
 	-- Code *HEAVILY* based on the VISIT mod by btd456creeper
@@ -791,7 +920,125 @@ function block(small_)
 	end
 	
 	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
-	
+
+
+	-- EDIT: implement TRAP (mark trapped units)
+	local istrap = getunitswitheffect("trap",false,delthese)
+	for _,unit in ipairs(istrap) do
+		local x,y,trapid = unit.values[XPOS],unit.values[YPOS],unit.fixed
+		local tileid = x + y * roomsizex
+
+		if (unitmap[tileid] ~= nil) then
+			local trapped = findallhere(x,y,trapid)
+			if (#trapped > 0) then
+				for _,b in ipairs(trapped) do
+					if floating(b,trapid,x,y) then
+						bunit = mmf.newObject(b)
+						if not bunit.ws_trapped then -- If the unit isn't already trapped, set it to trapped
+							bunit.ws_trapped = true
+							addundo({"ws_trap",bunit.values[ID],nil})
+							if WS_SHOW_TRAP_PARTICLES then
+								local pmult,sound = checkeffecthistory("trap")
+								MF_particles("glow",x,y,3 * pmult,2,2,1,1)
+							end
+						end
+
+						-- Mark object as being trapped this turn
+						if (objectdata[b] == nil) then
+							objectdata[b] = {}
+						end
+						local odata = objectdata[b]
+						odata.ws_trapped = 1
+					end
+				end
+			end
+		end
+	end
+
+	local trapverbs = getunitswithverb("traps")
+	for _,ugroup in ipairs(trapverbs) do
+		if (ugroup[3] ~= "empty") then
+			local target = ugroup[1]
+			for _,trapUnit in ipairs(ugroup[2]) do
+
+				local x,y = trapUnit.values[XPOS],trapUnit.values[YPOS]
+				local tileid = x + y * roomsizex
+
+				if (unitmap[tileid] ~= nil) then
+					if (#unitmap[tileid] > 1) then
+						for _,b in ipairs(unitmap[tileid]) do
+							if (b ~= trapUnit.fixed) and floating(b,trapUnit.fixed,x,y) then
+								local bunit = mmf.newObject(b)
+								if (getname(bunit) == target) then -- The current unit is the target of TRAPS
+									if not bunit.ws_trapped then -- If the unit wasn't already trapped, set it to trapped
+										bunit.ws_trapped = true
+										addundo({"ws_trap",bunit.values[ID],nil})
+										if WS_SHOW_TRAP_PARTICLES then
+											local pmult,sound = checkeffecthistory("trap")
+											MF_particles("glow",x,y,3 * pmult,2,2,1,1)
+										end
+									end
+
+									-- Mark object as being trapped this turn
+									if (objectdata[b] == nil) then
+										objectdata[b] = {}
+									end
+									local odata = objectdata[b]
+									odata.ws_trapped = 1
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	-------------------------------------------------------------
+
+	-------- Implement FOLD variants --------
+
+	local toFold = {} -- Set to keep track of what units are getting folded (prevents objects dying multiple times if they're folding in more directions)
+	local toKarma = {} -- Set to keep track of which units will be affected by karma
+	local eToFold, eToKarma = {}, {} -- Same as above, but for empties
+
+	local isfold_d, efold_d = getunitswitheffect("folddown",false,delthese), ws_findEmptiesWithProperty("folddown")
+	local isfold_r, efold_r = getunitswitheffect("foldright",false,delthese), ws_findEmptiesWithProperty("foldright")
+	local isfold_u, efold_u = getunitswitheffect("foldup",false,delthese), ws_findEmptiesWithProperty("foldup")
+	local isfold_l, efold_l = getunitswitheffect("foldleft",false,delthese), ws_findEmptiesWithProperty("foldleft")
+
+	-- Handle units
+	toFold,removalshort,removalsound,toKarma = ws_doFold(isfold_d,0,1,toFold,removalshort,removalsound,toKarma)
+	toFold,removalshort,removalsound,toKarma = ws_doFold(isfold_r,1,0,toFold,removalshort,removalsound,toKarma)
+	toFold,removalshort,removalsound,toKarma = ws_doFold(isfold_u,0,-1,toFold,removalshort,removalsound,toKarma)
+	toFold,removalshort,removalsound,toKarma = ws_doFold(isfold_l,-1,0,toFold,removalshort,removalsound,toKarma)
+
+	-- Handle empties
+	eToFold,eToKarma = ws_doEmptyFold(efold_d,0,1,eToFold,eToKarma)
+	eToFold,eToKarma = ws_doEmptyFold(efold_r,1,0,eToFold,eToKarma)
+	eToFold,eToKarma = ws_doEmptyFold(efold_u,0,-1,eToFold,eToKarma)
+	eToFold,eToKarma = ws_doEmptyFold(efold_l,-1,0,eToFold,eToKarma)
+
+	-- Remove things that are getting destroyed by FOLD
+	for b,_ in pairs(toFold) do
+		toKarma[b] = nil
+		table.insert(delthese,b)
+	end
+	for eTile,pDir in pairs(eToFold) do
+		eToKarma[eTile] = nil
+		ws_deleteEmptyFold(eTile,pDir.dx,pDir.dy)
+	end
+
+	-- Apply karma to whatever remains
+	for b,_ in pairs(toKarma) do
+		ws_setKarmaOrDestroy(nil,nil,b,delthese,removalshort,removalsound)
+	end
+	for eTile,_ in pairs(eToKarma) do
+		ws_emptyKarma(ws_fromTileId(eTile))
+	end
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
+	-------------------------------------------------------------
+
 	local isplay = getunitswithverb("play",delthese)
 	
 	for id,ugroup in ipairs(isplay) do
@@ -825,7 +1072,7 @@ function block(small_)
 		end
 	end
 	
-	if (generaldata.strings[WORLD] == "museum") then
+	if (true) then
 		local ishold = getunitswitheffect("hold",false,delthese)
 		local holders = {}
 		
@@ -1329,7 +1576,7 @@ function block(small_)
 								removalsound = 9
 								table.insert(delthese, unit.fixed)
 								-- @mods(extrem x word salad) Hey you! Don't think you can just toxic other objects
-								-- and get around like that!
+								-- and get away like that!
 								delthese,removalshort,removalsound = ws_karma(x,y,"toxic",unit.fixed,delthese,removalshort,removalsound)
 								break
 							end
@@ -1360,7 +1607,7 @@ function block(small_)
 								removalsound = 9
 								table.insert(delthese, unit.fixed)
 								-- @mods(extrem x word salad) Hey you! Don't think you can just volt other objects
-								-- and get around like that!
+								-- and get away like that!
 								ws_setKarma(d)
 								break
 							end
@@ -1725,7 +1972,208 @@ function block(small_)
 	end
 	
 	delthese,doremovalsound = handledels(delthese,doremovalsound)
-	
+
+	-- EDIT: implement BANG
+	local isbang,ebang = getunitswitheffect("bang",false,delthese), ws_findEmptiesWithProperty("bang")
+	local wasshot = {}
+	local hasshot,ehasshot = {}, {}
+
+	for _,unit in ipairs(isbang) do
+		if (hasshot[unit.fixed] == nil) then
+			hasshot[unit.fixed] = true -- Prevents stacked BANG exponentiating the number of shot stuff
+			local x,y,dir,name = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],getname(unit)
+			if (dir == 4) then
+				dir = fixedrandom(0,3)
+			end
+			local count = hasfeature_count(name,"is","bang",unit.fixed,x,y)
+
+			local ndrs = ndirs[dir + 1]
+			local ox,oy = ndrs[1],ndrs[2]
+
+			local c1,c2 = getcolour(unit.fixed)
+			ws_spawnSideParticle("hot", x,y, 0,math.random(1,3), 1, ox,oy, 0.1, 1, 0.25)
+			ws_spawnSideParticle("eat", x-ox*0.1,y-oy*0.1, c1,c2, 2, ox,oy, 0.45, 1, 0.3)
+
+			local totalTargets = 0
+			local checkX,checkY = x+ox, y+oy
+			local foundSafe = false
+
+			while totalTargets < count do
+				if foundSafe then -- We found a safe unit in the previous step, we can't shoot further
+					ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.5)
+					ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.3)
+					break
+				end
+
+				if (inbounds(checkX,checkY,1) == false) then -- We hit the level border
+					ws_spawnSideParticle("eat",checkX,checkY,0,math.random(1,3),1,-ox,-oy,0.5)
+					ws_spawnSideParticle("eat",checkX,checkY,1,math.random(0,1),1,-ox,-oy,0.3)
+					break
+				end
+
+				local tileid = checkX + checkY * roomsizex
+				if (unitmap[tileid] ~= nil) then -- This tile may contain stuff
+					local allTargets = findallhere(checkX,checkY)
+
+					if (#allTargets > 0) then
+						for _,b in ipairs(allTargets) do
+							-- local bunit = mmf.newObject(b)
+							-- local bname = getname(bunit)
+							if floating(b,unit.fixed,checkX,checkY) then -- Ignore floating units
+								if issafe(b) then -- Remember that we found a safe unit (prevents shots from going further)
+									foundSafe = true
+								elseif wasshot[b] == nil then -- The unit wasn't shot yet
+									-- Destroy this thing
+									generaldata.values[SHAKE] = 4
+									table.insert(delthese, b)
+
+									wasshot[b] = true
+
+									local pmult,sound = checkeffecthistory("bang")
+									local c1,c2 = getcolour(b)
+									ws_bangDestructionParticles(checkX,checkY,c1,c2,ox,oy, 1 + 5 * pmult)
+									-- MF_particles("eat",checkX,checkY,5 * pmult,0,3,1,1)
+									removalshort = sound
+									removalsound = 1
+
+									totalTargets = totalTargets + 1
+								end
+							end
+
+							if (totalTargets >= count) then break end -- Stop iterating through the units on the tile, we have shot enough stuff
+						end
+					end
+				end
+
+				checkX,checkY = checkX + ox, checkY + oy
+			end
+
+			-- If this unit shot something, add karma
+			if totalTargets > 0 then
+				delthese,removalshort,removalsound = ws_setKarmaOrDestroy(x,y,unit.fixed,delthese,removalshort,removalsound) -- This already checks for REPENT
+			end
+
+		end
+	end
+
+	-- Do EMPTY IS BANG (possibly move part of this code in a helper function?)
+	for _,emptyid in ipairs(ebang) do
+		if (ehasshot[emptyid] == nil) then
+			ehasshot[emptyid] = true -- Prevents stacked BANG exponentiating the number of shot stuff
+			local x,y = ws_fromTileId(emptyid)
+			local dir = emptydir(x,y)
+			if (dir == 4) then
+				dir = fixedrandom(0,3)
+			end
+			local count = hasfeature_count("empty","is","bang",2,x,y)
+
+			local ndrs = ndirs[dir + 1]
+			local ox,oy = ndrs[1],ndrs[2]
+
+			ws_spawnSideParticle("hot", x,y, 0,math.random(1,3), 1, ox,oy, 0.1, 1, 0.25)
+			ws_spawnSideParticle("eat", x-ox*0.1,y-oy*0.1, 0,2, 2, ox,oy, 0.45, 1, 0.2)
+
+			local totalTargets = 0
+			local checkX,checkY = x+ox, y+oy
+			local foundSafe = false
+
+			while totalTargets < count do
+				if foundSafe then -- We found a safe unit in the previous step, we can't shoot further
+					ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.5)
+					ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.3)
+					break
+				end
+
+				if (inbounds(checkX,checkY,1) == false) then -- We hit the level border
+					ws_spawnSideParticle("eat",checkX,checkY,0,math.random(1,3),1,-ox,-oy,0.5)
+					ws_spawnSideParticle("eat",checkX,checkY,1,math.random(0,1),1,-ox,-oy,0.3)
+					break
+				end
+
+				local tileid = checkX + checkY * roomsizex
+				if (unitmap[tileid] ~= nil) then -- This tile may contain stuff
+					local allTargets = findallhere(checkX,checkY)
+
+					if (#allTargets > 0) then
+						for _,b in ipairs(allTargets) do
+							if floating(b,2,checkX,checkY,x,y) then -- Ignore floating units
+								if issafe(b) then -- Remember that we found a safe unit (prevents shots from going further)
+									foundSafe = true
+								elseif wasshot[b] == nil then -- The unit wasn't shot yet
+									-- Destroy this thing
+									generaldata.values[SHAKE] = 4
+									table.insert(delthese, b)
+
+									wasshot[b] = true
+
+									local pmult,sound = checkeffecthistory("bang")
+									local c1,c2 = getcolour(b)
+									ws_bangDestructionParticles(checkX,checkY,c1,c2,ox,oy, 1 + 5 * pmult)
+									removalshort = sound
+									removalsound = 1
+
+									totalTargets = totalTargets + 1
+								end
+							end
+
+							if (totalTargets >= count) then break end -- Stop iterating through the units on the tile, we have shot enough stuff
+						end
+					end
+				end
+
+				checkX,checkY = checkX + ox, checkY + oy
+			end
+
+			-- If this unit shot something, add karma
+			if totalTargets > 0 then
+				ws_emptyKarma(x,y)
+			end
+
+		end
+	end
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
+
+	-- EDIT: handle trapped units
+	for _,unit in ipairs(units) do
+		if unit.ws_trapped then
+			local shouldDestroy = false
+			local id = unit.fixed
+			if (objectdata[id] == nil) then -- DESTROY
+				shouldDestroy = true
+			else
+				local odata = objectdata[id]
+				if (odata.ws_trapped ~= 1) then
+					shouldDestroy = true
+				end
+			end
+
+			if shouldDestroy then
+				local x,y = unit.values[XPOS],unit.values[YPOS]
+				if (issafe(id) == false) then
+					table.insert(delthese, id)
+
+					local pmult,sound = checkeffecthistory("trap")
+					removalshort = sound
+					removalsound = 1
+					local c1,c2 = getcolour(id)
+					MF_particles("unlock",x,y,6 * pmult,c1,c2,1,1)
+					generaldata.values[SHAKE] = 4
+				else -- The unit was SAFE, so we can remove the trapped status
+					unit.ws_trapped = nil
+					addundo({"ws_trap",unit.values[ID],true})
+					if WS_SHOW_TRAP_PARTICLES then
+						local pmult,sound = checkeffecthistory("trap")
+						MF_particles("glow",x,y,3 * pmult,5,4,1,1)
+					end
+				end
+			end
+		end
+	end
+
+	delthese,doremovalsound = handledels(delthese,doremovalsound)
+	--------
+
 	if (small == false) then
 		local ismake = getunitswithverb("make",delthese)
 		
@@ -1809,7 +2257,8 @@ function block(small_)
 								local thing = mmf.newObject(b)
 								local thingname = thing.strings[UNITNAME]
 								
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text") and (unit.strings[UNITTYPE] ~= "text" or thingname == "text_" .. name)) or "meta"..getmetalevel(thingname) == v) then
+								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((v == get_broaded_str(thingname)) and ((get_broaded_str(unit.strings[UNITNAME]) ~= v)
+										or (is_str_broad_noun(v) and thingname == v .. "_" .. name))) or "meta"..getmetalevel(thingname) == v) then
 									domake = false
 								end
 							end
@@ -1933,6 +2382,8 @@ function block(small_)
 					dir = emptydir(x,y)
 				end
 
+				local hastext = false
+
 				for i, j in ipairs(buildthese) do
 					if j == "text" or j == "not all" then
 						table.insert(buildthese, {"text_" .. name})
@@ -1979,7 +2430,7 @@ function block(small_)
 
 					if domake then
 						for i, j in ipairs(buildthese) do
-							if j ~= "text" and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
+							if (not is_str_broad_noun(j)) and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
 								create(j,x,y,dir,x,y,nil,nil,leveldata)
 								if is_str_special_prefixed(j) then
 									updatecode = 1
@@ -2047,7 +2498,7 @@ function block(small_)
 								local thing = mmf.newObject(b)
 								local thingname = thing.strings[UNITNAME]
 
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
+								if (thing.flags[CONVERTED] == false) and ((thingname == v)) then
 									domake = false
 								end
 							end
@@ -2111,7 +2562,7 @@ function block(small_)
 								local thing = mmf.newObject(b)
 								local thingname = thing.strings[UNITNAME]
 
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
+								if (thing.flags[CONVERTED] == false) and ((thingname == v)) then
 									domake = false
 								end
 							end
@@ -2374,16 +2825,29 @@ function levelblock()
 		local lstill = isstill_or_locked(1,nil,nil,mapdir)
 		local lsleep = issleep(1)
 		local lsafe = issafe(1)
-		local lkarma = hasfeature("level","is","karma",1) or false -- EDIT: check if the level is karma or repent
+		local lkarma = hasfeature("level","is","karma",1) or false -- EDIT: check if the level is karma, repent or bungee
 		local lrepent = hasfeature("level","is","repent",1) or false
+		local lbungee = hasfeature("level","is","bungee",1) or false
 		local emptybonus = false
 		local emptydone = false
-		
+
 		local ewintiles = {}
 		local eendtiles = {}
-		
+
 		local levelteledone = 0
-		
+
+		-- EDIT: implement BUNGEE for outer level
+		if not lbungee and (ws_levelBungeeOffset ~= nil) then
+			local newX, newY = ws_levelBungeeOffset.x, ws_levelBungeeOffset.y
+			ws_levelBungeeOffset = nil
+			addundo({"ws_level_bungee", { x = newX; y = newY }}) -- Add undo with previous position
+			if (lstill == false) then
+				addundo({"levelupdate",Xoffset,Yoffset,newX,newY,mapdir,mapdir})
+				MF_scrollroom(newX - Xoffset,newY - Yoffset)
+			end
+			updateundo = true
+		end
+
 		if (#emptythings > 0) then
 			for i=1,roomsizex-2 do
 				for j=1,roomsizey-2 do
@@ -2793,15 +3257,36 @@ function levelblock()
 			local donenum = math.random(1,4)
 			MF_playsound("done" .. tostring(donenum))
 		end
-		
+
+		-- EDIT: DOMINO
+		local dontDominoThese, dontDominoTheseE = {},{}
+		for _,b in ipairs(delthese) do
+			dontDominoThese[b] = true
+		end
+		for _,b in ipairs(edelthese) do
+			dontDominoTheseE[ws_toTileId(b[1],b[2])] = true
+		end
+
 		for a,b in ipairs(delthese) do
 			local bunit = mmf.newObject(b)
+			if hasfeature(getname(bunit),"is","domino",b) then
+				ws_doDomino({},dontDominoThese,b,nil,nil,dontDominoTheseE)
+			end
 			delete(b,bunit.values[XPOS],bunit.values[YPOS])
 		end
-		
+
 		for a,b in ipairs(edelthese) do
-			delete(2,b[1],b[2])
+			local ex,ey = b[1],b[2]
+			if (ws_pendingDominoE[ws_toTileId(ex,ey)] == nil) then -- EDIT: only delete empties that haven't been dominoed
+				if hasfeature("empty","is","domino",2,ex,ey) then
+					ws_doDomino({},dontDominoThese,2,ex,ey,dontDominoTheseE)
+				end
+				delete(2,ex,ey)
+			end
 		end
+
+		ws_deleteDominos()
+		ws_immuneToDomino = {}
 		
 		if (#ewintiles > 0) then
 			for a,b in ipairs(ewintiles) do
@@ -2832,7 +3317,9 @@ function levelblock()
 				end
 			end
 		end
-		
+
+		local hasshot = false -- EDIT: prevent BANG being repeated too often
+
 		if (#things > 0) then
 			for i,rules in ipairs(things) do
 				local rule = rules[1]
@@ -3389,18 +3876,28 @@ function levelblock()
 							end
 						end
 					end
-					
+
+					local dontDominoThese = {}
+					for _,b in ipairs(delthese) do
+						dontDominoThese[b] = true
+					end
+
 					for a,b in ipairs(eaten) do
 						local bunit = mmf.newObject(b)
 						local x,y = bunit.values[XPOS],bunit.values[YPOS]
 						generaldata.values[SHAKE] = 4
 						
-						local pmult,sound = checkeffecthistory("sink")
-						MF_particles("destroy",i,j,1,0,3,1,1)
+						local pmult,sound = checkeffecthistory("eat")
+						MF_particles("eat",x,y,5 * pmult,0,3,1,1)
 						setsoundname("removal",1,sound)
-						
+
+						if hasfeature(getname(bunit),"is","domino",b) then
+							ws_doDomino({},dontDominoThese,b)
+							ws_deleteDominos()
+						end
 						delete(b,x,y)
 					end
+					ws_immuneToDomino = {}
 				end
 				
 				if (rule[1] == "level") and (rule[2] == "is") and testcond(conds,1) then
@@ -3512,6 +4009,10 @@ function levelblock()
 								
 								if (#allbonus > 0) then
 									local destroyedSomething = false -- EDIT: add karma when level collects bonus
+									local dontDominoThese = {} --TODO: nodonimo is set repeatly whenever level destroys sth. add for other words
+									for _,b in ipairs(allbonus) do
+										dontDominoThese[b] = true
+									end
 									for c,d in ipairs(allbonus) do
 										if (issafe(d) == false) and floating_level(d) then
 											local unit = mmf.newObject(d)
@@ -3522,10 +4023,15 @@ function levelblock()
 											canbonus = true
 											generaldata.values[SHAKE] = 2
 											setsoundname("removal",2,sound)
+											if hasfeature(getname(unit),"is","domino",d) then
+												ws_doDomino({},dontDominoThese,d)
+												ws_deleteDominos()
+											end
 											delete(d)
 											destroyedSomething = true
 										end
 									end
+									ws_immuneToDomino = {}
 										
 									if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 										local is_guarded = ack_endangered_unit(level_obj)
@@ -3595,6 +4101,10 @@ function levelblock()
 									
 									if (#allyous > 0) then -- EDIT: set level karma when destroying something (LEVEL IS DEFEAT)
 										local destroyedSomething = false
+										local dontDominoThese = {}
+										for _,d in ipairs(allyous) do
+											dontDominoThese[d] = true
+										end
 										for c,d in ipairs(allyous) do
 											if (issafe(d) == false) and floating_level(d) then
 												destroyedSomething = true
@@ -3604,9 +4114,14 @@ function levelblock()
 												MF_particles("destroy",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,3,1,1)
 												setsoundname("removal",1,sound)
 												generaldata.values[SHAKE] = 2
+												if hasfeature(getname(unit),"is","domino",d) then
+													ws_doDomino({},dontDominoThese,d)
+													ws_deleteDominos()
+												end
 												delete(d)
 											end
 										end
+										ws_immuneToDomino = {}
 										
 										if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 											local is_guarded = ack_endangered_unit(level_obj)
@@ -3648,6 +4163,10 @@ function levelblock()
 								
 								if (#allmelts > 0) then -- EDIT: set level karma when destroying something (LEVEL IS HOT)
 									local destroyedSomething = false
+									local dontDominoThese = {}
+									for _,d in ipairs(allmelts) do
+										dontDominoThese[d] = true
+									end
 									for c,d in ipairs(allmelts) do
 										if (issafe(d) == false) and floating_level(d) then
 											destroyedSomething = true
@@ -3657,9 +4176,14 @@ function levelblock()
 											MF_particles("smoke",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,1,1,1)
 											generaldata.values[SHAKE] = 2
 											setsoundname("removal",9,sound)
+											if hasfeature(getname(unit),"is","domino",d) then
+												ws_doDomino({},dontDominoThese,d)
+												ws_deleteDominos()
+											end
 											delete(d)
 										end
 									end
+									ws_immuneToDomino = {}
 									
 									if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 										if lkarma and (lsafe == false) then
@@ -3729,6 +4253,117 @@ function levelblock()
 								ws_setLevelKarma()
 							end
 						end
+						-- EDIT: implement "LEVEL IS FOLD" (destroy if the surrounds contain another of this level ambient in the given direction)
+					elseif (action == "folddown") then
+						if (lsafe == false) and ws_doLevelFold("d") then
+							return
+						end
+					elseif (action == "foldright") then
+						if (lsafe == false) and ws_doLevelFold("r") then
+							return
+						end
+					elseif (action == "foldup") then
+						if (lsafe == false) and ws_doLevelFold("u") then
+							return
+						end
+					elseif (action == "foldleft") then
+						if (lsafe == false) and ws_doLevelFold("l") then
+							return
+						end
+						-- EDIT: implement "level is bang"
+					elseif (action == "bang") and not hasshot then
+						hasshot = true
+						local destroyedSomething = false
+						local wasshot = {}
+						local dir = mapdir or 0 -- THIS MIGHT BE nil ??????
+						local count = hasfeature_count("level","is","bang",1)
+
+						local ndrs = ndirs[dir + 1]
+						local ox,oy = ndrs[1],ndrs[2]
+
+						local repeatTimes = roomsizex - 2
+						if (oy == 0) then
+							repeatTimes = roomsizey - 2
+						end
+
+						for i=1,repeatTimes do
+							local x,y
+							if (ox == 0) then -- Level is vertical
+								x = i
+								if (oy == 1) then y = 0 else y = roomsizey - 1 end
+							else
+								y = i
+								if (ox == 1) then x = 0 else x = roomsizex - 1 end
+							end
+
+							ws_spawnSideParticle("hot", x,y, 1,math.random(0,1), 1, ox,oy, 0.1, 1, 0.25)
+							ws_spawnSideParticle("bling", x-ox*0.1,y-oy*0.1, 1,0, 2, ox,oy, 0.45, 1, 0.2)
+
+							local totalTargets = 0
+							local foundSafe = false
+							local checkX,checkY = x+ox, y+oy
+
+							while totalTargets < count do
+								if foundSafe then -- We found a safe unit in the previous step, we can't shoot further
+									ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.5)
+									ws_spawnSideParticle("eat",checkX-ox,checkY-oy,0,math.random(1,3),1,-ox,-oy,0.3)
+									break
+								end
+
+								if (inbounds(checkX,checkY,1) == false) then -- We hit the level border
+									ws_spawnSideParticle("eat",checkX,checkY,0,math.random(1,3),1,-ox,-oy,0.5)
+									ws_spawnSideParticle("eat",checkX,checkY,1,math.random(0,1),1,-ox,-oy,0.3)
+									break
+								end
+
+								local tileid = checkX + checkY * roomsizex
+								if (unitmap[tileid] ~= nil) then -- This tile may contain stuff
+									local allTargets = findallhere(checkX,checkY)
+
+									if (#allTargets > 0) then
+										for _,b in ipairs(allTargets) do
+											-- local bunit = mmf.newObject(b)
+											-- local bname = getname(bunit)
+											if floating_level(b) then -- Ignore floating units
+												if issafe(b) then -- Remember that we found a safe unit (prevents shots from going further)
+													foundSafe = true
+												elseif wasshot[b] == nil then -- The unit wasn't shot yet
+													-- Destroy this thing
+													generaldata.values[SHAKE] = 4
+
+													wasshot[b] = true
+
+													local pmult,sound = checkeffecthistory("bang")
+													local c1,c2 = getcolour(b)
+													ws_bangDestructionParticles(checkX,checkY,c1,c2,ox,oy, 1 + 5 * pmult)
+													setsoundname("turn",1,sound)
+
+													totalTargets = totalTargets + 1
+
+													delete(b)
+													deleted[b] = 1
+													destroyedSomething = true
+												end
+											end
+
+											if (totalTargets >= count) then break end -- Stop iterating through the units on the tile, we have shot enough stuff
+										end
+									end
+								end
+
+								checkX,checkY = checkX + ox, checkY + oy
+							end
+						end
+
+						if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
+							if lkarma and (lsafe == false) then
+								destroylevel()
+								return
+							else
+								ws_setLevelKarma()
+							end
+						end
+						---------------------------------
 					elseif (action == "open") then
 						local shuts = findfeature(nil,"is","shut")
 						
@@ -3767,6 +4402,10 @@ function levelblock()
 						end
 						
 						if (#openthese > 0) then
+							local dontDominoThese = {}
+							for _,d in ipairs(openthese) do
+								dontDominoThese[d] = true
+							end
 							if not lrepent then
 								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS OPEN) if level isn't REPENT
 							end
@@ -3779,10 +4418,15 @@ function levelblock()
 								local pmult,sound = checkeffecthistory("unlock")
 								setsoundname("turn",7,sound)
 								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
-								
+
+								if hasfeature(getname(bunit),"is","domino",b) then
+									ws_doDomino({},dontDominoThese,b)
+									ws_deleteDominos()
+								end
 								delete(b)
 								deleted[b] = 1
 							end
+							ws_immuneToDomino = {}
 						end
 						
 						if (#findallfeature("empty","is","shut") > 0) and floating_level(2) and (lsafe == false) then
@@ -3830,6 +4474,10 @@ function levelblock()
 						end
 						
 						if (#openthese > 0) then
+							local dontDominoThese = {}
+							for _,d in ipairs(openthese) do
+								dontDominoThese[d] = true
+							end
 							if not lrepent then
 								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS SHUT) if level isn't REPENT
 							end
@@ -3842,10 +4490,15 @@ function levelblock()
 								local pmult,sound = checkeffecthistory("unlock")
 								setsoundname("turn",7,sound)
 								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
-								
+
+								if hasfeature(getname(bunit),"is","domino",b) then
+									ws_doDomino({},dontDominoThese,b)
+									ws_deleteDominos()
+								end
 								delete(b)
 								deleted[b] = 1
 							end
+							ws_immuneToDomino = {}
 						end
 						
 						if (#findallfeature("empty","is","open") > 0) and floating_level(2) and (lsafe == false) then
@@ -3877,8 +4530,12 @@ function levelblock()
 						end
 						
 						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS SINK) if level isn't REPENT
+							local dontDominoThese = {}
+							for _,d in ipairs(openthese) do
+								dontDominoThese[d] = true
+							end
 							if not lrepent then
-							ws_setLevelKarma()
+								ws_setLevelKarma()
 							end
 							generaldata.values[SHAKE] = 3
 							
@@ -3890,10 +4547,15 @@ function levelblock()
 								setsoundname("removal",3,sound)
 								local c1,c2 = getcolour(b)
 								MF_particles("destroy",bx,by,15 * pmult,c1,c2,1,1)
-								
+
+								if hasfeature(getname(bunit),"is","domino",b) then
+									ws_doDomino({},dontDominoThese,b)
+									ws_deleteDominos()
+								end
 								delete(b)
 								deleted[b] = 1
 							end
+							ws_immuneToDomino = {}
 						end
 					elseif (action == "boom") then
 						local openthese = {}
@@ -3917,8 +4579,12 @@ function levelblock()
 						end
 						
 						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS BOOM) if level isn't REPENT
+							local dontDominoThese = {}
+							for _,d in ipairs(openthese) do
+								dontDominoThese[d] = true
+							end
 							if not lrepent then
-							ws_setLevelKarma()
+								ws_setLevelKarma()
 							end
 							generaldata.values[SHAKE] = 3
 							
@@ -3929,10 +4595,15 @@ function levelblock()
 								local pmult,sound = checkeffecthistory("boom")
 								setsoundname("removal",1,sound)
 								MF_particles("smoke",bx,by,15 * pmult,0,2,1,1)
-								
+
+								if hasfeature(getname(bunit),"is","domino",b) then
+									ws_doDomino({},dontDominoThese,b)
+									ws_deleteDominos()
+								end
 								delete(b)
 								deleted[b] = 1
 							end
+							ws_immuneToDomino = {}
 						end
 					elseif (action == "cut") then
 						handle_level_cutting()
@@ -4486,6 +5157,48 @@ function levelblock()
 		if unlocked then
 			setsoundname("turn",7)
 		end
+
+		-- Store the positions of BUNGEE objects and level
+		if lbungee and (ws_levelBungeeOffset == nil) then
+			ws_levelBungeeOffset = { x = Xoffset; y = Yoffset }
+			addundo({"ws_level_bungee",nil}) -- Add undo with previous position as "nil"
+			-- Spawn some particles!!
+			for i=0,roomsizex-1 do
+				if (math.random(3) == 1) then
+					ws_spawnStaticParticle("unlock", i,0, 2,3, 1)
+				end
+				if (math.random(3) == 1) then
+					ws_spawnStaticParticle("unlock", i,roomsizey-1, 2,3, 1)
+				end
+			end
+			for j=1,roomsizey-2 do
+				if (math.random(3) == 1) then
+					ws_spawnStaticParticle("unlock", 0,j, 2,3, 1)
+				end
+				if (math.random(3) == 1) then
+					ws_spawnStaticParticle("unlock", roomsizex-1,j, 2,3, 1)
+				end
+			end
+			updateundo = true
+		end
+
+
+		isbungee = findallfeature(nil,"is","bungee",true) -- EDIT: implement BUNGEE
+		for _,unitid in ipairs(isbungee) do
+			local unit = mmf.newObject(unitid)
+			if (unit.ws_bungee_pos == nil) and (isgone(unitid) == false) then -- If the unit doesn't have a bungee position stored yet
+				local x,y = unit.values[XPOS],unit.values[YPOS]
+				local tileid = x + y * roomsizex
+				unit.ws_bungee_pos = tileid
+				addundo({"ws_bungee_pos",unit.values[ID],nil}) -- Add undo with previous position as "nil"
+
+				local c1,c2 = getcolour(unitid)
+				local pmult,sound = checkeffecthistory("unlock")
+
+				MF_particles("unlock",x,y,5 * pmult,c1,c2,1,1)
+			end
+		end
+		------------
 	end
 	
 	if (#units >= unitlimit) then
@@ -4809,7 +5522,15 @@ function startblock(light_)
 			end
 		end
 	end
-	
+
+	-- EDIT: level bungee
+	if (featureindex["level"] ~= nil) then
+		local lbungee = hasfeature_count("level","is","bungee",1)
+		if (lbungee ~= nil) then
+			ws_levelBungeeOffset = { x = Xoffset; y = Yoffset }
+		end
+	end
+
 	if (light == false) and (featureindex["level"] ~= nil) then
 		MF_levelrotation(0)
 		maprotation = 0
@@ -4862,6 +5583,7 @@ function startblock(light_)
 			
 			--local isfollow = xthis(unitrules,name,"follow")
 			local isfloat = isthis(unitrules,"float")
+			local isbungee = isthis(unitrules,"bungee") -- EDIT: bungee
 			local sleep = isthis(unitrules,"sleep")
 			--local ismake = xthis(unitrules,name,"make")
 			
@@ -4889,6 +5611,11 @@ function startblock(light_)
 			
 			if isfloat then
 				unit.values[FLOAT] = 1
+			end
+
+			-- EDIT: bungee
+			if isbungee then
+				unit.ws_bungee_pos = ws_toTileId(unit.values[XPOS],unit.values[YPOS])
 			end
 			
 			if sleep then

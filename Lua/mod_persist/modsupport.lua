@@ -190,7 +190,7 @@ function findpersists(reason)
 		local x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
 		local name = getname(unit)
 		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
-		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),unit.karma}}
+		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),ws_extraData(unit)}}
 
 		local stableunit_entry = get_persist_stablestate_info(unit.fixed)
 		if stableunit_entry then

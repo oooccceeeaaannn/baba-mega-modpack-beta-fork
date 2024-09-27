@@ -445,7 +445,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 			end
 		end
 	elseif (type == 1) then
@@ -493,7 +493,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 			end
 		elseif prev == "notverb" then
 			table.insert(nextrule, "not "..string.sub(name, 7))
@@ -524,7 +524,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 			end
 		end
 	elseif (type == 3) then

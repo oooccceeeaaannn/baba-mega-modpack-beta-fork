@@ -2063,7 +2063,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					addedto[condname] = 1
 				end
 				
-				if (cond[2] ~= nil and condname ~= "stable" and condname ~= "refers") then
+				if (cond[2] ~= nil and condname ~= "stable") then
 					if (#cond[2] > 0) then
 						local newconds = {}
 						
@@ -2084,6 +2084,17 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 								else
 									table.insert(newconds, b)
 								end
+								-- EDIT: ambient in conditions???
+							elseif (b == "ambient") then
+									if (alreadyused[ws_ambientObject] == nil) then
+										alreadyused[ws_ambientObject] = 1
+										table.insert(newconds, ws_ambientObject)
+									end
+							elseif (b == "not ambient") then
+									if (alreadyused["not "..ws_ambientObject] == nil) then
+										alreadyused["not "..ws_ambientObject] = 1
+										table.insert(newconds, "not "..ws_ambientObject)
+									end
 							elseif (b ~= "all") and (b ~= "not all") then
 								alreadyused[b] = 1
 								table.insert(newconds, b)
@@ -2592,7 +2603,7 @@ function code(alreadyrun_)
 			breakunits,breakidentifier,breakrelatedunits = findbreakunits()
 			local breakunitresult = {}
 
-			if (#breakunits > 0) then
+			if (#(breakunits or {}) > 0) then
 				for i,v in ipairs(breakunits) do
 					if testcond(v[2],v[1]) then
 						breakunitresult[v[1]] = 1
@@ -3319,7 +3330,7 @@ function postrules(alreadyrun_)
 						  	  or ((targetrule[2] == "write") and (string.sub(object, 1, 4) ~= "not "))
 							  or ((targetrule[2] == "log") and (string.sub(object, 1, 4) ~= "not ")))
 						  and ((getmat(object) ~= nil) or is_str_special_prefixed(object) or (object == "level") or (object == "empty")
-						  	  or (object == "revert")
+						  	  or (object == "revert") or (object == "morph")
 						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))
 						  	  or ((targetrule[2] == "write" or targetrule[2] == "draw") and (string.sub(object, 1, 4) ~= "not "))
 							  or (object == "meta") or (object == "mega")
@@ -4079,9 +4090,9 @@ function grouprules()
 		local name_ = rule[1]
 		local namelist = {}
 
-		if (string.sub(name_, 1, 4) ~= "not ") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
+		if (string.sub(name_, 1, 4) ~= "not ") and (metatext_fixquirks or ((not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta")) then
 			namelist = {name_}
-		elseif (name_ ~= "not all") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
+		elseif (name_ ~= "not all") and (metatext_fixquirks or ((not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta")) then
 			if get_pref(get_ref(name_)) ~= "" then --Exceptions for NOT METATEXT and NOT META#
 				for a,b in pairs(fullunitlist) do
 					if (get_pref(a) ~= "") and (a ~= get_ref(name_)) then

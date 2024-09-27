@@ -27,6 +27,8 @@ function dolevelconversions()
 
 			if (op == "write") or (op == "draw") then
 				mat2 = "text_" .. matdata[1]
+			elseif (op == "log") then
+				mat2 = "logic_" .. matdata[1]
 			end
 			
 			if (op == "inscribe") then
@@ -48,6 +50,11 @@ function dolevelconversions()
 			elseif (mat2 == "error") and testcond(conds,1) then
 				destroylevel()
 			elseif (mat2 == "revert") then
+				objectfound = true
+			end
+
+			if toometafunc(mat2) and (unitreference["toometa"] ~= nil)  then
+				mat2 = "toometa"
 				objectfound = true
 			end
 			
@@ -198,7 +205,7 @@ function doconvert(data,extrarule_)
 	
 	if (unitid ~= 2) then
 		unit = mmf.newObject(unitid)
-		x,y,dir,name,id,completed,ogname = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.strings[UNITNAME],unit.values[ID],unit.values[COMPLETED],unit.originalname -- EDIT: Set karma flag for the new unit
+		x,y,dir,name,id,completed,ogname,morphTargets = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.strings[UNITNAME],unit.values[ID],unit.values[COMPLETED],unit.originalname,ws_getMorphOdata(unitid) -- EDIT: Set karma flag for the new unit
 		persistrevert = nil
 		if persistreverts ~= nil then
 			persistrevert = persistreverts[id]
@@ -209,6 +216,7 @@ function doconvert(data,extrarule_)
 	cdata[1] = name
 	
 	if (style == "convert") then
+		local hasMorphed = false
 		for a,mats2data in ipairs(mats2) do
 			local mat2 = mats2data[1]
 			local ingameid = mats2data[2]
@@ -243,9 +251,20 @@ function doconvert(data,extrarule_)
 				MF_alert("Trying to revert empty")
 				return
 			end
-		
-			if (mat2 ~= "empty") and (mat2 ~= "error") and (mat2 ~= "revert") and (mat2 ~= "createall") then
-				if (mats2data[1] ~= "revert") then
+
+			if (mat2 == "morph") and (unitid ~= 2) and not hasMorphed then -- If "morph" was added to mat2, then the previously overlapping list exists and isn't empty
+				for obj,_ in pairs(morphTargets) do
+					table.insert(mats2, {obj,newid(),unitid})
+				end
+				--ws_morphPrevious[unitid] = nil
+				hasMorphed = true
+			elseif (mat2 == "morph") and (unitid == 2) then
+				-- Whoops, it seems you're trying to morph empty!!
+				return -- too bad
+			end
+
+			if (mat2 ~= "empty") and (mat2 ~= "error") and (mat2 ~= "revert") and (mat2 ~= "createall") and (mat2 ~= "morph") then
+				if (mats2data[1] ~= "revert") and (mats2data[1] ~= "morph") then
 					unitname = unitreference[mat2]
 				end
 				
@@ -274,7 +293,9 @@ function doconvert(data,extrarule_)
 				newunit.strings[COLOUR] = unit.strings[COLOUR]
 				newunit.strings[CLEARCOLOUR] = unit.strings[CLEARCOLOUR]
 
-				newunit.karma = unit.karma -- EDIT: keep karma after a conversion
+				newunit.karma = unit.karma -- EDIT: keep karma + bungee pos after a conversion
+				newunit.ws_trapped = unit.ws_trapped
+				newunit.ws_bungee_pos = unit.ws_bungee_pos
 				
 				if (unitname == "level") then
 					newunit.values[COMPLETED] = math.max(completed, 1)
@@ -550,7 +571,7 @@ function doconvert(data,extrarule_)
 		end
 		
 		if delthis and (unit.flags[DEAD] == false) then
-			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,unit.karma}) -- EDIT: keep karma when undoing
+			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,ws_extraData(unit)}) -- EDIT: keep karma, trapped, bungee when undoing
 			
 			if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node" or isglyph(unit)) or (unit.strings[UNITTYPE] == "logic") then
 				updatecode = 1
@@ -696,6 +717,7 @@ function convert(stuff,mats,dolevels_)
 					local name = getname(unit)
 					
 					local reverting = false
+					local morphing = false -- EDIT: implement MORPH (happens after revert)
 					local mats2 = {}
 
 					if (unit.flags[CONVERTED] == false) then
@@ -714,7 +736,7 @@ function convert(stuff,mats,dolevels_)
 								mat2 = "glyph_" .. matdata[1]
 							end
 							
-							if (reverting == false) then
+							if (reverting == false) and (morphing == false) then -- EDIT: implement MORPH
 								local objectfound = false
 								
 								if (unitreference[mat2] ~= nil) and (mat2 ~= "level") then
@@ -731,7 +753,7 @@ function convert(stuff,mats,dolevels_)
 									objectfound = true
 								end
 
-								if not objectfound and toometafunc(mat2) and (not disable_toometa) and (unitreference["toometa"] ~= nil) then
+								if toometafunc(mat2) and (unitreference["toometa"] ~= nil) then
 									mat2 = "toometa"
 									objectfound = true
 								end
@@ -749,6 +771,13 @@ function convert(stuff,mats,dolevels_)
 											reverting = true	
 										end
 									end
+
+									-- EDIT: implement MORPH
+									if (mat2 == "morph") then
+										if (#ws_getMorphOdata(unit.fixed) > 0) then
+											morphing = true
+										end
+									end
 									
 									persistrevert = nil
 									if persistreverts ~= nil then
@@ -758,7 +787,7 @@ function convert(stuff,mats,dolevels_)
 										reverting = true
 									end
 									
-									if (mat2 ~= "revert") or ((mat2 == "revert") and reverting) then
+									if (mat2 ~= "revert") or ((mat2 == "revert") and reverting) or ((mat2 == "morph") and morphing) then
 										table.insert(mats2, {mat2,ingameid,id})
 										unit.flags[CONVERTED] = true
 									end
@@ -812,8 +841,6 @@ function convert(stuff,mats,dolevels_)
 								mat2 = "text_" .. matdata[1]
 							elseif (op == "log") then
 								mat2 = "logic_" .. matdata[1]
-							elseif (mat2 == "_") and (op == "is") then
-								mat2 = "empty_empty"
 							end
 
 							if (op == "inscribe") then
@@ -832,7 +859,12 @@ function convert(stuff,mats,dolevels_)
 										objectfound = true
 									end
 								end
-							elseif (mat2 ~= "revert") then
+							elseif (mat2 ~= "revert") and (mat2 ~= "morph") then
+								objectfound = true
+							end
+
+							if toometafunc(mat2) and (unitreference["toometa"] ~= nil) then
+								mat2 = "toometa"
 								objectfound = true
 							end
 
@@ -900,8 +932,9 @@ function conversion(dolevels_)
 					or (thing == "mena")
 					or (thing == "unmena")
 					or (thing == "unmexa")
+					or (thing == "morph")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
-				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
+				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name) or getmat_text(name)))
 			  or ((operator == "inscribe")
 			    and (getmat("glyph_" .. name) or getmat(name)))
 					or (thing == "infect") or (operator == "draw") or ((operator == "log") and (getmat("logic_" .. name) ~= nil))
@@ -918,7 +951,7 @@ function conversion(dolevels_)
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_broad_noun(object) and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
+								if not is_str_broad_noun(object) and (object ~= "morph") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
 										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})

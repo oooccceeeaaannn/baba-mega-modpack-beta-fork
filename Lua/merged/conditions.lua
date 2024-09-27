@@ -990,8 +990,8 @@ condlist.without = function(params,checkedconds,checkedconds_,cdata)
 					
 					for c,d in pairs(unitlists) do
 						if (c ~= pname) and (#unitlists[c] > 0) and (
-						(findnoun(c,nlist.short) == false and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta")
-						or (string.sub(pname,1,5) == "text_" and string.sub(c,1,5) == "text_")
+						(findnoun(c,nlist.short) == false and get_pref(pname) == "" and string.sub(pname,1,4) ~= "meta")
+						or (get_pref(pname) ~= get_pref(c))
 						or (string.sub(pname,1,4) == "meta" and string.sub(c,1,4) == "meta" and (metatext_includenoun or c ~= "meta-1"))
 						) then
 							for e,f in ipairs(d) do

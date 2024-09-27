@@ -2282,7 +2282,7 @@ local function getmetas(x,y)
 end
 
 function toometafunc(name)
-	if disable_toometa then return false end
+	if disable_toometa or (metatext_autogenerate ~= 0) then return false end
 
 	local basefound = foundbasereference(name)
 	local found = foundreference(name)
@@ -2308,7 +2308,8 @@ function foundreference(name)
 			end
 		return 0
 	else
-		return fullunitlist[name]
+		if fullunitlist[name] == nil then return 0 end
+		return 1
 	end
 end
 

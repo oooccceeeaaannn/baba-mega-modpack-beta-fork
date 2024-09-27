@@ -303,6 +303,7 @@ function parsearrows(breakunitresult)
     end
     local totalruns = 0
     while #starts ~= 0 do
+        print("== Start of run ==")
         totalruns = totalruns + 1
         if totalruns > 500 then
             print("Total runs exceeded 500")
@@ -337,12 +338,14 @@ function parsearrows(breakunitresult)
                         end
                         local nodename = unit2.strings[UNITNAME]:sub(6, -1)
                         if nodename == "nil" then
+                            nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
                             nilcheck[dir][unitid2] = true
                         elseif nodename == "nil_perp" then
+                            nilcheck[dir][unitid2] = true
                             dir = (unit2.values[DIR] + 1) % 4
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
@@ -350,6 +353,7 @@ function parsearrows(breakunitresult)
                             nilcheck[dir][unitid2] = true
                             table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_branch" then
+                            nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
@@ -357,6 +361,7 @@ function parsearrows(breakunitresult)
                             nilcheck[dir][unitid2] = true
                             table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_debranch" then
+                            nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
@@ -364,11 +369,11 @@ function parsearrows(breakunitresult)
                             nilcheck[dir][unitid2] = true
                             table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_spread" then
+                            nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
                             ox,oy = drs[1],drs[2]
                             table.insert(nils, unitid2)
-                            nilcheck[dir][unitid2] = true
                             table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
                             table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
                         elseif nodename == "nil_bump" then
@@ -1261,12 +1266,12 @@ function event_code()
             --WE DID IT
             if verb[2] == "" then
                 if string.sub(verb[1], 1, 4) ~= "not " then
-                    addoption({j, "is", verb[1]},conds,ids, true)
+                    addoption({j, "is", verb[1]},conds,ids, true,nil,{"eventrule"})
                 else
                     if never_opposites[verb[1]] ~= nil then
-                        addoption({j, "is", never_opposites[verb[1]]},conds,ids, true)
+                        addoption({j, "is", never_opposites[verb[1]]},conds,ids, true,nil,{"eventrule"})
                     else
-                        addoption({j, "is", verb[1]},conds,ids, true)
+                        addoption({j, "is", verb[1]},conds,ids, true,nil,{"eventrule"})
                     end
                 end
             else
@@ -1275,28 +1280,28 @@ function event_code()
                     if verb[1] == "move" then
                         if string.sub(k, 1, 4) ~= "not " then
                             if k ~= "forward" then
-                                addoption({j, "is", "nudge" .. k},conds,ids, true)
+                                addoption({j, "is", "nudge" .. k},conds,ids, true,nil,{"eventrule"})
                             else
-                                addoption({j, "is", "auto"},conds,ids, true)
+                                addoption({j, "is", "auto"},conds,ids, true,nil,{"eventrule"})
                             end
                         else
-                            addoption({j, "is", "locked" .. string.sub(k, 5)},conds,ids, true)
+                            addoption({j, "is", "locked" .. string.sub(k, 5)},conds,ids, true,nil,{"eventrule"})
                         end
                     elseif verb[1] == "turn" then
                         if k ~= "aroundleft" and k ~= "aroundright" then
-                            addoption({j, "is", k},conds,ids, true)
+                            addoption({j, "is", k},conds,ids, true,nil,{"eventrule"})
                         else
                             if k == "aroundleft" then
-                                addoption({j, "is", "turn"},conds,ids, true)
+                                addoption({j, "is", "turn"},conds,ids, true,nil,{"eventrule"})
                             else
-                                addoption({j, "is", "deturn"},conds,ids, true)
+                                addoption({j, "is", "deturn"},conds,ids, true,nil,{"eventrule"})
                             end
                         end
                     elseif verb[1] == "be" then
-                        addoption({j, "is", k},conds,ids, true)
+                        addoption({j, "is", k},conds,ids, true,nil,{"eventrule"})
                     else
                         if string.sub(k, 1, 4) ~= "not " then
-                            addoption({j, verb[1], k},conds,ids, true)
+                            addoption({j, verb[1], k},conds,ids, true,nil,{"eventrule"})
                         end
                     end
                 end
@@ -1576,7 +1581,7 @@ function find_event_targets(x, y, eventname, havenot_)
 end
 
 function checkbreakchanges(unitid,unitname)
-    if (#breakunits > 0) then
+    if (#(breakunits or {}) > 0) then
         for i,v in ipairs(breakunits) do
             if (v[1] == unitid) then
                 updatecode = 1
@@ -1585,7 +1590,7 @@ function checkbreakchanges(unitid,unitname)
         end
     end
 
-    if (#breakrelatedunits > 0) then
+    if (#(breakrelatedunits or {}) > 0) then
         for i,v in ipairs(breakrelatedunits) do
             if (v[1] == unitid) then
                 updatecode = 1

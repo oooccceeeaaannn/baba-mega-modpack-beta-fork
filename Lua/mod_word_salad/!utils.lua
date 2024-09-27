@@ -77,34 +77,335 @@ letterunits.lua
 
 -- ========== OVERRIDDEN FUNCTIONS ==========]]
 
--- TODO list:
----- improve handling of karma units (add a map to keep track of which unitids have karma?)
----- fix ECHO bugs (ECHOing letters sometimes disables parsing, cannot ECHO multiple words in the same spot at once)
-
--- Change the name of ALIGNEDX and ALIGNEDY in the rule list
-word_names["alignedx"] = "x-aligned"
-word_names["alignedy"] = "y-aligned"
-
 -- Set the initial karma value of the outer level
-table.insert(mod_hook_functions["level_start"],
-    function()
-		if (editor.values[E_INEDITOR] == 0 and WS_KEEP_LEVEL_KARMA) then -- We probably don't want to keep the karma status when entering a level from the editor
-			levelKarma = ws_wasLevelSinful 
-		else
-			levelKarma = false
-		end
+mod_hook_functions["level_start"]["word_salad"] = function()
+	if (editor.values[E_INEDITOR] == 0 and WS_KEEP_LEVEL_KARMA) then -- We probably don't want to keep the karma status when entering a level from the editor
+		levelKarma = ws_wasLevelSinful
+	else
+		levelKarma = false
 	end
-)
+	ws_levelBungeeOffset = nil
+	ws_deathCounter = {}
+	ws_pendingDomino,ws_pendingDominoE = {},{}
+	if (ws_ambientObject == nil) or (ws_ambientObject == "") then
+		timedmessage("Couldn't find ambient value, fallback to level (this message shouldn't appear!)",0,0)
+		ws_ambientObject = "level"
+		MF_store("save",generaldata.strings[CURRLEVEL],"ws_ambient","level")
+	end
+end
 
 -- Clear the "Was level sinful" value when ending a level (we can't do that in the level start hook, because it's also called when restarting!)
-table.insert(mod_hook_functions["level_end"],
-				function()
-					ws_wasLevelSinful = false
-					ws_levelAlignedRow=false
-					ws_levelAlignedColumn=false
-					ws_ambientObject = "level"
+mod_hook_functions["level_end"]["word_salad"] = function()
+	ws_wasLevelSinful = false
+	ws_levelAlignedRow = false
+	ws_levelAlignedColumn = false
+	ws_ambientObject = "level"
+end
+
+mod_hook_functions["rule_baserules"]["word_salad"] = function()
+	ws_ambientObject = MF_read("save",generaldata.strings[CURRLEVEL],"ws_ambient")
+	if (ws_ambientObject == nil) or (ws_ambientObject == "") then
+		ws_ambientObject = "level"
+		MF_store("save",generaldata.strings[CURRLEVEL],"ws_ambient","level")
+	end
+end
+
+mod_hook_functions["always"]["word_salad"] = function()
+	if generaldata.values[MODE] == 0 and generaldata2.values[INPAUSEMENU] ~= 1 and ws_showDebugParticles() then
+		local mouse_x, mouse_y = MF_mouse()
+		MF_letterclear("ws_text")
+
+		local level_mouse_x = mouse_x - Xoffset
+		local level_mouse_y = mouse_y - Yoffset
+		local tile_scale = (f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT])
+		local grid_x = math.floor(level_mouse_x / tile_scale)
+		local grid_y = math.floor(level_mouse_y / tile_scale)
+		local mouse_tileid = grid_x + grid_y * roomsizex
+
+		if(unitmap[mouse_tileid] ~= nil) then
+			for _,id in ipairs(unitmap[mouse_tileid]) do
+				local targetUnit = mmf.newObject(id)
+
+				-- Karma debug particles
+				if WS_DISPLAY_KARMA_DEBUG then
+					local karma,x,y = targetUnit.karma,targetUnit.values[XPOS],targetUnit.values[YPOS]
+					if (karma == nil) then
+						MF_particles("glow",x,y,1,4,4,1,1) -- Blue particles if karma status is nil
+					elseif (karma == false) then
+						MF_particles("glow",x,y,1,5,4,1,1) -- Green particles if karma status is false
+					else
+						MF_particles("glow",x,y,1,2,2,1,1) -- Red particles if karma status is true
+					end
 				end
-)
+
+				-- Trapped debug particles
+				if WS_DISPLAY_TRAPPED_DEBUG then
+					local trapped,x,y = targetUnit.ws_trapped,targetUnit.values[XPOS],targetUnit.values[YPOS]
+					if (trapped == nil) then
+						MF_particles("wonder",x,y,1,4,4,1,1) -- Blue particles if trapped status is nil
+					elseif (trapped == false) then
+						MF_particles("wonder",x,y,1,5,4,1,1) -- Green particles if trapped status is false
+					else
+						MF_particles("wonder",x,y,1,2,2,1,1) -- Red particles if trapped status is true
+					end
+				end
+
+				-- Bungee position marker particles
+				if WS_DISPLAY_BUNGEE_POSITION and targetUnit.visible then
+					local bungeePosition = targetUnit.ws_bungee_pos
+					if (bungeePosition ~= nil) then
+						local tx,ty = math.floor(bungeePosition % roomsizex), math.floor(bungeePosition / roomsizex)
+						local c1,c2 = getcolour(id)
+						ws_spawnStaticParticle("unlock",tx,ty,c1,c2,1)
+					end
+				end
+
+				-- Code to display AMBIENT and MISSING info (courtesy of PlasmaFlare!)
+				if not (generaldata2.values[INPAUSEMENU] == 1) then
+					if WS_DISPLAY_AMBIENT_VALUE and targetUnit.strings[UNITNAME] == "text_ambient" and targetUnit.visible then
+						local x,y = targetUnit.x,targetUnit.y
+						local y_offset = 0
+
+						for outline_x = -2, 2, 2 do
+							for outline_y = -2, 2, 2 do
+								writetext(ws_ambientObject,-1, x + outline_x, y + outline_y - tile_scale, "ws_text", true, 2, true, {4,0})
+							end
+						end
+						writetext(ws_ambientObject,-1, x, y - tile_scale,"ws_text",true,2,true,{4,2})
+					end
+					if WS_DISPLAY_MISSING_TABLE and targetUnit.strings[UNITNAME] == "text_missing" and targetUnit.visible then
+						local x,y = targetUnit.x,targetUnit.y
+						local nothingWasDestroyed = true
+						local line = 0
+						for name,amount in pairs(ws_deathCounter) do
+							nothingWasDestroyed = false
+							for outline_x = -2, 2, 2 do
+								for outline_y = -2, 2, 2 do
+									writetext(name..": "..tostring(amount),-1, x + outline_x, y + outline_y - tile_scale + line, "ws_text", true, 2, true, {2,0})
+								end
+							end
+							writetext(name..": "..tostring(amount),-1, x, y - tile_scale + line,"ws_text",true,2,true,{2,2})
+
+							line = line + 20
+						end
+						if nothingWasDestroyed then
+							for outline_x = -2, 2, 2 do
+								for outline_y = -2, 2, 2 do
+									writetext("Nothing has been destroyed",-1, x + outline_x, y + outline_y - tile_scale, "ws_text", true, 2, true, {2,0})
+								end
+							end
+							writetext("Nothing has been destroyed",-1, x, y - tile_scale,"ws_text",true,2,true,{2,2})
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+-------- HELPER FUNCTIONS --------
+-- Helper functions to convert x,y <--> tileid
+function ws_toTileId(x, y)
+	return x + y * roomsizex
+end
+
+function ws_fromTileId(tileid)
+	return tileid % roomsizex, math.floor(tileid / roomsizex)
+end
+
+
+-- Stores extra data of a unit (karma, trapped status and bungee position) in a map, to pass to the "remove" undo. For some reasons directly passing karma when it's nil causes problems when undoing
+function ws_extraData(unit)
+	local result = {}
+	result.karma = unit.karma
+	result.trapped = unit.ws_trapped
+	result.bungee_pos = unit.ws_bungee_pos
+	return result
+end
+
+-- Whether hovering with the mouse on a unit should show particles for karma/trapped/bungee values
+function ws_showDebugParticles()
+	return WS_DISPLAY_KARMA or WS_DISPLAY_TRAPPED or WS_DISPLAY_BUNGEE_POSITION
+end
+
+function ws_markAsTeled(unitid)
+	if (objectdata[unitid] == nil) then
+		objectdata[unitid] = {}
+	end
+
+	local odata = objectdata[unitid]
+	odata.tele = 1
+end
+
+-- Helper function to find all empties with a given property (for example rescue), because i have no idea how to extract the empties from findallfeature3
+function ws_findEmptiesWithProperty(property)
+	local group = findfeature("empty","is",property)
+	local empty = {}
+	local foundEmpties = {}
+
+	if (group ~= nil) then
+		for i,v in ipairs(group) do
+			if (v[1] == "empty") then
+				local conds = v[2]
+				local needstest = false
+				local testbroken = false
+				local valid = true
+
+				if (#conds > 0) and ((conds[1] ~= nil) and (conds[1][1] ~= "never")) then
+					needstest = true
+				elseif (#conds > 0) and ((conds[1] ~= nil) and (conds[1][1] == "never")) then
+					valid = false
+				end
+
+				if (featureindex["broken"] ~= nil) then
+					testbroken = true
+				end
+
+				if valid then
+					for a=1,roomsizex-2 do
+						for b=1,roomsizey-2 do
+							local tileid = a + b * roomsizex
+
+							if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) then
+								valid = true
+								if testbroken then
+									local brok = isitbroken("empty",2,a,b)
+
+									if (brok == 1) then
+										valid = false
+									end
+								end
+
+								if valid then
+									if (needstest == false) then
+										foundEmpties[tileid] = true
+									else
+										if testcond(conds,2,a,b,nil,nil,checkedconds) then
+											foundEmpties[tileid] = true
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	for id,_ in pairs(foundEmpties) do
+		table.insert(empty,id)
+	end
+
+	return empty
+end
+
+-- Helper function to spawn a still particle in a tile, used to debug bungee
+function ws_spawnStaticParticle(particle,x,y,c1,c2,layer)
+	local zoom = generaldata2.values[ZOOM]
+	local partid = MF_particle(particle,x,y,c1,c2,layer)
+	if (partid ~= nil) and (partid ~= 0) then
+		local part = mmf.newObject(partid)
+
+		part.values[ONLINE] = 2
+		local midx = math.floor(roomsizex * 0.5)
+		local midy = math.floor(roomsizey * 0.5)
+		local mx = x + 0.5 - midx
+		local my = y + 0.5 - midy
+
+		local dir = 0 - math.atan2(my, mx)
+		local dist = math.sqrt(my ^ 2 + mx ^ 2)
+		local roomrad = math.rad(generaldata2.values[ROOMROTATION])
+
+		mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+		my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+
+		part.x = mx + math.random() * zoom * tilesize * 0.8 - 0.4 * zoom * tilesize
+		part.y = my + math.random() * zoom * tilesize * 0.8 - 0.4 * zoom * tilesize
+		part.values[XPOS] = part.x
+		part.values[YPOS] = part.y
+	end
+end
+
+-- Helper function to spawn a still particle on the side of a tile, used by BANG
+function ws_spawnSideParticle(particle,x,y,c1,c2,layer,ox,oy,velocity,count_,spread_)
+	local zoom = generaldata2.values[ZOOM]
+	local count = count_ or 1
+	local spread = spread_ or 1
+	for i = 1,count do
+		local partid = MF_particle(particle,x,y,c1,c2,layer)
+		if (partid ~= nil) and (partid ~= 0) then
+			local part = mmf.newObject(partid)
+
+			part.values[ONLINE] = 2
+			local midx = math.floor(roomsizex * 0.5)
+			local midy = math.floor(roomsizey * 0.5)
+			local mx = x + 0.5 + (0.5 * ox) - midx
+			local my = y + 0.5 + (0.5 * oy) - midy
+
+			local sx,sy = 1 - math.abs(ox), 1 - math.abs(oy) -- x and y spreads
+
+			local dir = - math.atan2(my, mx)
+			local dist = math.sqrt(my ^ 2 + mx ^ 2)
+			local roomrad = math.rad(generaldata2.values[ROOMROTATION])
+
+			mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+			my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+
+			part.x = mx + math.random() * zoom * tilesize * spread * sx - 0.5 * zoom * tilesize * sx * spread
+			part.y = my + math.random() * zoom * tilesize * spread * sy - 0.5 * zoom * tilesize * sy * spread
+			part.values[XPOS] = part.x
+			part.values[YPOS] = part.y
+
+			part.values[XVEL] = ox * 8 * velocity * math.random()
+			part.values[YVEL] = oy * 8 * velocity * math.random()
+		end
+	end
+end
+
+function ws_bangDestructionParticles(x,y,c1_,c2_,ox,oy,count)
+	local zoom = generaldata2.values[ZOOM]
+	for i = 1,count do
+		local particle = "eat"
+		local c1,c2 = c1_,c2_
+		if (i == 1) then
+			c1 = 0
+			c2 = math.random(1,3)
+		end
+		if (i <= 2) then
+			particle = "hot"
+		end
+
+		local partid = MF_particle(particle,x,y,c1,c2,1)
+		if (partid ~= nil) and (partid ~= 0) then
+			local part = mmf.newObject(partid)
+
+			part.values[ONLINE] = 2
+			local midx = math.floor(roomsizex * 0.5)
+			local midy = math.floor(roomsizey * 0.5)
+			local mx = x + 0.5 - midx - ((0.35 + math.random()*0.1) * ox)
+			local my = y + 0.5 - midy - ((0.35 + math.random()*0.1) * oy)
+
+			local sx,sy = 1 - math.abs(ox), 1 - math.abs(oy) -- x and y spreads
+
+			local dir = - math.atan2(my, mx)
+			local dist = math.sqrt(my ^ 2 + mx ^ 2)
+			local roomrad = math.rad(generaldata2.values[ROOMROTATION])
+
+			mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+			my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
+
+			part.x = mx + math.random() * zoom * tilesize * 0.6 * sx - 0.3 * zoom * tilesize * sx
+			part.y = my + math.random() * zoom * tilesize * 0.6 * sy - 0.3 * zoom * tilesize * sy
+			part.values[XPOS] = part.x
+			part.values[YPOS] = part.y
+
+			part.values[XVEL] = ox * 10 * math.random() + oy * 3.5 * (math.random() - 0.5)
+			part.values[YVEL] = oy * 10 * math.random() + ox * 3.5 * (math.random() - 0.5)
+		end
+	end
+
+end
 
 
 -------- VESSEL/ALIVE FUNCTIONS --------
@@ -352,8 +653,10 @@ end
 -- karmaid: id of the unit to destroy
 -- delthese: list of unitids to destroy (passed by reference? do we need to return it?)
 ]]
-function ws_setKarmaOrDestroy(x, y, karmaid, delthese, removalshort, removalsound)
+function ws_setKarmaOrDestroy(x_, y_, karmaid, delthese, removalshort, removalsound)
 	local karmaunit = mmf.newObject(karmaid)
+	local x = x_ or karmaunit.values[XPOS]
+	local y = y_ or karmaunit.values[YPOS]
 	if not ws_isrepent(karmaid,x,y) then
 		if hasfeature(getname(karmaunit), "is", "karma", karmaid) and not issafe(karmaid) then
 		local pmult,sound = checkeffecthistory("karma")
@@ -379,9 +682,41 @@ function ws_setKarmaOrDestroy(x, y, karmaid, delthese, removalshort, removalsoun
 	return delthese, removalshort, removalsound
 end
 
+-- Function to destroy empty by karma in rare instances (EMPTY IS BANG, solid empty destroys a weak object etc.)
+function ws_emptyKarma(x,y)
+	if not ws_isrepent(2,x,y) and not issafe(2,x,y) then
+		if hasfeature("empty","is","karma",2,x,y) then
+			delete(2,x,y)
+			local pmult,sound = checkeffecthistory("karma")
+			setsoundname("removal",1,sound)
+			MF_particles("unlock",x,y,5 * pmult,2,2,1,1)
+			generaldata.values[SHAKE] = 4
+		end
+	end
+end
+
+
+-- Immediately destroys an object by karma (without adding it to the "delthese" list), or sets it sinful status
+-- Used by movement destructions such as EAT or WEAK into solid object
+function ws_doImmediateKarma(unitid,x,y)
+	local unit = mmf.newObject(unitid)
+	local name = getname(unit)
+	if not issafe(unitid,x,y) and hasfeature(name,"is","karma",unitid,x,y) then -- First try to destroy the unit by KARMA
+		delete(unitid,x,y)
+		deleted[unitid] = 1
+		local pmult,sound = checkeffecthistory("karma")
+		setsoundname("removal",1,sound)
+		MF_particles("unlock",x,y,5 * pmult,2,2,1,1)
+		generaldata.values[SHAKE] = 4
+	elseif (unit.karma ~= true) then -- The unit can't be destroyed (it's safe or it's not karma), so try to update the sinful status
+		addundo({"unitkarma",unit.values[ID], unit.karma})
+		unit.karma = true
+	end
+end
+
 -- Function to check if something is repent (basically the same as issafe)
 function ws_isrepent(unitid,x,y)
-	name = ""
+	local name = ""
 	
 	if (unitid ~= 1) and (unitid ~= 2) then
 		local unit = mmf.newObject(unitid)
@@ -392,9 +727,9 @@ function ws_isrepent(unitid,x,y)
 		name = "empty"
 	end
 	
-	local safe = hasfeature(name,"is","repent",unitid,x,y)
+	local repent = hasfeature(name,"is","repent",unitid,x,y)
 	
-	if (safe ~= nil) then
+	if (repent ~= nil) then
 		return true
 	end
 	
@@ -405,6 +740,7 @@ end
 -------- HOP/HOPS FUNCTIONS --------
 
 -- Function to check if a unit *could* hop if it bumped into an obstacle: that is, if the unit is HOP, or if it HOPS any unit in the next tile
+-- NOTE: empty has to be handled differently?
 function ws_couldHop(unitid,x,y,ox,oy)
 	local name = ""
 	if (unitid ~= 2) then
@@ -752,11 +1088,532 @@ end
 -- Gets cursors that can move on paths or opened levels (SELECT or VEHICLE)
 function ws_getSelectOrVehicleUnits(nolevels_,ignorethese_,checkedconds,ignorebroken_)
 	local result = getunitswitheffect("select",nolevels_,ignorethese_,checkedconds,ignorebroken_)
-	local vehicleCursors = getunitswitheffect("vehicle",nolevels_,ignorethese_,checkedconds,ignorebroken_)
+	local vehicleCursors = getunitswitheffect("vehicle",false,ignorethese_,checkedconds,ignorebroken_)
 	
 	for _,v in ipairs(vehicleCursors) do
 		table.insert(result, v)
 	end
 	
 	return result
+end
+
+
+-------- MORPH FUNCTIONS --------
+function ws_updateMorphUnits()
+	local morphUnits = getunitswitheffect("morph",false)
+
+	for _,unit in ipairs(morphUnits) do
+		local x,y = unit.values[XPOS],unit.values[YPOS]
+		local stuff = findallhere(x,y)
+		local shouldAddUndo = false -- If the previous overlap map changed, add undo for this unit
+
+		local previousOverlap = unit.ws_previousOverlap or {}
+		local currentOverlap = {}
+
+		if (#stuff > 0) then
+			for _,v in ipairs(stuff) do
+				if floating(v,unit.fixed,x,y) then
+					local otherUnit = mmf.newObject(v)
+					local otherName = otherUnit.strings[UNITNAME]
+					if (v ~= unit.fixed) then
+						currentOverlap[otherName] = true
+						if not previousOverlap[otherName] then  -- Something that wasn't overlapping is now overlapping
+							shouldAddUndo = true
+						end
+					end
+				end
+			end
+		end
+
+		morphTargets = {}
+		ws_addMorphOdata(unit.fixed, {})
+
+		for previousUnit,_ in pairs(previousOverlap) do
+			if not currentOverlap[previousUnit] then -- The unit overlapped previously, but no longer overlaps
+				morphTargets[previousUnit] = true
+				shouldAddUndo = true
+			end
+		end
+
+		ws_addMorphOdata(unit.fixed, morphTargets)
+		if shouldAddUndo then
+			addundo({"ws_morph", unit.values[ID], previousOverlap})
+		end
+		unit.ws_previousOverlap = currentOverlap
+	end
+end
+
+function ws_addMorphOdata(unitid, morphTargets)
+	if (objectdata[unitid] == nil) then
+		objectdata[unitid] = {}
+	end
+
+	local odata = objectdata[unitid]
+	odata.ws_morphTargets = morphTargets
+end
+
+function ws_getMorphOdata(unitid)
+	if (objectdata[unitid] == nil) then
+		objectdata[unitid] = {}
+	end
+
+	local odata = objectdata[unitid]
+	return odata.ws_morphTargets or {}
+end
+
+function ws_clearMorphData()
+	for _,unit in ipairs(units) do
+		if (unit.ws_previousOverlap ~= nil) then
+			local x,y,name,unitid = unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME],unit.fixed
+			local ismorph = hasfeature(name,"is","morph",unitid,x,y)
+			if (ismorph == nil) then -- If the unit ISN'T morph, clear the "previously overlapping" map
+				unit.ws_previousOverlap = nil
+			end
+		end
+	end
+end
+
+
+-------- MISSING FUNCTIONS --------
+-- This function increases the death counter for the given unit type ("baba", "empty", "text" etc.)
+function ws_updateDeathCounter(name)
+	-- timedmessage("Adding "..unitname.." to the kill counter",10,1)
+	if (ws_deathCounter[name] == nil) then
+		ws_deathCounter[name] = 1
+	else
+		ws_deathCounter[name] = ws_deathCounter[name] + 1
+	end
+
+	addundo({"ws_deathCounter", name})
+end
+
+
+-------- DOMINO FUNCTIONS --------
+-- Essentially a flood fill function, removes all adjacent domino tiles from the given position (AAAAAAAAAAAA)
+function ws_doDomino(dominoedTiles,dontDominoThese,unitid,x_,y_,dontDominoTheseE_)
+	local dontDominoTheseE = dontDominoTheseE_ or {}
+	local x,y = 0,0
+	if (unitid ~= 2) then
+		local unit = mmf.newObject(unitid)
+		x,y = unit.values[XPOS],unit.values[YPOS]
+	end
+
+	local toDomino = WS_Queue.new()
+
+	local tileid = x + y * roomsizex
+	WS_Queue.pushleft(toDomino, tileid)
+
+	while not WS_Queue.isempty(toDomino) do
+		local toCheck = WS_Queue.popright(toDomino)
+		local cx,cy = ws_fromTileId(toCheck)
+
+		if (ws_doDominoFill(dominoedTiles,dontDominoThese,unitid,cx,cy,dontDominoTheseE)) then -- If we properly "dominoed" this tile, try to domino the 4 adjacent ones too
+			if (inbounds(cx-1,cy)) then WS_Queue.pushleft(toDomino, ws_toTileId(cx-1,cy)) end
+			if (inbounds(cx+1,cy)) then WS_Queue.pushleft(toDomino, ws_toTileId(cx+1,cy)) end
+			if (inbounds(cx,cy-1)) then WS_Queue.pushleft(toDomino, ws_toTileId(cx,cy-1)) end
+			if (inbounds(cx,cy+1)) then WS_Queue.pushleft(toDomino, ws_toTileId(cx,cy+1)) end
+		end
+	end
+end
+
+-- Deletes all pending domino units/empties, then clears the pending sets
+function ws_deleteDominos()
+
+	local pmult,sound = checkeffecthistory("domino")
+
+	for b,_ in pairs(ws_pendingDomino) do
+		if (deleted[b] == nil) then -- Due to order of operations, some units might already be deleted at this point!
+			local bunit = mmf.newObject(b)
+			local bx,by = bunit.values[XPOS],bunit.values[YPOS]
+
+			local c1,c2 = getcolour(b)
+			ws_spawnSideParticle("error", bx,by, c1,c2, 1, 0,1, 0)
+			ws_spawnSideParticle("error", bx,by, c1,c2, 1, 0,-1, 0)
+			ws_spawnSideParticle("error", bx,by, c1,c2, 1, 1,0, 0)
+			ws_spawnSideParticle("error", bx,by, c1,c2, 1, -1,0, 0)
+
+			delete(b,bx,by)
+			deleted[b] = 1
+		end
+	end
+
+	for b,_ in pairs(ws_pendingDominoE) do
+		local bx,by = ws_fromTileId(b)
+		ws_spawnSideParticle("error", bx,by, 0,3, 1, 0,1, 0)
+		ws_spawnSideParticle("error", bx,by, 0,3, 1, 0,-1, 0)
+		ws_spawnSideParticle("error", bx,by, 0,3, 1, 1,0, 0)
+		ws_spawnSideParticle("error", bx,by, 0,3, 1, -1,0, 0)
+		delete(2,bx,by)
+	end
+
+	ws_pendingDomino,ws_pendingDominoE = {},{}
+end
+
+function ws_isdomino(unitid,x,y)
+	name = ""
+
+	if (unitid ~= 1) and (unitid ~= 2) then
+		local unit = mmf.newObject(unitid)
+		name = unit.strings[UNITNAME]
+	elseif (unitid == 1) then
+		name = "level"
+	else
+		name = "empty"
+	end
+
+	local domino = hasfeature(name,"is","domino",unitid,x,y)
+
+	return (domino ~= nil)
+end
+
+
+-- Check if the tile at x y contains valid domino things that could be destroyed
+function ws_doDominoFill(dominoedTiles,dontDominoThese,unitid,x,y,dontDominoTheseE)
+	local tileid = ws_toTileId(x,y)
+	if dominoedTiles[tileid] then return false end -- This tile was already checked, skip
+
+	dominoedTiles[tileid] = true -- Mark this tile as being checked
+
+	local result = false
+	local obs = findobstacle(x,y)
+
+	if (#findobstacle(x,y) == 0) then -- The tile is empty, check if EMPTY IS DOMINO, not safe and on the same float level
+		if hasfeature("empty","is","domino",2,x,y) and floating(2,unitid,x,y) and not issafe(2,x,y) then
+			if (dontDominoTheseE[tileid] == nil) then
+				ws_pendingDominoE[tileid] = true
+			end
+			return true
+		end
+	else -- The tile has something, look for domino stuff to kill
+		for _,b in ipairs(obs) do
+			if (b == -1) then
+				return false -- Level edge, fail
+			elseif (b == unitid) then
+				result = true -- We found the starting object! It *is* DOMINO, so just set result to true, but don't pend its destruction
+			elseif (b ~= 0) and (b ~= -1) then
+				local bunit = mmf.newObject(b)
+				local obsname = getname(bunit)
+
+				if not ws_immuneToDomino[b] and hasfeature(obsname,"is","domino",b,x,y) and floating(b,unitid,x,y) and not issafe(b) then
+					result = true
+					if (dontDominoThese[b] == nil) then
+						ws_pendingDomino[b] = true
+					end
+				end
+			end
+		end
+	end
+
+	return result
+end
+
+
+function ws_clearDominoImmunes()
+	ws_immuneToDomino = {}
+end
+
+
+-------- FILL FUNCTIONS --------
+function ws_doFill(fillunits,dx,dy)
+	for id,unit in ipairs(fillunits) do
+		local x,y,name = unit.values[XPOS],unit.values[YPOS],getname(unit)
+		local keepGoing = true
+		local counter = 1
+
+		while keepGoing do
+			local ox,oy = counter*dx, counter*dy
+			local valid = true
+			local obs = findobstacle(x+ox,y+oy)
+
+			if (#obs > 0) then
+				for a,b in ipairs(obs) do
+					if (b == -1) then
+						valid = false
+					elseif (b ~= 0) and (b ~= -1) then
+						local bunit = mmf.newObject(b)
+						local obsname = getname(bunit)
+
+						local obsstop = hasfeature(obsname,"is","stop",b,x+ox,y+oy)
+						local obspush = hasfeature(obsname,"is","push",b,x+ox,y+oy)
+						local obspull = hasfeature(obsname,"is","pull",b,x+ox,y+oy)
+
+						if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) or (obsname == name) then
+							valid = false
+							break
+						end
+					end
+				end
+			else
+				local obsstop = hasfeature("empty","is","stop",2,x+ox,y+oy)
+				local obspush = hasfeature("empty","is","push",2,x+ox,y+oy)
+				local obspull = hasfeature("empty","is","pull",2,x+ox,y+oy)
+
+				if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) then
+					valid = false
+				end
+			end
+
+			if valid then
+				local newunit = copy(unit.fixed,x+ox,y+oy)
+				counter = counter + 1
+			else
+				keepGoing = false
+			end
+		end
+	end
+end
+
+local function ws_nondirFillHere(unit,x,y,filledTiles)
+	if filledTiles[ws_toTileId(x,y)] then return false end -- This tile was already filled, skip
+
+	local name = getname(unit)
+	local obs = findobstacle(x,y)
+
+	if (#obs > 0) then -- There's something at this position
+		for _,b in ipairs(obs) do
+			if (b == -1) then
+				return false -- Level edge, fail
+			elseif (b ~= 0) and (b ~= -1) then
+				local bunit = mmf.newObject(b)
+				local obsname = getname(bunit)
+
+				local obsstop = hasfeature(obsname,"is","stop",b,x,y)
+				local obspush = hasfeature(obsname,"is","push",b,x,y)
+				local obspull = hasfeature(obsname,"is","pull",b,x,y)
+
+				if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) or (obsname == name) then
+					return false -- Solid object or same of this object, fail
+				end
+			end
+		end
+	else
+		local obsstop = hasfeature("empty","is","stop",2,x,y)
+		local obspush = hasfeature("empty","is","push",2,x,y)
+		local obspull = hasfeature("empty","is","pull",2,x,y)
+
+		if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) then
+			return false -- Solid empty, fail
+		end
+	end
+
+	local newunit = copy(unit.fixed,x,y)
+	return true
+end
+
+function ws_nondirFill(fillunits,filledTiles)
+	for id,unit in ipairs(fillunits) do
+		local x,y,name = unit.values[XPOS],unit.values[YPOS],getname(unit)
+		if (filledTiles[name] == nil) then
+			filledTiles[name] = {}
+		end
+		local filledByThis = filledTiles[name]
+		local toFill = WS_Queue.new()
+		filledByThis[ws_toTileId(x,y)] = true
+
+		-- Pend fill on adjacent tiles
+		if (inbounds(x-1,y)) then WS_Queue.pushleft(toFill, ws_toTileId(x-1,y)) end
+		if (inbounds(x+1,y)) then WS_Queue.pushleft(toFill, ws_toTileId(x+1,y)) end
+		if (inbounds(x,y-1)) then WS_Queue.pushleft(toFill, ws_toTileId(x,y-1)) end
+		if (inbounds(x,y+1)) then WS_Queue.pushleft(toFill, ws_toTileId(x,y+1)) end
+
+		while not WS_Queue.isempty(toFill) do
+			local toCheck = WS_Queue.popright(toFill)
+			local cx,cy = ws_fromTileId(toCheck)
+			if (ws_nondirFillHere(unit,cx,cy,filledByThis)) then -- Try to fill this tile. If it succeds, add the 4 adjacent tiles to the queue
+				-- filledByThis[toCheck] = true
+				if (inbounds(cx-1,cy)) and not filledByThis[ws_toTileId(cx-1,cy)] then WS_Queue.pushleft(toFill, ws_toTileId(cx-1,cy)) end
+				if (inbounds(cx+1,cy)) and not filledByThis[ws_toTileId(cx+1,cy)] then WS_Queue.pushleft(toFill, ws_toTileId(cx+1,cy)) end
+				if (inbounds(cx,cy-1)) and not filledByThis[ws_toTileId(cx,cy-1)] then WS_Queue.pushleft(toFill, ws_toTileId(cx,cy-1)) end
+				if (inbounds(cx,cy+1)) and not filledByThis[ws_toTileId(cx,cy+1)] then WS_Queue.pushleft(toFill, ws_toTileId(cx,cy+1)) end
+			end
+		end
+	end
+end
+
+-------- FOLD FUNCTIONS --------
+function ws_doFold(foldunits,dx,dy,toFold,removalshort,removalsound,toKarma)
+	for id,unit in ipairs(foldunits) do
+		local x,y,name = unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME] -- We check specific names so that "text_baba" can only fold with another "text_baba"
+
+		local tileid = ws_toTileId(x+dx,y+dy)
+		local sames = {}
+
+		if (unitmap[tileid] ~= nil) then
+			for _,b in ipairs(unitmap[tileid]) do
+				local bunit = mmf.newObject(b)
+				if (bunit.strings[UNITNAME] == name) and floating(unit.fixed,b) then
+					table.insert(sames,b)
+				end
+			end
+		end
+
+		if (#sames > 0) and not issafe(unit.fixed) then
+			generaldata.values[SHAKE] = 3
+			local pmult,sound = checkeffecthistory("fold")
+			removalshort = sound
+			removalsound = 9
+			local c1,c2 = getcolour(unit.fixed)
+			ws_spawnSideParticle("smoke",x+dx,y+dy,c1,c2,1,-dx,-dy,0.7,2)
+			toFold[unit.fixed] = true -- Mark as pending fold
+
+			-- Add karma to the matching things
+			for _,b in ipairs(sames) do
+				toKarma[b] = true
+			end
+		end
+	end
+
+	return toFold,removalshort,removalsound,toKarma
+end
+
+function ws_doEmptyFold(emptyFolds,dx,dy,toFold,toKarma)
+	for _,emptyId in ipairs(emptyFolds) do
+		local x,y = ws_fromTileId(emptyId)
+
+		local tileid = ws_toTileId(x+dx,y+dy)
+		local isAlsoEmpty = false
+
+		if inbounds(x+dx,y+dy,1) and ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) then
+			isAlsoEmpty = true
+		end
+
+		if isAlsoEmpty and not issafe(2,x,y) and floating(2,2,x,y,x+dx,y+dy) then
+			toFold[emptyId] = {dx = dx, dy = dy} -- Mark as pending fold (store the direction for particles later)
+			toKarma[tileid] = true -- Add karma to the empty in the next tile
+		end
+	end
+
+	return toFold,toKarma
+end
+
+function ws_deleteEmptyFold(emptyId,dx,dy)
+	local x,y = ws_fromTileId(emptyId)
+	delete(2,x,y)
+	local pmult,sound = checkeffecthistory("fold")
+	ws_spawnSideParticle("hot",x+dx,y+dy,0,3,1,-dx,-dy,0.7,2)
+	setsoundname("removal",9,sound)
+	generaldata.values[SHAKE] = 3
+end
+
+function ws_doLevelFold(dir)
+	local surrounds = parsesurrounds()
+	if (surrounds[dir] ~= nil) then
+		for _,d in ipairs(surrounds[dir]) do
+			if (d == ws_ambientObject) then
+				destroylevel()
+				return true
+			end
+		end
+	end
+	return false
+end
+
+-------- ALIGN FUNCTIONS --------
+function ws_findOuterCoords(name)
+	local result = {} -- Is an array with 4 values: [minX, maxX, minY, maxY]
+
+	for _,u in pairs(unitlists[name]) do
+		local unit = mmf.newObject(u)
+		local ux, uy = unit.values[XPOS], unit.values[YPOS]
+
+		if (result[1] == nil) then -- No position stored yet
+			result[1] = ux -- l most
+			result[2] = ux -- r most
+			result[3] = uy -- u most
+			result[4] = uy -- d most
+		else
+			local minX, maxX = result[1],result[2]
+			local minY, maxY = result[3],result[4]
+
+			-- Update coords
+			if (ux < minX) then result[1] = ux end
+			if (ux > maxX) then result[2] = ux end
+			if (uy < minY) then result[3] = uy end
+			if (uy > maxY) then result[4] = uy end
+		end
+	end
+
+	return result
+end
+
+
+-- TODO: simplify, also: add metatext support
+function ws_doAlign(outerCoords,units,i)
+	local vertical = (i > 2)
+	local lessThan = (i % 2 == 0)
+	local pOffset = 1
+	if lessThan then
+		pOffset = -1
+	end
+
+	for _,unitid in ipairs(units) do
+		if (unitid ~= 2) and (unitid ~= 1) then
+			local unit = mmf.newObject(unitid)
+			local x,y,name = unit.values[XPOS],unit.values[YPOS],getname(unit)
+
+			if (outerCoords[name] == nil) then
+				outerCoords[name] = ws_findOuterCoords(name)
+			end
+			local nameCoords = outerCoords[name]
+
+			if not ws_wasAlreadyAligned(unitid,vertical) then
+				if vertical then
+					if (y > nameCoords[i] and not lessThan) or (y < nameCoords[i] and lessThan) then -- Tele vert. if it isn't the top unit
+						local isstill = hasfeature(name,"is","still",unitid,x,y)
+						if (isstill == nil) and (unit.flags[DEAD] == false) then
+							update(unitid,x,nameCoords[i])
+							local pmult,sound = checkeffecthistory("align")
+							local c1,c2 = getcolour(unitid)
+							ws_spawnSideParticle("bling",x,y+pOffset,3,3,1,0,-pOffset,1.5,1 + 5 * pmult)
+							MF_particles("bling",x,nameCoords[i],5 * pmult,c1,c2,1,1)
+							setsoundname("turn",6,sound)
+
+							ws_markAsAligned(unitid,vertical)
+						end
+					end
+				else
+					if (x > nameCoords[i] and not lessThan) or (x < nameCoords[i] and lessThan) then -- Tele horiz. if it isn't the top unit
+						local isstill = hasfeature(name,"is","still",unitid,x,y)
+						if (isstill == nil) and (unit.flags[DEAD] == false) then
+							update(unitid,nameCoords[i],y)
+							local pmult,sound = checkeffecthistory("align")
+							local c1,c2 = getcolour(unitid)
+							ws_spawnSideParticle("bling",x+pOffset,y,3,3,1,-pOffset,0,1.5,1 + 5 * pmult)
+							MF_particles("bling",nameCoords[i],y,5 * pmult,c1,c2,1,1)
+							setsoundname("turn",6,sound)
+
+							ws_markAsAligned(unitid,vertical)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function ws_markAsAligned(unitid,vertical)
+	if (objectdata[unitid] == nil) then
+		objectdata[unitid] = {}
+	end
+
+	local odata = objectdata[unitid]
+	if vertical then
+		odata.ws_alignV = 1
+	else
+		odata.ws_alignH = 1
+	end
+end
+
+function ws_wasAlreadyAligned(unitid,vertical)
+	if (objectdata[unitid] == nil) then
+		objectdata[unitid] = {}
+	end
+
+	local odata = objectdata[unitid]
+
+	if (vertical) then
+		return odata.ws_alignV == 1
+	else
+		return odata.ws_alignH == 1
+	end
 end

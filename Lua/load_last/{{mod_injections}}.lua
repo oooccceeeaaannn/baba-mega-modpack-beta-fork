@@ -30,13 +30,15 @@ function addunit(id, ...)
 
     local unit = mmf.newObject(id)
     local name = getname(unit)
-	local name_ = unit.strings[NAME]
+	local name_ = get_ref(name)
 
 	if is_name_text_this(name_) then
 		on_add_this_text(unit.fixed)
 	end
 
 	on_add_stableunit(unit.fixed)
+
+    return ret
 end
 
 -- @mods(stable), @mods(this) - Injection reason: provide hook for when a unit gets deleted. This is to clear that unit from each mod's internal tables
@@ -215,4 +217,16 @@ function testcond(conds, unitid, x_, y_, ...)
     -- else
     --     return old_testcond(conds, unitid, x_, y_, ...)
     -- end
+end
+
+-- OVERRIDE: add ECHO particles (monkey patching goes brrr)
+local effects_old = effects
+-- @Merge(injection)
+effects = function(timer)
+    effects_old(timer)
+    -- EDIT: Add ECHO particles
+    local echornd = math.random(2,3)
+    doeffect(timer,nil,"echo","glow",1,4,25,{0,echornd},"leveledge")
+    doeffect(timer,nil,"echo","glow",1,5,100,{0,1},"leveledge")
+    doeffect(timer,nil,"rescue","wonder",1,5,20,{1,2})
 end

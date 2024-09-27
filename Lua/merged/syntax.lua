@@ -148,7 +148,10 @@ function setunitmap()
 	
 	for i,unit in ipairs(delthese) do
 		local x,y,dir,unitname = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.strings[UNITNAME]
-		addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unit.fixed,unit.karma}) -- EDIT: keep karma after undoing
+		if WS_STACK_LIMIT_TRIGGERS_MISSING then
+			ws_updateDeathCounter(getname(unit))
+		end
+		addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unit.fixed,ws_extraData(unit)}) -- EDIT: keep karma, trapped, bungee after undoing (TODO: update all instances of .karma?)
 		delunit(unit.fixed)
 		MF_remove(unit.fixed)
 	end
@@ -406,6 +409,7 @@ function addunit(id,undoing_,levelstart_)
 end
 
 function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
+	local resultIds = {}
 	local all = {}
 	local empty = false
 	local dolevels = dolevels_ or false
@@ -460,6 +464,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 									
 									if (#mat == 0) then
 										local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
+										table.insert(resultIds, nunitid) -- EDIT
 										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
 										
 										if (is_str_broad_noun(matdata[1])) or (get_pref(matdata[1]) ~= "") or (matdata[1] == "level") or (matdata[1] == "glyph") then
@@ -507,6 +512,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 							for b,mat in pairs(objectlist) do
 								if (findnoun(b) == false) and (blocked[b] == nil)  then
 									local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
+									table.insert(resultIds, nunitid) -- EDIT
 									addundo({"convert",matdata[1],mat,ningameid,2,x,y,dir})
 								end
 							end
@@ -546,4 +552,6 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 			end
 		end
 	end
+
+	return resultIds
 end

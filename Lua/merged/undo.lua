@@ -163,8 +163,11 @@ function undo()
 					local baseuid = line[7] or -1
 					
 					if (paradox[uid] == nil) and (paradox[baseuid] == nil) then
-						local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init,ogname,signtext,convert,oldid,karma = line[3],line[4],line[5],line[8],line[9],line[10],line[11],line[12],line[13],line[14],line[15],line[16],line[17],line[18],line[19],line[20],line[21],line[22]
+						local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init,ogname,signtext,convert,oldid,ws_extradata = line[3],line[4],line[5],line[8],line[9],line[10],line[11],line[12],line[13],line[14],line[15],line[16],line[17],line[18],line[19],line[20],line[21],line[22]
 						local name = line[2]
+						local karma = ws_extradata.karma
+						local trapped = ws_extradata.trapped
+						local bungee_pos = ws_extradata.bungee_pos
 						
 						local unitname = ""
 						local unitid = 0
@@ -216,8 +219,10 @@ function undo()
 							unit.followed = followed
 							unit.back_init = back_init
 							unit.originalname = ogname
-							unit.karma = karma -- EDIT: keep karma when undoing
-							
+							unit.karma = karma -- EDIT: keep karma, trapped, bungee position when undoing
+							unit.ws_trapped = trapped
+							unit.ws_bungee_pos = bungee_pos
+
 							--First override for Offset starts here.
 							unit.xoffset = line[XOFFSETUNDOLINE]
 							unit.yoffset = line[YOFFSETUNDOLINE]
@@ -657,6 +662,33 @@ function undo()
 					if (unit ~= nil) then --paradox-proofing
 						unit.karma = previous_karma
 					end
+				elseif (style == "ws_deathCounter") then -- Death counter got updated
+					local name = line[2]
+					if (ws_deathCounter[name] <= 1) then
+						ws_deathCounter[name] = nil
+					else
+						ws_deathCounter[name] = ws_deathCounter[name] - 1
+					end
+					--timedmessage("Decreasing death counter for "..name,0,1)
+				elseif (style == "ws_trap") then -- Something became trapped or stopped being trapped without being destroyed
+					local unitid = getunitid(line[2])
+					local unit = mmf.newObject(unitid)
+					local previous_trapped = line[3] or false
+
+					unit.ws_trapped = previous_trapped
+				elseif (style == "ws_bungee_pos") then -- Unit bungee position was updated
+					local unitid = getunitid(line[2])
+					local unit = mmf.newObject(unitid)
+					local previous_pos = line[3]
+
+					unit.ws_bungee_pos = previous_pos
+				elseif (style == "ws_level_bungee") then
+					local previous_pos = line[2]
+					ws_levelBungeeOffset = previous_pos
+				elseif (style == "ws_morph") then
+					local unitid = getunitid(line[2])
+					local unit = mmf.newObject(unitid)
+					unit.ws_previousOverlap = line[3]
                 end
 			end
 		end
@@ -763,7 +795,7 @@ function newundo(resetundo)
 			end
 		end
 
-		if (#breakunits > 0) then
+		if (#(breakunits or {}) > 0) then
 			for i,v in ipairs(breakunits) do
 				local wunit = mmf.newObject(v[1])
 				table.insert(thisundo.breakunits, wunit.values[ID])
@@ -839,7 +871,7 @@ function newundo(resetundo)
 			end
 		end
 
-		if (#breakrelatedunits > 0) then
+		if (#(breakrelatedunits or {}) > 0) then
 			for i,v in ipairs(breakrelatedunits) do
 				if (v[1] ~= 2) then
 					local wunit = mmf.newObject(v[1])
