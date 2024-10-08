@@ -28,8 +28,7 @@ It's kind of like TEXT REFERS but not exactly the same when it comes to turning 
             name = "glyph_",
             thumbnail = { sprite = "text_glyphpre",
                           sprite_in_root = false,
-                          color = { 4, 1 },
-                          colour = { 4, 1 },
+                          color = { 3, 2 }
             },
             display_name = "[parser]_ Prefix",
             author = "Emily",

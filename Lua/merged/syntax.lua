@@ -151,7 +151,7 @@ function setunitmap()
 		if WS_STACK_LIMIT_TRIGGERS_MISSING then
 			ws_updateDeathCounter(getname(unit))
 		end
-		addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unit.fixed,ws_extraData(unit)}) -- EDIT: keep karma, trapped, bungee after undoing (TODO: update all instances of .karma?)
+		addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unit.fixed,ws_extraData(unit)}) -- EDIT: keep karma, trapped, bungee after undoing
 		delunit(unit.fixed)
 		MF_remove(unit.fixed)
 	end

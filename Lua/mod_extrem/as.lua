@@ -21,7 +21,7 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
 
                     if (checkedconds[tostring(dconds)] == nil) then
                         if (pnot == false) then
-                            if (drule[1] == name) and (((drule[2] == "is") or (drule[2] == "become") and (drule[3] == b
+                            if (drule[1] == name) and ((((drule[2] == "is") or (drule[2] == "become")) and ((drule[3] == b)
                                     or ((is_str_broad_noun(name)) and b == drule[3] .. "_" .. name)))
                                     or (drule[2] == "is" and drule[3] == "meta" and b == "text_" .. name)
                                     or (drule[2] == "is" and drule[3] == "unmeta" and string.sub(name,1,5) == "text_" and b == string.sub(name,6))
@@ -66,7 +66,6 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
         return false, checkedconds, true
     end
 
-    --MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
-
-    return (allfound == #params), checkedconds, true
+    print(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+    return (allfound >= #params), checkedconds, true
 end

@@ -404,10 +404,10 @@ if keys.IS_WORD_GLOSSARY_PRESENT then --@Merge: Word Glossary Support
             thumbnail_obj = "text_delete",
             display_name = "NOT property",
             author = "Emily",
-            description = [[When X is delete, the level immediately restarts (ignoring NORESET),
-             EVERY instance of X is removed, and every rule containing X is considered invalid.
-             When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
-             EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
+            description = [[- When X is delete, the level immediately restarts (ignoring NORESET),
+EVERY instance of X is removed, and every rule containing X is considered invalid.
+- When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
+EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
         },
     })
 end
