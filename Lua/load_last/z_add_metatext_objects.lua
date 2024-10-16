@@ -1,4 +1,4 @@
-local layers = 3
+local layers = 1
 local meta_objs = {}
 for num = 1, layers do
     table.insert(objlistdata.alltags, "metatext (" .. num .. ")")
