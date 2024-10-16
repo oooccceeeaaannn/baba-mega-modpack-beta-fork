@@ -2464,9 +2464,11 @@ function isgroupglyph(input_string, id)
 end
 
 function isglyphmeta(input_string, id)
+	--[[
 	if string.sub(input_string,1,6) ~= "glyph_" then
 		return false
 	end
+	]]--
 	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode") or (input_string == "glyph_metalogic")
 end
 

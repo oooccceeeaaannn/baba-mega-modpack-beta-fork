@@ -9,6 +9,8 @@ table.insert(editor_objlist_order,"text_meea")
 table.insert(editor_objlist_order,"text_unmeea")
 table.insert(editor_objlist_order,"text_mena")
 table.insert(editor_objlist_order,"text_unmena")
+table.insert(editor_objlist_order,"text_mela")
+table.insert(editor_objlist_order,"text_unmela")
 table.insert(editor_objlist_order,"text_unmexa")
 table.insert(editor_objlist_order,"text_meta-1")
 table.insert(editor_objlist_order,"text_meta0")
@@ -103,6 +105,28 @@ editor_objlist["text_unmena"] = {
   colour = {2, 1},
   colour_active = {2, 2},
 }
+editor_objlist["text_mela"] = {
+  name = "text_mela",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {3, 0},
+  colour_active = {3, 1},
+}
+editor_objlist["text_unmela"] = {
+  name = "text_unmela",
+  sprite_in_root = false,
+  unittype = "text",
+  tags = {"text_quality","text_special", "metatext"},
+  tiling = -1,
+  type = 2,
+  layer = 20,
+  colour = {1, 2},
+  colour_active = {1, 3},
+}
 editor_objlist["text_unmexa"] = {
   name = "text_unmexa",
   sprite_in_root = false,
@@ -178,9 +202,18 @@ add_glyph_using_text("mena")
 add_glyph_using_text("unmena")
 add_glyph_using_text("meea")
 add_glyph_using_text("unmeea")
+add_glyph_using_text("mela")
+add_glyph_using_text("unmela")
 add_glyph_using_text("unmexa")
 
 formatobjlist()
+
+function is_str_metalike_prop(str)
+    if (str == "meta" or str == "unmeta" or str == "mega" or str == "unmega" or str == "mena" or str == "unmena" or str == "meea" or str == "unmeea" or str == "mela" or str == "unmela" or str == "unmexa")  then
+      return true
+    end
+    return false
+end
 
 -- Disables if X IS X, like REVERT.
 

@@ -63,6 +63,22 @@ editor_objlist["glyph_metalogic"] =
 	colour_active = {3, 1},
 }
 
+table.insert(editor_objlist_order, "glyph_logic_")
+
+editor_objlist["glyph_logic_"] =
+{
+	name = "glyph_logic_",
+	sprite = "glyph_logicpre",
+	sprite_in_root = false,
+	unittype = "object",
+	tags = {"abstract", "glyph", "logics"},
+	tiling = -1,
+	type = 0,
+	layer = 1,
+	colour = {3, 0},
+	colour_active = {3, 1},
+}
+
 table.insert(editor_objlist_order, "text_log")
 
 editor_objlist["text_log"] =

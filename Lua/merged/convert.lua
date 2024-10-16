@@ -905,7 +905,7 @@ function conversion(dolevels_)
 			local name = words[1]
 			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta") and (thing ~= "meea") and (thing ~= "unmeea") and (thing ~= "mena") and (thing ~= "unmena") and (thing ~= "mega") and (thing ~= "unmega")) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and not is_str_metalike_prop(thing)) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
 			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
@@ -923,15 +923,7 @@ function conversion(dolevels_)
 				or (unitreference[thing] ~= nil)
 				or (is_str_broad_noun(thing))
 				or (thing == "revert")
-				or (thing == "meta")
-				or (thing == "unmeta")
-					or (thing == "mega")
-					or (thing == "unmega")
-					or (thing == "meea")
-					or (thing == "unmeea")
-					or (thing == "mena")
-					or (thing == "unmena")
-					or (thing == "unmexa")
+				or (is_str_metalike_prop(thing))
 					or (thing == "morph")
 				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name) or getmat_text(name)))
@@ -951,8 +943,7 @@ function conversion(dolevels_)
 						if (verb == "is") or (verb == "become") then
 							-- EDIT: add check for ECHO
 							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_broad_noun(object) and (object ~= "morph") and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
+								if not is_str_broad_noun(object) and (object ~= "morph") and (object ~= "revert") and (object ~= "createall") and (not is_str_metalike_prop(object)) and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 
@@ -966,7 +957,7 @@ function conversion(dolevels_)
 										end
 									end
 								elseif (name ~= object) or (verb == "become") then
-									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then --Note: I don't actually think meta/unmeta needs to be placed at the front.
+									if (object ~= "revert") and (not is_str_special_prefixed(object)) then --Note: I don't actually think meta/unmeta needs to be placed at the front.
 										table.insert(output, {object, conds, "is"})
 									else
 										table.insert(output, 1, {object, conds, "is"})
@@ -1021,8 +1012,7 @@ function conversion(dolevels_)
 
 						if (op == "is") then
 							-- EDIT: add check for ECHO
-							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then
+							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (not is_str_metalike_prop(object)) then
 								table.insert(conversions, v3)
 							elseif (object == "all") then
 								--[[
@@ -1069,6 +1059,14 @@ function conversion(dolevels_)
 								end
 								if valid then
 									table.insert(conversions, {string.sub(name,6),conds})
+								end
+							elseif (object == "unmela") and string.sub(name,1,6) == "logic_" then
+								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
+									valid = tryautogenerate(string.sub(name,7))
+								end
+								if valid then
+									table.insert(conversions, {string.sub(name,7),conds})
 								end
 							elseif (object == "unmexa") and get_pref(name) ~= "" then
 								local unmetad = get_ref(name)
@@ -1128,7 +1126,7 @@ function conversion(dolevels_)
 								if valid then
 									table.insert(conversions, {"node_" .. name,conds})
 								end
-							elseif (object == "logic") then
+							elseif (object == "logic") or (object == "mela") then
 								local valid = true -- don't attempt conversion if the object does not exist
 								if unitreference["logic_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 									valid = tryautogenerate("logic_" .. name,name)
