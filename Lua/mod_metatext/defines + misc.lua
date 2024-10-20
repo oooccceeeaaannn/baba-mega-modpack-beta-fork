@@ -589,6 +589,33 @@ function get_broad_name(unit)
 	if res ~= "" then return res end
 	return result
 end
+
+function both_hasfeature_in_same_ref(unit1, unit2, feature) --assume unit1 has the feature
+	local name1, name2 = unit1.strings[UNITNAME], unit2.strings[UNITNAME]
+	if not hasfeature(name2, "is", feature, unit2.fixed) then
+		return false
+	end
+	if (name1 ~= name2) then
+		if metatext_fixquirks then
+			local bname = get_broaded_str(name1)
+			if bname ~= get_broaded_str(name2) then
+				local lvl1 = getmetalevel(name1)
+				if lvl1 == getmetalevel(name2) then
+					bname = "meta" .. tostring(lvl1)
+				else
+					return false
+				end
+			end
+			if not (checkiftextrule(name1, "is", feature, unit1.fixed, true, bname)
+					and checkiftextrule(name2, "is", feature, unit2.fixed, true, bname)) then
+				return false
+			end
+		else
+			return false
+		end
+	end
+	return true
+end
 -- Remove lines that include "text" rules if rule1 starts with "text_".
 
 --[[ @Merge: hasfeature() was merged ]]

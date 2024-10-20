@@ -19,7 +19,7 @@ So it's essentially modifying one kind of text block.]],
                           color = { 4, 1 },
                           colour = { 4, 1 },
             },
-            display_name = "text_ Prefix",
+            display_name = "Text_ Prefix",
             author = "Emily",
             description = [[This prefix goes before any word, parsing it as metatext. Make TEXT_ BABA IS YOU to make the piece of text that refers to BABA be YOU!
 It's kind of like TEXT REFERS but not exactly the same when it comes to turning props.]],
