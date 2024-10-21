@@ -596,19 +596,22 @@ function both_hasfeature_in_same_ref(unit1, unit2, feature) --assume unit1 has t
 		return false
 	end
 	if (name1 ~= name2) then
-		if metatext_fixquirks then
+		if very_sticky then
+			return true
+		elseif metatext_fixquirks then
 			local bname = get_broaded_str(name1)
-			if bname ~= get_broaded_str(name2) then
+			if (bname ~= get_broaded_str(name2)) or (not (checkiftextrule(name1, "is", feature, unit1.fixed, true, bname)
+					and checkiftextrule(name2, "is", feature, unit2.fixed, true, bname))) then
 				local lvl1 = getmetalevel(name1)
 				if lvl1 == getmetalevel(name2) then
 					bname = "meta" .. tostring(lvl1)
 				else
 					return false
 				end
-			end
-			if not (checkiftextrule(name1, "is", feature, unit1.fixed, true, bname)
-					and checkiftextrule(name2, "is", feature, unit2.fixed, true, bname)) then
-				return false
+				if (not (checkiftextrule(name1, "is", feature, unit1.fixed, true, bname)
+						and checkiftextrule(name2, "is", feature, unit2.fixed, true, bname))) then
+					return false
+				end
 			end
 		else
 			return false
