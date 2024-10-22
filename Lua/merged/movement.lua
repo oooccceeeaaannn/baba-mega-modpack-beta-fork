@@ -1887,9 +1887,9 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
 
                                                 if (pushobs ~= 2) then
                                                     -- EDIT: pass pushables
-                                                    dopush(pushobs, ox, oy, dir, false, x, y, data.reason, data.unitid, finalpushobs)
+                                                    dopush(pushobs, ox, oy, dir, false, x, y, data.reason, data.unitid, nil, finalpushobs)
                                                 else
-                                                    dopush(pushobs, ox, oy, dir, false, x + ox, y + oy, data.reason, data.unitid, finalpushobs)
+                                                    dopush(pushobs, ox, oy, dir, false, x + ox, y + oy, data.reason, data.unitid, nil, finalpushobs)
                                                 end
                                             end
                                             result = 0
@@ -3074,7 +3074,7 @@ function check(unitid, x, y, dir, pulling_, reason, ox, oy)
     return result, results, specials
 end
 
-function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky, allPushables_)
+function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky, allPushables_, all_sticky_ids_)
     --[[
 		@mods(turning text) - Override Reason - handle directional swap
 		@mods(text splicing) - Override Reason - use of globals to give more context for check_text_packing() and therefore check() (see global definitions in ts_text_splicing.lua)
@@ -3131,16 +3131,27 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 
     local allPushables = allPushables_ or {} -- EDIT: add allPushables variable
 
+    local all_sticky_ids = all_sticky_ids_ or {}
+
     --sticky check! sticky things are pushed or pulled as a whole unit. and if we got this far, it succeeded.
-    if (is_sticky ~= true and name ~= empty and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
+    if (is_sticky ~= true and name ~= "empty" and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
         local units, pushers, pullers = find_entire_sticky_unit(unitid, ox, oy);
         if pulling ~= true then
+
+            for _, unit in ipairs(units) do
+                if all_sticky_ids[unit] ~= nil then
+                    goto bypass
+                end
+            end
+
+            all_sticky_ids[unitid] = 1
+
             pushers_table = {}
             local result = 0
             --everything on the push-front pushes, everything else JUST moves. otherwise it infinite loops lmao
             for _, u in ipairs(pushers) do
                 pushers[u] = true
-                result = math.max(result, dopush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true, allPushables));
+                result = math.max(result, dopush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true, allPushables, all_sticky_ids));
             end
             for _, u in ipairs(units) do
                 if pushers[u] == nil then
@@ -3155,6 +3166,8 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 			end]]
         end
     end
+
+    :: bypass ::
 
     arrow_prop_mod_globals.group_arrow_properties = false
     local swaps = findfeatureat(nil, "is", "swap", x + ox, y + oy, { "still" })
@@ -3350,7 +3363,6 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
             movedata.result = result + 1
         else
             result = movedata.result - 1
-            done = true
         end
 
         local finaldone = false
@@ -3377,7 +3389,7 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
                             if (pushedunits[pid] == nil) then
                                 pushedunits[pid] = 1
 
-                                hm = dopush(obs, ox, oy, dir, true, x - ox, y - oy, reason, unitid)
+                                hm = dopush(obs, ox, oy, dir, true, x - ox, y - oy, reason, unitid, nil, nil, all_sticky_ids)
                             end
 
                             movedata.pull = 1
@@ -3392,7 +3404,7 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 
                             if (pulling == false) or (pulling and (hms[i] ~= pusherid)) and (pushedunits[pid] == nil) then
                                 pushedunits[pid] = 1
-                                hm = dopush(v, ox, oy, dir, false, x + ox, y + oy, reason, unitid, nextPushables) -- EDIT: pass the next pushables
+                                hm = dopush(v, ox, oy, dir, false, x + ox, y + oy, reason, unitid, nil, nextPushables, all_sticky_ids) -- EDIT: pass the next pushables; EDIT2: pass them to the correct parameter
                             end
                         end
                     end
@@ -3517,7 +3529,7 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
 
                         if (pushedunits[pid] == nil) then
                             pushedunits[pid] = 1
-                            hm = dopush(obs, ox, oy, dir, pulling, x - ox, y - oy, reason, unitid)
+                            hm = dopush(obs, ox, oy, dir, pulling, x - ox, y - oy, reason, unitid, nil, nil, all_sticky_ids)
                         end
                     end
                 end
@@ -3540,7 +3552,7 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
     return hm
 end
 
-function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky)
+function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky, all_sticky_ids_)
     local x, y = 0, 0
     local unit = {}
     local name = ""
@@ -3574,12 +3586,23 @@ function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sti
 
     local pulling = pulling_ or false
 
+    local all_sticky_ids = all_sticky_ids_ or {}
+
     --sticky check! sticky things are pushed or pulled as a whole unit. the whole thing has to succeed or fail together.
-    if (is_sticky ~= true and name ~= empty and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
+    if (is_sticky ~= true and name ~= "empty" and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
         local units, pushers, pullers = find_entire_sticky_unit(unitid, ox, oy);
         if pulling ~= true then
+
+            for _,uid in ipairs(units) do
+                if all_sticky_ids[uid] ~= nil then
+                    goto bypass
+                end
+            end
+
+            all_sticky_ids[unitid] = 1
+
             for _, u in ipairs(pushers) do
-                if trypush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true) == 1 then
+                if trypush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true, all_sticky_ids) == 1 then
                     return 1
                 end
             end
@@ -3591,6 +3614,8 @@ function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sti
 			end]]
         end
     end
+
+    :: bypass ::
 
     local weak = hasfeature(name, "is", "weak", unitid, x_, y_)
 
@@ -3640,7 +3665,7 @@ function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sti
                         end
                     else
                         if (pulling == false) then
-                            hm = trypush(hm, ox, oy, dir, pulling, x + ox, y + oy, reason, unitid)
+                            hm = trypush(hm, ox, oy, dir, pulling, x + ox, y + oy, reason, unitid,nil, all_sticky_ids)
                         else
                             result = math.max(0, result)
                             done = true
