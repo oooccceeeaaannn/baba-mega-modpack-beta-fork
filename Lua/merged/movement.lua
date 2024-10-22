@@ -3149,15 +3149,17 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
             pushers_table = {}
             local result = 0
             --everything on the push-front pushes, everything else JUST moves. otherwise it infinite loops lmao
-            for _, u in ipairs(pushers) do
-                pushers[u] = true
+            for _, u in ipairs(units) do
+                --pushers[u] = true
                 result = math.max(result, dopush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true, allPushables, all_sticky_ids));
             end
+            --[[
             for _, u in ipairs(units) do
                 if pushers[u] == nil then
                     queue_move(u, ox, oy, dir, {}, reason, x, y)
                 end
             end
+            --]]
             return result; --TODO: not sure if this should be the lowest or highest value
         else
             --TODO: sticky pull
