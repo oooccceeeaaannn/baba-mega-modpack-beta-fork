@@ -957,7 +957,7 @@ function conversion(dolevels_)
 										end
 									end
 								elseif (name ~= object) or (verb == "become") then
-									if (object ~= "revert") and (not is_str_special_prefixed(object)) then --Note: I don't actually think meta/unmeta needs to be placed at the front.
+									if (object ~= "revert") and (not is_str_metalike_prop(object)) then --Note: I don't actually think meta/unmeta needs to be placed at the front.
 										table.insert(output, {object, conds, "is"})
 									else
 										table.insert(output, 1, {object, conds, "is"})
