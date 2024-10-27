@@ -27,22 +27,6 @@ function writerules(parent,name,x_,y_)
 
 		local tags = rules[4]
 
-		if SPLITRULETYPES then
-			for a,b in ipairs(tags) do
-				if b == "textrule" then
-					text = text .. "$4,1(t) "
-				elseif b == "logicrule" then
-					text = text .. "$3,1(l) "
-				elseif b == "glyphrule" then
-					text = text .. "$3,3(g) "
-				elseif b == "noderule" then
-					text = text .. "$2,4(n) "
-				elseif b == "eventrule" then
-					text = text .. "$5,4(e) "
-				end
-			end
-		end
-
 		if (#custom == 0) then
 			-- EDIT: implement AMBIENT
 			local target = rule[1]
@@ -239,6 +223,22 @@ function writerules(parent,name,x_,y_)
 			for a,b in ipairs(tags) do
 				if (b == "keep") then
 					text = text .. " (keep)"
+				end
+			end
+
+			if SPLITRULETYPES then
+				for a,b in ipairs(tags) do
+					if b == "textrule" then
+						text = "$4,1(t) " .. text
+					elseif b == "logicrule" then
+						text = "$3,1(l) " .. text
+					elseif b == "glyphrule" then
+						text = "$3,3(g) " .. text
+					elseif b == "noderule" then
+						text = "$2,4(n) " .. text
+					elseif b == "eventrule" then
+						text = "$5,4(e) " .. text
+					end
 				end
 			end
 
