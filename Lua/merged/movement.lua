@@ -3428,7 +3428,10 @@ function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_stic
                     if domino then
                         ws_doDomino({},{unitid},unitid)
                     end
-                    delete(unitid, x, y)
+
+                    if (unitid ~= 2) and (unit.flags[DEAD] == false) then
+                        delete(unitid, x, y)
+                    end
 
                     local pmult, sound = checkeffecthistory("weak")
                     setsoundname("removal", 1, sound)

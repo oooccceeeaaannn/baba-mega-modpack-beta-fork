@@ -3533,7 +3533,7 @@ function subrules()
 			local visual = true
 			local verbpair = {}
 			for i,v in ipairs(tags) do
-				if is_str_notted_broad_noun(v) or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
+				if is_str_broad_noun(v) or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
 					visual = false
 				elseif v == "visualmimic" then
 					visualonly = true
