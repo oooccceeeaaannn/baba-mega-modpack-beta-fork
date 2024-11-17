@@ -1424,7 +1424,7 @@ function delunit(unitid)
 				end
 			end
 			
-			if (unit.values[TYPE] == 5) then
+			if (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(unit.strings[UNITNAME]))) then
 				for i,v in pairs(letterunits) do
 					if (v == unitid) then
 						v = {}

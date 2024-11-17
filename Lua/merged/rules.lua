@@ -1074,11 +1074,14 @@ function docode(firstwords)
 
 								-- @mods(metatext x plasma) - If "text_" is involved, make sure that the word to be text_'ed is interpreted literally
 								local tileobj = mmf.newObject(tileid)
-								tilename = tileobj.strings[NAME]
+								if tilewidth == 1 and string.sub(tileobj.strings[UNITNAME],1,5) == "text_" then --fixes the special case of letters and other parsers
+									tilename = tileobj.strings[NAME]
+								end
 
 								if objectlist[prefix .. tilename] == nil and objectpalette[prefix .. tilename] ~= nil then
 									objectlist[prefix .. tilename] = 1
 								end
+
 								prefix = ""
 							end
 							-- @filler text

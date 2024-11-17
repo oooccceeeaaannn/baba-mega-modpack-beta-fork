@@ -337,7 +337,7 @@ function addunit(id,undoing_,levelstart_)
 				if (unitlists[matname] == nil) then
 					unitlists[matname] = {}
 				end
-			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(unit.strings[UNITNAME]))) then
+			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(string.sub(unit.strings[UNITNAME], 6)))) then
 				table.insert(letterunits, unit.fixed)
 			end
 		end
