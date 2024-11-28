@@ -1,16 +1,16 @@
-# Baba Is You - The MEGA MODPACK (UNOFFICIAL Beta branch)
+# Baba Is You - The MEGA MODPACK (UNOFFICIAL Beta fork)
 
 This...... is a big one. A **BIG** modpack that merges several (curated) Baba Is You mods from various people into one GIANT (mostly working) MODPACK.
 
 ## But first, a (serious) disclaimer...
-I am not motivated AT ALL to maintain the UNOFFICIAL Beta branch of the Mega Modpack. Therefore, expect it to rarely update. (Like, maybe a 10-year hiatus.)
+I am not motivated AT ALL to maintain the UNOFFICIAL Beta fork of the Mega Modpack. Therefore, expect it to rarely update. (Like, maybe a 10-year hiatus.)
 
 ## Alright, serious time over! Where are the goods?!
 ### [Download the modpack in the Releases Section!](https://github.com/oooccceeeaaannn/baba-mega-modpack-beta-fork/releases)
 
 **Compatable Baba version: 478f on PC**
 
-The beta branch currently includes these mods (author handles are from discord):
+The beta fork currently includes these mods (author handles are from discord):
 - [Plasma's Modpack](https://github.com/PlasmaFlare/plasma-baba-mods) - By PlasmaFlare (@plasmaflare)
 - [Patashu's Modpack](https://github.com/Patashu/Baba-is-You-Pata-Redux-Mods) - By Patashu (@patashu)
 - Persist (From the levelpack "Persistence") - By Randomizer (@randomizer)
