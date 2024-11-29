@@ -2882,6 +2882,19 @@ function check(unitid, x, y, dir, pulling_, reason, ox, oy)
                         isstop = nil
                     end
 
+                    if hasfeature(name,"is","pushless",unitid,x,y) then
+                        ispush = nil
+                    end
+                    if hasfeature(name,"is","pullless",unitid,x,y) then
+                        ispull = nil
+                    end
+                    if hasfeature(name,"is","swapless",unitid,x,y) then
+                        isswap = nil
+                    end
+                    if hasfeature(name,"is","nonstop",unitid,x,y) then
+                        isstop = nil
+                    end
+
                     if (((isstop ~= nil) and (ispush == nil) and ((ispull == nil) or ((ispull ~= nil) and (pulling == false)))) or ((ispull ~= nil) and (pulling == false) and (ispush == nil))) and (isswap == nil) then
                         if (weak == nil) or ((weak ~= nil) and (floating(id, unitid, x + ox, y + oy) == false)) then
                             table.insert(result, 1)

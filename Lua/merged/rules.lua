@@ -86,8 +86,10 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 						if valid then
 							if (gettilenegated(x,y) == false) then
 								local uname = v.strings[UNITNAME]
-								if metatext_textisword and string.sub(uname,1,5) == "text_" then
+								if metatext_textisword and (string.sub(uname,1,5) == "text_") then
 									table.insert(result, {{b}, w, v.strings[NAME], v.values[TYPE], cdir})
+								elseif (string.sub(uname,1,6) == "event_") then
+									table.insert(result, {{b}, w, string.sub(uname,7), v.values[TYPE], cdir})
 								elseif not is_str_special_prefixed(uname) then
 									table.insert(result, {{b}, w, uname, v.values[TYPE], cdir})
 								else
@@ -2119,8 +2121,12 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 								groupcond = true
 							end
 						end
-						
-						cond[2] = newconds
+
+						if condname ~= "that" then
+							cond[2] = newconds
+						else
+							cond[2][2] = newconds
+						end
 					end
 				end
 			end
@@ -2721,11 +2727,14 @@ function code(alreadyrun_)
 							
 							if (#hm == 0) and (#hm2 > 0) then
 								--MF_alert("Added " .. unit.strings[UNITNAME] .. " to firstwords, dir " .. tostring(i))
-								
-								if not is_str_special_prefixed(unit.strings[UNITNAME]) then
-									table.insert(firstwords, {{unitid}, i, 1, unit.strings[UNITNAME], unit.values[TYPE], {}})
+
+								local unitname = unit.strings[UNITNAME]
+								if (not is_str_special_prefixed(unitname)) or (string.sub(unitname, 1, 5) == "text_") then
+									table.insert(firstwords, {{unitid}, i, 1, unitname, unit.values[TYPE], {}})
+								elseif (wordunitresult[unitid] == 1 and string.sub(unitname, 1, 6) == "event_") then
+									table.insert(firstwords, {{unitid}, i, 1, "text_" .. string.sub(unitname, 7), unit.values[TYPE], {}})
 								else
-									table.insert(firstwords, {{unitid}, i, 1, get_broaded_str(unit.strings[UNITNAME]), 0, {}})
+									table.insert(firstwords, {{unitid}, i, 1, get_broaded_str(unitname), 0, {}})
 								end
 								
 								if (alreadyused[tileid] == nil) then

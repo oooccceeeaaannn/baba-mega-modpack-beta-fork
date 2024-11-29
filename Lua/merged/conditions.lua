@@ -2091,7 +2091,11 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 				if (params_ ~= nil) then
 					local handlegroup = false
 
-					for a,b in ipairs(params_) do
+					local toloop = params_
+					if condtype == "that" then
+						toloop = params_[2]
+					end
+					for a,b in ipairs(toloop) do
 						--[[ Test most specific to least specific
 						NOUN -> (NOT) META# -> NOT NOUN+TEXT
 						]]
@@ -2210,6 +2214,16 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 				local condsubtype = ""
 
 				if (string.sub(basecondtype, 1, 7) == "powered") then
+					for a,b in pairs(condlist) do
+						if (#basecondtype > #a) and (string.sub(basecondtype, 1, #a) == a) then
+							condsubtype = string.sub(basecondtype, #a + 1)
+							basecondtype = string.sub(basecondtype, 1, #a)
+							break
+						end
+					end
+				end
+
+				if (string.sub(basecondtype, 1, 4) == "that") then
 					for a,b in pairs(condlist) do
 						if (#basecondtype > #a) and (string.sub(basecondtype, 1, #a) == a) then
 							condsubtype = string.sub(basecondtype, #a + 1)

@@ -748,7 +748,6 @@ event_text_types["tile"] = "noun"
 event_text_types["keke"] = "noun"
 event_text_types["text"] = "noun"
 event_text_types["event"] = "noun"
-event_text_types["glyph"] = "noun"
 event_text_types["rock"] = "noun"
 event_text_types["wall"] = "noun"
 event_text_types["lava"] = "noun"
@@ -759,6 +758,17 @@ event_text_types["door"] = "noun"
 event_text_types["skull"] = "noun"
 event_text_types["belt"] = "noun"
 event_text_types["grass"] = "noun"
+event_text_types["brick"] = "noun"
+event_text_types["fire"] = "noun"
+event_text_types["flower"] = "noun"
+event_text_types["ice"] = "noun"
+event_text_types["leaf"] = "noun"
+event_text_types["me"] = "noun"
+event_text_types["orb"] = "noun"
+event_text_types["tree"] = "noun"
+event_text_types["it"] = "noun"
+event_text_types["jiji"] = "noun"
+event_text_types["hedge"] = "noun"
 
 event_text_types["group"] = "nounjective"
 
@@ -776,6 +786,13 @@ event_text_types["shut"] = "adjective"
 event_text_types["defeat"] = "adjective"
 event_text_types["power"] = "adjective"
 event_text_types["shift"] = "adjective"
+event_text_types["red"] = "adjective"
+event_text_types["blue"] = "adjective"
+event_text_types["yellow"] = "adjective"
+event_text_types["still"] = "adjective"
+event_text_types["nop"] = "adjective"
+
+event_text_types["func"] = "function"
 
 event_text_types["turn"] = "verb"
 event_text_types["move"] = "verb"
@@ -783,6 +800,14 @@ event_text_types["become"] = "verb"
 event_text_types["make"] = "verb"
 event_text_types["be"] = "verb"
 event_text_types["eat"] = "verb"
+event_text_types["have"] = "verb"
+event_text_types["code"] = "verb"
+event_text_types["goto"] = "verb"
+
+event_text_types["as"] = "as"
+
+event_text_types["press"] = "conditionverb"
+event_text_types["idle"] = "action"
 
 event_text_types["down"] = "direction"
 event_text_types["up"] = "direction"
@@ -792,6 +817,7 @@ event_text_types["aroundleft"] = "direction"
 event_text_types["aroundright"] = "direction"
 event_text_types["forward"] = "direction"
 event_text_types["backward"] = "direction"
+event_text_types["way"] = "direction"
 
 event_text_types["on"] = "condition"
 event_text_types["near"] = "condition"
@@ -802,6 +828,10 @@ event_text_types["repeat"] = "loop"
 event_text_types["not"] = "not"
 
 event_text_types["never"] = "never"
+
+event_text_types["halt"] = "halt"
+
+event_text_types["start"] = "begin"
 
 event_text_types["backslash"] = "backslash"
 
@@ -822,15 +852,12 @@ event_text_types["7"] = "number"
 event_text_types["8"] = "number"
 event_text_types["9"] = "number"
 
-event_text_types["refers"] = "condition"
-event_text_types["node"] = "noun"
-
 verb_allowed_types = {}
 verb_allowed_types["turn"] = {"direction"}
 verb_allowed_types["move"] = {"direction"}
 verb_allowed_types["repeat"] = {"number"}
-verb_allowed_types["when"] = {"prefix", "adjective", "nounjective"}
-verb_allowed_types["not when"] = {"prefix", "adjective", "nounjective"}
+verb_allowed_types["when"] = {"prefix", "adjective", "nounjective", "verb"}
+verb_allowed_types["not when"] = {"prefix", "adjective", "nounjective", "verb"}
 verb_allowed_types["be"] = {"noun", "adjective", "nounjective"}
 verb_allowed_types["never"] = {"adjective", "verb", "nounjective"}
 verb_allowed_types["adjective"] = {"adjective"}
@@ -839,6 +866,12 @@ number_extensions = {"power", "group", "powered"}
 
 never_opposites = {}
 never_opposites["not destroy"] = "safe"
+never_opposites["not push"] = "pushless"
+never_opposites["not pull"] = "pullless"
+never_opposites["not swap"] = "swapless"
+never_opposites["not stop"] = "nonstop"
+never_opposites["not win"] = "lose"
+never_opposites["not sink"] = "swim"
 
 setmetatable(event_text_types, {__index = function(tab, name)
     if (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
@@ -847,9 +880,10 @@ setmetatable(event_text_types, {__index = function(tab, name)
     return nil
 end})
 
+
 function event_code()
 
-    local starts = findall({"event_start", {}})
+    local starts = findall({"event_start", {}}, true)
     if (#starts == 0) then
         return
     end
@@ -866,6 +900,10 @@ function event_code()
         local they = y + 1
 
         local applicable, applicable_ids = find_events(x + 1, y, "noun", true)
+        local backup_applicable = {}
+        for i, zzzzz in ipairs(applicable) do
+            table.insert(backup_applicable, zzzzz)
+        end
 
         -- if no nouns were detected, dont parse
         if (#applicable > 0) then
@@ -895,7 +933,7 @@ function event_code()
                 local isbackslashed = false
 
                 if (#allhere > 0) then
-
+                    local tilevalid = false
                     for i, k in ipairs(allhere) do
 
                         local kunit = mmf.newObject(k)
@@ -905,7 +943,7 @@ function event_code()
 
                         local valid = false
                         if not backslash then
-                            if (string.sub(name, 1, 6) == "event_") then
+                            if (string.sub(name, 1, 6) == "event_") or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", k)) then
                                 valid = true
                             end
                         else
@@ -915,7 +953,7 @@ function event_code()
                         end
 
                         if valid then
-
+                            tilevalid = true
                             local copied_conditions = {}
 
                             for i, q in ipairs(conditions) do
@@ -927,7 +965,11 @@ function event_code()
 
                             --Handle \
                             if not backslash then
-                                eventname = string.sub(name, 7)
+                                if string.sub(name, 1, 6) == "event_" then
+                                    eventname = string.sub(name, 7)
+                                elseif string.sub(name, 1, 5) == "text_" then
+                                    eventname = string.sub(name, 6)
+                                end
                             else
                                 eventname = string.sub(name, 6)
                             end
@@ -943,26 +985,25 @@ function event_code()
                                 if kunit.values[TYPE] == 7 then
                                     event_type = "condition"
                                 end
+                            elseif event_type == nil then
+                                if kunit.values[TYPE] == 1 then
+                                    event_type = "verb"
+                                end
+                                if kunit.values[TYPE] == 2 or string.sub(kunit.strings[NAME], 1, 5) == "group" then
+                                    event_type = "adjective"
+                                end
+                                if kunit.values[TYPE] == 7 then
+                                    event_type = "condition"
+                                end
                             end
+
                             --End handling \
 
                             --Number extension stuff, for GROUP and POWER
 
                             local number_ids = {}
 
-                            for a, b in ipairs(number_extensions) do
-                                if eventname == b then
-                                    local targets, target_ids = find_event_targets(thex + 1, they, "repeat")
-
-                                    if #targets > 0 then
-                                        for a, b in ipairs(target_ids) do
-                                            table.insert(number_ids, b)
-                                        end
-                                        eventname = eventname .. targets[1]
-                                    end
-                                end
-                            end
-
+                            eventname, number_ids = do_number_suffix(eventname, thex, they)
 
                             if notted then
                                 if event_type == "condition" then
@@ -1020,6 +1061,9 @@ function event_code()
                                                 if etype == 2 or string.sub(kunit.strings[NAME], 1, 5) == "group" then
                                                     etype = "adjective"
                                                 end
+                                                if etype == 1 then
+                                                    etype = "verb"
+                                                end
                                             end
                                             --timedmessage(b)
                                             if etype == "prefix" then
@@ -1028,6 +1072,20 @@ function event_code()
                                             elseif etype == "adjective" then
                                                 worked = true
                                                 table.insert(conditions, {"feeling", {b}})
+                                            elseif etype == "verb" then
+                                                local targets2, target2_ids = find_event_targets(thex + 2, they, eventname)
+
+                                                if #targets > 0 then
+                                                    for a, b in ipairs(target2_ids) do
+                                                        table.insert(target_ids, b)
+                                                    end
+                                                    table.insert(conditions, {"that".. b, targets2 })
+                                                    worked = true
+                                                else
+                                                    worked = false
+                                                    break
+                                                end
+
                                             end
                                         end
                                         if worked then
@@ -1050,13 +1108,40 @@ function event_code()
 
                                 local targets, target_ids = find_event_targets(thex + 1, they, eventname)
 
+                                if #targets > 0 then
+                                    for a, b in ipairs(target_ids) do
+                                        table.insert(ids, b)
+                                    end
+
+                                    table.insert(ids, {k})
+                                    table.insert(event_list, {applicable, {eventname, targets}, copied_conditions, ids})
+
+                                else
+                                    done = true
+                                end
+
+                            elseif event_type == "as" then
+
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname)
 
                                 if #targets > 0 then
                                     for a, b in ipairs(target_ids) do
                                         table.insert(ids, b)
                                     end
                                     table.insert(ids, {k})
-                                    table.insert(event_list, {applicable, {eventname, targets}, copied_conditions, ids})
+                                    applicable = {}
+                                    for i, zzzzz in ipairs(targets) do
+                                        table.insert(applicable, zzzzz)
+                                    end
+
+                                    local copied_conditions = {}
+
+                                    for i, q in ipairs(conditions) do
+                                        table.insert(copied_conditions, q)
+                                    end
+                                    conditions = {}
+                                    table.insert(blockstack, {eventname, they, copied_conditions})
+
                                 else
                                     done = true
                                 end
@@ -1119,11 +1204,48 @@ function event_code()
                                 thex = thex + 1
                                 isbackslashed = true
                                 backslash = true
+                            elseif event_type == "halt" then
+                                --if there is an object that matches all conditions, add never to the   conditions
+                                for i, j in ipairs(copied_conditions) do
+                                    if j[1] == "when" then
+                                        copied_conditions[i][1] = copied_conditions[i][2][1]
+                                        copied_conditions[i][2] = {}
+                                    end
+                                    if j[1] == "not when" then
+                                        copied_conditions[i][1] = "not " .. copied_conditions[i][2][1]
+                                        copied_conditions[i][2] = {}
+                                    end
+                                end
+
+                                table.insert(ids, {k})
+                                for a, b in ipairs(applicable) do
+                                    local exists = findall({b, copied_conditions}, true)
+                                    if exists ~= nil and #exists > 0 then
+                                        table.insert(conditions, 1, {"never", {}})
+                                    end
+                                end
+                            elseif event_type == "if" then
+                                local result, if_ids, work = do_if(thex, they)
+                                if result then
+                                    for a, b in ipairs(if_ids) do
+                                        table.insert(ids, b)
+                                    end
+                                    if not work then
+                                        table.insert(conditions, 1, {"never", {}})
+                                        table.insert(blockstack, {"never", they})
+                                    end
+                                end
                             elseif event_type == "then" then
                                 if #blockstack > 0 then
                                     table.insert(ids, {k})
-                                    if blockstack[#blockstack][1] ~= "repeat" then
+                                    if blockstack[#blockstack][1] ~= "repeat" and blockstack[#blockstack][1] ~= "as" then
                                         table.remove(conditions, #conditions)
+                                        table.remove(blockstack, #blockstack)
+                                    elseif blockstack[#blockstack][1] ~= "repeat" then
+                                        applicable = {}
+                                        for i, zzzzz in ipairs(backup_applicable)do
+                                            table.insert(applicable, zzzzz)
+                                        end
                                         table.remove(blockstack, #blockstack)
                                     else
 
@@ -1147,12 +1269,28 @@ function event_code()
                                     end
                                     table.insert(ids, {k})
 
-                                    -- i dont feel like handling threads with repeat so
-                                    table.insert(blockstack, {eventname, tonumber(targets[1]), they})
+                                    -- i dont feel like handling threads with repeat AND i dont feel like code skipping, so
+                                    if tonumber(targets[1]) ~= 0 then
+                                        table.insert(blockstack, {eventname, tonumber(targets[1]), they})
+                                    else
+                                        table.insert(conditions, {"never", {}})
+                                        table.insert(blockstack, {eventname, they})
+                                    end
 
                                     id_mark = {#ids, #event_list}
                                 else
                                     done = true
+                                end
+
+                            elseif string.sub(eventname, 1, 4) == "var_" then
+                                --There are 2 ways this can parse.
+
+                                --x = x + 1
+                                --x + = 1
+                                for zi, zj in ipairs(applicable) do
+                                    if #findall({zj, conditions}, true) > 0 then
+                                        do_math_events(thex, they)
+                                    end
                                 end
 
                             else
@@ -1162,41 +1300,76 @@ function event_code()
                             if not done and #number_ids > 0 then
 
                                 for a, b in ipairs(number_ids) do
-                                    table.insert(ids, b)
+                                    table.insert(ids, {b})
                                 end
                             end
 
 
                         else
+                            --[[
                             done = true
                             local amount_to_run = #blockstack + 0
                             for ____ = 1, amount_to_run do
-                                if blockstack[#blockstack][1] ~= "repeat" then
-                                    table.remove(blockstack, #blockstack)
-                                    table.remove(conditions, #conditions)
-                                else
-                                    if blockstack[#blockstack][2] > 1 then
-                                        blockstack[#blockstack][2] = blockstack[#blockstack][2] - 1
-                                        they = blockstack[#blockstack][3]
-                                        done = false
-                                        break
-                                    else
+                                    if blockstack[#blockstack][1] ~= "repeat" then
                                         table.remove(blockstack, #blockstack)
+                                        table.remove(conditions, #conditions)
+                                    else
+                                        if blockstack[#blockstack][2] > 1 then
+                                            blockstack[#blockstack][2] = blockstack[#blockstack][2] - 1
+                                            they = blockstack[#blockstack][3]
+                                            done = false
+                                            break
+                                        else
+                                            table.remove(blockstack, #blockstack)
+                                        end
                                     end
-                                end
                             end
 
 
                             if notted then
-                                notcount = 0
-                                notted = false
-                                table.remove(ids, #ids)
+                                    notcount = 0
+                                    notted = false
+                                    table.remove(ids, #ids)
                             end
+                            --]]
 
 
 
                         end
 
+                    end
+
+                    if not tilevalid then
+                        done = true
+                        local amount_to_run = #blockstack + 0
+                        for ____ = 1, amount_to_run do
+                            if blockstack[#blockstack][1] ~= "repeat" and blockstack[#blockstack][1] ~= "as" then
+                                table.remove(conditions, #conditions)
+                                table.remove(blockstack, #blockstack)
+                            elseif blockstack[#blockstack][1] ~= "repeat" then
+                                applicable = {}
+                                for i, zzzzz in ipairs(backup_applicable)do
+                                    table.insert(applicable, zzzzz)
+                                end
+                                table.remove(blockstack, #blockstack)
+                            else
+                                if blockstack[#blockstack][2] > 1 then
+                                    blockstack[#blockstack][2] = blockstack[#blockstack][2] - 1
+                                    they = blockstack[#blockstack][3]
+                                    done = false
+                                    break
+                                else
+                                    table.remove(blockstack, #blockstack)
+                                end
+                            end
+                        end
+
+
+                        if notted then
+                            notcount = 0
+                            notted = false
+                            table.remove(ids, #ids)
+                        end
                     end
 
 
@@ -1208,12 +1381,18 @@ function event_code()
                         table.remove(ids, #ids)
                     end
 
-                    --run "Then" for each block still on the blcokstack.
+                    --run "Then" for each block still on the blockstack.
                     local amount_to_run = #blockstack + 0
                     for ____ = 1, amount_to_run do
-                        if blockstack[#blockstack][1] ~= "repeat" then
-                            table.remove(blockstack, #blockstack)
+                        if blockstack[#blockstack][1] ~= "repeat" and blockstack[#blockstack][1] ~= "as" then
                             table.remove(conditions, #conditions)
+                            table.remove(blockstack, #blockstack)
+                        elseif blockstack[#blockstack][1] ~= "repeat" then
+                            applicable = {}
+                            for i, zzzzz in ipairs(backup_applicable)do
+                                table.insert(applicable, zzzzz)
+                            end
+                            table.remove(blockstack, #blockstack)
                         else
                             if blockstack[#blockstack][2] > 1 then
                                 blockstack[#blockstack][2] = blockstack[#blockstack][2] - 1
@@ -1266,42 +1445,46 @@ function event_code()
             --WE DID IT
             if verb[2] == "" then
                 if string.sub(verb[1], 1, 4) ~= "not " then
-                    addoption({j, "is", verb[1]},conds,ids, true,nil,{"eventrule"})
+                    addoption({j, "is", verb[1]},conds,ids, true)
                 else
                     if never_opposites[verb[1]] ~= nil then
-                        addoption({j, "is", never_opposites[verb[1]]},conds,ids, true,nil,{"eventrule"})
+                        addoption({j, "is", never_opposites[verb[1]]},conds,ids, true)
                     else
-                        addoption({j, "is", verb[1]},conds,ids, true,nil,{"eventrule"})
+                        addoption({j, "is", verb[1]},conds,ids, true)
                     end
                 end
             else
 
                 for i, k in ipairs(verb[2]) do
+                    if verb[1] == "have" then
+                        verb[1] = "has"
+                    end
+
                     if verb[1] == "move" then
                         if string.sub(k, 1, 4) ~= "not " then
                             if k ~= "forward" then
-                                addoption({j, "is", "nudge" .. k},conds,ids, true,nil,{"eventrule"})
+                                addoption({j, "is", "nudge" .. k},conds,ids, true)
                             else
-                                addoption({j, "is", "auto"},conds,ids, true,nil,{"eventrule"})
+                                addoption({j, "is", "auto"},conds,ids, true)
                             end
                         else
-                            addoption({j, "is", "locked" .. string.sub(k, 5)},conds,ids, true,nil,{"eventrule"})
+                            addoption({j, "is", "locked" .. string.sub(k, 5)},conds,ids, true)
                         end
                     elseif verb[1] == "turn" then
                         if k ~= "aroundleft" and k ~= "aroundright" then
-                            addoption({j, "is", k},conds,ids, true,nil,{"eventrule"})
+                            addoption({j, "is", k},conds,ids, true)
                         else
                             if k == "aroundleft" then
-                                addoption({j, "is", "turn"},conds,ids, true,nil,{"eventrule"})
+                                addoption({j, "is", "turn"},conds,ids, true)
                             else
-                                addoption({j, "is", "deturn"},conds,ids, true,nil,{"eventrule"})
+                                addoption({j, "is", "deturn"},conds,ids, true)
                             end
                         end
                     elseif verb[1] == "be" then
-                        addoption({j, "is", k},conds,ids, true,nil,{"eventrule"})
+                        addoption({j, "is", k},conds,ids, true)
                     else
                         if string.sub(k, 1, 4) ~= "not " then
-                            addoption({j, verb[1], k},conds,ids, true,nil,{"eventrule"})
+                            addoption({j, verb[1], k},conds,ids, true)
                         end
                     end
                 end
@@ -1325,31 +1508,65 @@ function find_events(x, y, type, havenot)
     for i, k in ipairs(findallhere(x, y)) do
 
         local kunit = mmf.newObject(k)
-        local name = getname(kunit)
+        local name = getname(kunit, true)
 
-        if string.sub(name, 1, 6) == "event_" then
+        if string.sub(name, 1, 6) == "event_" or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", k)) then
+            local realname = name
 
-            local realname = string.sub(name, 7)
+            if string.sub(name, 1, 6) == "event_" then
+                realname = string.sub(name, 7)
+            elseif string.sub(name, 1, 5) == "text_" then
+                realname = string.sub(name, 6)
+            end
+
 
             if realname == "backslash" then
                 backslashid = k
                 hasbackslash = true
             end
 
-            if event_text_types[realname] == type or type == nil or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective"))
-             or (type == "noun" and is_str_special_prefixed(realname) and not is_str_special_prefix(realname))then
-                table.insert(the_targets, realname)
+            local event_type = event_text_types[realname]
+            if event_type == nil then
+                if kunit.values[TYPE] == 0 then
+                    event_type = "noun"
+                end
+                if kunit.values[TYPE] == 2 then
+                    event_type = "adjective"
+                end
+                if kunit.values[TYPE] == 4 then
+                    event_type = "not"
+                end
+            end
+
+            if event_type == type or type == nil or (type == "noun" and (string.sub(realname, 1, 6) == "event_" or string.sub(realname, 1, 5) == "text_")) or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective")) then
+
+                local realername, num_ids = do_number_suffix(realname, x, y)
+                for ya, yb in ipairs(num_ids) do
+                    table.insert(the_ids, yb)
+                end
+
+                table.insert(the_targets, realername)
                 table.insert(the_ids, k)
             end
 
-            if event_text_types[realname] == "not" and havenot then
+            if event_type == "not" and havenot then
                 local re_targets, re_ids = find_events(x + 1, y, type, true)
                 if #re_targets > 0 then
+
                     for a, b in ipairs(re_targets) do
+
+
+                        local bname, num_ids = do_number_suffix(b, x, y)
+                        for ya, yb in ipairs(num_ids) do
+                            table.insert(the_ids, yb)
+                        end
+
+
+
                         if string.sub(b, 1, 4) == "not " then
-                            table.insert(the_targets, string.sub(b, 5))
+                            table.insert(the_targets, string.sub(bname, 5))
                         else
-                            table.insert(the_targets, "not " .. b)
+                            table.insert(the_targets, "not " .. bname)
                         end
                     end
                     for a, b in ipairs(re_ids) do
@@ -1367,7 +1584,7 @@ function find_events(x, y, type, havenot)
         for i, k in ipairs(findallhere(x + 1, y)) do
 
             local kunit = mmf.newObject(k)
-            local name = getname(kunit)
+            local name = getname(kunit, true)
 
             if string.sub(name, 1, 5) == "text_" then
 
@@ -1415,7 +1632,40 @@ function find_events(x, y, type, havenot)
         end
     end
 
+
+
     return the_targets, the_ids
+end
+
+function do_number_suffix(name_, thx, thy)
+    local bname = name_
+    local _ids = {}
+    for za, zb in ipairs(number_extensions) do
+        if bname == zb then
+            local lim = 4
+            local fx = thx
+
+            while lim > 0 do
+                fx = fx + 1
+                local target2s, target2_ids = find_event_targets(fx, thy, "repeat")
+
+                if #target2s > 0 then
+                    for ya, yb in ipairs(target2_ids) do
+                        table.insert(_ids, yb[1])
+                    end
+
+                    bname = bname .. target2s[1]
+
+                else
+                    break
+                end
+
+                lim = lim - 1
+            end
+        end
+    end
+
+    return bname, _ids
 end
 
 function find_event_targets(x, y, eventname, havenot_)
@@ -1430,33 +1680,48 @@ function find_event_targets(x, y, eventname, havenot_)
 
     for i, m in ipairs(findallhere(x, y)) do
         local munit = mmf.newObject(m)
-        local name = getname(munit)
+        local name = getname(munit, true)
 
 
+        if string.sub(name, 1, 6) == "event_" or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", m)) then
+            local realname = name
+            if string.sub(name, 1, 6) == "event_" then
+                realname = string.sub(name, 7)
+            end
 
-        if string.sub(name, 1, 6) == "event_" then
-
-            local realname = string.sub(name, 7)
-
-
+            local event_type = event_text_types[realname]
+            if event_type == nil then
+                if munit.values[TYPE] == 0 then
+                    event_type = "noun"
+                end
+                if munit.values[TYPE] == 1 then
+                    event_type = "verb"
+                end
+                if munit.values[TYPE] == 2 then
+                    event_type = "adjective"
+                end
+                if munit.values[TYPE] == 3 then
+                    event_type = "prefix"
+                end
+            end
 
             local valid = false
 
             if verb_allowed_types[eventname] ~= nil then
                 for a, b in ipairs(verb_allowed_types[eventname]) do
 
-                    if b == event_text_types[realname] or ((event_text_types[realname] == "noun" or event_text_types[realname] == "adjective") and b == "nounjective") then
+                    if b == event_type or ((event_type == "noun" or event_type == "adjective") and b == "nounjective") then
                         valid = true
                     end
 
                 end
             else
-                if event_text_types[realname] == "noun" or event_text_types[realname] == "nounjective" then
+                if event_type == "noun" or event_text_types[realname] == "nounjective" then
                     valid = true
                 end
             end
 
-            if event_text_types[realname] == "not" and havenot_ then
+            if event_type == "not" and havenot_ then
                 local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true)
                 if #re_targets > 0 then
 
@@ -1506,8 +1771,6 @@ function find_event_targets(x, y, eventname, havenot_)
         for i, m in ipairs(findallhere(x + 1, y)) do
             local munit = mmf.newObject(m)
             local name = getname(munit)
-
-
 
             if string.sub(name, 1, 5) == "text_" then
 
@@ -1576,7 +1839,11 @@ function find_event_targets(x, y, eventname, havenot_)
             end
         end
     end
-
+    if #targets > 0 and havenot == "anded" then
+        for zx, zy in ipairs(find_event_targets(x + 1, y, eventname, "anded")) do
+            table.insert(targets, zy)
+        end
+    end
     return targets, target_ids
 end
 

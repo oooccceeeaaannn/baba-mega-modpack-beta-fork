@@ -1152,8 +1152,8 @@ function block(small_)
 							
 							local safe1 = issafe(b)
 							local safe2 = issafe(unit.fixed)
-							
-							if safe1 and safe2 then
+
+							if (safe1 and safe2) or hasfeature(getname(mmf.newObject(b)), "is", "swim", b) then
 								dosink = false
 							end
 							

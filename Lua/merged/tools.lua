@@ -1345,7 +1345,7 @@ function delunit(unitid)
 		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}
 		local unittype = unit.strings[UNITTYPE]
 		
-		if (unittype == "text" or unittype == "node") or (isglyph(unit)) or (unittype == "logic") then
+		if (unittype == "text" or unittype == "node") or (string.sub(unit.values[UNITNAME], 1, 6) == "event_") or (isglyph(unit)) or (unittype == "logic") then
 			updatecode = 1
 		end
 		
@@ -1873,7 +1873,7 @@ function updatedir(unitid,dir,noundo_)
 			end
 			unit.values[DIR] = dir
 			
-			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
+			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") or (string.sub(unitname, 1, 6) == "event_") then
 				updatecode = 1
 			end
 		end

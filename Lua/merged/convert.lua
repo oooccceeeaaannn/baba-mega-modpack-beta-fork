@@ -29,6 +29,8 @@ function dolevelconversions()
 				mat2 = "text_" .. matdata[1]
 			elseif (op == "log") then
 				mat2 = "logic_" .. matdata[1]
+			elseif (op == "code") then
+				mat2 = "event_" .. matdata[1]
 			end
 			
 			if (op == "inscribe") then
@@ -730,6 +732,8 @@ function convert(stuff,mats,dolevels_)
 								mat2 = "text_" .. matdata[1]
 							elseif (op == "log") then
 								mat2 = "logic_" .. matdata[1]
+							elseif (op == "code") then
+								mat2 = "event_" .. matdata[1]
 							end
 							
 							if (op == "inscribe") then
@@ -841,6 +845,8 @@ function convert(stuff,mats,dolevels_)
 								mat2 = "text_" .. matdata[1]
 							elseif (op == "log") then
 								mat2 = "logic_" .. matdata[1]
+							elseif (op == "code") then
+								mat2 = "event_" .. matdata[1]
 							end
 
 							if (op == "inscribe") then
@@ -900,7 +906,7 @@ function conversion(dolevels_)
 		
 		local operator = words[2]
 		
-		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "log") then
+		if (operator == "is") or (operator == "write") or (operator == "code") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "log") then
 			local output = {}
 			local name = words[1]
 			local thing = words[3]
@@ -913,6 +919,8 @@ function conversion(dolevels_)
 				tryautogenerate("glyph_" .. thing)
 			elseif (not dolevels) and (operator == "log") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["logic_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("logic_" .. thing)
+			elseif (not dolevels) and (operator == "code") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["code_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+				tryautogenerate("event_" .. thing)
 			end
 
 			if (not is_str_broad_noun(name)) --@Merge: omg beeeeg if block
@@ -929,6 +937,7 @@ function conversion(dolevels_)
 				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name) or getmat_text(name)))
 			  or ((operator == "inscribe")
 			    and (getmat("glyph_" .. name) or getmat(name)))
+					or ((operator == "code") and getmat("event_" .. name))
 					or (thing == "infect") or (operator == "draw") or ((operator == "log") and (getmat("logic_" .. name) ~= nil))
 			  then -- @Merge: Original glyph mod has "((string.sub(name, 1, 5) == "text_") and getmat_text(name))". I think this is its own version of metatext??? in which case maybe not include it?
 				
@@ -996,6 +1005,14 @@ function conversion(dolevels_)
 									table.insert(output, {"toometa", conds, "is"})
 								else
 									table.insert(output, {object, conds, "inscribe"})
+								end
+							end
+						elseif (verb == "code") then
+							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
+								if toometafunc("event_" .. object) then
+									table.insert(output, {"toometa", conds, "is"})
+								else
+									table.insert(output, {object, conds, "code"})
 								end
 							end
 						end
@@ -1135,7 +1152,7 @@ function conversion(dolevels_)
 									table.insert(conversions, {"logic_" .. name,conds})
 								end
 							end
-						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "log") then
+						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "log") or (op == "code") then
 							table.insert(conversions, v3)
 						end
 					end
