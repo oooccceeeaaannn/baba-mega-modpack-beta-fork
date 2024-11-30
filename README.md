@@ -33,10 +33,17 @@ The beta fork currently includes these mods (author handles are from discord):
 5. And thats it! You can start baba again and navigate to the levelpack and start playing around.
 
 # Where do I report bugs?
-Feel free to submit an issue to this Github repository to report bugs.
+Please submit bug reports through [GitHub Issues](https://github.com/oooccceeeaaannn/baba-mega-modpack-beta-fork/issues). This helps keep all bug reports organized and publicly visible.
 
-You can also report bugs by dm-ing @someone112358 in discord, which is my personal account. If you are on the [Baba Is You Discord](https://discord.gg/GGbUUse), you can also report bugs in #asset-is-make.
+When submitting an issue, please include:
+- A description of the bug
+- Steps to reproduce the problem
+- Expected behavior
+- Actual behavior
 
+Alternatively, if you cannot access GitHub Issues, you can report bugs by:
+- DMing @someone112358 on Discord
+- Posting in #asset-is-make on the [Baba Is You Discord](https://discord.gg/GGbUUse)
 
 # Changelog
 - Too lazy to write one.
