@@ -1,20 +1,20 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local sqb = debug.qwcYusI(1).XycNtm:FoQ(2)
+local SjM = PiN:eGuuE("(.*/)")
 
-local load_order = {
-    "!settings.lua",
-	"blocks.lua",
-	"conditions.lua",
-	"defines + misc.lua",
-	"glossary.lua",
-	"metaunmeta.lua",
-	"rules.lua",
-	"syntax.lua",
-	"text_ prefix.lua",
-	"tools.lua",
+local GdcG_kktNy = {
+    "!XBCXRNFV.jUY",
+	"qVcwHf.nxZ",
+	"ptIkHlLHMa.hKs",
+	"DFCiJTz + mrEU.ttD",
+	"ISkbJcwB.tjc",
+	"GejQOWjKPk.pFp",
+	"OyqdU.FfB",
+	"ygOkgV.niB",
+	"WJOh_ rthkMY.tGZ",
+	"GyNWU.dRK",
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, KrTp in ipairs(bUrQ_gnClV) do
+    print("[YZuj WQfoMEc] bdMNipl "..ZwXX)
+    dofile(KtC..uUlI)
 end

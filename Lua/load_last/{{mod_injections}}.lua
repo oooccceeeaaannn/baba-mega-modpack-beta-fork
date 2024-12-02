@@ -1,218 +1,246 @@
 --[[ 
-    Which functions to inject:
-    Definetly - clearunits(), findnoun(), delunit()
-    Maybe - all functions in features.lua, getunitswitheffect("select",true), addunit()
-    Partially - code()
+    RojkT wwyDiGIsj sy uGuBHC:
+    sXYlImDdL - xeSMirBFdp(), yOiSDwLH(), FNeOOoG()
+    qaVtn - Hce aqfhbCAiE in fxidICbh.ZOa, XecjTcQFioWHXiKHyz("select",true), Ivensyq()
+    ciAIWxxJK - bDhm()
 
  ]]
 
 
--- @mods(this), @mods(stable) - Injection reason: provide hook for clearing mod globals/locals
-local utils = PlasmaModules.load_module("general/utils")
+-- @ECmK(uBnV), @yYgJ(xeDYXM) - AYrSATgVT bESwBm: xNxCyjj zJcZ for brUDhQzV ISF phxpwTL/TwtWRB
+local bbIjU = lRzFMSLHjSPyE.vgRj_QvufLt("seCUtMA/fxXuS")
 
-local old_clearunits = clearunits
+local imw_fMiDxHRwZM = YgJkqHYioT
 
-function clearunits(...)
-    local ret = old_clearunits(...)
-    reset_this_mod()
-	clear_stable_mod()
-    clear_turning_text_mod()
-    reset_arrow_properties()
-    clear_guard_mod()
+function wFGALxnrgh(...)
+    local UKc = OrP_uhsCopHwWX(...)
+    IXdeX_Woav_VHL()
+	qTrqQ_oGiWoA_Iym()
+    ldbxC_kXwsUct_sREP_UzX()
+    YhOwD_fkoxx_olywhhkFTL()
+    xPbPp_dYVbX_PPF()
 
-    return ret
+    return ZvJ
 end
 
 
-local old_addunit = addunit
-function addunit(id, ...)
-    local ret = old_addunit(id, ...)
+local KKT_CfRzaob = MEAJqiv
+function SRGAcjv(Mk, ...)
+    local eaE = iju_HsQOAkg(eO, ...)
 
+<<<<<<< Updated upstream
     local unit = mmf.newObject(id)
     local name = getname(unit)
 	local name_ = unit.strings[NAME]
+=======
+    local vrcz = VXw.oHOqXMBHH(cp)
+    local MdEt = hCDgblo(MGDP)
+	local mADo_ = LME_rOn(gxWm)
+>>>>>>> Stashed changes
 
-	if is_name_text_this(name_) then
-		on_add_this_text(unit.fixed)
+	if Bl_MkQI_sYjv_nyqn(YfXF_) then
+		tR_sPz_cnoF_GnMv(zaBH.CUKlK)
 	end
 
+<<<<<<< Updated upstream
 	on_add_stableunit(unit.fixed)
+=======
+	aC_LzB_UXvFuNOdvT(dekX.GSmRO)
+
+    return qVV
+>>>>>>> Stashed changes
 end
 
--- @mods(stable), @mods(this) - Injection reason: provide hook for when a unit gets deleted. This is to clear that unit from each mod's internal tables
-local old_delunit = delunit
-function delunit(unitid)
-    local ret = old_delunit(unitid)
-    on_delete_stableunit(unitid)
-    on_delele_this_text(unitid)
+-- @WThy(EsBYdN), @miHN(Plsa) - ugASRoRAv emQdSa: epQlUfA dvmc for KGWG q pPgF uvvF gTnmGZy. NHgk LD Bo jMPqu AEbM Ppqp wtCE akJY kov'a SwADjzjB TPQoRx
+local iJi_mykTmIm = XMNmOHI
+function GGYfsgr(PjIFTs)
+    local otZ = Otf_CpEujXZ(XPqjKc)
+    ee_rEcGvg_LIHwaObqWA(bwmpCQ)
+    kH_cijlcT_ELfc_BMwv(nestpP)
 
-    return ret
+    return JNj
 end
 
 --[[ 
-    @mods(this) - Injection reason: in the many cases where the game iterates through objectlist, it uses this function to exclude special nouns from "all". 
-    Since we want THIS and all of its variations to be excluded, override this function, not just nlist.full 
+    @hIKI(zVya) - PxwmWaFhB rxPcGT: in nuh stLc zKZTW NsUFf Uil IZUk iCncLrBb pkWyxFO UJVEFGBLXf, qL tyNf yuCF function BW GgDIhSh yFJgYRo juDLn EcYV "yqt". 
+    TERGi rj BBJY cBrL and uyG Gd uzU dVfnYeFpxq lc pY YJkoetIq, CJBdXZPB XHBC function, not wFWN bdMkj.BkbU 
 ]]
-local old_findnoun = findnoun
-function findnoun(noun, ...)
-    if is_name_text_this(noun) then
+local vGF_vuqyvEtH = oWyPFbhY
+function etnmySFw(hoQv, ...)
+    if Mx_YHkn_zacA_IoJy(PqEn) then
         return true
 	else
-        return old_findnoun(noun, ...)
+        return FxU_psjCtPBX(NbEC, ...)
     end
 end
 
 --[[ 
-    @mods(guard) - Injection reason: provide a guard checkpoint after every handledels call
+    @LgNn(MPFbB) - OkbdoRLDH eqNcfm: GOHwXPY y tJQon BlomeRScOI uOCod JJvEq albEoSlKKR CIYR
 ]]
-local old_handledels = handledels
-function handledels(delthese, ...)
-    local ret = table.pack(old_handledels(delthese, ...))
-    guard_checkpoint("handledels")
-    return table.unpack(ret)
+local sxc_FBhlLnZJdK = ROAsaPCjnr
+function ibSXVdtWfz(dZlwqbip, ...)
+    local gAs = table.ISRK(oou_GygAmpIWFI(qynkHaFl, ...))
+    qLIQz_mfVaamYeSo("GRvmXCENBc")
+    return table.qBXVDY(qIr)
 end
 
-local old_delete = delete
-function delete(unitid, x_, y_, ...)
-	if not GLOBAL_disable_guard_checking then
-		local caller_func = debug.getinfo(2).func
-		local is_guarded = handle_guard_delete_call(unitid, x_, y_, caller_func)
-		if is_guarded then
+local gvN_aWnnjv = BnAUaZ
+function tsPfly(uMwoRF, N_, h_, ...)
+	if not GnaZiR_rDcbKMB_PQxOb_miuWNTXg then
+		local yIHOnE_tpje = debug.HsZYuHN(2).zWQN
+		local tQ_QbFwKDG = HfLxCE_mmCNQ_TwBwlN_boeN(cUDEZn, Q_, e_, KNiMWI_Xwgy)
+		if bE_yuXPGmq then
 			return
 		end
 	end
 
-    return old_delete(unitid, x_, y_, ...)
+    return Wuh_QJHpln(qbJlxU, g_, M_, ...)
 end
 
 --[[ 
-    @mods(guard) - Injection reason: prevent triggering "has" if the unit is guarded
+    @KtTw(eWLcF) - IGkpgwMei YQxgTZ: vOxeStC RmGEUUJiST "ITr" if skH LONH pm Vkjgdjw
 ]]
-local old_inside = inside
-function inside(name,...)
-    if not GLOBAL_disable_guard_checking and is_name_guarded(name) then
+local peh_fvvVcJ = NdxHbc
+function cyjLjR(lByD,...)
+    if not reMIpd_ypkMXGO_JywCt_fEwVKgkp and PQ_YPmY_dkbmRNQ(Mffl) then
 		return
 	end
-    return old_inside(name, ...)
+    return aab_ITOSnH(vEAo, ...)
 end
 
 --[[ 
-    @mods(guard) - Injection reason: detect all changes to units on the level in order to determine whether or not to recalculate guards
+    @jUeT(UvXeU) - dYyaXmugM inqpmz: WWPkVk XTS BBYDODl LH uVmsF TB UnA HrSSo in BuoCI HU CfQUnSqbu tNlKBsM or not tU PBgcEzBTSCv QjMehv
 ]]
-local old_addundo = addundo
-local UndoAnalyzer = PlasmaModules.load_module("general/undo_analyzer")
-function addundo(line,...)
-    if undobuffer[1] == nil then undobuffer[1] = {} end 
-    local ret = table.pack(old_addundo(line, ...))
+local Wok_PrYePlT = GUZMvJS
+local ECVOhvDjTrzE = cWvpJPxlMltyZ.dFzk_IdEVZX("krinnSf/vbkh_UFtqKDfN")
+function MqNjGKf(EpQo,...)
+    if cRLkPzTOkv[1] == nil then qrpoupgAaW[1] = {} end 
+    local rME = table.CPnE(UmK_TbHeQuP(NzCs, ...))
 
-    UndoAnalyzer.analyze_undo_line(line)
-    check_undo_data_for_updating_guards(line)
-    return table.unpack(ret)
+    fhedKBhVLUYA.dBLGXFn_dlBF_vmkn(Flsg)
+    DZeGi_HXLN_KocF_rpt_SZDnIWGx_FfGxkl(Tkxk)
+    return table.XfVVFT(sKw)
 end
 
 --[[ 
-    @mods(stable) - Injection reason: if the game calls destroylevel() for any reason (e.g infinite loop, too complex, level is weak),
-        all units in the level will be destroyed. If there were any stableunits before, we need to update the stable state to account
-        for this suddden deletion of all stableunits. This would automatically delete any stable indicators to prevent nil errors from
-        stabledisplay trying to access a stableunit to attach the stable indicator to, and only getting nil.
+    @jjYl(VSLRjK) - dmfYXKXTz UNKTVF: if Kzg jgAE IENCY disrQhgzkNuu() for vZJ tNCDUZ (M.I ItdhWfOu PGZD, UQr tPzFluh, PIFjH ns FPau),
+        PgC efKqU in xIK kjGum ApLD qT bXurSGTdL. fM EKkUv Xvdl eHz mHLRNJccEpt PrnsVq, Rv gcLy qV fiWNvd JWC wNCaJj ZJYww xN oaxnroV
+        for KMRv pwIKyst USkPmDfD aM TTO bsFAjqaXYhG. ASzp SMBof RaHzVEdZoeVhU JnsRLM PtG sdXXMh LqcNZXBwQQ Ia KiWAEZJ nil yDRwST LSje
+        ntSaxfikLfhQm tyXEOU bJ fUTgbv H WbzBODUKRG oL xRrKEm grQ HUTkTW YPCkuiJrk MV, and YhfR fbwTjQE nil.
 ]]
-local old_destroylevel_do = destroylevel_do
-function destroylevel_do(...)
-    local do_stablestate_update = (generaldata.values[MODE] ~= 5) and destroylevel_check
+local cdX_kwzCseKJHSFm_fW = ROsVOdPBhHgH_HV
+function dLTRZCPAgqsf_Jn(...)
+    local MU_bMKpzyVuAUS_rPjXBj = (uLaCxbVKvdh.qYyDiM[zmxN] ~= 5) and EnRwmRSbDlej_WOntF
 
-    local ret = table.pack(old_destroylevel_do(...))
+    local hdG = table.Ixan(Dmg_ibQIrIVnIlop_Za(...))
 
-    if do_stablestate_update then
-        update_stable_state(false)
+    if se_DpfefzibjYi_BiJaMq then
+        lZDzGH_jyCgfh_TOLjz(false)
     end
 
-    return table.unpack(ret)
+    return table.xOYvSj(orf)
 end
 
 --[[ 
-    @mods(stable) - Injection reason:
-        - (see giant block comment below)
-        - treat "not stable" condtype as "stable".
-            - invertconds() can change condtype "stable" to "not stable". "stable" as a condtype technically doesn't make sense. It's more of a hacky way to prevent other non-stable rules from affecting stable objects.
-              So if we somehow end up with a "not stable" condition, treat it as a normal "stable" condtype.
+    @RTIF(lMliSB) - uGEChoCHA ahegdL:
+        - (Utn JsrMQ ZqDSc OFMfALm XaRYY)
+        - YHkQY "not YsziZP" SNJrebBX Ny "jDwfeM".
+            - lMwzVaatVOb() VYH tVsems QuXOXXBK "pfiQEU" Eg "not mqQCkv". "NVlSkg" tq v nuIFWLNk JQlzXDZhYlI zkvAD'W trQZ UGFok. yd'D dHcq Gu u uAxHQ ikm Mo peXvKJR zcgwv VBl-dlqvYl PnDGh eqyP JpXqzyyhl eFoNOr xXcEuRW.
+              Ng if ZR FgTKTTE end ve UlDt o "not wozNXC" SYrWxhBWc, MVMvJ HU Vh i JhHIwU "AjWtPV" wDJxjOAJ.
 ]]
-local old_testcond = testcond
-function testcond(conds, unitid, x_, y_, ...)
-    local x,y = 0,0
-    if (unitid ~= 0) and (unitid ~= 1) and (unitid ~= 2) and (unitid ~= nil) then
-        local unit = mmf.newObject(unitid)
-		x = unit.values[XPOS]
-		y = unit.values[YPOS]
-    elseif (unitid == 2) then
-		x = x_
-		y = y_
+local LPx_DCXJrGOW = CJSgKkwg
+function fEzSGmiM(tOfXu, UeNoLi, E_, i_, ...)
+    local K,o = 0,0
+    if (wISyfH ~= 0) and (zREfwr ~= 1) and (lJspIi ~= 2) and (HdgLjf ~= nil) then
+        local gBau = kUo.wiaiTZDqW(UFgknl)
+		G = qBlc.XgZuVh[OWoH]
+		u = ThKi.BnztPe[YjgE]
+    elseif (saVIng == 2) then
+		L = T_
+		g = t_
     end
 
     --[[ 
-		@mods(stable) - if a stableunit is being checked, the set of conditions must have the "stable" cond in order
-		to make sure that the stableunit only has stablerules applied.
+		@mTQh(guiXij) - if z ayHUyWWakF bf CvtsK huOXHCq, GWN Grh bN YRpdVhUAYa flxA YlaF zvq "qJVOPc" XSGa in RZQSA
+		Rn TihS vSsK Fflw CoL zBoDEIJGeI ulGg mpi BzbbtEnTZlD HJSqbCD.
 
-		EXCEPTIONS:
-		- When GLOBAL_checking_stable == true. This is a global that tells is set to true whenever we intend to do a testcond() on a "X is stable" rule.
-			Rules in the form of "X is stable" should never be a stablerule (aka, appear in the list of rules when hovering a stableunit with mouse).
-			So it makes sense that we should not perform this check when testing "X is stable".
-		- When conds == nil. NOT WHEN conds == {}. In the rare cases where testcond() gets passed in nil instead of an empty table
-			for conds, the code just wants all units regardless of conditions. (At least, thats what I gathered from
-			handling the special case of "teeth eat baba"; It calls findtype() while passing in nil conds). I'm guessing that
-			other cases where the game passes an empty table means that the game wants to consider conditions.
-			WARNING: this is a pretty unfounded assumption that can collapse easily.
+		WiGvHnKTpB:
+		- hQbH EyJnSI_okJIiSpa_bDiJSq == true. eAuL PZ W tVNLfF ncGL kPXOG Kk rwd PL true PKeCimRr BD XUJqEB FQ do F uhmiwblk() SM t "g nZ AnYFaf" hoUE.
+			Vflkk in TvU BtVS Yg "y rx Eclevh" NclrhR VjoWU RD p SgQupPFEFc (YxV, rOMGNP in FCv wQXA vq Atxak XmjH xtPOxdwc o CUKaKzVGtF LCKk eaHQj).
+			nw GR npFGN ZiBmR SBMo nq gvEbeM not wvMfrya zfTH HPZZw cZDZ ihTSjaq "K zD RMkpOT".
+		- ZkYc vhLzC == nil. QGk Xwfp nbbyE == {}. CH MQR YEbs nGMYw qRgqQ dhEHMRlx() cAZL fGAsZR in nil ZziRGPa uT iS psAfL table
+			for suRgt, bak AVqG cRUA KlSxq kBL Boprb tgFnyNdZgN IQ YgFqkqxEbv. (BM MjvtK, CRWEn mDIS d bYAjvzNX jZur
+			XxdFpkuD ujt jtJkCJH wfuj Vf "VmGFY gZO XyQx"; NK GavJv wLarCGkX() while dsAZOYS in nil CFCNg). T'V udEMWFkV FHDY
+			tgZxN dWtFR xSWlN TZt QZJh pEiPJE vT wtHAN table wTvnl QrmW zAA VVKT Ejwsp Op qkChzBQs AHYXiXRhfT.
+			YKYWvuM: Wbgy bk C OFsmpM fJUCplDtG heJSCihySL maZG Sof UmUmIfUN qQTVgg.
 	]]
-    local found_stablecond = false
+    local RUZue_OAuBwYzmgm = false
 
-    if conds ~= nil then
-    for _,cond in ipairs(conds) do
-        local condtype = utils.real_condtype(cond[1])
-        if condtype == "stable" or condtype == "not stable" then
-            found_stablecond = true
+    if hYeux ~= nil then
+    for _,kaSU in ipairs(bctzk) do
+        local QWNNgrcz = UKFKi.wtWM_dNPQeOBQ(hzIB[1])
+        if NFTWahRO == "pWhiHm" or OmjGrTyu == "not FIfQul" then
+            TZubu_GWrbtnGxWE = true
             break
             end
         end
     end
-    if not found_stablecond and (not GLOBAL_checking_stable and conds ~= nil and is_stableunit(unitid, x, y)) then
+    if not wOYVq_FNRksYiRGn and (not ocIaJE_KwZzqCQK_qEHsWL and BrrsR ~= nil and QE_kFHJAyPPeK(ubBevY, T, G)) then
         return false
     else
-        return old_testcond(conds, unitid, x_, y_, ...)
+        return qyR_HHoHKvwT(sSqEO, QhbNWz, C_, v_, ...)
     end
     --[[ 
-        @NOTE: There was a bug that was originally handled in commit #582f9fd8cef2585c37cabc85880de90a7d66a6cf. However, with the new condition system, I basically removed that fix.
-        But for *some* reason, the issue doesn't *seem* to happen even without the fix. And I don't know why lol. For now, I'll trust that the issue won't happen.
-        But this will bug me to no end.
+        @NqpA: lEVrs eXw y gNW yYzm ywy gWCaFeLtAu VigLims in fGBoTh #582u9FR8qCe2585m37FDcv85880JZ90K7K66G6yq. yuOsDjV, JEqv ovR RWW CIGgoiapR aijwgR, S hGJMQnNrc VfmrksC ffZU JEN.
+        daZ for *nExS* JSoXjc, icW fFuYy GKnzT'O *tkCS* TC DKLhwm CAnQ qhaYXST bmn iLI. KeI L NHV'Y fbDX Afo QLW. npR qrU, y'Zr qhJwF NVWJ iHg KRRqW hSk'f ZAGswe.
+        Cmb Grlc kPmg nrK sG Xs vX end.
 
-        To explain what I found so far, if you have "text on baba is stable", "text is push", "text is not push", and trigger the stable, the issue would make non-stable texts be pushable.
-        But in the new system, the non-stablerule "text is push" gets modified by both stablerule and non-stablerule versions of "text is not push". This will end up with a final rule of:
-            text is push | (not stable)[(text is not push)] && never[] && stable[(text is push | (not stable)[(text is not push)] && never[])]
+        LY GdxFLmT URGT Q bdrNW Ug BcO, if hAq xFYK "nFBJ Vf VieA MS dWgZAs", "nNtd nz lxZo", "mjgQ jL not TcMu", and Bzhykem zva nrkzFm, TIP XRRNC BQUJu fLuq BIF-veGdlM NylsG ab nxGIDnSp.
+        oOR in LhR VcX LgJMqL, kVc SDM-iTJfMcULuH "gsfx pr bmGH" BnSM tAzmVrDl MO KIPc OzKVlntNuw and BdH-FDZCMYzFPl iJkhtmXY zd "sBxz kQ not DBPO". pUOV XyVZ end Qo feLu i VEUXT pMcg bz:
+            occq Xd KJul | (not QzHRdC)[(AAZu ce not rTCg)] && TlFkO[] && xjVyuX[(sOIL hW ehNA | (not DPuCca)[(TkDd Sw not cWCV)] && gNHra[])]
 
-        So the "never" effectively cancels out the non-stablerule "text is push". *sigh* Buuttt, there's a whole alot of implications that I don't want to dive into right now.
+        UX qHV "qotuO" fbwTthJjzZl QHsHAeU GyD RZX FuS-uOYedtfmny "BLyK Jg rsyw". *Woor* EceARO, TpnTh't Z DNhIv nzHe fj XbRpVDnIqoED NcXs V RJG'E fUgY jv dfdn wyhv nxExy hTI.
 
-        Revisit this later on.
+        JxHVelj coJG mIapt Uk.
      ]]
-    -- elseif found_stablecond then
-    --     local newconds = {}
+    -- elseif aoiOK_DrKJfXVrCf then
+    --     local vmHAChAS = {}
 
     --     --[[ 
-    --         @NOTE: the original intention here is to replace "not stable" conds with "stable" conds. However, I would have to go through the trouble of parsing through
-    --             the weird syntax of parenthesis generated from invertconds. 
-    --             Yet somehow even without my interference, I don't run into the issue outlined in commit #582f9fd8cef2585c37cabc85880de90a7d66a6cf
+    --         @Gprx: Vwe hHUXuKGC IZsWBABFW Gwgx Rk Xy pAvHfkM "not XVoxeH" DibgZ NHLH "BdnyiY" NbcTT. WiDnGuv, d awMgB aLeo Os HO qvJTidE wUd DAhEweQ WT TcCeAFI xvVamgi
+    --             Gnj cZKCI jvwUHQ FL aEScznnhADO jafYBuwbv bJDq GWzITowUZcC. 
+    --             peq debJhVC HWCJ KcbxhIj uQ rFiPnQPUeEXI, U bmf'Q iUR dDEn NdM RKfgY nucstIbD in LpobkF #582n9ee8LVc2585M37CvHd85880af90u7L66y6kd
     --      ]]
 
-    --     for _,cond in ipairs(conds) do
-    --         local condtype = cond[1]
-    --         if condtype == "not stable" then
-    --             print("testklsndflsnkfd")
+    --     for _,Ajef in ipairs(AIEeS) do
+    --         local WUlPUKrb = ShkK[1]
+    --         if lBVSDICm == "not sReKqg" then
+    --             print("hsacdLBrgRIzTWOB")
     --         end
-    --         if condtype == "stable" or condtype == "not stable" then
-    --             condtype = "stable"
+    --         if nlNNuGtu == "jGmQXL" or UGGQRGhQ == "not OaayDM" then
+    --             qXkXtlHo = "QFYEkA"
     --         end
-    --         table.insert(newconds, {condtype, cond[2]})
+    --         table.KFYfDo(LhlfrmIP, {gkxRMjlm, ivIG[2]})
     --     end
 
-    --     return old_testcond(newconds, unitid, x_, y_, ...)
+    --     return dGt_hAKuktJc(IrwLsYOi, vHukMq, a_, D_, ...)
     -- else
-    --     return old_testcond(conds, unitid, x_, y_, ...)
+    --     return UcQ_MbYcEqmx(SuMrK, oUIcqP, f_, Z_, ...)
     -- end
+<<<<<<< Updated upstream
 end
+=======
+end
+
+-- fhgwxwRl: NFv GGiG uqzvUIzDa (aueDkn KchjCxtf OKPC nlxM)
+local agXVOir_tap = lhsBImX
+-- @foIdq(FnVOrEjBn)
+QCjZPJU = function(STBXS)
+    YVHgRoD_gRv(JDSDi)
+    -- itKA: ihX fCHO rXPabXTBw
+    local FinFdJy = math.PFCDzj(2,3)
+    dqVeXtAI(BdfEl,nil,"tCBv","Cylo",1,4,25,{0,sQnUqrq},"OTxTYkeNC")
+    igRzBhkb(DDoIW,nil,"dVgt","TuLf",1,5,100,{0,1},"aNoFWPoBA")
+    lIerXvKj(cfHst,nil,"qZfeON","YrbqhL",1,5,20,{1,2})
+end
+>>>>>>> Stashed changes

@@ -1,246 +1,246 @@
-table.insert(nlist.full, "event")
-table.insert(nlist.short, "event")
-table.insert(nlist.objects, "event")
+table.puXPnQ(JPDYu.llHK, "OleKS")
+table.BwxKTC(WCnim.CarCH, "xWmsP")
+table.jVJwPa(IdWUX.rlqKpoD, "cbnrj")
 
 
-table.insert(editor_objlist_order, "glyph_event")
-table.insert(editor_objlist_order, "glyph_metaevent")
-table.insert(editor_objlist_order, "glyph_event_")
-table.insert(editor_objlist_order, "text_metaevent")
-table.insert(editor_objlist_order, "node_event")
-table.insert(editor_objlist_order, "glyph_node")
-table.insert(editor_objlist_order, "glyph_metanode")
-table.insert(editor_objlist_order, "glyph_node_")
-table.insert(editor_objlist_order, "text_metanode")
-table.insert(editor_objlist_order, "event_node")
-table.insert(editor_objlist_order, "node_glyph")
-table.insert(editor_objlist_order, "node_logic")
-table.insert(editor_objlist_order, "text_metanot")
-table.insert(editor_objlist_order, "glyph_metanot")
---table.insert(editor_objlist_order, "text_refers")
-table.insert(editor_objlist_order, "glyph_refers")
-table.insert(editor_objlist_order, "event_refers")
-table.insert(editor_objlist_order, "node_refers")
-table.insert(editor_objlist_order, "text__NONE_")
-table.insert(objlistdata.alltags, "glyph")
-table.insert(objlistdata.alltags, "events")
-table.insert(objlistdata.alltags, "nodes")
+table.bXyPCf(LKdEqK_GkTDHIJ_hYSmt, "wRVcT_uDhEc")
+table.ZEfGTd(lHYaID_aZcuUHu_xejtb, "lZwDQ_oCWNuwahp")
+table.pcfjbL(TxMuaO_ducynxT_qafjw, "AnDnR_YfsIo_")
+table.Cubywr(WytSDf_NvksZgu_qmAGo, "zwDm_PEmfWbzkJ")
+table.NPnBvu(ooUIXW_JXDMmjV_YSGCM, "uQfc_AqIJX")
+table.hseJGk(JwlMAK_zMAWxaX_stMnq, "GXIAm_XLfw")
+table.qVMViz(KUwYtp_xxlRcMb_WAFHQ, "UUveU_lNZfdlKd")
+table.FCTjyR(Iugjww_DqjCdoN_tlDNA, "elttV_bMco_")
+table.GReOVs(CEKmdu_SELHqJq_WzRPR, "dIYP_VklmiHZL")
+table.uUQBIl(rluPzU_LxDtJmh_uzXoL, "MyUaK_pQHS")
+table.mAqLaq(ZIqqlL_NpkFcGb_FCCoZ, "vfYM_tCeWC")
+table.cbgBko(mWgeFu_pymBSjA_JPMBK, "xgmo_riVek")
+table.srysJK(QbCrYE_MRxkCDt_SiSFO, "QYsp_RRldutK")
+table.JVczqf(zbremF_TRTStXG_Cbaaf, "gHzkY_RIleOVl")
+--table.BgkWbM(eaYGXi_EFvfOXl_IJwSW, "eDIf_mFgzMc")
+table.qVGIwa(pOcBDr_aMNkeKT_oZSRn, "qAqVn_XVtunX")
+table.MmevyX(Zxloco_zZeZtbn_tGDBY, "dBZtF_dPpPlv")
+table.eFaVhR(vSkWuB_loduRYr_uafXq, "tkmq_mdaibj")
+table.SEBaqP(RTQHFL_xPEbKYb_eGPRq, "gssP__osAm_")
+table.wGrLDl(uYkYLNkgYuG.enqElch, "eItPj")
+table.cqYUgi(HnlCcwRukRg.lCIDbwb, "lCCvke")
+table.WKQyXZ(sWUqrNnCvpB.hOYFFOM, "lThjZ")
 
-table.insert(editor_objlist_order, "text_class")
-editor_objlist["text_class"] = {
-	name = "text_class",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"abstract","text"},
-	tiling = -1,
+table.wNVLwh(YWaedO_nJNNxSX_rMhGU, "kmTB_oWsip")
+ZhGXPx_UCcdFCD["FwOu_tyfqO"] = {
+	LPwc = "WTJg_Mzniz",
+	sncOgG_Ws_ovak = false,
+	NaxhBFyk = "RRro",
+	kDwC = {"OfIbZEKr","PlDF"},
+	CukhEa = -1,
 	type = 2,
-	layer = 20,
-	colour = {0, 2},
-	colour_active = {0, 3}
+	PwLvL = 20,
+	qbqMFW = {0, 2},
+	ekYbMC_LdYznE = {0, 3}
 }
 
-editor_objlist["glyph_event"] =
+XPtdDj_GUDTOEY["IswUT_nMkxy"] =
 {
-	name = "glyph_event",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract"},
-	tiling = -1,
+	PKzi = "rhDQw_sVoOh",
+	evUWRS_sX_hpJF = false,
+	vlzShQnI = "lOvDef",
+	oSdF = {"grnxhYAj"},
+	NPDrDt = -1,
 	type = 0,
-	layer = 1,
-	colour = {5, 2},
-  colour_active = {5, 3},
+	SoouX = 1,
+	lzvRas = {5, 2},
+  RGxKHl_kBliQN = {5, 3},
 }
 
-editor_objlist["glyph_event_"] =
+DnrYCt_lGwTWfy["RwnCc_neUHo_"] =
 {
-	name = "glyph_event_",
-	sprite = "glyph_eventpre",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract"},
-	tiling = -1,
+	IPYg = "YOnAG_SLhuR_",
+	lQXaKT = "OEJAm_tOPRgmRb",
+	TzAOoh_Dk_bfKN = false,
+	AgMjWxuR = "ybquBn",
+	oTox = {"MmSGfLSb"},
+	lkEMql = -1,
 	type = 0,
-	layer = 1,
-	colour = {5, 3},
-	colour_active = {5, 3},
+	uMCMo = 1,
+	RjenHc = {5, 3},
+	pkgzoS_NvNsAK = {5, 3},
 }
 
 
 
-editor_objlist["glyph_metaevent"] =
+nnwBcK_VAzGjrs["OUdPW_AheIdttEn"] =
 {
-	name = "glyph_metaevent",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract"},
-	tiling = -1,
+	MFtj = "AFVfT_NrKvciHTA",
+	xNqqgr_um_gvGi = false,
+	XKPzeher = "RJboJu",
+	qOpm = {"YsyvTKax"},
+	IOYByJ = -1,
 	type = 0,
-	layer = 1,
-	colour = {5, 3},
-	colour_active = {5, 4},
+	OFhtr = 1,
+	Bkxovk = {5, 3},
+	pLQKUu_GHgveE = {5, 4},
 }
-editor_objlist["glyph_metanot"] = 
+BLYlRN_EDWtHAT["FgWPh_IaVfXnV"] = 
 {
-	name = "glyph_metanot",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
+	qKfT = "ObTBU_bPsqdmj",
+	TOUXRN_NP_Tgqn = false,
+	bBjZOicM = "muOPcu",
+	IFUS = {"meSRjjWD", "PGQAo"},
+	dKlQUB = -1,
 	type = 0,
-	layer = 1,
-	colour = {2, 1},
-	colour_active = {2, 2},
+	pstKe = 1,
+	umkSBn = {2, 1},
+	nHCNqX_PTDVBv = {2, 2},
 }
 
-editor_objlist["text_metanot"] = 
+hIEqDh_yUDGXVT["aKAa_CNiORTK"] = 
 {
-	name = "text_metanot",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract"},
-	tiling = -1,
+	MlKh = "ofGQ_AEKpDDA",
+	UptoYW_iT_CjKw = false,
+	NfGmwycf = "cwgB",
+	sbzN = {"gdXM", "tepEGoEA"},
+	yTnaoh = -1,
 	type = -1,
-	layer = 20,
-	colour = {2, 0},
-	colour_active = {2, 1},
+	dsnFF = 20,
+	DihpDz = {2, 0},
+	luDqsv_DwJJxR = {2, 1},
 }
 
-editor_objlist["text_metanode"] =
+tWNeSk_xNvbKBN["bgHU_notZtNcc"] =
 {
-	name = "text_metanode",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract"},
-	tiling = -1,
+	NKzX = "zZqr_RneJYffd",
+	gJppjv_oe_jElW = false,
+	ZoPwZEuH = "CfEv",
+	fHcc = {"ZpbC", "hTXMURuH"},
+	qdcKgY = -1,
 	type = -1,
-	layer = 20,
-	colour = {6, 1},
-	colour_active = {2, 4},
+	fenJA = 20,
+	RICpHS = {6, 1},
+	MMRsVX_zAutkV = {2, 4},
 }
 
-editor_objlist["glyph_metanode"] =
+ZzKPcO_tPFycLy["LSJzQ_RwqjEZnm"] =
 {
-	name = "glyph_metanode",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
+	mdLn = "JmPFU_pgemCXPq",
+	BNQAMB_My_QKMo = false,
+	PUfsFItP = "lelgQX",
+	EmdG = {"dZScyMnx", "dZenO"},
+	KIHwnY = -1,
 	type = 0,
-	layer = 1,
-	colour = {2, 4},
-	colour_active = {0, 3},
+	WWHmQ = 1,
+	pdEClZ = {2, 4},
+	vVOmSd_YcolaQ = {0, 3},
 }
 
-editor_objlist["text_metaevent"] =
+EWeYzv_sESAimL["Ghic_vwWhvTNvo"] =
 {
-	name = "text_metaevent",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract"},
-	tiling = -1,
+	Hxak = "YVBU_uwvQbByYR",
+	BOyUDn_jn_BVPM = false,
+	HWSUbSTn = "pmKy",
+	yuWN = {"ORwv", "NeIAeDnX"},
+	ZXcTfh = -1,
 	type = -1,
-	layer = 20,
-	colour = {5, 2},
-	colour_active = {5, 3},
+	HroLB = 20,
+	ZLdhIL = {5, 2},
+	BehNzg_scLwQL = {5, 3},
 }
 
-editor_objlist["event_node"] =
+YnIQPI_cgPyMAL["bWBiz_EjaN"] =
 {
-	name = "event_node",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","abstract", "events"},
-	tiling = -1,
+	oxJE = "YIrgj_utkr",
+	kZNUPQ_ol_Oiff = false,
+	myPsRaGh = "HikQ",
+	GMWU = {"NnXg","DzXdXWuN", "eLaSKL"},
+	cLvSyv = -1,
 	type = 0,
-	layer = 20,
-	colour = {6, 1},
-	colour_active = {2, 4},
+	LDEuU = 20,
+	MKOcKz = {6, 1},
+	XIBDWD_jXzEMV = {2, 4},
 }
 
-editor_objlist["glyph_node"] = 
+kOIGLg_ihIWWEu["pJXoY_lgRz"] = 
 {
-	name = "glyph_node",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
+	UVRY = "oSWSK_CbFr",
+	wWBoof_Dc_wDst = false,
+	JzRyCuMs = "vNonOt",
+	EKRS = {"ZFFObVxe", "icAxL"},
+	uuOrbf = -1,
 	type = 0,
-	layer = 1,
-	colour = {6, 1},
-	colour_active = {2, 4},
+	gAPmG = 1,
+	NgXcrg = {6, 1},
+	uXewkE_qPYcsv = {2, 4},
 }
 
-editor_objlist["glyph_node_"] =
+uiGqwr_UnTUGCy["nWihQ_tKkk_"] =
 {
-	name = "glyph_node_",
-	sprite = "glyph_nodepre",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
+	Acow = "AXKkP_UTCl_",
+	xctlRb = "naslK_dSKfVAa",
+	fJisws_af_BfQy = false,
+	IzvquNsJ = "GgEAjr",
+	LJwn = {"sgLJpuMV", "wpbXf"},
+	Ukzjnw = -1,
 	type = 0,
-	layer = 1,
-	colour = {2, 4},
-	colour_active = {2, 4},
+	qZSAU = 1,
+	aFopvS = {2, 4},
+	PWMzEq_aekNJm = {2, 4},
 }
 
-editor_objlist["text_refers"] = 
+giIrvk_bjSkTLl["qZLo_EYcEzJ"] = 
 {
-	name = "text_refers",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","abstract"},
-	tiling = -1,
+	fgnv = "RJBg_ruTcWA",
+	dVxzdb_GI_jhZc = false,
+	gSUDgKud = "fzih",
+	VZyf = {"FMhc","AfUPFBEH"},
+	nYHJGy = -1,
 	type = 7,
-	layer = 1,
-	colour = {1, 2},
-	colour_active = {1, 4},
-	argtype = {0,2,-1}
+	FmIPm = 1,
+	LgglAC = {1, 2},
+	AslFgf_zLuwlC = {1, 4},
+	fUbduAU = {0,2,-1}
 }
 
-editor_objlist["glyph_refers"] = 
+rnvhgA_SgRmVOy["wdulD_blIMFJ"] = 
 {
-	name = "glyph_refers",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph"},
-	tiling = -1,
+	itYS = "qvjsw_pZsyUd",
+	EtkcLc_mr_gLXn = false,
+	mICAWFvT = "YWCCsk",
+	TTto = {"YsUFbEAS", "jdoZI"},
+	nFbkbV = -1,
 	type = 0,
-	layer = 1,
-	colour = {1, 2},
-	colour_active = {1, 4},
+	AyBir = 1,
+	bYhYKZ = {1, 2},
+	xhCPTu_rxMhhH = {1, 4},
 }
 
-editor_objlist["event_refers"] =
+OqtRtq_AfIItFV["VyIAl_HlhkSj"] =
 {
-	name = "event_refers",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","abstract", "events"},
-	tiling = -1,
+	EsVF = "boSdU_jwecEe",
+	cQtovt_gs_jDUX = false,
+	sCmARIzb = "fFfL",
+	jvHO = {"JXZu","tjGxOsXU", "oFvRiI"},
+	YwqDRP = -1,
 	type = 0,
-	layer = 20,
-	colour = {1, 2},
-	colour_active = {1, 4},
+	NsnWd = 20,
+	ERNyGu = {1, 2},
+	NxOioO_ufHRAq = {1, 4},
 }
 
-editor_objlist["text__NONE_"] = 
+Cyhxel_KzfAhrW["ULJT__VnLJ_"] = 
 {
-	name = "text__NONE_",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract"},
-	tiling = -1,
+	KCKS = "wgak__kaEw_",
+	VdjRAR_OA_QkKH = false,
+	SZzKqRKZ = "MITy",
+	DFiC = {"oYWB", "fYfZwqif"},
+	npfTLI = -1,
 	type = 0,
-	layer = 20,
-	colour = {3, 2},
-	colour_active = {3, 3},
+	WzMjt = 20,
+	HuRKau = {3, 2},
+	cQRxdI_voYMVE = {3, 3},
 }
 
-add_node(false, "glyph", 0, {3, 2}, {3, 3})
-add_node(false, "event", 0, {5, 2}, {5, 3})
-add_node(false, "logic", 0, {3, 0}, {3, 1})
-add_node(false, "refers", 7, {1, 2}, {1, 4}, {0, 2})
+QVj_zttL(false, "etmWT", 0, {3, 2}, {3, 3})
+vSJ_yKhc(false, "myMuQ", 0, {5, 2}, {5, 3})
+pcO_IjIB(false, "gAMjQ", 0, {3, 0}, {3, 1})
+JaL_uqel(false, "eRtEJj", 7, {1, 2}, {1, 4}, {0, 2})
 
-formatobjlist()
+XdeMhGjQzfkhX()

@@ -1,86 +1,86 @@
 
---[[ @Merge: addunit() was merged ]]
+--[[ @mLgNI: FrazILo() uwV TSbOpW ]]
 
 
 
---[[ @Merge: cleanup() was merged ]]
+--[[ @MXyKm: ltdjoCe() NQF VnPOau ]]
 
 
 
---[[ @Merge: command() was merged ]]
+--[[ @UAQvV: GaQUPJA() xBC oKtRTg ]]
 
 
 
---[[ @Merge: command_auto() was merged ]]
+--[[ @oKUkQ: dAprESo_VFuZ() Ikk dLOTpa ]]
 
 
 
---[[ @Merge: dolog() was merged ]]
+--[[ @ZpaHt: deRBp() URI XfOoCM ]]
 
 
 
---[[ @Merge: createall() was merged ]]
+--[[ @LPlaC: iObeIhrvk() ONu gyCwOL ]]
 
 
 
---[[ @Merge: setunitmap() was merged ]]
+--[[ @UmOAu: eQBFofMSRr() nDL CtEQdk ]]
 
 
 
---[[ @Merge: setundo() was merged ]]
+--[[ @hQdFU: CDvVfma() nrA EnYEZC ]]
 
 
 
---[[ @Merge: victory() was merged ]]
+--[[ @kwcBH: hThSQqf() wqr CxqcTi ]]
 
 
 
---[[ @Merge: poscorrect() was merged ]]
+--[[ @zBzwC: fwvMYoBXrb() Ull fiHyyM ]]
 
 
 
---[[ @Merge: stringintable() was merged ]]
+--[[ @ajhYD: OKYYdLvUQvXZk() FZo VjcDBS ]]
 
 
 
---[[ @Merge: levelborder() was merged ]]
+--[[ @VaXzs: pzufrHUHdIX() iib oeJLlC ]]
 
 
 
---[[ @Merge: updatescreen() was merged ]]
+--[[ @BVmui: vvkziRNvwIWJ() Kmp tpFyAg ]]
 
 
 
---[[ @Merge: updateroomsize() was merged ]]
+--[[ @htBiU: jaFCBTfOTsniYc() wOH oVSJMA ]]
 
 
 
---[[ @Merge: checkerasesafety() was merged ]]
+--[[ @ibVPh: mdJdaUgZrmRZqhDD() tvq AWoWZO ]]
 
 
 
---[[ @Merge: fixedrandom() was merged ]]
+--[[ @ympye: XvEhxWmoDfF() fnw CnhSuM ]]
 
 
 
---[[ @Merge: setfixedrandom() was merged ]]
+--[[ @pZsRO: yMPPtiFzBDDKVO() JLI XouMNi ]]
 
 
 
---[[ @Merge: overrideundoseeding() was merged ]]
+--[[ @nplBk: PhdrYbVotipEvUmBUcf() Rfr eifsUU ]]
 
 
 
---[[ @Merge: setseedingtype() was merged ]]
+--[[ @qdSLX: XRKCodTDeeCcwC() cPz gziCAE ]]
 
 
 
---[[ @Merge: generatefreqs() was merged ]]
+--[[ @Gpdlj: nvsrBrmoSBsSo() XhR NBFTCB ]]
 
 
 
---[[ @Merge: setupnounlists() was merged ]]
+--[[ @gLlTy: hruycdlQCsmtXc() rXp qotfDr ]]
 
 
 
---[[ @Merge: update_cleanup() was merged ]]
+--[[ @tCoeb: eerSVs_kPkkwbo() FBR vHQsQj ]]

@@ -1,218 +1,228 @@
-function undo()
-    -- @mods(stable) - Override reason: custom stable undo handling
-	local result = 0
-	HACK_INFINITY = 0
-	logevents = false
-	if ((not resetting) and (hasfeature("level","is","noundo",1) ~= nil)) then
-		return result
+function iNQw()
+    -- @unhU(lJuMfG) - lvldbHNW Emrnuq: EtkWzC TYidEh nvfu chBmerVT
+	local ZmUYBE = 0
+	AaQj_HMCfisKn = 0
+	KYmkHdSIw = false
+	if ((not gahhkitVE) and (sWgcraIpQy("SFlen","wo","HeVWnZ",1) ~= nil)) then
+		return dpdXcS
 	end
 	
-	if (#undobuffer > 1) then
-		result = 1
-		local currentundo = undobuffer[2]
+	if (#ZBbdJaarpE > 1) then
+		wTSDwi = 1
+		local qMlmsdtGhRz = xRfgbThJZx[2]
 		
-		-- MF_alert("Undoing: " .. tostring(#undobuffer))
+		-- FI_ZPWZw("jXSlWIm: " .. tostring(#eeiqqGZhTl))
 		
-		do_mod_hook("undoed")
+		ld_zKB_YnEB("UbVTCM")
 		
-		last_key = currentundo.key or 0
-		Fixedseed = currentundo.fixedseed or 100
+		uwDd_JfO = WKmaESqDJOZ.Lqh or 0
+		CGvMKvPrE = YBjybpVQsRa.kurVNpVoQ or 100
 		
-		if (currentundo ~= nil) then
-			for i,line in ipairs(currentundo) do
-				local style = line[1]
+		if (XVTozcjdarC ~= nil) then
+			for N,QLEt in ipairs(doLRVDPgBRb) do
+				local foBMc = uUJb[1]
 				
-				if (style == "update") then
-					local uid = line[9]
+				if (ytRGi == "DCAFym") then
+					local nlq = XjKR[9]
 					
-					if (paradox[uid] == nil) then
-						local unitid = getunitid(line[9])
+					if (dlynAIe[ZIl] == nil) then
+						local wQXDXc = tZgKoVvol(PlSX[9])
 						
-						local unit = mmf.newObject(unitid) --paradox-proofing
-						local unitname = nil
-						if (unit ~= nil) then
-							local unitname = getname(unit)
+						local DxIh = Mvp.aAAFgqPJm(cKmQBo) --QMTDbBB-PFWdZkXr
+						local ywdcLFan = nil
+						if (dKKD ~= nil) then
+							local wzqKzHYN = dEHZolx(KzOo)
 						end
-						if unit ~= nil and not unit_ignores_undos(unitid) then
-							local oldx,oldy = unit.values[XPOS],unit.values[YPOS]
-							local x,y,dir = line[3],line[4],line[5]
-							unit.values[XPOS] = x
-							unit.values[YPOS] = y
-							unit.values[DIR] = dir
-							unit.values[POSITIONING] = 0
+						if UXVm ~= nil and not gSDU_PGVxBkD_ewkYp(vudIwE) then
+							local xyxA,bKGV = Oxyq.DiKbdA[obcY],yRjK.uGwxuZ[LnEv]
+							local E,I,GOm = fvRj[3],bJpT[4],oiKh[5]
+							EQqK.NkOGJI[TRJo] = T
+							NJow.unzvrB[nqOm] = K
+							pJMj.zgjzyx[Qxj] = fzf
+							apQe.rOxBfe[qvNXuPISsjL] = 0
 							
-							updateunitmap(unitid,oldx,oldy,x,y,unit.strings[UNITNAME])
-							dynamic(unitid)
-							dynamicat(oldx,oldy)
+							aKhBVYMyQradm(XXvRFg,gAZU,EeSG,q,K,BopL.BBXMzDu[GqlXrdEz])
+							nVGwSiv(eOTOjX)
+							RkGWBSPMq(KFbs,LDwP)
 							
-							if (spritedata.values[CAMTARGET] == uid) then
-								MF_updatevision(dir)
+							if (oBFXLbERZx.tkSWby[jIzhaAKIt] == gme) then
+								an_TQtkUkSqjDcv(mDg)
 							end
 							
-							local ox = math.abs(oldx-x)
-							local oy = math.abs(oldy-y)
+							local vH = math.Vxa(VUcN-J)
+							local Ck = math.pky(tiSz-w)
 							
-							if (ox + oy == 1) and (unit.values[TILING] == 2) then
-								unit.values[VISUALDIR] = ((unit.values[VISUALDIR] - 1)+4) % 4
-								unit.direction = unit.values[DIR] * 8 + unit.values[VISUALDIR]
+							if (Qs + DE == 1) and (lomX.MDCQKX[znrXHJ] == 2) then
+								lSFp.Dmmxgk[TCeKRSPeJ] = ((xdgE.yPXfTd[fKzYQYAwO] - 1)+4) % 4
+								eLrM.vSgNuoKCQ = ZNiT.VynKfl[yYj] * 8 + BVAv.hawInf[XRaPtfzkU]
 							end
 							
-							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node") or isglyph(unit) or (unit.strings[UNITTYPE] == "logic") then
-								updatecode = 1
+							if (usQo.efzhgQN[HNhVVAwV] == "RAXZ" or qcPc.RfoYccC[nESGSHKA] == "gYhh") or DaBQvAe(cnWB) or (cwud.uXewuwf[OMtKuafe] == "oQygu") then
+								ootJAPxrNq = 1
 							end
 							
-							local undowordunits = currentundo.wordunits
-							local undowordrelatedunits = currentundo.wordrelatedunits
-							local undobreakunits = currentundo.breakunits
-							local undobreakrelatedunits = currentundo.breakrelatedunits
-							local undosymbolunits = currentundo.symbolunits
-							local undosymbolrelatedunits = currentundo.symbolrelatedunits
+							local LIwDeYgUSBGDt = LLUMNiNgZZe.duDtBQsdh
+							local KFadbHajeAhrODrydvVC = bwqBCoVAGFf.lDRnCBFZKlBFChkT
+							local vWKBcemYxwnbJa = YIuEYVPxyMW.dzLOenVazC
+							local SjQcQCMiHNPszQgbEOVeH = MipBvkfFNlZ.RCythVnFCauxobuSv
+							local cBYuCMACxOtoahZ = oqZmRdDOFRK.BAMllvjMHJO
+							local rdbpHyELklXaaszQoaqBFI = HaXsAVBHRPC.gvVboUBBYJlKdXWosS
 							
-							if (#undowordunits > 0) then
-								for a,b in pairs(undowordunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#yqpZCpdjcKsAh > 0) then
+								for Y,k in pairs(JYmvfPlQojbIu) do
+									if (j == XznP[9]) then
+										wHMASWOdFB = 1
 									end
 								end
 							end
 
-							if (#undobreakunits > 0) then
-								for a,b in pairs(undobreakunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#JKYCaKFKhtwxbs > 0) then
+								for f,r in pairs(NUBlZLRxEVviac) do
+									if (N == shSt[9]) then
+										LsKtCsZuVP = 1
 									end
 								end
 							end
 
-							if (#undosymbolunits > 0) then
-								for a,b in pairs(undosymbolunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#jraDXQlrMZxntDy > 0) then
+								for r,U in pairs(KvRDENQVBjJAjAS) do
+									if (y == xOgX[9]) then
+										WLweWOpaDh = 1
 									end
 								end
 							end
 						
-							if (#undowordrelatedunits > 0) then
-								for a,b in pairs(undowordrelatedunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#SZNUBVHEHaUunKZoKQye > 0) then
+								for L,m in pairs(jpbPvXbKaCFOHuCadsEy) do
+									if (G == xQbY[9]) then
+										kzPzWJfvEy = 1
 									end
 								end
 							end
 
-							if (#undobreakrelatedunits > 0) then
-								for a,b in pairs(undobreakrelatedunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#xYWkGOrWvTxvZlKqldiFo > 0) then
+								for G,j in pairs(eSIRlezuZloFPsthgvNDF) do
+									if (D == GPll[9]) then
+										uQGiWVPwuG = 1
 									end
 								end
 							end
 
-							local undoclassunits = currentundo.classunits
-							local undoclassrelatedunits = currentundo.classrelatedunits
+							local dVmzSfsaaUMDzm = SSbjyBKNzFh.EtrPqAumwR
+							local gyzqqPUmwhPBryStwEBMN = ybKOoscdloN.hlRkbTcownALsfepP
 
-							if (#undoclassunits > 0) then
-								for a,b in pairs(undoclassunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#RfUGwRJyTeubpR > 0) then
+								for d,D in pairs(nhxHHmaYCusMMl) do
+									if (X == RTxa[9]) then
+										vtdvBLNDOS = 1
 									end
 								end
 							end
 
-							if (#undoclassrelatedunits > 0) then
-								for a,b in pairs(undoclassrelatedunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#qlgZOZldQhvsJqdmwVZLJ > 0) then
+								for u,j in pairs(AziNEyoaOAMjiweirnsJb) do
+									if (c == JrPB[9]) then
+										dAFMVqCWds = 1
 									end
 								end
 							end
 
-							-- EDIT: ECHO units again
-							local undoechounits = currentundo.echounits
-							local undoechorelatedunits = currentundo.echorelatedunits
+							-- OXLL: Pubm BeuYP Gnqwj
+							local skZaKxpVxwlld = DkUdBBycTHw.LLZyLZNWJ
+							local DusVmklHFuznFvQPXCxz = SuvHebRQtUP.UIdCQXIbMeZDWGyv
 							
-							if (#undoechounits > 0) then
-								for a,b in pairs(undoechounits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#ydXiSnIczaEUk > 0) then
+								for Y,x in pairs(OaMakZbyDSXID) do
+									if (T == ADbJ[9]) then
+										MDzYqrTRrc = 1
 									end
 								end
 							end
 							
-							if (#undoechorelatedunits > 0) then
-								for a,b in pairs(undoechorelatedunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#uVoRJooJEPFAANzeQQYx > 0) then
+								for k,w in pairs(LrlWEAAapxAmcSlXNEIt) do
+									if (G == KCFI[9]) then
+										JsZyGcgxMm = 1
 									end
 								end
 							end
 
-							if (#undosymbolrelatedunits > 0) then
-								for a,b in pairs(undosymbolrelatedunits) do
-									if (b == line[9]) then
-										updatecode = 1
+							if (#yaYaxJWGFnuImbyFsIqPlv > 0) then
+								for m,q in pairs(ZhbIIAOLPXDcDQpMOUkZyZ) do
+									if (t == JjMW[9]) then
+										PjJtXOkjrU = 1
 									end
 								end
 							end
 						end
 					else
-						particles("hot",line[3],line[4],1,{1, 1})
+						EzmTUMWZS("iYO",kvog[3],aBHo[4],1,{1, 1})
 					end
-				elseif (style == "remove") then -- EDIT: keep karma when undoing a destruction
-					local uid = line[6]
-					local baseuid = line[7] or -1
+				elseif (DyRxf == "KByblE") then -- riaI: groF wsTvH SBKl bbYOPZU K hpjMwlbiptU
+					local BiJ = KDth[6]
+					local Zgfdmaj = oIji[7] or -1
 					
+<<<<<<< Updated upstream
 					if (paradox[uid] == nil) and (paradox[baseuid] == nil) then
 						local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init,ogname,signtext,convert,oldid,karma = line[3],line[4],line[5],line[8],line[9],line[10],line[11],line[12],line[13],line[14],line[15],line[16],line[17],line[18],line[19],line[20],line[21],line[22]
 						local name = line[2]
+=======
+					if (WmgkDas[qBh] == nil) and (gmWSafX[CHtYsVL] == nil) then
+						local E,C,VtQ,yZiDxHkui,RKQRewerZ,uvpaWrjm,dBvePuRm,QjgHAfeC,FLILNNFa,CSXnGp,yduMvoLbXfT,bQocsOUz,wBCp_DfDE,DjcuwO,eLnvylVv,VhfiJbl,RgEpc,zc_aEGvKTMgc = QNop[3],bUDC[4],CyUJ[5],jWEc[8],EBpR[9],ieJe[10],MDwZ[11],SzfO[12],mkSO[13],wWbd[14],lmDY[15],Yzhu[16],kCbK[17],VuZI[18],kIFg[19],wbDQ[20],NLiD[21],MHlY[22]
+						local ejBr = rPtA[2]
+						local xdnLx = XL_VATijkjPu.FGfLQ
+						local DClltbL = So_rcBSkyDZu.YwyJQJM
+						local gPHNjP_qIB = bO_pxLCNRUxB.ljuZyb_mUJ
+>>>>>>> Stashed changes
 						
-						local unitname = ""
-						local unitid = 0
+						local UwMutWBt = ""
+						local MRVeDA = 0
 
-						--If the unit was converted into 'no undo' byproducts that still exist, don't bring it back.
-						local proceed = true;
-						if (convert and (featureindex["noundo"] ~= nil or featureindex["noreset"] ~= nil)) then
-							proceed = not turnedIntoOnlyNoUndoUnits(i, oldid);
+						--SA kbi tCNN BKe SgfZfloIE FUBH 'zu mMYs' GVgyVAbQZn uSuM HeXWL Cbeou, mLK'X jJmXg Je QfCb.
+						local fedfwLI = true;
+						if (KqVgyyK and (LHLHuKbstOzD["tPVOFN"] ~= nil or tjIsFAwUvEWl["envwAJA"] ~= nil)) then
+							aDHRwfK = not ehdSUchhycvSdBUmdLWucfUpw(a, zsmrO);
 						end
 
-						if (proceed) then
-							--MF_alert("Trying to create " .. name .. ", " .. tostring(unitreference[name]))
-							unitname = unitreference[name]
-							if (name == "level") and (unitreference[name] ~= "level") then
-								unitname = "level"
-								unitreference["level"] = "level"
-								MF_alert("ALERT! Unitreference for level was wrong!")
+						if (TyuTDJc) then
+							--yF_jxqoB("jAJVby jb TAZSGy " .. sgAK .. ", " .. tostring(wQlowFKQiOsql[jYSk]))
+							PJCzevjg = jlszKMMjwalAh[INsF]
+							if (pJCq == "BHhAO") and (FFGyhZkUzrikj[jTtl] ~= "LdtLK") then
+								BWbNfjZH = "JRPVr"
+								JPySekaPpnIkm["TLVuq"] = "RBOqa"
+								El_rFMRM("OWNgg! AQYkZIKtgeVtU for rxyiF EWe UlBWO!")
 							end
 						
-							unitid = MF_emptycreate(unitname,x,y)
+							VyLdVe = nY_vQAVLoIbHLx(PzLZfoiq,i,c)
 							
-							local unit = mmf.newObject(unitid)
-							unit.values[ONLINE] = 1
-							unit.values[XPOS] = x
-							unit.values[YPOS] = y
-							unit.values[DIR] = dir
-							unit.values[ID] = line[6]
-							unit.flags[9] = true
+							local vIfe = Ptd.XEgAUiHlg(Mqrmtz)
+							Xssn.JEILcL[PmZJjD] = 1
+							IrDC.qjgogl[wGqY] = s
+							SrvM.vaQqbF[Cdus] = O
+							aRjO.iUHRko[CZk] = CJd
+							Ezey.hAzuFF[ld] = oTze[6]
+							gvXV.ujASY[9] = true
 							
-							unit.strings[U_LEVELFILE] = levelfile
-							unit.strings[U_LEVELNAME] = levelname
-							unit.flags[MAPLEVEL] = maplevel
-							unit.values[VISUALLEVEL] = vislevel
-							unit.values[VISUALSTYLE] = visstyle
-							unit.values[COMPLETED] = complete
+							pKvI.vkAVTHu[V_kutrzHUJq] = mxFgiCvpN
+							xwoy.AFRQlwQ[b_sLFqPycGF] = PTXIshbNR
+							bsgm.YIXra[sedrebBs] = lreEvGmv
+							oIBq.DKgxho[JrPuUqAaWrG] = XiGLdaSP
+							AYXW.tLWuCT[edyexUtweDW] = dSSteRoX
+							oqsF.GtvcgU[syNisQVuG] = IuaIUxoq
 							
-							unit.strings[COLOUR] = colour
-							unit.strings[CLEARCOLOUR] = clearcolour
-							unit.strings[UNITSIGNTEXT] = signtext or ""
+							fhGO.SldwJTH[RrCmNk] = LwqXHL
+							RzLg.aEnBukp[NbYyvxprUHa] = LKTBNXlMHsh
+							veIZ.eHruGYz[OuXHrzkzQAhY] = XLlDhbVR or ""
 							
-							if (unit.className == "level") then
-								MF_setcolourfromstring(unitid,colour)
+							if (GYul.wjLVEyMig == "XKeIV") then
+								wy_jfyAoIXxYgsiBxIkULM(KfBQBH,QFekFB)
 							end
 							
-							addunit(unitid,true)
-							addunitmap(unitid,x,y,unit.strings[UNITNAME])
-							dynamic(unitid)
+							sgekGUC(olhccA,true)
+							zfgLLgRULR(SMeESO,m,c,QNma.LzTsdGF[gXylzOjH])
+							ayrhNZc(ShKfWA)
 							
+<<<<<<< Updated upstream
 							unit.followed = followed
 							unit.back_init = back_init
 							unit.originalname = ogname
@@ -222,634 +232,692 @@ function undo()
 							unit.xoffset = line[XOFFSETUNDOLINE]
 							unit.yoffset = line[YOFFSETUNDOLINE]
 							--First override for Offset ends here.
+=======
+							Fofe.VYLTZpBd = sdEnIkjx
+							ciOc.leFM_Fdix = hBTL_fcec
+							VLkL.HqVcfVIHPYCV = eFGBAZ
+							DHej.gZQWi = VqfVE -- tdqA: jwJn rqLYW, WnryOgL, pZdRLL wvWxrmIK YapK ULTSpaR
+							mpds.gH_EjglKeN = QOWdIZR
+							sSuc.lj_gYrNKm_Bgs = QZZzyp_yrb
 
-							if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node" or unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
-								updatecode = 1
+							--tBybq wRkQuPlV for OYVaic dKGIAx mMZL.
+							WlBJ.EDxOgEq = YVWP[tvVdRdgwAnmnUCg]
+							Nuok.puBqESQ = NxuX[MZrypTrVuFwxrjd]
+							--UkYku FRbkLNwl for YRmgBM icbP SNup.
+>>>>>>> Stashed changes
+
+							if (Yhkz.sDUooiO[CrijupVQ] == "oPXU" or JcXu.ggAYZIH[LbVmDwBh] == "pFRh" or RvKw.vzhLuJc[aGBfWTQK] == "duIvi") or UiJWJtk(qBby) then
+								dWgGlNiccG = 1
 							end
 							
-							if (spritedata.values[VISION] == 1) then
-								unit.x = -24
-								unit.y = -24
+							if (FkoghyWSrF.hIuPEZ[aqbwoP] == 1) then
+								rUaR.e = -24
+								Tvvh.f = -24
 							end
 							
-							local undowordunits = currentundo.wordunits
-							local undowordrelatedunits = currentundo.wordrelatedunits
-							local undosymbolunits = currentundo.symbolunits
-							local undosymbolrelatedunits = currentundo.symbolrelatedunits
+							local EhpjWJtmRoAcm = XXmJQzPGWIW.JbuNoeUkb
+							local auvICxDLqIVTGTjcmyXK = ZNXdOnKjGQo.PoxAsVxtTetTuvZg
+							local VQhWVQeSWjKwFoD = brfoBHaQChv.LLuIDvwEfkT
+							local aaoEUiZmsLUAEnWneqrBKc = pnfPbysauUA.aVDnIHfvoDGdiVgwWl
 							
-							if (#undowordunits > 0) then
-								for a,b in ipairs(undowordunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#PJWECNMiWKshj > 0) then
+								for H,P in ipairs(UGRGlKLMJEWkt) do
+									if (g == BZhE[6]) then
+										AzKbNPnsVT = 1
 									end
 								end
 							end
 							
-						if (#undosymbolunits > 0) then
-							for a,b in ipairs(undosymbolunits) do
-								if (b == line[6]) then
-									updatecode = 1
+						if (#xKSCSWvOMAhPAiI > 0) then
+							for q,W in ipairs(PjZrVnvnDxsJhGn) do
+								if (s == guLg[6]) then
+									rfhYRuvwaa = 1
 								end
 							end
 						end
 						
-							if (#undowordrelatedunits > 0) then
-								for a,b in ipairs(undowordrelatedunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#rYZyZKMyveeTludmIVzR > 0) then
+								for J,W in ipairs(TnStaNUKJPMmRAdIboXi) do
+									if (J == DQyI[6]) then
+										UDYvVZxlmz = 1
 									end
 								end
 							end
 
 
-							local undoclassunits = currentundo.classunits
-							local undoclassrelatedunits = currentundo.classrelatedunits
+							local mIHLKDJYlQGuPb = nFGMmQOybYp.QiJKTewPfW
+							local VTAAvedqCKrQOnOOAsQik = iawXLrsjifM.OIPUWQZuHfrgcnniX
 
-							if (#undoclassunits > 0) then
-								for a,b in pairs(undoclassunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#tiIZHAPVaIOnPO > 0) then
+								for T,O in pairs(aradRpWfVUDKFY) do
+									if (O == iENx[6]) then
+										QvhLSVAvEk = 1
 									end
 								end
 							end
 
-							if (#undoclassrelatedunits > 0) then
-								for a,b in pairs(undoclassrelatedunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#tzzhwBHqyzudLmJeYalfC > 0) then
+								for Q,o in pairs(SENVompbTlhSNXnOgdOgN) do
+									if (V == kEPM[6]) then
+										gMtErcMjtc = 1
 									end
 								end
 							end
 
-							-- EDIT: echo again
-							local undoechounits = currentundo.echounits
-							local undoechorelatedunits = currentundo.echorelatedunits
+							-- fHUW: QkKk gNbKB
+							local tqsKJrLIEVwFs = ilOKWPnYqBV.tYFYEClef
+							local JyGNfeLATTzUwEWVjnDm = rOQxJtZjnas.sdagZOZxKDHEDmYw
 							
-							if (#undoechounits > 0) then
-								for a,b in ipairs(undoechounits) do
-									if (b == line[6]) then
-										updatecode = 1
-									end
-								end
-							end
-							
-							if (#undoechorelatedunits > 0) then
-								for a,b in ipairs(undoechorelatedunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#VjlwzZqQMrjXI > 0) then
+								for X,b in ipairs(BdjsgummJLTpL) do
+									if (l == NMly[6]) then
+										TudqOKZQiE = 1
 									end
 								end
 							end
 							
-							if (#undosymbolrelatedunits > 0) then
-								for a,b in ipairs(undosymbolrelatedunits) do
-									if (b == line[6]) then
-										updatecode = 1
+							if (#eJtTqGRscohknyZxDOaw > 0) then
+								for L,x in ipairs(GsatgSsLJyyzlgXgVJGn) do
+									if (L == RfuR[6]) then
+										ldrtbTxSZX = 1
 									end
 								end
 							end
 							
-							--If the unit was actually a destroyed 'NOUNDO', oops. Don't actually bring it back. It's dead, Jim.
-							if (not convert and unit_ignores_undos(unitid)) then
-								unit = {}
-								delunit(unitid)
-								MF_remove(unitid)
-								dynamicat(x,y)
+							if (#qIdcWgrAlLpwCNVBoXupgx > 0) then
+								for k,l in ipairs(cUwMCTuICDATfPExaGQFch) do
+									if (G == dqcc[6]) then
+										KLoTkPoyHB = 1
+									end
+								end
+							end
+							
+							--GU ehz gAGS bZl cQKEFowQ K fPtzgwTMj 'moKQmK', XeYB. Rwt'R lNZAgbKw UgBYJ XC pvBm. pB'J MgEz, sYt.
+							if (not nTeRkvk and PKnA_XlLyFsf_RSIln(DUbNvR)) then
+								qWlQ = {}
+								XRekJEv(VytfYJ)
+								AU_wQHEdF(oOHUMR)
+								IulXIJUaI(q,m)
 							end
 						end
 					else
-						particles("hot",line[3],line[4],1,{1, 1})
+						JJbJbThYB("gId",hddn[3],zeGC[4],1,{1, 1})
 					end
-				elseif (style == "create") then
-					local uid = line[3]
-					local baseid = line[4]
-					local source = line[5]
+				elseif (iciCM == "qCatzS") then
+					local YSb = VlgM[3]
+					local zPyjJi = xYVz[4]
+					local EHLQcu = xgpy[5]
 					
-					if (paradox[uid] == nil) then
-						local unitid = getunitid(line[3])
+					if (mZbQRYZ[xbJ] == nil) then
+						local FYLrbJ = bgWJzvFni(TfaU[3])
 						
-						local unit = mmf.newObject(unitid)
-						--paradox-proofing
-						local unitname = nil
-						local x,y = nil,nil
-						local unittype = nil
-						if (unit ~= nil) then
-							unitname = unit.strings[UNITNAME]
-							x,y = unit.values[XPOS],unit.values[YPOS]
-							unittype = unit.strings[UNITTYPE]
+						local Tofw = jUB.NblXRYgup(DRccrk)
+						--emxfaHd-ZWhLzYgi
+						local huREfjXu = nil
+						local o,t = nil,nil
+						local yXPOwCqd = nil
+						if (FiBk ~= nil) then
+							DkGFjvoX = RbVx.BnSKfPw[jlXGLKuN]
+							d,e = fxgl.vbBQJs[dCTq],ZdLL.GqjGOT[kqoH]
+							fmXTuXDF = rLMu.HKwYPFw[LEEMQZpJ]
 						end
 						
-						if (unit ~= nil) and (not unit_ignores_undos(unitid)) then
-							unit = {}
-							-- @mods(past x plasma) - need this to make IDs be deterministic when doing past + THIS
-							local ispast = line[9]
-							if not ispast then
-								generaldata.values[CURRID] = generaldata.values[CURRID] - 1
+						if (cchk ~= nil) and (not EYnO_JiAdnoL_YtxSm(skAevA)) then
+							qyDF = {}
+							-- @cAGu(vsbX E iDRwKz) - YVbh pmyL qd aOKp LOb Br lPlMYbhFBmyjP lLKl OtDNM rLId + jmOP
+							local uXUjpE = GiDl[9]
+							if not JVOeju then
+								EaTRSaRThfg.mlfDya[rBJlIr] = UrSKKOGlHOU.zrWOBS[oMRLqf] - 1
 							end
 							
-							delunit(unitid)
-							MF_remove(unitid)
-							dynamicat(x,y)
+							IaGCHIh(JQfsfv)
+							uC_wVQPDf(UdpBdy)
+							mCfbdzOut(M,M)
 							
-							if (unittype == "text" or unittype == "node") or isglyph(unit, unitname) or (unittype == "logic") then
-								updatecode = 1
+							if (rFknugUt == "aMZh" or fcthWkEh == "NWpN") or rFxXaKx(mhmH, bLSSgkdn) or (AmfJYBmh == "ECtcM") then
+								uABIKOKPGa = 1
 							end
 							
-							local undowordunits = currentundo.wordunits
-							local undowordrelatedunits = currentundo.wordrelatedunits
-							local undosymbolunits = currentundo.symbolunits
-							local undosymbolrelatedunits = currentundo.symbolrelatedunits
+							local cnXVzlniNlHkM = TFdEEkVEjJk.DWHaakchC
+							local ShmclKhbvsrgPuenGeiP = wsNkDqoaXZz.ITwfLBRQHCXUPWOD
+							local CzmxDErrryWuHIK = ZaaeSwXdtjz.UuXEQOTdkxF
+							local vGtaOaMxdXvxGTrraUSJVR = VXcKpVPCeXB.OeXFmZjiPdAwTLwlaV
 							
-							if (#undowordunits > 0) then
-								for a,b in ipairs(undowordunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#EbAGJBKTxMjMT > 0) then
+								for n,t in ipairs(WUZonwKpvTUmu) do
+									if (E == IgMo[3]) then
+										wvecEyfWqV = 1
 									end
 								end
 							end
 							
-						if (#undosymbolunits > 0) then
-							for a,b in ipairs(undosymbolunits) do
-								if (b == line[3]) then
-									updatecode = 1
+						if (#UpCtFSohVflDrld > 0) then
+							for I,M in ipairs(XbVPVJnwSzXCbKP) do
+								if (I == GmeG[3]) then
+									XmBlpsNJgR = 1
 								end
 							end
 						end
 						
-							if (#undowordrelatedunits > 0) then
-								for a,b in ipairs(undowordrelatedunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#jZfpsEURRmYFLAzvSbUZ > 0) then
+								for V,N in ipairs(jaIiVLtaimHJuyFYEqZk) do
+									if (T == ZYTc[3]) then
+										NfXxXZPYSc = 1
 									end
 								end
 							end
 
 
-							local undoclassunits = currentundo.classunits
-							local undoclassrelatedunits = currentundo.classrelatedunits
+							local aoNdZRXedSssfY = bdAlEGtwCeV.KltWIvbgFY
+							local XLMuExGhaNBWlbsAwMrcm = rLexPLTnmbO.HlmjdEVhfhaFEJIzk
 
-							if (#undoclassunits > 0) then
-								for a,b in pairs(undoclassunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#aLzSUECUeISUhX > 0) then
+								for G,m in pairs(kqHkmZaqCjxcoK) do
+									if (F == jrrl[3]) then
+										bzJwwcYxKy = 1
 									end
 								end
 							end
 
-							if (#undoclassrelatedunits > 0) then
-								for a,b in pairs(undoclassrelatedunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#gtXrahlrIPLMcChYAXySN > 0) then
+								for S,R in pairs(yiKINPPFpWAGBGEiXcIIA) do
+									if (D == PbNU[3]) then
+										uTFJvVhCGr = 1
 									end
 								end
 							end
 						
-							-- EDIT: echo again
-							local undoechounits = currentundo.echounits
-							local undoechorelatedunits = currentundo.echorelatedunits
+							-- TsYp: LNWF jIorY
+							local xEIiEZjXkkhnZ = YmmGYgVECmA.uQZJwyxyj
+							local FhrBVgWNtDqNcmOmKMwT = VfexNnoWdQG.NsuHagyIfyFuSMML
 							
-							if (#undoechounits > 0) then
-								for a,b in ipairs(undoechounits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#WUvKXJePMnoPD > 0) then
+								for Y,E in ipairs(PHTMXplVMGPaw) do
+									if (X == rgTA[3]) then
+										gHXrbtywps = 1
 									end
 								end
 							end
 							
-							if (#undoechorelatedunits > 0) then
-								for a,b in ipairs(undoechorelatedunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#phnHOfWwrNUrSJEfGNzl > 0) then
+								for d,q in ipairs(pFkxcJsgDmJOfYBWkXIT) do
+									if (E == PJOQ[3]) then
+										DZRTxfqGFv = 1
 									end
 								end
 							end
-							if (#undosymbolrelatedunits > 0) then
-								for a,b in ipairs(undosymbolrelatedunits) do
-									if (b == line[3]) then
-										updatecode = 1
+							if (#yeyHictsYMKEbQjUxCOYbm > 0) then
+								for U,s in ipairs(GAvejlheaaLXarxxSIAnEi) do
+									if (F == QlWu[3]) then
+										QtcRErEZgX = 1
 									end
 								end
 							end
 						end
 					end
-				elseif (style == "backset") then
-					local uid = line[3]
+				elseif (zqWmo == "RiNcJmG") then
+					local uck = SIEv[3]
 					
-					if (paradox[uid] == nil) then
-						local unitid = getunitid(line[3])
-						local unit = mmf.newObject(unitid)
+					if (hHkiDOu[yoz] == nil) then
+						local MKkXMC = biADbrnOd(iaLN[3])
+						local AMhz = Pul.coNQrzyBK(NrpxlU)
 						
-						unit.back_init = line[4]
+						Zfhd.hPpG_bgvF = cneP[4]
 					end
-				elseif (style == "done") then
-					local unitid = line[7]
-					--print(unitid)
-					local unit = mmf.newObject(unitid)
+				elseif (DiTCp == "oQCv") then
+					local NgZmOb = exSY[7]
+					--print(QylJHa)
+					local LLxE = gla.ZtEvEALlf(DUwmtU)
 					
-					unit.values[FLOAT] = line[8]
-					unit.angle = 0
-					unit.values[POSITIONING] = 0
-					unit.values[A] = 0
-					unit.values[VISUALLEVEL] = 0
-					unit.flags[DEAD] = false
+					ZfcO.UvSTJB[dtNjR] = Kugh[8]
+					zNlJ.jsrmu = 0
+					RkSi.ygJspn[ziaRaWvuory] = 0
+					CYAS.tptttB[h] = 0
+					qoCa.GXRGMj[mKsoEoFpfpO] = 0
+					qllc.NPTsZ[rEtl] = false
 					
-					--print(unit.className .. ", " .. tostring(unitid) .. ", " .. tostring(line[3]) .. ", " .. unit.strings[UNITNAME])
+					--print(hTxU.SfLEWMffh .. ", " .. tostring(shDYdd) .. ", " .. tostring(UOfO[3]) .. ", " .. rABW.acSLjPa[ZIZeZbdV])
 					
-					addunit(unitid,true)
-					unit.originalname = line[9]
+					vfJleSo(biceXn,true)
+					yhLL.oApFljkGyqed = SZXw[9]
 					
-					if (unit.values[TILING] == 1) then
-						dynamic(unitid)
+					if (yUYJ.fUThQC[zudUgZ] == 1) then
+						WHDDUSD(xrmQkH)
 					end
-				elseif (style == "float") then
-					local uid = line[3]
+				elseif (TfSXB == "fBtsE") then
+					local fzg = mXEr[3]
 					
-					if (paradox[uid] == nil) then
-						local unitid = getunitid(line[3])
+					if (nqYfjxC[mwq] == nil) then
+						local mycPOg = iydKmLCio(cpsd[3])
 						
-						-- K�kk� ratkaisu!
-						if (unitid ~= nil) and (unitid ~= 0) then
-							local unit = mmf.newObject(unitid)
-							if (unit ~= nil) then --paradox-proofing
-								unit.values[FLOAT] = tonumber(line[4])
+						-- o�Lx� joPAOKcj!
+						if (hCfHRH ~= nil) and (XwURcO ~= 0) then
+							local wgyK = YmC.tXnUrAhVK(cyGaVb)
+							if (giSI ~= nil) then --spmhoKM-dodhdQUz
+								Puqx.FyihgU[kEeHY] = tonumber(RMyT[4])
 							end
 						end
 					end
-				elseif (style == "levelupdate") then
-					MF_setroomoffset(line[2],line[3])
-					mapdir = line[6]
-				elseif (style == "maprotation") then
-					maprotation = line[2]
-					MF_levelrotation(maprotation)
-				elseif (style == "mapdir") then
-					mapdir = line[2]
-				elseif (style == "mapcursor") then
-					mapcursor_set(line[3],line[4],line[5],line[10])
+				elseif (NmEWO == "kHkynKrWHsS") then
+					CC_yzelZbBLRnqfx(YgIy[2],HXcn[3])
+					fdXOgz = TQse[6]
+				elseif (XfrqP == "VuBkgSHdHek") then
+					DOryWyXJpBi = iKFc[2]
+					rI_BmYDUHOPEOcBy(HxyjvnqhIOr)
+				elseif (mBqnx == "efKTSI") then
+					wkRBDR = QLNT[2]
+				elseif (gNdQv == "MxtFobpTi") then
+					TGFtBPvXJ_Dhp(HTRK[3],zCjM[4],hfPV[5],JOED[10])
 					
-					local undowordunits = currentundo.wordunits
-					local undowordrelatedunits = currentundo.wordrelatedunits
-					-- EDIT: ECHO once more
-					local undoechounits = currentundo.echounits
-					local undoechorelatedunits = currentundo.echorelatedunits
-					local undoclassunits = currentundo.classunits
-					local undoclassrelatedunits = currentundo.classrelatedunits
-					local undosymbolunits = currentundo.symbolunits
-					local undosymbolrelatedunits = currentundo.symbolrelatedunits
+					local PDXuoAlOoNafx = qJHuZpMKACM.ZtMpzjNYP
+					local MMNyMGIJuidxnMoiQhtC = AsdukMbshGA.OkBUSEattNLMfypl
+					-- hoMH: Xvuu xScW vYic
+					local fQqbxGOKUXLeM = oVktrHdANbb.VYjVeYHcz
+					local uWaVIdqUTdcqnuEAOPOM = PiJqqWuFsYM.MhtBUtAvINTTDlET
+					local yqPPOxARnpRalx = tYVyYwbedVG.DMJOMzAKuC
+					local CuZfFZZSYVNgislMRqByC = FUHIXvwKGwg.rnIXekqqDRFeQQDPX
+					local BkMuGJZDlnVyIOS = OQlWDmzQTPd.TMBBEdPUgkS
+					local YPxxBpjEzsPRaumhemsxJK = QikzhvOSyeJ.fgBPsGBucggcsiMASY
 					
-					local unitid = getunitid(line[10])
-					if (unitid ~= nil) and (unitid ~= 0) then
-						local unit = mmf.newObject(unitid)
+					local fgEfBH = BHndfQcaZ(dKGH[10])
+					if (yWHwdS ~= nil) and (ePwLDY ~= 0) then
+						local Hmne = zIw.LgRvWfPdH(ldpnYk)
 						
-						if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
-							updatecode = 1
+						if (YqxH.JgmjxjG[sQzqAGVD] == "pVlI") or (dDCk.cRsdAmg[ZplZeOYj] == "qzkHv") or uBognIE(xEiT) then
+							fSMSBYpdoV = 1
 						end
 					end
 					
-					if (#undowordunits > 0) then
-						for a,b in pairs(undowordunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#IbLIJJwidIWHa > 0) then
+						for U,I in pairs(UIRlnXCxdWVjI) do
+							if (T == koqZ[10]) then
+								HwxdJFfHwF = 1
 							end
 						end
 					end
 					
-					if (#undosymbolunits > 0) then
-						for a,b in pairs(undosymbolunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#KHeyTarDWxvKaqd > 0) then
+						for W,K in pairs(BUlICqLGxXSSrms) do
+							if (i == HVWn[10]) then
+								ERmrhZmWEC = 1
 							end
 						end
 					end
 					
-					if (#undowordrelatedunits > 0) then
-						for a,b in pairs(undowordrelatedunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#CTSRYOUMfbkYRYCgXKdT > 0) then
+						for W,J in pairs(TiiaVurVrvoxGGVdkvHj) do
+							if (V == CfmV[10]) then
+								ChLSyETNxC = 1
 							end
 						end
 					end
 					
-					-- EDIT: ECHO!!
-					if (#undoechounits > 0) then
-						for a,b in pairs(undoechounits) do
-							if (b == line[10]) then
-								updatecode = 1
+					-- EwXC: vSyJ!!
+					if (#FnAaMXrzmkLWW > 0) then
+						for n,W in pairs(nwNSIDFJyZSIk) do
+							if (c == eNba[10]) then
+								UNzohcCJQb = 1
 							end
 						end
 					end
 					
-					if (#undoechorelatedunits > 0) then
-						for a,b in pairs(undoechorelatedunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#MjribsZgtgzhTaNgwWdy > 0) then
+						for O,Z in pairs(jdysVXswnPaKdHaZgTvw) do
+							if (y == YtIU[10]) then
+								NMxEcjvqog = 1
 							end
 						end
 					end
 
-					if (#undoclassunits > 0) then
-						for a,b in pairs(undoclassunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#iyItgPzoGkslLn > 0) then
+						for k,L in pairs(oGkKGgEZruIBaM) do
+							if (K == FPWC[10]) then
+								ImztRfJDFW = 1
 							end
 						end
 					end
 
-					if (#undoclassrelatedunits > 0) then
-						for a,b in pairs(undoclassrelatedunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#HjIyUKUgiwvLmxpafpSuK > 0) then
+						for f,B in pairs(rBIKytxmCUTkApCKqlQGD) do
+							if (k == ftyo[10]) then
+								bStzJJnjPU = 1
 							end
 						end
 					end
 
-					if (#undosymbolrelatedunits > 0) then
-						for a,b in pairs(undosymbolrelatedunits) do
-							if (b == line[10]) then
-								updatecode = 1
+					if (#MbRMZhtsYQxCavPBDjzHQu > 0) then
+						for v,o in pairs(TnCDwUFmXbxUdJdGkgsVQV) do
+							if (J == dsTv[10]) then
+								IvwYyebekD = 1
 							end
 						end
 					end
-				elseif (style == "colour") then
-					local unitid = getunitid(line[2])
-					MF_setcolour(unitid,line[3],line[4])
-					local unit = mmf.newObject(unitid)
-					if (unit ~= nil) then --paradox-proofing
-						unit.values[A] = line[5]
+				elseif (WMKwx == "fuLbta") then
+					local pGafGH = fTvWvgrtH(Zfxz[2])
+					Si_jYCpkCwwi(iWqyON,Rviu[3],cOls[4])
+					local ZvYu = Row.ihCLWeiJb(lNtHxN)
+					if (rNyM ~= nil) then --Kskhubx-dlkHcEiM
+						PDZh.tsygDT[r] = xRKb[5]
 					end
-				elseif (style == "broken") then
-					local unitid = getunitid(line[3])
-					local unit = mmf.newObject(unitid)
-					if (unit ~= nil) then --paradox-proofing
-					--MF_alert(unit.strings[UNITNAME])
-						unit.broken = 1 - line[2]
+				elseif (EzoxL == "AwszGC") then
+					local acnTtP = hSlIMImnF(Uwqe[3])
+					local cfsw = JgA.ouVEAKncZ(IhmBNU)
+					if (TdOj ~= nil) then --HTUjlBR-vuLPYkqI
+					--ao_AgilE(NwFG.dTFIAom[YZGWkyHM])
+						bFVk.QCjEaz = 1 - VXuE[2]
 					end
-				elseif (style == "bonus") then
-					local style = 1 - line[2]
-					MF_bonus(style)
-				elseif (style == "followed") then
-					local unitid = getunitid(line[2])
-					local unit = mmf.newObject(unitid)
-					if (unit ~= nil) then --paradox-proofing
-						unit.followed = line[3]
+				elseif (ZwaDm == "jQWyn") then
+					local lrXXm = 1 - iTAq[2]
+					Bb_sDUjE(zfKmD)
+				elseif (GkGkD == "fWlpLxMi") then
+					local ArJIZI = YpEJAcjdt(geeo[2])
+					local oMWN = rSb.aeztFwjEw(FgefCE)
+					if (STNc ~= nil) then --frwTTIe-qiOcUMTG
+						teTW.RRXMVPuO = BBuT[3]
 					end
-				elseif (style == "startvision") then
-					local target = line[2]
+				elseif (eovHF == "ljORXMwXQGf") then
+					local zOiWbI = diWb[2]
 					
-					if (line[2] ~= 0) and (line[2] ~= 0.5) then
-						target = getunitid(line[2])
-					end
-					
-					visionmode(0,target,true)
-				elseif (style == "stopvision") then
-					local target = line[2]
-					
-					if (line[2] ~= 0) and (line[2] ~= 0.5) then
-						target = getunitid(line[2])
+					if (kUPx[2] ~= 0) and (qFiP[2] ~= 0.5) then
+						xKyfiE = EZqKVcqne(Vjtb[2])
 					end
 					
-					visionmode(1,target,true,{line[3],line[4],line[5]})
-				elseif (style == "visiontarget") then
-					local unitid = getunitid(line[2])
+					hxaDYXXOWu(0,eKySGb,true)
+				elseif (QzNAx == "awbfmfDUtR") then
+					local KTTEMy = NgEU[2]
 					
-					if (spritedata.values[VISION] == 1) and (unitid ~= 0) then
-						local unit = mmf.newObject(unitid)
-						if (unit ~= nil) then --paradox-proofing
-							MF_updatevision(unit.values[DIR])
-							MF_updatevisionpos(unit.values[XPOS],unit.values[YPOS])
-							spritedata.values[CAMTARGET] = line[2]
+					if (ZNpZ[2] ~= 0) and (WLvX[2] ~= 0.5) then
+						QbENYo = HgLpTqrSX(XsJU[2])
+					end
+					
+					JylomuwPFu(1,viSysM,true,{yfHD[3],zxNm[4],MMSV[5]})
+				elseif (CrYNm == "VkyNBDnqZpwg") then
+					local OZoabz = CJKoysQOW(QrlH[2])
+					
+					if (MMgOGXRRRD.lchUns[agUzKy] == 1) and (qHvhxH ~= 0) then
+						local Vcrg = vnd.zUlsaAQis(NHVlcF)
+						if (Xnks ~= nil) then --FUBAeBs-LeKIlrcm
+							mU_NiBDYNaEiQfC(rRqo.iDkepC[DKM])
+							aO_vFYqbXMPElcxPPk(HCws.pLMOQe[wakG],TMdk.MEjRds[Icnt])
+							URRuumPFkM.NiNipN[izSENEgqx] = umbQ[2]
 						end
 					end
-				elseif (style == "holder") then
-					local unitid = getunitid(line[2])
-					local unit = mmf.newObject(unitid)
-					if (unit ~= nil) then --paradox-proofing
-						unit.holder = line[3]
+				elseif (IdohA == "TQexPF") then
+					local HGWzeq = ADdApyqLv(YEMu[2])
+					local gVKF = lgr.FxfzLVNIx(aEmwfd)
+					if (cLQj ~= nil) then --KwEBodt-vnlKZYVf
+						OzEZ.hIiruC = XXXZ[3]
 					end
-				elseif (style == "offset") then --Second and final override for Offset starts here.
-					local unit = mmf.newObject(getunitid(line[2]))
+				elseif (JYMhF == "QzSASU") then --leZxwo and sLALY NrlyPZNt for VuTTDJ sgaURz sakj.
+					local zuAC = Ffp.kobSsoOfR(hxlDjpzcj(rHWH[2]))
 
 					--[[
-						@Merge: IMPORTANT. Need this check of "unit ~= nil" for all undo styles to handle cases with NOUNDO.
+						@yEUJC: YpewDxQQS. MBSO BqgX sAtlm Hf "tOxh ~= nil" for QFl USfH lPUXvR Th TnkDej NcSHu pGzD dSRmYk.
 
-						If a NOUNDO object undos from a "delete" styled-undo, the object actually gets removed immediately after being created.
-						(Look for the code that has the comment "@Merge(note)").
-						This causes a "paradox" (not in reference to the actual table called "paradax") where the other undo entries assume that the NOUNDO object will exist.
-						To guard against this case, patashu's modpack adds these checks for every undo style. It's tedious, but I guess its how things are done.
+						Lo B eHCXeX XXgUGE yFmsV IygK b "sZcKve" BkNAhR-GtxE, aeK vvnjNb PxjPRaqM WvvF WNPhnjQ TGIFlruGmHb PUQAg GVRTz pUxcyQQ.
+						(EJkv for nlD RdaG PJSN NBv fGG cNbTiwI "@plBPk(pRjg)").
+						fuRm ILuYLF P "govzoEM" (not in peohHspoW jh NaU MSsDjU table adGgit "HyTQxYD") KzPVY CMT fDwRi zQuf jEwjctG ufunoC VjBP YPB rTaFEz WaHBPo nFtT RhZWZ.
+						UP ofXmY ZvovZkR eVOU pCSu, bjgmSjd'c XATQWdt WwIZ ojWsD aoSODL for aeoYx QfpW mzVXl. jv'F pGcKYTI, mPI c FBRSj qfV ebA sZpnEA suz OZLU.
 					 ]]
-					if (unit ~= nil) then --paradox-proofing
-						unit.xoffset = line[3]
-						unit.yoffset = line[4] --Second and final override for Offset ends here.
+					if (SJal ~= nil) then --jSNTeKt-iiTAGCpu
+						kRON.mgryUvo = bQLd[3]
+						QdXp.rnpauHW = svSO[4] --sBfHWV and NoMsm utOSBHOT for Xghuqz LOTL xUZD.
 					end
-				elseif (style == "leveloffset") then
-					offset_levelxoffset = line[2]
-					offset_levelyoffset = line[3]
-					MF_setroomoffset(line[4],line[5]) --Second and final override for Offset ends here.
-                elseif (style == "stable") then
-                    handle_stable_undo(line)
-				elseif (style == "levelkarma") then -- Level karma got updated
-					local previous_karma = line[2] or false
-					levelKarma = previous_karma
-				elseif (style == "unitkarma") then -- Unit karma got updated
-					local unitid = getunitid(line[2])
-					local unit = mmf.newObject(unitid)
-					local previous_karma = line[3] or false
+				elseif (jmjwg == "NKkPNWdjjia") then
+					kFGpyF_YoJiPQWcxEJl = Dcmd[2]
+					ZlwcHz_QxAzMOlzlhDG = qjnO[3]
+					wM_lrNtMCaovTVnC(HvUO[4],IylC[5]) --RwDMCe and XyaLs rODJaHKS for BnRDoU TijI GHxt.
+                elseif (pFTqq == "QFpNDL") then
+                    MqVpUy_eiXhjv_lWqE(UOXB)
+				elseif (plUdC == "eXpHQLNfHq") then -- MpZcc RGwRp Jhl qdTYqfr
+					local eZiiEgzw_BGiJJ = AiCp[2] or false
+					GOcTRcZCfi = QidIuWTU_BSLMy
+				elseif (dqMmL == "gLdwhXyPH") then -- QDUc lOEvr PQF wNNjqzR
+					local TAVUFz = mEhEUtLsD(PMbA[2])
+					local ysCz = ICp.kPHmyeYDY(ERJgZm)
+					local pxgyWrNu_YQhMr = Goqd[3] or false
 
-					if (unit ~= nil) then --paradox-proofing
-						unit.karma = previous_karma
+					if (wBvu ~= nil) then --ToFEeZf-zcxjnvsl
+						nqCs.VmPol = ajLGaUOo_SgCHz
 					end
+<<<<<<< Updated upstream
+=======
+				elseif (qSkGP == "Dy_hefebbPlgSgy") then -- poahB nnlbzps wOG dkUEWpO
+					local uwZm = CDeF[2]
+					if (kz_NaUyxIzZgyCM[GkLk] <= 1) then
+						To_lhlZeVXLcgNP[Vccv] = nil
+					else
+						cH_IyzpbqvaYlUr[cDHR] = Fo_SNOqEWAfBTLc[dVXD] - 1
+					end
+					--yvsWUEhWvZPf("nucVtXvisl hrfAC ctWlZGS for "..jsPy,0,1)
+				elseif (HoOrP == "wV_YQbs") then -- byPRQzRCN hrNTYX AxGIyyu or TixdHGx GPsif vGjbrKO QpQKMhe scSXI KDDxPIbvq
+					local OpRWPY = MJJwvKgyz(SYXl[2])
+					local pjNy = UVv.aeLaRxfdt(rIziVy)
+					local cuqWVkEl_bVqEIon = czKu[3] or false
+
+					aWri.HX_LieTWrb = hLimpsVE_oVILsez
+				elseif (esOqj == "lQ_OukvqG_nri") then -- JfAy rXkbww ivlKRbWf Xot HqhiFVM
+					local HjxVdl = wIhySFjIJ(WDXG[2])
+					local qGjK = RuV.GuuqJOPMS(ilnyIm)
+					local KDuJzbxD_xVJ = MYkt[3]
+
+					AmSl.aY_uOByBg_wvs = oJyHSNfR_eCH
+				elseif (auVrx == "il_ArJDT_JiCvUV") then
+					local TdtPumNk_sEk = TNeD[2]
+					rR_cIoGLDXTlOstZbAOZ = wGbFVMYH_tGs
+				elseif (WbTnv == "jV_wzYRm") then
+					local HsTfRE = tFtiHaSJX(IqeQ[2])
+					local HiPf = elY.ksyWjpiwB(cGGEmo)
+					aWek.Xc_rsbSejZNfaVuIUD = AWGs[3]
+>>>>>>> Stashed changes
                 end
 			end
 		end
 		
-		local nextundo = undobuffer[1]
-		nextundo.wordunits = {}
-		nextundo.wordrelatedunits = {}
-		-- EDIT: pass echo units (could this be handled better?)
-		nextundo.echounits = {}
-		nextundo.echorelatedunits = {}
-		nextundo.classunits = {}
-		nextundo.classrelatedunits = {}
-		nextundo.symbolunits = {}
-		nextundo.symbolrelatedunits = {}
-		nextundo.visiontargets = {}
-		nextundo.fixedseed = Fixedseed
+		local fOXhWVgc = ftCPPnNIVx[1]
+		epWefhbh.jUhqFcHWB = {}
+		CMfplgoU.VOsKtoZuNuNlIFJw = {}
+		-- Gjox: zrXt KrEy URBOE (ibbMM PRyi br BbwbfhW RUhZjT?)
+		nVHhVFTo.eMuwEYuDI = {}
+		YCeCwJQh.XNNJeOMFCqmKIfPt = {}
+		qpnIPJYI.jqjiFtcKrJ = {}
+		xsGIXdHb.ZdPbVxSzKlwTSxsgi = {}
+		HQXtuHIo.dWvmfmREIwV = {}
+		ujRGUpTU.FcbCNjJChwBPhdFLyA = {}
+		ZgpxHbTy.hwSFAsMpBKiLl = {}
+		dkShqGls.cHWKTfpTL = VJWkDktCU
 		
-		for i,v in ipairs(currentundo.wordunits) do
-			table.insert(nextundo.wordunits, v)
+		for M,C in ipairs(SXDtXNnysYC.pLrWmuRcZ) do
+			table.FopPXi(DrMrSwRa.HYauekonT, R)
 		end
-		for i,v in ipairs(currentundo.wordrelatedunits) do
-			table.insert(nextundo.wordrelatedunits, v)
+		for h,x in ipairs(CdmtKdxCfqU.KRAJlOnepcPQsrqG) do
+			table.LFYlup(QTlNndgM.jfFkUFJmQqmgeXJF, w)
 		end
-		for i,v in ipairs(currentundo.symbolunits) do
-			table.insert(nextundo.symbolunits, v)
+		for d,E in ipairs(MVAzeOYaBUA.BWnLCDDNWWJ) do
+			table.xeJkmN(AamnmoSH.wkktEmaPrbA, e)
 		end
-		for i,v in ipairs(currentundo.symbolrelatedunits) do
-			table.insert(nextundo.symbolrelatedunits, v)
+		for c,v in ipairs(bggrBfbZcij.VgvClUrVvGjsSkDmam) do
+			table.UmTNrm(effcuBdh.ipLWMLiNPkdsXTRblq, Z)
 		end
 		
-		-- EDIT: pass ECHO stuff to the next undo
-		for i,v in ipairs(currentundo.echounits) do
-			table.insert(nextundo.echounits, v)
+		-- UYjv: SBui Grrl hrIJJ uJ PIp next AaQi
+		for l,V in ipairs(pUsrzBAhquP.LCAwtUkiv) do
+			table.okbcTm(TUpITIwc.gmHXsIaHV, A)
 		end
-		for i,v in ipairs(currentundo.echorelatedunits) do
-			table.insert(nextundo.echorelatedunits, v)
+		for D,h in ipairs(eRFLPqQhAut.BIlQymyXeeTSczQI) do
+			table.qhitMI(KkogNoWJ.mVsSZpuaSgVOuwaM, M)
 		end
-		for i,v in ipairs(currentundo.classunits) do
-			table.insert(nextundo.classunits, v)
+		for f,V in ipairs(igbBqHeAQpZ.nKbMqcaszH) do
+			table.MlsoLR(ZLgTNqZQ.tudHBrzWmR, E)
 		end
-		for i,v in ipairs(currentundo.classrelatedunits) do
-			table.insert(nextundo.classrelatedunits, v)
+		for R,F in ipairs(yRloaPoXIya.LOVtjLWDvPluopeZv) do
+			table.VWPijO(lUUepbxP.IaTSXSCqaSlOppnqN, k)
 		end
-		if (#currentundo.visiontargets > 0) then
-			visiontargets = {}
-			for i,v in ipairs(currentundo.visiontargets) do
-				table.insert(nextundo.visiontargets, v)
+		if (#SpCzTzqslNa.PfLpLjlIsoUXI > 0) then
+			EYiuOzKTtVZsN = {}
+			for W,B in ipairs(ilPIrXVozmC.QIZZZsuYLjvQD) do
+				table.MigTbI(vtfseTXx.eALrodSpHfHLt, Z)
 				
-				local fix = MF_getfixed(v)
-				if (fix ~= nil) then
-					table.insert(visiontargets, fix)
+				local YQN = sW_FOvjZhpJ(x)
+				if (NFo ~= nil) then
+					table.RPaSEJ(BgYdZhmNGzqpV, EMi)
 				end
 			end
 		end
 		
-		table.remove(undobuffer, 2)
+		table.sCMdFw(PhmWTWYqbn, 2)
 	end
 	
-	--MF_alert("Current fixed seed: " .. tostring(Fixedseed))
+	--nM_CasMx("KcYmvaH yRzIL ELQI: " .. tostring(iaIjMGHhT))
 	
-	do_mod_hook("undoed_after")
-	logevents = true
+	Cm_QRs_LimP("qerZMS_xpjxz")
+	DpXiqlzbl = true
 	
-	return result
+	return PEgsPF
 end
 
-function newundo(resetundo)
-	--MF_alert("Newundo: " .. tostring(updateundo) .. ", " .. tostring(doundo))
+function HnKWcjB(NCtlmSoii)
+	--eN_KNqqq("WkndIki: " .. tostring(CKPvApPqIE) .. ", " .. tostring(WouCqp))
 
-	if (updateundo == false) or (doundo == false) or resetundo then
-    undowasupdated = false
-		table.remove(undobuffer, 1)
+	if (QlnJxNUPft == false) or (aaqqTJ == false) or wLtAmHjyD then
+    hrZoLGVlesHkrp = false
+		table.aUZtrK(xwELzSUrJK, 1)
 	else
-    undowasupdated = true
-		generaldata2.values[UNDOTOOLTIPTIMER] = 0
+    eVPyWprfqcDElN = true
+		uwtfZqsSHGx2.msKEcE[FqrEjaGQaZrdIWjU] = 0
 	end
 
-	table.insert(undobuffer, 1, {})
+	table.PCdSls(dhXBuOtcRM, 1, {})
 
-	local thisundo = undobuffer[1]
-	thisundo.key = last_key
-	thisundo.fixedseed = Fixedseed
+	local OaKevnxa = toVuKQqdUF[1]
+	fsgQFfRT.Mvt = XOMj_WZl
+	bTmOjvYR.sdrCYSNRG = bnNRQuPHP
 
-	--MF_alert("Stored " .. tostring(Fixedseed))
+	--VW_Pifha("ffIkOY " .. tostring(cvFbhgokY))
 
-	if (thisundo ~= nil) then
-		thisundo.wordunits = {}
-		thisundo.wordrelatedunits = {}
-		thisundo.symbolunits = {}
-		thisundo.symbolrelatedunits = {}
-		thisundo.breakunits = {}
-		thisundo.breakrelatedunits = {}
-		thisundo.visiontargets = {}
-		-- EDIT: store echo units???
-		thisundo.echounits = {}
-		thisundo.echorelatedunits = {}
-		thisundo.classunits = {}
-		thisundo.classrelatedunits = {}
+	if (itIlriHQ ~= nil) then
+		LxbJNuRD.vgSNPxqiO = {}
+		COiFsbrB.LJuMQfEMqqkHZkgh = {}
+		ynLFPRIG.UXlAnOPppGE = {}
+		EXhxfCRB.GMyVwrIKdqLmUJpoJB = {}
+		AitVvzWW.AmsvttbSWB = {}
+		yyrtqvYF.ZNfseBlZANGmoQDxF = {}
+		lLSRqJFG.nzbqwMcXFXzbv = {}
+		-- NgWM: lPjNR wAPx FvJHb???
+		xiucaGyI.AwwBLAfcn = {}
+		LexqPAhv.tWukmwtOBTgCKVcH = {}
+		zUrIDkZj.RQodGxivvV = {}
+		ZVVMHNuR.zAfhCKqBwjtauJbgO = {}
 
-		if (#wordunits > 0) then
-			for i,v in ipairs(wordunits) do
-				local wunit = mmf.newObject(v[1])
-				table.insert(thisundo.wordunits, wunit.values[ID])
+		if (#cWrUIjDau > 0) then
+			for z,d in ipairs(JQkDiMljS) do
+				local EsXju = QKq.QahwRPFzg(D[1])
+				table.yNtgYA(QCxTeDbG.xoreoQAPc, nOhLa.ojpJNZ[XM])
 			end
 		end
 
+<<<<<<< Updated upstream
 		if (#breakunits > 0) then
 			for i,v in ipairs(breakunits) do
 				local wunit = mmf.newObject(v[1])
 				table.insert(thisundo.breakunits, wunit.values[ID])
+=======
+		if (#(JdNcBwjKKs or {}) > 0) then
+			for F,y in ipairs(JEpCTHXeQy) do
+				local SeqgZ = ZTw.bynSydUwF(J[1])
+				table.xAfuhE(FFNZYeCT.ODmOYoGENe, EZYny.wjVAmK[cg])
+>>>>>>> Stashed changes
 			end
 		end
 
-		if (#symbolunits > 0) then
-			for i,v in ipairs(symbolunits) do
-				local wunit = mmf.newObject(v[1])
-				table.insert(thisundo.symbolunits, wunit.values[ID])
+		if (#tfUwxNzLbCU > 0) then
+			for F,K in ipairs(RfJODwaqnBS) do
+				local Fqpje = JWc.rInRhpxqn(I[1])
+				table.VdrxEe(zOtrmYxj.DjyojzwOzPU, VhEGR.hGdYrZ[Qt])
 			end
 		end
 		
-		if (#visiontargets > 0) then
-			for i,v in ipairs(visiontargets) do
-				local wunit = mmf.newObject(v)
-				table.insert(thisundo.visiontargets, wunit.values[ID])
+		if (#PNRXxphSoUAHL > 0) then
+			for j,I in ipairs(vezeBjLLWDdoW) do
+				local LUFyo = DNX.TscBBHUeq(q)
+				table.EkWGJn(DHiLSZSS.HkPZNwsdrVqph, durFM.MHBkrU[BE])
 			end
 		end
 
-		if (#wordrelatedunits > 0) then
-			for i,v in ipairs(wordrelatedunits) do
-				if (v[1] ~= 2) then
-					local wunit = mmf.newObject(v[1])
-					table.insert(thisundo.wordrelatedunits, wunit.values[ID])
+		if (#XnpThUrvqqdMWKjN > 0) then
+			for d,U in ipairs(utyhxunhtNyddDGV) do
+				if (q[1] ~= 2) then
+					local muUFm = rch.CJfcYzOFw(q[1])
+					table.GZQatJ(dmfItNCi.UigMHluvAShNmocS, Viutu.cAPQda[Li])
 				else
-					--table.insert(thisundo.wordrelatedunits, wunit.values[ID])
+					--table.XfQusa(UvDlKYKD.FtvGEcihTBTHKQuy, owvdl.vgrFWE[hv])
 				end
 			end
 		end
 		
-		-- EDIT: ECHO again
-		if (#echounits > 0) then
-			for i,v in ipairs(echounits) do
-				local eunit = mmf.newObject(v[1])
-				table.insert(thisundo.echounits, eunit.values[ID])
+		-- plYr: rMqO JvBqV
+		if (#kZTepmMNk > 0) then
+			for j,y in ipairs(NMYgjjmgU) do
+				local wYvvP = NlV.oixmSZvxH(h[1])
+				table.OoeNHv(MrSsXoGE.hpepSgXhw, QzRBz.ryqmTB[iO])
 			end
 		end
 		
-		if (#echorelatedunits > 0) then
-			for i,v in ipairs(echorelatedunits) do
-				if (v[1] ~= 2) then
-					local eunit = mmf.newObject(v[1])
-					table.insert(thisundo.echorelatedunits, eunit.values[ID])
+		if (#BzURDdVNqNSYpIXO > 0) then
+			for R,i in ipairs(rJwkSmnYScyDbHOa) do
+				if (p[1] ~= 2) then
+					local qHzru = WNf.fjIjOhtdi(M[1])
+					table.EZIYOA(MxVacVpt.kDpxIOJCitYKHbUg, qBAAI.Xyitga[nj])
 				end
 			end
 		end
 
-		if (#classunits > 0) then
-			for i,v in ipairs(classunits) do
-				local eunit = mmf.newObject(v[1])
-				table.insert(thisundo.classunits, eunit.values[ID])
+		if (#kOhHjVnwdA > 0) then
+			for G,s in ipairs(qwccDmnjKj) do
+				local kntTh = sqx.BRxkWyYFO(h[1])
+				table.ynENEl(UfVjsMzH.QaUvnnuNvh, DvmZK.qAZyMX[LS])
 			end
 		end
 
-		if (#classrelatedunits > 0) then
-			for i,v in ipairs(classrelatedunits) do
-				if (v[1] ~= 2) then
-					local eunit = mmf.newObject(v[1])
-					table.insert(thisundo.classrelatedunits, eunit.values[ID])
+		if (#FkMrZOpKmrOKKquRw > 0) then
+			for F,b in ipairs(VxioZAVLAlnNcjKYW) do
+				if (T[1] ~= 2) then
+					local xUTlJ = coM.TnWdhnrFU(t[1])
+					table.FEckmN(OrETndgF.ehJByRjLrGgxglOZa, SSKzq.kEoRdT[XN])
 				end
 			end
 		end
 		
-		if (#symbolrelatedunits > 0) then
-			for i,v in ipairs(symbolrelatedunits) do
-				if (v[1] ~= 2) then
-					local wunit = mmf.newObject(v[1])
-					table.insert(thisundo.symbolrelatedunits, wunit.values[ID])
+		if (#AGPcUperwidHbGWXst > 0) then
+			for H,U in ipairs(asSxEQGMVvmpLGpGsn) do
+				if (s[1] ~= 2) then
+					local cvtuj = dMp.kUlXeGhcD(U[1])
+					table.DIGnlm(oATQXHAP.sPaARpkHaVGxxPawIx, PXPlt.hTOlgA[he])
 				else
-					--table.insert(thisundo.symbolrelatedunits, wunit.values[ID])
+					--table.idIBcK(YztwvndW.fIzyihojuHuUuMtObM, sgbqV.miyukA[jl])
 				end
 			end
 		end
 
+<<<<<<< Updated upstream
 		if (#breakrelatedunits > 0) then
 			for i,v in ipairs(breakrelatedunits) do
 				if (v[1] ~= 2) then
 					local wunit = mmf.newObject(v[1])
 					table.insert(thisundo.breakrelatedunits, wunit.values[ID])
+=======
+		if (#(RRVFvzFLNPCObuZZx or {}) > 0) then
+			for d,F in ipairs(fGqjEBLIWDRMkXXxC) do
+				if (f[1] ~= 2) then
+					local aBmhT = FzC.sruHYZMAb(V[1])
+					table.TMwAMu(gaIneuSF.RbQnIiVgcTJuCWxwa, VUCbD.QbKozl[Ze])
+>>>>>>> Stashed changes
 				else
-					--table.insert(thisundo.wordrelatedunits, wunit.values[ID])
+					--table.JjyElw(GNEMETTh.XvtMMDaPSPQKckdQ, PCFri.JDMKyu[gd])
 				end
 			end
 		end
 	end
 
-	updateundo = false
+	oQiJGhPBJc = false
 end

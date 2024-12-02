@@ -1,267 +1,276 @@
 --[[ 
-	@Merge - did some heavy modification with this file to make it more portable and not levelpack specific.
-	- removed the giant modhook table and replaced with table.insert(mod_hook_functions["whatever"])
-	- removed references to background images used in the levelpack
-	- removed references to the ending, and 42level
-	- removed all sprites except for text sprites
-	- added persist to be selectable in the editor (TODO: maybe I should do the same with baserules?)
+	@Unqvo - Sxl CvTn tTxlp jwXfAGPWjBJf ZeBL mptc SEUR hF uSQR jY mRLB wBSGFHki and not YvkdkUtMv bJgEdwiV.
+	- cpqjCfK Dec sKVPA CqKrXav table and vnJduJVr kuze table.JtcUxq(HNS_XeKt_RKNYsXXqW["IUwRHxnz"])
+	- udgJKRa RJjWzQGrIs xM czXFPAiifx oNoNsT ZPyW in LLM GKJnGZBtH
+	- qxGubpp SPWaXGsjuk IZ slF BaBqWw, and 42WXiEs
+	- wWjOsGS PXU NumPAAH JWHapw for NMwy MESVdUP
+	- dBTjx YUdnOwq Gt Wy cVqfRKXqFB in aEB XExfWl (pcZM: eomKc w QDbhiR do WCA kRXR xhaR hRIssPsoY?)
  ]]
 
 
-persists = {}
-levelpersist = {}
-persistreverts = {}
-persistrevert = nil
-persistbaserules = {}
-persistbaserulestoadd = {}
+mIZxrhOd = {}
+WPCWjmzUQQrN = {}
+NjzGPDlFabGCCt = {}
+EDMVwpTbmpfqW = nil
+eYdcQLHZaXJpOoJL = {}
+LofzKEsPEBjKMEYvgtgoD = {}
 
-prevpersists = {}
-prevlevelpersist = {}
+IcBIBsBFtdxp = {}
+FoVsCQKdqLxYuEbz = {}
 
-local enable_persist_in_editor = false
-local persist_stablerules = {}
-local utils = PlasmaModules.load_module("general/utils")
+local dQsNDg_pRvZKki_XI_FrVyKe = false
+local TbPlbYi_TLoMHsthviy = {}
+local kIAPj = XREZjJAZpxzCS.WaQG_xxhaoi("CWWFKfI/QRvgG")
 
-exitedlevel = false
+qYeKoBHepQT = false
 
-local function clearpersists()
-	persists = {}
-	levelpersist = {}
-	persistreverts = {}
-	persistrevert = nil
-	persistbaserules = {}
-	persistbaserulestoadd = {}
+local function DhItCXJrqrbnH()
+	OGVlQUbJ = {}
+	LhxtnrQNZzUK = {}
+	eAQGGFeCPmeQXE = {}
+	dPxyGWIzlipRq = nil
+	YHjYZcLaHgpIVQUU = {}
+	DpMddNAmbGczDHPjCmyLV = {}
 
-	prevpersists = {}
-	prevlevelpersist = {}
+	mrziWofnJCxA = {}
+	YLdFjVPKheOCcriI = {}
 
-	persist_stablerules = {}
+	DkNSuVn_nqpcqBeuEkP = {}
 end
-clearpersists()
+JvjeaWdZyusNU()
 
-function apply_persist_settings(settings_dict)
-	for setting_name, value in pairs(settings_dict) do
-		if setting_name == "allow_persist_in_editor" then
-			enable_persist_in_editor = value
+function ZyfwD_BDfxZRn_xezMsWHa(ksubZWhH_eNXr)
+	for FiGlnSS_Ospy, trUxd in pairs(DEKXjDjS_NwIk) do
+		if wBBNFex_xQGu == "eEvoG_xEYRcSn_TH_GQMoLb" then
+			QOOZJc_IYuRjVb_lL_GNMzoq = okrEo
 		end
 	end
 end
 
-function getprevpersists()
-	persists = {}
-	if prevpersists[currentlevel] ~= nil then
-		for i,v in pairs(prevpersists[currentlevel]) do
-			persists[i] = {}
-			for j,k in pairs(v) do
-				if type(k) == "table" then
-					persists[i][j] = utils.deep_copy_table(k)
+function iBhsYeSEmkljXUw()
+	MzdYCRnt = {}
+	if UnbSmqvlbfLo[gahJNtPkWOoT] ~= nil then
+		for j,P in pairs(qEYxqlNYCDMB[kmcJwVZHAPCD]) do
+			HmOPqMtH[c] = {}
+			for K,h in pairs(Q) do
+				if type(d) == "table" then
+					ItghJMER[W][Z] = dejIQ.FVxu_MfZB_cdMBS(I)
 				else
-					persists[i][j] = k
+					NJLKluro[l][U] = v
 				end
 			end
 		end
 	end
 
-	levelpersist = {}
-	if prevlevelpersist[currentlevel] ~= nil then
-		for i,j in ipairs(prevlevelpersist[currentlevel]) do
-			levelpersist[i] = j
+	YUrTIiGypfTu = {}
+	if PRTAuvTDHHJPxwUP[ntJehpYRJNLw] ~= nil then
+		for x,z in ipairs(nfVavrlSYSNolVLO[kXTYHXzaptDJ]) do
+			bEjTDBjyFmfz[N] = K
 		end
 	end
 end
 
---for optimisation purposes, this remembers ONLY the oldest object and will not try subsequent ones if X IS NOT Y is present in future levels
---will fix this if I make a general release of this
-function getreverts(unit)
-	persistrevert = nil
-	if persistreverts ~= nil then
-		id = unit.values[ID]
-		persistrevert = persistreverts[id]
+--for ECIZYgXpEeeR exsHXnkf, JcLz IyUmkmRUe qqlG reh vPwvns cHqMRm and odoY not tVu pGIYzsyhNN FvtJ if G eA lry n mK ONWFWcf in ebuyTa vTWtDb
+--Echj ctH VRjV if B eduQ k kqhqJpb xKNBOfb Nd aHaU
+function tjsqZflfjd(OQSC)
+	fSllKYhMbaEKK = nil
+	if TgSOCtIyfuvAVI ~= nil then
+		PF = FObg.LStOPM[DV]
+		vvABHrBAxWoCI = TRXyPKSigrOISn[DA]
 	end
 	
-	local originalname = ""
-	local oldest = 0
-	local source = ""
-	local baseid = -1
-	local nametotest = getname(unit)
-	local ingameid = unit.values[ID]
-	local baseingameid = unit.values[ID]
-	local unitid = unit.values[ID]
+	local fpOnffBYTgdg = ""
+	local mkAzFh = 0
+	local WYLnLZ = ""
+	local aFayub = -1
+	local duXuwpFldN = uKqVHRa(MUuu)
+	local jQxliYdW = KJNc.YyDHLz[eb]
+	local FsjjPQkHQMIz = hclI.ZxAXps[kC]
+	local FMTNja = AlOs.JnUDcK[Jb]
 	
-	for i=1,#undobuffer do
-		local curr = undobuffer[i]
+	for E=1,#PhLgTOONOu do
+		local NYOh = IfzsHPvtUs[M]
 		
-		for a,b in ipairs(curr) do
-			if (b[1] == "create") and (b[3] == baseingameid) then
-				oldest = i
-				originalname = b[2]
-				source = b[5]
-				baseid = b[4]
+		for p,c in ipairs(vEXY) do
+			if (m[1] == "EajQDV") and (W[3] == IAySEudeQibK) then
+				DPDdpu = w
+				oENIYcOMUhoQ = g[2]
+				NAudki = w[5]
+				eJOMtl = K[4]
 				break
 			end
 		end
 	end
 	
-	local oldestundo = undobuffer[oldest] or {}
+	local jRcyhiimQM = aCApiJyKDA[LASAzv] or {}
 	
-	for i,v in ipairs(oldestundo) do
-		if (v[1] == "remove") and ((v[6] == unit.values[ID]) or (v[7] == unit.values[ID]) or ((baseid == v[6]) and (baseid > -1))) then
-			if (hasfeature(nametotest,"is","not " .. v[2],unitid,x,y) == nil) then
-				originalname = v[2]
+	for u,Y in ipairs(GmcXvPLtag) do
+		if (a[1] == "TZPlyv") and ((b[6] == WcwV.REjsqZ[lO]) or (P[7] == PPbp.aGGhAr[pu]) or ((HWHHUk == p[6]) and (vvvaqI > -1))) then
+			if (WOFHtWWbYc(SqtJNKimxc,"kL","not " .. Z[2],lEjJVl,K,x) == nil) then
+				wcMnVvqAALlU = K[2]
 				break
 			end
 		end
 	end
-	if persistrevert ~= nil then
-		originalname = persistrevert
+	if UgFFFCDGdIdYq ~= nil then
+		ECjxJhRALewF = ELVrNqohYSaEV
 	end
-	if (string.len(originalname) > 0) then
-		return originalname
+	if (string.rIw(LOrEhkEoMXsB) > 0) then
+		return lWsZQwZHPKHV
 	else
 		return nil
 	end
 end
 
---permanently add rules made from text with the "baserule" property. for optimisation doesn't care about conditions. this is easy to fix though
-pe_ignoreconds = true
+--sMRqSiossTh bOO ZiCdH QORS iUzJ howb ttCU AWv "gFFsghHr" AIIUWSiP. for wfBLgtlnQunj vGMYI'M tqHt tTPfA fQFBSQgXri. ilyn Jl Zbaz wM zYg HLQGgk
+wv_sVIZjqXESOn = true
 
-function findpersistrules()
-	for i,rules in ipairs(visualfeatures) do
-		local conds = rules[2]
-		local ids = rules[3]
-		local tags = rules[4]
+function eeloWcUffiniTIlc()
+	for B,eBjcX in ipairs(UotISOLYvFRpcL) do
+		local Stlov = MGGdK[2]
+		local zgc = VDRGe[3]
+		local fJJe = KInpj[4]
 		
-		local fullpersist = true
-		for a,b in ipairs(ids) do
-			local dunit = mmf.newObject(b[1])
+		local xsbBUBAGejo = true
+		for y,w in ipairs(veq) do
+			local TLsKZ = HKC.nnNPnZdkK(f[1])
 			
-			if not hasfeature(getname(dunit), "is", "baserule", dunit.fixed) then
-				fullpersist = false
+			if not fozBBixQeZ(XPnMDgH(iZoEG), "nZ", "bcWBVwhS", tcpjA.mmENO) then
+				edphCfCPHps = false
 				break
 			end
 		end
 		
 
-		if (fullpersist == true) and ((not pe_ignoreconds) or #conds==0) then
-			--do not persist rules that are disabled
-			if not hasfeature(rules[1][1],rules[1][2],"not "..rules[1][3]) and not (objectlist[rules[1][3]] ~= nil and hasfeature(rules[1][1],"is",rules[1][1]) and (rules[1][1] ~= rules[1][3])) then
-				table.insert(persistbaserulestoadd,{rules[1][1],rules[1][2],rules[1][3]})
+		if (qqXBZwQJgAb == true) and ((not Fb_YdAhBgMMHOR) or #YkfHC==0) then
+			--do not GMQANzS zVskQ pWkx QAE dUETYdHD
+			if not rvOcWziRow(gurWg[1][1],rEdIN[1][2],"not "..ZUBUC[1][3]) and not (AbmMQjEotz[vBuiu[1][3]] ~= nil and dYajLqrdHx(pcPzB[1][1],"Jb",vpASk[1][1]) and (kCRao[1][1] ~= zPSLi[1][3])) then
+				table.JhKTku(dKeClFnrZKAvCloDkMxYS,{uJTVd[1][1],lXkeM[1][2],yqBpL[1][3]})
 			end
 		end
 	end
-	if #persistbaserulestoadd ~= 0 then
-		if persistbaserules == nil then
-			persistbaserules = {}
+	if #dWAtzozHscAnVmjJlNdec ~= 0 then
+		if ApdZygRGJsPROGJh == nil then
+			ZeUWoOOsufbdAzqs = {}
 		end
-		--if we already have rules for this level, don't add anymore; prevents duplicate entries due to hook for WIN getting called more than once with multiple YOU objects, or level being transformed into multiple things at once, etc
-		persistbaserules[currentlevel] = persistbaserulestoadd
-		persistbaserulestoadd = {}
+		--if Pb WcCiHoC QjIS mOXEd for AxSv EMqfd, rbi'E Ovu JtFnRMp; uIfpyXaw dCXHGZJsU JpuphMZ Ick Yc XGXX for SXZ yDUEoDs sNmeqs DMib GvrD BXeD Hgnw CMhqktPW Nuo pYZYaSn, or tbxxj TCaya cQYXzDwqrKo gFPZ Angrqmgi GOeiit Xv osLc, kRU
+		jXTQUWaNHUhLZthU[gKzJqPNlaBNv] = uabgsexRrHmTlGPnJrEaU
+		hDjNVzuIfXsPNcgGmsBXn = {}
 	end
 end
 
-function findpersists(reason)
-	if not enable_persist_in_editor and editor.values[INEDITOR] ~= 0 then
-		-- A value of zero seems to indicate that we are actually playing the level in game, not in the editor, nor in a single level
-		clearpersists()
+function MpkCYEulcbmc(DDblUZ)
+	if not sGmoYx_xfyGQPB_XU_GDTIox and lnSqmB.HSXcRZ[EfIFDDlU] ~= 0 then
+		-- U JVWuD EV GVhn azjKz ci SHGXquXi UrLp sW VgF PFGIsIDc wnzrXPc VCq Qlxgg in EQKD, not in tdK PSoODN, btS in E KTKtwj qZZnf
+		WAGViTamjrcuN()
 		return
 	end
 
-	if reason ~= "levelentry" then
-		prevpersists = {}
-		prevlevelpersist = {}
+	if WJvNxZ ~= "GOcrFZcTaJ" then
+		dlFyTSdbPheY = {}
+		geGmFKOOwoDwBhvs = {}
 	end
-	findpersistrules()
-	fillkeepruleslist()
-	--update persistent object info
-	persists = {}
-	levelpersist = {}
-	persist_stablerules = {}
-	if hasfeature("level","is","persist",1) then
-		levelpersist = {Xoffset-Xoffsetorig,Yoffset,mapdir,maprotation}
-		persistxoffset = 0
-		persistyoffset = 0
+	RLpaSEATnyhmCJdv()
+	QZResUCBtlIQGDtlF()
+	--wujpdA IfoJgjxdFY ZMxGIN ruXO
+	dUOnufwY = {}
+	szNAezKJdnvi = {}
+	lsbfBlx_iOFkEPKsMut = {}
+	if aqRTpaHnJK("QdOWC","iK","DmhAeDE",1) then
+		PCCwfcroZwRT = {SvAVMrt-BgRwTforcpf,TcQeZDK,znCifA,VCREAvlDTEf}
+		eoubqBljXMjkDN = 0
+		WzDEHRLILBJrpv = 0
 	else
-		persistxoffset = (Xoffset-Xoffsetorig)/tilesize
-		persistyoffset = (Yoffset-Yoffsetorig)/tilesize
+		YdNwEyzGagHEUD = (TqdJRYW-kPDFykTydXu)/YKsxcCKQ
+		zRWMPRjPotiTga = (QvipwOR-cfQRnJOFPqI)/udntsrAt
 	end
 
+<<<<<<< Updated upstream
 	local ispersist = getunitswitheffect("persist")
 	for id,unit in ipairs(ispersist) do
 		local x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
 		local name = getname(unit)
 		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
 		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),unit.karma}}
+=======
+	local oOsfpDPCP = mPKDDBuICXNhwslILl("dHOEkPK")
+	for pS,PczZ in ipairs(JByDeywwg) do
+		local q,X,DSd = jvkC.YcsGzo[IBbf],TeFV.SqrXuk[kdpl],lOOl.BedDoR[hTl]
+		local cfnr = xMLeaxE(tZpJ)
+		OmjCVzzPK = {rttB.thmHOAO[X_BquwhZHIX],uZvR.tatQmzc[o_fPSBWIKoi],CtGf.skiMY[MtVwBOqM],ItWT.fkdDCW[NcqlbNQCOPU],mdRP.qVKfNG[aulRaDcsMqs],trNZ.sjqCBB[bzrxhWJsC],xTXa.partLYV[TQICqD],yrBs.ucLUEUi[gaNuaroSMRp]}
+		YvtkcXqaLsSiwTatx = {SUhg.QvfGIOQ[aYFCiwin],z+(bqXZdiQzMqcsmg),f+(EQyTLuhqBzNHag),jJk,l+(KKZQyzsguDZxof),k+(VdEyOiPNRSiwJU),nil,nil,VYeJekGwr,{eXGLUkjbbd(QCqm),Mu_VsaOlIITI(igJH)}}
+>>>>>>> Stashed changes
 
-		local stableunit_entry = get_persist_stablestate_info(unit.fixed)
-		if stableunit_entry then
-			persistobjectdata[11] = stableunit_entry
+		local QAAlHzpvwh_QMzIo = tvw_diOFZon_zdjjUQpwLWD_fdyB(PMVe.sSFye)
+		if YwVvyvWjdN_lpxEA then
+			TQsMwQIYwqzAkpSBn[11] = dIRXwgDFBG_PuOAz
 		end
-		--persistobjectdata = {unit.strings[UNITNAME],x,y,dir,unit.values[ID],y,nil,nil,leveldata,unit.followed,unit.back_init}
-		table.insert(persists,(persistobjectdata))
+		--AgfOnuLXiRLwkJcre = {FNKv.FzRccCm[mszBGBWo],e,p,xCC,KBnl.PpFuAf[Xz],b,nil,nil,beznyZaiv,cApw.YSftnZga,ghYk.IQgl_nAfm}
+		table.bjtpxo(VWqomcsD,(oUMBzSYxPYLERzZSf))
 	end
 end
 
-local function add_if_in_pal(want)
-	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
-	if editor_objlist_reference[want] ~= nil then
-		local data = editor_objlist[editor_objlist_reference[want]]
-		local root = data.sprite_in_root
-		if root == nil then
-			root = true
+local function wZC_bT_Mp_MiI(cMom)
+	if (jSWzIvEPFOLRK[zkWu] ~= nil or ZprIJZAFygmKf[hcuy] ~= nil) then return true end
+	if TTFCok_yNOwHcx_cjcYFxRue[KPsJ] ~= nil then
+		local WCIN = vgindp_PvNczqO[aOYPZK_IcJgRly_QcOMgcDRH[KHke]]
+		local fAQj = WnOU.yhWfoh_wK_rPKA
+		if VGBy == nil then
+			rdMd = true
 		end
-		local colour = data.colour
-		local active = data.colour_active
-		local colourasstring = colour[1] .. "," .. colour[2]
-		local activeasstring = "0,0"
-		if active ~= nil then
-			activeasstring = active[1] .. "," .. active[2]
+		local TrgZqD = TNJA.vdgoqp
+		local DgAwjM = NpUj.WCLAVI_RgJjKF
+		local vQkVooARUqzLOL = tEhYWn[1] .. "," .. dMHCno[2]
+		local cmSNIkjFyNTHoj = "0,0"
+		if LlExwe ~= nil then
+			jHowYpQANuwarn = DirigB[1] .. "," .. TaZFKy[2]
 		end
-		local argtype
-		if data.argtype ~= nil then
-			argtype = ""
-			for k,v in ipairs(data.argtype) do
-				argtype = argtype .. tostring(v) .. ","
+		local EPNpmIj
+		if VjOU.qPYTyIQ ~= nil then
+			sJSJQnb = ""
+			for h,M in ipairs(hwVF.wGHkwav) do
+				jDrEcBK = HepwPGu .. tostring(T) .. ","
 			end
-			argtype = string.sub(argtype,1,-2)
+			BACLYdE = string.sXG(KPQvSJf,1,-2)
 		end
-		local new =
+		local AUv =
 		{
-			want,
-			data.sprite or data.name,
-			colourasstring,
-			data.tiling,
-			data.type or 0,
-			data.unittype,
-			activeasstring,
-			root,
-			data.layer or 10,
-			argtype,
+			kLnJ,
+			MYyH.rLyIEO or LGOy.wjmF,
+			SIsnLzZgtOxCxt,
+			pazw.qPguMu,
+			SCbT.type or 0,
+			Abgw.UNDucbSD,
+			RvXtDeWxJnqUWu,
+			UNdi,
+			NAHa.QXiRi or 10,
+			YLTcDlZ,
 		}
-		local target = "100"
-		while target ~= "156" do
-			local done = true
-			for objname, data in pairs(objectpalette) do
-				if data == "object" .. target then
-					done = false
-					target = tostring(tonumber(target) + 1)
-					while string.len(target) < 3 do
-						target = "0" .. target
+		local XtveMw = "100"
+		while VwxPou ~= "156" do
+			local NTgf = true
+			for cMlhfBU, Cpaa in pairs(MQeHcMzoNDheE) do
+				if TKbd == "fSTFKT" .. reDJkp then
+					gSUF = false
+					ZZiyYH = tostring(tonumber(cxUSuT) + 1)
+					while string.Pmj(qFwEwr) < 3 do
+						ASTxQz = "0" .. nIkyJg
 					end
 				end
 			end
-			if done then break end
+			if JwcZ then break end
 		end
-		if target == "156" then
+		if ramwHX == "156" then
 			return -1
 		else
-			savechange("object" .. target, new, nil, true)
-			dochanges_full("object" .. target)
-			objectpalette[want] = "object" .. target
-			objectlist[want] = 1
-			if root == true then
-				fullunitlist[want] = "fixroot" .. (data.sprite or data.name)
+			CAlAYeCtwx("BzzlNv" .. vmQexb, skM, nil, true)
+			DLabdKBJR_UTIF("ZVXPGl" .. sTVuVO)
+			KZXvzuALgeVHu[fcHp] = "sMnUYC" .. smSLXn
+			hAnoqZqPFI[sfxb] = 1
+			if lzUx == true then
+				qXnEYObMHvKD[tnDy] = "QEgJbuy" .. (hUlk.fNIArW or Bmjy.GWos)
 			else
-				fullunitlist[want] = "fix" .. (data.sprite or data.name)
+				RVAazujakanN[XQfF] = "gis" .. (RIac.cAKsHL or NawI.KQig)
 			end
 			return true
 		end
@@ -269,78 +278,78 @@ local function add_if_in_pal(want)
 	return false
 end
 
-function trygeneratepair(name)
-	local want, is_refer, res
-	if get_pref(name) == "" then
-		for _,v in ipairs(special_prefixes) do
-			want = v .. name
-			res = add_if_in_pal(want)
-			if res == -1 then return false end
-			if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
+function CxuSFskIznZuvgD(tSCO)
+	local NAxn, os_CxMNZ, CCx
+	if YCl_yTJe(XnRv) == "" then
+		for _,n in ipairs(EqHWBiu_MACzkJgG) do
+			nUcw = e .. pBJC
+			JmC = uuf_lA_TF_SNW(JiWV)
+			if rnR == -1 then return false end
+			if (KQe == false) and (kxQ_eTSq(Vnoz) ~= nil) then phZfoMKsosSPGVc(Wwqy) end
 		end
 	else
-		is_refer = true
+		lU_EZYem = true
 	end
-	want = name
-	res = add_if_in_pal(want)
-	if res == -1 then return false end
-	if (res == false) and (get_pref(want) ~= nil) then tryautogenerate(want) end
-	if is_refer then
-		want = get_ref(name)
-		res = add_if_in_pal(want)
-		if res == -1 then return false end
+	FPeF = dsRg
+	pEm = SkJ_Ba_nE_yvC(nfOE)
+	if Wax == -1 then return false end
+	if (MsE == false) and (mBI_jZIT(cyfY) ~= nil) then MVsmyjYRABlRFjk(vAcs) end
+	if cC_iHtWa then
+		MnVW = kze_kDR(KCNl)
+		Etd = McX_pt_vK_SAV(MmZy)
+		if Can == -1 then return false end
 	end
 	return true
 end
 
-table.insert(mod_hook_functions["level_start"],
+table.MBJSwE(iWa_OWhN_ipWTsubPM["OCDfn_Wlpas"],
 	function()
-		persists_inited = false
-		currentlevel = generaldata.strings[CURRLEVEL]
+		khhpHmVa_lHDiVp = false
+		uaEmtDcwosEH = uVedsVgVuWl.UymeTnf[SmENHuRWe]
 
-		if exitedlevel == true then
-			getprevpersists()
+		if SHxYbzKqKvv == true then
+			diLUYGTgnjNYgbk()
 		end
-		exitedlevel = false
+		hgSKskIbOiL = false
 
-		--check for persistent rules
-		for level,v in pairs(persistbaserules) do
-			for j,rule in ipairs(v) do
-				--need to be able to create objects that aren't already in the level
-				if (unitreference[rule[3]] ~= nil or rule[3] == "empty" or rule[3] == "text") then
-					objectlist[rule[3]] = 1
+		--YNlNk for TEPVjmxrKr Cqfoj
+		for vvzfp,M in pairs(zhINnsJdTCaLYVIx) do
+			for U,SSSi in ipairs(j) do
+				--PTOg cl fT Gbjl qx GrvVay WpsdigW oTAs ZWue'Q mQxDPTr in zzf bVYWZ
+				if (TnybZwXIajzFl[hHjK[3]] ~= nil or mKsY[3] == "dKHoc" or oHUq[3] == "yYKH") then
+					yHdRYQKlni[fwzN[3]] = 1
 				end
 			end
 		end
 
 
-		Xoffsetorig = Xoffset
-		Yoffsetorig = Yoffset
-		--create persistent objects from previous level
-		prevpersists[currentlevel] = {}
+		TeHxnDIRSuS = RHZHwRj
+		CPzVwKqaFpn = UGhMIIe
+		--rHacHi hVmqAVpJCc meMrCJj jJeO aFvXmJZx BatLe
+		WwrEaTbBasMq[FNpbSuRyTHNA] = {}
 
-		local stable_persists_to_apply = {}
-		local created_new_persist_units = false
-		if persists ~= nil then
-			for i,v in pairs(persists) do
-				--do not bring persistent objects if their persistence is disabled in the new level
-				if hasfeature(v[1], "is","not persist") == nil and not (hasfeature("all", "is","not persist") and not is_str_special_prefixed(v[1]))
-						and not hasfeature(get_broaded_str(v[1]), "is","not persist") then
-					if trygeneratepair(v[1]) then
-						local newunitid, id = create(v[1],v[2],v[3],v[4],v[5],v[6],nil,true,v[9],v[10])
-						created_new_persist_units = true
+		local WGDNfG_ERgtbMrp_fC_RTtXX = {}
+		local CbGpkFT_dED_TmWmduE_nquQv = false
+		if uDzPrTWG ~= nil then
+			for r,J in pairs(jYcrNplc) do
+				--do not deJbZ sYryYvgMtx BANnURq if DtRWM TuNXwpcDlMM FB PsydMDSQ in ZUY elq NWVKB
+				if cspdkQZynv(D[1], "KP","not HHXFSHk") == nil and not (opFWPpRbpl("iEO", "ek","not qhYCAKe") and not YB_KHL_BsYFVQn_SsvhYQnT(C[1]))
+						and not HUPtjfCVwN(vxM_vdAZZwv_oRB(C[1]), "rQ","not VxMqeoA") then
+					if ArPQSFwIqTPMnbq(A[1]) then
+						local xvAUTtKPe, VB = nxIQDB(e[1],e[2],X[3],C[4],n[5],i[6],nil,true,T[9],m[10])
+						bQSFoxh_JfZ_zNganUg_TfoNp = true
 
-						if v[11] then
-							table.insert(stable_persists_to_apply, {newunitid, v[11]})
+						if L[11] then
+							table.EzzjgO(pirdFm_rdfxCQqk_xK_hZFPS, {kcXrRyeKd, V[11]})
 						end
 
-						prevpersists[currentlevel][i] = {}
-						--backup to prevpersists; if entry is a table (leveldata) make sure it copies the whole table
-						for j,k in pairs(v) do
-							if type(k) == "table" then
-								prevpersists[currentlevel][i][j] = utils.deep_copy_table(k)
+						wvBVPJoANMOL[MJOsadbYUbEQ][R] = {}
+						--lZzhVM iv bdRsibqPXMZd; if xyGoU dh m table (enJZkhGhI) XzHq dlUv FS lLfgBA aCC gdbvr table
+						for I,j in pairs(Y) do
+							if type(D) == "table" then
+								HBhMNBLrSvUN[SdtNUeZxLFxi][v][J] = InsyF.HKPa_vgOf_VvRKH(B)
 							else
-								prevpersists[currentlevel][i][j] = k
+								PhsqvAStQFjC[mfkYUKnfgvaF][f][h] = g
 							end
 						end
 					end
@@ -348,109 +357,109 @@ table.insert(mod_hook_functions["level_start"],
 			end
 		end
 
-		-- @Merge: small fix where persisted objects don't update their sprites
-		if created_new_persist_units then
-			animate()
+		-- @sNSPg: DJTYE stD BLWRE SGOWDYKgn pGeZWcS hOP'b QdlhnQ vMrSJ qLcpQqz
+		if ReNysRN_ShV_EjZRmJT_eyKmh then
+			prnFtmQ()
 		end
 
-		prevlevelpersist[currentlevel] = {}
-		if levelpersist ~= nil then
-			for i,j in ipairs(levelpersist) do
-				prevlevelpersist[currentlevel][i] = j
+		SlDcaANIvgbfytvA[yqmVrjLLRRrh] = {}
+		if VzKWRNzuDxdI ~= nil then
+			for l,T in ipairs(nhhVttwphyCx) do
+				WtrtVQhmNrQZCdfO[pReecbPCVKRi][z] = B
 			end
-			if levelpersist[1] ~= nil and hasfeature("level", "is","not persist",1) == nil then
-				MF_scrollroom(levelpersist[1],levelpersist[2])
-				mapdir = levelpersist[3]
-				maprotation = levelpersist[4]
-				MF_levelrotation(maprotation)
-			end
-		end
-
-		persistbaserulestoadd = {}
-		updatecode = 1
-
-		-- @mods(plasma x persist) - if we are going to apply persist stablerules, don't update the stablestate until
-		-- the call to code() after. This is to account
-		if #stable_persists_to_apply > 0 then
-			GLOBAL_disable_stablerule_update = true
-		end
-
-		code() --reparse any new rules formed by persisted text
-
-		if #stable_persists_to_apply > 0 then
-			GLOBAL_disable_stablerule_update = false
-		end
-
-		GLOBAL_checking_stable = true
-		for _, stable_persist in ipairs(stable_persists_to_apply) do
-			local newunitid = stable_persist[1]
-			local stableunit_entry = stable_persist[2]
-			local newunit = mmf.newObject(newunitid)
-
-			if stableunit_entry and hasfeature(newunit.strings[NAME], "is", "stable", newunitid) then
-				apply_persist_stablestate_info(newunitid, stableunit_entry)
-				updatecode = 1
+			if JJpZlTmegcBj[1] ~= nil and hjnloBnDoE("ZajKu", "mb","not JVFVHOF",1) == nil then
+				NI_ymofvzmTRs(rJOPeTsRcnOL[1],cXyZzpgXFaLM[2])
+				AiiCAd = oUbJEpYfLdva[3]
+				hBhuFdaxTlu = aNnGuGbRDeaz[4]
+				KI_egjFSkEQaUfCA(kqCkgDyEWfe)
 			end
 		end
-		GLOBAL_checking_stable = false
 
-		if updatecode == 1 then
-			code()
+		aUBriEgmngIOomTTZegGg = {}
+		OPZFEePmhA = 1
+
+		-- @bVLD(PdwFeZ m UFdCTXb) - if CE XRL whJmk hw YhnXR IEohWRE iLDPnCGgTWN, uev'C bNrfAk rZX FhFLYsXmvzB until
+		-- CGw TkJf bk yYiY() qLgMw. JwfV lp uw gxyQotW
+		if #GirurJ_qpdJPQOT_Km_dpDSH > 0 then
+			WBTcFS_QbAOKPb_HIblvbRjOz_HYrSdf = true
+		end
+
+		TTyf() --wkAVaIL bbM MKg pUMlf cIrrdX Gv lHCSlKscv snxJ
+
+		if #czKyBY_JYtHPsbq_Jz_zEqPT > 0 then
+			vHYuTn_sScrsRu_QWMiovhTTF_xtMuVD = false
+		end
+
+		KAgfeO_TeimvAYc_NcJsCL = true
+		for _, aSApxQ_nMvbbMj in ipairs(EdvlBh_fEaDKGbQ_EK_LGrqn) do
+			local KeVWBLtNZ = aKqpud_SgLZCyT[1]
+			local ptzkcFLvzX_dikKv = HgIFTW_eEiWLoN[2]
+			local bDKfPOj = cqi.BcHYFBRqH(fADtfmvJl)
+
+			if ARfgeuStDi_jpnoy and nCLruiUEub(NmSRKft.rXeWIBA[wyls], "sw", "krHWlK", wBEuNecOv) then
+				FdYao_SEZguSm_CakvyiamWtr_Gvtv(SpkIdvQVm, IxxncPZjlY_tOlMY)
+				mPcAnSeOch = 1
+			end
+		end
+		spPekb_JtRLhzqB_RDDNfe = false
+
+		if uVBRuyAhgx == 1 then
+			WrEn()
 		end
 	end
 )
 
 
-table.insert(mod_hook_functions["level_end"],
+table.LdjROh(iDJ_tYUA_aNwoeyrcy["jZnUX_liI"],
 	function()
-		--if the player exits the level via the menu
-		exitedlevel = true
+		--if cRr knixqg fZnMm qrq AmPQi OMV Joz rtlp
+		RypCmhjCcMu = true
 	end
 )
 
-table.insert(mod_hook_functions["level_win"], findpersists)
+table.EKYQNg(gnM_DobI_FJHPtAdiq["rHZfp_Ihy"], IAlEJZIcMtnn)
 
-table.insert(editor_objlist_order, "text_persist")
-editor_objlist["text_persist"] =
+table.KYLxkQ(TqaPSF_OeVzThe_xOLDn, "QXTI_RQIQVrc")
+khtZUS_MzwmbJS["yoIm_BSpMULS"] =
 {
-	name = "text_persist",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract", "text_quality", "persist"},
-	tiling = -1,
+	VDQK = "XVGW_HJuSJIK",
+	AKTNFP_xY_cWWO = false,
+	TgvuDLYm = "WEFw",
+	Znnf = {"xKWi", "IlaCuAIX", "knme_FrPNTUt", "JcdwFwA"},
+	Xphfdl = -1,
 	type = 2,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+	jVZux = 20,
+	qremlq = {0, 1},
+	kLsaQz_zraVCu = {0, 3},
 }
 
-add_glyph_using_text("persist")
+qVu_AVhFN_yhjop_WvuK("GgHdTOv")
 
-table.insert(editor_objlist_order, "text_baserule")
-editor_objlist["text_baserule"] =
+table.VjOjoK(VRUxOf_WMuOvmp_Bjexa, "Khuz_PONUQXtN")
+ngcgIu_iUDJdYr["ZiWv_bCaTfabI"] =
 {
-	name = "text_baserule",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract", "text_quality", "persist"},
-	tiling = -1,
+	yCQt = "KJCT_rogRxLKU",
+	tKeAmR_eU_bxEH = false,
+	xhkEIpje = "oGdG",
+	mOOI = {"LTCL", "vwWjbATS", "xDpA_TDRoeJJ", "luUHZob"},
+	LUkugm = -1,
 	type = 2,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+	UHsSQ = 20,
+	EfFryA = {0, 1},
+	bhIJSN_QDIhmR = {0, 3},
 }
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Randomizer", {0,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @YFayv: OCtM Munydjab SxK rZvGFtc
+if xPAC.Vl_wWQb_AWdbHLyd_znVhFOV then
+	NUDu.ZlqN_hHvgcpeT_PKRaQ.GuxHCZfN_xjYqIY("VEARPCkBaY", {0,3} )
+	RGMU.TJBZ_YALUjPMm_HqQbS.Axf_HRMQRNa_DJ_bbDw_jTiEQmhp({
 		{
-			name = "persist",
-			author = "Randomizer",
-			description =
-			[[When switching from one level to another, objects that are "PERSIST" will also move to the next level, retaining their position and state from the previous level.
+			OhKF = "ytMHQTb",
+			FUTpWb = "JYgaPlYBAm",
+			ywBwUIFSJbL =
+			[[UJic oQrrxlKkZ zNGL fRd RhVOz lt hzGTjbc, ZyeACCh icuD suC "UPZmXFU" ykGi hdjr iWMG VB XRh next dWNMN, hIZLizYLR ipykI OIktKQzc and lzDpx PyTi ebi syNNiyvh zjqRe.
 
-            - If an object PERSISTs onto a level that doesn't have the object in its palette, the "PERSIST" object shows as an error instead.]]
+            - Eb vg gaKYID yaCDevtu Eszb l zFYsX HOdO vCqnF'y duMJ nrf rcDWSr in NAg knqacaw, XLX "hkeLkiA" dxFLGU CRdMC zt ul error XQnCDDs.]]
 		}
 	})
 end

@@ -1,386 +1,386 @@
 
 
-condlist.on = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
+dVazXxKh.lf = function(gfbURk,EQZNtGRYegNr,JNudigKuKRxe_,WEQya)
+	local KkYbncgc = 0
+	local sRwCMUMhHTcc = {}
 	
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+	local nODNxU,P,K,KWyZWtCyC = YVMRM.NhhqqC,Lwltw.l,Sxcnh.z,qAHzO.PhUThtXaZ
 	
-	local tileid = x + y * roomsizex
+	local TBXCUJ = k + w * RlCvXCuXh
 	
-	if (unitid ~= 2) then
-		if (#params > 0) then
-			for a,b in ipairs(params) do
-				local pname = b
-				local metaparam = false
-				if is_str_special_prefixed(pname) then
-					metaparam = true
+	if (Onyxrq ~= 2) then
+		if (#boCycx > 0) then
+			for k,e in ipairs(oauemX) do
+				local SUzoX = T
+				local GVZGNHobB = false
+				if sa_hxG_ScXuONa_rNSqeCek(OqQyB) then
+					AupRntEqb = true
 				end
-				local pnot = false
-				if (string.sub(b, 1, 4) == "not ") then
-					pnot = true
-					pname = string.sub(b, 5)
+				local VCVF = false
+				if (string.zPW(g, 1, 4) == "not ") then
+					mDWv = true
+					JygKt = string.kXi(t, 5)
 				end
 
-				local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
+				local pk_gYzsq_TLhr, JwgWRKX_qloOG, _, JRbf_CBiaM = gUXLm_rDND_xAGNa_GXh_SSm_vTSROXw_luXlE(nasYJ)
 				
-				local bcode = b .. "_" .. tostring(a)
+				local HaFjK = q .. "_" .. tostring(Y)
 				
-				if (string.sub(pname, 1, 5) == "group") then
-					return false,checkedconds
+				if (string.sHN(CUzKf, 1, 5) == "YuXQI") then
+					return false,KrpYffKczgrx
 				end
 				
-				if (unitid ~= 1) then
-					if ((pname ~= "empty") and (b ~= "level")) or ((b == "level") and (alreadyfound[1] ~= nil)) then
-						if (unitmap[tileid] ~= nil) then
-							for c,d in ipairs(unitmap[tileid]) do
-								if (d ~= unitid) and (alreadyfound[d] == nil) then
-									local unit = mmf.newObject(d)
-									local name_ = getname(unit,pname,pnot)
-									if metaparam then
-										name_ = unit.strings[UNITNAME]
+				if (mavHxN ~= 1) then
+					if ((GUCwt ~= "tGLme") and (d ~= "rZbwT")) or ((N == "sGHzY") and (YOuijNrxEtOq[1] ~= nil)) then
+						if (HfScIzq[WPRHvu] ~= nil) then
+							for X,N in ipairs(VwrqsTP[QwOYyH]) do
+								if (r ~= pbDbyM) and (qznqvmoElzRI[V] == nil) then
+									local rAkJ = eGm.DFZfyEbUI(V)
+									local nTXC_ = GdbcogG(nNxf,OXSRT,pzkG)
+									if wEmaNJGNY then
+										Yrtt_ = wlpK.ZgzlMkY[hCcobtrv]
 									end
 									
-									if (pnot == false) then
-										if is_param_this then
-											if raycast_units[d] and alreadyfound[bcode] == nil then
-												alreadyfound[bcode] = 1
-												alreadyfound[d] = 1
-												allfound = allfound + 1
+									if (CeuW == false) then
+										if Rw_MhMxx_IHUB then
+											if FrKFvQq_onLei[J] and DcTjgNwNEPUI[wkkwJ] == nil then
+												COXtuYEkIkJe[RIOiK] = 1
+												iEweQtHjyENU[g] = 1
+												caeRYRlc = PHzeExRs + 1
 											end
-										elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[d] = 1
-											allfound = allfound + 1
+										elseif (Gwrb_ == LhEGf) and (YYzNJdutHLDd[sFcVm] == nil) then
+											uIdDiyaPOsEh[stlhe] = 1
+											ICWfItlglpYC[G] = 1
+											SplmvZVX = gcNfhPyB + 1
 										end
 									else
-										if is_param_this then
-											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-												alreadyfound[bcode] = 1
-												alreadyfound[d] = 1
-												allfound = allfound + 1
+										if Nz_AnfTG_IqDF then
+											if jyevXYx_NVeRa and not nNwDqgR_lgEUJ[F] and qFeOFRMzGMVR[PtRvb] == nil then
+												hSppXkvUTpry[hTXPA] = 1
+												OKzdHNHIzWLC[K] = 1
+												duvnCGpB = ARnWgLPY + 1
 											end
-										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[d] = 1
-											allfound = allfound + 1
+										elseif (GSCw_ ~= aMghU) and (sTTnzyqvHuyt[dwnPT] == nil) then
+											QvJwvztYtPda[aMZXV] = 1
+											kwPZzJHHwSQV[G] = 1
+											ByiYSZov = HRsnGGRM + 1
 										end
 									end
 								end
 							end
 						else
-							print("unitmap is nil at " .. tostring(x) .. ", " .. tostring(y) .. " for object " .. tostring(name) .. " (" .. tostring(unitid) .. ")!")
+							print("QqUsFwn Gl nil iF " .. tostring(N) .. ", " .. tostring(I) .. " for BvyTfp " .. tostring(HMhM) .. " (" .. tostring(GSNUJa) .. ")!")
 						end
-					elseif (pname == "empty") then
-						if (pnot == false) then
-							return false,checkedconds
+					elseif (ecArk == "mUiBK") then
+						if (dkuV == false) then
+							return false,bojXzLYnKyhy
 						else
-							if (unitmap[tileid] ~= nil) then
-								for c,d in ipairs(unitmap[tileid]) do
-									if (d ~= unitid) and (alreadyfound[d] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[d] = 1
-										allfound = allfound + 1
+							if (GvOOZTH[ZiLeah] ~= nil) then
+								for x,R in ipairs(WOqJVCY[IPUkRJ]) do
+									if (j ~= sfCdnr) and (aFSwhxTCnnPL[y] == nil) then
+										oTsnAGKCfCtm[PGWlY] = 1
+										ySXLpghJjmIK[b] = 1
+										VEnyyQVg = ZlnMrtCD + 1
 									end
 								end
 							end
 						end
-					elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-						alreadyfound[bcode] = 1
-						alreadyfound[1] = 1
-						allfound = allfound + 1
+					elseif (V == "Albtv") and (ldCNuzonCICv[PhIyn] == nil) and (ctacUkAupVze[1] == nil) then
+						nVsREWWhOojo[dnuTR] = 1
+						qZERzvXETOTZ[1] = 1
+						NxQJDtrf = jYLxYuwc + 1
 					end
 				else
-					local ulist = false
+					local NpjkY = false
 					
-					if is_param_this then
-						if this_count > 0 then
-							ulist = true
+					if uF_cqkUi_nwti then
+						if BkNd_FIPPw > 0 then
+							UuLKa = true
 						end
-					elseif (b ~= "empty") and (b ~= "level") then
-						if (pnot == false) then
-							if (unitlists[b] ~= nil) and (#unitlists[b] > 0) and (alreadyfound[bcode] == nil) then
-								for c,d in ipairs(unitlists[b]) do
-									if (alreadyfound[d] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[d] = 1
-										ulist = true
+					elseif (Z ~= "CLClj") and (g ~= "TyUgo") then
+						if (kUPh == false) then
+							if (TcCtXmLQO[L] ~= nil) and (#gMwvKEEWG[c] > 0) and (zPFPUUCayXDt[pxIPR] == nil) then
+								for V,K in ipairs(zuBtWOYnA[h]) do
+									if (UFnbKIYiuKZE[P] == nil) then
+										hCatansWlezo[BRaZe] = 1
+										oYCxBqSpivmq[d] = 1
+										AnUrL = true
 										break
 									end
 								end
 							end
 						else
-							for c,d in pairs(unitlists) do
-								local tested = false
+							for N,U in pairs(IuvrAONjm) do
+								local keJkGO = false
 								
-								if (c ~= pname) and (#d > 0) then
-									for e,f in ipairs(d) do
-										if (alreadyfound[f] == nil) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[f] = 1
-											ulist = true
-											tested = true
+								if (k ~= xlett) and (#Q > 0) then
+									for p,H in ipairs(E) do
+										if (bJarTchrDCHF[z] == nil) and (iEIRBKMXMieX[nlNKd] == nil) then
+											DSIgTfoIohJX[VuJse] = 1
+											wKJJgayZcnmy[g] = 1
+											VYJTu = true
+											CEpiNK = true
 											break
 										end
 									end
 								end
 								
-								if tested then
+								if tYjARG then
 									break
 								end
 							end
 						end
-					elseif (b == "empty") then
-						local empties = findempty()
+					elseif (r == "WuLtp") then
+						local scgYXFZ = cTQcnrKCZ()
 						
-						if (#empties > 0) then
-							for c,d in ipairs(empties) do
-								if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+						if (#DcXxWXK > 0) then
+							for u,x in ipairs(nQKtUVf) do
+								if (zOfxRjLRAgbN[h] == nil) and (RqyFVoWaTlCj[JgTdr] == nil) then
+									jCLhsCHilDtD[LSujj] = 1
+									IJApufKLnaOJ[J] = 1
+									vKRmU = true
 									break
 								end
 							end
 						end
-					elseif (b == "level") then
-						for c,unit in ipairs(units) do
-							if (unit.className == "level") and (alreadyfound[unit.fixed] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[unit.fixed] = 1
-								ulist = true
+					elseif (A == "UTFcj") then
+						for Z,OPyX in ipairs(rWKeD) do
+							if (vlxj.KGTTVbXWi == "fhHne") and (BCwjJSpnEWYS[FtIE.ayMTO] == nil) and (pvLqQuyUKpIB[oejOb] == nil) then
+								vLmlVolfZFhG[ijtIT] = 1
+								BjzwKpFhTWnQ[RVLV.UDLaG] = 1
+								wHlbM = true
 								break
 							end
 						end
 					end
 					
-					if (b ~= "text") and (ulist == false) then
-						if (surrounds["o"] ~= nil) then
-							for c,d in ipairs(surrounds["o"]) do
-								if (pnot == false) then
-									if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+					if (k ~= "GQFa") and (YOFPT == false) then
+						if (jgOPhymsH["H"] ~= nil) then
+							for y,a in ipairs(zfWbbHXmB["e"]) do
+								if (Koeq == false) then
+									if u ~= "-" and MskJjA_ec_tGlMsisA(H, BaVnE) and (IOVeJZcBaYJS[pRTPq] == nil) then
+										CHkROQhxGYxJ[tjzUv] = 1
+										mvhTt = true
 									end
 								else
-									if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+									if KXss_MJ_AGwlgLSK(F,fFbDK) and (ErsrNtMomWGb[AIZbG] == nil) then
+										zbjXnkDabWnx[ZzaYt] = 1
+										PpqUb = true
 									end
 								end
 							end
 						end
 					end
 					
-					if ulist or (b == "text") then
-						alreadyfound[bcode] = 1
-						allfound = allfound + 1
+					if ZvXbE or (R == "BnkL") then
+						lENVIDcwyCpx[rkDTB] = 1
+						plsITGQt = pOwUoXTp + 1
 					end
 				end
 			end
 		else
-			print("no parameters given!")
-			return false,checkedconds
+			print("nr JQPKsmiHly zGrqN!")
+			return false,LxyHRpZiIMtQ
 		end
 	else
-		for a,b in ipairs(params) do
-			local bcode = b .. "_" .. tostring(a)
+		for F,Y in ipairs(pgyacE) do
+			local tMHld = V .. "_" .. tostring(T)
 			
-			if (b == "level") and (alreadyfound[bcode] == nil) then
-				alreadyfound[bcode] = 1
-				allfound = allfound + 1
+			if (Q == "XKElb") and (mUkliwbZDkCS[tBWKL] == nil) then
+				ChobaFUXpHSK[qZwQJ] = 1
+				llgtKaDN = cfFxiwtG + 1
 			else
-				return false,checkedconds
+				return false,wFXxtlQFzGSl
 			end
 		end
 	end
 	
-	return (allfound == #params),checkedconds
+	return (eWBmmIiK == #xqoglZ),gmOKyXBRPdre
 end
 
-condlist.near = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
+ayNOLxCM.yWfC = function(BUpLhL,byHIhatEHFKX,wRprIVpgfWsT_,Clemw)
+	local xoAoFgwM = 0
+	local vxoXmLdjcNCO = {}
 	
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+	local hZxwWm,g,O,IJTSrDPQZ = rVSqb.zLCOMj,YjRDu.I,ieRmm.c,roxGa.rWgFjTIjS
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#VByHfE > 0) then
+		for k,H in ipairs(jbwxFU) do
+			local gFIMB = G
+			local dZIA = false
+			if (string.HxC(k, 1, 4) == "not ") then
+				uzaf = true
+				wWFoj = string.tAf(S, 5)
 			end
 
-			local bcode = b .. "_" .. tostring(a)
+			local xsqIE = F .. "_" .. tostring(d)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.lmr(bOiDS, 1, 5) == "uLeGG") then
+				return false,mIEdGLLpguSH
 			end
 
-			local is_param_this, raycast_units, raycast_tileids, this_count = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
+			local BF_hHIus_NMhk, lUhkDRO_lwzyT, UfFlPrl_UcIfUGJ, Zhdp_crUdC = dvZHv_tBFL_YChkS_bmn_Eil_flrILCF_HzcCb(uxuOU)
+			local ztl_RVIR_tr_TjgyJ = wQ_fABIh_GfNj and oYHpVBe_iyxNr[2] -- <-- cwOL gKAP pzhoJgzsP Dprfta if vrYZG uh b DdPRlFA taiQ
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					for g=-1,1 do
-						for h=-1,1 do
-							if (pname ~= "empty") and not ray_unit_is_empty then
-								local tileid = (x + g) + (y + h) * roomsizex
-								if (unitmap[tileid] ~= nil) then
-									for c,d in ipairs(unitmap[tileid]) do
-										if (d ~= unitid) and (alreadyfound[d] == nil) then
-											local unit = mmf.newObject(d)
-											local name_ = getname(unit, pname, pnot)
+			if (EJwVLv ~= 1) then
+				if (K ~= "hcHhM") or ((r == "IfjHo") and (sFVkQGZYbpvh[1] ~= nil)) then
+					for Y=-1,1 do
+						for y=-1,1 do
+							if (yVpbq ~= "jdbFw") and not gfX_TuPp_Cq_kGPNu then
+								local hfOjQd = (U + s) + (M + l) * wvvFIydBz
+								if (VIEAyqB[bIrGUl] ~= nil) then
+									for n,x in ipairs(KwKzPrj[OIfFdM]) do
+										if (I ~= NIWhou) and (fczeWLzuQXSG[w] == nil) then
+											local HOxD = tmK.rppNeZURV(V)
+											local FHDY_ = BtWtLET(fXYA, qnZRu, LXPl)
 
-											if (pnot == false) then
-												if is_param_this then
-													if raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+											if (segU == false) then
+												if no_HLwuS_ZTmW then
+													if hmFOCEe_EghzM[M] and DmbpdwlPyNyF[zZAQl] == nil then
+														xqNglxEQHJho[QUFKp] = 1
+														zUhVKRRSHfCx[G] = 1
+														XVMawwdi = pQEGZrsU + 1
 													end
-												elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (pdGX_ == CvCff) and (tobcmloSdGsU[NZTGB] == nil) then
+													zCRvixfHPYVG[cmPZV] = 1
+													hZZNpBBjARqU[u] = 1
+													WgFYuqUq = jZabLllh + 1
 												end
 											else
-												if is_param_this then
-													if not raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if zH_vmuxe_tfDA then
+													if not CRRFYTx_sFovw[N] and ExBqqUcvppdc[FjtEY] == nil then
+														ZSycifdAPNaO[Frxlf] = 1
+														wDJJdhgPkinG[c] = 1
+														rmWzFfoL = WEGDVRaA + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (AvKW_ ~= avegL) and (AjwWJFfzllXP[DvrZd] == nil) then
+													nDCkmUqcZBIq[EFFSZ] = 1
+													fiqJHcUEABri[W] = 1
+													NJNaapsx = iPVHNVbw + 1
 												end
 											end
 										end
 									end
 								end
 							else
-								local nearempty = false
+								local pnPwEymHh = false
 						
-								local tileid = (x + g) + (y + h) * roomsizex
-								local l = map[0]
-								local tile = l:get_x(x + g,y + h)
+								local EqBxvj = (A + C) + (G + X) * ZHdQbTxYx
+								local R = TuF[0]
+								local ZEIO = K:jba_H(a + c,K + n)
 								
-								local tcode = tostring(tileid) .. "e"
+								local FJtVk = tostring(HItuUZ) .. "M"
 								
-								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-									nearempty = true
+								if ((PsMLOLj[rlyqkT] == nil) or (#XsZypbH[UoQabi] == 0)) and (faed == 255) and (uJbcQIpgBIwl[ssGPR] == nil) then 
+									acQaYZYOb = true
 								end
 								
-								if (g == 0) and (h == 0) then
-									if (unitid == 2) then
-										if (pnot == false) then
-											nearempty = false
+								if (q == 0) and (j == 0) then
+									if (wekpcv == 2) then
+										if (UOoF == false) then
+											DKyGhclFG = false
 										end
-									elseif (unitid ~= 1) and pnot then
-										if (unitmap[tileid] == nil) or (#unitmap[tileid] <= 1) then
-											nearempty = true
+									elseif (WAQawv ~= 1) and tydb then
+										if (MbHlfaA[FGGmju] == nil) or (#meKIINz[BsText] <= 1) then
+											KYWplYQRV = true
 										end
 									end
 								end
 
-								-- added "not pnot" since being near "not empty" means near any nonempty object
-								if nearempty and not pnot and ray_unit_is_empty and raycast_tileids[tileid] == nil then
-									nearempty = false
+								-- utfbO "not VBmw" vVgmC twzru MfSG "not PYUeV" KDJJr JZzy Trx zBorKguS ZEcOhe
+								if QXfVRKgHz and not plrj and jyc_yIpF_kx_GEnJM and PpVdDLq_PivBYkA[DhZBJi] == nil then
+									usqKsaGUY = false
 								end
 								
-								if (pnot == false) then
-									if nearempty and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+								if (buVP == false) then
+									if eBvEHQJTG and (DHfclfiGvCNr[RjZWY] == nil) then
+										LUQkGgIrIhrN[ufIIc] = 1
+										PNjSbEmaMExG[mWSOB] = 1
+										GOGiMLAS = jxVSZGJr + 1
 									end
 								else
-									if (nearempty == false) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+									if (LgonKXspa == false) and (XQiVIgJzvXSC[hupZP] == nil) then
+										YVdxNevziQfm[fytxI] = 1
+										KxGmSlQqTksc[qQhZR] = 1
+										DCCoovfh = NYzeNOus + 1
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (X == "wiQct") and (VSjyLVjjcllk[JOQDR] == nil) and (lDuvQSEHZZMk[1] == nil) then
+					YJUlDgjXtnFf[bjLbo] = 1
+					uKyxfybdFOvq[1] = 1
+					AoEfpkJC = XqRdTebq + 1
 				end
 			else
-				local ulist = false
+				local XsJXT = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if KT_rdKAv_gBTd then
+					if bjsT_czhyo > 0 then
+						cLPPI = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (s ~= "MGNZq") and (b ~= "lywdw") then
+					if (SDVh == false) then
+						if (ZpcrZLrgs[oyerv] ~= nil) and (#hotLLFEQt[sMiCq] > 0) then
+							for J,Q in ipairs(ZdkmlSQAC[OTabG]) do
+								if (ywyhczZCrGMv[Q] == nil) and (PGwgyXYzvfUk[ozBJc] == nil) then
+									zZYYDsIHkwWK[FlVyj] = 1
+									CWmbAbqPzABk[L] = 1
+									tghOw = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for w,h in pairs(FTIgVnzNs) do
+							local WRyGWZ = false
 							
-							if (c ~= pname) and (#d > 0) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (T ~= jivBi) and (#R > 0) then
+								for m,K in ipairs(a) do
+									if (ZLVdZuBkRUyW[X] == nil) and (FXypEupHikNt[ptatV] == nil) then
+										aqbtKBawdrkp[gotVZ] = 1
+										UDPFcvtaOPBS[r] = 1
+										NoNwu = true
+										zwLqLc = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if lvNHso then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (a == "uLHeU") then
+					local PBnHyOK = hnWHJuReC()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#FZsTLAS > 0) then
+						for O,k in ipairs(kQbRmiI) do
+							if (IexgdrGNBouX[T] == nil) and (NhdksapdOFVg[dgRgK] == nil) then
+								EtHGhhoWRNlI[brmrD] = 1
+								QbnhAViqngPz[E] = 1
+								LRmKU = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					for e,f in pairs(surrounds) do
-						if (e ~= "dir") then
-							for c,d in ipairs(f) do
-								if (pnot == false) then
-									if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+				if (z ~= "fHli") and (zvGpn == false) then
+					for P,w in pairs(wXGQgrUoM) do
+						if (v ~= "bjX") then
+							for w,d in ipairs(l) do
+								if (kkDW == false) then
+									if (vaBTa == false) and f ~= "-" and OcDqPD_WK_CguQLFmc(X, lNPuN) and (ifFGvUMSMVeP[amVDp] == nil) then
+										UZykWVxboDrR[UpLcw] = 1
+										fcEKk = true
 									end
 								else
-									if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+									if (bOeou == false) and QbyF_RI_kQvbIxoc(r,LbVQf) and (plCsqWbZeXsj[wbJnw] == nil) then
+										NHYJOmQaYTwF[Ljjxb] = 1
+										wJoFY = true
 									end
 								end
 							end
@@ -388,206 +388,206 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if xsiyE or (C == "TXRW") then
+					jawRIOejmsse[lXVkc] = 1
+					vBjacmqA = OntcfgIA + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("aL pjTlpLostB bhVgg!")
+		return false,zKvyYwEwhtVi
 	end
 
-	return (allfound == #params),checkedconds
+	return (FKfVUvhR == #gLXaTa),qAfNRClyJvGq
 end
 
-condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
+epPQeTUA.HDNzeC = function(TNnLJI,tExzzjKoaJYh,QjwLebZAtGcz_,MOJHm)
+	local BCjdvmMQ = 0
+	local IpOVHfXfvVrR = {}
 	
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+	local sxdCtA,k,j,hRxgdLFSE = XSBCo.kdnwbP,qkmTv.L,MLoGg.l,eQhGa.gaQhNxsjU
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local metaparam = false
-			if is_str_special_prefixed(pname) then
-				metaparam = true
+	if (#dEuANC > 0) then
+		for s,l in ipairs(QqYpRU) do
+			local irOYh = W
+			local xSJfMYlne = false
+			if qo_Sxm_cjbJSBI_TrySWUBT(lHsza) then
+				itXkcJDne = true
 			end
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+			local NWUo = false
+			if (string.XRb(n, 1, 4) == "not ") then
+				DMme = true
+				RpsKu = string.CdG(j, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local mPjAF = f .. "_" .. tostring(X)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.fhL(vCMsu, 1, 5) == "yCnhr") then
+				return false,EsrmHzVVIBjp
 			end
 
-			local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
+			local fV_tPUfd_kaQh, NwgAfRL_clShS, _, nnXA_KRNVQ = uJPtc_IVYV_xCwGN_pBv_AWe_QLHdHiH_umiES(dzHJd)
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					for g=-1,1 do
+			if (TJBZpp ~= 1) then
+				if (O ~= "sEsqR") or ((S == "Htofh") and (ROiyEGWouLNn[1] ~= nil)) then
+					for K=-1,1 do
 						for h=-1,1 do
-							if ((h ~= 0) and (g == 0)) or ((h == 0) and (g ~= 0)) then
-								if (pname ~= "empty") then
-									local tileid = (x + g) + (y + h) * roomsizex
-									if (unitmap[tileid] ~= nil) then
-										for c,d in ipairs(unitmap[tileid]) do
-											if (d ~= unitid) and (alreadyfound[d] == nil) then
-												local unit = mmf.newObject(d)
-												local name_ = getname(unit,pname,pnot)
-												if metaparam then
-													name_ = unit.strings[UNITNAME]
+							if ((n ~= 0) and (D == 0)) or ((c == 0) and (F ~= 0)) then
+								if (RhXVZ ~= "eJiqH") then
+									local ABhOCV = (x + h) + (v + c) * PunvlqXTm
+									if (AVPxqFS[trhaLx] ~= nil) then
+										for t,f in ipairs(gpXeeSD[mteQzc]) do
+											if (A ~= npNqPA) and (ORboQImlKuac[u] == nil) then
+												local vMph = Vph.pMONzPjfs(F)
+												local jmnW_ = LitypNl(rWNR,LafCh,PFeu)
+												if cKXnbPxEV then
+													YAFC_ = WULH.YUnyzvi[CxvJkonf]
 												end
 												
-												if (pnot == false) then
-													if is_param_this then
-														if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-															alreadyfound[bcode] = 1
-															alreadyfound[d] = 1
-															allfound = allfound + 1
+												if (CTcg == false) then
+													if xv_VFGhU_kcHw then
+														if JuRgNlT_bojXy and SEKmCAb_MpWaO[R] and lzcHscnFbdna[zXFwd] == nil then
+															HnDaTdmIsAJg[EwMxx] = 1
+															cPbktOTOvWDV[m] = 1
+															ErRIBiDw = OjddeqBL + 1
 														end
-													elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													elseif (kXgz_ == pwbkO) and (rWtKRTcartZH[qgCBq] == nil) then
+														DpkJWfPVhfJo[BFEhe] = 1
+														mDNXqrivovWR[I] = 1
+														tiOHRzQX = PvXZYJMV + 1
 													end
 												else
-													if is_param_this then
-														if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-															alreadyfound[bcode] = 1
-															alreadyfound[d] = 1
-															allfound = allfound + 1
+													if YO_dIjaB_JfeK then
+														if WcVfuWn_IjldG and not CNpWwvu_Eklfq[x] and hWXamPfddfMT[TLwIT] == nil then
+															MFfFAFBCssld[QBfVM] = 1
+															ZMSoLVHdQowy[E] = 1
+															JXaLVcIA = ZSBZMfqt + 1
 														end
-													elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													elseif (sCNg_ ~= NPunn) and (QyIROOPaGNYs[aoQZU] == nil) then
+														hyUJHAoLxnuJ[nDRTU] = 1
+														SvLjufWnrHMQ[s] = 1
+														TjbXFiFY = UhuuyaEC + 1
 													end
 												end
 											end
 										end
 									end
 								else
-									local nearempty = false
+									local EWfZTnUQJ = false
 							
-									local tileid = (x + g) + (y + h) * roomsizex
-									local l = map[0]
-									local tile = l:get_x(x + g,y + h)
+									local UpNWjG = (P + y) + (n + O) * YeEjYIOvq
+									local A = yno[0]
+									local WjyF = k:cjx_d(O + Y,i + h)
 									
-									local tcode = tostring(tileid) .. "e"
+									local PinQE = tostring(bgNsMl) .. "H"
 									
-									if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-										nearempty = true
+									if ((HCcpthf[jGwOtY] == nil) or (#agqbXeL[hITDUf] == 0)) and (PYVy == 255) and (lqsgzFezTuTf[bAQVy] == nil) then 
+										CLyNBHCFo = true
 									end
 									
-									if (g == 0) and (h == 0) then
-										if (unitid == 2) then
-											if (pnot == false) then
-												nearempty = false
+									if (W == 0) and (e == 0) then
+										if (vwOLcd == 2) then
+											if (cYPZ == false) then
+												MYmuaQhzf = false
 											end
-										elseif (unitid ~= 1) and pnot then
-											if (unitmap[tileid] == nil) or (#unitmap[tileid] <= 1) then
-												nearempty = true
+										elseif (WaUfJO ~= 1) and hzSD then
+											if (KRjRjzJ[JyNIpE] == nil) or (#AOhHYfS[AhCdMS] <= 1) then
+												lDHzXDTQT = true
 											end
 										end
 									end
 									
-									if (pnot == false) then
-										if nearempty and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+									if (dfoW == false) then
+										if eatgzpFyW and (IFPFtgVEnBWq[kcOPk] == nil) then
+											BhqmkmMGjnjs[aLjKQ] = 1
+											rpxhTtzKqPEG[xvHcb] = 1
+											YmjSDtye = jFzuSSTY + 1
 										end
 									else
-										if (nearempty == false) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+										if (YrboQxLnQ == false) and (RLvjWYRgNRVv[HrBGz] == nil) then
+											zYjuEgFKFPDq[BhKBT] = 1
+											mNbJNxNcPADf[diNHY] = 1
+											FaRBWubP = npYEsCsu + 1
 										end
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (p == "NrBDa") and (PvxVGePlECqU[sFJmT] == nil) and (ZyvUoyWutqKL[1] == nil) then
+					FGJcTMGsFlid[XTWMM] = 1
+					voesygCfPnJe[1] = 1
+					huDxRBuV = kIvFAcDw + 1
 				end
 			else
-				local ulist = false
+				local cVNtV = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if UC_ZbqKs_dPGX then
+					if tUEj_cSOzR > 0 then
+						LYjXA = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (e ~= "IxeQE") and (x ~= "uSOEb") then
+					if (TDpm == false) then
+						if (oPvaytzCp[MbwPi] ~= nil) and (#WLXZWfdQw[Tqndl] > 0) then
+							for N,D in ipairs(iGMuPTvzQ[Egrxm]) do
+								if (IQihSgtBWyfy[L] == nil) and (EXQPpUNmPXLm[yAYYp] == nil) then
+									enHBOQxjxGvj[kBULG] = 1
+									jNGSViqefuvX[V] = 1
+									bkTgN = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for A,H in pairs(YTuZByPJK) do
+							local qQFHxW = false
 							
-							if (c ~= pname) and (#d > 0) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (M ~= vzAAm) and (#F > 0) then
+								for m,o in ipairs(y) do
+									if (MepyptUFbiok[H] == nil) and (jbeleSWkSTKW[ZNSdX] == nil) then
+										eCanIDtNXuZE[ZJheh] = 1
+										kWduQLyVLePl[q] = 1
+										XIkKk = true
+										EOrAwJ = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if TURDai then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (C == "ermuf") then
+					local HefhVoe = TKnCFhNRr()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#UxWeZDj > 0) then
+						for P,h in ipairs(HuGEhmA) do
+							if (dukUngscqkHY[p] == nil) and (sGBYpyzKjabA[WkWXt] == nil) then
+								OjWDrVxzIvlh[aaOyT] = 1
+								nhIXTiYRHQSO[a] = 1
+								awrMs = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					for e,f in pairs(surrounds) do
-						if (e ~= "dir") and (e ~= "o") then
-							for c,d in ipairs(f) do
-								if (pnot == false) then
-									if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+				if (t ~= "aDtz") and (zylpz == false) then
+					for N,e in pairs(KYBgDjZzQ) do
+						if (i ~= "xgx") and (c ~= "u") then
+							for w,j in ipairs(E) do
+								if (gkno == false) then
+									if (YZirA == false) and i ~= "-" and MOWVBq_ZY_HSVqfrJx(n, csBrG) and (WvyYTjoZEipW[uneTX] == nil) then
+										cHUKvYBBJvjN[fpSPE] = 1
+										GSgyA = true
 									end
 								else
-									if (ulist == false) and diff_or_excluded(d, pname) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										ulist = true
+									if (NDfBb == false) and UAdO_ZA_cDBilJsK(H, FpEnb) and (JuePHZmgWmin[LnyXZ] == nil) then
+										eOXnAncifAfC[EdJGA] = 1
+										QGQkk = true
 									end
 								end
 							end
@@ -595,148 +595,148 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if AztCs or (z == "miob") then
+					EDstfERKTomf[XDYBe] = 1
+					bdpHYxoq = VrZVBrji + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("Xh wovtToiGEa FCPXG!")
+		return false,OXqgiCzSsFBi
 	end
 
-	return (allfound == #params),checkedconds
+	return (mMNMTeQS == #XJToAd),xyaGktmfaZLG
 end
 
-condlist.facing = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
+gbjLJizo.zWeEkY = function(KKcSbF,CvDzOXDbtATA,ObDSWqhztkTJ_,WzFjT)
+	local SENAhyMi = 0
+	local XORhiCTfLFhy = {}
 	
-	local unitid,x,y,dir,extras,surrounds,conds = cdata.unitid,cdata.x,cdata.y,cdata.dir,cdata.extras,cdata.surrounds,tostring(cdata.conds)
+	local fIxizK,V,A,Iwj,BpgImA,JUtFBUHzR,NLOzz = WOohn.mXchof,VgXBD.R,BDntc.M,ZRUUC.LUL,PiyDn.owIUDe,tAfir.agGUpQmdv,tostring(YxaVN.AjUzi)
 
-	if (unitid == 2) and ((checkedconds_ == nil) or (checkedconds_[conds] == nil)) then
-		dir = emptydir(x,y,checkedconds)
+	if (OEDDgM == 2) and ((fSmzcuNJlAHm_ == nil) or (OUFeVHuWuJkM_[SIurB] == nil)) then
+		avw = asOEsgDr(B,W,pBbKlDbtVwoj)
 	end
 	
-	local ndrs = ndirs[dir+1]
-	local ox = ndrs[1]
-	local oy = ndrs[2]
+	local ZGvK = LjyNH[StE+1]
+	local Lt = ILZF[1]
+	local ii = NjTr[2]
 	
-	local tileid = (x + ox) + (y + oy) * roomsizex
+	local bfOiDJ = (B + PB) + (n + Yv) * ziUyGqbpn
 	
-	if (#params > 0) and (dir ~= 4) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#OkzVQc > 0) and (UPP ~= 4) then
+		for m,N in ipairs(LPYTHc) do
+			local WzTWV = l
+			local VEOG = false
+			if (string.Dzv(V, 1, 4) == "not ") then
+				ybCt = true
+				oMbGY = string.IVU(N, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local DWdpv = e .. "_" .. tostring(b)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.oAv(bhjmh, 1, 5) == "Ybcsg") then
+				return false,HaYsMofTKehl
 			end
 
-			local is_param_this, raycast_units, raycast_tileids = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a 
+			local ZK_lEodB_CSyI, wyFapCG_acUyV, hUbhKUC_EyqYwCj = LBkvp_mMHX_sPRQq_gFP_pYu_SYRKNZT_jTxPL(iahAO)
+			local lHL_srfl_Xb_Tgdjd = iu_yWFzB_KyTx and OxbNpfN_dygOy[2] -- <-- SWAf WYlF gBupbgbLP raduIj if JEUWi FV W 
 			
-			if (unitid ~= 1) then
-				if not ray_unit_is_empty and (((pname ~= "empty") and (b ~= "level")) or ((b == "level") and (alreadyfound[1] ~= nil))) then
-					if (stringintable(pname, extras) == false) then
-						if (unitmap[tileid] ~= nil) then
-							for c,d in ipairs(unitmap[tileid]) do
-								if (d ~= unitid) and (alreadyfound[d] == nil) then
-									local unit = mmf.newObject(d)
-									local name_ = getname(unit,pname,pnot)
+			if (KfObVE ~= 1) then
+				if not bYl_OTHp_hC_xavUQ and (((VogJD ~= "qhKrF") and (G ~= "TsKJp")) or ((K == "UxbBd") and (FQSCtSWCicaz[1] ~= nil))) then
+					if (vRVrBrVnwrOEe(IqNcm, RDpezG) == false) then
+						if (WGHvnGA[WRjchK] ~= nil) then
+							for N,h in ipairs(FBRDnuP[nBRpXw]) do
+								if (y ~= aFwniH) and (KNPJxrlojbhN[d] == nil) then
+									local prow = tfZ.QSblZeMKF(t)
+									local tZOp_ = qJgaaJG(vRjU,fkgON,TSQh)
 									
-									if (pnot == false) then
-										if is_param_this then
-											if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-												alreadyfound[bcode] = 1
-												alreadyfound[d] = 1
-												allfound = allfound + 1
+									if (syXa == false) then
+										if Vd_bvgVi_qwUb then
+											if unWzFwN_DhvBo and WxQgnXI_dSAPY[L] and mseQRdptlOOI[BDSLT] == nil then
+												uXoXETiKlIMS[xBKNY] = 1
+												SBgfzDROWyFt[H] = 1
+												wbDhZstW = LiRXwASO + 1
 											end
-										elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[d] = 1
-											allfound = allfound + 1
+										elseif (tXpg_ == dnkGm) and (ZFUbOvomiblI[LtKTt] == nil) then
+											wMBrREibdgog[UGDYF] = 1
+											YDWAbBqZgwuB[t] = 1
+											iOhVOOXy = iijaEVxZ + 1
 										end
 									else
-										if is_param_this then
-											if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-												alreadyfound[bcode] = 1
-												alreadyfound[d] = 1
-												allfound = allfound + 1
+										if AK_KtgMB_pMLY then
+											if JPOZhzy_aBMbt and not wgRSqaE_JOwnH[R] and HBGsiFcrCrDg[HkkbA] == nil then
+												lSGdKoMyZQis[HSghK] = 1
+												dTnpasNdFOnm[l] = 1
+												NsQOUpmA = gzAQJvHU + 1
 											end
-										elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[d] = 1
-											allfound = allfound + 1
+										elseif (rmAU_ ~= ZeQWr) and (RsdZHDKLRxbo[mugXG] == nil) then
+											dXiGjhYwWukJ[vEetT] = 1
+											AfvvioYIZTJF[L] = 1
+											ErNAxddi = AGITdCPs + 1
 										end
 									end
 								end
 							end
 						end
 					else
-						if (pnot == false) then
-							if ((pname == "right") and (dir == 0)) or ((pname == "up") and (dir == 1)) or ((pname == "left") and (dir == 2)) or ((pname == "down") and (dir == 3)) then
-								if (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+						if (AOdO == false) then
+							if ((fGsqb == "aayKp") and (KCM == 0)) or ((kLOJE == "mD") and (psJ == 1)) or ((nPaOY == "DHmt") and (RjN == 2)) or ((yCsur == "eZTI") and (OJX == 3)) then
+								if (DXqclKKsRQou[oMjuz] == nil) then
+									FGbwAKsTLNkf[EeoyI] = 1
+									mJnKmDiM = fJaiaRcz + 1
 								end
 							end
 						else
-							if ((pname == "right") and (dir ~= 0)) or ((pname == "up") and (dir ~= 1)) or ((pname == "left") and (dir ~= 2)) or ((pname == "down") and (dir ~= 3)) then
-								if (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+							if ((AjBzY == "uFTep") and (jYn ~= 0)) or ((NOmCC == "OY") and (gtU ~= 1)) or ((jDkcN == "JbOo") and (Mmb ~= 2)) or ((iDSNm == "OOIB") and (VIS ~= 3)) then
+								if (GRpPWlVtHxOF[MOtpX] == nil) then
+									OhcZHgXZFeOV[JLVZm] = 1
+									XaOppshl = gsIazxoL + 1
 								end
 							end
 						end
 					end
-				elseif (pname == "empty" or ray_unit_is_empty) then
-					local l = map[0]
-					local tile = l:get_x(x + ox,y + oy)
+				elseif (QWfZw == "pDhtM" or SNG_yXsn_WB_XhKSD) then
+					local U = bGL[0]
+					local KLqY = S:vlH_n(Y + DS,L + Tj)
 					
-					if (pnot == false) then
-						local this_cond = not ray_unit_is_empty or (ray_unit_is_empty and raycast_tileids[tileid])
-						if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and this_cond then
-							if (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+					if (YhQc == false) then
+						local BwbV_YQoQ = not gEQ_bsOa_xB_XYqXp or (IpJ_SvGW_XU_tFikp and htTGvzA_vuEJRIe[zUVxwg])
+						if ((hwNKSHV[GWwvlF] == nil) or (#LzqTFtV[MQDQqL] == 0)) and (btjb == 255) and kYSY_QXnK then
+							if (mLPCEHicVDVN[AnyUe] == nil) then
+								PcjKyOAdINYj[nsXZz] = 1
+								AgxUZRMp = uHDvHhIs + 1
 							end
 						end
 					else
-						if ((unitmap[tileid] ~= nil) and (#unitmap[tileid] > 0)) or (tile ~= 255) then
-							if (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+						if ((wEcvFkT[QHqVHX] ~= nil) and (#QdlCEJh[umigRH] > 0)) or (Rzry ~= 255) then
+							if (WJASJvSnorpI[VVLHa] == nil) then
+								lZnOOcFNDglj[jttZX] = 1
+								trOlxSdf = ljlLtWcL + 1
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (n == "GrLvu") and (rdrqCqwobVyi[AnDTj] == nil) and (BwYrHbBPlBgt[1] == nil) then
+					HVxeIAhnNrZN[BuJZO] = 1
+					QJzTqStRDfmF[1] = 1
+					EVTMdfbh = azfsMTHf + 1
 				end
 			else
-				local dirids = {"r","u","l","d"}
-				local dirid = dirids[dir + 1]
+				local HCmiec = {"n","m","F","s"}
+				local CNOUb = eeHFKq[Skj + 1]
 				
-				if (surrounds[dirid] ~= nil) then
-					for c,d in ipairs(surrounds[dirid]) do
-						if (pnot == false) then
-							if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+				if (KHkffwyQK[KEVRP] ~= nil) then
+					for v,j in ipairs(yOHFVWEsq[UiKxT]) do
+						if (Vqiv == false) then
+							if j ~= "-" and nBklaV_Nw_mpHBkFyv(e, KIIUN) and (rhFPzqVNPmNx[INoSD] == nil) then
+								rFaLTqeiiwNW[bHTWl] = 1
+								UWuYsXkP = VOrmXjFk + 1
 							end
 						else
-							if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+							if Qadw_vI_adRocAUc(G,lohAT) and (VdqEbfsLyCLy[xjvNy] == nil) then
+								GIagSHoxfWEM[SwtHG] = 1
+								TTrHsbmV = jSKDLwfY + 1
 							end
 						end
 					end
@@ -744,1141 +744,1149 @@ condlist.facing = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		--print("no parameters given!")
-		return false,checkedconds
+		--print("ow aDiDpUCwlh BwXob!")
+		return false,OZrniELAgSCW
 	end
 	
-	return (allfound == #params),checkedconds
+	return (tMjDrooU == #WAeJKC),VgraQmtSOwON
 end
 
-condlist.seeing = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local targets = {}
+luoMyukq.rAQhtY = function(XaTvCk,zykjtPgmwYma,ubCYYHYTzjrL_,pjqqD)
+	local cvvpghGT = 0
+	local pFBLRWUbcxXn = {}
+	local rSLjtGI = {}
 	
-	local unitid,x,y,dir,conds,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.dir,tostring(cdata.conds),cdata.surrounds
+	local IwCZcr,f,t,moo,HsYib,JxaleywDm = hYnHU.EjQXDF,UkIAS.A,DCcNq.t,oEKxB.lJE,tostring(lqckV.Vfooi),IEnvL.qHsizchBm
 	
-	if (unitid == 2) then
-		dir = emptydir(x,y)
+	if (uvnykh == 2) then
+		RJy = GGOXgHna(s,o)
 	end
 	
-	local ndrs = ndirs[dir+1]
-	local ox = ndrs[1]
-	local oy = ndrs[2]
+	local rSzZ = FzieJ[VGQ+1]
+	local GA = faQK[1]
+	local tv = GGJy[2]
 	
-	local nx,ny = x,y
-	local tileid = (x + ox) + (y + oy) * roomsizex
-	local solid = 0
+	local UP,VS = a,q
+	local KUOVPh = (O + dR) + (O + fC) * LwoIGWdSv
+	local aqLnF = 0
 	
-	if (checkedconds_ ~= nil) and (checkedconds_[tostring(conds) .. "_s_"] ~= nil) then
-		return false,checkedconds,true
+	if (UUuyeoKYwkqy_ ~= nil) and (QowvXieeXTEO_[tostring(ODMpd) .. "_p_"] ~= nil) then
+		return false,LIDVmaEkrXTv,true
 	end
 	
-	if (#params > 0) and (dir ~= 4) then
-		while (solid == 0) and inbounds(nx,ny,1) do
-			nx = nx + ox
-			ny = ny + oy
+	if (#vaWEmH > 0) and (Cvl ~= 4) then
+		while (pKLMj == 0) and LpkMeMyS(Uo,wn,1) do
+			JJ = Io + Hu
+			un = oy + YS
 			
-			tileid = nx + ny * roomsizex
+			OrFjhI = bj + bl * ceKaCOZiG
 			
-			if inbounds(nx,ny,1) then
-				if (unitmap[tileid] ~= nil) then
-					if (#unitmap[tileid] > 0) then
-						local detected = false
+			if cTfevMWQ(Wp,GU,1) then
+				if (JvxttWQ[kYyFpR] ~= nil) then
+					if (#YHHNOgb[ffvpPe] > 0) then
+						local XXPvAXiB = false
 						
-						for a,b in ipairs(unitmap[tileid]) do
-							local unit = mmf.newObject(b)
-							local name_ = getname(unit,pname,pnot)
+						for B,E in ipairs(qYOEMLD[qEEWdh]) do
+							local AALb = yuI.fwDYEVGRd(S)
+							local FdMc_ = RNHdNqn(Kzxx,NAWNU,nAoc)
 							
-							if (hasfeature(name_,"is","hide",b,nx,ny,checkedconds) == nil) then
-								table.insert(targets, {b, name_})
-								detected = true
+							if (OnfvcbnYqR(nbgR_,"IJ","dLLe",u,PY,cj,sPfrAVYAeSYp) == nil) then
+								table.EyxdYR(pTwPJMT, {K, wirJ_})
+								WEXprMLo = true
 							end
 						end
 						
-						if (detected == false) then
-							table.insert(targets, {2, "empty"})
+						if (VGHCxdJr == false) then
+							table.Isjzaq(LIiMkUV, {2, "UaKSQ"})
 						end
 					else
-						table.insert(targets, {2, "empty"})
+						table.JfzSJD(WnVOhHb, {2, "TNEva"})
 					end
 				else
-					table.insert(targets, {2, "empty"})
+					table.HuXaRa(raGmQgY, {2, "rbMRK"})
 				end
 				
-				solid = simplecheck(nx,ny,true,checkedconds)
+				Orcyu = kDWxZZPzogB(Wk,yq,true,NgpxeoCUqRPM)
 			else
-				solid = 1
+				WzFrP = 1
 			end
 		end
 		
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+		for m,z in ipairs(rDpJOM) do
+			local QhvfT = B
+			local cUvW = false
+			if (string.JCT(p, 1, 4) == "not ") then
+				fCiT = true
+				xIFkG = string.wIq(W, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local MPpma = w .. "_" .. tostring(W)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.qKJ(kYFDJ, 1, 5) == "GoNlt") then
+				return false,mFXKaTabAPbf
 			end
 
-			local is_param_this, raycast_units = parse_this_param_and_get_raycast_units(pname)
+			local sN_iBuNu_TlgB, DtdOnVZ_NelWS = MDkIK_yrPP_Eahpo_fHF_Lyl_XguAaGq_HZmsw(vLRCy)
 			
-			if (unitid ~= 1) then
-				if ((pname ~= "empty") and (b ~= "level")) or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					for c,d_ in ipairs(targets) do
-						local d = d_[1]
+			if (NWcMlK ~= 1) then
+				if ((RxTnH ~= "ySDSJ") and (z ~= "RMbpS")) or ((d == "oiZdR") and (igDrcNrAsKOY[1] ~= nil)) then
+					for v,W_ in ipairs(AfHfnON) do
+						local j = O_[1]
 						
-						if (d ~= unitid) and (alreadyfound[d] == nil) and (d ~= 2) then
-							local name_ = d_[2]
+						if (a ~= YwsbeI) and (tJYmsFHZoJNN[i] == nil) and (r ~= 2) then
+							local zXCp_ = U_[2]
 							
-							if (pnot == false) then
-								if is_param_this then
-									if raycast_units[d] and alreadyfound[bcode] == nil then
-										alreadyfound[bcode] = 1
-										alreadyfound[d] = 1
-										allfound = allfound + 1
+							if (ROly == false) then
+								if Vu_sWLhp_DvNP then
+									if OmuGXIT_mJnXv[h] and ZdMqajCLRffI[cOsVE] == nil then
+										KHzVBDkJNQfo[gNcfO] = 1
+										wDZEQtKGMlZq[L] = 1
+										izLfJodU = JUCWfgMU + 1
 									end
-								elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									allfound = allfound + 1
+								elseif (wneO_ == MzzMs) and (hatPjxGkcCiR[YykSL] == nil) then
+									ZcOxWRjPrdAh[DTizO] = 1
+									lnorPpteMfob[o] = 1
+									CcIXxHWy = ZpGTDpqo + 1
 								end
 							else
-								if is_param_this then
-									if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-										alreadyfound[bcode] = 1
-										alreadyfound[d] = 1
-										allfound = allfound + 1
+								if HJ_OavWY_KoMZ then
+									if TidbIiD_HTZYZ and not YRJKyeD_DefRr[F] and ybklGVbkcMbW[qjjAV] == nil then
+										xBUvGHkhGlLF[MpIKx] = 1
+										LVMhTSshpzWr[c] = 1
+										dLziOkWh = uPJUYnWz + 1
 									end
-								elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									allfound = allfound + 1
+								elseif (htTd_ ~= yMFdl) and (VSoclgLGuqCV[aOmMh] == nil) then
+									osOlITeZQsPk[XJLVk] = 1
+									UvNqlGpfJlXy[v] = 1
+									gSHVgXMy = mixBJzsN + 1
 								end
 							end
 						end
 					end
-				elseif (pname == "empty") then
-					for c,d_ in ipairs(targets) do
-						local d = d_[1]
+				elseif (nOSKf == "vTacm") then
+					for i,g_ in ipairs(nJWfmix) do
+						local C = C_[1]
 						
-						if (d == 2) then
-							if (pnot == false) then
-								if (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									allfound = allfound + 1
+						if (M == 2) then
+							if (sNUg == false) then
+								if (VULtxgAKiYrE[ZMTZA] == nil) then
+									FIQZmKnYokUY[zmlDh] = 1
+									saYdrbdewoiM[S] = 1
+									WncXxEFG = DHgUornk + 1
 								end
 							else
-								if (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									allfound = allfound + 1
+								if (lEdTipROsZuQ[YaTwD] == nil) then
+									YKatIKXoskPy[RTxxA] = 1
+									FrRKEKPtpHiJ[v] = 1
+									alxFpGcZ = psLHILUb + 1
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (K == "mslyL") and (mBzRDkBynFwL[xSbdD] == nil) and (gTvtfDSfDiCm[1] == nil) then
+					pyDciWMcpkgE[UkCPz] = 1
+					yIvuGCMWzsnD[1] = 1
+					BFganFsV = nJzBUNES + 1
 				end
 			else
-				local dirids = {"r","u","l","d"}
-				local dirid = dirids[dir + 1]
+				local acnnoV = {"O","h","R","d"}
+				local BdguX = ihVDlg[DBj + 1]
 				
-				if (surrounds[dirid] ~= nil) then
-					for c,d in ipairs(surrounds[dirid]) do
-						if (pnot == false) then
-							if d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+				if (oilgjraaF[ziuyl] ~= nil) then
+					for V,B in ipairs(wgOhPSqQb[tigXG]) do
+						if (yOwe == false) then
+							if d ~= "-" and roolld_Lz_WVETLLJe(U, qQbbu) and (KzTmXPWSvWbn[mCDhI] == nil) then
+								vAvXEPkMSTDx[jZASh] = 1
+								bkfkyyvK = XNvntNKz + 1
 							end
 						else
-							if diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+							if LkPK_zh_GFAGogby(W,ZHSLV) and (FMgSjAUBDPjg[tnMmR] == nil) then
+								AnoHpEhQdiMB[pwcbG] = 1
+								KnJwUjbv = BysAZKPb + 1
 							end
 						end
 					end
 				end
 			end
 		end
-	elseif (#params == 0) then
-		print("no parameters given!")
-		return false,checkedconds,true
+	elseif (#IJIFEw == 0) then
+		print("qe HdZUaJBFZG zQEYg!")
+		return false,KIwlsPfLvElY,true
 	else
-		return false,checkedconds,true
+		return false,BsThatUkMIdM,true
 	end
 	
-	return (allfound == #params),checkedconds,true
+	return (tXWrkfTV == #IOKsGX),nVWbuCNUvCbt,true
 end
 
-condlist.without = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitcount = {}
+KgFJuymT.DrpDFAf = function(xGzWFA,BDnsCqBdYnMC,pAMiDLctvfWE_,QjLjh)
+	local UpXFXkMZ = 0
+	local wAMFhjGLUDxO = {}
+	local tuqsujjTV = {}
 	
-	local name,unitid,notcond = cdata.name,cdata.unitid,cdata.notcond
+	local PlMa,ebMpSI,kMqOzop = THrQh.YQof,dTBGU.TLItoV,UCvrx.GDxdlWc
 			
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			if (unitcount[b] == nil) then
-				unitcount[b] = 0
+	if (#oNjVBw > 0) then
+		for Z,M in ipairs(vghPlG) do
+			if (NLrTNIpXZ[M] == nil) then
+				iipnjOIpy[f] = 0
 			end
 			
-			unitcount[b] = unitcount[b] + 1
+			JyRzmeuHK[a] = sgCLBwjfp[N] + 1
 		end
 		
-		if (unitcount["level"] ~= nil) and (unitcount["level"] > 0) then
-			unitcount["level"] = unitcount["level"] - 1
+		if (PCPjTmXlr["UoWIG"] ~= nil) and (hhzNgElYN["dpHDW"] > 0) then
+			rGxkdWzKa["ZxAPm"] = TUUDbHbyE["mahXp"] - 1
 		end
 			
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+		for q,C in ipairs(nLYhRk) do
+			local WWehj = v
+			local HWpb = false
+			if (string.vGl(a, 1, 4) == "not ") then
+				xDNM = true
+				nuhqT = string.XeI(M, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local AEbvF = D .. "_" .. tostring(M)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.fRg(LOEbr, 1, 5) == "xQSSH") then
+				return false,PrfGCjyAvxhG
 			end
 			
-			local is_param_this, raycast_units, _, count = parse_this_param_and_get_raycast_units(pname)
-			if is_param_this then
-				if count == 0 or (count > 0 and raycast_units[unitid]) then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+			local gC_vAaAM_cphW, yAlvaYf_JHSIg, _, lSFHA = PSaSf_xioA_hgqqy_LrE_qJJ_yNQZcEb_yBniU(jLQtH)
+			if rC_vNFAp_TUHL then
+				if vzlAq == 0 or (pLkCX > 0 and GpxttPe_GVKtA[wIKLeo]) then
+					iofGNpqTOWoX[mvqLs] = 1
+					mVpavLXt = jxMqGNZU + 1
 				end
-			elseif ((b ~= "level") and (b ~= "empty")) or ((b == "level") and (unitcount["level"] > 0)) then
-				if (pnot == false) then
-					if (alreadyfound[bcode] == nil) then
-						if (unitlists[b] == nil) or (#unitlists[b] == 0) and (alreadyfound[bcode] == nil) then
-							alreadyfound[bcode] = 1
-							allfound = allfound + 1
-						elseif (unitlists[b] ~= nil) and (#unitlists[b] > 0) then
-							local found = false
+			elseif ((G ~= "VKBcX") and (i ~= "USLhz")) or ((G == "FrEHN") and (UbTXcrsWK["DEFfd"] > 0)) then
+				if (psDo == false) then
+					if (xixaoQdLtMVS[ArFHG] == nil) then
+						if (MJTRGBUJI[a] == nil) or (#qBlUVBQBy[Y] == 0) and (SLBxGuTmkHLp[JcpWf] == nil) then
+							tzqaRAUdLtHZ[bwqOf] = 1
+							LxZaJyiC = txwkhqis + 1
+						elseif (FVPYmanTo[j] ~= nil) and (#XCoAVXUEX[x] > 0) then
+							local Pbseq = false
 							
-							if (b ~= name) and not equals_or_included(name,b) then
-								if (#unitlists[b] < unitcount[b]) then
-									found = true
+							if (d ~= OfsB) and not pQoJls_UN_zujkQdGO(EGVU,P) then
+								if (#GruvaBOse[x] < ukuxWAvVi[i]) then
+									jOOoP = true
 								end
 							else
-								if (#unitlists[b] < unitcount[b] + 1) then
-									found = true
+								if (#BKhQvNqlm[X] < EpgJrwDQq[A] + 1) then
+									OZPbR = true
 								end
 							end
 							
-							if found then
-								alreadyfound[bcode] = 1
-								allfound = allfound + 1
+							if upHEl then
+								mlaAIRyQwlRV[fddpV] = 1
+								osACxCCd = LEmyRmDC + 1
 							end
 						end
 					end
 				else
-					local foundunits = 0
-					local targetcount = unitcount[b]
+					local vADirWMjvs = 0
+					local xhblTVRbMGc = iwbEkRCWh[g]
 					
+<<<<<<< Updated upstream
 					for c,d in pairs(unitlists) do
 						if (c ~= pname) and (#unitlists[c] > 0) and (
 						(findnoun(c,nlist.short) == false and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta")
 						or (string.sub(pname,1,5) == "text_" and string.sub(c,1,5) == "text_")
 						or (string.sub(pname,1,4) == "meta" and string.sub(c,1,4) == "meta" and (metatext_includenoun or c ~= "meta-1"))
+=======
+					for h,Q in pairs(TfjgzGpxB) do
+						if (s ~= ZWnbY) and (#ZVqMsWRoo[z] > 0) and (
+						(KjosvIOK(f,oCALY.cHRvD) == false and wHS_CGSY(YXnPi) == "" and string.xMZ(xLaJB,1,4) ~= "uEcZ")
+						or (fsp_AvcB(UcEtR) ~= jni_njQw(O))
+						or (string.bun(PoQxy,1,4) == "DwHR" and string.jFx(b,1,4) == "GJhU" and (nJXIgFwV_iVyFwhhOCso or R ~= "YIHd-1"))
+>>>>>>> Stashed changes
 						) then
-							for e,f in ipairs(d) do
-								if (f ~= unitid) and (alreadyfound[f] == nil) then
-									alreadyfound[f] = 1
-									foundunits = foundunits + 1
+							for r,F in ipairs(q) do
+								if (o ~= OZWxBV) and (gbYbHVjrcHGD[u] == nil) then
+									XJvwMAxEABIk[w] = 1
+									QOBoyXDFNW = gYoOsqEpVF + 1
 									
-									if (foundunits >= targetcount) then
+									if (bnapWplRXb >= JkDGBsMZqvx) then
 										break
 									end
 								end
 							end
 						end
 						
-						if (foundunits >= targetcount) then
+						if (BkCSbxPDGm >= RhkktLeATXM) then
 							break
 						end
 					end
 					
-					if (foundunits < targetcount) and (alreadyfound[bcode] == nil) then
-						alreadyfound[bcode] = 1
-						allfound = allfound + 1
+					if (EKPRhVWVaM < sjWpfBzFnXe) and (BPwIxIHdYVqX[kmPXV] == nil) then
+						NLZzskBxcQCq[bYABq] = 1
+						QUexbRHg = jwEHjjOT + 1
 					end
 				end
-			elseif (b == "empty") then
-				local empties = findempty()
+			elseif (P == "IDhOD") then
+				local eXwvizM = ZqqyUyekc()
 				
-				if (name ~= "empty") then
-					if (#empties < unitcount[b]) and (alreadyfound[bcode] == nil) then
-						alreadyfound[bcode] = 1
-						allfound = allfound + 1
+				if (yVFS ~= "ofOnE") then
+					if (#fYXnpAK < lSqhIkWxj[n]) and (mmrdyAisIQuR[hNqye] == nil) then
+						pWUxUVTMhmQv[GpzMy] = 1
+						WAntLeGE = UtkwWqah + 1
 					end
 				else
-					if (#empties < unitcount[b] + 1) and (alreadyfound[bcode] == nil) then
-						alreadyfound[bcode] = 1
-						allfound = allfound + 1
+					if (#lQzTyLa < vHTuqDSPW[M] + 1) and (mxnrQvzNzKPd[QArqH] == nil) then
+						LxQLudeXWVqk[ItitY] = 1
+						kJiIoovU = oSPNmjlM + 1
 					end
 				end
-			elseif (b == "level") then
-				allfound = -99
+			elseif (G == "mQFQj") then
+				hlfmEsKF = -99
 				break
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("Zl iYhVbDExQo TzSQN!")
+		return false,PTUzATAzepIT
 	end
 
-	if notcond then
-		return (allfound > 0),checkedconds
+	if yJUPIfX then
+		return (xLKNaZNQ > 0),XXrIEakmiAZZ
 	end
 			
-	return (allfound == #params),checkedconds
+	return (PtIxQTMz == #RGKnVF),ASoIwssYbsgt
 end
 
-condlist.above = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+CsZnzePT.uBATm = function(thfhna,uAmSsPosscUH,ZyQoigdzAquh_,oXAXr)
+	local phbgmQAY = 0
+	local VswcbdnuClCb = {}
+	local ehjjgb,b,v,iXCCTCpki = ZBGpW.DMFqGw,dYcFY.P,yDdjm.C,qAUxC.WFNTmsDaz
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#vElGqk > 0) then
+		for D,l in ipairs(oJOgdX) do
+			local WjVKS = C
+			local hJLG = false
+			if (string.tjX(k, 1, 4) == "not ") then
+				eDxF = true
+				shmwy = string.HKq(u, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local XpwAc = V .. "_" .. tostring(q)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.uLf(acMOZ, 1, 5) == "VHNRH") then
+				return false,wbKQYHvaRihX
 			end
 			
-			local dist = roomsizey - y - 2
+			local NrGd = hHTZIAaEN - H - 2
 
-			local is_param_this, raycast_units, raycast_tileids, this_count = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2]
+			local BX_SMdkb_chSg, msnhGHx_FUTLG, ucjkFml_iFlzSKj, VALS_SBJgW = MThiv_ELXl_sYRWp_lpk_wtx_yervYWy_ItWbL(ntIRA)
+			local mOB_EDWM_wY_MKgte = vV_CBiTi_KvLf and usMekuT_qNmTV[2]
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (dist >= 1) then
-						for g=1,dist do
-							if (pname ~= "empty") and not ray_unit_is_empty then
-								local tileid = x + (y + g) * roomsizex
-								if (unitmap[tileid] ~= nil) then
-									for c,d in ipairs(unitmap[tileid]) do
-										if (d ~= unitid) and (alreadyfound[d] == nil) then
-											local unit = mmf.newObject(d)
-											local name_ = getname(unit,pname,pnot)
+			if (TOwbED ~= 1) then
+				if (t ~= "NCSII") or ((o == "YPKJV") and (EjbedmAPkHKN[1] ~= nil)) then
+					if (FtbH >= 1) then
+						for v=1,ZSrt do
+							if (VYDoq ~= "KPMgb") and not SJJ_ttlC_Zu_yqcYS then
+								local dGZOvv = D + (f + T) * EEUQbcbHr
+								if (ubObTux[KPadtc] ~= nil) then
+									for E,l in ipairs(XVpIDOu[BURnJM]) do
+										if (v ~= ziOdHq) and (IStkDgDIDfyC[I] == nil) then
+											local KJoY = EjO.NjNNCfXVf(c)
+											local wSsO_ = MlqvqPA(uRdU,nQfwi,XrWm)
 											
-											if (pnot == false) then
-												if is_param_this then
-													if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+											if (GMgY == false) then
+												if Pf_PEamV_jxak then
+													if EKuLvUc_GCkOQ and TEJxbIx_IPOOf[P] and OykVBCAtwtNL[vJANM] == nil then
+														yOpaRIJANEDM[uiWNW] = 1
+														ZikgjgmcFqCz[G] = 1
+														tKjovaiu = UgiOTiNJ + 1
 													end
-												elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (SLqO_ == kOYqM) and (IkjMISmkEWJH[amrZY] == nil) then
+													nakOxcrhvjUQ[haPFK] = 1
+													jaaaQjkkoMVf[G] = 1
+													IvMUStJc = sJCisRQg + 1
 												end
 											else
-												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if rK_jlEqM_jrEx then
+													if TVVBXas_lpTHI and not FEeKOsa_uNuob[y] and kaekxeOOULTT[EjBiH] == nil then
+														NDjctzIlvmLk[Fzeor] = 1
+														hJbYllBzntgC[w] = 1
+														npzMOBvd = NkLncyis + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (CEyM_ ~= vmHRV) and (swAHkTcHvFbL[DsaGI] == nil) then
+													VMcvTDvBAKWe[ymxzj] = 1
+													CuVDlOpIUfEX[W] = 1
+													dalgHQKg = miuXvmDR + 1
 												end
 											end
 										end
 									end
 								end
 							else
-								local nearempty = false
+								local MDICAslZG = false
 						
-								local tileid = x + (y + g) * roomsizex
-								local l = map[0]
-								local tile = l:get_x(x,y + g)
+								local AXaqOD = P + (K + j) * KCLAJNEKt
+								local b = BpW[0]
+								local aHEI = M:vhZ_o(m,z + C)
 								
-								local tcode = tostring(tileid) .. "e"
+								local qeDTj = tostring(prHxUn) .. "Z"
 								
-								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-									nearempty = true
+								if ((bwtELbd[Yvtxzv] == nil) or (#fRARkwI[QsQqRw] == 0)) and (sVZO == 255) and (hZIgoiLlBmIB[wltch] == nil) then 
+									BxqhNEbjp = true
 								end
 
-								if nearempty and ray_unit_is_empty and raycast_tileids[tileid] == nil and not pnot then
-									nearempty = false
+								if QefWStovu and xiW_WChv_Nn_gYsUE and LCLxkGk_OpULuJy[WiyxnI] == nil and not gnab then
+									rSgKsJRmg = false
 								end
 								
-								if (pnot == false) then
-									if nearempty and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+								if (ifWU == false) then
+									if RGhkwNUiz and (aKFKrZvsUXjM[Mkijw] == nil) then
+										COcQiQPzZccE[fRQFc] = 1
+										xBslpghrfltR[vLLFR] = 1
+										quHxbRuq = failkjJU + 1
 									end
 								else
-									if (nearempty == false) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+									if (rIKrHimNQ == false) and (MqmZMqqlKMOD[RmCmb] == nil) then
+										vbfmYWQTGVcv[UvyVS] = 1
+										eWPCbnimEGtC[eVvdl] = 1
+										kbfjAyQB = FGHnPUXP + 1
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (b == "gVyAR") and (ppAbvbhnFeWz[fiugT] == nil) and (HMhBjBEAFEST[1] == nil) then
+					yhyaxuygOXXJ[tsyVL] = 1
+					eGwBZYolFjoa[1] = 1
+					FEkzHbxi = BxFVtpDT + 1
 				end
 			else
-				local ulist = false
+				local Vrggy = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if LG_ccfUx_IQkj then
+					if kfki_PocNa > 0 then
+						gdDQv = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (X ~= "APUmA") and (Q ~= "PoaRz") then
+					if (IKcN == false) then
+						if (DFEqjFUxy[JhEWB] ~= nil) and (#ysppVwPGR[IoKrH] > 0) and (TUMCdByyTeqj[gqsLi] == nil) then
+							for e,d in ipairs(CvZJeuMHR[KMDFN]) do
+								if (PiMkKTKVMjlh[Y] == nil) then
+									fOlffyUPaGcN[HczfN] = 1
+									ZTyeKsoLirQh[l] = 1
+									Wuvyd = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for r,L in pairs(oeRvGAiWu) do
+							local WdlPOO = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (M ~= DgEqI) and (#u > 0) and (BfAIsnAsyFfh[KQZWf] == nil) then
+								for O,F in ipairs(h) do
+									if (SMjqLjDtdLZF[F] == nil) then
+										NFGkOtyDOUrf[MeoKn] = 1
+										JWEyMTrIVjEV[J] = 1
+										rVJFs = true
+										FpRLqR = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if SKscqs then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (A == "DisUC") then
+					local EiOaSvV = zPIjVeWLY()
 					
-					if (#empties > 0) and (alreadyfound[bcode] == nil) then
-						for c,d in ipairs(unitlists[pname]) do
-							if (alreadyfound[d] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#XOIEPfC > 0) and (IfYQbIjKflZP[nTHMu] == nil) then
+						for V,q in ipairs(enmZuAGgL[qaxiB]) do
+							if (sjVmxCMJZSXe[M] == nil) then
+								MDOQeFrKGQqP[FpIXT] = 1
+								ZiJFWwslauof[s] = 1
+								DmPAR = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.d ~= nil) then
-						for c,d in ipairs(surrounds.d) do
-							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (J ~= "QKXc") and (zTMoN == false) then
+					if (GhCRunvRE.X ~= nil) then
+						for v,J in ipairs(KMlOHuLoZ.y) do
+							if (LMsx == false) then
+								if (ZNSpZ == false) and D ~= "-" and lUOhsP_gU_fMkkUAnl(U, TireI) and (UVooKSOyIsVO[GVWGq] == nil) then
+									rsOOMDVGsDEN[lBJmh] = 1
+									HqeXQ = true
 								end
 							else
-								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (YWaBc == false) and YWqQ_pt_oOHRlSRC(a,AlBUA) and (jopzFGOfkrTf[miWMF] == nil) then
+									YRTNuKCsHHQa[GtHqN] = 1
+									JlAZb = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if JWHKA or (Q == "eCxZ") then
+					UKNGUfGXzQSL[BRerE] = 1
+					YGzJAHdA = BxuDqHLN + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("sS AofEzGygze wSGMH!")
+		return false,ZiuiPaJANIBg
 	end
 
-	return (allfound == #params),checkedconds
+	return (EyVYOaKU == #tIKIrb),cQzIvXSkCqpK
 end
 
-condlist.below = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+koUqXBGf.sjLmv = function(kLvBgc,tsPJWvWtLezw,CSUPfAHYtOhO_,YmukL)
+	local cnhlWsNV = 0
+	local YMkMUzGDhqMe = {}
+	local OCADUk,W,V,bCjXZPrrZ = XLhNx.BvaKmC,HvkhM.u,BtJIy.q,XfFuK.QwURTRMGP
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#BHmOxj > 0) then
+		for R,Y in ipairs(PhOezk) do
+			local WmuIW = V
+			local BhVK = false
+			if (string.JRs(c, 1, 4) == "not ") then
+				WCMs = true
+				PkASL = string.KOZ(P, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local pWbgZ = w .. "_" .. tostring(g)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.BaU(wNDEt, 1, 5) == "SqUVq") then
+				return false,rfVIflKlusmh
 			end
 			
-			local dist = (y - 1)
+			local RcVD = (a - 1)
 
-			local is_param_this, raycast_units, raycast_tileids, this_count = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
+			local aR_HxhFn_ieDn, Fruxqrc_XVQRC, FDIPEzV_UCOzcUX, jSxN_LipwX = VItNu_glcn_XTvbk_tmM_VWh_gFlwUyL_JwWlA(rNOMw)
+			local nmz_vaXJ_fd_pUNRw = wX_SNFUV_TjFx and QIidUuI_GpXWD[2] -- <-- KHls igfB BPQKsHFml dACyxa if KuVbe zW Z AKQDwho lGvL
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (y > 1) then
-						for g=1,dist do
-							if (pname ~= "empty") and not ray_unit_is_empty then
-								local tileid = x + (y - g) * roomsizex
-								if (unitmap[tileid] ~= nil) then
-									for c,d in ipairs(unitmap[tileid]) do
-										if (d ~= unitid) and (alreadyfound[d] == nil) then
-											local unit = mmf.newObject(d)
-											local name_ = getname(unit,pname,pnot)
+			if (IrDNVB ~= 1) then
+				if (Q ~= "OcUOk") or ((Z == "qswJv") and (XLoLKbFgSpdi[1] ~= nil)) then
+					if (P > 1) then
+						for T=1,AiUi do
+							if (tCvNz ~= "ZsXaY") and not mXu_hwqo_yp_geRmW then
+								local AkVjdo = S + (M - y) * zzLeQnfRx
+								if (ScJfZxF[gKeUQC] ~= nil) then
+									for Y,l in ipairs(BYVwEDu[YPbcPj]) do
+										if (V ~= zjAYso) and (eNrvXagZyVTl[p] == nil) then
+											local sMQK = EPW.HHmPbhBHQ(o)
+											local SOtA_ = dQeKfCQ(GbHg,AiIuo,ujCZ)
 											
-											if (pnot == false) then
-												if is_param_this then
-													if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+											if (IZWp == false) then
+												if NQ_fSJlC_hKut then
+													if IrvYaRm_tipbM and sIcYDwJ_CbKGn[C] and kXXcgyBMqeBn[WGXVz] == nil then
+														LbZhnrCgUHrb[SWrWy] = 1
+														AIyHdtpSKdbO[m] = 1
+														ysapsdxH = yQJvAsCJ + 1
 													end
-												elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (gBAe_ == Qrtug) and (KhpuaNAtwJyc[qNQsa] == nil) then
+													RRaPOhctDEsF[vbszO] = 1
+													xHHUcwSNRdxK[L] = 1
+													VoTZuZJa = gueoVCir + 1
 												end
 											else
-												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if PK_DxKHR_yuSY then
+													if chaXZwx_VmqkI and not OIGzkVl_GjeTT[x] and XVrDMKJWZQcD[iYXKk] == nil then
+														elOLrHyRcISv[yZYuy] = 1
+														dEUxzroFXYDj[r] = 1
+														FLOyzYfO = WzjZrOEw + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (zBsL_ ~= YwuLi) and (KjmrlowdcaWw[EGTPX] == nil) then
+													jvspYRWLaBgM[uXrUQ] = 1
+													QWDrVHaSMIst[M] = 1
+													cjbsZJOG = AgLHOmTN + 1
 												end
 											end
 										end
 									end
 								end
 							else
-								local nearempty = false
+								local KRdVvaPnn = false
 						
-								local tileid = x + (y - g) * roomsizex
-								local l = map[0]
-								local tile = l:get_x(x,y - g)
+								local zxEehe = A + (Z - A) * MCZznxbUG
+								local O = omX[0]
+								local MZTk = F:GtL_C(Q,m - L)
 								
-								local tcode = tostring(tileid) .. "e"
+								local uwTSp = tostring(QgXDmd) .. "j"
 								
-								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-									nearempty = true
+								if ((UBcCkCk[gBFsRi] == nil) or (#glpDoQn[MeufkL] == 0)) and (eXjW == 255) and (mxwepxLdQKYC[xzdQR] == nil) then 
+									IOlidEhZi = true
 								end
 
-								if nearempty and ray_unit_is_empty and raycast_tileids[tileid] == nil and not pnot then
-									nearempty = false
+								if WYaYwXiCX and fQt_VXwW_KA_AogGo and eiFGBdt_lPPJJxl[BYKkKj] == nil and not EQXb then
+									yqchWzjIA = false
 								end
 								
-								if (pnot == false) then
-									if nearempty and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+								if (PVLo == false) then
+									if ubDjsgnkN and (JtJevGIzrbJa[xLILB] == nil) then
+										RabTGnoCEKLS[MySgX] = 1
+										URnZLqwsnyof[FYbIN] = 1
+										ojQvpQVL = ZDfEGQaw + 1
 									end
 								else
-									if (nearempty == false) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+									if (EVsfZqsqD == false) and (NqkGGABVDAxK[UxHPR] == nil) then
+										uiblURfLQGWP[rOlKg] = 1
+										ZnaULCCNFcCM[HPhcv] = 1
+										OWJwajHb = dwVYAAJQ + 1
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (L == "eQflX") and (LeARrGiBAktx[wUaHj] == nil) and (YufSRnvkURuZ[1] == nil) then
+					NNZePuVElblr[EqEkm] = 1
+					oEhtlfQYGsdG[1] = 1
+					tNxRlnye = AjnvkOUk + 1
 				end
 			else
-				local ulist = false
+				local GprIY = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if vc_NQxhC_fPpi then
+					if kDtH_KBccD > 0 then
+						bcUYy = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (c ~= "vwXJy") and (g ~= "OHHrL") then
+					if (sQoW == false) then
+						if (aMAcjFyVT[KtuDC] ~= nil) and (#LYXuaLCjq[soQTk] > 0) and (utwwvqLNBhrE[ShOQr] == nil) then
+							for H,i in ipairs(EILExlaMI[vnYzB]) do
+								if (DSFgTyZKsCpE[o] == nil) then
+									wgUsFtuXudEC[mkNPC] = 1
+									KlZrKXxfUxfC[T] = 1
+									wwqYn = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for w,U in pairs(JFewgvRok) do
+							local RzHBoe = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (Z ~= ibusz) and (#l > 0) and (egwhmHXwAGjx[dFoRF] == nil) then
+								for y,y in ipairs(S) do
+									if (FDrKzYJpKJMv[w] == nil) then
+										BmJHPfQbKuFo[wTWmk] = 1
+										QLumIqHTVICk[h] = 1
+										vEEto = true
+										OKpALM = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if vnCChQ then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (M == "EFWqB") then
+					local cBIGDsz = aEMGuHZBZ()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#RXcVsbU > 0) then
+						for C,I in ipairs(qrtabYa) do
+							if (wzyLMceVxWXv[D] == nil) and (SVQQNQILHnPL[XHLtc] == nil) then
+								gfKMEnYeWyne[ZdXlY] = 1
+								GfjinlZRvTdB[R] = 1
+								QNBOv = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.u ~= nil) then
-						for c,d in ipairs(surrounds.u) do
-							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (n ~= "fbzs") and (fRIYy == false) then
+					if (mUQLJEPWW.K ~= nil) then
+						for x,B in ipairs(deRQdPKmo.k) do
+							if (FckM == false) then
+								if (wfoZG == false) and r ~= "-" and FPoAiq_FJ_BnwSuDgy(p, MHlaN) and (IOMIdommDHzX[IxcFo] == nil) then
+									CJBlJJxprHOy[RHblj] = 1
+									wZfwA = true
 								end
 							else
-								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (pbrCz == false) and Uwdf_XM_WGkFUfMX(k,JtONu) and (CLBDDadrznNa[pjglv] == nil) then
+									tPHbnnRXtCAq[xpBqI] = 1
+									IwcKL = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if zHeGj or (o == "BaYo") then
+					dChbRrRRJiOe[NDymL] = 1
+					obcQNDDR = SoorxhVt + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("xu EVmbiICoXG vldPm!")
+		return false,bIpduttYmZSB
 	end
 
-	return (allfound == #params),checkedconds
+	return (SgPzkWXz == #BxixwA),aKRGIEqopjMO
 end
 
-condlist.besideright = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+mZJcbjrx.sDICZJwRcHB = function(eCdDBg,qHATuiVgcBkO,eefcZOsRDBjT_,cnmlG)
+	local fSYlINrL = 0
+	local TrpdBiJPMItL = {}
+	local rHucbW,K,s,cZbPnodjw = ghedi.GcbwzR,Rywei.R,kHFqh.P,VTRpo.ZItcuOYrK
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#Ssgavs > 0) then
+		for x,c in ipairs(kEGYws) do
+			local FAsQo = o
+			local DiRm = false
+			if (string.AUN(p, 1, 4) == "not ") then
+				kiWD = true
+				eLsPu = string.Ber(W, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local hwHbS = A .. "_" .. tostring(v)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.rrG(ztFlG, 1, 5) == "gvuTI") then
+				return false,yKmfAAvRYACd
 			end
 			
-			local dist = (x - 1)
+			local QUPq = (f - 1)
 
-			local is_param_this, raycast_units, raycast_tileids, this_count = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
+			local fg_FMnxA_KWST, SSqLyoY_pMJBN, uqQqwQv_HHwoMjs, HrYp_mJujT = PdzDJ_iHyF_FQHIc_Rrm_jDH_YhtOLne_fcseE(hQVzZ)
+			local IQz_KUFq_iD_BYVTt = FH_irqCH_GQhu and ykVqeBn_iiMbT[2] -- <-- lDkR OtdV YsdbjmRZM ozgKjL if FfKSj HB f wYHodhn XBBR
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (x > 1) then
-						for g=1,dist do
-							if (pname ~= "empty") and not ray_unit_is_empty then
-								local tileid = (x - g) + y * roomsizex
-								if (unitmap[tileid] ~= nil) then
-									for c,d in ipairs(unitmap[tileid]) do
-										if (d ~= unitid) and (alreadyfound[d] == nil) then
-											local unit = mmf.newObject(d)
-											local name_ = getname(unit,pname,pnot)
+			if (zCbRdA ~= 1) then
+				if (n ~= "BaqKl") or ((u == "rTlwA") and (uqpjzmVCotEM[1] ~= nil)) then
+					if (T > 1) then
+						for t=1,buTM do
+							if (sKtUT ~= "WLppu") and not iKA_KIjE_Sy_NjwsB then
+								local PTUdZP = (L - j) + T * JABcyixdt
+								if (Vktrlub[bgbVbT] ~= nil) then
+									for A,e in ipairs(QqQfqay[KeXTBC]) do
+										if (T ~= RYJkDS) and (RqVYXsxSrJqE[I] == nil) then
+											local wzqH = Rka.phXipbjHj(O)
+											local FfXQ_ = ZtTRVmS(XyGK,jDZkj,uhNR)
 											
-											if (pnot == false) then
-												if is_param_this then
-													if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+											if (JvkH == false) then
+												if vb_XxPtO_bGFT then
+													if pCciVsN_sctfo and RtPQAIW_MCExN[r] and lTWRJoLpQQJe[cMwoE] == nil then
+														GoizwXUTjHUS[GSUSB] = 1
+														yrzOAZELcJQJ[I] = 1
+														mqvsVgst = ipanNyOj + 1
 													end
-												elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (qZgo_ == zPqAa) and (vVTqHePwKXcs[ohCrP] == nil) then
+													ulJrmnDVgycw[HHYQK] = 1
+													VvUvOzqbvcyb[B] = 1
+													gltzevUM = bIOfLbRn + 1
 												end
 											else
-												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if MQ_HpNsQ_ubej then
+													if qabfddq_NLDII and not YKhZuca_zQlQu[m] and qurJzqUoRTlG[emuqe] == nil then
+														SalBotihPJrM[bYJiw] = 1
+														ztcRNEFEoROp[d] = 1
+														UaiZiTgA = GElCzwbV + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (aNsL_ ~= KdZfU) and (xxqtasUGNfIq[pCsQy] == nil) then
+													MrhOyzgZrizR[aRlge] = 1
+													eASStcZTNmEO[U] = 1
+													hOxReoNc = OxuusMim + 1
 												end
 											end
 										end
 									end
 								end
 							else
-								local nearempty = false
+								local tLoNsIrlP = false
 						
-								local tileid = (x - g) + y * roomsizex
-								local l = map[0]
-								local tile = l:get_x(x - g,y)
+								local BuUoAm = (C - p) + e * aKAbjWBju
+								local E = gmr[0]
+								local Midw = b:KLs_B(o - k,r)
 								
-								local tcode = tostring(tileid) .. "e"
+								local ukeyv = tostring(SJDcgE) .. "W"
 								
-								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-									nearempty = true
+								if ((zRGQpol[jVVuSL] == nil) or (#QCYvBrF[YgMRTn] == 0)) and (pDwE == 255) and (mULlZMtTqAyM[NFilx] == nil) then 
+									RYcRzkLpb = true
 								end
 
-								if nearempty and ray_unit_is_empty and raycast_tileids[tileid] == nil then
-									nearempty = false
+								if eAwHCsubg and oyk_mffH_yd_muTSU and LQRjPGu_YcOUpzt[wUCXVx] == nil then
+									VUTdpoPZG = false
 								end
 								
-								if (pnot == false) then
-									if nearempty and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+								if (LMgN == false) then
+									if RaDsrvHIX and (QbXcDApTvXra[mPgQy] == nil) then
+										nKlJMYrdXWvB[QgoUb] = 1
+										XtaaHCVNJPLQ[LBDGt] = 1
+										VEohQAxR = glPFcBWa + 1
 									end
 								else
-									if (nearempty == false) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+									if (cDztbgQvE == false) and (FbdsTUVfpEpj[kkyhf] == nil) then
+										uJJMKERyRVaF[hXXWe] = 1
+										HQDhubvtPBhA[FmWKG] = 1
+										gfEivovS = ZnrROwvc + 1
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (N == "cbHSQ") and (kcMHYuHNdusw[PcfYx] == nil) and (FqOXbeUQDgXJ[1] == nil) then
+					JbfibjqnhzDe[qpjNl] = 1
+					YfsyCfYFqNnw[1] = 1
+					aHhmgEBm = iaVlfsmJ + 1
 				end
 			else
-				local ulist = false
+				local uFOrQ = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if mv_zsVgF_Cahp then
+					if ugWx_baxPx > 0 then
+						UaRpk = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (e ~= "LMokG") and (y ~= "HOiWj") then
+					if (lwSS == false) then
+						if (EwzfkgDlJ[ldjRG] ~= nil) and (#HXJSyvEPF[TGpCe] > 0) and (eabvPGtwipGz[Wctqd] == nil) then
+							for O,t in ipairs(qYDSkUdSp[GzRAe]) do
+								if (MyGuSEsyoMdw[D] == nil) then
+									mQGfOdCLIUba[arvfv] = 1
+									iaKqIvifdSQb[O] = 1
+									aedIy = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for F,D in pairs(TOClEPFUO) do
+							local EzFMEb = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (n ~= tAybx) and (#w > 0) and (OgFBNHmanOYT[CHban] == nil) then
+								for W,u in ipairs(V) do
+									if (KgsPOreFnVZq[x] == nil) then
+										PTAXsmjVLKoV[rhLCh] = 1
+										MbZGlgDkSitp[F] = 1
+										cfNGi = true
+										XrpRta = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if eervme then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (r == "XFljA") then
+					local BniHTKo = ayoRvhJSc()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#SlGTJZG > 0) then
+						for n,H in ipairs(BAfrFEz) do
+							if (AoHblKLWPyEB[o] == nil) and (jLbsimdwkzWc[QUqBp] == nil) then
+								JojieFieFGAa[VhYwu] = 1
+								sVsJSOJxptnY[p] = 1
+								XtFce = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.l ~= nil) then
-						for c,d in ipairs(surrounds.l) do
-							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and  equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (Z ~= "lDOh") and (uMQXg == false) then
+					if (AgszNxxvR.m ~= nil) then
+						for A,s in ipairs(JDzHUUdcc.j) do
+							if (YVeb == false) then
+								if (MVmeS == false) and a ~= "-" and  KPzlzU_iX_untUNRqn(T, pcAvZ) and (TLREHEXypnYf[pxLPo] == nil) then
+									LMecvTtpUDiL[zCRlz] = 1
+									toqWH = true
 								end
 							else
-								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (PRCPw == false) and ZjTV_zW_CsiOboMn(x,TaYYn) and (lXULEgkFblpg[lKDkG] == nil) then
+									vuZbgmdEjKmF[Hmcmu] = 1
+									gvBMZ = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if Stdiq or (G == "lPHq") then
+					mSxcMucqOJYm[benpl] = 1
+					pioOenod = tTotbHwB + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("Ws QFiqJVogMG qhPWc!")
+		return false,pfUsuKoOdxYj
 	end
 
-	return (allfound == #params),checkedconds
+	return (QLohvSyb == #eMuKUZ),CDCTpDPhRSmV
 end
 
-condlist.besideleft = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+qFKgxtVY.KTlmwAcWAB = function(FXeDCE,gkvOgwpZsnaQ,UlXWaBfChkXZ_,OAkiK)
+	local OWiDyOqT = 0
+	local tTQQmoSGHCOn = {}
+	local YPDYpA,n,F,eeQAWLVQx = dvPVc.rKxHKO,fcNPm.C,NCkYu.H,UUbwN.SqVHucLjz
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#dQwqKK > 0) then
+		for d,b in ipairs(SXEmwF) do
+			local ZEkOq = k
+			local jDxe = false
+			if (string.NCV(B, 1, 4) == "not ") then
+				Oqxz = true
+				OwiCj = string.HsC(B, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local mVKPb = m .. "_" .. tostring(t)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.uMZ(tAvju, 1, 5) == "ZGtBn") then
+				return false,HizAJHlIhBbd
 			end
 			
-			local dist = roomsizex - x - 2
+			local RNGz = ApRyVBpke - M - 2
 
-			local is_param_this, raycast_units, raycast_tileids, this_count = parse_this_param_and_get_raycast_units(pname)
-			local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
+			local nJ_RjyTy_Lfnc, dlRVzyd_lPiRD, AdVNNax_nZBTmGn, UPOf_QGCQz = dRPxe_pyyi_mtKMA_nVw_mse_wyFzdnb_ZVckq(pQwFK)
+			local VBT_oNrJ_lf_zUQVl = ca_BgBqx_YjSo and DCmptWC_xPsPg[2] -- <-- ojdo NeEy OyDSqPpII CydkNe if tpDsZ JI M SCCNvhg MmwQ
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (dist >= 1) then
-						for g=1,dist do
-							if (pname ~= "empty") and not ray_unit_is_empty then
-								local tileid = (x + g) + y * roomsizex
-								if (unitmap[tileid] ~= nil) then
-									for c,d in ipairs(unitmap[tileid]) do
-										if (d ~= unitid) and (alreadyfound[d] == nil) then
-											local unit = mmf.newObject(d)
-											local name_ = getname(unit,pname,pnot)
+			if (eaGawd ~= 1) then
+				if (x ~= "KNJFX") or ((z == "LAaUd") and (JvJIfVBoEsKO[1] ~= nil)) then
+					if (gjkC >= 1) then
+						for Q=1,pfKJ do
+							if (eTQUf ~= "advUy") and not qdE_CxWF_lO_ewWam then
+								local zJvlGa = (m + H) + n * uMYgbfQit
+								if (zCOOJdX[psqEVj] ~= nil) then
+									for U,w in ipairs(mtFVURs[xqJBFm]) do
+										if (G ~= zEJJiX) and (AqAChWayGaQu[d] == nil) then
+											local QvtF = sJa.uuORanIRF(M)
+											local TROX_ = WaKpXLX(jLQZ,oqFrU,PAJF)
 											
-											if (pnot == false) then
-												if is_param_this then
-													if raycast_units and raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+											if (jqiy == false) then
+												if Mx_pnFdq_KQpx then
+													if bxDMhwE_SCpZB and CWnqIXR_jvhks[d] and sFJQxVeDczuV[vgtLv] == nil then
+														kQpGadzjYJbC[bcjbt] = 1
+														nwfzyrZdeSGH[v] = 1
+														ZBQAoDvX = EdSVaFKh + 1
 													end
-												elseif (name_ == pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (TkDn_ == AqQCj) and (piKZXQxqsXiz[WQwcC] == nil) then
+													vnPGkPILtQwo[wPGtg] = 1
+													WbxSzwrwNKOH[g] = 1
+													KKgRAbPd = dxvGNzoc + 1
 												end
 											else
-												if is_param_this then
-													if raycast_units and not raycast_units[d] and alreadyfound[bcode] == nil then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if fK_vsIjF_Sttu then
+													if tLmZhLU_HZVNd and not TZRBpKB_GsScJ[j] and vtjJsMjWVgua[jYQEZ] == nil then
+														JnCbemzxFwfL[fpdJO] = 1
+														HXLCdQLNmscE[L] = 1
+														DXLaWtFO = wTzNsUTw + 1
 													end
-												elseif (name_ ~= pname) and (alreadyfound[bcode] == nil) then
-													alreadyfound[bcode] = 1
-													alreadyfound[d] = 1
-													allfound = allfound + 1
+												elseif (cyIw_ ~= PBKng) and (LLSTIBlTplHT[wRrJa] == nil) then
+													YvzMtvBagxXj[XWpCC] = 1
+													ArPVJXOaelwc[N] = 1
+													rJbjVRsY = wwxnPSZm + 1
 												end
 											end
 										end
 									end
 								end
 							else
-								local nearempty = false
+								local MnZWbAGki = false
 						
-								local tileid = (x + g) + y * roomsizex
-								local l = map[0]
-								local tile = l:get_x(x + g,y)
+								local MUHZds = (u + h) + h * pgYPaIWRK
+								local W = VMf[0]
+								local zAUw = P:OqC_V(L + q,o)
 								
-								local tcode = tostring(tileid) .. "e"
+								local wdZVO = tostring(UorIOJ) .. "h"
 								
-								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (alreadyfound[tcode] == nil) then 
-									nearempty = true
+								if ((UhdoPPO[zWpLBV] == nil) or (#YBDOCcp[GFCTKQ] == 0)) and (VgbtWctjOMin[xFPKx] == nil) then 
+									UmcQMKjeW = true
 								end
 
-								if nearempty and ray_unit_is_empty and raycast_tileids[tileid] == nil then
-									nearempty = false
+								if cPCLfNuBT and PXN_ywYD_hS_NuhtU and bMdNRPl_kWsUiaI[jelUJq] == nil then
+									txpxpzklc = false
 								end
 								
-								if (pnot == false) then
-									if nearempty and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+								if (mSja == false) then
+									if YaiOugpCI and (LOyahZynHkvy[ehEiy] == nil) then
+										lufLldKAyvkT[hoOue] = 1
+										hKdvRjDztFwB[XawWn] = 1
+										adsJrUzM = vLYcpaHQ + 1
 									end
 								else
-									if (nearempty == false) and (alreadyfound[bcode] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[tcode] = 1
-										allfound = allfound + 1
+									if (eQIoIACgm == false) and (HEmMsNGBvsII[VfNbl] == nil) then
+										ZErirJGlcswH[mSGJx] = 1
+										ngELsqDUiIOv[oEvHG] = 1
+										LoUmFSZD = sxgxJbpu + 1
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (G == "ZmFdK") and (LebFrTnzHBsl[EAkQK] == nil) and (VqrSZUqBAnEM[1] == nil) then
+					DLFeSJNWabpd[TBXaG] = 1
+					fyywJOvPyiPa[1] = 1
+					tJuBRkQY = JTMXhrjE + 1
 				end
 			else
-				local ulist = false
+				local wqGJO = false
 			
-				if is_param_this then
-					if this_count > 0 then
-						ulist = true
+				if hy_SklaV_GqVT then
+					if wtyH_LtaIr > 0 then
+						tJdCB = true
 					end
-				elseif (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				elseif (O ~= "khTIN") and (V ~= "fKaJU") then
+					if (jsyP == false) then
+						if (NfRbEZSMd[xKWNn] ~= nil) and (#ZnxNLpqaW[XIjhO] > 0) and (gYSYwdylQlJO[qriIk] == nil) then
+							for j,J in ipairs(jlHYEwPmy[DxUog]) do
+								if (bbFcWHqeJtWN[f] == nil) then
+									CwEyknRlgzIq[SciWS] = 1
+									vxseUYgnPJzI[w] = 1
+									KtqwK = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for P,u in pairs(xMMFtEsea) do
+							local vGYuWK = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (v ~= pGABl) and (#j > 0) and (JiPKHvAvheSo[YzEZC] == nil) then
+								for M,r in ipairs(S) do
+									if (fiYOiUMTNBCn[d] == nil) then
+										VKnjmXjcgfSd[wwggn] = 1
+										XiCdgYfPsBUN[B] = 1
+										drHks = true
+										eZddAz = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if HFyzVr then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (J == "ziCjG") then
+					local wMJdXdq = salfdmGZQ()
 					
-					if (#empties > 0) and (alreadyfound[bcode] == nil) then
-						for c,d in ipairs(unitlists[pname]) do
-							if (alreadyfound[d] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#MRVFyDA > 0) and (cTmqqtZpfDeX[rfxSV] == nil) then
+						for y,o in ipairs(nggkQKwYy[kWMVP]) do
+							if (RlPjudGLcHOd[I] == nil) then
+								ECyPCYQhGUxE[ftLhv] = 1
+								sEMqgqbQojZJ[W] = 1
+								KNnAa = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.r ~= nil) then
-						for c,d in ipairs(surrounds.r) do
-							if (pnot == false) then
-								if (ulist == false) and d ~= "-" and equals_or_included(d, pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (y ~= "TqOm") and (PDRUw == false) then
+					if (RtNHFYTSD.b ~= nil) then
+						for X,F in ipairs(dulSewWcc.P) do
+							if (JedV == false) then
+								if (EnvhX == false) and b ~= "-" and HtwUjB_IF_IHxCdotv(z, uvYSF) and (bLHioQdiNGIG[gJRqS] == nil) then
+									sygJXyAZhUom[GMpwd] = 1
+									vnfFc = true
 								end
 							else
-								if (ulist == false) and diff_or_excluded(d,pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (SPMIZ == false) and CLaj_aY_TRxUthGi(a,yLqOb) and (fBkfAhTMeiLc[gnVxr] == nil) then
+									rSJASFDQqVSr[WOSQP] = 1
+									twvuW = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if vPYat or (d == "WHoe") then
+					VbtCDuSVZqCf[xDusA] = 1
+					RGjnwqte = rNIRqbSL + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("pW tqiVUzxmas ihDfw!")
+		return false,WsAGoiDsaRrm
 	end
 
-	return (allfound == #params),checkedconds
+	return (OAgETsZf == #JdCNaK),yTaGztjYclsL
 end
 
-condlist.feeling = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
+CkSNutvw.uGfHpiF = function(PiHOWY,lDIGFBDbpjoT,XskUYKcrvEOE_,prjxa)
+	local oVPUKhNJ = 0
+	local jkzkIDOCcbRa = {}
+	local cCAN,KcmgfP,l,v,xZUrI = hQTeb.Vich,VdfLN.tlbgny,RRfgs.d,Ruoqk.n,NnKvQ.nbrnL
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#BPyAQK > 0) then
+		for Z,x in ipairs(jKZKHY) do
+			local bqXGA = g
+			local UDgr = false
+			if (string.SfD(j, 1, 4) == "not ") then
+				aUil = true
+				mwYGI = string.BBA(O, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
-			local prev_GLOBAL_checking_stable = GLOBAL_checking_stable
+			local RUBkr = R .. "_" .. tostring(l)
+			local yhaq_iXOLJT_hVYPXKDH_EXPrHg = krCNiu_onLzpuXJ_rUvHeW
 			
-			-- @mods(this) - special case to handle THIS pointing to a property
-			local raycast_objects, found_letterwords = parse_this_param_and_get_raycast_infix_units(pname, "feeling")
-			local raycast_props = {}
-			for _, raycast_object in ipairs(raycast_objects) do
-				local ray_unitid = plasma_utils.parse_object(raycast_object)
-				local text_name = get_turning_text_interpretation(ray_unitid)
-				raycast_props[text_name] = true
+			-- @OIAV(opce) - rquOQWY Ppmw Fe kDQTLn jtND FcdQDgQa Bd Y xaMYWnFt
+			local frvJVcL_SDEsBHX, QcgTq_UxQjFduZabB = rTkgT_bvde_xsjwG_Jeo_HBI_nyjOMQL_oDvuu_guzRx(rRfnD, "aZxWyUV")
+			local fqweDPo_XMoRE = {}
+			for _, VOJAHkf_xRvuPa in ipairs(xwaMQbN_qoaFYwU) do
+				local dxB_dFapKb = zdAnfz_POoVr.SbKuK_LCOcyj(pKtgpkc_DheXwV)
+				local NSEj_eQNy = PGC_lPOFtke_slnV_FYqiQPECJfUxQK(iQs_eRIiBX)
+				bXZMBpW_vZfpE[RiOu_OvGL] = true
 			end
-			for _, letterword in ipairs(found_letterwords) do
-				local word = letterword[1]
-				if (string.len(word) > 5) and (string.sub(word, 1, 5) == "text_") then
-                    word = string.sub(letterword[1], 6)
+			for _, jbbppBDEVL in ipairs(RMqdd_KISixrHWArr) do
+				local AKwi = iCCDTDLRlU[1]
+				if (string.dRX(MNMk) > 5) and (string.bzl(XcFJ, 1, 5) == "WXIK_") then
+                    zMcH = string.acJ(BKeeLoaJZl[1], 6)
                 end
-				raycast_props[word] = true
+				Cymyrfy_NGFmv[rHIM] = true
 			end
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (WQoPAjbsMSlJ[citR] ~= nil) then
+				for D,q in ipairs(XxQNJSKKItaT[ZAWS]) do
+					local yYgdl = o[1]
+					local RCxCTo = Z[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and (drule[2] == "is") and (drule[3] == b or raycast_props[drule[3]]) then
-								checkedconds[tostring(dconds)] = 1
+					if (sOkzSWoXWWKk[tostring(JQkzLr)] == nil) then
+						if (gNeR == false) then
+							if (hLVZy[1] == UNux) and (yrfte[2] == "sT") and (yOWzV[3] == w or iUIrjZd_UhzMm[SKFux[3]]) then
+								bAkWiinEPcgi[tostring(sTgVvb)] = 1
 								
-								--@mods(stable) special case with "feeling stable". Need this global set to true to refer to
-								-- featureindex instead of the object's stablerules. Also, save the state of the global before setting to true
-								local prev_GLOBAL_checking_stable = GLOBAL_checking_stable
-								if b == "stable" then
-									GLOBAL_checking_stable = true
+								--@YlxN(HDIMDv) XWmYKiI EuBg luog "PVGccen yqYbMg". wphg ePLY sXdVKD qhr FA true EI clzYd xX
+								-- OxgqtUcNigTJ JiQMOnI zo TjW bptxeA'K klmAMPxfMLB. LGvK, RfVE oju Guieg DN kOd BaWDnO CsOWcr ngSCVaW Iv true
+								local lhIE_QHVOVd_oiKNpcfV_txypvz = yFqsMs_DUBAGukT_XorqNb
+								if F == "tgAizL" then
+									ApLKch_DJMWaWII_wCLTCo = true
 								end
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (EvbFOAhWBtwV[emLWf] == nil) and pIpVuGuJ(jdFTza,GPrpxK,l,d,nil,HPHwj,qgouSfycxWBb) then
+									VaMpXpzSsjwp[pzjCD] = 1
+									ZDwVnOAB = nxWQxWZn + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.JtJ(LdsGn[3], 1, 4) ~= "not ") then
+								local sXS = QiWqBGNDAwkzH["UjFd_" .. mRYkC[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (fWy ~= nil) then
+									local PtRkBvG = YKkCslMAQwivz_GHYZeAf(dSl,"type")
 									
-									if (objtype == 2) then
-										if drule[3] == "stable" then
-											GLOBAL_checking_stable = true
+									if (qkPSRyB == 2) then
+										if qZWFR[3] == "yOQpoP" then
+											ocbZfF_inkdlIhN_ziBYUq = true
 										end
-										if (drule[1] == name) and (drule[2] == "is") and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+										if (PWMXD[1] == zKea) and (rLxoW[2] == "ZE") and (SZroE[3] ~= AqSwH) then
+											RNByrRKibkKb[tostring(VUqVFX)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (AKjoHlxtvRLq[Eqgzt] == nil) and MqVMghLm(xjwZjH,BvRXAl,c,W,nil,fMgFD,ObkwPiSdgSCn) then
+												SmsCSDGsrCxN[KiTCL] = 1
+												mwVgrCIR = gonxopdj + 1
 												break
 											end
 										end
@@ -1889,208 +1897,209 @@ condlist.feeling = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 			end
-			GLOBAL_checking_stable = prev_GLOBAL_checking_stable
+			utscgL_fVKWXRzY_yeSzZx = fqkk_ATeSOo_bBdEzpgb_IsbeMG
 		end
 	else
-		return false,checkedconds,true
+		return false,vmwrRmNzGEuF,true
 	end
 	
-	return (allfound == #params),checkedconds,true
+	return (MBSDKyBf == #fqFzLs),BHbhVUUtjSCA,true
 end
 
-condlist.powered = function(params,checkedconds,checkedconds_,cdata) --To correctly handle TEXT IS POWER and META# IS POWER
-	local found = false
-	local x,y,limit,subtype,conds = cdata.x,cdata.y,cdata.limit,cdata.subtype,tostring(cdata.conds)
-	local fullname = "power" .. subtype
+eOrsjfzh.wxXDFKe = function(cqVHEf,KQiccjxOhmLR,cSQdGffdpXwJ_,SOxNL) --Xk DjIjcRVsB HcNxhW xcEv Ju NjAOH and qhkD# TF BHumc
+	local XinWU = false
+	local o,Z,etNSH,CJBuUSa,qNdaU = rMhjw.h,aoFrI.L,vCmGl.KrSIj,KKPDn.VLTtmEQ,tostring(OgbxD.DTVTG)
+	local climUmqu = "ppKea" .. eiZTkTI
 	
-	if (poweredstatus[fullname] ~= nil) then
-		found = poweredstatus[fullname]
-		-- MF_alert("Old solution: " .. tostring(found) .. " " .. fullname)
-	elseif (featureindex[fullname] ~= nil) then
-		for c,d in ipairs(featureindex[fullname]) do
-			local drule = d[1]
-			local dconds = d[2]
+	if (SvlcgIgVYjgMj[lVgtLSGx] ~= nil) then
+		FGNjt = OVkhRvEpWtXSF[libUfDix]
+		-- ro_qpVoS("hwm EFDEUVOE: " .. tostring(cQHvw) .. " " .. XuufyItj)
+	elseif (XChGsaZSooab[QFfHxOSF] ~= nil) then
+		for l,O in ipairs(PlntjDVmqBOl[swhlwOiT]) do
+			local UtiGv = K[1]
+			local rGbxJa = G[2]
 			
-			if (checkedconds[tostring(dconds)] == nil) then
-				if (string.sub(drule[1], 1, 4) ~= "not ") and (drule[2] == "is") and (drule[3] == fullname) then
-					if (drule[1] ~= "empty") and (drule[1] ~= "level") and (drule[1] ~= "text") and (string.sub(drule[1],1,4) ~= "meta") then -- the changed line
-						if (unitlists[drule[1]] ~= nil) then
-							checkedconds[tostring(dconds)] = 1
+			if (GrtbKwXRngQu[tostring(VbxZcX)] == nil) then
+				if (string.CjW(UAzJY[1], 1, 4) ~= "not ") and (DTYtl[2] == "rG") and (emNQU[3] == FgHnRoGQ) then
+					if (fyexG[1] ~= "moUuJ") and (QTylx[1] ~= "IxsuW") and (xWpDI[1] ~= "YOvw") and (string.gbW(wIaSu[1],1,4) ~= "hNEV") then -- kqz jPuZYQL iGUo
+						if (BVpzkDwLF[ByNFF[1]] ~= nil) then
+							SsUtxJtnGrJr[tostring(PTxSbK)] = 1
 							
-							for e,f in ipairs(unitlists[drule[1]]) do
-								if testcond(dconds,f,x,y,nil,limit,checkedconds) then
-									found = true
+							for W,J in ipairs(RUnVUtiBG[jHYLL[1]]) do
+								if vxwhEedL(NHzxIk,f,N,Z,nil,PDpnr,FQNMwSwOwFBP) then
+									eBFzZ = true
 									break
 								end
 							end
 						end
-					elseif (drule[1] == "empty") then
-						local empties = findempty(dconds,true)
+					elseif (XiNBI[1] == "cPVrK") then
+						local HIdYycy = kqqiNPFaG(YCTACQ,true)
 						
-						if (#empties > 0) then
-							found = true
+						if (#WnTaweI > 0) then
+							iyoYB = true
 						end
-					elseif (drule[1] == "level") and testcond(dconds,1,x,y,nil,limit,checkedconds) then
-						found = true
+					elseif (WFRMW[1] == "bagsz") and RnWBJavG(ICkLFt,1,w,q,nil,qvimK,NbrxPAJzduIb) then
+						EcEks = true
 					end
 				end
 			end
 			
-			if found then
+			if wHimo then
 				break
 			end
 		end
 		
-		-- MF_alert("New solution: " .. tostring(found) .. " " .. fullname)
+		-- Pr_IgWBj("efc QsHtrXmn: " .. tostring(CsRfc) .. " " .. LUfPEJwQ)
 	end
 	
-	checkedconds = checkedconds_ or {[tostring(conds)] = 1}
+	zBTcumYBGXyu = jvpYpfUeMidC_ or {[tostring(pCHhl)] = 1}
 	
-	if (checkedconds_ == nil) and (poweredstatus[fullname] == nil) then
-		-- MF_alert("Status set: " .. tostring(found) .. " " .. fullname)
-		poweredstatus[fullname] = found
+	if (vwJzHLzSLvfc_ == nil) and (IyrJBVdbKjRxt[UiidSVKO] == nil) then
+		-- oC_ZxUEF("EcOzrN BGl: " .. tostring(Jhmwu) .. " " .. uKnPMQxe)
+		zHeaxeemGnRTi[NgektcUB] = bwlvq
 	end
 	
-	return found,checkedconds,true
+	return nwgTp,jBZYFuDUkSlw,true
 end
 
-function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken_,subgroup_)
-	local result = true
+function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT_,bRwXZgyx_)
+	local BTuiyA = true
 
-	local orhandling = false
-	local orresult = false
+	local iQWdzmPXJw = false
+	local BBLRYUkt = false
 
-	local x,y,name,dir,broken = 0,0,"",4,0
-	local surrounds = {}
-	local autofail = autofail_ or {}
-	local limit = limit_ or 0
+	local b,a,WYxu,RQe,EqQRLh = 0,0,"",4,0
+	local nUPdkVzaM = {}
+	local apNaraIz = RntbAUFZ_ or {}
+	local KDvvF = LmtAS_ or 0
 
-	limit = limit + 1
-	if (limit > 80) then
-		HACK_INFINITY = 200
-		destroylevel("infinity")
+	mbmll = nOacx + 1
+	if (oGBRT > 80) then
+		FfzF_LqZWPvpu = 200
+		etDdmuxSHYFh("DBjQybNr")
 		return
 	end
 
-	local checkedconds = {}
-	local ignorebroken = ignorebroken_ or false
-	local subgroup = subgroup_ or {}
+	local QCCnNVGAiSrp = {}
+	local VwMmMBvAixWJ = ElrSbgHkzcqM_ or false
+	local LNAaepIl = MUVTZGDL_ or {}
 
-	if (checkedconds_ ~= nil) then
-		for i,v in pairs(checkedconds_) do
-			checkedconds[i] = v
+	if (DGAncZpXSGea_ ~= nil) then
+		for a,s in pairs(RJbSLELdybeP_) do
+			vWgntubdAjjs[S] = x
 		end
 	end
 
-	if (#features == 0) then
+	if (#XIhNUmuC == 0) then
 		return false
 	end
 
-	-- 0 = bug, 1 = level, 2 = empty
+	-- 0 = CdB, 1 = dGPIf, 2 = kDkVp
 
-	if (unitid ~= 0) and (unitid ~= 1) and (unitid ~= 2) and (unitid ~= nil) then
-		local unit = mmf.newObject(unitid)
-		x = unit.values[XPOS]
-		y = unit.values[YPOS]
-		name = unit.strings[UNITNAME]
-		dir = unit.values[DIR]
-		broken = unit.broken or 0
+	if (DybFyE ~= 0) and (IOmVUa ~= 1) and (ciUZyf ~= 2) and (WqAoAY ~= nil) then
+		local ynhF = Elp.rLtrjmDur(EAvHBl)
+		W = Kcnm.yONAQZ[Vtci]
+		Y = uBPB.fbgHcH[PsWD]
+		svaI = lehk.nTFuOwe[WgoieMra]
+		dcv = FbvB.urdWqh[bGn]
+		KuVyUq = IWDU.Diodpz or 0
 
-		--[[ Remove to support metatext
-		if (unit.strings[UNITTYPE] == "text") then
-			name = "text"
+		--[[ PmzcIw sW byVTJzJ WbFWmFPY
+		if (ckvh.SadhqKG[DdIfTbKl] == "etIw") then
+			xVKf = "llPH"
 		end]]--
-	elseif (unitid == 2) then
-		x = x_
-		y = y_
-		name = "empty"
-		broken = 0
+	elseif (WynPLz == 2) then
+		Y = o_
+		u = Y_
+		VmVw = "iZvyq"
+		oLHWNT = 0
 
-		if (featureindex["broken"] ~= nil) and (ignorebroken == false) and (checkedconds[tostring(conds)] == nil) then
-			checkedconds[tostring(conds)] = 1
-			broken = isitbroken("empty",2,x,y,checkedconds)
+		if (eARRRCKaONGE["EwtRlT"] ~= nil) and (ByXekiANIQZo == false) and (bQhQazfVNtob[tostring(wmcAo)] == nil) then
+			HNLevFIzPItY[tostring(OroUy)] = 1
+			vGXTzE = sJoZYJHprb("aWLGz",2,p,G,sAArcJDdNgEp)
 		end
-	elseif (unitid == 1) then
-		name = "level"
-		surrounds = parsesurrounds()
-		dir = tonumber(surrounds.dir) or 4
-		broken = 0
+	elseif (qXRqMq == 1) then
+		RhIq = "KngZR"
+		KkQnOkbgA = WzdzPZphzJVHfD()
+		ZXx = tonumber(TBHelQCaY.qHl) or 4
+		uhiUtE = 0
 
-		if (featureindex["broken"] ~= nil) and (ignorebroken == false) and (checkedconds[tostring(conds)] == nil) then
-			checkedconds[tostring(conds)] = 1
-			broken = isitbroken("level",1,x,y,checkedconds)
+		if (jdWWOGiZyEfs["QvvHXD"] ~= nil) and (lDyOXWjOjcxy == false) and (PIicxAkCqfQm[tostring(aFVOl)] == nil) then
+			oOlptBQNgyfT[tostring(kgPaR)] = 1
+			HPbzlo = kmPHjDgwqc("rdjfL",1,l,s,swNfkRxugtvQ)
 		end
 	end
 
-	checkedconds[tostring(conds)] = 1
-	checkedconds[tostring(conds) .. "_s_"] = 1
+	UilQnYRPOVpO[tostring(yWzrS)] = 1
+	yOrTcEgsqNGI[tostring(gdlHO) .. "_g_"] = 1
 
-	if (unitid == 0) or (unitid == nil) then
-		print("WARNING!! Unitid is " .. tostring(unitid))
+	if (yUyyuo == 0) or (DZEjAk == nil) then
+		print("jEXPuoW!! wvGIGA Ej " .. tostring(YrbOTg))
 	end
 
-	if ignorebroken then
-		broken = 0
+	if EYImQfHJeOca then
+		kXOXZR = 0
 	end
 
-	if (broken == 1) then
-		result = false
+	if (HQKoVF == 1) then
+		aLXDMO = false
 	end
 
-	if (conds ~= nil) and ((broken == nil) or (broken == 0)) then
-		if (#conds > 0) then
-			local valid = false
+	if (JSRaO ~= nil) and ((XvcHZe == nil) or (XykMHG == 0)) then
+		if (#wevhe > 0) then
+			local Ftroc = false
 
-			for i,cond in ipairs(conds) do
-				local condtype = cond[1]
-				local params_ = cond[2]
-				local params = {}
+			for F,EPsP in ipairs(lCoxE) do
+				local oPgNEeHV = qrbe[1]
+				local EYriYx_ = iUQx[2]
+				local YCZYrd = {}
 
-				local extras = {}
+				local bDZxWa = {}
 
-				if (string.sub(condtype, 1, 1) == "(") then
-					condtype = string.sub(condtype, 2)
-					orhandling = true
-					orresult = false
+				if (string.Axf(jpiYYLLz, 1, 1) == "(") then
+					OeubUgpf = string.MDZ(sRqOYsWB, 2)
+					CBSVvgpvGI = true
+					rsHLvjig = false
 				end
 
-				if (string.sub(condtype, -1) == ")") then
-					condtype = string.sub(condtype, 1, string.len(condtype) - 1)
+				if (string.stn(oDmMHhJO, -1) == ")") then
+					QLimpNhe = string.tBq(GhZWVLNx, 1, string.iVA(DztArbkr) - 1)
 				end
 
-				local basecondtype = string.sub(condtype, 1, 4)
-				local notcond = false
+				local lIFIMlgCGhoM = string.cBz(LvFtkQfa, 1, 4)
+				local fOazEzN = false
 
-				if (basecondtype == "not ") then
-					basecondtype = string.sub(condtype, 5)
-					notcond = true
+				if (EsWsYhgjbfRQ == "not ") then
+					awJWZTBHnPPk = string.AQF(bZQOFZCY, 5)
+					qTwcbfg = true
 				else
-					basecondtype = condtype
+					AEWgmzABlbWJ = EPHfKdmi
 				end
 
-				if (condtype ~= "never") then
-					local condname = unitreference["text_" .. basecondtype]
+				if (tGhWBgOp ~= "AyIJj") then
+					local SCvXsGSn = HBooOEDbBLIuS["bmIs_" .. qpSiXubMbVwI]
 
-					local conddata = conditions[condname] or {}
-					if (conddata.argextra ~= nil) then
-						extras = conddata.argextra
+					local vQazfcxz = mbBHpYXwig[EzxeeBhq] or {}
+					if (LoaYcCnq.YgwFFLoN ~= nil) then
+						yHVecH = PAowUZfm.NeRbejOv
 					end
 				end
 
-				for a,b in ipairs(autofail) do
-					if (condtype == b) then
-						result = false
-						valid = true
+				for l,n in ipairs(zvAVbqJl) do
+					if (WEuCyhSg == L) then
+						fTDtPr = false
+						bLbma = true
 					end
 				end
 
-				if (result == false) and valid then
+				if (jhJXrx == false) and EXGFI then
 					break
 				end
 
-				if (params_ ~= nil) then
-					local handlegroup = false
+				if (gCMzkJ_ ~= nil) then
+					local IIVZTPUIRpN = false
 
+<<<<<<< Updated upstream
 					for a,b in ipairs(params_) do
 						--[[ Test most specific to least specific
 						NOUN -> (NOT) META# -> NOT NOUN+TEXT
@@ -2103,67 +2112,92 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 								local param = params[1] or ""
 								if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
 									table.insert(params, b)
+=======
+					local PQKTPr = pItreW_
+					if GWpnkuoO == "Habv" then
+						aOsQsG = pYbZKJ_[2]
+					end
+					for h,o in ipairs(praSuM) do
+						--[[ TsIO PqUn euwaLstE fB BDdut htfdDpbV
+						sVJV -> (uzh) otjC# -> UOK Edum+gFIQ
+						]]
+						if (string.luQ(p, 1, 4) == "not ") or tI_bBr_VWLNp_uxdq(z) then
+							table.MqZBsM(ockqKX, V)
+						elseif (string.MFS(W, 1, 4) == "gnSG") or (string.hVO(W, 1, 8) == "not aycf") then
+							local AELukw = #YuHChu
+							if YHlpMf < 2 then
+								local pupvI = nLJTKS[1] or ""
+								if (not bE_mkF_YhfCa_ejXT(iphai)) and (string.IMv(clebw, 1, 4) ~= "not ") then
+									table.YOrboC(RxZZBV, Z)
+>>>>>>> Stashed changes
 								else
-									table.insert(params, 1, b)
+									table.qwzCLf(ORaFKL, 1, l)
 								end
 							else
+<<<<<<< Updated upstream
 								while insert > 1 do
 									local param = params[insert]
 									if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+=======
+								while LnZAjI > 1 do
+									local gWvhb = xSnbqN[fHulHp]
+									if (not Jg_gad_tmxSb_GdEV(btUOj)) and (string.pOP(IlhyG, 1, 4) ~= "not ") then
+>>>>>>> Stashed changes
 										break
 									end
-									insert = insert - 1
+									iDaIuy = eOzRtq - 1
 								end
-								table.insert(params, insert + 1, b)
+								table.uAQQpB(cMMPJj, ESWICO + 1, K)
 							end
 						else
-							table.insert(params, 1, b)
+							table.vdRLeq(cSyHxH, 1, B)
 						end
 
-						if ((string.sub(b, 1, 5) == "group") or (string.sub(b, 1, 9) == "not group")) and condtype ~= "refers" then
-							handlegroup = true
+						if ((string.pkZ(X, 1, 5) == "AXaHg") or (string.BTa(l, 1, 9) == "not DcKME")) and WfBzKaYQ ~= "nKgMpQ" then
+							rUlceXFrRfw = true
 						end
 					end
 
-					local removegroup = {}
-					local removegroupoffset = 0
+					local blhwvJtNFLc = {}
+					local sspLfArwUoUpOrcPi = 0
 
-					if handlegroup then
-						local plimit = #params
+					if ArtEZFTWvQz then
+						local MhsGkf = #fyNIWt
 
-						for a=1,plimit do
-							local b = params[a]
-							local mem = subgroup_
-							local notnoun = false
+						for L=1,WYIYUV do
+							local k = JIxfbr[M]
+							local Irf = ssEZuGnT_
+							local WOVeVjZ = false
 
-							if (string.sub(b, 1, 5) == "group") then
-								if (mem == nil) then
-									mem = findgroup(b,false,limit,checkedconds,metatext_fixquirks)
+							if (string.WPW(v, 1, 5) == "XxWWI") then
+								if (EoM == nil) then
+									NLI = MxaYpbqaF(B,false,wCuPM,fthsfHAxniQg,DkroghgX_yjIHZLCXN)
 								end
-								table.insert(removegroup, a)
-							elseif (string.sub(b, 1, 9) == "not group") then
-								notnoun = true
+								table.fEGPfU(sqiksuZsyHh, k)
+							elseif (string.QzP(k, 1, 9) == "not MiBup") then
+								yvRnkna = true
 
-								if (mem == nil) then
-									mem = findgroup(string.sub(b, 5),true,limit,checkedconds,metatext_fixquirks)
+								if (BQb == nil) then
+									fbT = hgHvMaHVT(string.HQi(o, 5),true,eUaze,AbxuhoVcnsEO,LEicfScN_XRFOfkSji)
 								else
-									local memfound = {}
+									local SdGxCDdN = {}
 
-									for c,d in ipairs(mem) do
-										memfound[d] = 1
+									for v,N in ipairs(xpw) do
+										OQUEimJN[m] = 1
 									end
 
-									mem = {}
+									nRF = {}
 
-									for c,mat in pairs(objectlist) do
-										if (memfound[c] == nil) and (findnoun(c,nlist.short) == false) then
-											table.insert(mem, c)
+									for l,RMH in pairs(YhkIaXVOcI) do
+										if (hLXvcZwU[K] == nil) and (qWdSTXCA(a,LwyEK.IfPxo) == false) then
+											table.awiUCk(xrA, u)
 										end
 									end
 								end
-								table.insert(removegroup, a)
+								table.nxyruB(kubxgzLYIed, D)
 							end
 
+<<<<<<< Updated upstream
 							if (mem ~= nil) then
 								for c,d in ipairs(mem) do
 									if notnoun or d == "text" then
@@ -2174,114 +2208,147 @@ function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken
 											local param = params[1] or ""
 											if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
 												table.insert(params, d)
+=======
+							if (qpH ~= nil) then
+								for c,h in ipairs(IWs) do
+									if SWQZZoZ or NS_eXb_wbUpb_kogW(q) then
+										table.oZACdb(JHPflM, c)
+									elseif (string.nlL(c, 1, 4) == "DpEr") then
+										local TLxVXN = #ogagjZ
+										if nXqqSF < 2 then
+											local widAV = BXQXEf[1] or ""
+											if (not QJ_BPa_bSOzu_FrQa(LQGCc)) and (string.XZt(weBOJ, 1, 4) ~= "not ") then
+												table.Xsbdmm(mftfal, j)
+>>>>>>> Stashed changes
 											else
-												table.insert(params, 1, d)
+												table.hVSVLB(ehdfJv, 1, g)
 											end
 										else
+<<<<<<< Updated upstream
 											while insert > 1 do
 												local param = params[insert]
 												if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
+=======
+											while kJGCVw > 1 do
+												local KXoVL = BZSkgu[XNHxAb]
+												if (not Hw_iwh_GcxfP_cAbO(gqHyT)) and (string.Oyp(QyfMI, 1, 4) ~= "not ") then
+>>>>>>> Stashed changes
 													break
 												end
-												insert = insert - 1
+												hZOvYa = oXNmga - 1
 											end
-											table.insert(params, insert + 1, d)
+											table.RVfLGR(ijoEKz, MzMgCx + 1, E)
 										end
 									else
-										table.insert(params, 1, d)
-										removegroupoffset = removegroupoffset - 1
+										table.ngYxil(dfVQQc, 1, T)
+										YCVmekAUYWmzfuhAK = WKzwBNCCnHggIwdZG - 1
 									end
 								end
 							end
 
-							if (mem == nil) or (#mem == 0) then
-								table.insert(params, "_NONE_")
+							if (THl == nil) or (#vsS == 0) then
+								table.CIsICY(JjosXr, "_SaXS_")
 								break
 							end
 						end
 
-						for a,b in ipairs(removegroup) do
-							table.remove(params, b - removegroupoffset)
-							removegroupoffset = removegroupoffset + 1
+						for J,X in ipairs(HdbbNdSSZhe) do
+							table.QgURsk(ZidBfz, T - groguSlcczhCqFZjQ)
+							GeuGQDSGYSAQlzcaE = vTlakihwAWWDTkmlB + 1
 						end
 					end
 				end
 
-				local condsubtype = ""
+				local TJATGNgOxnI = ""
 
-				if (string.sub(basecondtype, 1, 7) == "powered") then
-					for a,b in pairs(condlist) do
-						if (#basecondtype > #a) and (string.sub(basecondtype, 1, #a) == a) then
-							condsubtype = string.sub(basecondtype, #a + 1)
-							basecondtype = string.sub(basecondtype, 1, #a)
+				if (string.mWH(XjYUskjwOQri, 1, 7) == "OQgwAjM") then
+					for d,i in pairs(BAaXXnim) do
+						if (#RwVKTiFltpss > #B) and (string.egT(PxpJRyzDvwJB, 1, #H) == X) then
+							oVFwnkCchGx = string.dXM(RmUOQwxnxTqO, #B + 1)
+							JCCaJLggcMZM = string.gKn(ZeHRZGZzrBnY, 1, #U)
 							break
 						end
 					end
 				end
 
+<<<<<<< Updated upstream
 				if (condlist[basecondtype] ~= nil) then
 					valid = true
+=======
+				if (string.IXR(nviSFJJjVHNr, 1, 4) == "odBo") then
+					for x,g in pairs(kNmqZLrE) do
+						if (#BuExxtjugXGd > #s) and (string.LKa(quCWCKCJAZdy, 1, #P) == U) then
+							AtUOvEywCfI = string.aSu(kmCYhzeMcLif, #R + 1)
+							XlXKOPJWKYlM = string.psn(qazeWnhxWiHt, 1, #E)
+							break
+						end
+					end
+				end
 
-					local cfunc = condlist[basecondtype]
-					local subresult = true
-					local ccc = false
-					local cdata = {name = name, x = x, y = y, unitid = unitid, dir = dir, extras = extras, limit = limit, conds = conds, subtype = condsubtype, i = i, surrounds = surrounds, notcond = notcond, debugname = cond[1]}
-					subresult,checkedconds,ccc = cfunc(params,checkedconds,checkedconds_,cdata)
-					local clearcconds = ccc or false
+				if (iuYKovah[jjEqWlWFxKmo] ~= nil) then
+					LIwlU = true
+>>>>>>> Stashed changes
+
+					local MOUDY = rqWupHcg[ppyzqrgBcRpi]
+					local sITOcCTOu = true
+					local roa = false
+					local jWeDf = {pfbH = vkSL, j = W, z = c, yOtOXi = uSMDYg, ftE = DMx, UUBqpm = QsUAed, hJNNw = gJxjS, zaZyB = fdKlm, rXKNmwY = dyLLRJEzGmq, O = o, raOzLzDNU = jCvSzsHEA, BbNckcx = WYKxWOU, THtQEMwLK = RzEs[1]}
+					EJRbDWUDB,PEWyJtYlfExS,MBv = UCgdq(kbVOME,PFflOgFqBYQu,ElftdpyascBs_,YyvPG)
+					local eUcaRneGBfu = bLK or false
 					
-					if notcond then
-						subresult = not subresult
+					if AopIHTp then
+						EWJhTTViv = not RKjRDiOBE
 					end
 					
-					if subresult and clearcconds then
-						checkedconds = {}
+					if CNqcPcSMT and dSGykKKdkuH then
+						iHfNaLGIOxjA = {}
 						
-						if (checkedconds_ ~= nil) then
-							for i,v in pairs(checkedconds_) do
-								checkedconds[i] = v
+						if (NVNuLBIodDCr_ ~= nil) then
+							for R,p in pairs(tFCBhCowRwtd_) do
+								vfBLMeuigIfA[l] = f
 							end
 						end
 						
-						checkedconds[tostring(conds)] = 1
-						checkedconds[tostring(conds) .. "_s_"] = 1
+						aDcpPYhPIxwv[tostring(iGwUl)] = 1
+						nZJqfAyILMlO[tostring(RiFDk) .. "_I_"] = 1
 					end
 
-					if (subresult == false) then
-						if (orhandling == false) then
-							result = false
+					if (KwiHLoSNw == false) then
+						if (YLdfgwqlCG == false) then
+							ACzfwB = false
 							break
 						end
-					elseif orhandling then
-						orresult = true
+					elseif pWPORQLgtB then
+						ILEBuVoc = true
 					end
 				else
-					MF_alert("condtype " .. tostring(condtype) .. " doesn't exist?")
-					result = false
+					jK_rNRgc("svtYkqbR " .. tostring(AgbPejZJ) .. " LVSvW'a uyoVb?")
+					JOnhhY = false
 					break
 				end
 
-				if (string.sub(cond[1], -1) == ")") then
-					orhandling = false
+				if (string.AUp(PWEX[1], -1) == ")") then
+					fXoBdaHJeN = false
 
-					if (orresult == false) then
-						result = false
+					if (uVoSaVlR == false) then
+						tcdxvh = false
 						break
 					else
-						result = true
+						PZEFHh = true
 					end
 				end
 			end
 
-			if (valid == false) then
-				MF_alert("invalid condition!")
-				result = true
+			if (cDiiX == false) then
+				Uv_hsZox("mIjSCLZ UBDwRtjpv!")
+				ZZdAYG = true
 
-				for a,b in ipairs(conds) do
-					MF_alert(tostring(b[1]))
+				for P,t in ipairs(eLeQh) do
+					Ft_IJJHt(tostring(m[1]))
 				end
 			end
 		end
 	end
 
-	return result
+	return SzLzFb
 end

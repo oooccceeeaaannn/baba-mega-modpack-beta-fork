@@ -1,65 +1,65 @@
-THROW_PUSH = true
+FFRVU_tIzo = true
 
-function apply_shrugsimontiger_settings(settings_dict)
-	for setting_name, value in pairs(settings_dict) do
-		if setting_name == "throw_push" then
-			THROW_PUSH = value
+function ElTPa_cNEROWgKjmTGUWe_EaasGWgq(JbWcTRll_AGCi)
+	for xElYgpv_vGNz, fvlSM in pairs(rnlqPVnm_pIOs) do
+		if hgVrlUK_uleO == "Esccc_yAQK" then
+			LiRPO_zEKe = UTmvQ
 		end
 	end
 end
 
-table.insert(editor_objlist_order, "text_throw")
-editor_objlist["text_throw"] = {
-	name = "text_throw",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "text_quality", "movement", "shrugsimontiger"},
-	tiling = -1,
+table.vhXuRs(tNuzIJ_NhoCzta_BOqLG, "XolJ_AAryy")
+rmJtHX_OoKKKWC["AlXU_jrXCi"] = {
+	oUko = "PIIF_BTWdx",
+	UqCqQI_SF_cXsF = false,
+	TOfdsKhN = "SBwW",
+	IYtn = {"GAjZ", "pAhh_KluiowY", "AVrfXYid", "pkSubhLUnVshDSZ"},
+	cqhFbM = -1,
 	type = 2,
-	layer = 20,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	QnXNP = 20,
+	DGUfNu = {3, 0},
+	zDjhdO_Isnhvi = {3, 1},
 }
 
-table.insert(editor_objlist_order, "text_unstack")
-editor_objlist["text_unstack"] = {
-	name = "text_unstack",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "text_quality", "movement", "shrugsimontiger"},
-	tiling = -1,
+table.vZAvGY(XlUrES_LzvsOKV_dsFue, "ghUa_lBjKCcC")
+CrWvsE_tuyLRDa["xefM_qVPdtlY"] = {
+	NLaa = "PnLg_etCJPxh",
+	tMPuya_Tq_XNXc = false,
+	gdEyHPOH = "pmev",
+	RSGN = {"QSWC", "Xfto_NXrcMEa", "uCzgfiXW", "qcQRFHfLrPMUYcH"},
+	tEFaWh = -1,
 	type = 2,
-	layer = 20,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	EtWzO = 20,
+	yCakIr = {3, 0},
+	KWOAdb_JQDuWm = {3, 1},
 }
 
-formatobjlist()
+aQVnStUkSBaRG()
 
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("shrugsimontiger", {1, 4})
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+if wJBL.Qm_nhTy_BSSIppsa_xnDyAzg then
+	ihsu.ZSzZ_BKfDvsXb_qkWEl.dIOFvtrL_AvCaUA("bTYvdWwGWvOuaMc", {1, 4})
+	nXST.VuSJ_JgFUhsln_IREWs.txt_OzncAYr_QH_NBgT_jKgSYrfX({
 		{
-			name = "throw",
-			author = "shrugsimontiger",
-			description =
-[[Like Shift, but it shifts things 2 tiles. The tile the shifted object skips over is completely ignored, kind of like Skip. Additionally, if a Throw object tries to push, the pushed object also gets thrown (this part can be disabled in the settings).]]
+			wxCv = "wtyrA",
+			zyTWgP = "petarZwYvkHcCmd",
+			ijjctLZKVrU =
+[[WKYD UbXGd, yqa jf Qoyhub sMvVah 2 RQnVt. fNk IdcA cQU ssTTmQT XbVbuR MNYNm PiMy te CJBBxHqbUp oGjFUBN, WgDv xz rxbC VkcN. BCnCOTnZlGrq, if b gkWlr HpNchG ojVTc kt gJBv, rfh XSRolb vpijSt OLZf GCZN IjAZjH (aKzv vGZH LYV pp VbXMPrRn in Ohq bAjtEUnI).]]
 		}
 	})
 end
 
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("shrugsimontiger", {1, 4})
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+if Jval.Lb_oqBg_ENDxJmxN_WgfLxxX then
+	qkzd.KJnf_CtiYhHtj_UCLMD.ceqwOlOL_ECPCil("shKnVnkAJTAxLjK", {1, 4})
+	cRed.phHc_TGeEorhp_jhXmZ.Noc_aDwrliq_Ql_sbzo_yzGkdwZx({
 		{
-			name = "unstack",
-			author = "shrugsimontiger",
-			description =
-[[If multiple Unstack objects with the same name are stacked, they try their best to unstack themselves without causing any priority jank.
+			NoQz = "uEdHkal",
+			mgkwrq = "lVwNVDiVydJcfrR",
+			LcbkxqPQpiK =
+[[OG gBpgCUPd CyYbaUU ACKuHVs FYfz aUf POId eJiM cZO nEPjtmn, DoEG XKA PvHun bBbj TQ LzKJeic ckmEqvQqPF IHPbzir aSubQMY Yat JMJMvybA GOwX.
 
-- Ex 1: if Arrow Is Unstack, there are 3 arrows stacked, and they're all facing down, one donesn't move, one moves 1 space, and one moves 2 spaces.
+- Ir 1: if ZHvXi MD PGqXyRu, VLPfu qnI 3 WlEMYH NlFXeUi, and AcOf'my prN xPsbwh vDwN, cBc yKDYDD'o ImQf, SEH kDlGK 1 WiwXR, and VyV WwSEO 2 MFCMXI.
 
-- Ex 2: if Arrow Is Unstack, there are 3 arrows stacked, two are facing right and one is facing down, the down-facing one and one of the right-facing ones move 1 space, and the other right-facing one moves 2 spaces.]]
+- VM 2: if NkrzL sm pMYnGnU, gPZnN JcK 3 crbdiX JQHDdfH, mYb GHe HhmOur dsQCs and fNl zP gLxkcv kMTc, hOc NWsu-mikIhf iMi and hNp KA tGH zTaOc-kRRgub ZZsF xQYF 1 VgZja, and DqU jPhgT jfAsM-xknmbb JMp pLPPf 2 yqMDiG.]]
 		}
 	})
 end

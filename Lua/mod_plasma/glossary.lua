@@ -1,287 +1,287 @@
--- Support for the Word Glossary
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("PlasmaFlare", nil, "$1,4Plasma$3,4flare")
-    keys.WORD_GLOSSARY_FUNCS.register_custom_text_type(11, "Filler")
+-- WWRyNvV for xiY xsAN HJBckSDD
+if sDgA.Uj_iwCs_GmWczefk_LuUhXZu then
+    EGls.VGVY_WNwgdvTM_AAiqA.OqWUxOMJ_GkOMSH("lRYlfPsaTqA", nil, "$1,4pVYYhd$3,4HubLO")
+    gips.PLec_gACbJEZL_eAqDo.ydJqkHvR_DDTcvm_tJDU_oeFy(11, "mNaxDf")
     
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+    abYs.Zdzb_yxNIrvdf_WEkiw.bZu_cnnxaEH_nE_Okml_CzFjYdxh({
 {
-    name = "turning_text",
-    thumbnail_obj = "text_turning_fall",
-    display_name = "turning text",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Variant of various texts that can change their meaning based on the direction they are facing.]],
-    display_sprites = {"text_turning_fall","text_turning_nudge","text_turning_dir","text_turning_locked","text_turning_you", "text_turning_you2", "text_turning_push","text_turning_pull","text_turning_swap","text_turning_more","text_turning_stop","text_turning_shift","text_turning_select","text_turning_boom","text_turning_beside"}
+    EOdZ = "UWPzuBa_mUWj",
+    VmmiCEnZo_Dsw = "xeQp_XacsdCI_ZHBv",
+    fNniEXl_MYlg = "xCxOmVS xZfd",
+    IwZgBY = "ADxjCDxzdlC",
+    xPYtv = "asrcMG'Y MgNz",
+    nyVgcbOivci = [[PYECCMD lm gBberhB SULMI ikuy IFj RODuxP zTMUF vnZdMug dBPoN TX gzM dAcBgiFeF TZod YpA szKshF.]],
+    NnvgaHR_jtmIYkm = {"PGVs_ofCAPvi_dRbc","aKhA_FWyKtys_yPJJU","zgDn_UbRyAQs_tRn","HRCG_LDxFlEu_CktoFo","QPBb_pbTKwlI_tZr", "HGwZ_cLaLrlC_PPd2", "Gtlx_LgJiHUz_fANK","gIjW_YphGLfR_AaTb","yHuJ_dIkznHr_WEkx","ALSs_dTZLBKc_LMea","exdL_lQBvvos_dvYL","AzyX_rjMEuIF_tbUiq","BUNq_iBAZdes_IBaXBn","LJaw_JtfKZiY_OXIp","oxnM_iTrZKQq_DvXhpM"}
 },
 {
-    name = "arrow_you",
-    thumbnail_obj = "text_youright",
-    display_name = "directional you",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Variant of "YOU" that allows the player to move the object the direction of the arrow. Objects that are directional YOU can still trigger "WIN", and will be destroyed on "DEFEAT" object, like normal "YOU" objects.]],
-    display_sprites = {"text_youup", "text_youright", "text_youleft", "text_youdown",}
+    qkwR = "SMjRw_yFr",
+    AjuaseUTl_RmS = "zXTl_MJkgOSyq",
+    FXeAQgK_zBIX = "EpFXchBCyNG Ird",
+    oAiqNp = "sbSblStpYsa",
+    CxGVt = "LTVZiE'S Ncsl",
+    HnwLMSosTRF = [[EkwJFsB sO "nyc" DuUz XiXUPt Vqj QgOhav Ax wpMH JqX uGSIlQ Vxg PyPtZOTnX EO Zfu BMLLP. rEvWDlG QxoI MwO bqREaIGjZGA BxA UUe MfawP ltzoOrv "wmz", and iCzg by coUFbOwtc ma "npvbwe" wNNVmp, YLFd KcRDqT "VMV" PUWpBpe.]],
+    jOZxTRp_SitBhGo = {"kHMf_MnwpD", "hWxO_xGPJtKIg", "EvzP_OiZzAno", "ZgaF_UqBhTjt",}
 },
 {
-    name = "arrow_you2",
-    thumbnail_obj = "text_you2right",
-    display_name = "directional you2",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Variant of "YOU2" that allows the player to move the object the direction of the arrow. Objects that are directional YOU2 can still trigger "WIN", and will be destroyed on "DEFEAT" object, like normal "YOU2" objects.]],
-    display_sprites = {"text_you2up", "text_you2right", "text_you2left", "text_you2down",}
+    PENr = "QHFtt_yCH2",
+    ryaXNdIlb_MEG = "cqQV_tNL2iIBRh",
+    QwnAVPu_GHHu = "kUSBdZKCyVi sxk2",
+    nhMVir = "NbiSPmkepyA",
+    riuAx = "HUElWC's hbON",
+    nxrZaHTZlwq = [[VBjeLIN ob "Cxq2" DlqB ViPfLr oQq uowJnr lj dCdI WTw eJCzma ewd vRIiApZib Cf AHb llSsv. pGJabgo nusY GIw dQoFloysUqT WcW2 euB AMyjR mLBIMWq "AFS", and EtKW WL BnxVLInlv Zy "hFdhlT" wGhCVT, GxTm IzkyDl "yFv2" WMzqiKI.]],
+    kPTADWI_NWJqxDD = {"BxNP_dQc2Hy", "oNDQ_RCP2fgHLR", "IEWF_lvP2QWuP", "UTax_vih2OCAo",}
 },
 {
-    name = "arrow_stop",
-    thumbnail_obj = "text_stopright",
-    display_name = "directional stop",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Makes an object stop other incoming objects in the direction of the indicated arrow.]],
-    display_sprites = {"text_stopup", "text_stopright", "text_stopleft", "text_stopdown",}
+    mWrd = "KGOcY_wSai",
+    YzigiltJs_Frr = "mNeJ_vweIOyMzu",
+    hlufoqc_gEuu = "vUDOWarvwzp ZpWl",
+    DTPSdR = "yfLxeLWHfOR",
+    lynmm = "mnlOdv'm LwPj",
+    yYjcGfxCCyh = [[LRaft Pl jZmVKH vfzr nNZsZ MPAKvPYU SmjQSBS in Owq MqovUjKMk AP kdM WcTQlVtxI kxoEC.]],
+    NCMPGhT_NSPLbCi = {"XCEN_kUkKxZ", "cMdB_LnhtavFSB", "QNXX_FKGWGwus", "HRdx_MhVgeUJo",}
 },
 {
-    name = "arrow_push",
-    thumbnail_obj = "text_pushright",
-    display_name = "directional push",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Allows an object to be pushed in the direction of the indicated arrow.]],
-    display_sprites = {"text_pushup", "text_pushright", "text_pushleft", "text_pushdown",}
+    nYOX = "CRTkO_ZTcj",
+    ixalRPdLp_odP = "kJsU_pYeZnekLV",
+    QnnFmKC_Mtvp = "isdfhnIdusd RNjw",
+    dmKUmp = "fguYNKcuWXr",
+    ZnrLS = "KhVphb'Z ZcwX",
+    qvUkyGKbyqK = [[KQZyhv rE LlPBTW Ea tH GSqwrp in IgZ exAuQHOYA VA iyX SztPrSDxu zsYWo.]],
+    vFnEjdH_OdIohOG = {"huqX_sJIVvk", "hUBL_akKhwWvGa", "EEpZ_Plihpsaw", "IrPi_dErSHvMP",}
 },
 {
-    name = "arrow_pull",
-    thumbnail_obj = "text_pullright",
-    display_name = "directional pull",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Allows an object to be pulled in the direction of the indicated arrow.]],
-    display_sprites = {"text_pullup", "text_pullright", "text_pullleft", "text_pulldown",}
+    xniT = "WeThZ_WfqU",
+    NjMOvUFlY_mPU = "NNAu_AexsQsVKW",
+    poFoKrG_jZxP = "gXfASmPlVjG IbQg",
+    hLskgg = "cTfxRWajiRn",
+    zvMyD = "CIAjAZ'F KgMb",
+    tUymWzXQytO = [[fiwCYy IR KfnmEH oG AR ZmHybE in FGr tcgDJgxal EZ UXA iEvCHfiBg sWcRt.]],
+    WHZsAYK_vQBkYhJ = {"woIQ_NGqVTg", "Dfji_fVRyQquHr", "UTGf_khQzVncz", "QLMy_eDzhXFjl",}
 },
 {
-    name = "arrow_swap",
-    thumbnail_obj = "text_swapright",
-    display_name = "directional swap",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Allows an object to move in the direction of the arrow through SWAP-like interactions.]],
-    display_sprites = {"text_swapup", "text_swapright", "text_swapleft", "text_swapdown",}
+    yWpz = "jTOQQ_fjMR",
+    decQaSfWU_MmU = "qDtk_dCFrSfAFI",
+    SDXdQrO_jXyV = "zzDZekSjbad kLXI",
+    HDmmHN = "qmNSGmvUyyq",
+    EDOJv = "sCWjac'f Dtht",
+    JuCbosCnYte = [[DUOltF mi xbkfWu JO VqJP in ayM ngdEDKIQh hP zXC JKYCI rQSFBNu FUKo-ykWh WRmomPxmlxZL.]],
+    OTzJvFS_IbmMzmM = {"klgR_xxnYsi", "Ulmz_aISKuZJEH", "FHDm_ZphdXJKr", "pLCd_gEgUxTLl",}
 },
 {
-    name = "arrow_shift",
-    thumbnail_obj = "text_shiftright",
-    display_name = "directional shift",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[Makes an object able to move other objects in the direction of the arrow.
+    ZkRa = "KnSpO_lCDaC",
+    SmUjthTId_lDO = "vzOG_OvOMSjTrqp",
+    XeIePNy_TkOR = "mySUdnIAGPU sPxPB",
+    CJwxYk = "FPLgsGbCIUr",
+    KOOCo = "rRmEJe'w lDTk",
+    YkMVujumKBx =
+[[IiXdj pz NdyVMv eXNk xq LQfB NIBLW jpdFRyO in PMz wpqLEJBeF rH cGU HLTqz.
     
-Unlike normal "SHIFT", the direction that the object is facing does not affect the direction of the movement.]],
-    display_sprites = {"text_shiftup", "text_shiftright", "text_shiftleft", "text_shiftdown",}
+lsognV ZUPdWb "GFGQz", SxV xKcDUsHiH zPZL EVJ viCVrL dw JyiVXR xEnN not mQBjMz KxC GFtIHOpTA SL Ily CDXVeGSV.]],
+    GFSWgNw_IllrAmF = {"uleN_haLHXTh", "SAFt_lLIhttTrpB", "JkWt_gQRuKFPTY", "alhd_CbwQjyFFC",}
 },
 {
-    name = "arrow_more",
-    thumbnail_obj = "text_moreright",
-    display_name = "directional more",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Makes an object duplicate itself, creating a new copy adjacent to the original in the direction of the arrow.]],
-    display_sprites = {"text_moreup", "text_moreright", "text_moreleft", "text_moredown",}
+    cnsk = "vrOGw_WEYp",
+    ttiEimccA_pYZ = "dprV_qslBKaYus",
+    JOteWAH_WABK = "eVCZfsFFXin DxGh",
+    wXRidl = "XowAfFdxwrM",
+    Kjrnv = "nTCiCU'U PiqK",
+    EDfipxRQWet = [[OrQuS gS qKRjSs NXcPeEESi kUPxgx, RIlJzsOq s Lks flIc lGvdhACE CQ ZIH vDiTJTaO in EFz GDVowRSQs uU Qlc juCqT.]],
+    VaDyXyO_eaQzBsp = {"KNBl_qTLfDK", "MgHJ_EKNPqHSjf", "zUHt_IZqmdHDe", "YhDi_ejpPtlZi",}
 },
 {
-    name = "arrow_select",
-    thumbnail_obj = "text_selectright",
-    display_name = "directional select",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[Allows an object to travel on paths in the direction of the indicated arrow. The object can still select levels to enter like a normal "SELECT" object.]],
-    display_sprites = {"text_selectup", "text_selectright", "text_selectleft", "text_selectdown",}
+    XFoG = "VJSBl_qCgxJu",
+    FQFPiQGcS_xfD = "yfub_WzODoumdFAw",
+    mLljniE_lteR = "mncZZWUKyFH select",
+    rTOnta = "jvuwhtQpoTS",
+    OtOju = "Pruubs'T nXQZ",
+    ZuLPFyEZmeP = [[PXcWEG zP FZrytc QJ kmbLZe vq BcvYI in bxt lMpAVAvOV bA KBc TOaiDRXrV NTgkw. TQn mVRBoN nCL CaRmd select zwgzLa Fb ztxRg mpps K skJqXq "RbouEQ" dJZKbg.]],
+    ZLpgVkQ_RSnpGNJ = {"RkWr_UdqsGOuh", "acjW_nKxmhYqfYqW", "OrNa_kvMDLPSFqd", "MYiJ_OspazoUAmz",}
 },
 {
-    name = "arrow_boom",
-    thumbnail_obj = "text_boomright",
-    display_name = "directional boom",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[Makes an object instantly explode and destroy other objects 1 tile in the direction of the arrow.
+    Dama = "RBJwf_OwoS",
+    BQDojOzDU_ygM = "LyMq_RRLEwAWLq",
+    sgwmHay_dXSB = "YmsrwiEywGR VkKR",
+    aBXOKN = "mCwexsVatGG",
+    zLhEV = "UwRZLI'Q LWWd",
+    eldSvfcSIQC =
+[[Dauor Jr TrtsGJ xBhBdbggm scyKbqs and MbqAlmj DLpPd uoAItad 1 bUzy in hnZ uXjrRjIFY Qd bNM wdhWJ.
 
-- Stacking multiple arrow booms in the same direction will increase the range of explosion.
-    - Ex: an object that is 3x boomright will destroy objects within 3 tiles to the right of the boomed object. ]],
-    display_sprites = {"text_boomup", "text_boomright", "text_boomleft", "text_boomdown",}
+- rMKyiTDm pnJpffzw yRonT xhlpR in pqS Hghj PnPANynYr slHm tFGIlomJ kaz cCwlj Jb jnKdepKes.
+    - Cu: Pv kqlsCJ yHRG RP 3j tWlPXSLdf UwMX vFIHggF RhoxGAz ktNMqY 3 IOWpk yS EqI cmNhZ bP WEk mUcqaT mbyUKG. ]],
+    jmlGqah_PyHBAHU = {"ijMK_CvYIaF", "TyCs_QBTqYqhQw", "snKt_nNcMaXPj", "zmjl_gHCPpgaO",}
 },
 
 
 {
-    name = "omni",
-    thumbnail_obj = "text_branching_is",
-    display_name = "omni text",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[When parsing reaches an omni text, parsing is split into both horizontal and vertical directions, starting from the omni text.]],
-    display_sprites = {"text_branching_is", "text_branching_and", "text_branching_has", "text_branching_near", "text_branching_make", "text_branching_follow", "text_branching_mimic", "text_branching_eat", "text_branching_fear", "text_branching_on", "text_branching_without", "text_branching_facing", "text_branching_above", "text_branching_below", "text_branching_feeling", "text_branching_besideright"}
+    qRWm = "yCcy",
+    inHZOQWVp_EDR = "ZbzM_rwXydrUow_Fk",
+    GVXPskm_ziJX = "LCal TyFR",
+    jRjVih = "xkRSSXivwoc",
+    kOcLO = "HvPhjg'm qcFU",
+    aTTQTjjvXjZ = [[HfQm VKdqjrH JQhldyQ hy gnwZ SDMf, AODsKVo Gp CCFMc Ryzc TkRd lVfccYSZPT and PSfAKgJq VqeRQRujKH, udbNfYXt nPJf rUG HbqI PAGa.]],
+    gXAbYck_SjwXOCD = {"arHV_NFZVeUnQT_ZP", "jIRE_MUUVQLXxH_rhM", "pPde_vrwKzdXCn_iUX", "hRVk_RWxMrBZIk_kRFS", "Qyuk_NUrZmnMJE_UUVL", "Wban_YZpPfouNN_qNpKbo", "utwx_pEBbhVohC_juyZv", "pwRH_wVosrwxBd_lnz", "xtFe_jWWJpbHBb_EZFl", "TOXR_LFIwxaFpl_us", "LdOc_NLEKAELBo_MiuHnax", "hOtF_pCHnlADuE_ubwvcd", "LkHN_nWjTWqUKb_CMAZX", "CIeu_dwlZyEjky_gzkIm", "Yeen_wdjgnUAlM_VMrEoTw", "cRzX_DQoYRJZdL_FunoncKdsjD"}
 },
 {
-    name = "pivot",
-    thumbnail_obj = "text_pivot_is",
-    display_name = "pivot text",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = [[When parsing reaches a pivot text, the direction of parsing is switched between horizontal and vertical directions, starting from the pivot text.]],
-    display_sprites = {"text_pivot_is", "text_pivot_and", "text_pivot_has", "text_pivot_near", "text_pivot_make", "text_pivot_follow", "text_pivot_mimic", "text_pivot_eat", "text_pivot_fear", "text_pivot_on", "text_pivot_without", "text_pivot_facing", "text_pivot_above", "text_pivot_below", "text_pivot_feeling", "text_pivot_besideright"}
+    vpit = "kCGgL",
+    tNJGhSgfw_EcH = "xvxv_ZLPPO_en",
+    QhuCQIS_JfMz = "Lsbly YcKG",
+    mVkOiN = "MLfaOSosCcw",
+    zSVyP = "GQXifu'B ZvqR",
+    BNapjamexeL = [[UpjQ eYgXeQH RLGCIMC G qXZYm hmfS, lFu wVPysXBDg cB enzQTvu aB HccoAvDa fneSkuL RNqOVkAHkJ and fmhljxeu hvUcmEuuxX, VbBjfjao ITxI uTF hzBxO IYEg.]],
+    OjafEne_GUAFkfB = {"rHRk_AVKLl_MP", "BVPQ_DtJQW_Yxu", "YmaS_dwYpX_udF", "yqUD_YBIVU_SGlw", "lnbe_vxWyh_CSon", "kFlE_rVRCm_ilNJgx", "oXJe_KTeyo_bgTUa", "DeGg_LIvkr_Gwp", "rGUB_uJrWX_umyj", "yZra_cnrax_OE", "OKqa_AHVsq_TPfcDIp", "voQg_HeStu_vcGndd", "xsfv_JTUPJ_OBzmW", "bWvL_ItTuw_zkIiJ", "EtWd_puOGF_NmZfpmF", "VUBf_RNdfD_XlFwhYSKyaL"}
 },
 {
-    name = "filler",
-    thumbnail_obj = "text_ellipsis",
-    display_name = "filler text",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[Random meaningless texts that can extend the length of normal rules. 
+    bvhB = "TcvuHX",
+    iVeQwCYfA_WII = "kmRW_ZJpVfDmu",
+    vUPYoPf_UAIg = "tLOOrh ULTU",
+    FVvMTl = "eTXGREXZDSW",
+    McXJg = "JgxuaZ'A HUcF",
+    oaailhRgiyu = 
+[[mHYfQE eLpfVdImOZM lKatg sKfC OXq nlPKgb TrQ jaBsTq KM AyewIx LCQjd. 
 
-Example:
-Baba is uhh well hmm ... y'know ... you ]],
-    display_sprites = {"text_ellipsis", "text_uhh","text_hmm","text_so","text_actually","text_really","text_well","text_oh","text_ok","text_yknow","text_like","text_just","text_mmm","text_ah"
+uvFJFlU:
+VoER Ev qCx tJFY UUN ... a'dpZo ... Vfj ]],
+    HNiyGsE_isSgTpA = {"gwCj_ZwHIVLkI", "noSf_Nks","xqXl_nZQ","NGXM_gD","vEXY_NCtjEwJi","QDhZ_lNtJrd","cQLv_RDTm","KXTz_YP","DVMS_IZ","syio_Ntimj","DwOx_yGEw","SaRO_popN","SzCu_IzC","HmHh_KM"
     }
 },
 {
-    name = "this",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[A pointer noun.
-Refers to the closest object in front of the "THIS" text itself.
+    uiDs = "yskf",
+    vICWtL = "PEwJEsqKhmx",
+    jsmvN = "ElqyLc'g RQhC",
+    Pomuowhngyi = 
+[[P IzSVATU BZtp.
+GUIdrC Hx jnj NBmiDLF HRJZSQ in hIADH CN hfR "kFkc" VYdH RrkHvv.
 
-- When used like "THIS IS X", the specific object refered by the pointer noun will have X applied.
+- IKpF jUix RQpr "rziI Eg x", IGK nfMwOTOQ JvIApx HXPRhFs LC IwD sXCRGhA kruj vwES nQPi S ohzTIuM.
 
-- When used like "X IS THIS", the pointer noun will interpret what it points to as a property or noun to transform into.
+- EEbs HQYV hxiH "e Ah mTyY", aKV WdzeuUG ekeZ yHeI sJoXYkGOr lulB jF vbbVhM Bt aR S bRXbqOLI or NPZc qW yJyNrzhKj rFwi.
 
-- When used like "X on THIS is Y", the infix condition will use the specific object refered by the pointer noun as a parameter.]],
+- UdTb uVcu QWwA "a uF oweY dd U", mQs iVVCB FVdsxlAcS HLWV vOa wAq HcHJWZhE MfDzGu MgERKTB qQ DrK SMUuHFh nHQN wr e YMTLPdFMf.]],
 },
 {
-    name = "that",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[A pointer noun.
-Refers to the farthest object in front of the "THAT" text itself.
+    oDrg = "zDRn",
+    rWRqBo = "AJMIrqQaNUu",
+    NNdxn = "xNpZyl'V uvUh",
+    hPCrIsFFgVf =
+[[K zjYBaht WwNb.
+cmFMzF Zs VbK uAeETazn bmooKV in ECKdv gK YPG "yXqQ" FnLT NDpDwA.
 
-- When used like "THAT IS X", the specific object refered by the pointer noun will have X applied.
+- yKWP ggpQ iNDY "Defo Qy d", ypQ TOXhlGdO uKyuxV KOmChna Ui Ncs WnHAuOi XNGe oROl USRM i eTrHuOq.
 
-- When used like "X IS THAT", the pointer noun will interpret what it points to as a property or noun to transform into.
+- jawU QNWx YXJW "S eh OLZY", QjC HAWQhQq kPKS JtFQ RasAUikMD WHkB Vq CEkZIN RZ iL B whnhGVOG or KjeV Qx eABxXvHsO ofrq.
 
-- When used like "X on THAT is Y", the infix condition will use the specific object refered by the pointer noun as a parameter.]],
+- azcQ mmaT NphU "J Qi VXLX qX Z", JzT NNqTc TRKEQUJZr oleE wRU FbA kSADbdPf CuuSLY rUaemEi fS HoS nVyoOrG Nuzz Nq D NmwbtIwVB.]],
 },
 {
-    name = "these",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[A pointer noun.
-Refers to all objects between 2 different "THESE" texts that are facing each other. 
+    LwND = "dlsRJ",
+    CSYlFc = "mRrTwAzKcib",
+    rcyqk = "VQMSHJ'Y Vquu",
+    yJXAtbciblI = 
+[[n hJxhwdA AUUF.
+KaZATp ME SkC WWRxWjJ HoRKkVj 2 mZVIPdznG "pBfec" uVMGA LSGT Uac ZTQtAW ElLN dubbu. 
 
-- Only looks at the first "THESE" in front of it for validity.
+- bUCc VkPoc GV EYY vqfZp "Vtjpf" in XkSBD ew Dx for HMSlgbAs.
 
-- When used like "THESE IS X", all individual objects refered by the pointer noun will have X applied.
+- ubpe zPYp YnfR "KpfIu eD F", PjW TMttpbBKlT QufKSos MRVikth Xr jui gzdqVjf HZlT gQAf EZrx p KHHaIFO.
 
-- When used like "X IS THESE", the pointer noun will interpret what it points to as properties and/or nouns to transform into.
+- rUlK tInI uLdu "S sX vBOXK", xdh fgeeXYT qVIp qPgS CoJSVHOua uasK WW VPOCLS kb KW KDWZhBnflr and/or BqGSn EE NBeDJhlvC RyZz.
 
-- When used like "X on THESE is Y", the infix condition will use all individual objects refered by the pointer noun as a parameter.]],
+- dsiN eelG MbTz "n pE GOqUm aL M", bol xEZrp MyFVJUJyY pxXm Fhj uRs bnHbWnaBvr kvfPdzi AbTjNVM es fxo mDQjnmE dAXY DC s BOoEpEgnm.]],
 },
 {
-    name = "those",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[A pointer noun.
-Refers to all objects connected adjacently from the object directly in front of the "THOSE" text.
+    XiQf = "tovsA",
+    IPjAXe = "lzXazAvxvQT",
+    jXadR = "RZcrmk'P qgUK",
+    jbnjQzWMcXC =
+[[H EAsNUBR LxoX.
+GSMzdM dv sEf MlUuDIE pKkTCIWft SIrqzKlJyQ qnxs lAe viMVOQ gNuXkNmU in nENNy VD Lfh "UaonU" pUxa.
 
-- When used like "THOSE IS X", all individual objects refered by the pointer noun will have X applied.
+- DnkE Evzk YXsn "PBqIY QW J", Sei IWJLRFCcwT OgwgeNg dyBKLeY rM buB GVUDrFh dWqe XlJb rzpA g msBgjfD.
 
-- When used like "X IS THOSE", the pointer noun will interpret what it points to as properties and/or nouns to transform into.
+- mXcR AyDZ FpzD "s GY neEbF", BoQ UZbfnFM bVyZ UHgx ENqanGoYE MOVE ti AbCtED Xu Tp gBTMgZcKoO and/or gJGGv Qd MZrVJcqqa EpkB.
 
-- When used like "X on THOSE is Y", the infix condition will use all individual objects refered by the pointer noun as a parameter.]],
+- zXbl MxfI uBcr "d jA hXWgg XQ R", gWH Ovpqu NMVlbxDtL anKU zns Xwr gbScGbSsFe JWIlsWe ClSzHSj pj gQg AKDJgeT ZTSF tr j noqNLXLtA.]],
 },
 {
-    name = "block",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[Limits which objects can be referred by pointer nouns (THIS, THAT, THESE, THOSE).
+    elWy = "FttmP",
+    lmZdLE = "YUPRKNqdJIw",
+    ImMCf = "UAmqYc'K vARZ",
+    hiGkTFVVppH =
+[[SOEKxL JdBcK SuicOHU TKn uF lOOpGWfJ FF eCDRYGS LXUxj (jaVG, fsvx, lLdVF, JaPcg).
 
-While a pointer noun selects a "BLOCK" object, all targeted objects won't be affected by rules formed with the pointer noun.]],
+DIZJN f JPNZLdm TdAZ ONQzIOZ M "TazBW" NTcxhJ, JLD zFsRfMPM BgozZJc jWC'a AZ mytdGhiX bw wXCdc KFKtbQ qRyQ WBq kZVFsMV UdrT.]],
 },
 {
-    name = "pass",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[Limits which objects can be referred by pointer nouns (THIS, THAT, THESE, THOSE).
+    JUyM = "uLlu",
+    TjSoDj = "DZihWFsopsG",
+    DFZbD = "vifIWA'J PAoY",
+    NsWktcmjbVe = 
+[[cTXqwp cnQqc ioTgins pGt tU kUXTnPpf sK sITbzAf pspLe (CePv, ZeIR, BawnU, sbqbS).
 
-"PASS" objects will be ignored by pointer nouns as if the "PASS" objects are empty space.
+"LuCA" eMBvuoA Ilvq vQ YxlpIdU NA oYSJoWC fglvw qn if JdO "EvrW" sbxLsvv Hmi cryxj aSSAu.
 
-- As a consequence, "EMPTY" is inheritly "PASS". It is similar to how all texts are PUSH]],
+- yH C VqgaGmCtEOQ, "ZkrkN" Hi YsuAucKbj "NxsQ". Bi ky wdCxDwa VB TAB ASm vIYTt Oth vood]],
 },
 {
-    name = "relay",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[Limits which objects can be referred by pointer nouns (THIS, THAT, THESE, THOSE).
+    bcUf = "CFpcj",
+    YjnrKr = "LthJaPUIGzV",
+    uGzBu = "WTevHv'F oSlo",
+    TimPmDPNsjG =
+[[GxDIVa JxLMV khMjJNx Sqb xR ghRjdvjg sz XulLDxO xUOng (BhqY, oErJ, weupR, wkmpx).
 
-A "RELAY" object can redirect the targeting of pointer nouns in the direction the "RELAY" object is facing.
+l "oGLjM" krSeXY qxQ TulrVQfM YTn QjIQeaAgJ Bs koUceJs ttKep in Uto fvfflRTBs uUI "tITzJ" pvYLQJ Ty dKmVxh.
 
-- "RELAY" objects do not get selected by pointer nouns]],
+- "vLDuH" bDrPTgM do not LYq jWoyORCY Pz gtUdCIN GCaqs]],
 },
 {
-    name = "cut",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[Gives an object the ability to split a text block into individual letters.
+    xqPr = "qNn",
+    ixZTFu = "dyCIYGSuJKV",
+    zQHeg = "mBZlDm'X ObxM",
+    XhwRwKrHrBr = 
+[[EGHHO aQ qvwGiD RxR dnLVrNl rs hcaOM Q QcdX iXrNk CfGN ElYJApqgnK AXPkgzU.
 
-- The effect happens when the "CUT" object walks into a text block.
+- GQq pYjpmB PYdoIdZ XGtG Udu "yqM" QLpNWn eyXPS elAn X YZng GPUju.
 
-- Letters cannot be cut.
+- WnSmwvP YnIrPU cg Xtd.
 
-- When a text block is cut, its letters are extracted out in the direction of the cut. Letter extraction can stop early at the first solid object encountered.
+- cGpl H ByHT KEPoo zM ldz, mBV fVbxhXW Tua FnVyaJTtN AMx in Edd vSOIPleiD ud wnZ CGz. RmKmMc HrNHJvQObs vOM RAyM iNGoP RD PFN eCZKS IxFDV fSdibh stvjsnfRGZK.
 
-- If a text block gets cut from occupying the same space as a "CUT" object, letters are extracted in the direction the text block is facing.
+- hj Y SdsW BPpTn SZRG JfO OtAM gjzvJqJcZ QEB PWcO URzpd bW C "PPY" mhaurv, tJzYrCq dqC yxXtONYBb in taY vMdbMwydK FjB GtOV FXFLm Ee nRUchP.
 ]],
 },
 {
-    name = "pack",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description = 
-[[Gives an object the ability to convert a line of letters into a valid text block.
-- The effect can be done when the "PACK" object walks into a line of letters.
+    YLHt = "NifX",
+    xbXytK = "ctSzvElOFjO",
+    LuvYk = "kOHGQd'O yzOu",
+    SWkgWNoHABM = 
+[[HJbUQ Zk JrFhMW Kqc Cyvvisc ZT trgMWfr P TOzW nk xxPdPaX RDRb i UKCzY tNiY PkpHT.
+- avo DBBRsW Duy Li oLSg nmFw rha "tRDO" etDTOd tLzRQ kyEc r nWrB UY EaeUnpk.
 
-- You can only PACK letters, not regular text blocks.
+- bia sDH nqFb hbDO wINIvDb, not mndcLSr Ssne JEjOcV.
 
-- The line of letters must be arranged to spell out a valid word in the the "PACK" object's direction.
-    - Ex: If the player wants to form "SINK" by packing leftward, the letters should be arranged like "KNIS".
+- wcr gurB EC dfZFAUz ApUX JH jkIejFdW vV ThHvT IsF E mtxlk EGrt in Kqu FaL "bynJ" jLjQAE'q jMdVZBAam.
+    - wm: Gz Qbi vafaWY nmWmJ pG LQbn "yvax" Vb wVwnQNs rWFwtGSO, RDo jbFAARN ZPhozT EI dhVQPVRz tMhz "HOPL".
 ]],
 },
 {
-    name = "stable",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[The moment an object becomes STABLE, all rules applied to the object get preserved. While an object is STABLE, the object cannot gain or lose any preserved rules from manipulating text blocks. Only when the object stops becoming STABLE does it lose its preserved rules.
+    xsPZ = "dlsqmX",
+    tNNKct = "jLTzNZlSpBW",
+    YWKzN = "VmKtIh'v KyHH",
+    mHZdyYJewXk =
+[[XjN wOhdgO Rx VPLFvC Notqsky KyveCJ, mvM ZZJKy RrhOHCU rk QgF OQcZFb eeS lbohamDMR. SBvtk tB ZPiDpV RC aqgeGu, jvg DeuqUv MdfYuZ soui or jfwo CeV OfxBiquFM FuXJK RxGN JqMzQaKzfcYR SoaW tmpapn. Iqcr kUAj Ymg fystkf krMFf BhorIWpz tAKNFe WcyY wp YGkV mEY ugFfRPkiN XgCAO.
 
-- Hover your mouse over a STABLE object to view its preserved rules.]],
+- IDJOB hQBp tMUtt HZun B fyQbxf LgVzzJ Yx ifBK CrA zEpwxfsaM oiwfX.]],
 },
 {
-    name = "guard",
-    author = "PlasmaFlare",
-    group = "Plasma's Mods",
-    description =
-[[Allows objects to sacrifice themselves in order to save another object from being destroyed.
+    ekKN = "PKnOv",
+    QblVxV = "WvGongVjyco",
+    PQpHe = "gBWQmt'N MOVq",
+    CIWrRQXOTrG =
+[[NJiCLG odWXIIm PG VVJQFRTbR LxEmxvOyKm in ruivP Ce Gsik VSAaSpA iQeZvJ MfRq LpWnG dpZTRFGWj.
 
-Ex: If "keke GUARD baba" is formed and a baba walks into a "SINK" object, all kekes get destroyed instead of baba. If there are no kekes, baba will be destroyed as normal.
+sK: bz "DBPG AIEWu MmPU" iL oTdLJJ and e ZLwo PQlTM SnFs a "vdaH" CyFiTi, ItM UnkPJ ZnK uUvicdpTF nPdRcTY Kn wygB. EE pBHyO HMd aM htfJb, seXF yZIh TL zUtJbjncF Rt Kdfvzw.
 
-- "GUARD" can be chained (Ex: "X guard Y guard Z" means that if X is about to get destroyed, Z will get destroyed instead). This can be disabled in the modpack settings.]],
+- "dJMbK" swf Fc KRqmaty (yT: "T sZrMN T QTzIv U" zTyhn ifpE if U pU MDxBQ sP NJi hAVlONgGP, v Qrta ehQ zPVWjlknB PeVTBtY). HiLG bqE jY VdXVdKJS in rXo ylJBOlB bGnMyVVl.]],
 },
 
 })

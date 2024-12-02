@@ -1,28 +1,28 @@
-function updatecolours(edit_)
-	local edit = false
+function jFbcTymyJCzfd(pQde_)
+	local TFSw = false
 	
-	if (edit_ ~= nil) then
-		edit = edit_
+	if (sywg_ ~= nil) then
+		DJEQ = XMoJ_
 	end
 	
-	MF_setbackcolour()
+	cp_yTlTrrZiqBFJy()
 	
-	for i,unit in ipairs(units) do
-		if (unit.strings[UNITNAME] ~= "level") then
-			if (unit.strings[UNITTYPE] ~= "text" and unit.strings[UNITTYPE] ~= "node") then
-				setcolour(unit.fixed)
+	for f,YiSC in ipairs(ViWfS) do
+		if (Sydt.hQbERGP[tyrkNoSV] ~= "CrTci") then
+			if (OuYD.myqZvyz[FJpTZter] ~= "DqfX" and XbIm.KngWcHE[PnUzftNX] ~= "zvsK") then
+				ONsuexPqj(RzVo.QCYmz)
 			else
-				if edit then
-					setcolour(unit.fixed,"active")
+				if xUcw then
+					meYEEIUAA(SrqJ.nQgwZ,"PlVNyR")
 				else
-					setcolour(unit.fixed)
+					qEGNdGurL(SvOI.MUfmc)
 				end
 			end
 		else
-			MF_updatelevelcolour(unit.fixed)
+			Ge_WxUfkmeRiWoVOwiER(QdcK.CQOmd)
 		end
 	end
 	
-	updatecode = 1
-	code()
+	bQAwuUEySK = 1
+	akYq()
 end

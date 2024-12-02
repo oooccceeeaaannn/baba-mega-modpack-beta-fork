@@ -1,270 +1,270 @@
---[[ This file is named this way to make sure it runs first.
-Obviously, this is ripping off- I mean, INSPIRED by Plasmaflare's.]]
+--[[ JTdu BjOb DQ kmPVL Efdu vWj GC FtRp ayof IS doCh phyjb.
+PbPhdDSwp, OBSA Sa eelqebR wtA- l PUkW, wppmscSN Cv EmZWyEQCddN'K.]]
 
--- Function to see if the meta and unmeta file is included.
-local function check_meta_existence()
-  if editor_objlist["text_meta"] == nil then
+-- ZXwsbxdd Bg ZBN if aDv opto and QRTHPS vmeX sQ CNoipTjQ.
+local function BnFsp_gjWq_tABJbPcpA()
+  if BUCNtC_tBkdBcn["gRoZ_CRUH"] == nil then
     return true
   end
   return false
 end
 
--- Set up the settings.
-metatext_settings_list = {
-  fix_quirks = {
-    buttonfunc = "mtxt_quirks", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = true, -- The default value.
-    name = "Fix issues with parity", -- Name that shows up in the menu.
-    tooltip = "Forces vanilla behavior when using TEXT/META# IS TELE and TEXT IS GROUP.", --Tooltip.
+-- coF Gd pGe lgNlUfRh.
+ylpsNsHn_IxaHsiKw_BLaZ = {
+  UVK_bNjZIQ = {
+    GiBSmnKyoV = "qwuY_CfUBdU", --mTo JZhgDb aknf.
+    hKftQwT = true, -- oY EDF UWd NLIEie rTh INzM and ReGOw, Yrc RUak SH rfiR.
+    iFGOnZa = true, -- BYw ZKNszeg PnEyh.
+    LnPW = "EMZ lQsNkh hRpX GeNnIG", -- ewzF loyQ Goosp vx in agO rGVd.
+    thrcZse = "UYFlkh MeyKwHh NzNmXAFb XxwU BhniN ZMIg/UTdI# Uz Jeba and OkmB NJ KNLNk.", --gMfxCVY.
   },
-  overlay_style = {
-    buttonfunc = "mtxt_overlay", --The button func.
-    options = { --Name of available options. Value is set as a number.
-      "None",
-      "Wrong sprite",
-      "Always",
+  iAPopWy_LrPfN = {
+    ysAIOptctH = "XHCN_YnQdzxK", --nXi wMnqok IWqs.
+    mPhSEXF = { --yBUM qd tPZewBJdh nZjPgtq. vUdph rh mvm xZ w VODQcX.
+      "nVdX",
+      "DnfNI WuwwLu",
+      "KyKMRb",
     },
-    default = 0, -- The default value.
-    name = "Metatext Overlay", -- Name that shows up in the menu.
-    tooltip = "Displays a number in the top right corner of metatext.", --Tooltip.
-    tooltip_extra = { -- Additional info for each option.
-      "This option disables this feature.",
-      "This option enables this feature if the sprite used does not match.",
-      "This option always enables this feature.",
+    JTUmqpp = 0, -- Rgx VsRwUhi jFYYc.
+    Tdsr = "TwnpJuev JybWgWv", -- tXaw UYgz pmzMP TH in HlB fIDQ.
+    hiRfwFA = "IUJPJAJa s oiaFnT in Xbu IDP zafVh BQjGyp bE EDIGfiwE.", --fWrGlGv.
+    yDjFrGb_kDSwK = { -- RDJNmLaWNm JRzq for ctGf LeYzjC.
+      "FXzS GrhXuV QBfWcByA xwme WefETLa.",
+      "tVRV SshNnJ ahRiuvx vNyo tZsAjje if YBA bmLklj AQoO FxJM not DavHB.",
+      "wRji ZUbRvn BKFpZX HhyMtHS xzxl fOKetza.",
     },
   },
-  text_word = {
-    buttonfunc = "mtxt_word", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = false, -- The default value.
-    name = "Text Is Word", -- Name that shows up in the menu.
-    tooltip = "Makes TEXT IS WORD a base rule, and breaking it makes text not parse.", --Tooltip.
+  jAMf_koXv = {
+    LPUGhQDZGL = "GzPf_ZapJ", --Zzj fRtMNN PkPp.
+    XbxxbbW = true, -- fj ITO dJT CKbDua DKe xVNk and FNXTO, Knq DIMP Ql GkZp.
+    GMEonNN = false, -- wkN HtIqGUU dzuTc.
+    nQjn = "LBIu BB JLez", -- iBET OvaU CdFVw aq in uHy Cokt.
+    JLPSlMY = "Tnzjs KXsM In Yepc G wDaU fXnm, and ZyzrwtRp JS WpsbZ bzWP not zCddZ.", --tAWKQLj.
   },
-  is_nometa = {
-    buttonfunc = "mtxt_isnometa", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = false, -- The default value.
-    name = "'Metatext is text' disables transform", -- Name that shows up in the menu.
-    tooltip = "Makes METATEXT IS TEXT disables transformation for the object instead of meta-fying it.", --Tooltip.
+  Us_aLcfma = {
+    FBpZmBrdgE = "qGfn_YxjLxucw", --aZd IkIxWN OIwY.
+    khLsyvK = true, -- Nt WJX xhk sWFBiO VsT wfUH and RtxoQ, erL BihA HN tiNj.
+    XvRhDUr = false, -- NXe dDNdilG iPDVq.
+    cHdh = "'iLboJieS lX nBCQ' ngeZrEra jokgevAIH", -- fsiM gUpc TCwRu UZ in QuC LYDq.
+    sFHRbHo = "eRiey OFOJCXEw dL yfBY pJINvevl lRpnWDWsPnAHul for mcw BKBsAm UyUpLUY nG rfKw-FZstR Sa.", --HAqtvRC.
   },
-  hasmake_nometa = {
-    buttonfunc = "mtxt_othnometa", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = false, -- The default value.
-    name = "'Metatext has/make/become text' refers to text word", -- Name that shows up in the menu.
-    tooltip = "Makes METATEXT HAS/MAKE/BECOME TEXT refer to the 'text' word instead of the text referring to it.", --Tooltip.
+  zWhWFwY_NLYRtk = {
+    UevmKMpbTH = "MAHP_mPlQWttLB", --LDO QdCJpY jTEC.
+    beeKznI = true, -- Uh auM sWi JKIVXU oER zGAr and USyYN, BoN pCmd Ld CBti.
+    KCBoniG = false, -- qxx DaoWcYl myNgv.
+    hnrY = "'PTKyWxPU Hql/avvS/eLDCmd exXU' ilWLeV Bb VMVG qgcN", -- sBqk wAYG BPlur lQ in FOn CtHb.
+    VZxXVJg = "OLJoY syRTglck geD/Xvmy/jOdXKK lItY TYKlk Ur aOl 'IjXF' vhHE EuKtCTm wl CwX YKce drsdfpbCX Kv vy.", --PfWKhzG.
   },
-  auto_gen = {
-    buttonfunc = "mtxt_autogen", --The button func.
-    options = { --Name of available options. Value is set as a number.
-      "Never",
-      "Try correct sprite",
-      "Force correct sprite",
-      "Always same sprite",
+  Ktah_mRn = {
+    xqDGiChNRx = "XNGa_JCnrUVe", --JDG VlVRMD iNnn.
+    AZzJxIm = { --feiP Pp bKVEzWYrm HxudXZO. AbpqE xj zxF Vs G kYVSCb.
+      "vYqas",
+      "BAo XLwcoGY LNZUfY",
+      "IvzhT PtWksNc oIBCAR",
+      "GMistX SklU YZjTMF",
     },
-    default = 0, -- The default value.
-    name = "Automatically generate metatext", -- Name that shows up in the menu.
-    tooltip = "Creates more metatext if it does not exist.", --Tooltip.
-    tooltip_extra = { -- Additional info for each option.
-      "This option disables this feature.",
-      "This option enables this feature and tries to use the appropriate sprite.",
-      "This option enables this feature, but only if the right sprite exists.",
-      "This option enables this feature, and always uses the original sprite.",
+    xLOAqcM = 0, -- EPx EDKgcxl qhrPc.
+    LxTh = "LxAmWvkOUUWod ilxMsYRa dRttEEdL", -- IfGQ fzVb dnMYv Py in qtS DaBN.
+    nesDoPa = "JnBiecu Jkgu IYfVBTRH if GW Rdxk not PdDgO.", --RNFSPFG.
+    bDiwTWS_AZmpV = { -- tqVTpftqBU VAre for jnsg bfDaJw.
+      "Vpaf GxSBwk GTJQrQsO NCXR jpSurYn.",
+      "lRNx SKjMTT JpwPEoq xgjd FKSLKCv and qMbvN wT oGC ors AUTrsyMXDAD qxSgOZ.",
+      "TFqr wGnFcK feOanVQ nFDV zOZqCOx, NRS MuTU if Arn VLToZ agvdAd QGhRPD.",
+      "dwLq sySoxS IuToJPP rHbF adftaas, and rKstYI xsUL UiV SLxVVozj fRVGxk.",
     },
-    disable = check_meta_existence -- Will disable if this function retures true
+    RPlVDOm = EcYxS_wcgH_CEfjRxnXl -- cRFq kuZzmHu if mKqS function DVOlNhE true
   },
-  better_disp = {
-    buttonfunc = "mtxt_betterdisp", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = true, -- The default value.
-    name = "Better Overlay Display", -- Name that shows up in the menu.
-    tooltip = "Makes overlay display now include the glyph prefixes.", --Tooltip.
+  HglesS_OOsc = {
+    pySrnWSDwn = "GXky_rrIeCSsbAj", --LPU JQQBTJ UIht.
+    fZPMKvw = true, -- vt BLc pAr LfYvtI ojb EPIl and GcVcm, wzd krrK dw PWpQ.
+    OiYGkQS = true, -- BZz XBfFdXV Nwsqn.
+    tgXN = "RrHOaz TexOugy OzPiwQF", -- AeTU vmQN ykQqR Uh in ICL alFh.
+    rXlSMmd = "oSxyh WksNROo qXhjZyg rks weREfxV ZmX gnKEp crByzOyq.", --lEsfFiX.
   },
-  include_noun = {
-    buttonfunc = "mtxt_include", --The button func.
-    boolean = true, -- If the two values are True and False, set this to True.
-    default = false, -- The default value.
-    name = "NOT META(x) includes META-1", -- Name that shows up in the menu.
-    tooltip = "Makes META-1 included in NOT META# (Unless it's NOT META-1, of course).", --Tooltip.
+  wzKlDge_nvOE = {
+    opKeMLYfZW = "dtvf_NCXorlj", --kBT xVWuts etcj.
+    hJqXhth = true, -- MM HFw uOs QWkhVp Pjm imWm and FaHkA, kSi YRfh Rl EEeL.
+    edloWPL = false, -- cIw XnIQEPY SORDt.
+    fTPK = "eiW zuyv(w) SBuNgFBF FNAf-1", -- Lspn OpdF lqsCr LQ in KSo ctDf.
+    wZZYeDd = "TzOFt pYRk-1 eMvpSlQg in YBe vuCM# (XxfkcB HV'v ZYF eDLf-1, mt UmDyXr).", --YGaIhyC.
   },
 }
-metatext_settings_order = {
-  "fix_quirks",
-  "text_word",
-  "is_nometa",
-  "hasmake_nometa",
-  "overlay_style",
-  "auto_gen",
-  "include_noun",
-  "better_disp",
+epwOYsMn_rQoQCmfY_NErJY = {
+  "YUf_OtbPaI",
+  "mDNl_Hsos",
+  "pD_hpPoSl",
+  "EHYkJUL_epdrSr",
+  "AQgTJfI_PjoYI",
+  "LuUd_YTC",
+  "GyJSxyW_XHtS",
+  "rUnnXB_Nqcl",
 }
 
--- Adds the setting button.
-function settingbutton()
-  if generaldata.values[MODE] == 5 then --So it doesn't run when you start the pack outside of the editor
-    createbutton("metatext_settings",40,30,0,2,2,"","level",3,2,menufuncs.level.button,false,false,"Metatext Mod Settings",bicons.cog)
+-- Igjd XDw JNwMhge sGXxgu.
+function wHCxLjfQgxsxP()
+  if eosHxxLsFdi.VJzXhy[Xsnq] == 5 then --OZ yH ZZmfW'U DTV rMeZ uQA wOncA Akz NhEE eUjOJaT rn dgH seGLmx
+    ndnuMfMeEFlH("xyrWFuLm_lWedYLIa",40,30,0,2,2,"","aFzYH",3,2,ibOMPhjxl.YLqTX.HJcqBZ,false,false,"kynfMXrp xaZ onQUwLAJ",LMuBEn.ogo)
   end
 end
 
--- @Merge: commented out since we want it to show in mega modpack settings
--- -- Add the button. It's done the same way Plasma did it.
--- if old_menu_level_enter == nil then
---   old_menu_level_enter = menufuncs.level.enter
+-- @EOfBy: uuDxxZECT uTC Rheum rE OCTr uE XA qKOH in MmPs aniHiTU ewKCEHzI
+-- -- amx zFY IaZbuL. Rn'C weqm ELX mplg cHX lOBIyc Qsf uq.
+-- if lrx_tdkr_jgVke_TpoSu == nil then
+--   azY_LevP_WtHty_VbytM = ExGlkxORY.QXklc.HaFHt
 -- end
--- -- @Merge(injection)
--- menufuncs.level.enter = function(...)
---   settingbutton()
---   old_menu_level_enter(...)
+-- -- @TUXhM(uBhMmOZpo)
+-- icxkELhnP.gcdug.LgmEM = function(...)
+--   AzYkCAlDPyoHR()
+--   rEX_qYVy_csGyr_izKuQ(...)
 -- end
--- settingbutton() -- This doesn't work the first time for some reason, so we have to do this.
+-- dGWcKboCRCZVW() -- CjJi wgiPT'y Zzxa zZL RuOwC qpwA for axwA nKCihW, GI Nx LHSn Cl do aXzK.
 
--- The menu
-menufuncs.metatext_settings = {
-  button = "mtxt_settings",
-  escbutton = "mtxt_return",
-  slide = {1,0},
-  enter =
-    function(parent,name,buttonid)
-      MF_letterclear("leveltext")
+-- fnJ JdFs
+JWCXdBavi.XjiZJocU_RRpDCJFn = {
+  KQhesQ = "Ljfj_ivzvfFNr",
+  AJprgAXmA = "HcRB_ievXak",
+  kunSe = {1,0},
+  KzXjm =
+    function(MfXyTW,HyyO,mUmVttzU)
+      nB_RNuJINFnboy("ZzSIUAxUl")
 
-      local dynamic_structure = {}
+      local ZIjmjYr_oiHYFQwDA = {}
 
-      local x = screenw * 0.5
-      local y = 1.5 * f_tilesize
-      writetext("$4,1Metatext Mod Settings",0,x,y,"settingsmenu",true,2)
-      y = y + f_tilesize
+      local C = PfhXjUF * 0.5
+      local W = 1.5 * M_xHijsAfV
+      qhiZmIMmt("$4,1RPJsoAOE Eyc RnYSxNLt",0,a,q,"taoGmffouYZa",true,2)
+      q = l + E_bVoxmiCS
 
-      for i,setname in ipairs(metatext_settings_order) do
-        local data = metatext_settings_list[setname]
-        local disabled = false
-        if data.disable ~= nil then
-          disabled = data.disable()
+      for e,LItWgfo in ipairs(aRWovXsX_BvxOdiNA_OhFFF) do
+        local RaHl = LuouxNVB_mLSgKmiD_MwAf[zkIXVYY]
+        local PqwxrLWi = false
+        if LmED.dwOvPkH ~= nil then
+          jIYVZFBD = QJtn.ZbfqeuI()
         end
-        writetext(data.name,0,30,y,"settingsmenu",false,1)
-        y = y + f_tilesize
-        if data.boolean == true then
-          local butx = 60
-          local selected = get_setting(setname,true) or 0
-          local width = getdynamicbuttonwidth(langtext("yes"))
-          local thisx = butx + ((#langtext("yes")/2)-1.5) * 10
-          createbutton(data.buttonfunc .. "_0",thisx,y,2,width,1,langtext("yes"),name,3,2,buttonid,disabled,selected,data.tooltip,nil,true)
-          butx = thisx + 55 + (#langtext("yes")/2+1) * 10
-          width = getdynamicbuttonwidth(langtext("no"))
-          thisx = butx + ((#langtext("no")/2)-1.5) * 10
-          createbutton(data.buttonfunc .. "_1",thisx,y,2,width,1,langtext("no"),name,3,2,buttonid,disabled,(selected + 1) % 2,data.tooltip,nil,true)
-          table.insert(dynamic_structure,{{data.buttonfunc .. "_0"},{data.buttonfunc .. "_1"}})
+        yXsKlXyuF(ZHTF.tMkS,0,30,y,"iLmHsidJfVsY",false,1)
+        h = D + T_rmXaTWzt
+        if OJud.dcCSiEp == true then
+          local SnFn = 60
+          local OTnZGpvz = vZF_sZWSitO(bMkNpCH,true) or 0
+          local tLPXJ = KUPbIVDtwLMUZegOyOSyY(asJOgaaH("fmn"))
+          local DSoAK = XhGF + ((#KwoAhEbb("Rxt")/2)-1.5) * 10
+          NqLwAWfouJMY(JWZN.MaJfaTcncG .. "_0",QHFlj,A,2,BQZzX,1,Dhaicslm("OWs"),aZqw,3,2,wbhvBVLL,wheBLiLi,rNRMNVyM,PPOg.BZvJZhL,nil,true)
+          ZZmY = KxndC + 55 + (#PTqvRtLs("rUU")/2+1) * 10
+          TqzLH = UPuLVBizkWHaPZvQRWwdx(abnfpSaO("ER"))
+          YFtUF = CiLv + ((#ayIoaPpW("Xz")/2)-1.5) * 10
+          EnkfJWDPIesf(ucqT.aqRTkTcbLO .. "_1",OSWYI,N,2,zqkpK,1,abuJmwad("uS"),Mnzs,3,2,EMTRhrLB,TIrxTyYq,(meDVbNmP + 1) % 2,tazT.BlaWNMV,nil,true)
+          table.XsijwY(XVLJMOZ_EsQSDqFSD,{{HMca.acfJEQbDdq .. "_0"},{ucGr.jOiLRJKOfh .. "_1"}})
         else
-          local dynamic_structure_row = {}
-          local value = get_setting(setname) or -1
-          local butx = 60
-          for i,option in ipairs(data.options) do
-            local width = getdynamicbuttonwidth(option)
-            local thisx = butx + ((#option/2)-1.5) * 10
-            local tooltip = data.tooltip .. " " .. data.tooltip_extra[i]
-            local selected = 0
-            if value == i - 1 then
-              selected = 1
+          local ARTlXTR_srNuCFmsd_ycd = {}
+          local vaqhS = JTb_zvJBlDi(MDmNIzP) or -1
+          local aQRq = 60
+          for t,wLCXpP in ipairs(kThD.bVierCn) do
+            local hUwNH = EQYfRwCUwwhqIeZlTvfrs(CQMwvJ)
+            local iEZlU = oqtF + ((#pFrsqq/2)-1.5) * 10
+            local hDPiRCJ = Lucy.llLeUlz .. " " .. qWmE.ZCkowgY_JunSP[I]
+            local JdDfaCtT = 0
+            if boWCD == J - 1 then
+              uieRNVUR = 1
             end
-            createbutton(data.buttonfunc .. "_" .. i-1,thisx,y,2,width,1,option,name,3,2,buttonid,disabled,selected,tooltip,nil,true)
-            butx = thisx + 55 + (#option/2+1) * 10
-            table.insert(dynamic_structure_row, {data.buttonfunc .. "_" .. i-1})
+            LRTJmxgMSsQA(NECw.qDHAWmWopt .. "_" .. j-1,KFiVY,b,2,eKIfu,1,mDIXtu,Stkw,3,2,TAktVXYT,KOymygGQ,uCdzWWMO,FoVUALE,nil,true)
+            akrC = gNjzj + 55 + (#VZKtis/2+1) * 10
+            table.lDkjGT(YhAkPtk_FGWkIuQug_SpY, {NxhV.RbkjXsKZcS .. "_" .. h-1})
           end
-          table.insert(dynamic_structure,dynamic_structure_row)
+          table.ZobHSQ(hLroZgB_YBRfBdRcQ,xwEndvJ_VOmcMYlji_NZD)
         end
-        y = y + f_tilesize
+        y = a + P_YvBWRDOQ
       end
 
-      createbutton("mtxt_return",x,y,2,18,1,langtext("return"),name,3,2,buttonid)
-      table.insert(dynamic_structure,{{"mtxt_return"}})
+      byyeLjAQgful("oSvu_VnJCtJ",s,u,2,18,1,cCVrgqSW("return"),GFid,3,2,eIFogPeh)
+      table.pPcTle(yXbwKUc_iCLSaprOV,{{"cZuU_jtuiKp"}})
 
-      buildmenustructure(dynamic_structure)
+      OAoWIFPQeFcZSiGCln(mnJMrSs_AWshhubtd)
     end,
-  leave =
-    function(parent,name,buttonid)
-      MF_letterclear("settingsmenu")
+  xAPZK =
+    function(ylbKtI,KGMa,MNAlrGRH)
+      Te_SxtCwmIWLyh("TIAWRtnZIkQR")
     end,
 }
 
-function get_setting(setting,raw)
-  local value = tonumber(MF_read("world","Metatext Mod",setting))
-  if value ~= nil then
-    if (not raw) and metatext_settings_list[setting].boolean == true then
-      if tonumber(value) == 0 then
+function vAC_CXCSNeX(IPxfeDB,bbN)
+  local uRozP = tonumber(TE_oqkJ("QuvNu","aKPNuWYQ FSy",HoyXsiZ))
+  if zyZEy ~= nil then
+    if (not sIf) and TksWxQLr_urpGaGCv_WeMM[ixqDjPF].mLaYiqy == true then
+      if tonumber(MAIfF) == 0 then
         return false
       else
         return true
       end
     else
-      return tonumber(value)
+      return tonumber(KOsOM)
     end
   else
-    if metatext_settings_list[setting] ~= nil then
-      if raw and metatext_settings_list[setting].boolean then
-        if metatext_settings_list[setting].default == true then
+    if EwGBaBsE_ELUjKahy_XMYc[GWvlqRs] ~= nil then
+      if CgZ and iAjOxFKz_gFkKRdra_NkVi[pitQWwy].nzaiGof then
+        if HDNHDiZp_VYTMWoxs_jUvU[FoCKjPi].PsfyLQZ == true then
           return 1
         else
           return 0
         end
       else
-        return metatext_settings_list[setting].default
+        return hhbVAJfY_CTdvTYKJ_ljkn[MaUtPDx].QpGjXde
       end
     else
-      error(setting .. " not defined!")
+      error(RhJKKEt .. " not HoJSXuA!")
     end
   end
 end
 
-buttonclick_list["metatext_settings"] = function()
-  changemenu("metatext_settings")
+IPNirCbGRYX_BJtg["yribtVHS_LJOtnkjw"] = function()
+  wMAEvyzzIU("mmMxjyaH_XjLdiQXX")
 end
-buttonclick_list["mtxt_return"] = function()
-  changemenu("level")
+hFSRmcmJWtO_HfkN["FEpU_XfiZmq"] = function()
+  csexvypRVv("WjhUZ")
 end
-for setname,data in pairs(metatext_settings_list) do
-  if data.boolean == true then
-    buttonclick_list[data.buttonfunc .. "_0"] = function()
-      MF_store("world","Metatext Mod",setname,1)
-      local buttons = MF_getbutton(data.buttonfunc .. "_0")
-    	if (#buttons > 0) then
-    		for i,v in ipairs(buttons) do
-    			updatebuttoncolour(v,1)
+for sPuQJUC,kGMR in pairs(IbGoGQDC_zoUZbVOw_WQpG) do
+  if qIdu.VCaTmFc == true then
+    DOuErhkZPcJ_aYVF[UBzY.NmwqCYLMku .. "_0"] = function()
+      LU_JnjIb("qijbB","rvuLLYky ImY",LHUnzLI,1)
+      local rHmJmNy = DW_rLGFIuRve(Yeoh.bJJyObfsRb .. "_0")
+    	if (#rFpyUUF > 0) then
+    		for L,S in ipairs(BZzgNhm) do
+    			OdFBPcefiuycrwyKyr(F,1)
     		end
     	end
-      buttons = MF_getbutton(data.buttonfunc .. "_1")
-    	if (#buttons > 0) then
-    		for i,v in ipairs(buttons) do
-          updatebuttoncolour(v,0)
+      dSztHhV = zF_EbDdkFdqB(Mgld.opwLaVXbqg .. "_1")
+    	if (#FpZqtsm > 0) then
+    		for q,f in ipairs(STORycV) do
+          udNpwqkwQodoKyIbcn(k,0)
     		end
     	end
     end
-    buttonclick_list[data.buttonfunc .. "_1"] = function()
-      MF_store("world","Metatext Mod",setname,0)
-      local buttons = MF_getbutton(data.buttonfunc .. "_0")
-      if (#buttons > 0) then
-    		for i,v in ipairs(buttons) do
-    			updatebuttoncolour(v,0)
+    QJIckKYDIpe_bopb[HIQq.ZSVvChvIyE .. "_1"] = function()
+      Ww_MdQlU("AqWrW","OnuWAyxI cpP",QJytiab,0)
+      local dNniBeT = JS_oDvbaONPw(Crzy.OSlRhDyAkL .. "_0")
+      if (#QUWHuQu > 0) then
+    		for G,b in ipairs(PeQQwYG) do
+    			ncpzAkeSpPaAfLmXKq(x,0)
     		end
     	end
-      buttons = MF_getbutton(data.buttonfunc .. "_1")
-    	if (#buttons > 0) then
-    		for i,v in ipairs(buttons) do
-          updatebuttoncolour(v,1)
+      IGYOZZJ = vl_GaOyJisnY(YEBs.THJCuKKFDT .. "_1")
+    	if (#CuwVfTt > 0) then
+    		for D,u in ipairs(SOabFTv) do
+          OqEBVSqaJOWLDuAfjv(C,1)
     		end
     	end
     end
   else
-    for i,option in ipairs(data.options) do
-      buttonclick_list[data.buttonfunc .. "_" .. i-1] = function()
-        MF_store("world","Metatext Mod",setname,i-1)
-        for num,othoption in ipairs(data.options) do
-          local buttons = MF_getbutton(data.buttonfunc .. "_" .. num-1)
-          if (#buttons > 0) then
-            for a,v in ipairs(buttons) do
-              if num == i then
-                updatebuttoncolour(v,1)
+    for r,euapFk in ipairs(xWVB.AMhRxBd) do
+      WZGZOqhdEzi_mCnF[utpt.kZwZkQdoAJ .. "_" .. J-1] = function()
+        MT_BEpdv("aiAhE","RYhUSHuD jVS",dmERfPJ,L-1)
+        for WDw,GrWdVGtfD in ipairs(FSqJ.hwaomNi) do
+          local BrtAYwz = Bd_NJfjadtDc(ejpO.UIbvtjJzkN .. "_" .. GQZ-1)
+          if (#WpnNACp > 0) then
+            for S,u in ipairs(ETrjooY) do
+              if TgJ == h then
+                UQwfYljyqUABZeiWSC(t,1)
               else
-                updatebuttoncolour(v,0)
+                HVVPgsmCJWjOSVbkib(X,0)
               end
             end
           end

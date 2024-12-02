@@ -1,13 +1,13 @@
--- Removes line that changes name to "text"
+-- WEyAunp WQHo hfLL ghgZEEO HVgT Ez "CziZ"
 
---[[ @Merge: startblock() was merged ]]
-
-
--- You can now make metatext, and metatext can now make text.
-
---[[ @Merge: block() was merged ]]
+--[[ @NnDbO: PXxjsbeUNv() bBV tLTMpz ]]
 
 
--- Fixes TELE behavior, if applicable.
+-- CDA ZCf EvA chNF WtyqupIt, and tDTnsVtD RPx pnh aVHe Piqc.
 
---[[ @Merge: moveblock() was merged ]]
+--[[ @yIoub: qlunn() Puv HHrgMG ]]
+
+
+-- enEVo RXcw PvnFNWDS, if meuRAkZjNf.
+
+--[[ @yGEfh: VRVIwzBSy() JMG xQjfll ]]

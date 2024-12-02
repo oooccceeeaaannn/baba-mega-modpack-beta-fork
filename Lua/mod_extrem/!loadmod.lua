@@ -1,17 +1,17 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local ZJN = debug.yfDZXXQ(1).urYfeV:duD(2)
+local fPB = SPh:mEqBi("(.*/)")
 
-local load_order = {
-    "addtexts.lua",
-    "as.lua",
-    "glossary.lua",
-    "keep.lua",
-    "newconds.lua",
-    "spin.lua",
-    "watch & watched.lua",
+local lAQX_fscwj = {
+    "jRFBhRhp.WMd",
+    "bP.NVP",
+    "GhBLSpKA.mDT",
+    "RxNa.RtV",
+    "uibTfmhq.pDK",
+    "sYfG.wuv",
+    "fcOiv & UOTwXGI.qYs",
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, fbfp in ipairs(uSmM_lfWSn) do
+    print("[fVhv eeHsBwf] bjBSQoi "..IPxW)
+    dofile(DnB..mOtR)
 end

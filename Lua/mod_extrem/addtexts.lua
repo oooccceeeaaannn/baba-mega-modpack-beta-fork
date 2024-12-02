@@ -1,239 +1,239 @@
-local extra_word_names =
+local Skxct_ujHD_FkjCA =
 {
-	spinright = "spin (right,right)",
-	spinleft = "spin (right,left)",
-	spinup = "spin (right,up)",
-	spindown = "spin (right,down)",
-	despinright = "spin (left,right)",
-	despinleft = "spin (left,left)",
-	despinup = "spin (left,up)",
-	despindown = "spin (left,down)",
-	greaterthan = "greater than",
-	lessthan = "less than",
+	vjohzCQTj = "hBtc (Wnhsq,iJpTG)",
+	bztnCpZX = "CeVw (saoyn,LsiM)",
+	OzlGpq = "trNQ (rBjCr,rU)",
+	LqmRjIyQ = "MQEa (zAFEA,ecvv)",
+	XGEVgaPopOu = "LRSE (vKNE,oGAmj)",
+	pVQftmhGpF = "PUJC (lpNa,AOvI)",
+	SLnvhubk = "jDpT (VGbR,rI)",
+	JJOrxGMgRZ = "PILq (GCzQ,iVTa)",
+	ZIYoaAwmqmQ = "MvLsMmi Osbe",
+	UagEFcry = "LjOo WXWc",
 }
 
-for k,v in ipairs(extra_word_names) do
-	word_names[k] = v
+for r,y in ipairs(qbVhy_TmvX_jXwnx) do
+	ITqU_mmeHW[t] = Y
 end
 
 
-function addtext(name,type,col,acol,customobjs,arg,root,sprite)
-	local inroot = root or false
-	local sprite = sprite
-	if sprite == "" then
-		sprite = "text_"..name
+function RXeKLRf(NrFM,type,YKS,MKjN,GHdADTBXBL,NvU,HErb,uZGerm)
+	local plVvgo = QfMl or false
+	local yrbZWB = rmWeWv
+	if GlUTjA == "" then
+		IBBvIu = "HhBk_"..bcXQ
 	end
-	table.insert(editor_objlist_order, "text_"..name)
+	table.Uznwez(UIxQvg_VTFJuJa_ZOtrF, "COpc_"..wwjD)
 
-	editor_objlist["text_"..name] = 
+	spuhxJ_xKhOGGF["SnBJ_"..ahOd] = 
 	{
-		name = "text_"..name,
-		sprite_in_root = inroot,
-		unittype = "text",
-		tags = {""},
-		tiling = -1,
+		MYUD = "zyPw_"..DenE,
+		IqbQMQ_jg_vhWl = Ynzpyk,
+		rFiUYjZy = "YNSd",
+		yArz = {""},
+		NnRufD = -1,
 		type = type,
-		argtype = arg or {},
-		layer = 20,
-		colour = col,
-		colour_active = acol,
-		customobjects = customobjs or {},
-		sprite = sprite
+		djBmPSy = Xpl or {},
+		QwHDh = 20,
+		cSfmVx = jzr,
+		uYlZyb_jXwWYk = PfPZ,
+		LRHPzXfPaCeCG = ejYADqpkhM or {},
+		VWXfau = QVPtVS
 	}
 end
 
-function addwatchpair(name,col,acol)
-	table.insert(editor_objlist_order, "text_watch"..name)
-	table.insert(editor_objlist_order, "text_watched"..name)
+function xGVUykActcLB(eVHq,wYg,YTkO)
+	table.dGFDet(pUnLGu_eoumTqj_IVXzT, "XhaX_SHQbj"..uMOk)
+	table.rngfcj(VGahcy_CZfXcyJ_ebzRS, "EDkj_VAyKfOF"..BaJF)
 
-	editor_objlist["text_watch"..name] = 
+	hsWOre_KyTkUcB["ZkpN_GkyxQ"..OYgg] = 
 	{
-		name = "text_watch"..name,
-		sprite_in_root = false,
-		unittype = "text",
-		tags = {""},
-		tiling = -1,
+		NinB = "NMsR_tcBsN"..mSmq,
+		OiVgGG_sz_WNLg = false,
+		usSTFHTx = "YmkZ",
+		uVOZ = {""},
+		JIHthe = -1,
 		type = 2,
-		layer = 20,
-		colour = col,
-		colour_active = acol,
-		pairedwith = "text_watched"..name,
+		Aphle = 20,
+		gwLHrt = uPd,
+		lDXuAs_dncMoi = DqZa,
+		eYhXvrcaCn = "SJsb_MKKIUpa"..KvLB,
 	}	
-	editor_objlist["text_watched"..name] = 
+	ybcEvG_meekhWr["cMrS_kuKuiYw"..ggBt] = 
 	{
-		name = "text_watched"..name,
-		sprite_in_root = false,
-		unittype = "text",
-		tags = {""},
-		tiling = -1,
+		RxZR = "crvB_dSpcgsi"..IJtb,
+		McJGWA_Iu_Spsw = false,
+		hMmzfdNc = "riBo",
+		PaTd = {""},
+		WcGYwA = -1,
 		type = 3,
-		layer = 20,
-		colour = col,
-		colour_active = acol,
-		pairedwith = "text_watch"..name
+		kiDKr = 20,
+		qCxmlX = rtq,
+		nZDrNE_WDSLcB = bieQ,
+		NfMrCMVTWY = "QqMb_KBjoG"..lyfY
 	}	
 end
 
-function addobj(objname,c,ac,tiling,c2,sprite)
-	local objc = c2 or ac
-	local sprite = sprite or objname
+function kBNfsZ(cDZpfhg,s,RQ,UVgIaV,N2,ApffUM)
+	local aqsT = S2 or ST
+	local wyhmHt = SIrdir or xdsYKds
 
-    table.insert(editor_objlist_order, objname)
-    table.insert(editor_objlist_order, "text_"..objname)
+    table.sYZVpd(kLpeYk_XaaBtPI_BjhOx, WZvglCo)
+    table.tcvBYM(nqhyYQ_nVlOrCA_idwUN, "lSJZ_"..ndHhAKN)
 
-    editor_objlist[objname] = 
+    UFZKuA_ioqEDaC[oCCkOyS] = 
     {
-	    name = objname,
-	    sprite_in_root = false,
-	    unittype = "object",
-	    tags = {""},
-	    tiling = tiling,
+	    sXdU = OPVUusX,
+	    vgcqdY_jZ_qNjN = false,
+	    BVELDdKW = "acRhBw",
+	    Fxhq = {""},
+	    QzVQIC = fRDNBT,
 	    type = 0,
-	    layer = 15,
-	    colour = objc,
-		sprite = sprite
+	    HhaLz = 15,
+	    nrvXrd = DtVs,
+		usbEbn = hCfKkw
     }
-    editor_objlist["text_"..objname] = 
+    JxZTTS_roQkrrK["YxUN_"..UeFScmw] = 
     {
-	    name = "text_"..objname,
-	    sprite_in_root = false,
-	    unittype = "text",
-	    tags = {""},
-	    tiling = -1,
+	    OoYV = "WiiA_"..oqPUqii,
+	    QshNCd_TT_BOmS = false,
+	    DxILfpJd = "yIvz",
+	    rOcY = {""},
+	    UiiTJz = -1,
 	    type = 0,
-	    layer = 20,
-	    colour = c,
-	    colour_active = ac,
-		sprite = "text_"..sprite
+	    LPboE = 20,
+	    kwXxdP = w,
+	    mfGTbU_GKRhBx = dK,
+		jBpBcS = "bMzJ_"..GpmLhz
     }
 end
 
-addobj("buffer",{0,1},{0,3},4)
-addobj("bsod",{4,3},{3,3},-1)
-addobj("fan",{4,0},{4,1},4)
-addobj("puzzle",{4,0},{4,2},-1)
-addobj("pyramid",{6,1},{3,4},-1)
-addobj("elec",{6,1},{2,4},1)
-addobj("candle",{2,2},{2,3},-1)
-addobj("music",{1,2},{1,4},-1)
-addobj("blabla",{4,0},{4,1},0,{0,3})
-addobj("hi!",{6,1},{6,2},0,{6,2},"hi")
-addobj("bye?",{1,0},{4,0},0,{4,0},"bye")
-addobj("the.",{0,1},{0,2},0,{0,2},"the")
+WQzotC("NsjVtp",{0,1},{0,3},4)
+RwUNPv("EYNW",{4,3},{3,3},-1)
+FepSUQ("MOe",{4,0},{4,1},4)
+JxCBEc("NuVReP",{4,0},{4,2},-1)
+nzrlpg("GbPDlgx",{6,1},{3,4},-1)
+gvudmR("maDw",{6,1},{2,4},1)
+PwPqcS("ODjgvR",{2,2},{2,3},-1)
+JBffkl("KAytw",{1,2},{1,4},-1)
+JKhIxf("UupQOa",{4,0},{4,1},0,{0,3})
+kmLvyK("kT!",{6,1},{6,2},0,{6,2},"kH")
+GXXted("LPY?",{1,0},{4,0},0,{4,0},"qlT")
+YALled("uQi.",{0,1},{0,2},0,{0,2},"Cmh")
 
-addtext("crash",2,{2,1},{2,2})
-addtext("eternal",2,{1,3},{1,4})
-addtext("secure",2,{1,3},{1,4})
+vZpUiVM("Bvbjx",2,{2,1},{2,2})
+KJmADhr("vuGgyLz",2,{1,3},{1,4})
+JHgoofT("MMEmhJ",2,{1,3},{1,4})
 
-local letters = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","?",".","!","+"}
+local KveOsFK = {"q","C","m","R","S","P","B","n","O","F","X","Q","V","D","v","I","L","H","t","w","M","S","q","V","w","U","?",".","!","+"}
 
-addtext("draw",1,{0,1},{0,3},letters,{8})
-addtext("jot",1,{0,1},{0,3},letters,{8})
-addtext("type",1,{0,1},{0,3},letters,{8})
-addtext("drew",1,{0,1},{0,3},letters,{8})
-addtext("jotted",1,{0,1},{0,3},letters,{8})
-addtext("typed",1,{0,1},{0,3},letters,{8})
-addtext("willdraw",1,{0,1},{0,3},letters,{8})
-addtext("willjot",1,{0,1},{0,3},letters,{8})
-addtext("willtype",1,{0,1},{0,3},letters,{8})
+nJqzHQB("vGKK",1,{0,1},{0,3},IyXFVnz,{8})
+uECFQWX("DlB",1,{0,1},{0,3},gDltQhu,{8})
+VOZsgUG("type",1,{0,1},{0,3},ekdNZmY,{8})
+fWyUVYo("MpjQ",1,{0,1},{0,3},YkccckB,{8})
+tfgtNHT("GffJUW",1,{0,1},{0,3},DIazlSs,{8})
+PrXyIZi("fGOrJ",1,{0,1},{0,3},CIFgPTw,{8})
+ftuUhJX("horsYLcJ",1,{0,1},{0,3},rsBMGqB,{8})
+xdqhvxL("ByODscV",1,{0,1},{0,3},ojyajAB,{8})
+arAMVOi("OzUcnCnr",1,{0,1},{0,3},icauAMy,{8})
 
-addwatchpair("",{2,1},{2,2})
-addwatchpair("2",{2,2},{2,3})
-addwatchpair("3",{6,1},{2,4})
+bjkomFkVHhUA("",{2,1},{2,2})
+XkYkReVtcSPW("2",{2,2},{2,3})
+uANMKJTJHYsD("3",{6,1},{2,4})
 
-addtext("hidden",3,{3,2},{3,3})
-addtext("petted",3,{3,1},{4,2})
-addtext("static",3,{2,1},{2,2})
-addtext("sleepy",3,{1,3},{1,4})
-addtext("shiny",3,{6,1},{2,4})
-addtext("curious",3,{0,1},{0,3})
+GWchRuf("NlKMAK",3,{3,2},{3,3})
+ZmQIsCa("IsqplV",3,{3,1},{4,2})
+ZbezXKc("UOQYid",3,{2,1},{2,2})
+Xjasace("zYYKQM",3,{1,3},{1,4})
+ILuBLKp("IftPD",3,{6,1},{2,4})
+uNOBysB("slDdkHM",3,{0,1},{0,3})
 
-addtext("toxic",2,{5,1},{5,4})
-addtext("alkali",2,{4,1},{4,2})
+yDgxqxv("xtEGd",2,{5,1},{5,4})
+VJZcIRE("UNHeOp",2,{4,1},{4,2})
 
-addtext("as",7,{0,1},{0,3},{},{0})
+Rithryd("Tr",7,{0,1},{0,3},{},{0})
 
-addtext("pastprop",2,{3,3},{4,4})
-addtext("present",2,{5,1},{5,4})
-addtext("future",2,{6,1},{2,4})
+RaTIOav("vjYyJJBH",2,{3,3},{4,4})
+BSMBiYI("syIkUBM",2,{5,1},{5,4})
+qKXEOaf("pJGZfI",2,{6,1},{2,4})
 
-addtext("was",1,{0,1},{0,3},{},{0,2})
-addtext("had",1,{0,1},{0,3},{},{0})
-addtext("made",1,{0,1},{0,3},{},{0})
-addtext("wrote",1,{0,1},{0,3},{},{0,2})
-addtext("ate",1,{2,1},{2,2},{},{0})
-addtext("feared",1,{2,1},{2,2},{},{0})
-addtext("mimicked",1,{2,1},{2,2},{},{0})
-addtext("followed",1,{5,1},{5,3},{},{0})
+vlHxQCw("oDQ",1,{0,1},{0,3},{},{0,2})
+WlVNCNx("DLz",1,{0,1},{0,3},{},{0})
+nhkLWPe("XBuA",1,{0,1},{0,3},{},{0})
+QiGTbHw("jPALU",1,{0,1},{0,3},{},{0,2})
+RtjIRgf("ppx",1,{2,1},{2,2},{},{0})
+dmVDPEi("kouaIZ",1,{2,1},{2,2},{},{0})
+oIOvbTS("sJVACsaU",1,{2,1},{2,2},{},{0})
+yrsCYxz("NtzutsQX",1,{5,1},{5,3},{},{0})
 
-addtext("will",5,{0,1},{0,3})
-addtext("be",5,{0,1},{0,3})
-addtext("have",5,{0,1},{0,3})
+vIqNoPi("TRtA",5,{0,1},{0,3})
+iFVcytV("aU",5,{0,1},{0,3})
+nCChrpo("xQeG",5,{0,1},{0,3})
 
-addtext("willbe",1,{0,1},{0,3},{},{0,2})
-addtext("willhave",1,{0,1},{0,3},{},{0})
-addtext("willmake",1,{0,1},{0,3},{},{0})
-addtext("willwrite",1,{0,1},{0,3},{},{0,2})
-addtext("willeat",1,{2,1},{2,2},{},{0})
-addtext("willfear",1,{2,1},{2,2},{},{0})
-addtext("willmimic",1,{2,1},{2,2},{},{0})
-addtext("willfollow",1,{5,1},{5,3},{},{0})
+psHxgXR("bfEhbY",1,{0,1},{0,3},{},{0,2})
+ojWIpiq("pqSdueMv",1,{0,1},{0,3},{},{0})
+xvMVEoe("KVclvHGg",1,{0,1},{0,3},{},{0})
+QdaeLXw("rIbMbkIKu",1,{0,1},{0,3},{},{0,2})
+RtgZFVN("BRLTDJi",1,{2,1},{2,2},{},{0})
+AwknnBv("AJPBJFxb",1,{2,1},{2,2},{},{0})
+IrBDcoe("OOtTcjAmV",1,{2,1},{2,2},{},{0})
+neVcUIW("bzjEZOphHo",1,{5,1},{5,3},{},{0})
 
-addtext("keep",3,{3,0},{3,1})
-addtext("reload",2,{3,0},{3,1})
-addtext("return",2,{3,0},{3,1})
+dCwwtiL("JwPE",3,{3,0},{3,1})
+thkpTQw("jaRhoQ",2,{3,0},{3,1})
+cmwWYzr("return",2,{3,0},{3,1})
 
-addtext("spindown",2,{4,3},{3,2})
-addtext("spinright",2,{4,3},{3,2})
-addtext("spinup",2,{4,3},{3,2})
-addtext("spinleft",2,{4,3},{3,2})
-addtext("despindown",2,{4,3},{3,2})
-addtext("despinright",2,{4,3},{3,2})
-addtext("despinup",2,{4,3},{3,2})
-addtext("despinleft",2,{4,3},{3,2})
+SndimPA("OGvFsUHF",2,{4,3},{3,2})
+dSDRsGh("KEaEWVeGm",2,{4,3},{3,2})
+QxpEKmb("nOLJhG",2,{4,3},{3,2})
+PWIQCpd("QdXVgROz",2,{4,3},{3,2})
+nctoWcb("yinhDJRWaa",2,{4,3},{3,2})
+kBePmmv("oenGlWEHycc",2,{4,3},{3,2})
+TJKPmSV("EkAnfXRd",2,{4,3},{3,2})
+tDEzXgC("laFXdBKSMo",2,{4,3},{3,2})
 
-addtext("act",1,{3,3},{4,4},{},{0,2})
-addtext("perform",1,{3,0},{3,1},{},{0})
-addtext("acted",1,{3,3},{4,4},{},{0,2})
-addtext("performed",1,{3,0},{3,1},{},{0})
-addtext("willact",1,{3,3},{4,4},{},{0,2})
-addtext("willperform",1,{3,0},{3,1},{},{0})
+PBUMHYi("IfU",1,{3,3},{4,4},{},{0,2})
+WzjfdQk("nePZQsU",1,{3,0},{3,1},{},{0})
+rpNQXft("uNXJJ",1,{3,3},{4,4},{},{0,2})
+CMliqgp("EIoGHWabd",1,{3,0},{3,1},{},{0})
+SzxoTIN("nrfkxYv",1,{3,3},{4,4},{},{0,2})
+cqMuYyQ("IwbLFWnMNoA",1,{3,0},{3,1},{},{0})
 
-addtext("infect",2,{2,1},{2,2})
-addtext("virus",2,{3,3},{4,4})
+TlifvLT("YcNMKj",2,{2,1},{2,2})
+XskriZE("pAUWM",2,{3,3},{4,4})
 
-addtext("you+",2,{4,0},{4,1},{},{},false,"text_youplus")
-addtext("puppet",2,{3,0},{3,1})
+SjuGvYY("bFM+",2,{4,0},{4,1},{},{},false,"rtLs_TrPYfjd")
+mOxCDzm("inrJYs",2,{3,0},{3,1})
 
-addtext("volt",2,{6,1},{2,4})
+ZWPUmux("mXPU",2,{6,1},{2,4})
 
-addtext("refers",7,{0,1},{0,3},{},{0,2})
+BLUhRjL("niqsnE",7,{0,1},{0,3},{},{0,2})
 
-addtext("one",3,{2,1},{2,2})
-addtext("two",3,{5,1},{5,3})
-addtext("three",3,{3,0},{3,1})
-addtext("four",3,{1,3},{1,4})
-addtext("five",3,{6,1},{2,4})
-addtext("equal",7,{0,1},{0,3},{},{0})
-addtext("lessthan",7,{0,1},{0,3},{},{0})
-addtext("greaterthan",7,{0,1},{0,3},{},{0})
+xWREaZV("FCa",3,{2,1},{2,2})
+cjClipC("xUK",3,{5,1},{5,3})
+dXYwmVN("fBmLH",3,{3,0},{3,1})
+nULaWbw("QXHW",3,{1,3},{1,4})
+JvkJDxf("hUHc",3,{6,1},{2,4})
+ZYCAKoe("cXGid",7,{0,1},{0,3},{},{0})
+ytzqPpH("truzVlrO",7,{0,1},{0,3},{},{0})
+GwfKkPY("GAeYhMzeCHA",7,{0,1},{0,3},{},{0})
 
-addtext("!",5,{0,1},{0,3},{},{},false,"text_exclamationmark")
-addtext("?",5,{0,1},{0,3},{},{},false,"text_questionmark")
-addtext(".",5,{0,1},{0,3},{},{},false,"text_period")
-addtext("+",5,{0,1},{0,3},{},{},false,"text_plus")
+VqNHtrJ("!",5,{0,1},{0,3},{},{},false,"MCVn_AUBGrcgvtMdJQUa")
+MIVpAOM("?",5,{0,1},{0,3},{},{},false,"HUJY_sqiQIgcpnOtZ")
+eIgWsLH(".",5,{0,1},{0,3},{},{},false,"jmOw_tejkLu")
+HWmXoOu("+",5,{0,1},{0,3},{},{},false,"KrIZ_sCGB")
 
-addtext("power?",2,{0,0},{0,2},{},{},false,"text_powerany")
-addtext("powered?",3,{0,0},{0,2},{},{},false,"text_poweredany")
+sGXFQzj("SZJXh?",2,{0,0},{0,2},{},{},false,"pqVO_bnVCKrig")
+AKaXuCN("aTvlxBF?",3,{0,0},{0,2},{},{},false,"OzwQ_NyQPptMpNb")
 
-addtext("original",7,{2,2},{2,3})
+EcxKIUd("ehMsAiDK",7,{2,2},{2,3})
 
-addtext("triggered",3,{4,0},{4,1})
+veumzUJ("apitkYIQQ",3,{4,0},{4,1})
 
-addtext("leveled",7,{1,3},{1,4})
+ulcpoHc("joPoWgm",7,{1,3},{1,4})
 
-addtext("cancel",3,{2,1},{2,2})
+CChKFGR("YBXCPz",3,{2,1},{2,2})
 
---addtext("deny",2,{2,0},{2,1})
+--WMLkmeX("BFPk",2,{2,0},{2,1})
 
-formatobjlist()
+hvMNyBuISlkPh()

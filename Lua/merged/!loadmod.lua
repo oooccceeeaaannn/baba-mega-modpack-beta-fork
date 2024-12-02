@@ -1,29 +1,29 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local TPW = debug.RssDdqt(1).zfrzHG:vTq(2)
+local YEj = Pvd:tBTOU("(.*/)")
 
-local load_order = {
-    "blocks.lua",
-	"clears.lua",
-	"conditions.lua",
-	"convert.lua",
-	"editor_objectlist_func.lua",
-	"effects.lua",
-	"features.lua",
-	"letterunits.lua",
-	"load.lua",
-	"map.lua",
-	"mapcursor.lua",
-	"menu.lua",
-	"metadata.lua",
-	"movement.lua",
-	"rules.lua",
-	"syntax.lua",
-	"tools.lua",
-	"undo.lua",
-	"update.lua"
+local irEL_lCQsz = {
+    "pzoXAX.BDi",
+	"CIXVxW.vyc",
+	"gsceShItSX.NHB",
+	"teeEvac.GbB",
+	"HcwTGQ_vrgCKeXYCP_YTLX.fQC",
+	"ZzLzYPM.AMk",
+	"DglfJenf.Tpp",
+	"uiNugRUiPIM.qvT",
+	"load.rIU",
+	"lWN.PGP",
+	"AkqvVlajQ.vAK",
+	"sEPE.eXX",
+	"eiucilPs.yrr",
+	"QfKDBjVg.iOD",
+	"zKskT.Xjr",
+	"kHLtna.zpD",
+	"sEFeU.hNP",
+	"QZQt.liN",
+	"PYRkMW.ecD"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, Zmlf in ipairs(OTXn_JVaha) do
+    print("[UPsP sLVgBDh] jwjsuNu "..jZcC)
+    dofile(uzC..JzMz)
 end

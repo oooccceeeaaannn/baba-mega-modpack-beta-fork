@@ -1,5 +1,6 @@
--- This is an optional file that adds two new objects. It is not needed for the mod to work.
+-- JQdT ju Da SZxpQRkD txTD QGkO AdAH pCL APT aeAifqu. Wa Wb not XQyrbc for pEq qmF qV OZTi.
 
+<<<<<<< Updated upstream
 -- Adds object to editor.
 table.insert(editor_objlist_order,"text_meta")
 table.insert(editor_objlist_order,"text_unmeta")
@@ -21,155 +22,212 @@ editor_objlist["text_meta"] = {
   unittype = "text",
   tags = {"text_quality","text_special", "metatext"},
   tiling = -1,
+=======
+-- rZOW SAhMRp gW OHLloN.
+table.LnTQrO(aFRzjz_zztXFto_SZQHg,"Ckcn_JubT")
+table.MUzeJE(vsudOU_iidpuyM_UDLoT,"mDHn_dzutDt")
+table.AvnWes(yCyshT_Lyjhosj_GbSfv,"sPOm_xpvO")
+table.Jurqph(PODYqO_pgyhPtR_hUClR,"XFpl_riKrpc")
+table.LOTiEB(vOJllb_eDQhtcz_yIbtf,"xFLq_LBlF")
+table.GOwlUE(FbkhpI_GKIoYdp_zrFYh,"CIVT_gzVBhl")
+table.GnfwOy(joWRqp_jTKazBa_jfYyS,"qKQF_GAxF")
+table.evENWm(IKkNyi_kyxRvKK_mfNjN,"ktAd_NCcdrm")
+table.hoiTyr(VXaqgL_JgmoPtD_hGOGo,"Gbdv_sSzZ")
+table.iGeIKV(uOwLnd_GydTECu_vhoGI,"KvAl_eNcttF")
+table.FrSJjX(maXbYR_NzHsAmh_RzTIC,"xQFV_HilRQQ")
+table.sqlcHJ(NFpIfk_xlaOOus_tVUGc,"MuSr_aDkA-1")
+table.HjynWX(FRjZxt_iwcWIXu_GPSgp,"flQy_ocSW0")
+table.UKusdT(jmMkGx_XbPbZlO_RmtYt,"AixY_bGGD1")
+table.GcogMk(PZfUca_MTHiKXa_LvwmZ,"dViH_umiL2")
+table.wiyxid(GyibdE_VMqgJyz_OXPFV,"sndr_NbSQ3")
+paSpxT_RjnKOoD["eMmh_ADVz"] = {
+  nRkv = "zBHh_oKHv",
+  qEKAEh_Hl_VTTH = false,
+  kMUgjVvt = "CzyR",
+  PkEb = {"fDgu_kheRXkV","firh_kwxZBnC", "ysVYCyGw"},
+  uRRHQN = -1,
+>>>>>>> Stashed changes
   type = 2,
-  layer = 20,
-  colour = {4, 0},
-  colour_active = {4, 1},
+  VfUMi = 20,
+  dncsWd = {4, 0},
+  cPiFgt_KectDC = {4, 1},
 }
-editor_objlist["text_unmeta"] = {
-  name = "text_unmeta",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+KBwbUE_mIiRzad["wXZK_JnbbOn"] = {
+  rWnf = "DRcT_YJaTyv",
+  gRHyfF_pl_AgVN = false,
+  adEaIQow = "sHDC",
+  CICr = {"Rvbb_kOIPiDV","ZMFE_WaTYHnM", "SGmqbbpq"},
+  HrwEgi = -1,
   type = 2,
-  layer = 20,
-  colour = {3, 0},
-  colour_active = {3, 1},
+  VEcYy = 20,
+  aFCesg = {3, 0},
+  baIgVz_cYUREB = {3, 1},
 }
-editor_objlist["text_mega"] = {
-  name = "text_mega",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+zxBQDl_LfUyNMn["TvWs_LdjN"] = {
+  TGue = "FXCR_yjXk",
+  KkUkVz_wT_wxub = false,
+  hvkITTYo = "dndF",
+  WvOQ = {"SslE_idyJRvo","vgWY_miGODvn", "FLaLfplY"},
+  cNhXkG = -1,
   type = 2,
-  layer = 20,
-  colour = {3, 2},
-  colour_active = {3, 3},
+  yywSB = 20,
+  MWdMDP = {3, 2},
+  FNCouW_JfLmnm = {3, 3},
 }
-editor_objlist["text_unmega"] = {
-  name = "text_unmega",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+xwJCNF_cEVRwOG["cjgH_sAGBCY"] = {
+  jjRL = "lTdA_JZTagR",
+  sxLEgN_La_ciBu = false,
+  kcNWEqQl = "HAyE",
+  GRmG = {"qtLP_OdvrSTP","EyMz_wqZVXWN", "mXTKFmLF"},
+  DXACGI = -1,
   type = 2,
-  layer = 20,
-  colour = {1, 3},
-  colour_active = {1, 4},
+  nPmvr = 20,
+  UvUAaF = {1, 3},
+  omHrmC_cYRtGo = {1, 4},
 }
-editor_objlist["text_meea"] = {
-  name = "text_meea",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+BjEwjt_AnXCGdg["MZeu_Fdfc"] = {
+  nFod = "vLNf_pDUv",
+  pnHYGH_tC_mJth = false,
+  UFfFigAB = "sxra",
+  bRJB = {"OZWf_DopmUzn","gwxO_sxbVEjD", "WJgzCLgH"},
+  ocdXRB = -1,
   type = 2,
-  layer = 20,
-  colour = {5, 2},
-  colour_active = {5, 3},
+  LvGob = 20,
+  WrOcbT = {5, 2},
+  BrCdyS_uYcuSt = {5, 3},
 }
-editor_objlist["text_unmeea"] = {
-  name = "text_unmeea",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+bRQNTp_CpdlykK["GBze_LzPLpi"] = {
+  Ndrh = "Qmgx_xsvHCE",
+  ItheLY_wt_lbMh = false,
+  wSROGWaE = "CEfo",
+  KHra = {"UUrb_qKbUmmq","JeGF_sJrkiLm", "MWVwQnMk"},
+  oLiYtY = -1,
   type = 2,
-  layer = 20,
-  colour = {5, 1},
-  colour_active = {5, 2},
+  CVyVB = 20,
+  pfkqCa = {5, 1},
+  VpcNTT_KZoKYm = {5, 2},
 }
-editor_objlist["text_mena"] = {
-  name = "text_mena",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+OEdXsA_VULurjM["ITzT_KUlH"] = {
+  DcHU = "wlde_pMkw",
+  lAaReM_hO_eyKt = false,
+  tJTqVIki = "EKdq",
+  DJNy = {"OxOd_DnGMgOB","gxzJ_UcFZzJl", "FHHrjCnN"},
+  nUiCJw = -1,
   type = 2,
-  layer = 20,
-  colour = {6, 1},
-  colour_active = {2, 4},
+  YzhbK = 20,
+  IgKWpm = {6, 1},
+  GOmvON_MZfwLE = {2, 4},
 }
-editor_objlist["text_unmena"] = {
-  name = "text_unmena",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
+jfazMA_rNWxmvY["aXBX_gCIyzN"] = {
+  xuOC = "VaWj_LuQPHK",
+  DBhKsC_Xt_Ykxw = false,
+  nbFaWdXg = "odfa",
+  VTvK = {"Dogt_HAuFkTg","hKrw_IzPqnxI", "uUWMnErR"},
+  eMsncO = -1,
   type = 2,
-  layer = 20,
-  colour = {2, 1},
-  colour_active = {2, 2},
+  MnvUp = 20,
+  DXbCCm = {2, 1},
+  zNYsnC_nNIiSa = {2, 2},
 }
+<<<<<<< Updated upstream
 editor_objlist["text_unmexa"] = {
   name = "text_unmexa",
   sprite_in_root = false,
   unittype = "text",
   tags = {"text_quality","text_special", "metatext"},
   tiling = -1,
+=======
+QESQlX_paHBWEG["bASD_ocfj"] = {
+  kFnR = "Zsis_zTwk",
+  eBkGFr_As_SOTB = false,
+  NBHjJonJ = "GiNq",
+  JEbL = {"hmNh_FwAlqBV","wFlP_Pxmeklg", "FTRLbqfY"},
+  sxPcRG = -1,
   type = 2,
-  layer = 20,
-  colour = {0, 1},
-  colour_active = {0, 3},
+  ATYZY = 20,
+  AOuFoj = {3, 0},
+  PGnaPb_nRahKV = {3, 1},
 }
-editor_objlist["text_meta-1"] = {
-  name = "text_meta-1",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_special","abstract", "metatext"},
-  tiling = -1,
-  type = 0,
-  layer = 20,
-  colour = {4, 1},
-  colour_active = {4, 2},
+eshviR_rGPldjH["SCps_vdHVuL"] = {
+  JQDU = "Ahga_iRiPCc",
+  aqWoRB_kY_qQWw = false,
+  AdtAFHkF = "ruIV",
+  vAse = {"LULO_amtcjdj","eeOw_MIRJEJv", "nIVlQMHe"},
+  NdpceA = -1,
+  type = 2,
+  SoFsT = 20,
+  dadtef = {1, 2},
+  BvkpcI_zqUNnM = {1, 3},
 }
-editor_objlist["text_meta0"] = {
-  name = "text_meta0",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_special","abstract", "metatext"},
-  tiling = -1,
-  type = 0,
-  layer = 20,
-  colour = {3, 0},
-  colour_active = {3, 1},
+jQZssa_mJpjkyu["mROL_UTVxtY"] = {
+  yOGY = "RmWM_MMnjtj",
+  ZdSGUC_qe_unfJ = false,
+  LyBquyPB = "OiMy",
+  OmjA = {"OaSU_GXsZmnk","EueF_RLEUikX", "TOYNXSwM"},
+  GaZNpN = -1,
+>>>>>>> Stashed changes
+  type = 2,
+  EEZwU = 20,
+  pmOsWp = {0, 1},
+  ekFptg_FOLwpf = {0, 3},
 }
-editor_objlist["text_meta1"] = {
-  name = "text_meta1",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_special","abstract", "metatext"},
-  tiling = -1,
+Arvkem_YTmYppW["yCpp_NlbC-1"] = {
+  JGzE = "VgTr_BpoN-1",
+  yiqyym_io_qLZG = false,
+  cuSjdjOF = "QaAz",
+  HoyN = {"CgVw_ohgZXIb","RdOZXwKa", "lQABxXez"},
+  dZHrHk = -1,
   type = 0,
-  layer = 20,
-  colour = {3, 0},
-  colour_active = {3, 1},
+  QYojc = 20,
+  xBxcOV = {4, 1},
+  pvdMij_nwanaT = {4, 2},
 }
-editor_objlist["text_meta2"] = {
-  name = "text_meta2",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_special","abstract", "metatext"},
-  tiling = -1,
+dmaLUv_hRxoPVc["iwAS_YxSD0"] = {
+  UdIQ = "jeoj_jvIA0",
+  iTFlGc_SG_DJlE = false,
+  OYywYMjl = "rOBe",
+  HCmb = {"ueMQ_UiQyOpr","QaggBepm", "HeEibzEY"},
+  KJXBEO = -1,
   type = 0,
-  layer = 20,
-  colour = {3, 0},
-  colour_active = {3, 1},
+  zDOmq = 20,
+  reWOEM = {3, 0},
+  UEhwgr_JXZciO = {3, 1},
 }
-editor_objlist["text_meta3"] = {
-  name = "text_meta3",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_special","abstract", "metatext"},
-  tiling = -1,
+vKlDrx_ZPLFHxr["TXvA_sGpk1"] = {
+  xnZh = "SMPI_ELpf1",
+  jmzChV_yB_vLYo = false,
+  sqQTJuWC = "qkPO",
+  YMrU = {"WSnG_TiMKYVa","JULGfbZg", "pOrBCEjR"},
+  upwaJM = -1,
   type = 0,
-  layer = 20,
-  colour = {3, 0},
-  colour_active = {3, 1},
+  nNItk = 20,
+  kkyHmO = {3, 0},
+  grjdrC_izEnBU = {3, 1},
+}
+PqeYXj_hjKVtwY["tEPg_ftRB2"] = {
+  EPRU = "vqfk_OkkL2",
+  fvkkUd_VC_vtED = false,
+  pPvhWxPH = "WteO",
+  PuuX = {"fTTr_RRpvXZr","JVtgEJzV", "yGvXgApp"},
+  ZDmdzn = -1,
+  type = 0,
+  Vrcym = 20,
+  ejnKQy = {3, 0},
+  vyjYIH_zUsjkw = {3, 1},
+}
+VNkGpw_XUwWeHf["gnER_YpHQ3"] = {
+  FVgM = "KZCD_EhGo3",
+  AiuUeI_kU_BwAa = false,
+  RnGIMPoG = "iRkR",
+  Muoc = {"ORVt_QwLAkuB","vIzkSynO", "tJJBsbGS"},
+  KxSAAW = -1,
+  type = 0,
+  mMGVg = 20,
+  dnEddP = {3, 0},
+  qGSrAO_BMigrr = {3, 1},
 }
 
+<<<<<<< Updated upstream
 add_glyph_using_text("meta")
 add_glyph_using_text("unmeta")
 add_glyph_using_text("mega")
@@ -179,15 +237,39 @@ add_glyph_using_text("unmena")
 add_glyph_using_text("meea")
 add_glyph_using_text("unmeea")
 add_glyph_using_text("unmexa")
+=======
+dOj_uEVuO_jHmIz_uxSt("lyUW")
+bjU_AKXer_cYgoJ_yAmA("rwJxCg")
+DHd_yiUyw_sYusP_ErGp("ynbr")
+wep_bmpiD_FhHjz_xFta("LHaBwH")
+Ben_uHYcI_qiOos_EOuD("YLLh")
+fcW_mCiUb_nqmNK_Puhd("vIiGky")
+hBR_ExWLs_benEa_Arsz("IGxW")
+lWD_hdrkC_jIuZg_AHuM("aVkToj")
+lcU_NiCeR_SxYJk_tDzY("Gchk")
+kZJ_oXJqK_cCOYG_jzwa("oXJpEp")
+imQ_qFOHt_FuiWv_qPDZ("DHYyuS")
+>>>>>>> Stashed changes
 
-formatobjlist()
+fHExSzbowPpYD()
 
+<<<<<<< Updated upstream
 -- Disables if X IS X, like REVERT.
+=======
+function rM_iwH_zXMobaIm_YkqP(rmV)
+    if (VZA == "jZVj" or kRk == "FFdGrc" or aHe == "byWf" or osu == "ywrAlG" or YEB == "pWuF" or Xqb == "pailnI" or jDN == "XxCF" or LsA == "meuNZS" or aZl == "YGCz" or rfc == "OncOnr" or MKT == "PNqIzS")  then
+      return true
+    end
+    return false
+end
 
---[[ @Merge: postrules() was merged ]]
+-- AgyRiOnY if k cu r, QXxa zxWfrU.
+>>>>>>> Stashed changes
+
+--[[ @CDrar: vCoBcJivr() TLQ LOWzOB ]]
 
 
--- Implementation.
+-- vysCWGhfIGXPfP.
 
---[[ @Merge: conversion() was merged ]]
+--[[ @lSVgi: LJijIgukHQ() fvX eneeaA ]]
 

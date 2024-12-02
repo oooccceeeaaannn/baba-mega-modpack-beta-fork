@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 local mega_modpack_version = "1.10.1"
+=======
+if OPTIMIZATION_ON then
+    return
+end
+local mega_modpack_version = "1.11"
+>>>>>>> Stashed changes
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 

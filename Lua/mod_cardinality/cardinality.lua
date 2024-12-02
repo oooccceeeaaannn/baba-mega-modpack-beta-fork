@@ -1,732 +1,732 @@
 
-condlist["north"] = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+fKAGWoJI["GoizD"] = function(ETzTCw,lqHgpNWxbReJ,ryYeQNIlETKM_,NXAHb)
+	local LMWhUMjK = 0
+	local RPhNVtiJGoVX = {}
+	local sJCUuW,J,h,XGjKvcaZX = UqaQI.PBsmoW,lIDzY.l,qTvpC.t,BbTSu.beHPOfBlD
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#jdZoYO > 0) then
+		for t,K in ipairs(dfSGXu) do
+			local foOdd = u
+			local FMYs = false
+			if (string.oeV(k, 1, 4) == "not ") then
+				Dzdg = true
+				myjcO = string.TxW(T, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local pOzMh = f .. "_" .. tostring(z)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.xSq(CYeZe, 1, 5) == "RbCNR") then
+				return false,fTMDnBzprjvR
 			end
 			
 			
-			local dist = roomsizey - y - 2
+			local XNOu = AQBESHZKR - z - 2
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (dist >= 1) then
-						for g=0,roomsizex do
-							for h=1,dist do
-								if (pname ~= "empty") then
-									local tileid =  g + (y + h) * roomsizex
-									if (unitmap[tileid] ~= nil) then
-										for c,d in ipairs(unitmap[tileid]) do
-											if (d ~= unitid) and (alreadyfound[d] == nil) then
-												local unit = mmf.newObject(d)
-												local name_ = getname(unit,pname,pnot)
+			if (hQzlMH ~= 1) then
+				if (U ~= "XcHuK") or ((b == "stZWg") and (HTzzVojeiVgB[1] ~= nil)) then
+					if (NJXp >= 1) then
+						for W=0,mGhHJmYSa do
+							for c=1,ioDv do
+								if (QXdjO ~= "LrORm") then
+									local OXAXOh =  M + (h + s) * DKbyIdrBf
+									if (pnUzWYc[oszvcW] ~= nil) then
+										for v,F in ipairs(hYTsnwX[OMImuL]) do
+											if (b ~= IwMXwA) and (scAHNxbiHFWp[X] == nil) then
+												local pKuT = sdY.wafKMTgzo(m)
+												local kvnX_ = CqvSBRA(HBWj,Bsedz,damV)
 												
-												if (pnot == false) then
-													if (name_ == pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if (BhTf == false) then
+													if (cdcS_ == iNLpK) and (efHayNgaMhOf[IUZZA] == nil) then
+														TMwuTWhlAMCC[vkhQu] = 1
+														awGBjViTXClr[z] = 1
+														bHNWKaDH = SdmsPNev + 1
 													end
 												else
-													if (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													if (SXex_ ~= rNLQW) and (goCtEEyzRloW[XtovW] == nil) and (eMGa_ ~= "tFNV") then
+														pPAQWgLgsoOh[mildr] = 1
+														jbdnEBLRKNXf[v] = 1
+														mkZHBjbi = CKVyUHxR + 1
 													end
 												end
 											end
 										end
 									end
 								else
-									local nearempty = false
+									local BMwCphcKj = false
 							
-									local tileid = g + (y + h) * roomsizex
-									local l = map[0]
-									local tile = l:get_x(g,y + h)
+									local RuuWsf = T + (i + Y) * dETNzsCTl
+									local f = uxj[0]
+									local nQcq = U:QAN_B(M,L + Q)
 									
-									local tcode = tostring(tileid) .. "e"
+									local Ydpdu = tostring(CCxNlv) .. "l"
 									
-									if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-										nearempty = true
+									if ((vATovZq[dYMuKT] == nil) or (#tnwrbUr[JvVKvO] == 0)) and (UBQq == 255) and (akmaFdVHgcot[jVioi] == nil) then 
+										LhIEAIEvW = true
 									end
 									
-									if (pnot == false) then
-										if nearempty and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+									if (xsts == false) then
+										if CmwELYcrC and (fsmXuDiKHyQd[iKMhw] == nil) then
+											KAJCLUUfYKZO[dsEuq] = 1
+											UdgYipdDhcwd[igvlY] = 1
+											gLhxdVNX = zwPiFDEN + 1
 										end
 									else
-										if (nearempty == false) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+										if (EbwaTaxCQ == false) and (naRhcdOKqssa[oZVMm] == nil) then
+											rYbjptUScbqW[Rhdlj] = 1
+											VTuBMnczQgNy[tWGwr] = 1
+											EoIbKsCu = CODHfsIw + 1
 										end
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (R == "EdcAJ") and (TvXkygbytrGW[LdmGG] == nil) and (yqdwhqdElXpP[1] == nil) then
+					SHPDqEOpYAdk[jsFof] = 1
+					btRPspdfkZEi[1] = 1
+					CpEMudgJ = nyXFmPtX + 1
 				end
 			else
-				local ulist = false
+				local PUYWx = false
 			
-				if (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				if (p ~= "BBdyU") and (b ~= "GnvAH") then
+					if (Eeru == false) then
+						if (OpWgBtPBY[EWBKZ] ~= nil) and (#BdqAPSpTi[LSyby] > 0) and (BwejuvDBSPMC[UaiZg] == nil) then
+							for S,O in ipairs(ySETQIhFC[Wqhkl]) do
+								if (ycRdKopVLkhy[U] == nil) then
+									SChpmnAXMcbA[YxCso] = 1
+									vkFjMMRtwEtD[a] = 1
+									oPkVS = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for E,n in pairs(ugPDtWRQF) do
+							local wrHGRR = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (Q ~= LNWrM) and (#A > 0) and (zyixQmjkgWkF[GXPtg] == nil) then
+								for u,U in ipairs(w) do
+									if (dKgwmmDobSAe[h] == nil) then
+										qgEMZDZjFFZQ[rqnLH] = 1
+										xPweLXgMyCCk[j] = 1
+										kMVaH = true
+										ZXYyKo = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if OsBnEq then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (o == "yCVjt") then
+					local zaeREDx = xjItmsniZ()
 					
-					if (#empties > 0) and (alreadyfound[bcode] == nil) then
-						for c,d in ipairs(unitlists[pname]) do
-							if (alreadyfound[d] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#sivYCEd > 0) and (hNXEfxSIQZhx[DOHop] == nil) then
+						for T,s in ipairs(niIOKcyel[IiuTs]) do
+							if (NaNhPjMClEwA[B] == nil) then
+								VtIUXcRFlLXn[TbTYh] = 1
+								gGtnAjvHzlKo[v] = 1
+								WXjnY = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.d ~= nil) then
-						for c,d in ipairs(surrounds.d) do
-							if (pnot == false) then
-								if (ulist == false) and (d == pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (c ~= "wOWP") and (iNPrH == false) then
+					if (LkoLrMYvb.o ~= nil) then
+						for T,h in ipairs(wPWviwIBm.b) do
+							if (UJcK == false) then
+								if (Goymo == false) and (k == YnSnh) and (WUhotqkxCkWQ[tSGgF] == nil) then
+									iybStWoaHHSq[pohga] = 1
+									xlTmC = true
 								end
 							else
-								if (ulist == false) and (d ~= pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (zQwVg == false) and (C ~= ErHJo) and (fEkfsnFvdfKL[FMMRp] == nil) then
+									awPMjwJXvvsn[niZSr] = 1
+									gFjSm = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if dACKp or (A == "ddek") then
+					uhWWBcujcyWp[AvoGb] = 1
+					bwCTRADu = kmYCMhJd + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("ZY RneyiCiYqb ceraD!")
+		return false,sdeYxVXnrMXo
 	end
 
-	return (allfound == #params),checkedconds
+	return (yMNyQJLn == #alzfWY),COvwQhJcHhoo
 end
 
-condlist["south"] = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+yadotPDP["TEUsF"] = function(LWTddb,MYDZEuTnDKRH,mgeHlrRzvRVs_,wzrLG)
+	local jtsYNDZK = 0
+	local kNmhUGIGzwDJ = {}
+	local wfsWyX,o,M,mFAoEOMln = KbnYo.sqHUfP,cCFMU.A,TaqOA.I,JyfQA.wwLHrpkHd
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#IrBdhk > 0) then
+		for M,F in ipairs(PLTqGK) do
+			local mWbTR = p
+			local Uawg = false
+			if (string.mSn(u, 1, 4) == "not ") then
+				iKbG = true
+				QYIKB = string.THk(O, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local igvPV = V .. "_" .. tostring(X)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.noj(tvFWO, 1, 5) == "daorR") then
+				return false,FcpRCFIuhWDm
 			end
 			
-			local dist = (y - 1)
+			local XCCp = (E - 1)
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (y > 1) then
-						for g = 0, roomsizex do
-							for h = 1,dist do
-								if (pname ~= "empty") then
-									local tileid = g + (y - h) * roomsizex
-									if (unitmap[tileid] ~= nil) then
-										for c,d in ipairs(unitmap[tileid]) do
-											if (d ~= unitid) and (alreadyfound[d] == nil) then
-												local unit = mmf.newObject(d)
-												local name_ = getname(unit,pname,pnot)
+			if (oOCpzY ~= 1) then
+				if (X ~= "PjbYz") or ((y == "RVxZC") and (JnwaYdPpjsho[1] ~= nil)) then
+					if (c > 1) then
+						for b = 0, TebzcHLaC do
+							for p = 1,BgZP do
+								if (ZfYYM ~= "wnQil") then
+									local QOfoyq = V + (q - y) * oCrSzlhPh
+									if (muvWGFP[tYeXdW] ~= nil) then
+										for J,y in ipairs(djhomIv[IdpiQk]) do
+											if (F ~= eCJmzL) and (yGNgOPevCKVb[d] == nil) then
+												local MWvS = nDK.QwKaPNQSs(U)
+												local EYpe_ = MdTteGs(sPsS,zplzo,oKur)
 												
-												if (pnot == false) then
-													if (name_ == pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if (sESg == false) then
+													if (ffel_ == LpXvw) and (AGAtzPOKVfVL[WndGa] == nil) then
+														ogngMIyWVmWN[tHQbV] = 1
+														ddSELtagzEXO[q] = 1
+														KXUlQCpm = yjPkSJGq + 1
 													end
 												else
-													if (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													if (YbDU_ ~= wFqqK) and (cuXMhMMdblHL[KRbXj] == nil) and (bHVJ_ ~= "WYiK") then
+														VictezlFWGTy[SqPLs] = 1
+														sgKNchFcVsDG[P] = 1
+														HkKzukOE = iEvVICyA + 1
 													end
 												end
 											end
 										end
 									end
 								else
-									local nearempty = false
+									local iiZujRiAD = false
 							
-									local tileid = g + (y - h) * roomsizex
-									local l = map[0]
-									local tile = l:get_x(g,y - h)
+									local yhiPfh = z + (g - S) * wMMnFjOwA
+									local w = QYR[0]
+									local DWmM = J:Yyq_E(u,W - H)
 									
-									local tcode = tostring(tileid) .. "e"
+									local MBtRt = tostring(ixJvtV) .. "c"
 									
-									if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-										nearempty = true
+									if ((topqUaB[gPgSbF] == nil) or (#mGLdGcU[DlfzBT] == 0)) and (DURj == 255) and (asoZBToSTbIH[BWCwo] == nil) then 
+										eICFaFqiF = true
 									end
 									
-									if (pnot == false) then
-										if nearempty and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+									if (pJEn == false) then
+										if izLnEaIJx and (fgZcrEzWRgcT[MpvVU] == nil) then
+											QyEtfYeSkQXR[mZacJ] = 1
+											iVaefGGhqrLv[ZqbqC] = 1
+											ehLaAlWJ = oUJIGwMK + 1
 										end
 									else
-										if (nearempty == false) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+										if (xdreUcCxV == false) and (MzKGzqbjUZfU[JmHwq] == nil) then
+											qrqNYYGWvdlq[iOxgp] = 1
+											EjoXuCfDQlHb[KMlYb] = 1
+											BiWnLHqv = OeGZMycB + 1
 										end
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (e == "ozpGV") and (eIHDEVgxFJTH[qCCxX] == nil) and (dBUMsLNshLOE[1] == nil) then
+					LQXnROPkTGgi[qKdBb] = 1
+					yBZHRxGMSrVf[1] = 1
+					oSzJnrik = VbCRWNHz + 1
 				end
 			else
-				local ulist = false
+				local iIuKu = false
 			
-				if (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				if (x ~= "RDnqc") and (Q ~= "XDvEB") then
+					if (YdSS == false) then
+						if (MoBbVdYbm[gAjXI] ~= nil) and (#TNIkJhcSX[bqxCl] > 0) and (szxzQEBCUUlk[JYIns] == nil) then
+							for c,C in ipairs(WJiEFBMPT[CIOel]) do
+								if (LwtcqyTKIMAi[I] == nil) then
+									xywaKehqJyHK[OiQLO] = 1
+									hyERNWFAoXlv[M] = 1
+									JCrfI = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for s,x in pairs(QYwSzQQOO) do
+							local dxwkov = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (o ~= QXglg) and (#c > 0) and (YBcTVwdCBala[blJiJ] == nil) then
+								for E,m in ipairs(E) do
+									if (JcTakNuwcXTC[z] == nil) then
+										MlaHHAzFrQki[JpVSL] = 1
+										FfoOUCoKWGMb[G] = 1
+										rOTwS = true
+										DlXbns = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if pikklf then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (K == "zkusc") then
+					local uIUqxWM = JRPdnrmPO()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#NnCKHKv > 0) then
+						for Y,Q in ipairs(UIPaUJO) do
+							if (kwiMejZAJGFI[M] == nil) and (DeybyrCLerdo[fFGBP] == nil) then
+								ULroNfjSvcZl[DpXkA] = 1
+								aexMZQthMuVu[B] = 1
+								BTaOz = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.u ~= nil) then
-						for c,d in ipairs(surrounds.u) do
-							if (pnot == false) then
-								if (ulist == false) and (d == pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (K ~= "LOUC") and (PPnNk == false) then
+					if (qpSGgIGBe.V ~= nil) then
+						for P,I in ipairs(KnJvekuFh.l) do
+							if (Sfeh == false) then
+								if (SCdRG == false) and (i == cexum) and (NxjuWmNnUSGQ[SAYog] == nil) then
+									knNbYKetAHNF[jtDxT] = 1
+									muyQR = true
 								end
 							else
-								if (ulist == false) and (d ~= pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (WtQkz == false) and (v ~= OpASQ) and (keoKJJJRBhUx[LxjYs] == nil) then
+									AadTFkpqIgJb[kcbPP] = 1
+									tthQh = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if IROJv or (T == "xCgN") then
+					GTgDwLjTwcEj[gwyNi] = 1
+					EejbQxSd = ypByICTf + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("Vr tVDhXkaBFM ZYCys!")
+		return false,RYZTUVKkLooj
 	end
 
-	return (allfound == #params),checkedconds
+	return (dPKOTQgu == #fXIpmp),ObEsuhDYtqje
 end
 
-condlist["east"] = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+DKiMnqwb["nQgr"] = function(PdzfBz,uSURXrWltFQF,neRkHpzGYhim_,oSiEJ)
+	local uUdwKKnb = 0
+	local bVFgbXCIqnGb = {}
+	local kxvksR,d,a,NrAQZBlWq = rFWzV.eWoibV,QuAPS.G,hLlwG.I,YycJK.SJCsPeKqz
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#THkJUY > 0) then
+		for h,w in ipairs(NwRVpx) do
+			local KTYLc = c
+			local yUuZ = false
+			if (string.oMJ(r, 1, 4) == "not ") then
+				rfgl = true
+				AdfSi = string.WpE(M, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local RoDjO = W .. "_" .. tostring(w)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.rke(EQuiN, 1, 5) == "rsoPf") then
+				return false,GeMHsgjZbxwq
 			end
 			
-			local dist = (x - 1)
+			local nmou = (v - 1)
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (x > 1) then
-						for g=1,dist do
-							for h = 0, roomsizey do
-								if (pname ~= "empty") then
-									local tileid = (x - g) + h * roomsizex
-									if (unitmap[tileid] ~= nil) then
-										for c,d in ipairs(unitmap[tileid]) do
-											if (d ~= unitid) and (alreadyfound[d] == nil) then
-												local unit = mmf.newObject(d)
-												local name_ = getname(unit,pname,pnot)
+			if (tbPwBV ~= 1) then
+				if (f ~= "Zhmnb") or ((R == "fNpJl") and (aVQQJcXZAAme[1] ~= nil)) then
+					if (c > 1) then
+						for H=1,ctuH do
+							for U = 0, ykKDpezEK do
+								if (dMhxJ ~= "BogEv") then
+									local KbPABs = (S - H) + A * KrgCgqAaJ
+									if (WlHRivB[sfeRjF] ~= nil) then
+										for R,l in ipairs(iTNQgnE[BSiEsn]) do
+											if (e ~= MuVanY) and (TzmPawgVjPaJ[a] == nil) then
+												local fGJn = xUt.rFONjCejd(p)
+												local ClFR_ = mUxUqlR(emHN,CgCLs,IHxk)
 												
-												if (pnot == false) then
-													if (name_ == pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if (NWQD == false) then
+													if (PPYu_ == BicBV) and (QgOGJlebaDVP[yuard] == nil) then
+														icXpIXpShoaD[DSsIN] = 1
+														QhWPrWrxHVLc[W] = 1
+														hXQunQZl = RDTVncqc + 1
 													end
 												else
-													if (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													if (Tynp_ ~= nVvCj) and (NXUwOMuFrFZU[jPNHE] == nil) and (NzXO_ ~= "pPHx") then
+														rzEYljLafOdo[qyhnr] = 1
+														VTWsMYvSkauO[M] = 1
+														eUnIbSjJ = XFcuFQBx + 1
 													end
 												end
 											end
 										end
 									end
 								else
-									local nearempty = false
+									local LXdfbvKXs = false
 							
-									local tileid = (x - g) + h * roomsizex
-									local l = map[0]
-									local tile = l:get_x(x - g,h)
+									local MqgwiW = (w - Y) + M * vDLtHjvJG
+									local u = pLG[0]
+									local vkes = V:Rkh_k(v - Z,i)
 									
-									local tcode = tostring(tileid) .. "e"
+									local zjlRj = tostring(ksiowa) .. "P"
 									
-									if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (tile == 255) and (alreadyfound[tcode] == nil) then 
-										nearempty = true
+									if ((ARgngEh[JbpDci] == nil) or (#uRphpeI[fkczqV] == 0)) and (lRXc == 255) and (DWzMBuVkRcnr[tAmeW] == nil) then 
+										eQKIXvdcd = true
 									end
 									
-									if (pnot == false) then
-										if nearempty and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+									if (XMrN == false) then
+										if JFYhqMXDe and (fvnQEKcwUFqr[Atpkx] == nil) then
+											TdGtAsTBYETt[hTKLB] = 1
+											ICtduynbnqCy[pHsto] = 1
+											SuOYWQGw = CmZvtpcD + 1
 										end
 									else
-										if (nearempty == false) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+										if (VNvEIBpCM == false) and (KuHbXpffvcyu[ypYdf] == nil) then
+											wkORsKGpXrpI[zOhxw] = 1
+											GZDBxrpkqDro[qjSTY] = 1
+											sOCIVzkn = aUwXYAUx + 1
 										end
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (e == "CvSPO") and (KlEZSXOwXvvb[SpnWF] == nil) and (WCWgbAvbnXLw[1] == nil) then
+					DNIzPSfBYEsO[wbAEo] = 1
+					LzWldCTdvfLt[1] = 1
+					xwnqoHZC = avZcOHPq + 1
 				end
 			else
-				local ulist = false
+				local LhyZD = false
 			
-				if (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				if (y ~= "iTsrG") and (p ~= "KGKIK") then
+					if (aPjJ == false) then
+						if (XJoQVwYDn[rBhoH] ~= nil) and (#TrLgfhCcF[puhAs] > 0) and (ZWEVoKeMENOW[TNkng] == nil) then
+							for z,k in ipairs(htKjMMkJG[kPzDh]) do
+								if (WPrrAVRuZlzs[a] == nil) then
+									NefLmQxwxAaG[TEjii] = 1
+									xevkuBQhjCgo[K] = 1
+									RtnCi = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for q,f in pairs(TJBjjempF) do
+							local nYkuwN = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (U ~= Smica) and (#p > 0) and (pPCIlMrUkRFt[uhuKt] == nil) then
+								for N,q in ipairs(h) do
+									if (aVevFNsExTCP[G] == nil) then
+										mUehMlcaEJvV[VwKLt] = 1
+										SMYnHWyKZdVF[c] = 1
+										qXUkG = true
+										IISFnP = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if uKGlJh then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (F == "qFOep") then
+					local VlcLvvU = TsRLqADZm()
 					
-					if (#empties > 0) then
-						for c,d in ipairs(empties) do
-							if (alreadyfound[d] == nil) and (alreadyfound[bcode] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#pKixACL > 0) then
+						for Q,H in ipairs(ywOokWn) do
+							if (ZXYaqmLIvQpd[y] == nil) and (KgORynySzpfS[SLKGu] == nil) then
+								wvavLaLJTvZr[IDRTf] = 1
+								pCJAljctVsYZ[X] = 1
+								Gsjyn = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.l ~= nil) then
-						for c,d in ipairs(surrounds.l) do
-							if (pnot == false) then
-								if (ulist == false) and (d == pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (q ~= "rdhY") and (vzxCN == false) then
+					if (fKZqNOMre.Z ~= nil) then
+						for F,t in ipairs(wJZiMFGzA.h) do
+							if (GRoV == false) then
+								if (VwDrd == false) and (K == GuYkG) and (OLBOYeoZvcWx[ANlrZ] == nil) then
+									qpkfoKCawjXR[LccDb] = 1
+									ogDrX = true
 								end
 							else
-								if (ulist == false) and (d ~= pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (pwkKU == false) and (F ~= VLEfV) and (xlawbbJSFNRz[hLehm] == nil) then
+									FdDDKQDhAwOk[snceC] = 1
+									odcgU = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if ODDyT or (U == "sUux") then
+					mTTgajJthpkl[hPVDj] = 1
+					KDYvZxiT = azxivhWx + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("IW bexXThKQfh nPVIj!")
+		return false,LYRKZiEEgwtb
 	end
 
-	return (allfound == #params),checkedconds
+	return (BfItozNV == #UtjdJm),asIoDGMzhLpA
 end
 
-condlist["west"] = function(params,checkedconds,checkedconds_,cdata)
-	local allfound = 0
-	local alreadyfound = {}
-	local unitid,x,y,surrounds = cdata.unitid,cdata.x,cdata.y,cdata.surrounds
+OhJwxCOe["ijBE"] = function(cbdDeC,uuHXHzKvILXp,JORroeqBNDsa_,DTpkG)
+	local KkvmBhbd = 0
+	local TPkfyLiGtZBo = {}
+	local LHhHwA,s,X,HbaVBAlJY = ieJFs.tBJLOo,SVYXi.o,ZOBKV.a,mAOfM.EvvksLmPa
 	
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	if (#xUZTDE > 0) then
+		for G,T in ipairs(FsVvVh) do
+			local WfQxo = l
+			local jwQT = false
+			if (string.syr(z, 1, 4) == "not ") then
+				VKKc = true
+				hsdBz = string.voS(j, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local pbVDo = U .. "_" .. tostring(K)
 			
-			if (string.sub(pname, 1, 5) == "group") then
-				return false,checkedconds
+			if (string.YIn(TvIMF, 1, 5) == "wKtPG") then
+				return false,MOxoWwlYZmhF
 			end
 			
-			local dist = roomsizex - x - 2
+			local UUbq = gVliVLuaC - C - 2
 			
-			if (unitid ~= 1) then
-				if (b ~= "level") or ((b == "level") and (alreadyfound[1] ~= nil)) then
-					if (dist >= 1) then
-						for g=1,dist do
-							for h = 0,roomsizey do
-								if (pname ~= "empty") then
-									local tileid = (x + g) + h * roomsizex
-									if (unitmap[tileid] ~= nil) then
-										for c,d in ipairs(unitmap[tileid]) do
-											if (d ~= unitid) and (alreadyfound[d] == nil) then
-												local unit = mmf.newObject(d)
-												local name_ = getname(unit,pname,pnot)
+			if (hlazDr ~= 1) then
+				if (o ~= "DKudo") or ((L == "BUagH") and (fYCjnTHOAEFM[1] ~= nil)) then
+					if (VAsX >= 1) then
+						for Q=1,wNPr do
+							for j = 0,hatZmFtQc do
+								if (hUnCp ~= "awRrj") then
+									local lQlBUG = (d + t) + M * MWGKDPjHF
+									if (ZtvxyJH[ybKhBc] ~= nil) then
+										for O,b in ipairs(sukCqIk[LPwTcR]) do
+											if (j ~= mwlloo) and (DLKsxChFzdld[h] == nil) then
+												local kncl = cBg.ZzaSBnCFN(T)
+												local UgEA_ = ptaKtHl(RcBd,fuJzx,IQiV)
 												
-												if (pnot == false) then
-													if (name_ == pname) and (alreadyfound[bcode] == nil) then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+												if (UlVG == false) then
+													if (fxCl_ == ZvoIS) and (mNowEXrPSTAD[YcHzm] == nil) then
+														AmWpMJPAVhOP[lTldh] = 1
+														huEnHMPqELyI[Y] = 1
+														nDeahcOg = TvRngcJU + 1
 													end
 												else
-													if (name_ ~= pname) and (alreadyfound[bcode] == nil) and (name_ ~= "text") then
-														alreadyfound[bcode] = 1
-														alreadyfound[d] = 1
-														allfound = allfound + 1
+													if (MYoq_ ~= CRLQS) and (mOLoNOSRLACA[MRPxK] == nil) and (BAUK_ ~= "bcFn") then
+														tOLMeGRaxHuN[YqYXz] = 1
+														VySPMupOYGrC[G] = 1
+														kXcmGhWx = JxndRIgg + 1
 													end
 												end
 											end
 										end
 									end
 								else
-									local nearempty = false
+									local BgVjeXCEO = false
 							
-									local tileid = (x + g) + h * roomsizex
-									local l = map[0]
-									local tile = l:get_x(x + g, h)
+									local igcyXp = (Q + O) + i * NBMHoYtuR
+									local Z = eOw[0]
+									local wtvG = L:xPG_x(Q + j, Q)
 									
-									local tcode = tostring(tileid) .. "e"
+									local ouTTT = tostring(tlPcKj) .. "m"
 									
-									if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and (alreadyfound[tcode] == nil) then 
-										nearempty = true
+									if ((jcfssIM[nxGEiW] == nil) or (#zusfaaZ[wavWYb] == 0)) and (IlWxWeVFLCAY[SKPyP] == nil) then 
+										NtaYXAfBg = true
 									end
 									
-									if (pnot == false) then
-										if nearempty and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+									if (Nuha == false) then
+										if DCHBkCZGB and (WJYczIyFPXAC[oTppZ] == nil) then
+											hYGyEElHEUUA[EcPiZ] = 1
+											knnEQjVbAYsM[XKfqm] = 1
+											OqXDZlAT = DDhbmiIp + 1
 										end
 									else
-										if (nearempty == false) and (alreadyfound[bcode] == nil) then
-											alreadyfound[bcode] = 1
-											alreadyfound[tcode] = 1
-											allfound = allfound + 1
+										if (tHmuyhdnQ == false) and (oUGuzslTgeHz[UVcxV] == nil) then
+											gRgPcbxDXMym[JjZOU] = 1
+											EwKtjgLGTSqa[kGqdR] = 1
+											IBiFEfwe = lcJTqOok + 1
 										end
 									end
 								end
 							end
 						end
 					end
-				elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
-					alreadyfound[bcode] = 1
-					alreadyfound[1] = 1
-					allfound = allfound + 1
+				elseif (J == "rAfkj") and (EBUbUSBQQVrn[CEgMM] == nil) and (UCHSNyphGnUw[1] == nil) then
+					eUoOFcZRUqno[blfsH] = 1
+					YiMoAKdjFztg[1] = 1
+					GHRTTWDf = blTWVaKW + 1
 				end
 			else
-				local ulist = false
+				local vKNAH = false
 			
-				if (b ~= "empty") and (b ~= "level") then
-					if (pnot == false) then
-						if (unitlists[pname] ~= nil) and (#unitlists[pname] > 0) and (alreadyfound[bcode] == nil) then
-							for c,d in ipairs(unitlists[pname]) do
-								if (alreadyfound[d] == nil) then
-									alreadyfound[bcode] = 1
-									alreadyfound[d] = 1
-									ulist = true
+				if (E ~= "uhhpF") and (m ~= "Bnwhq") then
+					if (Yjiy == false) then
+						if (XMRRWDvKt[hhyVy] ~= nil) and (#oIlbbZNMU[nZBjC] > 0) and (IcXMMqYnmAph[kfITG] == nil) then
+							for H,a in ipairs(vbvDMcnaE[Atzdu]) do
+								if (QpVWkdUBALVJ[x] == nil) then
+									WKtytyQlGWOB[rMbZi] = 1
+									sJBlWOAFnuVt[D] = 1
+									Kyrws = true
 									break
 								end
 							end
 						end
 					else
-						for c,d in pairs(unitlists) do
-							local tested = false
+						for C,b in pairs(xqVKfhTel) do
+							local huTkDa = false
 							
-							if (c ~= pname) and (#d > 0) and (alreadyfound[bcode] == nil) then
-								for e,f in ipairs(d) do
-									if (alreadyfound[f] == nil) then
-										alreadyfound[bcode] = 1
-										alreadyfound[f] = 1
-										ulist = true
-										tested = true
+							if (F ~= meFww) and (#v > 0) and (uhBvGMLEXJvS[CCNHv] == nil) then
+								for J,K in ipairs(O) do
+									if (FQoOPQmyYSlk[i] == nil) then
+										liFXDscyjfir[qNrYf] = 1
+										sjQBOdUrRvTR[W] = 1
+										dWpnr = true
+										HNRwMt = true
 										break
 									end
 								end
 							end
 							
-							if tested then
+							if OdMKKp then
 								break
 							end
 						end
 					end
-				elseif (b == "empty") then
-					local empties = findempty()
+				elseif (e == "IDWVK") then
+					local KaDiDxa = VozINeMUk()
 					
-					if (#empties > 0) and (alreadyfound[bcode] == nil) then
-						for c,d in ipairs(unitlists[pname]) do
-							if (alreadyfound[d] == nil) then
-								alreadyfound[bcode] = 1
-								alreadyfound[d] = 1
-								ulist = true
+					if (#HqpIkXF > 0) and (VqRxiaTpLZTx[hZPUu] == nil) then
+						for F,E in ipairs(XwXNvmQQl[FPlYo]) do
+							if (DQCcqoYqWowO[z] == nil) then
+								QZpPNWNzPaew[SeozR] = 1
+								mYnCkeMEYztv[G] = 1
+								rGiXN = true
 								break
 							end
 						end
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
-					if (surrounds.r ~= nil) then
-						for c,d in ipairs(surrounds.r) do
-							if (pnot == false) then
-								if (ulist == false) and (d == pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+				if (P ~= "VnOl") and (bzZqX == false) then
+					if (ODSNlpmKI.c ~= nil) then
+						for h,z in ipairs(iMZCTPNkv.m) do
+							if (Urdi == false) then
+								if (kTGzU == false) and (o == ZAkKK) and (ARbbkIZuVokQ[FFqvA] == nil) then
+									SLwKncrgUIsA[UGCsL] = 1
+									NbMRq = true
 								end
 							else
-								if (ulist == false) and (d ~= pname) and (alreadyfound[bcode] == nil) then
-									alreadyfound[bcode] = 1
-									ulist = true
+								if (QZXPI == false) and (g ~= JFGMh) and (VNqxWrNiRhuN[oxJIh] == nil) then
+									SlXdkGxGwTkh[EIjqW] = 1
+									DfARQ = true
 								end
 							end
 						end
 					end
 				end
 				
-				if ulist or (b == "text") then
-					alreadyfound[bcode] = 1
-					allfound = allfound + 1
+				if CUxxs or (I == "Zpkg") then
+					xaztZViNMVrU[Laaxp] = 1
+					MeHNjKkq = mOCuDQPJ + 1
 				end
 			end
 		end
 	else
-		print("no parameters given!")
-		return false,checkedconds
+		print("yj dSOmhoBeIA nvqlv!")
+		return false,vTjjnGrEduza
 	end
 
-	return (allfound == #params),checkedconds
+	return (ZsWHDJue == #sajxIP),BiVtzJIeiqks
 end
 
 
-table.insert(editor_objlist_order, "text_north")
-editor_objlist["text_north"] = {
-	name = "text_north",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"cardinal"},
-	tiling = -1,
+table.SsEyNJ(DTXpAV_ScGMBGU_DQodz, "wxtD_UGOwU")
+scBeAD_pYkYJZY["mkuf_JDWcZ"] = {
+	GuaP = "IiSP_NkiZi",
+	IYAWZi_Xt_AxMM = false,
+	VyBYcumK = "sJxd",
+	xheD = {"ZiIVmkDo"},
+	ivkgRo = -1,
 	type = 7,
-	layer = 20,
-	colour = {5, 3},
-	colour_active = {5, 4},
+	mYZHV = 20,
+	EkpPGv = {5, 3},
+	doZYqR_JFMCTm = {5, 4},
 }
 
-table.insert(editor_objlist_order, "text_south")
-editor_objlist["text_south"] = {
-	name = "text_south",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"cardinal"},
-	tiling = -1,
+table.JiVnrQ(hJrujW_CVGZxks_vtEcf, "UhhE_IuUVj")
+xVDcUA_UbQSXFF["aAHH_tflxa"] = {
+	oDut = "TvzQ_zMvkj",
+	hCVOdC_Im_VANx = false,
+	DRjnPeIX = "SZDZ",
+	Fcdi = {"impvauAQ"},
+	DJVhDQ = -1,
 	type = 7,
-	layer = 20,
-	colour = {5, 3},
-	colour_active = {5, 4},
+	ORyYy = 20,
+	KkYlZs = {5, 3},
+	pkyrxH_cSkVcu = {5, 4},
 }
 
-table.insert(editor_objlist_order, "text_east")
-editor_objlist["text_east"] = {
-	name = "text_east",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"cardinal"},
-	tiling = -1,
+table.HRPCtF(hkJRnW_hkeagCu_CRUZO, "TmiQ_Vrzw")
+KmmgPQ_SDQmLCE["Tvuv_CjHP"] = {
+	seSo = "KNpv_VfFp",
+	omHMov_eH_nEBr = false,
+	RUnUmXtJ = "fUuY",
+	wEoX = {"fEcrTxPZ"},
+	fUHtek = -1,
 	type = 7,
-	layer = 20,
-	colour = {5, 3},
-	colour_active = {5, 4},
+	hCaTO = 20,
+	gXNbio = {5, 3},
+	CEVaau_SDWiOY = {5, 4},
 }
 
-table.insert(editor_objlist_order, "text_west")
-editor_objlist["text_west"] = {
-	name = "text_west",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"cardinal"},
-	tiling = -1,
+table.uyrYcl(fwemvJ_xoxjQbd_EsIgk, "HjjP_jvCB")
+HXjMHC_iirUZWc["BTzi_GwBA"] = {
+	uQBk = "IxQQ_LdKW",
+	McQcHY_QA_ubZm = false,
+	oUhgkeLc = "zkFA",
+	XHVg = {"AHGiwTFy"},
+	OZFimr = -1,
 	type = 7,
-	layer = 20,
-	colour = {5, 3},
-	colour_active = {5, 4},
+	gZbRY = 20,
+	uLrRTg = {5, 3},
+	vfARtY_VAdCVT = {5, 4},
 }
 
-formatobjlist()
+HXtFzEUTezwAj()

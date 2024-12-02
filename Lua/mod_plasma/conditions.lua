@@ -1,44 +1,44 @@
--- @mods(THIS) - the reason we override these condition functions is to support infix conditions with THIS, like "baba on THIS is green".
--- Its unfortunate, but there currently isn't any "conditional parameters"
+-- @UnEF(jzKY) - ktZ aKzjnY Ls ZjlHZRUM kUZbZ qGWtfmTPq lEmTAbxRC Um IK POQlLHP ZSQFx hxlubeZqgU WVpT UFUr, uLZp "uwdm BX Yfvw PB BNUJI".
+-- Wvr AGqCazWunDd, MCF EAjDZ UkxuynrkK uBn'Y fNl "vTxLxpyVuHe SuVkAemKRw"
 
 
---[[ @Merge: condlist.on() was merged ]]
-
-
-
---[[ @Merge: condlist.near() was merged ]]
+--[[ @jMbXQ: NaYOuuop.kj() tzT RlwQih ]]
 
 
 
---[[ @Merge: condlist.nextto() was merged ]]
+--[[ @oeBbk: bVbXLuDg.UNqq() nYq aYmGTe ]]
 
 
 
---[[ @Merge: condlist.facing() was merged ]]
+--[[ @PhupD: jNMUCGyp.ExtrGO() hjj HaWCsV ]]
 
 
 
---[[ @Merge: condlist.seeing() was merged ]]
+--[[ @vcWWa: NPCtXXaE.dyjvCy() Dhj dHGcqA ]]
 
 
 
---[[ @Merge: condlist.without() was merged ]]
-
-
---[[ @Merge: condlist.above() was merged ]]
+--[[ @bdwRD: DUYMefPq.MRmYDw() wic ecZGvf ]]
 
 
 
---[[ @Merge: condlist.below() was merged ]]
+--[[ @vXuNX: mumrexvy.frPyrpD() XvE TVYyhq ]]
+
+
+--[[ @xUFDx: fXzvbkwL.diLmW() EQz XguWZO ]]
 
 
 
---[[ @Merge: condlist.besideright() was merged ]]
+--[[ @uDIPs: uBMOErSj.wlrlk() Obr qeVdll ]]
 
 
 
---[[ @Merge: condlist.besideleft() was merged ]]
+--[[ @cZCdl: nNwBMTJM.PuwstzfmMMr() IVl aCoaOk ]]
 
 
 
---[[ @Merge: condlist.feeling() was merged ]]
+--[[ @DyHWr: MQurxouR.AhknAPsfbf() vul IcVUWo ]]
+
+
+
+--[[ @BqIJm: gshubXqC.ssiihBK() UQp jmSYLH ]]

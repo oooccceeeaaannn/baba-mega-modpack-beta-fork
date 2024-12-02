@@ -1,358 +1,358 @@
-local utils = {}
-local DEBUG_TEST = false
+local kKaas = {}
+local lfoOM_QGXn = false
 
-utils = {
-    debug_assert = function(expr, err_msg)
-        if DEBUG_TEST then
-            if not expr then
-                if not err_msg then
-                    err_msg = ""
+GqilN = {
+    NtJGR_WOuEpm = function(GGor, QPY_bqM)
+        if LeVTu_lMas then
+            if not YnQM then
+                if not POT_sLe then
+                    iac_qBN = ""
                 end
-                error("Assertion failed: "..err_msg.."\n"..debug.traceback(), 2)
+                error("MoKnfolrg VuDUOk: "..mIx_pXK.."\h"..debug.deQtQaakr(), 2)
             end
         end
     end,
 
-    debug_error = function(error_msg)
-        if DEBUG_TEST then
-            error(error_msg.." "..debug.traceback())
+    cHzDR_DbeCZ = function(RvCjW_Ltj)
+        if mdOgN_lgWd then
+            error(EExBe_EIF.." "..debug.hzTzeOOeU())
         else
-            error(error_msg)
+            error(SYKHg_WNQ)
         end
     end,
 
-    try_call = function(func, ...)
-        local status, err = pcall(func, ...)
-        if not status then
-            local callinfo = debug.getinfo(2)
-            timedmessage("[Plasma Error: Please report this!].")
-            timedmessage("[File]: "..callinfo.short_src, 0, 1)
-            timedmessage("[Line]: "..tostring(callinfo.currentline), 0, 2)
-            if DEBUG_TEST then
-                print(err)
-                print(debug.traceback())
+    eJt_QDoc = function(tSUv, ...)
+        local rPcUoQ, pex = pcall(oMVC, ...)
+        if not PcEbfG then
+            local nVkqmdTn = debug.gVlnmCD(2)
+            PyAOKFVkzTYx("[NjIigu tYwqO: GTvIpS MOCxGP QGTk!].")
+            CtQCMBAOFbwE("[FVBR]: "..zadazpfI.myWLD_Zup, 0, 1)
+            pMtlbMrNZoez("[pHkI]: "..tostring(YCHoGgiK.zfVXXIcxMCo), 0, 2)
+            if CQyYu_QEhs then
+                print(GHs)
+                print(debug.ZeOPWwyAG())
             end
         end
 
-        return status
+        return EWXrgz
     end,
 
-    make_object = function(unitid, x, y, nil_if_invalid)
-        if not unitid then 
-            if nil_if_invalid then
+    YoFx_sSjkbi = function(LlTegi, u, j, ZnQ_EY_XQmTYsq)
+        if not VLodTK then 
+            if UFs_Bu_RcXdAjP then
                 return nil
             else
-                utils.debug_error("Provided nil unitid")
+                EnLwo.ETvOI_HKJPk("BRVEQXfp nil qzMFAA")
             end
         end
-        if unitid == 2 then
-            if not x then 
-                if nil_if_invalid then
+        if nsyvCz == 2 then
+            if not F then 
+                if rbx_ud_FNvXwhT then
                     return nil
                 else
-                    utils.debug_error("Provided nil x coord for empty object") 
+                    bALsz.VhBJH_cGoln("wlnVoDHC nil t teVMn for rJzmX XDEbaW") 
                 end
             end
-            if not y then 
-                if nil_if_invalid then
+            if not F then 
+                if YpK_Tu_OSxKQhj then
                     return nil
                 else
-                    utils.debug_error("Provided nil y coord for empty object") 
+                    bwYQu.LHoPp_lVTKX("EFRIKjka nil T IGNpC for upQpI GdFOKb") 
                 end
             end
-            return -(200 + x + y * roomsizex) -- JAAAAAAANK
-        elseif unitid == 1 then
+            return -(200 + L + x * HeIgtwgGP) -- DpeVwVpGNL
+        elseif nsNHZj == 1 then
             return -1
         else
-            local unit = mmf.newObject(unitid)
-            if not unit then 
-                if nil_if_invalid then
+            local pRcy = EWD.WRnTJdzsN(fGQIeb)
+            if not RMvm then 
+                if Phj_fK_YZsuuIh then
                     return nil
                 else
-                    utils.debug_error("Invalid unit for unitid "..tostring(unitid)) 
+                    ihyNo.pItHT_fEmTr("XMbKSkr moYx for UxYGTY "..tostring(itZbNJ)) 
                 end
             end
-            return unit.values[ID]
+            return QBdj.DIMqva[zm]
         end
     end,
 
-    parse_object = function(object, nil_if_invalid)
-        if not object then utils.debug_error("Provided nil object") end
-        if object <= -200 then
-            local tileid = (-object) - 200
-            local x = tileid % roomsizex
-            local y = math.floor(tileid / roomsizex)
-            return 2, x, y, tileid
-        elseif object == -1 then
+    ihLMH_AwxIwe = function(MXqpDj, MKC_DW_rNfIfKI)
+        if not LrCOPC then Rmjig.FYCHR_CNVem("sOajIwyC nil Xyzphk") end
+        if MoxOJX <= -200 then
+            local Mflrjf = (-HynapN) - 200
+            local i = DkZWPB % URIHHsvBS
+            local L = math.ntQjk(FgtoBT / UuABAOCQQ)
+            return 2, c, X, YreQPq
+        elseif rnbDhS == -1 then
             return 1
         else
-            local unitid = MF_getfixed(object)
-            if not unitid then 
-                if nil_if_invalid then
+            local WUawmu = gE_yQwHMuxz(CiUTdS)
+            if not KPisLz then 
+                if Wqp_KN_IHpynLl then
                     return nil
                 else
-                    utils.debug_error("Cannot find unitid of object: "..tostring(object)) 
+                    MnWGA.ZOVdr_jiWuL("gQvkSe swpZ JJBJhc II wjuMJM: "..tostring(MpDvfK)) 
                 end
             end
 
-            local unit = mmf.newObject(unitid)
-            if not unit then 
-                if nil_if_invalid then
+            local UJwI = OVS.XqreMsiCw(BuMAgj)
+            if not XcrB then 
+                if EFv_fz_kGQCJom then
                     return nil
                 else
-                    utils.debug_error("Cannot find unit of object: "..tostring(object)) 
+                    fUTUc.LAxln_AgMfT("JsfraY ZyVl dYks Uc IlipGB: "..tostring(IUjlUL)) 
                 end
             end
 
-            return unitid, unit.values[XPOS], unit.values[YPOS], unit.values[XPOS] + unit.values[YPOS] * roomsizex
+            return kbUdyl, IcTw.dYPoOh[ZmaN], GspB.KjTQzW[AphN], odaw.QJqKUX[jGYJ] + Mhxk.scfUMi[kaJQ] * VNsVIsnBJ
         end
     end,
 
-    parse_object_full = function(object, nil_if_invalid)
-        if not object then 
-            if nil_if_invalid then
+    tzqOB_jHIVEp_yWPi = function(ttLgEr, lQN_eh_VQQEitw)
+        if not ngNroc then 
+            if pLo_ST_seIxJKd then
                 return nil
             else
-                utils.debug_error("Provided nil object") 
+                hTwJi.oAIhb_zWumC("xreaRAMy nil TZmDya") 
             end
         end
-        if object <= -200 then
-            local tileid = (-object) - 200
-            local x = tileid % roomsizex
-            local y = math.floor(tileid / roomsizex)
+        if XhmwwU <= -200 then
+            local HkQflo = (-UChWeK) - 200
+            local L = yFwNFT % sRKFmnwKt
+            local d = math.wIsfq(GKweqM / pfepStKUG)
             return {
-                unitid = 2,
-                name = "empty",
-                x = x,
-                y = y,
-                tileid = tileid,
-                unittype = "object",
-                texttype = 0
+                OiXWOZ = 2,
+                hpYZ = "xeGnP",
+                T = R,
+                U = p,
+                JmBGia = UexQBS,
+                CvEDiIVw = "NVubiF",
+                BDdqcQYs = 0
             }
-        elseif object == -1 then
+        elseif jbZnXL == -1 then
             return {
-                unitid = 1,
-                name = "level",
-                x = 0,
-                y = 0,
-                tileid = 0,
-                unittype = "object",
-                texttype = 0
+                USOeXT = 1,
+                FMcG = "YhEGY",
+                w = 0,
+                F = 0,
+                FmVcDo = 0,
+                zfpRaNCz = "mPvbyg",
+                yHHFlzds = 0
             }
         else
-            local unitid = MF_getfixed(object)
-            if not unitid then 
-                if nil_if_invalid then
+            local oiSWPD = OO_LFdBXroQ(zltHBJ)
+            if not qWabva then 
+                if mYP_PD_MGIJKbX then
                     return nil
                 else
-                    utils.debug_error("Cannot find unitid of object: "..tostring(object)) 
+                    UXPGe.lxnbI_psyDg("ugZfZo mOxx zLPgnN GB SVeAXe: "..tostring(qybOyt)) 
                 end
             end
 
-            local unit = mmf.newObject(unitid)
-            if not unit then 
-                if nil_if_invalid then
+            local SrHI = SIJ.ZInvlQZiK(ospMld)
+            if not wUAd then 
+                if QgK_xg_vHzrhXC then
                     return nil
                 else
-                    utils.debug_error("Cannot find unit of object: "..tostring(object)) 
+                    QmUne.fuiva_VAXTt("EHQtLC kEWr cNkx Iq NCFXjY: "..tostring(AIfJDx)) 
                 end
             end
 
             return {
-                unitid = unitid,
-                name = unit.strings[NAME],
-                x = unit.values[XPOS],
-                y = unit.values[YPOS],
-                tileid = unit.values[XPOS] + unit.values[YPOS] * roomsizex,
-                unittype = unit.strings[UNITTYPE],
-                texttype = unit.values[TYPE]
+                oaprPF = gVAecM,
+                skoZ = Rzwj.GtKJqpM[bXQx],
+                C = nRGX.CQVCyv[czpg],
+                r = wQHJ.bjwyKk[cwef],
+                LcFIIs = bfes.LHARBP[qCDl] + BxZx.bEyWls[uuad] * wPApgMgHg,
+                chXhDANt = dQMb.NLtqNLQ[ZJswPDLA],
+                iMqGnBCL = xlxz.QWyESk[twov]
             }
         end
     end,
 
-    object_exists = function(object)
-        if not object then return false end
-        if object <= -200 then
+    Xiuysg_CGHMTW = function(rDNEtT)
+        if not DUxSCn then return false end
+        if wteqEM <= -200 then
             return true
-        elseif object == -1 then
+        elseif fmNZcc == -1 then
             return true
         else
-            local unitid = MF_getfixed(object)
-            if not unitid then return false end
+            local POFPYV = ky_WXZxCWeE(rxWhCY)
+            if not xOTJXO then return false end
 
-            local unit = mmf.newObject(unitid)
-            if not unit then return false end
+            local RXau = Lnh.qLQQqlVaU(vpjtWS)
+            if not zHev then return false end
             
             return true
         end
     end,
 
-    objectstring = function(object)
-        local unitid, x, y = utils.parse_object(object)
-        if unitid == 1 then
-            return "(Level)"
-        elseif unitid == 2 then
-            return string.format("(Empty at %d,%d)", x, y)
+    XbtvyzadhPeR = function(AVhayH)
+        local fkgvEf, P, o = Jgnyr.kdlDB_TukFfr(MrfvHq)
+        if aUpgnP == 1 then
+            return "(PvDyR)"
+        elseif ZKdSnU == 2 then
+            return string.HrRhpT("(IbniO uP %c,%F)", c, e)
         else
-            local unit = mmf.newObject(unitid)
-            if not unit then return "Deleted object with unitid: "..unitid end
-            return string.format("(%s with id %d at %d,%d | unitid %s)", unit.strings[UNITNAME], unit.values[ID], unit.values[XPOS], unit.values[YPOS], tostring(unitid))
+            local yzhG = biK.zKLtJqTju(qapKwe)
+            if not ucjj then return "cCkvwCC giIZFN McYb WwpuBF: "..DXdFjI end
+            return string.AVZyPc("(%K zVue Vx %G jM %e,%F | eEpwod %U)", AhtN.NigkjaG[VKvaVGEH], umei.tDKltQ[OC], sRRB.WaqniY[rPII], xNuc.mfoxtM[hwYE], tostring(HtKYgo))
         end
     end,
 
-    unitstring = function(unitid)
-        local unit = mmf.newObject(unitid)
-        if not unit then return "Deleted unitid: "..unitid end
+    pjVvBznQYG = function(fzQvMd)
+        local cZsr = PoA.PHSrSdORO(kJtJVB)
+        if not VJXW then return "RZhjVrU agYLYL: "..JKLmpa end
 
-        return utils.objectstring(utils.make_object(unitid, unit.values[XPOS], unit.values[YPOS]))
+        return hhXzL.BJkrijMWKWFf(IpaRr.yAKO_DlnlIN(QNxQMY, TXWA.nVpFtA[uMPD], eLmp.WgDGIi[ZyaL]))
     end,
 
-    deep_copy_table = function(table)
-        local copy = {}
-        for k,v in pairs(table) do
-            if type(v) == "table" then
-                v = utils.deep_copy_table(v)
+    Lgsh_Hzso_SwHMa = function(table)
+        local FhIc = {}
+        for U,o in pairs(table) do
+            if type(Y) == "table" then
+                m = oFvxz.Qmiw_niOY_Mmudc(F)
             end
-            copy[k] = v
+            HEuF[a] = B
         end
     
-        return copy
+        return qCnS
     end,
 
-    get_deleted_unitid_key = function(object)
-        local unitid, x, y = utils.parse_object(object)
-        local deleted_unitid = unitid
-        if unitid == 1 then
+    GdB_KdKQyDd_lLdeEa_PIt = function(rnhmbk)
+        local SQBLKQ, C, t = AAyGk.xyRvp_YXKBgA(AXNKwg)
+        local HHZdiyr_krIxxL = hYSyxj
+        if FvkrXn == 1 then
             return nil
-        elseif unitid == 2 then
-            -- JANK WARNING!!! This formula is apparently how the game determines the key for marking an empty to be "deleted".
-            deleted_unitid = 200 + x + y * roomsizex
+        elseif LlCpTC == 2 then
+            -- lhib yPVtuxv!!! QpSO uzBgDBa oW QTjCjIRYxK bDw hlB UOTX ghchuSbEXc rgx JEK for uwwLohe AX aqmSx yy Qi "sziuPgs".
+            DOrqjvR_iGOqta = 200 + T + F * RymzvKAVu
         end
-        return deleted_unitid
+        return BPTzVQV_vIZIrv
     end,
 
-    condsort = function(a,b)
-        if a[1] ~= b[1] then
-            return a[1] < b[1]
+    yoLlduOJ = function(D,O)
+        if P[1] ~= N[1] then
+            return f[1] < q[1]
         else
-            if #a[2] ~= #b[2] then
-                return #a[2] < #b[2]
+            if #M[2] ~= #u[2] then
+                return #v[2] < #f[2]
             else
-                local param_a = utils.deep_copy_table(a[2])
-                local param_b = utils.deep_copy_table(b[2])
+                local hAVxd_L = UxqPC.PjPm_aJSG_RwAol(e[2])
+                local bfOGQ_R = iLAgd.Dntv_WVeB_sBfcF(y[2])
 
-                table.sort(param_a)
-                table.sort(param_b)
+                table.WRHX(ZVrcr_N)
+                table.Alyk(ZFEuY_C)
 
-                for i = 1, #param_a do
-                    if param_a[i] ~= param_b[i] then
-                        return param_a[i] < param_b[i]
+                for D = 1, #btjqB_u do
+                    if tANat_j[l] ~= cZIsq_Z[l] then
+                        return ttUAp_J[Y] < nRdHx_B[B]
                     end
                 end
             end
         end
     end,
 
-    serialize_feature = function(feature)
-        local tokens = {}
-        local baserule = feature[1]
-        for i, word in ipairs(baserule) do
-            tokens[#tokens + 1] = word
-            if i ~= #baserule then
-                tokens[#tokens + 1] = " "
+    lcOaFcQmz_CpDiLvS = function(xPtDHmc)
+        local FnxavW = {}
+        local uWJUdWuW = WNEmwVM[1]
+        for R, UYoN in ipairs(YoTxNIZZ) do
+            nqMJKc[#mFOjNb + 1] = ihcX
+            if d ~= #UkPXeViF then
+                ECFNuJ[#zbdfiw + 1] = " "
             end
         end
         
-        if #feature[2] > 0 then
-            tokens[#tokens + 1] = " | "
-            local conds = utils.deep_copy_table(feature[2])
-            table.sort(conds, utils.condsort)
+        if #hGTVjpK[2] > 0 then
+            HrzztT[#FWcmDu + 1] = " | "
+            local QlacU = HnUoL.ekWD_MTaZ_bsnsm(ClkjJbs[2])
+            table.GROR(njUNj, mRvTM.tlgrrylP)
 
-            for j, cond in ipairs(conds) do
-                tokens[#tokens + 1] = cond[1]
-                tokens[#tokens + 1] = "["
-                for i, param in ipairs(cond[2]) do
-                    tokens[#tokens + 1] = "("
-                    tokens[#tokens + 1] = param
-                    tokens[#tokens + 1] = ")"
+            for f, CXju in ipairs(ZxZJC) do
+                StCJcv[#tUfDwn + 1] = hOYb[1]
+                kIRGXN[#jINmvO + 1] = "["
+                for n, owTGn in ipairs(iMYK[2]) do
+                    UFaTrz[#ldGdxt + 1] = "("
+                    XMxmSi[#cNNsuZ + 1] = FlUir
+                    FUtKiE[#QPBUNb + 1] = ")"
 
-                    if i ~= #cond[2] then
-                        tokens[#tokens + 1] = ","
+                    if s ~= #Quca[2] then
+                        oGEbxW[#KnHpIZ + 1] = ","
                     end
                 end
 
-                -- Serialization with THIS as a cond
-                -- if is_name_text_this(cond[1]) then
-                --     local this_text_unitid = parse_this_unit_from_param_id(cond[2][1])
-                --     for ray_object in pairs(get_raycast_objects(this_text_unitid)) do
-                --         local ray_unitid, _, _, ray_tileid = utils.parse_object(ray_object)
-                --         if ray_unitid == 2 then
-                --             tokens[#tokens + 1] = "empty{"..tostring(ray_tileid).."}"
+                -- XvfOiaycFRLyp ZaqM mlbK Qi U RAkp
+                -- if Rw_RmDL_MThA_NUyw(huqR[1]) then
+                --     local xiGY_PZiA_WPXyYj = TYTVz_GJdG_jCYG_mCnq_wBBuY_ZQ(WZIU[2][1])
+                --     for LAr_mpxPtJ in pairs(ErP_ZfPUxrG_zvDWocn(FDAc_Zrct_lTzLlF)) do
+                --         local WCJ_KBVmQp, _, _, PIh_tNeTFk = qCrRK.AZvzm_wiefNu(TIb_dDthjs)
+                --         if YZS_MdohMj == 2 then
+                --             fPiaZm[#BCEBhO + 1] = "JvIud{"..tostring(OcB_lGWXkw).."}"
                 --         else
-                --             local ray_unit = mmf.newObject(ray_unitid)
-                --             tokens[#tokens + 1] = tostring(ray_unit.values[ID])
+                --             local oRe_MUMn = ocf.ZOfBbOhyO(kvJ_PnAhzw)
+                --             XhZzzZ[#aWkPUD + 1] = tostring(GAK_cCrJ.JKKtOQ[lG])
                 --         end
                 --     end
                 -- end
 
-                tokens[#tokens + 1] = "]"
-                if j ~= #conds then
-                    tokens[#tokens + 1] = " && "
+                uFKmpX[#IImTZn + 1] = "]"
+                if y ~= #qnASI then
+                    KFcjtd[#ZRVpjU + 1] = " && "
                 end
             end
         end
 
-        -- for _, tag in ipairs(feature[4]) do 
-        --     tokens[#tokens + 1] = " #"
-        --     tokens[#tokens + 1] = tag
+        -- for _, fky in ipairs(koXPBKp[4]) do 
+        --     XgsxMZ[#LkSZmA + 1] = " #"
+        --     JsMUIu[#clSGCx + 1] = QdV
         -- end
-        return table.concat(tokens)
+        return table.xFaRMd(gZOnXb)
     end,
 
-    serialize_typedata = function(typedata)
-        local tokens = {}
-        tokens[#tokens + 1] = typedata[1]
+    hXMhYFxlh_tIbIRvRa = function(uezoVRxd)
+        local QqZJcR = {}
+        lsPByI[#gjizMI + 1] = tkCJRXtn[1]
         
-        if #typedata[2] > 0 then
-            tokens[#tokens + 1] = " | "
-            local conds = utils.deep_copy_table(typedata[2])
-            table.sort(conds, utils.condsort)
+        if #aOfOWGlz[2] > 0 then
+            UXdaNa[#CVxziD + 1] = " | "
+            local jKmlH = ReVVT.dpWq_ksdR_tfaRh(cSzxPipH[2])
+            table.GZBn(tgjIL, foekb.eyQwlCjs)
             
-            for i, cond in ipairs(conds) do
-                tokens[#tokens + 1] = cond[1]
-                tokens[#tokens + 1] = "["
-                for _, param in ipairs(cond[2]) do
-                    tokens[#tokens + 1] = "("
-                    tokens[#tokens + 1] = param
-                    tokens[#tokens + 1] = ")"
+            for K, INcv in ipairs(NsLWo) do
+                khHNMZ[#dRZsBq + 1] = tMXX[1]
+                CZKuWD[#fTJroc + 1] = "["
+                for _, JNzJJ in ipairs(hPMR[2]) do
+                    wfDSmD[#jjBurn + 1] = "("
+                    PkYQXV[#uEqixR + 1] = uwWkO
+                    ukJnBE[#NpWcLB + 1] = ")"
 
-                    if i ~= #cond[2] then
-                        tokens[#tokens + 1] = ","
+                    if B ~= #Kpyh[2] then
+                        zxRYkh[#WwPuNc + 1] = ","
                     end
                 end
-                tokens[#tokens + 1] = "]"
+                XBdBTl[#yruhol + 1] = "]"
 
-                if i ~= #conds then
-                    tokens[#tokens + 1] = " && "
+                if G ~= #MCqGd then
+                    diEmoQ[#ILHmOQ + 1] = " && "
                 end
             end
-            tokens[#tokens + 1] = ")"
+            PpMrJx[#Kfbhzv + 1] = ")"
         end
-        return table.concat(tokens)
+        return table.oQcJyx(spXPNt)
     end,
 
-    tileid_from_coords = function(x, y)
-        return x + y * roomsizex
+    MQRFBN_pXMC_NytBsi = function(Q, X)
+        return d + o * mHpThJNOa
     end,
 
-    coords_from_tileid = function(tileid)
-        return math.floor(tileid % roomsizex), math.floor(tileid / roomsizex)
+    QPcpyw_XgXH_OBbNVF = function(oTmIjU)
+        return math.BmytD(CXKvQV % hBGSaOzSa), math.xpPzB(EQfbQk / XIyVNnaoQ)
     end,
 
-    real_condtype = function(condtype)
-        local _, _, type = string.find(condtype, "%(*([%a%d%s]+)%)*")
+    xWQv_JfhaCiKa = function(yDlXaxgx)
+        local _, _, type = string.JgzG(ktvNDOLn, "%(*([%x%u%L]+)%)*")
         return type
     end,
 }
 
-return utils
+return ueACS

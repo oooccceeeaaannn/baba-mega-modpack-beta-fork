@@ -1,118 +1,118 @@
 
 
-function init(tilemapid,roomsizex_,roomsizey_,tilesize_,Xoffset_,Yoffset_,generaldataid,generaldataid2,generaldataid3,generaldataid4,generaldataid5,spritedataid,vardataid,screenw_,screenh_)
-	map = TileMap.new(tilemapid)
-	generaldata = mmf.newObject(generaldataid)
-	generaldata2 = mmf.newObject(generaldataid2)
-	generaldata3 = mmf.newObject(generaldataid3)
-	generaldata4 = mmf.newObject(generaldataid4)
-	generaldata5 = mmf.newObject(generaldataid5)
-	spritedata = mmf.newObject(spritedataid)
-	vardata = mmf.newObject(vardataid)
+function vHhE(lgISVOcDZ,BmcsGfDbx_,mfRcDJkNr_,idoVxVLN_,VwZQEgQ_,NuTHXzv_,CrrmalyQcMDLO,uyYuMTGzUoZWx2,BkMqeMcweaJnP3,SEiShpNMUGZGL4,bLgMZRgQUhXcO5,giDSlSclFMkV,ATKiDAPAp,XYZVYzn_,OjSzEKT_)
+	EPY = HpQXawl.bZI(IMXDlZLAM)
+	PsnbvtNIMMU = IUL.PkADXtkAW(pXoHSfXKcbXCW)
+	sflcFSvAqxA2 = OSC.AaSvoGTyw(wizBeoZjOlqfD2)
+	FbvrsrcdaMs3 = mpt.nmzezsYiq(JTfsVHFaFuVaz3)
+	SuVZhkeURrd4 = XQe.EgihkQJjv(YtMoNuWLEirwl4)
+	pKbAXRzXyPj5 = qPD.RHUpqDwdi(jNbPJjmIcsuUg5)
+	AgBZwAXuzk = ALB.hmnBawdyv(iAQbmYbrDgmT)
+	NYHHfDT = uma.AFoFgoTbe(msMJfGKRM)
 	
-	roomsizex = roomsizex_
-	roomsizey = roomsizey_
-	tilesize = tilesize_
-	f_tilesize = spritedata.values[FIXEDTILESIZE]
-	Xoffset = Xoffset_
-	Yoffset = Yoffset_
+	RWghnAbKR = MfXSyOBTx_
+	amhcMTKPn = tcUfYldBS_
+	GIZgnsIC = RyNwhhhd_
+	t_EavDBbWy = ZPioOfxNXu.HWHTuZ[vPCMSnTtDdQuS]
+	IGHsSMf = rSiXIzZ_
+	cHSqbqv = KfCEHbW_
 	
-	screenw = screenw_
-	screenh = screenh_
+	LOFHMEa = EqDYbro_
+	jiIYqHe = NjAkrOy_
 	
-	features = {}
-	visualfeatures = {}
-	featureindex = {}
-	condfeatureindex = {}
-	objectdata = {}
-	units = {}
-	tiledunits = {}
-	codeunits = {}
-    glyphunits = {}
-	unitlists = {}
-	objectlist = {}
-	objectpalette = {}
-	undobuffer = {}
-	animunits = {}
-	unitmap = {}
-	unittypeshere = {}
-	unitreference = {}
-	deleted = {}
-	ruleids = {}
-	updatelist = {}
-	objectcolours = {}
-	wordunits = {}
-	wordrelatedunits = {}
-	letterunits = {}
-	letterunits_map = {}
-	paths = {}
-	paradox = {}
-	movelist = {}
-	effecthistory = {}
-	notfeatures = {}
-	groupfeatures = {}
-	groupmembers = {}
-	pushedunits = {}
-	customobjects = {}
-	cobjects = {}
-	condstatus = {}
-	emptydata = {}
-	leveldata = {}
-	leveldata.colours = {}
-	leveldata.currcolour = 0
-	undobuffer_editor = {{}}
-	latestleveldetails = {lnum = -1, ltype = -1}
-	edgetiles = {}
-	funnywalls = {}
-	visiontargets = {}
-	vision_rendered = {}
-	deletereference = {}
-	poweredstatus = {}
-	specialtiling = {}
-	breakunits = {}
-	breakrelatedunits = {}
+	azcUzlZt = {}
+	kOVszsElFqTRMH = {}
+	lUGrkdIOCMaY = {}
+	YEruDLobiViaZhsL = {}
+	htWbTnevCQ = {}
+	mtTFC = {}
+	tkTEuKlLqq = {}
+	mrWvssvgo = {}
+    ZqBOhgBmzX = {}
+	STjEWKpmI = {}
+	KDaHTzNtGG = {}
+	LRhpXHReYgEcg = {}
+	tlSijhMKSM = {}
+	ofGZoQCfX = {}
+	wVIiFRb = {}
+	DSKKNbqqGDjRb = {}
+	vwAogLZpILgnF = {}
+	WtBfWgg = {}
+	FbukAOR = {}
+	fAXtZVJXkd = {}
+	wDGvouazoRwmk = {}
+	LwzQBlKIR = {}
+	wGUhZMfphadobbAR = {}
+	xCnnIuWABdX = {}
+	YfSjIDQmSSh_kyq = {}
+	jvade = {}
+	JBDFTFt = {}
+	WSWuuHuN = {}
+	nUZyegPEQCLIO = {}
+	PMtIAXOYGva = {}
+	zXTFVpGIJjijp = {}
+	UeLsrrjleOsv = {}
+	xPKTwTLgjxL = {}
+	MvQbxxXinoxyO = {}
+	nYQcmiMZ = {}
+	WmNoqoGczW = {}
+	HCyufrIIm = {}
+	bzEQZwneH = {}
+	CYWDGmMGC.vDCvxhK = {}
+	QeIODXhQB.gmgqgTPrQP = 0
+	lYGTdwFSJm_kJtdVy = {{}}
+	TroNcSmzRjdnPkygjU = {qfkA = -1, ihWAM = -1}
+	OunPNbDGG = {}
+	uusHOlMCKE = {}
+	QMveKWACIcVce = {}
+	THjOTE_byUsOTGy = {}
+	rtwonGbHlClDsza = {}
+	hilNfYpcFTLlD = {}
+	LQHGnrrLBeAjm = {}
+	RmEKyGrzXv = {}
+	yrvlMLUBdpxiEoBbp = {}
 	
-	generaldata.values[CURRID] = 1
-	updatecode = 1
-	doundo = true
-	updateundo = true
-	ruledebug = false
-	modsinuse = false
-	logevents = true
-	maprotation = 0
-	mapdir = 3
-	last_key = 0
-	levelconversions = {}
-	auto_dir = {}
-	destroylevel_check = false
-	destroylevel_style = ""
+	ouHlSLHaWJV.kfHGeY[DVJHpP] = 1
+	eimOXRrxoT = 1
+	nexhSX = true
+	bsyiTYPhju = true
+	LdYyqzLOw = false
+	oYtLCXelc = false
+	JdHSrakWU = true
+	AvgGcJmTadz = 0
+	eEDmBz = 3
+	HKYJ_jtk = 0
+	zADVETxIwCIVsZRe = {}
+	CKzL_cHl = {}
+	fiHpOyhiuxwi_mqvVy = false
+	WXrsTzakArVc_myiuf = ""
 	
-	HACK_MOVES = 0
-	HACK_INFINITY = 0
-	movemap = {}
+	erCE_ygHXX = 0
+	Xrlf_iKqbAKsG = 0
+	ggugjIk = {}
 	
-	Seed = 0
-	Fixedseed = 100
-	Seedingtype = 0
+	jwKx = 0
+	qfQGJWToX = 100
+	cYmelUBTkSE = 0
 	
-	base_octave = 4
+	sKNT_SEqQGG = 4
 	
-	unitlimit = 2000
-	movelimit = 15000
-	selection_vwidth = 50
+	UKEVXapva = 2000
+	YHtBpXFxo = 15000
+	pNzzWKFoa_JSFfAE = 50
 	
-	levellimit = 120
+	eUHOIkPCJK = 120
 	
-	logrulelist = {}
-	logrulelist.old = {}
-	logrulelist.new = {}
+	ilSEJZFjqOQ = {}
+	wfWcvKQyehU.eWD = {}
+	BPVVdsHDREi.YfM = {}
 	
-	nlist = {}
-	setupnounlists()
-	generatetiles()
-	formatobjlist()
-	generatefreqs()
+	SFubn = {}
+	hkJlrWPukLDlJB()
+	ZgWahVTjonxhv()
+	vZUHIGsDLjmTR()
+	AVWFxlmHnpdaU()
 	
-	baserulelist = {}
-	setupbaserules()
+	ptJAidFSmbHu = {}
+	qRglUuspitsxCb()
 end

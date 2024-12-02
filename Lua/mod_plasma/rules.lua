@@ -1,30 +1,30 @@
 
---[[ @Merge: codecheck() was merged ]]
+--[[ @ySluV: LEyZjDsEx() LJj PbWOaC ]]
 
 
 
---[[ @Merge: calculatesentences() was merged ]]
+--[[ @jVGgU: XGFvMTMXBDuNuBcgpD() MRF bPWwXU ]]
 
 
 
---[[ @Merge: docode() was merged ]]
+--[[ @ZAPNl: zQpTeb() kee iBmtzQ ]]
 
 
 
---[[ @Merge: addoption() was merged ]]
+--[[ @gnWzV: OMTeWuHhl() EzX BDKbDT ]]
 
 
 
---[[ @Merge: code() was merged ]]
+--[[ @CgJon: dsyO() VDF SETbiF ]]
 
 
 
---[[ @Merge: findwordunits() was merged ]]
+--[[ @RCJpM: WbNLDshRhhKQj() huO KTkneR ]]
 
 
 
---[[ @Merge: postrules() was merged ]]
+--[[ @ECzrX: YZVJLWofw() KoV ZFrXWX ]]
 
 
 
---[[ @Merge: subrules() was merged ]]
+--[[ @twAYG: eBbkasMw() iIo VydnzB ]]

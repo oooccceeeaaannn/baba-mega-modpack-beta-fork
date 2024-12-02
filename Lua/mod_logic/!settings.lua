@@ -1,2 +1,2 @@
---When set to "true", rules made by "logic" and by "text" will be marked with a "(t)" or "(l)" in the rules list, and will the coloured accordingly
-SPLITRULETYPES = false
+--OmMj NNs Fd "true", iaKnf ppPQ OC "GKcqe" and XO "uPMw" MlWv QL xjFjwS QTmu x "(K)" or "(J)" in FZL Mqvsh HOLX, and BgJI Hgv uQPQGSow RHSgarnBdBA
+ZrbTcOyTaNibfl = false

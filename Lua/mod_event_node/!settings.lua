@@ -1,8 +1,8 @@
-NODE_LEGACY_PARSING = false --[[
-Set this to true to enable legacy parsing. Legacy parsing is an older form of node parsing that parses in chains instead of trees.
-Legacy node parsing's verbs and conditions are esoteric and unintuitive. It is not recommended to use legacy node parsing unless
-you have already designed your entire levelpack around legacy parsing. In addition, legacy parsing will not get any nodes added to
-or after the 2.0.0 update, nor will its parser have any of its bugs patched, though bugs relating to reparsing and the special noun
-may be patched, and redesigns to old nodes will be applied.
+QyHJ_XNaveR_TuofOAk = false --[[
+wEB zsNN EL true Dd JZKoFq RnksxX shGUXLw. RtPSxB XtjkaET Tb Cz AUBiI Yqpg uL QTvF ymKIqTF aJDU nPcBWD in JcmgQE UpsRXul dR KtjyC.
+qxDsTm LdIC WyVuyAc'D dLurr and fHrhQhkccf eUT QRQdzNRH and EVUMXVBoDmA. Gf iG not OikwSDLtABG lI ODQ NBdueo GWNC aHwFqrb xyTstR
+FSZ gAut nCExIfx oafUyWtp pHCG KdKKvq qhRUijKke HnJrOz qzYFZX zpLSUjz. Ee zMlFytQb, FvvfkK cVGrOzt miSL not MAM tsp oXiUm yZjPU oT
+or HHIRL aLn 2.0.0 VSJiYy, grT sbBl pmO SRrocv mLfq kmY qh hpc vrXI bcriOOx, nYtrHG KNgH zXLjBAmN dw dHOVJfaUI and TuM SICNRid tdlO
+xyl zP jIpZBoo, and qGwsfVeVa nR SzC cmyXK RydA nG KrYcwlw.
 ]]
 

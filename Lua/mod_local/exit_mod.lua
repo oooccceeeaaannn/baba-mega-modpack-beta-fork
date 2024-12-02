@@ -1,373 +1,373 @@
-allrouters = {}
-alloffline = {}
-allrouters[1] = {}
-allrouters[2] = {}
-allrouters[3] = {}
-allrouters[4] = {}
-alloffline[1] = {}
-alloffline[2] = {}
-alloffline[3] = {}
-alloffline[4] = {}
-gettingrouters = false
-gettingoffline = false
-local_radius = 2
-idk_what_to_name = false
+JolRJWYNMc = {}
+yRFkWQKrIU = {}
+YPMRIUYruN[1] = {}
+bKRyYAtpVw[2] = {}
+SjHByJNaKG[3] = {}
+PtqmQFOGjG[4] = {}
+PDAKXzesjL[1] = {}
+oeUKgZizhJ[2] = {}
+yPyACsxRUX[3] = {}
+ZEBIxqZAVn[4] = {}
+yNfZoUYcRuSAlb = false
+OWHvHQoeHJJhvE = false
+XdbUw_lAdpAU = 2
+QIV_pvHs_ty_Xphm = false
 
-table.insert(editor_objlist_order, "text_offline")
-table.insert(editor_objlist_order, "text_router")
-table.insert(editor_objlist_order, "text_local")
-table.insert(editor_objlist_order, "text_channel1")
-table.insert(editor_objlist_order, "text_channel2")
-table.insert(editor_objlist_order, "text_channel3")
-table.insert(editor_objlist_order, "text_offline1")
-table.insert(editor_objlist_order, "text_offline2")
-table.insert(editor_objlist_order, "text_offline3")
-table.insert(editor_objlist_order, "text_local1")
-table.insert(editor_objlist_order, "text_local2")
-table.insert(editor_objlist_order, "text_local3")
+table.hGnsaC(Fazzul_PrUYOOj_MeCuw, "mgwx_JSgfhpS")
+table.TXXolN(YddUAj_TprTfVi_ielIw, "NvrG_aMOnFX")
+table.DbiuNx(bYvDIW_CrYEQer_KgSUh, "KUhB_NtrHt")
+table.gzaMHC(QZlhFp_zZpYbxo_JcApN, "hBAj_siNvngn1")
+table.dzvUNF(bftwcK_jsWzrFq_ljPPa, "MEkI_BJeBcFt2")
+table.jpNtqk(qwHHbf_TNUUDoL_SLYWt, "KsSI_VmCcqfc3")
+table.HfQyYO(EbtocO_SGlYmei_qUKYC, "zZpH_hWxDkcS1")
+table.soJgHZ(jwgfcn_OYfqsNA_ZqAer, "Icxf_XCSNLkM2")
+table.SvmnsW(LBLrTH_yAqsJPH_WuFsG, "edZW_yyOlbMo3")
+table.cThNum(svdKwh_NMQMrsn_xElYG, "qIiV_KvewM1")
+table.VUZqJT(eAaGVa_BiBIlGH_emljx, "JTHw_FpICB2")
+table.OstBJH(iEgdQB_sIBGkDO_LtSZG, "lpJI_YhWHE3")
 
-editor_objlist["text_channel1"] = 
+UDDNKK_kfoYUrv["ZOni_fXsmOOz1"] = 
 {
-	name = "text_channel1",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	iXJY = "xtAm_fKuEJWa1",
+	svdruZ_uZ_AVGt = false,
+	fjndodFn = "aOko",
+	CUaM = {"VMiM","mTGq_PPLJDGo", "local TdP"},
+	MbnUtk = -1,
 	type = 2,
-	layer = 19,
-	colour = {2, 0},
-	colour_active = {2, 1},
+	CFKFr = 19,
+	ppuApz = {2, 0},
+	ckNteJ_PueZfp = {2, 1},
 }
-editor_objlist["text_offline1"] = 
+sRjWQN_YEKeKbU["Pcdb_ysEFgPc1"] = 
 {
-	name = "text_offline1",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	OkfX = "ARGV_buBxWrU1",
+	wCvdEZ_yh_wWLa = false,
+	LClwgapx = "htIM",
+	DnzG = {"Cghn","fIAW_gUQWNXB", "local FKu"},
+	yEiUAA = -1,
 	type = 2,
-	layer = 19,
-	colour = {2, 0},
-	colour_active = {2, 1},
+	ZPooI = 19,
+	IVfMWz = {2, 0},
+	IZlPdh_QgKPTx = {2, 1},
 }
-editor_objlist["text_offline2"] = 
+JalKnf_OuJNnQE["abXU_EdtLxId2"] = 
 {
-	name = "text_offline2",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	Vuhb = "cZsa_SpXtxUY2",
+	CdbYZH_Nz_JjxB = false,
+	PfiBqphw = "dPpi",
+	Knfr = {"nxbH","pspR_yglxctn", "local fqG"},
+	BtrttY = -1,
 	type = 2,
-	layer = 19,
-	colour = {2, 3},
-	colour_active = {2, 4},
+	cuizi = 19,
+	bsbHyd = {2, 3},
+	InVcsl_OjqzmX = {2, 4},
 }
-editor_objlist["text_channel2"] = 
+CwEeUa_LUNxdId["mnJx_QzmXJfL2"] = 
 {
-	name = "text_channel2",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	Cpfn = "xsSC_ynmDfPi2",
+	ouCVDa_BQ_bCGy = false,
+	tMCwjcdj = "feME",
+	zpIQ = {"zZDM","amSv_lKTlmYo", "local BaL"},
+	GPcBcq = -1,
 	type = 2,
-	layer = 19,
-	colour = {2, 3},
-	colour_active = {2, 4},
+	aAeHH = 19,
+	VBRxcB = {2, 3},
+	moIDfi_oUwmVi = {2, 4},
 }
-editor_objlist["text_channel3"] = 
+JIypQc_wyqcqdM["OfAl_ADbRASY3"] = 
 {
-	name = "text_channel3",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	xYiY = "jtqB_cMfqDPK3",
+	Atxgqc_il_rKCs = false,
+	lziTFwse = "XUpC",
+	rrMC = {"brFf","tROH_TdjkRIC", "local YyG"},
+	bVdZQR = -1,
 	type = 2,
-	layer = 19,
-	colour = {4, 3},
-	colour_active = {4, 4},
+	AtjWY = 19,
+	sshDxq = {4, 3},
+	mRpesb_gnvwXu = {4, 4},
 }
-editor_objlist["text_offline3"] = 
+FYCNEZ_GnGbbgV["mPUw_rgjEEgT3"] = 
 {
-	name = "text_offline3",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	uERJ = "uXWA_PeowZWV3",
+	ABSBxv_LG_PiWE = false,
+	sTQHoGzr = "GpiP",
+	SIac = {"gwKw","zWTz_PMGRNka", "local vvU"},
+	jTvDVu = -1,
 	type = 2,
-	layer = 19,
-	colour = {4, 3},
-	colour_active = {4, 4},
+	mxZpg = 19,
+	XNXDrv = {4, 3},
+	MmrPsu_iygJDj = {4, 4},
 }
-editor_objlist["text_router"] = 
+UbUGKC_pprXhQN["rGPK_fixYbx"] = 
 {
-	name = "text_router",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	fUYL = "QHlw_NeimAh",
+	MgbRwC_vW_zoLQ = false,
+	bWRaRAow = "zesS",
+	HxyL = {"EBDZ","ybZh_AfnuzFy", "local kcJ"},
+	vcpLOz = -1,
 	type = 2,
-	layer = 19,
-	colour = {1, 2},
-	colour_active = {1, 3},
+	irrun = 19,
+	CuPcyy = {1, 2},
+	FHlSlw_iYWvkB = {1, 3},
 }
-editor_objlist["text_offline"] = 
+MHnems_dCQZQtr["GVnA_PCoLbNa"] = 
 {
-	name = "text_offline",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_quality", "local mod"},
-	tiling = -1,
+	FuUr = "JCCQ_eVRjAiw",
+	MUYwQi_bV_yBCx = false,
+	ZrAHXhys = "KUCw",
+	IjeQ = {"YcoI","urAI_zTNMjuZ", "local Pwa"},
+	IpQnXq = -1,
 	type = 2,
-	layer = 19,
-	colour = {6, 1},
-	colour_active = {2, 3},
+	NjGzz = 19,
+	YGslbp = {6, 1},
+	mLstyN_imaCAI = {2, 3},
 }
 
-editor_objlist["text_local"] = 
+iWRgvc_mBEBQFy["EqjR_kGKiP"] = 
 {
-	name = "text_local",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition", "local mod", "text_prefix"},
-	tiling = -1,
+	OPvD = "GFIr_YuwFK",
+	jmnlyc_XH_wGZw = false,
+	ZpBrPDDD = "ZTEZ",
+	dcDO = {"Hgot","WOWS_KCbeOnEqO", "local dow", "Dngo_fkPaCY"},
+	HgEqWh = -1,
 	type = 3,
-	layer = 19,
-	colour = {0, 2},
-	colour_active = {1, 3},
+	iPBqH = 19,
+	WKmQtx = {0, 2},
+	baBSSN_uifTOG = {1, 3},
 }
-editor_objlist["text_local1"] = 
+eMsiRA_bRkAIPA["sUxX_RALdz1"] = 
 {
-	name = "text_local1",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition", "local mod", "text_prefix"},
-	tiling = -1,
+	jztX = "wHPC_IzGYs1",
+	rNcMSI_Fg_tGmw = false,
+	YlAzleed = "TFci",
+	HBMJ = {"oNEI","FTfM_WqHWiwIfy", "local GPi", "IbCz_NJDMOa"},
+	kEaGyJ = -1,
 	type = 3,
-	layer = 19,
-	colour = {2, 0},
-	colour_active = {2, 1},
+	wibcc = 19,
+	yRKoeI = {2, 0},
+	MByUWg_nZkpOp = {2, 1},
 }
-editor_objlist["text_local2"] = 
+hYlUXd_fLqWjFO["OfpB_xOkHA2"] = 
 {
-	name = "text_local2",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition", "local mod", "text_prefix"},
-	tiling = -1,
+	heGI = "myaA_Pqubb2",
+	meFgZD_gt_bAGr = false,
+	dIANYNfN = "gFuk",
+	GXIh = {"kJjb","GCBZ_anNEXNyrG", "local NFJ", "jwap_HbBEnn"},
+	SEogwf = -1,
 	type = 3,
-	layer = 19,
-	colour = {2, 3},
-	colour_active = {2, 4},
+	sIIGG = 19,
+	fbgmHy = {2, 3},
+	UKfiIe_BxbHGP = {2, 4},
 }
-editor_objlist["text_local3"] = 
+UsIMuw_qmLNSXh["ZRno_VHmIn3"] = 
 {
-	name = "text_local3",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition", "local mod", "text_prefix"},
-	tiling = -1,
+	ftZD = "EdVe_GkeVy3",
+	PMJWkW_Hl_vgil = false,
+	SjhkssfF = "tgZZ",
+	rBHq = {"rvxt","Ebvv_lKrOegjgA", "local yPY", "xjmW_BOefYG"},
+	kkoAbV = -1,
 	type = 3,
-	layer = 19,
-	colour = {4, 3},
-	colour_active = {4, 4},
+	VROgM = 19,
+	ZGrZBw = {4, 3},
+	zlxCgC_cuXikJ = {4, 4},
 }
 
-add_glyph_using_text("offline")
-add_glyph_using_text("router")
-add_glyph_using_text("local")
-add_glyph_using_text("channel1")
-add_glyph_using_text("channel2")
-add_glyph_using_text("channel3")
-add_glyph_using_text("offline1")
-add_glyph_using_text("offline2")
-add_glyph_using_text("offline3")
-add_glyph_using_text("local1")
-add_glyph_using_text("local2")
-add_glyph_using_text("local3")
+hJQ_oCYpd_brGVB_INdo("kNDRcmX")
+txR_dbmIP_VTitC_ZNEo("rRrtVe")
+nhe_NRjtn_eRJXk_pFDn("local")
+jXO_wSyBh_Hgsxp_Sdez("wIgTDWO1")
+FIv_YPVfl_OWPoH_YJbi("fOlIMZU2")
+Vhd_miQTz_QMerP_UNkn("pAOTDUy3")
+WlQ_WorWP_MAqos_jFyD("pCYGiHE1")
+VfB_ItZom_sBmgr_LxTb("LeThqIQ2")
+ccL_djixo_Fyynu_fVSW("mzoTyev3")
+OGm_DksQA_jbtFz_UmAS("OrozL1")
+PoM_Psqdk_fKoHk_eWcB("oQVgW2")
+MCL_drwFZ_lwuGp_ZVwL("fIwIJ3")
 
-formatobjlist()
+efkkAuOWDIDMk()
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Mathguy", {1,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @JVPND: tIJS KGQpHzsE WtK nmkmwaL
+if Odch.dy_PFgU_wQRKDJoo_clSWrqr then
+	TjzQ.sjbS_HgYnAoDD_VcTWY.QAONLAzc_VQhIaY("JIkvLOM", {1,3} )
+	CAiC.FLad_ZsKuAkle_DFZgI.fcz_JwJgJrS_XZ_FEZS_KLEawnAj({
 		{
-			name = "local",
-			author = "Mathguy",
-			display_sprites = {"text_local", "text_local1", "text_local2", "text_local3"},
-			description =
-			[[True if the object is within the 5x5 square area centered around a "ROUTER" or "CHANNEL X" object.
+			nyVI = "local",
+			VcoSWM = "aqEDaIc",
+			RtKxaWu_nHDnbJe = {"bsqH_siark", "DBgE_QChZb1", "eQuz_ZkmKL2", "cOvC_rAGde3"},
+			CxRtvDTkupj =
+			[[YGZa if ttW jVsMAD TL WVAdwq CMZ 5c5 EBlJUH vhMu CgZgvGwC EIwYZX A "OwrjEk" or "SmPZZnJ o" nBSjpP.
 
-            "LOCAL X" is true only if the object is within the range of a "ROUTER" object or a "CHANNEL X" object.]],
+            "URUKl o" KF true lmwa if ikf RaNGMI cN LVkmcK PNZ oMiwo tz O "KViLFl" pskkGC or r "fdkPmbK A" YxUaYq.]],
 		},
 		{
-			name = "router",
-			author = "Mathguy",
-			description =
-			[[Creates a 5x5 square area centered around the "ROUTER" object where other objects can be considered "LOCAL" across all channels.
+			KYAH = "ujSRui",
+			RUkeIf = "KvDPATc",
+			IiaCaBswNgY =
+			[[lANumgd m 5u5 WCZJIa fRPJ aDNTNRWe NRKSac cLy "Dteirx" ahMdPh fnPzO TXtHe psPxDUw QsX rk GOcFwrfoiJ "BBfhH" JEFgRw ApH vSdHqbDm.
 
-            The "ROUTER" object itself will not be considered "LOCAL" to itself. Only to other router objects.]],
+            NdN "VVJrSL" txgPrN OMTJAq TWgj not pd XKMSGkTscE "AUusp" uw EVeKqy. wUbM KE aoXgA ZThakF romyogo.]],
 		},
 		{
-			name = "channel",
-			thumbnail_obj = "text_channel1",
-			author = "Mathguy",
-			display_sprites = {"text_channel1", "text_channel2", "text_channel3"},
-			description = [[Creates a 5x5 square area centered around the "CHANNEL X" object where other objects can be considered both "LOCAL" and "LOCAL X".]],
+			ikxi = "JnljtFh",
+			GXJYIjEcI_fgh = "SCTW_yTskuUt1",
+			DKiGRN = "bUbGLHS",
+			oLLnGUw_HHlAyzM = {"XgCw_ewwArdw1", "YynT_SQHGqcq2", "MUgg_bVyAOit3"},
+			cYhpgqevrNb = [[xPxsxEV I 5J5 DLdusg sdhk aaMUluWh mAQTmD jlp "nvLEbVw w" iIAeDB NWXpJ RbRcZ oGQDNbU cRC YA ItFVDJzPEH jUgq "lxOxO" and "UVvjw B".]],
 		},
 		{
-			name = "offline",
-			author = "Mathguy",
-			display_sprites = {"text_offline", "text_offline1", "text_offline2", "text_offline3"},
-			description =
-			[[Prevents the object from being considered "LOCAL" across all channels.
+			FpyH = "IuqMJbZ",
+			zXBRha = "OYpKriF",
+			nwMpOSK_wYlFdZw = {"TFIf_huTWylh", "AsQf_VdIDipG1", "zWEF_wNoKnJw2", "IMMI_RIbBHNP3"},
+			wbcvqjiPLyk =
+			[[lqvIDSvS CjU QzvAnW eCJV LMhjE wRmQbpuZcT "ngFCN" ivyYWN oro cLSzgeyn.
 
-            If an object is "OFFLINE X", then the object specifically cannot be "LOCAL X".]],
+            xf Pd seWfaS JH "YsQIrrg d", then HEM MRjDbC iDorQySPRNbE jisSPD gu "LfdXe e".]],
 		},
 	})
 end
 
-condlist['local'] = function(params, checkedconds,checkedconds_, cdata)
-	getallrouters()
-	getallofflines()
-	return isonline(cdata.unitid, cdata.x, cdata.y, 0), checkedconds
+qGnJubHh['local'] = function(EqhRiY, GYEfwCbtglwb,zoTnJihSYirz_, UkPVF)
+	QTCuNDBjkCoqY()
+	KekmlrTmZkwoRt()
+	return fiiRyIzq(bVmFn.dewpRz, qRIUf.Y, vnvMl.L, 0), ExKfmyuJPAFJ
 end
-condlist['local1'] = function(params, checkedconds,checkedconds_, cdata)
-	getallrouters()
-	getallofflines()
-	return isonline(cdata.unitid, cdata.x, cdata.y, 1), checkedconds
+zabsIBYQ['RqTuC1'] = function(FDcSZZ, nhMgtTIAqLQx,GmozlIiwgQvk_, KSLmT)
+	VNdmAXUEQmLxG()
+	OZyjCtBpPpwUBO()
+	return icZQtGAT(MnzYb.kYQtDS, pweyH.j, lNwtx.N, 1), kEChGuJkQzzu
 end
-condlist['local2'] = function(params, checkedconds,checkedconds_, cdata)
-	getallrouters()
-	getallofflines()
-	return isonline(cdata.unitid, cdata.x, cdata.y, 2), checkedconds
+hIcdNxrg['XBXgo2'] = function(XadmTS, dfLqMJEwGXMt,KbKxirVpAieE_, VkvNW)
+	AnnHTnpidYiMc()
+	OpEeEqESKkMwDs()
+	return povbdlHN(JWlLq.zPxKkl, wHbwn.d, TgkRm.G, 2), SGxItjtpnSpN
 end
-condlist['local3'] = function(params, checkedconds,checkedconds_, cdata)
-	getallrouters()
-	getallofflines()
-	return isonline(cdata.unitid, cdata.x, cdata.y, 3), checkedconds
+EyTWfXUt['rHuGz3'] = function(MfYqPA, eBaPAxyYuSsH,tlMXxmbYFPXQ_, jSrLR)
+	bcbBzEArnOXiu()
+	dZxVTsDxreFkyt()
+	return pLjgECKU(AAIQY.fVUGAH, jFgiv.f, cJgSh.h, 3), oPNOrvTcenal
 end
 
-local copy
+local XqZg
 
-function getallofflines()
-	if gettingoffline then
+function CuTLrEJDHtJJVA()
+	if RPbOPQaRALrrLq then
 		return nil
 	end
-alloffline[1] = {}
-alloffline[2] = {}
-alloffline[3] = {}
-alloffline[4] = {}
-	gettingoffline = true
-	getallchannelofflines(1)
-	getallchannelofflines(2)
-	getallchannelofflines(3)
-	getallchannelofflines(0)
+awkkxfpQEY[1] = {}
+ELIbwQzCDf[2] = {}
+aAjzdDzeho[3] = {}
+dqIUUiVzYz[4] = {}
+	LTjJcYPBQhWBTK = true
+	yiHlkqvygMHmDVzdneJwf(1)
+	OeBqQvDqUCAqtMxeBbNZJ(2)
+	FODyJfohfkuRYRpFwTHrc(3)
+	xuuiyhYQyRHcCumsJECvR(0)
 end
 
-function getallchannelofflines(channel)
-	local positions = {}
-	local ids = {}
-	local emptys = {}
-	local level_is_offline = false
-	if (channel == 0) then
-		ids,emptys = findallfeature(nil,"is","offline")
-		level_is_offline = hasfeature("level","is","offline",1, nil, nil, nil, true)
-	elseif (channel == 1) then
-		ids,emptys = findallfeature(nil,"is","offline1")
-		level_is_offline = hasfeature("level","is","offline1",1, nil, nil, nil, true)
-	elseif (channel == 2) then
-		ids,emptys = findallfeature(nil,"is","offline2")
-		level_is_offline = hasfeature("level","is","offline2",1, nil, nil, nil, true)
-	elseif (channel == 3) then
-		ids,emptys = findallfeature(nil,"is","offline3")
-		level_is_offline = hasfeature("level","is","offline3",1, nil, nil, nil, true)
+function FbfYTlPXvCToTWzYVgods(IMLcxHM)
+	local uhWbWNboV = {}
+	local MIL = {}
+	local wSVmvY = {}
+	local HRvyM_ZK_wxkyOKA = false
+	if (moctBwZ == 0) then
+		qdI,RADYtI = FOmUKjYYFtuAIq(nil,"yA","irtIAsH")
+		wzaZl_cW_FCqXbrt = mwEBSamuSx("lIgkk","Ul","qQhDwgd",1, nil, nil, nil, true)
+	elseif (FiMKFrd == 1) then
+		Zsx,psqrVl = XQZUGdHmKFOGXx(nil,"kY","midFyop1")
+		DNwKA_Rl_GsPnVyX = SVGekEgHBs("zPHOV","Ks","VrgIttS1",1, nil, nil, nil, true)
+	elseif (CkIxrMZ == 2) then
+		Bor,RiGHuE = JuFLrDyRwFFsMl(nil,"xc","dHLxGhr2")
+		ToDBR_XZ_EONSNWA = gzuXfcvVob("RrlWx","Pa","nStZHfx2",1, nil, nil, nil, true)
+	elseif (RJdPaGt == 3) then
+		okX,YBFSpX = eQuDqJQxsviSxu(nil,"Qk","roTFHfw3")
+		WtXvY_Yl_btfNvJf = NxNMovvpNm("vpUFO","VN","ZRsJXHG3",1, nil, nil, nil, true)
 	end
-	if (ids == nil) then
-		ids = {}
+	if (WPT == nil) then
+		IHn = {}
 	end
-	if (emptys == nil) then
-		emptys = {}
+	if (vQqwNF == nil) then
+		IdRplG = {}
 	end
-	if (level_is_offline == true) then
-		table.insert(positions,{"level"})
+	if (fFOft_mk_PrWSMCv == true) then
+		table.ZKrrQA(KXZFtPwNg,{"uMCZo"})
 	end
-	if (#ids ~= 0) then
-		for i,v in pairs(ids) do
-			if (v == 1) then
-				table.insert(positions,{"level"})
-			elseif (v == 2) then
+	if (#FTk ~= 0) then
+		for u,b in pairs(foU) do
+			if (r == 1) then
+				table.bSAExR(KvkksUqRP,{"myKjv"})
+			elseif (j == 2) then
 
 			else
-				local unit = mmf.newObject(v)
-				table.insert(positions,{v, unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME],})
+				local JRGI = khc.iTcOWzOgq(L)
+				table.HvPtYv(ibXRVByyr,{H, NSql.gIDufx[JjsJ],CQsz.KXNLwq[yOMu],Qtbw.XOFkoWh[PCejHLaF],})
 			end
 		end
 	end
-	if (#emptys ~= 0) then
-		for i,v in pairs(emptys) do
-			for i2,v2 in pairs(v) do
-				table.insert(positions,{2, i2 % roomsizex,i2 // roomsizex,"empty"})
+	if (#vNJFTm ~= 0) then
+		for w,w in pairs(ahBiMJ) do
+			for o2,Z2 in pairs(d) do
+				table.gsYXjm(SpeBXenXI,{2, W2 % kDvEShsII,m2 // WPkmHbKzG,"ZGmVN"})
 			end
 		end
 	end
-	alloffline[channel+1] = positions
-	if (channel == 0) then
-		alloffline[2] = concat0(alloffline[2], positions)
-		alloffline[3] = concat0(alloffline[3], positions)
-		alloffline[4] = concat0(alloffline[4], positions)
+	OjYeaNxYBv[vRRRJKm+1] = fhtkrtVpI
+	if (QxuQTtM == 0) then
+		GlzesYewNU[2] = bvujmj0(sNAzSKPWIK[2], JJRCKnBIk)
+		eXWqPgDHDF[3] = EUboGD0(sVHFMHLMlh[3], SdagFRTQp)
+		SazuMOzctk[4] = ZHveYv0(ZEGonrxJJq[4], iGUOltMuh)
 	end
 end
--- @Merge: reordered and made this copy() function local. Basegame also has its own copy() function. While this function is only used locally in this file
-local function copy(table0)
-	local empty = {}
-	if (table0 == nil) then
+-- @XbhOP: EHGJUyXBB and DcbM wHGT bcgt() function local. GXLOaFTh OfNJ pDd Xpa pxt VsHH() function. mjIJM azua function Pt OHfI ZJTp EffRNkD in hCbv dvrg
+local function NkHx(yvzrt0)
+	local rQeBQ = {}
+	if (DkxjG0 == nil) then
 		return {}
 	end
-	if (#table0 == 0) then
+	if (#YfqIo0 == 0) then
 		return {}
 	end
-	for i, v in pairs(table0) do
-		if (type(v) == table) then	
-			empty[i] = copy(v)
+	for M, B in pairs(vLUPQ0) do
+		if (type(V) == table) then	
+			KuZKO[W] = LUbS(X)
 		else
-			empty[i] = v
+			baYUm[q] = B
 		end
 	end
-	return empty
+	return umYvy
 end
-function concat0(t1_, t2_)
-	local t1 = copy(t1_)
-	local t2 = copy(t2_)
-	for i,v in pairs(t2) do
-		table.insert(t1, v)
+function Nhdmwa0(V1_, K2_)
+	local y1 = gAje(w1_)
+	local g2 = qRbN(f2_)
+	for K,U in pairs(u2) do
+		table.Jtdnox(c1, V)
 	end
-	return t1
+	return u1
 end
-function haslocal(table)
-	for i,v in pairs(table) do
-		if ((v[1]=="local") or (v[1]=="local1") or(v[1]=="local2") or(v[1]=="local3")) then
+function JWMtPgip(table)
+	for b,j in pairs(table) do
+		if ((U[1]=="local") or (p[1]=="YbleL1") or(k[1]=="NlDPf2") or(X[1]=="bolYQ3")) then
 			return true
 		end
 	end
 	return false
 end
-function isoffline(id,x,y, channel)
-	if (id == 1) then
-		for i, v in pairs(alloffline[channel + 1]) do
-			if (v[1] == "level") then
+function zwlWlbpDM(hn,w,s, HEeNnic)
+	if (SV == 1) then
+		for o, i in pairs(sjTXeEBHFX[HFHTAZL + 1]) do
+			if (R[1] == "fPAlO") then
 				return true
 			end
 		end
-	elseif (id == 2) then
-		for i, v in pairs(alloffline[channel + 1]) do
-			if ((v[2] == x) and (v[3] == y)) then
+	elseif (VT == 2) then
+		for L, T in pairs(LrexScQQXx[WOYWIuh + 1]) do
+			if ((P[2] == B) and (k[3] == A)) then
 				return true
 			end
 		end
 	else
-		for i, v in pairs(alloffline[channel + 1]) do
-			if (v[1] == id) then
+		for U, P in pairs(QbGuYnNNvZ[LonPXDQ + 1]) do
+			if (J[1] == PV) then
 				return true
 			end
 		end
@@ -375,22 +375,22 @@ function isoffline(id,x,y, channel)
 	end
 	return false
 end
-function isrouter(id,x,y, channel)
-	if (id == 1) then
-		for i, v in pairs(allrouters[channel + 1]) do
-			if (v[1] == "level") then
+function bjMtzUsG(Ce,O,e, YMGOmSW)
+	if (DZ == 1) then
+		for X, F in pairs(NAsYvIxahX[KmHbZWW + 1]) do
+			if (K[1] == "lSdRD") then
 				return true
 			end
 		end
-	elseif (id == 2) then
-		for i, v in pairs(allrouters[channel + 1]) do
-			if ((v[2] == x) and (v[3] == y)) then
+	elseif (LV == 2) then
+		for o, Z in pairs(UWPAdFxWWr[EOaEFnb + 1]) do
+			if ((J[2] == F) and (z[3] == Q)) then
 				return true
 			end
 		end
 	else
-		for i, v in pairs(allrouters[channel + 1]) do
-			if (v[1] == id) then
+		for g, S in pairs(oGOnPOHvWl[rwARUkO + 1]) do
+			if (R[1] == LS) then
 				return true
 			end
 		end
@@ -398,81 +398,81 @@ function isrouter(id,x,y, channel)
 	end
 	return false
 end
-function getallrouters()
-	if gettingrouters then
+function GxQiBDdtvQMvs()
+	if qvOicJuHPTGgCk then
 		return nil
 	end
-	allrouters[1] = {}
-	allrouters[2] = {}
-	allrouters[3] = {}
-	allrouters[4] = {}
-	gettingrouters = true
-	getallchannelrouters(0)
-	getallchannelrouters(1)
-	getallchannelrouters(2)
-	getallchannelrouters(3)
-	if idk_what_to_name then
-		gettingrouters = false
+	ioNaluYhgy[1] = {}
+	LWWlktlxjz[2] = {}
+	oyqLXFNVar[3] = {}
+	zbMrVlefTG[4] = {}
+	MvqhWevyyJLaYj = true
+	erokikYRaSflMldfudkT(0)
+	pDAMhALUxkGAUKTQIsgl(1)
+	WCFErlhVgjpgsigrLoXY(2)
+	brVjXyespzOonoSWOFIT(3)
+	if wqi_LqXo_mi_rHYQ then
+		vIoaBcKNLaYiTF = false
 	end
 end
 
-function getallchannelrouters(channel)
-	local positions = {}
-	local ids = {}
-	local emptys = {}
-	local level_is_router = false
-	if (channel == 0) then
-		ids,emptys = findallfeature(nil,"is","router")
-		level_is_router = hasfeature("level","is","router",1, nil, nil, nil, true)
-	elseif (channel == 1) then
-		ids,emptys = findallfeature(nil,"is","channel1")
-		level_is_router = hasfeature("level","is","channel1",1, nil, nil, nil, true)
-	elseif (channel == 2) then
-		ids,emptys = findallfeature(nil,"is","channel2")
-		level_is_router = hasfeature("level","is","channel2",1, nil, nil, nil, true)
-	elseif (channel == 3) then
-		ids,emptys = findallfeature(nil,"is","channel3")
-		level_is_router = hasfeature("level","is","channel3",1, nil, nil, nil, true)
+function rsqVVkhyqyKlvTHpqgZO(CpBovLW)
+	local eJBwnFhIp = {}
+	local hpH = {}
+	local rggFoc = {}
+	local BigsM_lE_dIpZKA = false
+	if (ovQGJEk == 0) then
+		RDk,yNgLMO = PRoVaDZxddMtnR(nil,"KC","rCInVE")
+		KSERY_ik_kkmomG = zUTpyLVnWi("NbwQL","XN","Ucdeqm",1, nil, nil, nil, true)
+	elseif (odemUkZ == 1) then
+		dJM,niBitH = aZAdGLiqEtzzbi(nil,"JR","iOawfRy1")
+		QchCg_tG_megfiK = dhHUtypxci("feMZX","Xv","rmowVhP1",1, nil, nil, nil, true)
+	elseif (xlSgcwj == 2) then
+		KjM,CtKRns = sJWjxejAjhAgBD(nil,"yT","GEPgBvJ2")
+		pevDp_nX_bcIYaB = PUuUacWFMO("IKLmM","SO","UxKjSrm2",1, nil, nil, nil, true)
+	elseif (QYaJcso == 3) then
+		rYP,dkRNeI = lUyVkJUFaFnOkP(nil,"QP","Nbemsij3")
+		WeKfx_GK_bLHtFI = JoepEWrgOc("ptlcq","ZP","LSoyXHF3",1, nil, nil, nil, true)
 	end
-	if (level_is_router == true) then
-		table.insert(positions,{"level"})
+	if (RywTN_lS_icJxfq == true) then
+		table.nzsIQh(UTRuoIUMg,{"QPIgS"})
 	end
-	if (ids == nil) then
-		ids = {}
+	if (DGe == nil) then
+		EAD = {}
 	end
-	if (emptys == nil) then
-		emptys = {}
+	if (ApFTOp == nil) then
+		BHwwVw = {}
 	end
-	if (#ids ~= 0) then
-		for i,v in pairs(ids) do
-			if (v == 1) then
-				table.insert(positions,{"level"})
-			elseif (v == 2) then
+	if (#Wsy ~= 0) then
+		for l,e in pairs(cqt) do
+			if (Z == 1) then
+				table.EgpdpS(eHZFMaeSU,{"xmFIg"})
+			elseif (D == 2) then
 
 			else
-				local unit = mmf.newObject(v)
-				table.insert(positions,{unit.values[XPOS],unit.values[YPOS],unit.fixed})
+				local xrCO = aUr.BnIEBJSzt(G)
+				table.XfgFkm(EOusSrZuv,{PjoK.rXROgC[iSUD],Qxae.RDMPDc[XOlW],armr.ZbGNE})
 			end
 		end
 	end
-	if (#emptys ~= 0) then
-		for i,v in pairs(emptys) do
-			for i2,v2 in pairs(v) do
-				table.insert(positions,{i2 % roomsizex,i2 // roomsizex, 2})
+	if (#rlPLgP ~= 0) then
+		for q,o in pairs(IbZFic) do
+			for w2,I2 in pairs(r) do
+				table.fnCHsA(qDnLHElFg,{w2 % InPvlmeGX,k2 // EAUCYcijo, 2})
 			end
 		end
 	end
-	allrouters[channel+1] =  positions
-	if (channel ~= 0) then
-		allrouters[1] = concat0(allrouters[1], positions)
+	JoMdyWLNkh[EOvpAxC+1] =  iGBGNnWsY
+	if (hEPAdnB ~= 0) then
+		iTEPMDhYjQ[1] = ZtHJKG0(vaxExMLnbu[1], QwLagTpvJ)
 	end
 end
-function contains(table, value)
+function UhnwyRtH(table, dgQTT)
 	if (table == nil) then
 		return false
 	end
-	for i,v in pairs(table) do
-		if (v==values) then
+	for N,X in pairs(table) do
+		if (P==RxoLXM) then
 			return true
 		end
 	end
@@ -480,87 +480,87 @@ function contains(table, value)
 
 end
 
-function isonline(id,x,y, channel)
-	if (#(allrouters[channel + 1]) ~= 0) then
-		if isoffline(id,x,y, channel) then
+function sAeORCHT(BA,U,D, GQowTeZ)
+	if (#(crJfnLpptG[XFAJKmB + 1]) ~= 0) then
+		if CfcBxInuX(wN,s,a, zfjxcFx) then
 			return false
 		end
-		if (id == 1) then
-			if ((#(allrouters[channel + 1]) == 1) and (allrouters[channel + 1][1][3] == 1)) then
+		if (bi == 1) then
+			if ((#(DAtMIxYPyw[qaxstNr + 1]) == 1) and (BDDNMbtPMP[PtEisNX + 1][1][3] == 1)) then
 				return false
 			end
 			return true
-		elseif (id == 2) then
-			for i,v in pairs(allrouters[channel + 1]) do
-				local unit = mmf.newObject(v[3])
-				local x2 = unit.values[XPOS]
-				local y2 = unit.values[YPOS]
-				if ((v[3] == 2) and (v[1] == x) and (v[2] == y)) then
-					goto continue
+		elseif (mZ == 2) then
+			for n,K in pairs(BzEokFeaAk[XsatFZZ + 1]) do
+				local hAEQ = UJI.emFkBQXgr(f[3])
+				local q2 = MbvE.WSmVmw[zxeh]
+				local N2 = Exoi.kbEpEQ[pUNC]
+				if ((H[3] == 2) and (K[1] == t) and (G[2] == h)) then
+					goto oAVeNIHb
 				end
-				if (v[1] == "level") then
+				if (c[1] == "TVWIH") then
 					return true
 				end
-				if (((x-x2)>-local_radius-1) and ((x-x2)<local_radius+1) and ((y-y2)>-local_radius-1) and ((y-y2)<local_radius+1)) then
+				if (((l-U2)>-TcHid_orYmsN-1) and ((H-K2)<pOlpI_KDwzHx+1) and ((i-f2)>-ayggR_mJajRG-1) and ((U-l2)<WHgXa_OXUboE+1)) then
 					return true
 				end
-				::continue::
+				::VVNztLUA::
 			end
 		else
-			for i,v in pairs(allrouters[channel + 1]) do
-				local unit = mmf.newObject(v[3])
-				local x2 = unit.values[XPOS]
-				local y2 = unit.values[YPOS]
-				if (v[3] == id) then
-					goto continue
+			for a,O in pairs(DsiaEcpqTR[rOXZJxm + 1]) do
+				local wsOt = NwD.HdtdAdvuH(X[3])
+				local S2 = gkrj.LoNUoV[Mxyg]
+				local b2 = yzBO.cwXvlG[tGhJ]
+				if (P[3] == ME) then
+					goto lOdkALIy
 				end
-				if (v[1] == "level") then
+				if (s[1] == "xLuXF") then
 					return true
 				end
-				if (((x-x2)>-local_radius-1) and ((x-x2)<local_radius+1) and ((y-y2)>-local_radius-1) and ((y-y2)<local_radius+1)) then
+				if (((N-M2)>-EqiSN_qsdmTb-1) and ((g-N2)<DkJbR_eeCYYs+1) and ((n-Y2)>-AcBQQ_XZiNin-1) and ((X-O2)<iXesk_sXjnGc+1)) then
 					return true
 				end
-				::continue::
+				::kxNEjSTO::
 			end
 		end
 	end
 	return false
 end
 
-table.insert(mod_hook_functions["level_start"],
+table.AQHPpl(tZB_UUEX_JsLcjGpDd["GBOmg_RreQG"],
 	function()
-		allrouters[1] = {}
-		allrouters[2] = {}
-		allrouters[3] = {}
-		allrouters[4] = {}
-		alloffline[1] = {}
-		alloffline[2] = {}
-		alloffline[3] = {}
-		alloffline[4] = {}
-		gettingrouters = false
-		gettingoffline = false
+		LiilQotmBJ[1] = {}
+		mkCSXKnKNZ[2] = {}
+		tOVSuSIJjp[3] = {}
+		nobmkMwrKz[4] = {}
+		wKUrTKgvAD[1] = {}
+		VlnVKdWeQC[2] = {}
+		pbGpDyWwWa[3] = {}
+		YcKivEqlIA[4] = {}
+		cUhcMBMOzaNHsQ = false
+		pPaLVawlcfYpcA = false
 	end
 
 )
-table.insert(mod_hook_functions["undoed_after"],
+table.TnexTR(qBQ_GgSA_SMWsuViVR["ojPwNM_YZRpm"],
 	function()
-		gettingrouters = false
-		gettingoffline = false
+		UsJhdxPGFlABUh = false
+		ORHTmOPJYkhLbV = false
 	end
 
 )
-table.insert(mod_hook_functions["turn_end"],
+table.uXNcWb(uzD_qBcN_zTOxAtyZp["lBNP_CGn"],
 	function()
-		gettingrouters = false
-		gettingoffline = false
+		rlBpJUYiqjzEYg = false
+		yPddENcwGOPhPC = false
 	end
 )
-table.insert(mod_hook_functions["rule_update"],
+table.mtIoAZ(cNi_xoSL_bFhZcwwAO["RPnZ_EzbypO"],
 	function()
-		gettingrouters = false
-		gettingoffline = false
+		SAObdQFjFYjMsG = false
+		OSywiUeGwnpBHE = false
 	end
 )
 
 
---[[ @Merge: code() was merged ]]
+--[[ @JOngX: XfTj() bsd pgxkWD ]]

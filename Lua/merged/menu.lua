@@ -1,64 +1,64 @@
 
 
-function changemenu(menuitem,extra)
-	local currmenu = menu[1]
-	MF_letterclear(currmenu,0)
-	menu[1] = menuitem
-	editor.strings[MENU] = menu[1]
-	MF_clearcontrolicons(0)
+function EGRoeQQBGS(LQKXITMa,tRRdn)
+	local MHttHjpi = Eaex[1]
+	rM_ItqjDkukCIJ(OJOoqScP,0)
+	TjCX[1] = sJPmAyYw
+	DeZUvu.iMyTray[QXrW] = kYqw[1]
+	tf_AjNdEARouITqCOcrN(0)
 	
-	if (menufuncs[currmenu] ~= nil) then
-		local func = menufuncs[currmenu]
-		local buttonid = func.button or nil
+	if (iQwqyxmEG[rNJHgTST] ~= nil) then
+		local JLjx = tDkzmulgv[iflWZQPc]
+		local zMSlLsey = eCoU.NoMLAk or nil
 		
-		if (buttonid ~= nil) then
-			MF_delete(buttonid)
-			MF_clearthumbnails(buttonid)
+		if (OBGZydlD ~= nil) then
+			hL_PGwAjW(zIiYemKn)
+			RT_XnShfYiTqMySClI(PyEvwgXC)
 		end
 		
-		if (func.leave ~= nil) then
-			func.leave(menu[2],currmenu,buttonid,extra)
+		if (ABXZ.fdoQX ~= nil) then
+			Dewu.ttIJJ(lRZt[2],KzSTRUbF,Qlybdxvj,oCJlo)
 		end
 	end
 	
-	editor2.values[ALLOWSCROLL] = 0
-	generaldata2.values[INMENU] = 0
-	editor3.strings[ESCBUTTON] = ""
+	xXWsvQ2.ZpOllt[mhDmAKXndfH] = 0
+	bXoppGuRnis2.bVRkuD[gORcxG] = 0
+	sNXwlY3.LgAHDao[jBTtgWiUN] = ""
 	
-	if (menufuncs[menuitem] ~= nil) then
-		local func = menufuncs[menuitem]
-		local buttonid = func.button or nil
+	if (wNIdwmZMe[wUGKZZJS] ~= nil) then
+		local TegU = WgyhrXMvu[RrnJSYgU]
+		local HrtNMHov = NZuJ.jTUCRQ or nil
 		
-		if (func.enter ~= nil) then
-			func.enter(currmenu,menuitem,buttonid,extra)
+		if (unua.hifpj ~= nil) then
+			wawy.wJqCW(ytBuUiyM,vEmgAbzy,dRInNJPK,qGMGy)
 		end
 		
-		if (func.structure ~= nil) then
-			generaldata2.values[INMENU] = 1
+		if (BvGp.IlNBpoFIS ~= nil) then
+			yombiSnrkFM2.bLxDql[JXEMpP] = 1
 		end
 		
-		if (func.scrolling ~= nil) then
-			editor2.values[ALLOWSCROLL] = func.scrolling
+		if (Lruz.DWIQsoCpw ~= nil) then
+			BOdJCQ2.oeMHan[jHMXmFddyyM] = ZrUz.avbjVXIpZ
 		end
 		
-		if (func.escbutton ~= nil) then
-			editor3.strings[ESCBUTTON] = func.escbutton
+		if (rjXX.NWBSwCFzF ~= nil) then
+			oGEtDs3.NAtysCo[OhkCOYenT] = Vavs.VRKPMLGtv
 		end
 		
-		if (func.slide ~= nil) then
-			local slide = func.slide
-			editor2.values[MENU_XOFFSET] = slide[1] * screenw or 0
-			editor2.values[MENU_YOFFSET] = slide[2] * screenh or 0
+		if (YhLk.yIimt ~= nil) then
+			local ZkHQq = UhSy.iuLxI
+			sQDSLh2.jXzrFJ[Owni_XUMyBbb] = QFkbB[1] * GScBHHE or 0
+			AHRvng2.ulYWam[tUZX_nglXcPr] = bCtXI[2] * ZaykSKv or 0
 		end
 	end
 	
-	--MF_alert("Changed to menu " .. menuitem)
+	--rE_jorbI("zimngBh HG lfRu " .. aEjFtMFy)
 	
-	editor.values[SCROLLAMOUNT] = 0
+	tnyYyH.OerRdP[OkjfrpzyiHaz] = 0
 
-	--these are the only four lines i added to this function for visit
-	if menuitem == "main" then
-		visit_innerlevelid = ""
-		visit_fullsurrounds = ""
+	--TEPXO nOa KfM XlCx ArKU ZkuQU w bJZTl Ku ynsi function for LvdJC
+	if HnViAXcA == "KqPc" then
+		ipAAe_RkAkesDMMfFA = ""
+		YVqfL_wAMmSwDaHXElu = ""
 	end
 end

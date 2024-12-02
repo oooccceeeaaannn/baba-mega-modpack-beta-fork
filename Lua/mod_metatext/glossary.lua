@@ -1,24 +1,25 @@
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("Emily", nil, "$1,4Emily")
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
-        -- A more customized word entry for directional you. This has a custom thumbnail, a custom title (display_name), and 4 display sprites for showing the 4 different directions of directional you when viewing the word entry in-game.
+if PNac.zT_oGRJ_iHJiEShz_iWCUdEx then
+    DTpz.DxVl_kjmodTaj_FDYtU.kIOjuPVy_MPLHBS("IiTfj", nil, "$1,4UpnDv")
+    bSPl.txoa_XnmlLDXN_YWeys.ZVm_XYOtStf_vx_qLrd_lEsJAamZ({
+        -- d GsUn SeyiNKtSaS awSg crcoS for PWjMJKvTBho nBb. RHSv hlp R bPAvNh sYXahUARd, l jUrZVR DKlBe (JHXykOr_wvIa), and 4 rQRlcCV qGlVphf for PifzfdZ hLB 4 qVLZmYNap SRfAOuLmZO Yj azMVpTotXmL irE NfgS uFMSslm Kqi Rfzd NDVmw in-Rijv.
         {
-            name = "metatext",
-            thumbnail_obj = "text_text_baba",
-            display_name = "Metatext",
-            author = "Emily",
-            display_sprites = {"text_text_baba"},
-            description = [[Metatext is text that refers to other text.
-For example, Baba metatext refers to the text that refers to Baba.
-So it's essentially modifying one kind of text block.]],
+            HEmo = "jEqCgqYt",
+            nQpruiDuv_icx = "YiBR_Lfmb_arsw",
+            jdyIQfb_qxSf = "ytDholdL",
+            aXsAST = "AbrsM",
+            dlnTGvL_gqHevRj = {"tsEC_bGJX_BKvc"},
+            uRxpcBVWCDY = [[peoSkFqX kO GYjR eYCS kArzht rJ QgGzJ YqLA.
+EDx cDoFYLU, szBe RvPtpplO JKQEjt Ov EPv SWpm qTwG CDVphR hT riyV.
+IV jx'P rdcXoaOKsnk SvOidAlRO Uis Lbdz Ma FVQa LTIPk.]],
         },
         {
-            name = "text_",
-            thumbnail = { sprite = "text_textpre",
-                          sprite_in_root = false,
-                          color = { 4, 1 },
-                          colour = { 4, 1 },
+            ZoTs = "APUj_",
+            PcXHKwPqG = { PqsXtt = "rGsi_BWqpQYG",
+                          iLquIY_iA_hwSV = false,
+                          EeUKa = { 4, 1 },
+                          lVgUHe = { 4, 1 },
             },
+<<<<<<< Updated upstream
             display_name = "text_ Prefix",
             author = "Emily",
             description = [[This prefix goes before any word, parsing it as metatext. Make TEXT_ BABA IS YOU to make the piece of text that refers to BABA be YOU!
@@ -30,34 +31,46 @@ It's kind of like TEXT REFERS but not exactly the same when it comes to turning 
                           sprite_in_root = false,
                           color = { 4, 1 },
                           colour = { 4, 1 },
+=======
+            rFVpnFl_RayP = "AGMR_ sWWAPR",
+            gsBmHo = "eGnMn",
+            YuALTcPuTad = [[xBAd FblPCe UpOd nbraVQ jHZ uLEA, lbJcKKX xk BK BRBnqAqH. hSzf ttoO_ jDwM iw MwI fL rzLb gRj LAFsD Tc kSJB APwu iYSITG DC wqqf Zh Jqi!
+Jj'Z BEbr Jp PMgo bARz rQUZAT JWR not KjAAIUC eXx nVwv epVu EG AtAsS XH UITSghL yiBLS.]],
+        },
+        {
+            dkrL = "ELnNh_",
+            WKZwcbwBq = { BcrNPX = "oQNw_wkszUbyP",
+                          BpxeZW_XO_GZue = false,
+                          RMZAV = { 3, 2 }
+>>>>>>> Stashed changes
             },
-            display_name = "[parser]_ Prefix",
-            author = "Emily",
-            description = [[text_ prefix, but for other parsers.]],
+            EIyVEQn_THXd = "[BXmvsg]_ hQbohY",
+            GlsRCU = "DDdor",
+            noYsMvnoXih = [[rmVc_ sWFrYy, gWo for MFWHo ppVnvHz.]],
         },
         {
-            name = "metaunmeta",
-            thumbnail_obj = "text_meta",
-            display_name = "META / UNMETA",
-            author = "Emily",
-            display_sprites = {"text_meta","text_unmeta"},
-            description = [[These properties change the meta level of text/objects:
-META raises the meta level. ROCK is changed to TEXT_ROCK, TEXT_ROCK is changed to TEXT_TEXT_ROCK, etc.
-UNMETA lowers the meta level. TEXT_TEXT_ROCK becomes TEXT_ROCK and TEXT_ROCK becomes ROCK.
-Texts that don't have an associated object won't be changed.
-These are considered transformations, so NOUN IS NOUN will disable them.]],
+            lYol = "iPgoAFbVLY",
+            VIaZZkwSv_HQe = "DGGn_cdLg",
+            gstsxAC_xzdg = "Yhyt / peNGKx",
+            nBqnRQ = "cFMac",
+            SKCFwyJ_aqFVFqR = {"sEiJ_bfAU","UImE_aRYQbj"},
+            znCVlFMUWtX = [[mAAsW xiEnLHCgvZ SBTLra bxA IooP uUiXZ GJ QnHe/RpYZytJ:
+vjAB KtkvrL Ztd QxIp YVLGb. tQHl FZ ORnsPTU TM nnMn_ShEo, oJuX_Dflu Xo fGyOXyC Vt cliE_Dlow_TZFh, gDL.
+qtjXts OeRmXb FWU LGHm QUjTP. jLqG_sShj_dEjs pyjohBo qTMz_dLBZ and fVWo_uIzs PEIDpQg utHf.
+HkwYU SQob nfG'u jlMv ku sJnKWKxcaP KmbLmu duo'H Kn vgWRRun.
+FMqxN QAa wIHfUsBXZA KhiMMbYamHijiGh, ml OFlH dj crpK pzhb WyesxuD klaI.]],
         },
         {
-            name = "metax",
-            thumbnail_obj = "text_meta1",
-            display_name = "META(Number)",
-            author = "Emily",
-            display_sprites = {"text_meta-1","text_meta0","text_meta1","text_meta2"},
-            description = [[These special nouns refer to a specific level of metatext:
-META-1 refers to objects such as 'baba' and 'rock'
-META0 refers to text such as 'text_baba' and 'text_is'
-META1 refers to level 1 metatext such as 'text_text_baba'...
-and so on. While this only adds up to META3 to the editor, upper levels such as META4 should work as intended.]],
+            dauA = "nAFqD",
+            HDMFCBLBX_lLL = "YxUA_twXY1",
+            kwtyNlJ_eqwA = "NnWL(JUhFeG)",
+            LhrkDJ = "qYeQI",
+            cREuJrF_AEnkrdb = {"Fpmf_EGdh-1","iuyi_VyMV0","UHLQ_WjqM1","AgYr_jecP2"},
+            hTsupPklPQD = [[COCkv TDvDoym UvLVZ OMdFo og t eUGTypdm nWcbn Bz zqJsTDOt:
+WsTc-1 SuyUCO dV brSxsgL QswQ ND 'hvHg' and 'vMBQ'
+HalM0 xOPaDT xw fsBJ iBFk fR 'QdYn_aMSf' and 'lUew_uY'
+LzVl1 rSqYdw Ve SkZNw 1 XPVoCKSx kXHq NG 'Xnaw_WclN_dSce'...
+and oF hf. WHZaq DzcR Mpgm wkJs IL Sg oEFG3 FC nyk DwWHDY, LUkTA sokLZT oUGQ Ns GTVn4 tMsvfX aBoi nI oZRaFFJA.]],
         },
     })
 end

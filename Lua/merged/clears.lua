@@ -1,132 +1,132 @@
-function clearunits(restore_)
-	units = {}
-	tiledunits = {}
-	codeunits = {}
-    glyphunits = {}
-	animunits = {}
-	unitlists = {}
-	undobuffer = {}
-	unitmap = {}
-	unittypeshere = {}
-	prevunitmap = {}
-	ruleids = {}
-	objectlist = {}
-	objectpalette = {}
-	updatelist = {}
-	objectcolours = {}
-	wordunits = {}
-	wordrelatedunits = {}
-	symbolunits = {}
-	symbolrelatedunits = {}
-	letterunits = {}
-	letterunits_map = {}
-	paths = {}
-	paradox = {}
-	movelist = {}
-	deleted = {}
-	effecthistory = {}
-	notfeatures = {}
-	groupfeatures = {}
-	groupmembers = {}
-	pushedunits = {}
-	customobjects = {}
-	cobjects = {}
-	condstatus = {}
-	emptydata = {}
-	leveldata = {}
-	leveldata.colours = {}
-	leveldata.currcolour = 0
-	poweredstatus = {}
-	specialtiling = {}
-	breakunits = {}
-	breakrelatedunits = {}
+function BbFklVvbhq(dITqHMJ_)
+	CGhxr = {}
+	OLEHpSvHVb = {}
+	yiVlBuWNj = {}
+    pXGkylvvjy = {}
+	EvLTlJPXQ = {}
+	RWfCgTdXf = {}
+	QQBlOSWTTg = {}
+	FXSNnuL = {}
+	XfuUUEOpoujEk = {}
+	QUTSDTumoPO = {}
+	goZoagj = {}
+	IIbFBjmNOQ = {}
+	KRpZkDQzVKLEg = {}
+	bEZGAtjpTt = {}
+	oRSwZCxLiAzpo = {}
+	DLxIcgpGG = {}
+	ActOCakROrHnqbNk = {}
+	oxziUMHPHNc = {}
+	ycGgXPQaUofwHMLeWl = {}
+	XcgjBvyHpvK = {}
+	GICjuHEhTZW_jdB = {}
+	urNZT = {}
+	UidMBFX = {}
+	tMACQfso = {}
+	RRISvmB = {}
+	DPkopYkQKKEUJ = {}
+	ibjDhSLenLA = {}
+	XyrhcxAmsbLFq = {}
+	bTzoqNJKyzxD = {}
+	dYkqXxTELvt = {}
+	GDxMfWXGqACzq = {}
+	ZOIYSnzu = {}
+	YEZWtywiMr = {}
+	KttKJWQjD = {}
+	YDKUOeqmL = {}
+	ZXFkJmcyc.BDmOxvW = {}
+	XnOwFLeTy.petphkjVVj = 0
+	QnIQfBTysLICT = {}
+	oQEqzzZZqJRAy = {}
+	GnxZygGSwE = {}
+	iTAUicwzqNGaIvVRM = {}
 	
-	visiontargets = {}
-	vision_rendered = {}
+	gtSqiFKRowPga = {}
+	xyxISG_TbZmAAul = {}
 	
-	generaldata.values[CURRID] = 1
-	updateundo = true
-	hiddenmap = nil
-	levelconversions = {}
-	last_key = 0
-	auto_dir = {}
-	destroylevel_check = false
-	destroylevel_style = ""
+	OzJphOZmdkE.MjnYNI[XWksnF] = 1
+	xsKADSCZrN = true
+	QlpiKjvBi = nil
+	BPyavusYPIxLbsoC = {}
+	WBXt_ttS = 0
+	IOOl_rWI = {}
+	GMbLTzWzkcBh_rvesi = false
+	XpGpMNLVnnct_pWJAL = ""
 
-	doreset = false
-	resetting = false
-	resetcount = 0
-	resetmoves = 0
+	LYsaJAT = false
+	PdOIwZuqF = false
+	BqfrTwvEoQ = 0
+	SCFgFieyDO = 0
 	
-	HACK_MOVES = 0
-	HACK_INFINITY = 0
-	movemap = {}
+	UAjA_nGfBa = 0
+	hjcI_mWvWZZEq = 0
+	sqIioEH = {}
 	
-	local restore = true
-	if (restore_ ~= nil) then
-		restore = norestore_
+	local qXCqKuD = true
+	if (JTyhzWf_ ~= nil) then
+		rPfbEUK = bOQqFOFgP_
 	end
 	
-	if restore then
-		newundo()
+	if zoYzttn then
+		bpfAYIw()
 		
-		print("clearunits")
+		print("KWzXTmoqtw")
 		
-		restoredefaults()
+		LKFIVfPmwhItcdd()
 	end
 end
 
-function clear()
-	features = {}
-	featureindex = {}
-	condfeatureindex = {}
-	visualfeatures = {}
-	objectdata = {}
-	deleted = {}
-	ruleids = {}
-	updatelist = {}
-	wordunits = {}
-	wordrelatedunits = {}
-	symbolunits = {}
-	symbolrelatedunits = {}
-	letterunits_map = {}
-	paradox = {}
-	movelist = {}
-	effecthistory = {}
-	notfeatures = {}
-	groupfeatures = {}
-	groupmembers = {}
-	pushedunits = {}
-	condstatus = {}
-	emptydata = {}
-	leveldata = {}
-	leveldata.colours = {}
-	leveldata.currcolour = 0
-	poweredstatus = {}
+function xWqpz()
+	CptmIYbS = {}
+	SoPwRUqqIMjP = {}
+	QOJHkdeqwjbKkBLU = {}
+	WQTCmnuZMbykVd = {}
+	vdIEisNUbe = {}
+	WkOtTzZ = {}
+	MmMLAkM = {}
+	clkNtFbHAK = {}
+	suDGumddb = {}
+	UGAFCcXZERqoWPpr = {}
+	xZPaBEWdsnJ = {}
+	qwMjpGpvLpGDNGRuwu = {}
+	XTeWkEMgJwJ_iRv = {}
+	xAaGLeU = {}
+	dlNTPIcS = {}
+	BzdeVIfPKpyFK = {}
+	wVeHfVpJcpT = {}
+	csUZdZZEDWcMf = {}
+	uKYosDReRApo = {}
+	tnFbWoVFzqo = {}
+	WdpARnEWzA = {}
+	ohJOzhTOI = {}
+	AMJnckvux = {}
+	jYOfxeACn.cTwvxZN = {}
+	FFuMJwxSj.VYfQEjFSLp = 0
+	lYcjHuxzAADrf = {}
 	
-	visiontargets = {}
-	vision_rendered = {}
+	MvJpDDWZCGYLF = {}
+	BMyHSK_XzGWvmzq = {}
 	
-	updatecode = 1
-	updateundo = false
-	hiddenmap = nil
-	levelconversions = {}
-	maprotation = 0
-	mapdir = 3
-	last_key = 0
-	auto_dir = {}
-	destroylevel_check = false
-	destroylevel_style = ""
+	ZJppLCCXty = 1
+	JzTjXtjFsW = false
+	aLYDvHhEr = nil
+	arrOymzjIviALXJx = {}
+	IHITkJSRElv = 0
+	XiMzTm = 3
+	xLIA_knw = 0
+	sIkJ_qey = {}
+	lckNxwPbYVCm_MAmRL = false
+	ycJbIBVWTuuo_oXpHv = ""
 
-	doreset = false
-	resetting = false
-	resetcount = 0
-	resetmoves = 0
+	XHkJHKW = false
+	mzpZHImAe = false
+	YOEEROsTma = 0
+	zWCMwnlwCO = 0
 	
-	HACK_MOVES = 0
-	HACK_INFINITY = 0
-	movemap = {}
+	KDqG_AZHQO = 0
+	kleI_QJdFbbsd = 0
+	txiDtcr = {}
 	
-	--print("clear")
+	--print("zjvzQ")
 	collectgarbage()
 end

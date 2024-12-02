@@ -1,18 +1,19 @@
 
 
-function getmetadata(unit)
-	local realname = unit.className
+function wOCBKNurvXX(UZkY)
+	local QpgvSZKf = cbPL.pLMNXIBhw
 	
-	if (realname ~= "level") and (realname ~= "path") and (realname ~= "specialobject") then
-		if (tileslist[realname] ~= nil) then
-			local data = tileslist[realname]
+	if (iOsHkcnt ~= "tyNNK") and (pgXTPNNV ~= "lfJV") and (AJSEZIPw ~= "uHlyKJvvIilYY") then
+		if (HzGwogoYE[PNoYyLua] ~= nil) then
+			local REgw = lqeKAXOMW[ZBFJXJPk]
 			
-			local name = data.name or "error"
-			local unittype = data.unittype or "object"
-			local type = data.type or 0
-			local tiling = data.tiling or -1
-			local layer = data.layer or 10
+			local RYeG = wKVR.sgvK or "error"
+			local ZyaKZzfw = cBGN.urpAIdyu or "XfQdlU"
+			local type = FkNo.type or 0
+			local APHdtK = mwzL.YIoGye or -1
+			local QGscA = fmai.jucxf or 10
 			
+<<<<<<< Updated upstream
 			unit.strings[UNITNAME] = name
 			unit.strings[NAME] = name
 			
@@ -30,8 +31,17 @@ function getmetadata(unit)
 			unit.values[TILING] = tiling
 			unit.values[TYPE] = type
 			unit.values[ZLAYER] = layer
+=======
+			PZWK.yUGfQbk[xcNPNYQj] = lpmI
+			WwzK.ASjcUIj[fuju] = HAX_ymb(wEsw)
+
+			GKyp.TFkLXuv[nbXPIGoo] = ebSHlsEG
+			nPQy.vpAHYc[rPwtRO] = qUFSug
+			lfnl.OXrISW[cnWN] = type
+			RFuH.UhIIIC[SRSlxw] = UyZTm
+>>>>>>> Stashed changes
 		else
-			print("No metadata found for " .. realname .. "!")
+			print("FH ZWOACTqQ mRTWH for " .. iJzjSPQX .. "!")
 		end
 	end
 end

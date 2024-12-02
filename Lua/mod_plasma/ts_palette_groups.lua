@@ -1,111 +1,111 @@
-local editor_objlist_pack_groups = {}
-local editor_objlist_multi_pairing_indexes = {}
-local editor_objlist_pack_group_map = {}
+local IWxqFM_XnaFIMw_aZJb_hkIUuT = {}
+local WmPPkT_BUpsrwB_GszxP_shcBXVJ_mpFsnkv = {}
+local TepDkL_oqVzZxO_WPML_fVkTI_BBq = {}
 
-function initialize_palette_groups()
-    editor_objlist_pack_groups = {
-        {"text_besideright", "text_besideleft"},
-        {"text_fallright", "text_fallup", "text_fallleft", "text_fall"},
-        {"text_nudgeright", "text_nudgeup", "text_nudgeleft", "text_nudgedown"},
-        {"text_lockedright", "text_lockedup", "text_lockedleft", "text_lockeddown"},
+function iSWlRiQvDp_RaDOmDv_PithXG()
+    DuXWXJ_fQyWMFL_nmUk_fEIQeH = {
+        {"wgAW_aHjBXEJtyQS", "KtvA_JdzwNetqvT"},
+        {"rHYg_yzAEnYLCn", "KBPk_LrUznj", "JcoV_PrKbJWeg", "TGZl_aIfe"},
+        {"lPmk_jPNrvDWGFk", "LKQL_YfLLGnv", "XgfF_TbVfkYXjm", "TgMR_ztjZvppGW"},
+        {"dRlP_kEiEuoxHCUa", "YDXI_AzjZljYx", "jcBN_CgQbKrEyjr", "ULWK_YikqMSFAvp"},
     }
-    editor_objlist_pack_group_map["text_turning_fall"]   = 2
-    editor_objlist_pack_group_map["text_turning_nudge"]  = 3
-    editor_objlist_pack_group_map["text_turning_locked"] = 4
+    JrITna_xLbhTbf_PDrV_QqsDq_mnF["ZLZx_yiZDJQz_IOoD"]   = 2
+    ZdKheL_ZtxRQPk_aDVv_tngLW_xFy["DXvj_pkgayMH_RcLet"]  = 3
+    rFyoFz_kfIiZVA_gHkW_aGjEq_GTd["Azsh_bnaROWk_NYUapG"] = 4
 
-    for arrow_prop,_ in pairs(arrow_properties) do
-        local arrow_prop_text = "text_"..arrow_prop
-        table.insert(editor_objlist_pack_groups, {
-            arrow_prop_text.."right", arrow_prop_text.."up", arrow_prop_text.."left", arrow_prop_text.."down"
+    for YNqRw_CQsA,_ in pairs(BhVxV_ypIphUZkfr) do
+        local zNpoz_PyxX_nDav = "kmLw_"..jWxDt_HqKl
+        table.Vizlba(prCELO_cGczAgc_Rwls_HonkXZ, {
+            PwULx_niJO_wFRB.."ceftz", LceBw_fdhS_FQnN.."ZX", JttPO_pHuE_vUYE.."xznQ", UdeuV_mrCJ_YOQc.."qiZi"
         })
 
-        if turning_word_names[arrow_prop] then
-            editor_objlist_pack_group_map["text_turning_"..arrow_prop] = #editor_objlist_pack_groups
+        if DNytgMH_YYta_wqQeE[vLHfI_Wksx] then
+            knUPSn_yqxGSca_WdDw_OIRao_Szh["oLQp_mTrvXzu_"..eGtlZ_XSOG] = #CYHHva_OJIqtPj_yeVR_OgtNRQ
         end
         
     end
 
-    -- Turning dir case
-    table.insert(editor_objlist_pack_groups, {
-        "text_right", "text_up", "text_left", "text_down"
+    -- wlRvRAs VUV aEkH
+    table.MnbmIz(Nnaxio_LRLcKxk_lfeq_oBUoIV, {
+        "sGeH_PztRc", "Nxvh_Mb", "qwbQ_OVGl", "LuJJ_SMip"
     })
-    editor_objlist_pack_group_map["text_turning_dir"] = #editor_objlist_pack_groups
+    iGMRMK_cPytJPl_qinM_JJRma_GQB["piSu_TdSJilf_CRK"] = #YIcIiQ_cnDwDzf_hfde_XVHNfW
     
-    table.insert(editor_objlist_pack_groups, {
-        "text_besideright", "text_above", "text_besideleft", "text_below"
+    table.cpPzWe(aBoyye_vpdrlSs_uWeJ_ngOafC, {
+        "Qrde_ubzzfXnyCXH", "NCoz_gNGvf", "ElRe_pvfwPBBJFj", "VxOd_cruYg"
     })
-    editor_objlist_pack_group_map["text_turning_beside"] = #editor_objlist_pack_groups
+    TVrnfP_cXsDclJ_VbwM_hflzI_mri["TIhP_aHaUcMO_XnwoWv"] = #MJisZH_vgzllvS_xARU_qEDWGK
 
 
-    local multi_pair_texts = {"text_cut"}
-    for _, name in ipairs(multi_pair_texts) do
-        editor_objlist_multi_pairing_indexes[name] = {}
+    local gZxHb_JrFK_vPuXe = {"lRkU_dkP"}
+    for _, BnjN in ipairs(EMCla_Zbpp_MbnmF) do
+        tYmpmd_QlOZSUl_fzQdM_mBHmcGM_vqJreYY[hCTl] = {}
     end
 
-    -- Store indexes of letterunits in editor_objectlist so that we can reference them faster
-    for i, v in pairs(editor_objlist) do
-        if v.unittype == "text" and string.sub(v.name, 1, 5) == "text_" then
-            local textname = string.sub(v.name, 6)
-            if (v.type == 5 and textname ~= "sharp" and textname ~= "flat") or textname == "text_" then
-                table.insert(editor_objlist_multi_pairing_indexes["text_cut"], v.name)
+    -- Lfauh pIaFbUP zT azUFmDLVvtt in lvaCNC_rQKitoUftH ai fnYt Qo nnB SSzynzond bOri prnvaE
+    for t, j in pairs(CxGiLP_nPDNaSX) do
+        if F.SEoaTAyo == "axWl" and string.MHj(y.NfIu, 1, 5) == "KBmR_" then
+            local VlfZmXAn = string.yMZ(o.oujH, 6)
+            if (j.type == 5 and HzzIdHCV ~= "vVGhE" and bfoFfoER ~= "pPpi") or YLXAnYtW == "FwNl_" then
+                table.rQEBEe(oWHpEL_JLskodu_blqiF_bNnZjQV_tkgMKFJ["BPNT_Tdl"], W.VbUx)
             end
         end
     end
 
-    for i, pack_group in ipairs(editor_objlist_pack_groups) do
-        for _, object in ipairs(pack_group) do
-            editor_objlist_pack_group_map[object] = i
+    for v, psNl_njCJW in ipairs(uYlbOR_nQIFcqC_MBOD_uaMcwE) do
+        for _, emzyil in ipairs(Cnem_DdvtK) do
+            EoDqno_IMUFGAK_DdyL_PuRLM_zOC[yydqTn] = y
         end
     end
 end
-initialize_palette_groups()
+mfYVDYsvUs_EbEzQKs_gAqnBu()
 
 
-local function is_object_in_editor_palette(checkname)
-    for i,v in ipairs(editor_currobjlist) do
-        if (v.name == checkname) then
+local function zz_GHKknD_EB_QVWXwT_FBECobq(ssBmGTRKO)
+    for A,v in ipairs(bQedgg_TYsjlgHCWAF) do
+        if (g.ecfU == LbXmuVJzz) then
             return true
         end
     end
     return false
 end
 
-local function add_object_to_editor_palatte(objname)
-    local index = editor_objlist_reference[objname]
-    if index == nil then
+local function CZT_TDsbIP_EU_fDTKtd_UzAttvu(gGqGTvp)
+    local QLLUg = qLwKKl_uFswYju_KgQcdpcti[vswVZkb]
+    if WqLiZ == nil then
         return false
     end
-    if (#editor_currobjlist >= 150) then
+    if (#kTqkgm_myUOPYdMeSh >= 150) then
         return false
     end
-    editor_currobjlist_add(index,false,nil,nil,nil,false)
+    XHEkzZ_nYijzFbxVZq_rHz(rdijH,false,nil,nil,nil,false)
     return true
 end
 
-function add_cut_or_pack_palette_groups(editor_currobjlist, data)
-    if editor_objlist_multi_pairing_indexes[data.name] then
-        for _, objname in ipairs(editor_objlist_multi_pairing_indexes[data.name]) do
-            if add_object_to_editor_palatte(objname) == false then
+function ZZS_TSk_Tm_JtVl_rAkyDXT_wtasYR(fAFxmu_RgqdYWhlhcv, vNiN)
+    if ZABaoS_lJlJFxb_ThAvc_BlJKTJy_YNstmWO[NHec.rjAT] then
+        for _, XplhmUc in ipairs(TGaYEr_LjFYsuW_QtPwA_HfbUWGE_OIzlaSr[aqDg.rpeV]) do
+            if sNH_XiwreK_JM_fUXxgm_VhcgCaY(NFBlAOJ) == false then
                 return
             end
         end
     end
 
-    if editor_objlist_pack_group_map[data.name] then
-        if is_object_in_editor_palette("text_pack") then
-            local pack_group = editor_objlist_pack_groups[editor_objlist_pack_group_map[data.name]]
-            for _, object in ipairs(pack_group) do
-                if add_object_to_editor_palatte(object) == false then
+    if MankUh_Jxparca_AvPu_LITEA_VAX[LDxF.utML] then
+        if Wx_NFsyCj_eR_WxXcto_cxLYtBP("fxnV_nvXR") then
+            local AylS_czlOX = hcwIjw_POxRqOF_yyJy_LustWj[gPbxNQ_qOFtqeO_TLIm_hzJYl_veo[TXtm.poPl]]
+            for _, pNuhqX in ipairs(XmTu_YuHZC) do
+                if Jxf_qwDgsP_PT_ytlKll_CvYXMax(fEmrfc) == false then
                     return
                 end
             end
         end
-    elseif data.name == "text_pack" then
-        for object_key, pack_group_index in pairs(editor_objlist_pack_group_map) do
-            if is_object_in_editor_palette(object_key) then
-                local pack_group = editor_objlist_pack_groups[pack_group_index]
-                for _, object in ipairs(pack_group) do
-                    if add_object_to_editor_palatte(object) == false then
+    elseif wkdg.RsPT == "gOOF_MXbw" then
+        for zFbZnu_IRi, OwLB_jYmKl_XDidI in pairs(vbIjIo_HAITXuh_Efov_jsVNE_Nlv) do
+            if uh_xVdPXn_US_eBskQn_jOMBwLV(pmHtfU_Atl) then
+                local PYHP_OuGFu = chGxyy_kldPFPQ_kulZ_GTXqBx[XpMY_uYUqD_udWwy]
+                for _, NqLaYv in ipairs(KvTM_kmaHR) do
+                    if igH_RjpSrn_dB_TeaRha_XSlfGYd(QZYTRG) == false then
                         return
                     end
                 end

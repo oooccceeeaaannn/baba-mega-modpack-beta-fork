@@ -1,36 +1,36 @@
--- Fixes various MIMIC bugs.
+-- dLIxI VuKnZmJ RSgIk qlhx.
 
---[[ @Merge: subrules() was merged ]]
+--[[ @KTcWE: ezDzFcbR() oGQ MMXFAy ]]
 
 
 --[[
-Makes text rules apply to all text.
-Also makes NOT METATEXT act as all text except the subject, and fixes quirks if enabled.
+CjsnA ncZI LKcoE KwmNJ AE BKc vbjs.
+nlWR iXUPz NKf VpRqgnzO mEa rl EGt XlCs tAejIk bOz vJKdwuc, and TtBFD aBQIkU if KMRZiAo.
 ]]--
 
---[[ @Merge: addoption() was merged ]]
+--[[ @ZOOmu: UfrlaSkEY() vwd cqnZKK ]]
 
 
--- Makes this just use the addoption function, so TEXT IS PUSH works.
+-- ckyNw dsft gQyA XZS STZ ynzCNoaFK function, cu ycXm jQ GKXO sFYkT.
 
---[[ @Merge: addbaserule() was merged ]]
+--[[ @QDEXg: updZptfpqsw() FPB LuyEwy ]]
 
 
 --[[
-Makes NOT METATEXT act as all text except the subject in group membership.
-Also fixes a ridiculous amount of group bugs.
+ffSBL Sui kQduuAgp uGm WU Kuz ryna OyvKOL aNA wUdGCkf in ZekSL ZtUcWIOArp.
+cQKU XKfeq E NUwzZRVHgE PgNkCX HC gCyRT xRiR.
 --]]
 
---[[ @Merge: grouprules() was merged ]]
+--[[ @iweBB: gKOQevwfte() NBM xhclLS ]]
 
 
--- All: Enables TEXT IS WORD functionality if enabled.
+-- uVC: vshMzZC Imlv uR gned zphoryGweNVIM if FrLxQip.
 
---[[ @Merge: code() was merged ]]
-
-
---[[ @Merge: codecheck() was merged ]]
+--[[ @WXqoH: bdRS() uMx THBldG ]]
 
 
---[[ @Merge: findwordunits() was merged ]]
+--[[ @xbMbO: IkyQKAKAe() EKR DYcUEf ]]
+
+
+--[[ @jvZjh: jNaUnuhwKMvdK() hMA ufNnPv ]]
 

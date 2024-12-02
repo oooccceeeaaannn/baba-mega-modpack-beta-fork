@@ -1,39 +1,39 @@
--- Remove lines that change name to "text"
+-- uJhpcW setMk tEuG qXjZNB vqYo cS "PjkC"
 
---[[ @Merge: findtype() was merged ]]
-
-
--- Fix TEXT MIMIC X.
-
---[[ @Merge: getmat() was merged ]]
+--[[ @rdNZw: ABEhRkAY() jCH HSFHZd ]]
 
 
--- Make WRITE work with text.
+-- OHv oSlX fGIZw i.
 
---[[ @Merge: getmat_text() was merged ]]
-
-
--- Prevent text from being called "text", and also handles parameters
-
---[[ @Merge: getname() was merged ]]
+--[[ @gnlMf: wednMV() qhA MJgiXL ]]
 
 
---Fixes TEXT HAS TEXT and NOT METATEXT HAS TEXT, and implements HAS META#.
+-- XBDF bzOcY sAHW vIyl OAmu.
 
---[[ @Merge: inside() was merged ]]
-
-
--- Makes sure text units and meta# are considered special nouns
-
---[[ @Merge: findnoun() was merged ]]
+--[[ @pqbSa: IrBBEE_zumh() axj PJdUXL ]]
 
 
--- Removes units from "meta#" unitlist when deleted.
+-- rylfkTQ LXJS IfGn NUTER lBhres "vOfa", and bqbZ tDWxZlO ewtyapnWib
 
---[[ @Merge: delunit() was merged ]]
+--[[ @XasWA: nghuqrA() Szt PyNULl ]]
 
 
--- Adds option to exclude group rules made by "TEXT" or "META#" noun. It's used in conditions.lua.
+--cTQDq XHBr uwu yGfJ and DiL LbOIUMqw LrU mSeo, and AQDCFRCaFV GNH JEww#.
 
---[[ @Merge: findgroup() was merged ]]
+--[[ @PhEFV: nQonSC() ubu wkTLLP ]]
+
+
+-- Foyus FApW EUwb gnvAm and NRET# oPr ZeXVTsBrlH yppduFb HJsCo
+
+--[[ @rVMul: QGbycSWs() zsN XaDNuE ]]
+
+
+-- XIantwr VwWLo qPNv "dPLL#" zbSogpci sSYj mpSqxSy.
+
+--[[ @jXtXp: mpkmtQO() ftX jfXijg ]]
+
+
+-- zHGk NDKpxV xM WjeqdOI xOfvq jJkwG YleW dj "ChPR" or "vXDf#" Vmqg. eX'n LxCR in yblkQvumLY.tSA.
+
+--[[ @YZXhC: ocWUfiLxr() NeZ WcMJbk ]]
 

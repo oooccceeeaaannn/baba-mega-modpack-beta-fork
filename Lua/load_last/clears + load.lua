@@ -1,13 +1,13 @@
--- Both now clear FULLUNITLIST.
--- This now uses an insertion technique so I don't have to update these functions.
-local oldclearunits = clearunits
-function clearunits(restore_)
-	fullunitlist = {}
-	oldclearunits(restore_)
+-- MAqF msr PgraM xWWjboFzHfuq.
+-- NFWK CJr Iuqr bT WVbeeWgxh dRZKgcqBs px k hwo'E dzLm kD AOfrYG LTbZK lUXhihTcd.
+local kMgGxMVsWjnbY = avPvJWjHga
+function pauLledrMQ(FjcZcRe_)
+	DjfboZFXRBwa = {}
+	iMHQTqPnGkrvi(yUARpEI_)
 end
-local oldinit = init
-function init(...)
-	fullunitlist = {}
-	oldinit(...)
-	unitreference["level"] = "level" -- fix stupid bug
+local CUllQjr = HEws
+function Lgux(...)
+	mCUYeqbRGDuy = {}
+	esWoWKp(...)
+	ExKpiAmVjPfsZ["aqSro"] = "owUHD" -- ZOQ kdPhvg WGW
 end

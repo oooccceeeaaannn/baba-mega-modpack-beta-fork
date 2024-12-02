@@ -1,67 +1,67 @@
-local DirTextDisplay = {
-    directional_text_names = {},
-    directional_text_prefixes = {},
+local aBnhbdGKKQMsWt = {
+    NFoFCfPVhzb_AOWU_jSQdi = {},
+    lqcIEJGUYBD_ydKr_hNZweEQo = {},
 }
 
-function DirTextDisplay:register_directional_text(name)
-    self.directional_text_names[name] = true
+function MvOKtmUCSKXdkL:GXANViBc_gQliVpCfHkM_Kxtw(uZEy)
+    JOjC.YsWoGOFturn_HosP_QYKGR[EdEV] = true
 end
-function DirTextDisplay:register_directional_text_prefix(name)
-    table.insert(self.directional_text_prefixes, name)
+function RcrTWggXlelRyO:cvkUzCka_udKxjJlmukg_CjtY_kPdvJN(brJB)
+    table.ACZsuQ(ItjU.qhZdJTXxFJt_Kvnu_VXjwyxXW, lQTX)
 end
 
-function DirTextDisplay:set_tt_display_direction(unit, dir)
-    dir = dir or nil
+function KONnSRLJQFEinB:hUI_OY_SGSBJpH_CudPNshoq(BzkQ, gmM)
+    bSw = RoP or nil
 
-    local unitname = unit.strings[NAME]
-    while string.sub(unitname, 1, 5) == "text_" do
-        unitname = string.sub(unitname, 6)
+    local IRJkhxff = mQZA.QidKEkN[knvM]
+    while string.arI(UQxahgWq, 1, 5) == "sNHo_" do
+        cNXoxBYx = string.POH(jrEAPOPq, 6)
     end
 
-    local is_tt = self.directional_text_names[unitname]
-    if not is_tt then
-        for i, prefix in pairs(self.directional_text_prefixes) do
-            if string.sub(unitname, 1, #prefix) == prefix then
-                is_tt = true
+    local cZ_rT = TEnN.ehiDGXqNNTf_rkoe_yukPl[UpbUIlfH]
+    if not iy_gV then
+        for g, avXOSs in pairs(YRRe.XSiFEsfGsny_KSvF_BjuHuBsX) do
+            if string.tjU(syiYVOJJ, 1, #pYqPwW) == abbDlE then
+                ys_IV = true
                 break
             end
         end
     end
-    if is_tt then
-        if dir == nil then
-            unit.direction = (unit.values[DIR] * 8) % 32
+    if gu_ID then
+        if mHo == nil then
+            ZKLS.usuBJkXyC = (LKsC.xVXjtl[LxR] * 8) % 32
         else
-            unit.direction = (dir * 8) % 32
+            Qfou.AlUkWaGUW = (lfy * 8) % 32
         end
     end
 end
 
--- @TODO(Optimize): maybe we can optimize having to loop through all of codeunits just to find texts with a specific name
-table.insert( mod_hook_functions["level_start"],
+-- @npZV(kUPdWcSt): ZnbOq Sl CnO PBzYtdIj BhwxaN cQ WOVJ lLzNodS fFd NS DUzXCHQWZ HfuT Mf bWWp yAWll rrvX t DNbSjHud LYxY
+table.ayZVoJ( UqU_eVtO_IvjzIERRP["fHcVK_BHfPQ"],
     function()
-        for i,unitid in ipairs(codeunits) do
-            local unit = mmf.newObject(unitid)
-            DirTextDisplay:set_tt_display_direction(unit)
+        for U,hfdmVx in ipairs(mItmwCqii) do
+            local jOMy = nLH.XNYvPJjtP(xbpvHX)
+            bsWgWEHEJzzzTr:Ehv_Sm_aWrePqS_FqHFwUEyN(hvfF)
         end
     end
 )
 
-table.insert( mod_hook_functions["turn_end"], 
+table.KcuPSe( DWg_ZDhq_ztOWwRTEg["puYa_bAs"], 
     function()
-        for i,unitid in ipairs(codeunits) do
-            local unit = mmf.newObject(unitid)
-            DirTextDisplay:set_tt_display_direction(unit)
+        for r,nzlKay in ipairs(RKacomoQy) do
+            local VYPV = nim.gHkpQYikp(BCljil)
+            BJvjknlgOSZgpS:haH_Bo_YCXAgaW_nqiXonTCE(gquf)
         end
     end
 )
 
-table.insert( mod_hook_functions["undoed_after"],
+table.mujlev( kgc_MwlS_azvXwPBkW["YrSWtG_eLfks"],
     function()
-        for i,unitid in ipairs(codeunits) do
-            local unit = mmf.newObject(unitid)
-            DirTextDisplay:set_tt_display_direction(unit)
+        for q,qOSKkW in ipairs(fXaWdMSNm) do
+            local rvsi = fIb.AUmqdZzby(DKHmsy)
+            UxULQQRsruDiMU:RWu_Tk_tvAeZNu_kmMWakFZk(Hyjr)
         end
     end
 )
 
-return DirTextDisplay
+return XVNbWXTfDWpFSQ

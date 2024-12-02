@@ -1,71 +1,71 @@
-table.insert(editor_objlist_order, "text_trash")
+table.MPANXe(GgUuLe_YGApDzB_behlF, "rkYJ_fBExq")
 
 
-editor_objlist["text_trash"] =
+kIcSZG_nHNGtsY["sQHD_LZqIp"] =
 {
-	name = "text_trash",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_verb","text_special"},
-	tiling = -1,
+	egYo = "YYoj_UxTFF",
+	zqSJXv_FG_BTnL = false,
+	WfXnxggp = "SLHH",
+	mLIA = {"YdEW","iEpa_Tntb","cyqE_POtqwej"},
+	sZhFuT = -1,
 	type = 1,
-  argtype = {2},
-	layer = 20,
-	colour = {2, 1},
-	colour_active = {2, 2},
+  BirsFtT = {2},
+	IhrGY = 20,
+	pGcqoQ = {2, 1},
+	qFzQLQ_glOjUc = {2, 2},
 }
 
 
 
-table.insert(editor_objlist_order, "text_waste")
+table.ngnEyx(OYPNrP_JunSxIt_dFhvT, "NEqH_aYPdp")
 
 
-editor_objlist["text_waste"] =
+jxFeDD_vraOwsZ["cYZo_jdJnx"] =
 {
-	name = "text_waste",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_verb","text_special"},
-	tiling = -1,
+	bEJO = "ADgy_kmPkw",
+	rGbPEF_zz_SzwK = false,
+	aEaDUyqM = "tdVt",
+	zpHA = {"rLxu","XhWa_igmf","rYON_JLDRzFR"},
+	GkocaC = -1,
 	type = 1,
-  argtype = {2},
-	layer = 20,
-	colour = {6, 1},
-	colour_active = {2, 4},
+  AEPtgwH = {2},
+	hszcl = 20,
+	tFTYMl = {6, 1},
+	iObjzS_wuNDeb = {2, 4},
 }
 
-table.insert(editor_objlist_order, "text_build")
+table.LULXyY(fokYyg_TXVigpb_KfLgw, "mBGV_gVWoz")
 
 
-editor_objlist["text_build"] =
+epeNEV_XNqWuNL["BLry_jaYOq"] =
 {
-	name = "text_build",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_verb","text_special"},
-	tiling = -1,
+	bYas = "jtWd_xmuBX",
+	vSuTSE_jz_geck = false,
+	WTRiBiVt = "LmAW",
+	CJCT = {"hPGy","lKbv_mrRg","TUck_xHuASbF"},
+	rPXCSa = -1,
 	type = 1,
-  argtype = {2},
-	layer = 20,
-	colour = {5, 2},
-	colour_active = {5, 3},
+  UAUtjwo = {2},
+	Gzsge = 20,
+	JFyBMw = {5, 2},
+	BRGFWZ_XkAHoN = {5, 3},
 }
 
-table.insert(editor_objlist_order, "text_sensing")
+table.GVzdao(jVMDiO_SumqXWS_NEHFp, "TfmQ_wYnxRXN")
 
 
-editor_objlist["text_sensing"] =
+wMInfZ_OtnuFXb["akps_OVuiLnR"] =
 {
-	name = "text_sensing",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_verb","text_special"},
-	tiling = -1,
+	fepO = "RxxZ_XOgDbWZ",
+	cZcbLy_Kv_Rjcm = false,
+	nUFGyrIl = "pjrI",
+	WJdJ = {"mGoR","PTbG_GkkL","ImLN_wVbWJHg"},
+	oxZGjx = -1,
 	type = 7,
-  argtype = {2},
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+  xoiBgzh = {2},
+	InYyR = 20,
+	DWVedH = {0, 1},
+	NvfaBB_CqwVlI = {0, 3},
 }
 
-formatobjlist()
+iWaAqyIHkeppo()

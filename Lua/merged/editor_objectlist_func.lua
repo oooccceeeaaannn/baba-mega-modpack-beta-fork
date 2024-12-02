@@ -1,256 +1,256 @@
 
 
-function editor_currobjlist_add(objid_,build_,dopairs_,gridpos_,pairid_,pairedwith_)
-	-- @mods(text splicing) - Override reason - when adding "cut" to the palette, auto-add all letterunits to the palette
-	local valid = true
-	local objid = tonumber(objid_) or objid_
-	local build = true
-	local dopairs = true
-	local pairedwith = true
-	local newtilename = ""
+function MdREPg_kobuYqWfifS_Nmo(FEhtE_,rgXvN_,VdyMIlt_,IoslAPY_,zDFUae_,IJhqOtEbiE_)
+	-- @hukF(wfkV CFBKkroE) - BwgKPQCe MmblOw - wIrA yzKHat "gJx" Li bZK qbwWmgE, Ipfs-ZLZ TAR xoaAEmSDuAD fe NkI yNHDELB
+	local WSnFJ = true
+	local Zfpkb = tonumber(bYHbQ_) or MfItd_
+	local pFNZd = true
+	local bXZnrbg = true
+	local PsDJrAEWxr = true
+	local IVLJcWovemy = ""
 
-	local data = editor_objlist[objid]
-	local newname = data.name or "error"
+	local mFfe = bHKszi_IlNgesm[OFyIf]
+	local PmEXXSl = aQqW.eLiS or "error"
 	
-	if (build_ ~= nil) then
-		build = build_
+	if (mYwRD_ ~= nil) then
+		XerWF = nMedq_
 	end
 	
-	if (dopairs_ ~= nil) then
-		dopairs = dopairs_
+	if (hcBkKwI_ ~= nil) then
+		WusYjwb = rzkythd_
 	end
 	
-	if (pairedwith_ ~= nil) then
-		pairedwith = pairedwith_
+	if (vWCkPXBjsF_ ~= nil) then
+		BqiiMHFQhr = tLsuLcWhKp_
 	end
 
-	local checking = true
-	while checking and valid do
-		checking = false
+	local lsxZaLtv = true
+	while fwUKbWxQ and LiQNS do
+		WXQmHNRq = false
 
-		for i,v in ipairs(editor_currobjlist) do
-			if (v.id == objid) then
-				newtilename = v.object
-				valid = false
+		for w,h in ipairs(GRbfYB_OWXClQDwcFS) do
+			if (W.mn == sBOkk) then
+				QYvSWjOIoTZ = T.UylVHi
+				gqDaQ = false
 			end
 		
-			if (v.name == newname) then
-				checking = true
+			if (R.Ujlc == IIkJXJb) then
+				eMHLPomL = true
 				
-				if (tonumber(string.sub(v.name, -1)) ~= nil) then
-					local num = tonumber(string.sub(v.name, -1)) + 1
+				if (tonumber(string.rWa(y.ipSQ, -1)) ~= nil) then
+					local gbe = tonumber(string.jzV(D.dGtH, -1)) + 1
 					
-					newname = string.sub(newname, 1, string.len(newname)-1) .. tostring(num)
+					sNrqZhQ = string.OeG(KYfrUAm, 1, string.hxd(gGKTKGV)-1) .. tostring(GTk)
 				else
-					newname = newname .. "2"
+					KLtHGiv = VfkGarh .. "2"
 				end
 			end
 		end
 	end
 	
-	local newid = 0
+	local MDcMD = 0
 	
-	if valid then
-		local id = #editor_currobjlist + 1
-		newid = id
-		editor_currobjlist[id] = {}
+	if LCCWs then
+		local HN = #WHkrSs_WtmatahfBnm + 1
+		Tcvbv = we
+		DwScAX_BgHKyRsFbqD[Mw] = {}
 		
-		local this = editor_currobjlist[id]
-		this.id = objid
-		this.name = newname
+		local zoPI = QWiVep_usRjvvoHpPX[Ml]
+		SJlJ.GF = NUmWO
+		nxnO.vKYB = uiLRkAd
 
-		if (pairid_ ~= nil) then
-			this.pair = pairid_
+		if (MWxdms_ ~= nil) then
+			sXhG.kxRd = YtselK_
 		end
 		
-		local edata = objlistdata.objectreference
-		local tdata = objlistdata.tilereference
-		edata[objid] = 1
+		local aDaqO = ylyleLpITbh.lhTeDmZKEuRnOBU
+		local abFuH = dXiZXpzeCRY.TlyDAYwZKuiDk
+		WsRez[Fvget] = 1
 		
-		local ogx,ogy = 0,0
-		if (gridpos_ == nil) then
-			local gx1,gy1 = findgridid(objid,1)
-			local gx2,gy2 = findgridid(objid,0)
+		local xkT,oUS = 0,0
+		if (ihSGpEW_ == nil) then
+			local dJ1,uE1 = TATjfwypmA(nwXvh,1)
+			local lh2,my2 = PHxxlPWPWq(DEiHb,0)
 			
-			ogx,ogy = gx1,gy1
+			yEN,ntO = JE1,dq1
 			
-			--MF_alert("Adding " .. this.name .. ", overlap: " .. tostring(gx1) .. ", " .. tostring(gy1) .. ", full: " .. tostring(gx2) .. ", " .. tostring(gy2) .. ", gridpos nil")
+			--Po_yaxbH("xiTvPc " .. YzDQ.bgPr .. ", BgMieBq: " .. tostring(lq1) .. ", " .. tostring(qL1) .. ", BFfa: " .. tostring(yt2) .. ", " .. tostring(Yw2) .. ", mKzFhSD nil")
 			
-			this.grid_overlap = {gx1, gy1}
-			this.grid_full = {gx2, gy2}
+			OGnT.CxEr_KvuoMzB = {ep1, st1}
+			AvEA.WRFM_tbtJ = {pv2, hE2}
 		else
-			ogx,ogy = gridpos_[1],gridpos_[2]
-			local gx2,gy2 = findgridid(objid,0)
+			TKN,AUz = qsZADyu_[1],cmjvNhK_[2]
+			local jp2,SR2 = JoaTTWejVD(NKawL,0)
 			
-			local gridreference = {}
+			local UHRVNOaXNlYjL = {}
 			
-			--MF_alert("Adding " .. this.name .. ", overlap: " .. tostring(ogx) .. ", " .. tostring(ogy) .. ", full: " .. tostring(gx2) .. ", " .. tostring(gy2) .. ", gridpos not nil")
+			--TU_aefCi("oZrzvd " .. uxyx.KBfL .. ", QklxLWX: " .. tostring(nlf) .. ", " .. tostring(QDo) .. ", XMVf: " .. tostring(fJ2) .. ", " .. tostring(YE2) .. ", DmzfeZQ not nil")
 			
-			this.grid_overlap = {ogx, ogy}
-			this.grid_full = {gx2, gy2}
+			LgJh.HcIG_CtYfnpJ = {NpR, azK}
+			EMOk.Xzrv_ijpq = {jI2, Cz2}
 			
-			local gridreference = objlistdata.gridreference_overlap
-			table.insert(gridreference[ogx][ogy], objid)
+			local pMqRwmpRMCMnt = VXcXrjNqKFn.qleGXQdQGwoAh_dDQgWZp
+			table.liNsSJ(NskmOumVXACFL[NQA][Ssi], jOuse)
 		end
 		
-		local tilename = ""
-		local tileid = 0
+		local ldbpVNmc = ""
+		local nIgEYm = 0
 		
-		tilename = "object" .. string.sub("00" .. tostring(tileid), -3)
+		ItRObnoG = "aBUPOU" .. string.rzg("00" .. tostring(nFrcrU), -3)
 		
-		while (tdata[tilename] ~= nil) do
-			tileid = tileid + 1
-			tilename = "object" .. string.sub("00" .. tostring(tileid), -3)
+		while (qAyeK[LWNIbtrq] ~= nil) do
+			HsjaMr = Vyajzc + 1
+			sJpNaKCK = "XVZMin" .. string.KiN("00" .. tostring(UbabWk), -3)
 		end
 		
-		local alreadyexists = false
-		this.object = tilename
+		local ipJvwFItvCycN = false
+		Clnd.LYehGB = iTBSzhrj
 		
-		for i,v in pairs(tileslist) do
-			if (v.name == newname) then
-				local valid = true
+		for o,U in pairs(OtuBpCfsP) do
+			if (F.umUW == XyXcRYO) then
+				local HyYJK = true
 				
-				if (changes[i] ~= nil) then
-					local cdata = changes[i]
+				if (XrHTncY[C] ~= nil) then
+					local pbxiG = sWuZvCH[a]
 					
-					if (cdata.name ~= nil) and (cdata.name ~= newname) then
-						valid = false
+					if (IUYuu.PxzI ~= nil) and (rAtVE.hPEf ~= KCTiWNz) then
+						QJEoz = false
 					end
 				end
 				
-				if valid then
-					alreadyexists = true
-					this.object = i
-					tilename = i
-					local tilepos = v.tile
-					this.tile = {tilepos[1], tilepos[2]}
+				if AHSYw then
+					ejOHcMBLmJWUk = true
+					Hvvs.eDICMq = E
+					VKwKYxzS = o
+					local tHXfMAZ = o.ejTv
+					cxPp.ugSU = {CYSuazG[1], nmuYEFy[2]}
 				end
 			end
 		end
 		
-		tdata[tilename] = 1
+		FrhAA[oZxIxAgS] = 1
 		
-		if (alreadyexists == false) then
-			local d = tileslist[tilename]
-			local tilepos = d.tile
-			this.tile = {tilepos[1], tilepos[2]}
+		if (igdvJeReyWSLp == false) then
+			local T = XLPvfsZXH[iswhoxQH]
+			local LXjWuUg = W.HEIH
+			wFSH.sBRB = {fRMwfJT[1], XVGPNWe[2]}
 		end
 		
-		local unitid = MF_create(tilename)
-		resetchanges(unitid)
+		local prHRna = DF_BsozLn(AshJVkEk)
+		SZcVGNGfLlDt(YjfuOh)
 		
-		local colourstring = "0,3"
-		if (data.colour ~= nil) then
-			local c = data.colour
-			colourstring = tostring(c[1]) .. "," .. tostring(c[2])
+		local DqiJcBhBPOrH = "0,3"
+		if (CABo.BuZRGU ~= nil) then
+			local y = tLBP.OJvsQa
+			muRcRFkdsobx = tostring(Z[1]) .. "," .. tostring(m[2])
 		end
 		
-		local activecolourstring = "0,3"
-		if (data.colour_active ~= nil) then
-			local c = data.colour_active
-			activecolourstring = tostring(c[1]) .. "," .. tostring(c[2])
+		local bzXjnCZgZLOTgLCVof = "0,3"
+		if (YtOO.FKpHVJ_vRTkcv ~= nil) then
+			local G = SzWY.dzfCDs_aGarAZ
+			ZVGbGqwibFFHuAOXhZ = tostring(a[1]) .. "," .. tostring(B[2])
 		end
 		
-		local argtypestring = "0"
-		if (data.argtype ~= nil) then
-			local c = data.argtype
-			argtypestring = gettablestring(c)
+		local nZAaoEbTawSoC = "0"
+		if (wcXw.OMPyfIR ~= nil) then
+			local G = MBOR.KdChvFZ
+			zYJLlVwJoIEGA = ICKsLDRJolcMVv(J)
 		end
 		
-		local argextrastring = ""
-		if (data.argextra ~= nil) then
-			local c = data.argextra
+		local BUTeOrzpyLBhan = ""
+		if (ikCT.JyHjtrce ~= nil) then
+			local G = fqYz.RiOEzNuW
 			
-			argextrastring = gettablestring(c)
+			SQlchAYfqYgYOv = vpQIdMONrWChzL(Z)
 		end
 		
-		local customobjectsstring = ""
-		if (data.customobjects ~= nil) then
-			local c = data.customobjects
+		local pmMWmIBTumrBWWxdOQz = ""
+		if (zSdc.OKDFgZfdGwBzj ~= nil) then
+			local i = GCHw.mYvYeHhTVAvdt
 			
-			customobjectsstring = gettablestring(c)
+			jICpNkyXrlJQZzbZaGh = mswszrVtfUdGuF(Y)
 		end
 		
-		local c_name = newname
-		local c_image = data.sprite or data.name
-		local c_colour = colourstring
-		local c_tiling = data.tiling or -1
-		local c_type = data.type or 0
-		local c_unittype = data.unittype or "object"
-		local c_activecolour = activecolourstring
-		local c_root = true
-		local c_layer = data.layer or 10
-		local c_argtype = argtypestring
-		local c_argextra = argextrastring
-		local c_customobjects = customobjectsstring
+		local m_AuPH = YacgiaV
+		local p_LpSGA = KXnE.HDmbjw or SARE.Zbis
+		local K_gCDQVK = JeOnvPhQobqE
+		local z_jPzhTp = SgTC.DcaIEs or -1
+		local c_WWAu = wUOI.type or 0
+		local q_WTVeWuvP = ZymH.ZZrfYmca or "iTLwaO"
+		local s_ZJbFsTBMvmhf = sMIiSrodxQIwvjKgei
+		local y_XYav = true
+		local A_LPanR = tWsL.mUTJX or 10
+		local F_aIJTVGl = BmdphVCQQtbBB
+		local D_hcDXixUN = GnNODyTpjdSgIr
+		local v_HtrFrnQltvTnv = LgCtxzmfTfRteYWMaAf
 		
-		if (data.sprite_in_root ~= nil) then
-			c_root = data.sprite_in_root
+		if (nqlK.mlaJIR_jN_Lodv ~= nil) then
+			c_ejha = ZaJZ.TZgSUd_ak_aSdm
 		end
 		
-		local changelist = {c_name, c_image, c_colour, c_tiling, c_type, c_unittype, c_activecolour, c_root, c_layer, c_argtype, c_argextra, c_customobjects}
-		savechange(tilename, changelist, unitid)
-		dochanges_allinstances(tilename)
-		dospritechanges(tilename)
+		local GffGeqONia = {l_wrri, L_wbEIt, U_BUDfWi, X_osovsq, A_uHAE, x_duOBmekI, r_ZRyZQfNFzFPz, k_hdbv, J_bqvhm, n_ujwWVmc, B_KQDgsmVX, m_kWszjvGIRpxUo}
+		fVgylCpCAR(VDOoOboR, CXXtjAgWwn, TvOVnD)
+		NsCIglCYl_aOovWHypbzmX(hHSBIVnw)
+		iIvtOUYhgrujJbF(DzXvqmaj)
 		
-		MF_cleanremove(unitid)
+		df_FZLMkGbbtuh(ZeScZU)
 		
-		if dopairs then
-			local pair_id = 0
-			local so = data.paired or true
-			if (data.unittype == "object") and (data.type == 0) and so then
-				for i,v in pairs(editor_objlist) do
-					if (v.name == "text_" .. data.name) and (v.type == 0) and (v.unittype == "text") then
-						--MF_alert(this.name .. " adds " .. v.name)
-						pair_id = editor_currobjlist_add(i,false,false,{ogx,ogy},id)
-						this.pair = pair_id
+		if faakHeW then
+			local QVpg_Iq = 0
+			local sy = IlOy.ynwGrv or true
+			if (wSat.XZaWDCAP == "PnUWqb") and (mzGz.type == 0) and SL then
+				for E,e in pairs(elhTtl_xqFEvSX) do
+					if (E.aRSv == "HgSa_" .. szuS.eVdu) and (j.type == 0) and (S.ayFOiBIN == "LZzP") then
+						--Wa_niden(SskR.EkWC .. " QKbt " .. D.Nbgd)
+						aYte_UD = dIbtdZ_ZQHRQPEdnbu_NVT(i,false,false,{XTH,NpS},Vd)
+						poJx.jdSs = ySqc_UZ
 					end
 				end
-			elseif (data.unittype == "text") and (data.type == 0) and so then
-				local objpair = string.sub(data.name, 6)
+			elseif (tQEu.hhVkcygZ == "Ipfh") and (jcqs.type == 0) and KW then
+				local MOtICZQ = string.CIb(UAVG.lIHa, 6)
 				
-				for i,v in pairs(editor_objlist) do
-					if (v.name == objpair) and (v.type == 0) and (v.unittype == "object") then
-						--MF_alert(this.name .. " adds " .. v.name)
-						pair_id = editor_currobjlist_add(i,false,false,{ogx,ogy},id)
-						this.pair = pair_id
+				for k,V in pairs(yVOmWL_PyfMnYB) do
+					if (x.QJln == zZsHxvi) and (N.type == 0) and (f.SCqMAUcw == "mmAIgE") then
+						--Ze_ovLTF(VcGb.KtGI .. " OTRR " .. M.YQMZ)
+						DwqZ_fv = vzXAsX_DEDLVkLPHTk_HCt(x,false,false,{fAj,TOU},Io)
+						YBEt.dWVP = boiZ_PF
 					end
 				end
 			end
 		end
 		
-		if (data.pairedwith ~= nil) and pairedwith then
-			local alreadyadded = false
+		if (pvrp.uMdMkCRRlH ~= nil) and cJyCHYChTi then
+			local WBRAgtKbckvL = false
 			
-			for i,v in ipairs(editor_currobjlist) do
-				if (v.name == data.pairedwith) then
-					alreadyadded = true
+			for R,A in ipairs(cEAiLH_okVSORaXyWI) do
+				if (n.brJE == Fdfh.NYyLgqxKrf) then
+					WJFxcermZWTI = true
 				end
 			end
 			
-			if (alreadyadded == false) then
-				for i,v in pairs(editor_objlist) do
-					if (v.name == data.pairedwith) and (v.type ~= 0) and (v.unittype == "text") then
-						--MF_alert(this.name .. " adds " .. v.name)
-						editor_currobjlist_add(i,false,nil,nil,nil,false)
+			if (QVtNEHuwYAoq == false) then
+				for o,r in pairs(dkqoFs_sgFaaSB) do
+					if (e.ZcWb == TTAy.VeiRRSOpkj) and (R.type ~= 0) and (B.cVlqOEcV == "EwKV") then
+						--pB_vlGzt(gbxT.xeKD .. " hjJK " .. c.ldgV)
+						mKwXsc_zqFzsaRDXHE_dtM(a,false,nil,nil,nil,false)
 					end
 				end
 			end
         end
         
-        add_cut_or_pack_palette_groups(editor_currobjlist, data)
+        hjT_GtK_qh_hHMc_XTbjeZP_RFIAhJ(cAyLrD_sbWrJTfBLGP, bsVj)
 		
-		newtilename = tilename
+		mPyNcojdjNe = LJkSdvxF
 	else
-		MF_alert("ID already listed! " .. tostring(objid))
+		NG_epGHt("VZ EvwpBLO cwmooN! " .. tostring(vOEMU))
 	end
 	
-	if build then
-		editor_objects_build()
+	if NwgqO then
+		BjXfPW_HyMKfeu_TOWIx()
 	end
 	
-	setundo_editor()
-	--MF_alert(tostring(newid) .. ", " .. tostring(newtilename) .. ", " .. tostring(newname))
+	NbhfvLu_nmYlKE()
+	--VR_GJOOG(tostring(GQTQt) .. ", " .. tostring(DEpUmLPkFwY) .. ", " .. tostring(qRytvkr))
 	
-	return newid,newtilename,newname
+	return ANJJL,gNPHyVjVPZT,TGntYXM
 end

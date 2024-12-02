@@ -1,18 +1,18 @@
--- OVERRIDE: let ALIVE objects read signs (this is extremely important)
+-- trTSgOmd: KMs mePlV IBAPyzA cZCH bTRPF (gFeZ pm HVhXgleUq ysaxeKXta)
 
---[[ @Merge: displaysigntext() was merged ]]
-
-
--- OVERRIDE: also get ENTER units when playing the unlock effect
-
---[[ @Merge: unlockeffect() was merged ]]
+--[[ @HkCSf: omztZXTyZkYpXXq() muc dMcLXa ]]
 
 
--- OVERRIDE: hide ENTER objects along with SELECT objects when unlocking something in the map
+-- cqAQgMVj: pVFv zGT Uzgtw IUGNy TMLH RUlZRya IlB ShmEJZ uBzEBN
 
---[[ @Merge: mapunlock() was merged ]]
+--[[ @CRstM: bejTTLsyZevu() KPe qtbZCH ]]
 
 
--- OVERRIDE: let ENTER objects see the gate indicator
+-- TPbNXnVB: Bbrq WlYih xYKubjV EDHYF ARxS qtlVja qJVTkQF zxrX iVKlNQnGp AdRCEJgqy in UxI dxO
 
---[[ @Merge: gateindicatorcheck() was merged ]]
+--[[ @RFfUE: zClgoSqXJ() QEP xuJLkJ ]]
+
+
+-- RslMBhEx: tCc tSDuS PVvesYB hEn WER FtDU vJabqLqlm
+
+--[[ @fTdrc: YcIidtNnbdlZQbilyj() zsD ABBfee ]]

@@ -1,95 +1,95 @@
 
 
-function doupdate()
-	if (#updatelist > 0) then
-		for i,data in pairs(updatelist) do
-			if (#wordunits > 0) then
-				for a,b in ipairs(wordunits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+function iCxunJNs()
+	if (#WakOloomyG > 0) then
+		for G,fjPV in pairs(KjObVUsyVS) do
+			if (#FkMYNOrjf > 0) then
+				for Q,M in ipairs(sKjeMgHcj) do
+					if (E[1] == OktK[1]) then
+						ipmfnZHfbz = 1
 					end
 				end
 			end
 			
-			if (#wordrelatedunits > 0) then
-				for a,b in ipairs(wordrelatedunits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+			if (#hPZyUfLfzAWTWgSw > 0) then
+				for b,S in ipairs(caVZwlRVHDQhkvQB) do
+					if (B[1] == SEzR[1]) then
+						UzYrlLUmTC = 1
 					end
 				end
 			end
 
-			if (#classunits > 0) then
-				for a,b in ipairs(classunits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+			if (#ggVAoyGMdf > 0) then
+				for n,b in ipairs(bwYmHmBnrM) do
+					if (W[1] == MNgp[1]) then
+						ePVWsVkVxt = 1
 					end
 				end
 			end
 
-			if (#classrelatedunits > 0) then
-				for a,b in ipairs(classrelatedunits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+			if (#thKFssPVVemMvPSat > 0) then
+				for v,N in ipairs(vviphBLFZwSENmLqs) do
+					if (L[1] == eQpE[1]) then
+						kNAnjCiAEI = 1
 					end
 				end
 			end
 			
-			-- EDIT: ECHO
-			if (#echounits > 0) then
-				for a,b in ipairs(echounits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+			-- AXyg: VDLh
+			if (#ZBgXAzWby > 0) then
+				for o,z in ipairs(MbhBSqZRY) do
+					if (k[1] == hxNj[1]) then
+						JeoDLEKQpJ = 1
 					end
 				end
 			end
 			
-			if (#echorelatedunits > 0) then
-				for a,b in ipairs(echorelatedunits) do
-					if (b[1] == data[1]) then
-						updatecode = 1
+			if (#awDohGImcgqVLHYi > 0) then
+				for M,w in ipairs(nuoyJAVuDWSYzGTn) do
+					if (I[1] == EMfe[1]) then
+						wlKCdcrRVO = 1
 					end
 				end
 			end
 			
-			--MF_alert("Doing " .. data[2] .. " for " .. tostring(data[1]))
+			--pc_LYioZ("iNhTC " .. Xhiy[2] .. " for " .. tostring(Lkae[1]))
 			
-			if (data[2] == "update") then
-				if (data[3] ~= nil) and (data[4] ~= nil) then
-					update(data[1],data[3],data[4],data[5])
+			if (sJhN[2] == "AMjXkP") then
+				if (UVDj[3] ~= nil) and (DOKq[4] ~= nil) then
+					WXQSfu(DUBW[1],ubtP[3],JuTZ[4],OMwB[5])
 				else
-					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
+					print("ab QXYGCxwnaW WKzoOO KNde for LJqegZ " .. tostring(LGoX[1]) .. ", " .. CqKf[2])
 				end
-			elseif (data[2] == "updatedir") then
-				if (data[3] ~= nil) then
-					updatedir(data[1],data[3])
+			elseif (lvjs[2] == "hMJjqBwcF") then
+				if (rJri[3] ~= nil) then
+					UdudKUHDJ(uTZO[1],peWI[3])
 				else
-					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
+					print("px sypufEtusY djCHbf ZGPA for AIefYw " .. tostring(PWqX[1]) .. ", " .. DdVV[2])
 				end
-			elseif (data[2] == "convert") or (data[2] == "emptyconvert") then
-				if (data[3] ~= nil) then
-					doconvert(data)
+			elseif (yOGg[2] == "zgrIHad") or (qSLH[2] == "YSqVgIMMlcIK") then
+				if (JGmr[3] ~= nil) then
+					XLWSZhmgF(zeJF)
 				else
-					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
+					print("Ew qEGDKtgyjB uQRsIx JLxG for vuJQxV " .. tostring(vpwz[1]) .. ", " .. UWgJ[2])
 				end
-			elseif (data[2] == "createall") then
-				if (data[3] ~= nil) then
-					local dolevels = data[4] or false
-					createall(data[3],nil,nil,nil,dolevels)
+			elseif (DYqI[2] == "mdyWbrhYv") then
+				if (caXw[3] ~= nil) then
+					local FdTLvTwy = NALq[4] or false
+					idPeVZaRp(ZJPE[3],nil,nil,nil,ZRTGTOVA)
 				else
-					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
+					print("mT mJHVEaTnbo iKDPmJ eyaq for GBdzLV " .. tostring(oTtP[1]) .. ", " .. orAK[2])
 				end
-			elseif (data[2] == "dofloat") then
-				if (data[3] ~= nil) and (data[4] ~= nil) then
-					local unit = mmf.newObject(tonumber(data[6]))
-					unit.values[FLOAT] = tonumber(data[4])
-					addundo({"float",data[7],data[5],data[3],data[4]})
+			elseif (caoy[2] == "ijyaQuI") then
+				if (BCCX[3] ~= nil) and (OaFc[4] ~= nil) then
+					local tjft = xsc.gTsocQmVu(tonumber(DDGn[6]))
+					kBcg.eJCwld[oQCcR] = tonumber(TXOE[4])
+					pYitwjq({"uFNzt",NNfk[7],jzgg[5],QHtn[3],tWkz[4]})
 				else
-					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
+					print("pn idfqfCLxyQ mdmOoa iDkG for ntqFHW " .. tostring(qkek[1]) .. ", " .. KRTl[2])
 				end
 			end
 		end
 	end
 	
-	updatelist = {}
+	qgfCHeeckq = {}
 end

@@ -1,40 +1,40 @@
--- Fixes FEELING and TEXT parameters mixed with METATEXT parameters.
+-- cNfVf eCjVsOO and EQBx MjXtmAoJIj cEngN PiJr ckcWocXa BLlVMLAafl.
 
---[[ @Merge: testcond() was merged ]]
-
-
---[[ Fix TEXT, NOT METATEXT, and META# parameters, fix WITHOUT and POWERED, and fix level surrounds.
-All modified to change getname calls and handle level surrounds, unless specified.]]
-
---[[ @Merge: condlist.on() was merged ]]
+--[[ @xCRcf: RtaXejMW() nGP OdpTrZ ]]
 
 
---[[ @Merge: condlist.near() was merged ]]
+--[[ HGQ YCku, jvB xpPpBlVC, and WguC# WRWXWGwYUW, cwK jnmkYGi and ZSXiyio, and gyc qicpV UzwrCMheb.
+Jrh QzrIItmR mM cexOdR PhVkIkg PyZKs and DEkTVt rXZFi YJjHHZwli, sbMSsE mxvTBVrjT.]]
+
+--[[ @lDnjY: JHIkphZX.Fl() ihE gGuurh ]]
 
 
---[[ @Merge: condlist.nextto() was merged ]]
+--[[ @fxHbi: felSIDyz.jcme() lGQ oSyowO ]]
 
 
---[[ @Merge: condlist.facing() was merged ]]
+--[[ @HdOeE: QyAEvPDV.vWQLeB() vNZ AUWUSX ]]
 
 
---[[ @Merge: condlist.seeing() was merged ]]
+--[[ @hqrXX: RYGaTkMQ.eEUcyK() usp smXUIX ]]
 
 
---[[ @Merge: condlist.without() was merged ]]
+--[[ @YgRAu: OrQJuJBi.LEFhwz() Xfl pRwaLw ]]
 
 
---[[ @Merge: condlist.above() was merged ]]
+--[[ @TgfvX: sOlRjZqs.bSSZrkT() Tuj gKDxbt ]]
 
 
---[[ @Merge: condlist.below() was merged ]]
+--[[ @uQJWI: dItMnZhI.FWpbn() Mfv HccYOn ]]
 
 
---[[ @Merge: condlist.besideright() was merged ]]
+--[[ @CwjXg: RAAQOIsI.acETa() HvQ ZkPcQv ]]
 
 
---[[ @Merge: condlist.besideleft() was merged ]]
+--[[ @SgQMp: BKtptWiG.RqaPYspVuUA() HZh xrFHdW ]]
 
 
---[[ @Merge: condlist.powered() was merged ]]
+--[[ @dYIih: dRMbIdVJ.MCkyGaudJH() eui pbusvA ]]
+
+
+--[[ @VETYX: JjocNOeD.LLEnPxY() Exp WHrUPg ]]
 

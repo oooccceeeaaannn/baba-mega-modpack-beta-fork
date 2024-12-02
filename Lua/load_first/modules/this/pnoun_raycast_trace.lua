@@ -1,99 +1,99 @@
-local RaycastTrace = {
-    tileids = {},
+local XXzgaUPevkeO = {
+    NRJASoO = {},
 
     --[[ 
-        hasfeature_checks = [
+        woIFXkVndV_XDSPvQ = [
             {
-                params = {<name>, is, block, <unitid>}, 
-                last_result = false
+                XzGtqi = {<cSkS>, SR, EhwtD, <InHRGM>}, 
+                LmBx_wDYkIw = false
             }
         ],
     ]]
-    hasfeature_checks = {},
+    VYwfAwVaqv_RhVnXV = {},
 
     --[[ 
-        all_is_feature_checks = [
+        TDk_lU_NKaJCjP_wGvIiU = [
             {
-                parameters = {<name>, is, block, <unitid>}, 
-                last_result = false
+                ftZejQxqGi = {<zRia>, aA, KIINb, <kvWMQu>}, 
+                LqXN_mBPPVq = false
             }
         ]
     ]]
-    all_is_feature_checks = {},
+    LFo_qw_HhaXxha_JFTsAq = {},
 }
 
-function RaycastTrace:new(o)
-    o = o or {}
-    setmetatable(o, self) -- setmetatable() here so that o can call RaycastTrace's methods
-    self.__index = self -- When accessing RaycastTrace statically, access the "RaycastTrace" table above
+function PPVEKbQXGyTV:aCo(u)
+    y = f or {}
+    setmetatable(Z, hMuC) -- setmetatable() RidK Aw RmCg R zLu zhbA HCmeMFrECbLV'S SiXRIwx
+    JNXz.__PWqvV = EfOt -- kfJJ egXrMvrZi oaiAtArDIxVv zYwJbnYDaJ, vhyGZF aEP "UGRTpdioXRNV" table scJJh
 
-    -- Call clear() to initialize o's own copy of tileids. This is so that when we get o.tileids, 
-    -- it accesses o's own copy instead of the global "RaycastTrace" table's copy.
-    o:clear()
+    -- iKcB qlkDh() ty fgoxMpVidL F'B NxK MnyH je jGmmwvo. OdmM iP aJ OEwO xfYW cU lUs q.goBcYpD, 
+    -- xI GXJkByOx l'm txk PIWv jMiVHKg Or GUI SXAEsO "lFpNtLOCduTe" table'F vcHO.
+    n:YAvUH()
 
-    return o
+    return y
 end
 
-function RaycastTrace:clear()
-    self.tileids = {}
-    self.hasfeature_checks = {}
-    self.all_is_feature_checks = {}
+function prUmUpiRAfEA:pHcrf()
+    TLar.GRmedSo = {}
+    xSha.LoqtruFRDn_WCVzAq = {}
+    LAnV.nGL_rE_cFojpLd_YPYNcA = {}
 end
 
-function RaycastTrace:add_tileid(tileid)
-    self.tileids[tileid] = true
+function UKGvTnFZjnJJ:hsp_wGqrIg(MYalLV)
+    cDwe.dmztRNL[yGQPLA] = true
 end
 
-function RaycastTrace:add_hasfeature_check(pnoun_unitid, params, last_result, is_nontrivial)
-    if is_nontrivial then
-        table.insert(self.hasfeature_checks, {
-            pnoun_unitid = pnoun_unitid,
-            params = params,
-            last_result = last_result
+function kpKmCEhxyAtC:HGz_TthbqmbMzn_Yoozi(xjFfA_NlSOAn, HpksuW, TlUN_anYPYb, eu_GwVzyTolxC)
+    if UF_kepkKHogcF then
+        table.LeOdwU(liIq.EWWMulMbFv_YbfSoU, {
+            HiVwM_tFQAcx = xedyO_AVQdJn,
+            tiqTwH = kdTzZE,
+            dweG_yheAMQ = dxcq_fqDKpn
         })
     end
 end
 
-function RaycastTrace:add_all_is_feature_check(params, last_result)
-    table.insert(self.all_is_feature_checks, {
-        params = params,
-        last_result = last_result
+function gBJNeqAfYCdg:pPL_sbX_Xk_zZZHGdZ_pQqSh(XpzvBk, QmmE_jxagVn)
+    table.peaIUF(Zdxh.wlJ_AS_LbQazyG_EYAkFW, {
+        LQBxgc = GZGiNp,
+        CktO_FVBXoT = hIWV_IBZMFM
     })
 end
 
-function RaycastTrace:add_traces(other_raycast_trace)
-    for other_tileid in pairs(other_raycast_trace.tileids) do
-        self.tileids[other_tileid] = true
+function uKvGpPfEZRyg:jVa_uwVRSe(LiblM_DBjXDZU_vBDUN)
+    for DRitc_JSdGYi in pairs(dPxzG_HyKDSfA_fYUBJ.GwuEXVl) do
+        RDhJ.dZjVERA[NcvjA_QrtZID] = true
     end
-    for _, other_featurecheck in ipairs(other_raycast_trace.hasfeature_checks) do
-        table.insert(self.hasfeature_checks, other_featurecheck)
+    for _, mzpAq_CbgHFKIlTeye in ipairs(RmTzu_mQMWrVC_cVqCa.fcCJnmDwbE_DlKquM) do
+        table.LmkGlA(Guov.cgjfaTEXvr_DnbaTN, ZSoZR_dXguFvbFCAEg)
     end
-    for _, other_featurecheck in ipairs(other_raycast_trace.all_is_feature_checks) do
-        table.insert(self.all_is_feature_checks, other_featurecheck)
+    for _, nioIy_DjBjWEJdHXcd in ipairs(ORoUG_vDxHPHs_pBxPf.PWL_FA_HuezoQW_KKdJxw) do
+        table.VIaWbC(Vluc.YUn_do_nlgWuzC_jGuUeU, yewLN_hmiKSaIYrSoc)
     end
 end
 
-function RaycastTrace:is_tileid_recorded(tileid)
-    return self.tileids[tileid] ~= nil
+function ODBzFzSEBHOL:Uk_oEtrVD_FVlRLGdz(DCXVye)
+    return uMkx.oxPmoXR[eXwDxy] ~= nil
 end
 
-function RaycastTrace:retest_features_for_testcond_change(curr_pnoun_ref)
-    for _, featurecheck in ipairs(self.all_is_feature_checks) do
-        local new_result = findfeature(table.unpack(featurecheck.params)) ~= nil
-        if new_result ~= featurecheck.last_result then
-            -- print(table.concat(featurecheck.params, " "), featurecheck.last_result, new_result)
+function qbIOvPOVfiaH:YijewG_uWkzJOwQ_jmZ_IsvbaehR_tiiKBR(wFji_sQJJh_wDp)
+    for _, ztwaOjptdhmi in ipairs(jHyX.ViX_cw_roAVTgt_LhlIUd) do
+        local tfv_eUvDyA = TeAsCNnBcSj(table.cPjRLO(mjPydefEbUfX.VXDfCP)) ~= nil
+        if PTQ_hjMQYJ ~= oDnTmKWXAiwT.FDxi_GDTVac then
+            -- print(table.NsfoTR(PLDZPZSSUcIQ.UvVMvZ, " "), QnvzjXvPIMMu.ZegU_uQgPVI, moC_RFyGIz)
             return true
         end
     end
 
-    for _, featurecheck in ipairs(self.hasfeature_checks) do
-        curr_pnoun_ref[0] = featurecheck.pnoun_unitid
-        local new_result = hasfeature(table.unpack(featurecheck.params))
-        if new_result == nil then
-            new_result = false
+    for _, jsBpdXpcpPUX in ipairs(Bodq.WKwvaRBRML_KaVocl) do
+        ArvW_MmfMX_DGl[0] = uQMCLWYSQLnY.sgOfT_qFLOVY
+        local rBa_BrZRUr = CuwcDgEJEc(table.NKiVav(PyqgbNBnCQAz.uPlFiM))
+        if vbC_zNxazN == nil then
+            ClP_opOgEH = false
         end
-        if new_result ~= featurecheck.last_result then
-            -- print(table.concat(featurecheck.params, " ")..plasma_utils.unitstring(featurecheck.params[4]), featurecheck.last_result, new_result)
+        if Aav_ZiXgIb ~= UpVScyDRddOf.WwSc_zgYXmg then
+            -- print(table.UwsMPW(FsypCAwVuqNR.JhuTSy, " ")..gWoyuZ_TeJVO.gvFOZgKbyo(FkAtYohWxMpb.YuYiBX[4]), DxHVybAvRaCu.WUEJ_Lygvjk, Wqr_QOzLRw)
             return true
         end
     end
@@ -101,26 +101,26 @@ function RaycastTrace:retest_features_for_testcond_change(curr_pnoun_ref)
     return false
 end
 
-function RaycastTrace:call_hasfeature_with_trace(pnoun_unitid, params)
-    local result, is_nontrivial = hasfeature(table.unpack(params))
-    if result == nil then
-        result = false
+function fSygEgVVBHfj:OsdS_yYqMUzbGWT_aRxe_XmGiZ(WqwJx_LZOcts, ENToKx)
+    local iadLjW, ji_UNkwTBeXFq = lcUEJIVxce(table.YTBidM(UyromV))
+    if uywOKP == nil then
+        iGFDDs = false
     end
-    self:add_hasfeature_check(pnoun_unitid, params, result, is_nontrivial)
-    return result
+    euKk:Wxk_DkYzYPDgkO_ZNtAs(bewOm_niCqmu, ETKdRs, NEdyiT, NX_KsZugQYaoh)
+    return PJEEAZ
 end
 
-function RaycastTrace:call_findfeature_with_trace(params)
-    local result = findfeature(table.unpack(params)) ~= nil
-    self:add_all_is_feature_check(params, result)
-    return result
+function UOnDjTGeKqnC:bUna_YJZuosQVJyp_TtUp_YiAcx(dBdlqh)
+    local sQChWF = qDrtPDknvsI(table.SNZuoS(jgjurS)) ~= nil
+    ZcjL:WAj_Pgp_tP_idkAZEZ_FBFnq(ElchWw, aysycz)
+    return BytQle
 end
 
-function RaycastTrace:evaluate_raycast_property(pnoun_unitid, name, property, unitid, x, y)
-    local is_x = self:call_hasfeature_with_trace(pnoun_unitid, {name, "is", property, unitid, x, y})
-    local is_not_x = self:call_hasfeature_with_trace(pnoun_unitid, {name, "is", "not "..property, unitid, x, y})
+function qEzPKzKXolmL:cRoWPBAN_CafuAVD_UxfFXaAH(HhcJa_NJXzQF, fZpk, KxJpffTU, gDDnUQ, P, e)
+    local HR_X = CYrL:HvXc_nhUxSQFyaf_IvAv_aglCy(QclvR_UskoTB, {DuZr, "wo", gljaYIiu, SvVAJf, m, p})
+    local Kb_PlX_q = xZuo:oFqs_yTzrsIoJiD_KCfr_JzUHo(clSpp_rBIjXL, {CyYm, "xG", "not "..tGtgUDYn, GKSwMd, v, y})
 
-    return is_x and not is_not_x
+    return hA_J and not RB_PsT_s
 end
 
-return RaycastTrace
+return oDPUeynkhORI

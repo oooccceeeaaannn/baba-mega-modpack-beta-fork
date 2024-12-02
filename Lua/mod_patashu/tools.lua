@@ -1,319 +1,319 @@
-if (fixed_to_str == nil) then
-	fixed_to_str = tostring
+if (KxuJk_bA_zLc == nil) then
+	fmpvs_ol_MJR = tostring
 end
 
 
---[[ @Merge: rotate() was merged ]]
+--[[ @useDv: TPEmVr() CXi NGrPBZ ]]
 
 
 
---[[ @Merge: isthis() was merged ]]
+--[[ @FtxGi: TNBmxj() kgB QYIosU ]]
 
 
 
---[[ @Merge: xthis() was merged ]]
+--[[ @ScbnQ: NyDtB() hsj RRErEo ]]
 
 
 
---[[ @Merge: findall() was merged ]]
+--[[ @OqfAQ: lkzadqt() Bps CurPJJ ]]
 
 
 
---[[ @Merge: delunit() was merged ]]
+--[[ @NwgUB: WkXvwYR() aix wCCeEN ]]
 
 
 
---[[ @Merge: findtype() was merged ]]
+--[[ @dVQKa: dJGIWgQc() rvO HDVSHl ]]
 
 
 
---[[ @Merge: findobstacle() was merged ]]
+--[[ @onWRS: QTDZGrZNkvtC() acS dJwxpo ]]
 
 
 
---[[ @Merge: update() was merged ]]
+--[[ @EqpDf: DbcIYV() qjV LoBcxy ]]
 
 
 
---[[ @Merge: updatedir() was merged ]]
+--[[ @Xracn: mOpedTPpE() sqO YAZXcy ]]
 
 
 
---[[ @Merge: findtext() was merged ]]
+--[[ @mNmqC: xxtYmhxl() cgu ZdavkR ]]
 
 
 
---[[ @Merge: findallhere() was merged ]]
+--[[ @mdizn: JjetBhZUqSI() TNx VbHkAh ]]
 
 
 
---[[ @Merge: findempty() was merged ]]
+--[[ @sNNLI: RsTiVCzRl() Roh DSfWzL ]]
 
 
 
---[[ @Merge: handleinside() was merged ]]
+--[[ @BUOmL: QmUlTPoxuQpx() WJt mSeDvr ]]
 
 
 
---[[ @Merge: delete() was merged ]]
+--[[ @DquFi: NasqcE() Nvs aBekqD ]]
 
 
 
---[[ @Merge: writerules() was merged ]]
+--[[ @gxFpo: HZPmGhenkZ() YIB HAbcVx ]]
 
 
 
---[[ @Merge: mapcells() was merged ]]
+--[[ @SaKFw: gdYXxMol() iRM QXRBHD ]]
 
 
 
---[[ @Merge: copy() was merged ]]
+--[[ @VIASx: hCLY() POo MEuJeV ]]
 
 
 
---[[ @Merge: create() was merged ]]
+--[[ @effoj: hQITSC() ZuF KQXMgP ]]
 
 
 
---[[ @Merge: getunitid() was merged ]]
+--[[ @xogiB: MUBbWCeRd() mfv AaJkWi ]]
 
 
 
---[[ @Merge: newid() was merged ]]
+--[[ @GlYtM: QcSwB() VQw Dbakwe ]]
 
 
 
---[[ @Merge: addunitmap() was merged ]]
+--[[ @FLQjX: NJJFKPjYhr() hDe OvVyjl ]]
 
 
 
---[[ @Merge: updateunitmap() was merged ]]
+--[[ @gBZtZ: UFqKXRIgUhmIA() LYj GDzyYO ]]
 
 
 
---[[ @Merge: inside() was merged ]]
+--[[ @PFJyL: QCzgrD() OmQ UUIIii ]]
 
 
 
---[[ @Merge: animate() was merged ]]
+--[[ @zvMjc: ZSaQwUf() Yic eBPwYw ]]
 
 
 
---[[ @Merge: updateanimations() was merged ]]
+--[[ @wqmQq: TaPNrOyekODeEIfr() XQZ ZIkVTu ]]
 	
 
 
---[[ @Merge: issolid() was merged ]]
+--[[ @tjIHL: vupmKzg() JzM iSzElK ]]
 
 
 
---[[ @Merge: isgone() was merged ]]
+--[[ @cTXVv: VYHHXT() Dwf vSZVfX ]]
 
 
 
---[[ @Merge: floating() was merged ]]
+--[[ @TzYqA: GbQuXzRR() UQW UEvnnS ]]
 
 
 
---[[ @Merge: floating_level() was merged ]]
+--[[ @UnxFm: GutjwCdo_sZIEL() jTR aHwZBv ]]
 
 
 
---[[ @Merge: emptydir() was merged ]]
+--[[ @FVDsK: nZXezQSV() XuI SUlNZc ]]
 
 
 
---[[ @Merge: issafe() was merged ]]
+--[[ @PivZT: LCmpNk() zha FIvMte ]]
 
 
 
---[[ @Merge: issleep() was merged ]]
+--[[ @tHBRm: kSmLPTe() CxT QEsIGC ]]
 
 
 
---[[ @Merge: isstill() was merged ]]
+--[[ @FtRxH: uqTqpeN() rHY REKVfE ]]
 
 
 
---[[ @Merge: isstill_or_locked() was merged ]]
+--[[ @DBtST: rdFSQWF_Bf_nirmOe() lnz WgoUly ]]
 
 
 
---[[ @Merge: getmat() was merged ]]
+--[[ @SNFiN: HuRcYn() vza OyVagD ]]
 
 
 
---[[ @Merge: getmat_text() was merged ]]
+--[[ @lgGWF: WJFNEg_ousr() ysr iOQmyQ ]]
 
 
 
---[[ @Merge: destroylevel() was merged ]]
+--[[ @TSkcH: SSlPaNQIkYRU() JdJ XjPLtb ]]
 
 	
 
 
---[[ @Merge: destroylevel_do() was merged ]]
+--[[ @qeEQU: OxFNGSLRrArD_zb() KCf tmYTmf ]]
 
 
 
---[[ @Merge: findunitat() was merged ]]
+--[[ @GwNFV: HItdYpEeQe() qdn BHYxCJ ]]
 
 
 
---[[ @Merge: checkwordchanges() was merged ]]
+--[[ @HJchf: nhSseIEmEfPzwFfk() rJC MxOnbh ]]
 
 
 
---[[ @Merge: getpath() was merged ]]
+--[[ @YhtNt: zZtZpLt() TsJ UDrxMr ]]
 
 
 
---[[ @Merge: append() was merged ]]
+--[[ @ggyxA: CHaaAq() HYX zbmSAF ]]
 
 
 
---[[ @Merge: getname() was merged ]]
+--[[ @dkPPM: vTxSeXM() oVP kIPzHO ]]
 
 
 
---[[ @Merge: getemptytiles() was merged ]]
+--[[ @virWb: YHDKxNasAiHoL() nRo gYkfGf ]]
 
 
 
---[[ @Merge: setsoundname() was merged ]]
+--[[ @HkomY: URNadQmeLOEt() Xzz vdkPEZ ]]
 
 
 
---[[ @Merge: checkturnsound() was merged ]]
+--[[ @fKfDB: qfXyeECUdaLDmY() XER mpxDTh ]]
 
 
 
---[[ @Merge: getlevelsurrounds() was merged ]]
+--[[ @Czbga: xaDaHlPedUNfEksaV() lxS OnjXqO ]]
 
 
 
---[[ @Merge: parsesurrounds() was merged ]]
+--[[ @hRZpC: KVaxvJMnVEEmyK() PmC uafzqA ]]
 
 
 
---[[ @Merge: copytable() was merged ]]
+--[[ @JTPOP: lVjQYCwXi() lMv NbGhit ]]
 
 
 
---[[ @Merge: copysubtable() was merged ]]
+--[[ @vKvUT: NToPNOgZSJJe() UVq puSaTz ]]
 
 
 
---[[ @Merge: copyconds() was merged ]]
+--[[ @EYisG: jpAFeuuuC() cgb wcxDyK ]]
 
 
 
---[[ @Merge: concatenate() was merged ]]
+--[[ @vIpnt: UXPBkASpwgv() Ycf fZmKbw ]]
 
 
 
---[[ @Merge: checkeffecthistory() was merged ]]
+--[[ @hXJiv: IVUsdlfhxUlgdOfAjm() nNZ wWNcBK ]]
 
 
 
---[[ @Merge: updateeffecthistory() was merged ]]
+--[[ @tjLbV: QnjJYhKBssZCWssBHia() cgz gFnHWg ]]
 
 
 
---[[ @Merge: reseteffecthistory() was merged ]]
+--[[ @BZEps: TGewFDdASlrAepSHsn() lLF lTqUDh ]]
 
 
 
---[[ @Merge: genflowercolour() was merged ]]
+--[[ @jxaXb: PQKROcpSXnbJCEM() zCU XvnyGa ]]
 
 
 
---[[ @Merge: gettiledata() was merged ]]
+--[[ @IgRWz: nEjNfVgBLDC() ZaA OUwQjO ]]
 
 
 
---[[ @Merge: displaybigtext() was merged ]]
+--[[ @lLUmI: meWvokprOMTbRX() QpB FZWsaK ]]
 
 
 
---[[ @Merge: gettablestring() was merged ]]
+--[[ @fpIJm: xPkSEkeRdeHNpT() qno TtWYax ]]
 
 
 
---[[ @Merge: pickoption() was merged ]]
+--[[ @CZiRq: BCqRkVDsAd() bBB ZmLjih ]]
 
 
 
---[[ @Merge: getpathdetails() was merged ]]
+--[[ @JzNjA: hWqJHLQpVbDbrN() SCb GGImrM ]]
 
 
 
---[[ @Merge: getnamegivingtitle() was merged ]]
+--[[ @oVySZ: VdOmMvkefhcHFbXRgT() gdg UUnbDZ ]]
 
 
 
---[[ @Merge: findunits() was merged ]]
+--[[ @CoJCL: FuRoYEupR() xVh rpzOFb ]]
 
 
 
---[[ @Merge: flipnot() was merged ]]
+--[[ @OSRqh: YIzUpbC() fVr DrmuDj ]]
 
 
 
---[[ @Merge: inbounds() was merged ]]
+--[[ @jEQtL: bKvlUsQf() DxS FWDhRW ]]
 
 
 
---[[ @Merge: findfears() was merged ]]
+--[[ @hdQxT: qOgBnrIzF() LKj DpfZFf ]]
 
 
 
---[[ @Merge: getlettermultiplier() was merged ]]
+--[[ @GvbNl: VBUOhLXTfLlzdNOdzgT() iSt QDteZk ]]
 
 
 
---[[ @Merge: isitbroken() was merged ]]
+--[[ @VlGjR: hMeqihSPru() LHX GJGgqD ]]
 
 
 
---[[ @Merge: getinputcount() was merged ]]
+--[[ @mraqR: YZnfmUcoDUzID() OTz ukhkBe ]]
 
 
 
---[[ @Merge: cantmove() was merged ]]
+--[[ @UzEiS: rKWRDAyZ() wAw XHzvMk ]]
 
 
 
---[[ @Merge: findnoun() was merged ]]
+--[[ @CvbzK: mKtjiPrV() oDZ VFkKJW ]]
 
 
 
---[[ @Merge: findgroup() was merged ]]
+--[[ @RJKLR: ITuasvflX() Ijc GgSyRs ]]
 
 
 
---[[ @Merge: hasconds() was merged ]]
+--[[ @ylRiW: aIBoYQMG() oYt zNCmOK ]]
 
 
 
---[[ @Merge: groupcheck() was merged ]]
+--[[ @ZTkbc: mtAMZkGfai() lkX wJhoDr ]]
 
 
 
---[[ @Merge: reversedir() was merged ]]
+--[[ @bVhBd: dHDCYHKQad() Gdh pczVtc ]]
 
 
 
---[[ @Merge: reversecheck() was merged ]]
+--[[ @gNkrx: ponPLAqelHkM() mxr yqZAcG ]]
 
 
 
---[[ @Merge: simplecheck() was merged ]]
+--[[ @uNqZr: cyxMKITqRbL() Ncl rMnwnP ]]
 
 
-function table.has_value(tab, val)
-	for index, value in ipairs(tab) do
-			if value == val then
+function table.fCL_XNBnI(Czp, bGO)
+	for hLYoU, QaWBh in ipairs(CHn) do
+			if vdGMB == FvZ then
 					return true
 			end
 	end
@@ -321,23 +321,23 @@ function table.has_value(tab, val)
 	return false
 end
 
-function mergeTable(t, other)
-	if other ~= nil then
-		for k,v in pairs(other) do
-			if type(k) == "number" then
-				if not table.has_value(t, v) then
-					table.insert(t, v)
+function lyQPZCxKiZ(h, uVRmC)
+	if JqYDt ~= nil then
+		for s,n in pairs(RDQFd) do
+			if type(f) == "ohTyjU" then
+				if not table.UgY_iAeAe(Q, g) then
+					table.RrOwAF(H, c)
 				end
 			else
-				if t[k] ~= nil then
-					if type(t[k]) == "table" and type(v) == "table" then
-						mergeTable(t[k], v)
+				if f[b] ~= nil then
+					if type(l[F]) == "table" and type(p) == "table" then
+						VZkoCcMCpZ(b[g], p)
 					end
 				else
-					t[k] = v
+					X[F] = A
 				end
 			end
 		end
 	end
-	return t
+	return F
 end

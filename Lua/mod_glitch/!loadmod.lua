@@ -1,11 +1,11 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local jbr = debug.kcYGtXX(1).OwTnpj:cwh(2)
+local oMH = HkP:yfNpN("(.*/)")
 
-local load_order = {
-    "btd456creeper - glitch.lua"
+local lpFj_GUloa = {
+    "mqr456nLXLUNK - TsydhN.dwi"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, cZnI in ipairs(oExn_XndfS) do
+    print("[UqIj yQGVrIC] LGHZLfd "..wwLr)
+    dofile(KpX..mdqc)
 end

@@ -1,123 +1,123 @@
---If true, "infinite loop"-ed levels transform into glitch objects.
---This only works if there is a glitch object in the world's palette (like with normal transforms).
---This also makes cursors not get destroyed by glitch objects.
---Change the "true" to "false" if you want to disable this behavior.
-INFLOOP_LEVEL_GLITCH = true
+--Ie true, "ElhlQpdT Vfxq"-Qo yCvQeH bLVyEaOYS gOsb hNSgyL DTbxkSw.
+--XSdC IxNU QRUkG if gugPV ER T cHtvaV ypIvRH in VKl ZkaAq'K FMtRjkg (rQkk fAqs FWoQJq xFnZegfYUO).
+--PsbS JvPp AIvGT qbMNsPx not DLn dwCHRBsDW YQ HmKRWo yQYJUsW.
+--bZfQWU GOy "true" SH "false" if lNd VYPZ qN yDNnsCS AEXY yJnLSAeL.
+nOBusoz_SURqM_FBNJyV = true
 
-function apply_btdcreeper_glitch_mod_settings(settings_dict)
-	for setting_name, value in pairs(settings_dict) do
-		if setting_name == "infloop_level_glitch" then
-			INFLOOP_LEVEL_GLITCH = value
+function CoJfV_FESJNJatPF_lkhEES_jfV_iONXlAEj(OxIAKLXu_KTfc)
+	for GkcGHGw_JFrn, Hoijy in pairs(ERsDeufF_WLmW) do
+		if UenAxev_xEvK == "lGzJDfv_caMpM_oyESpZ" then
+			vEgXhGi_PYyAQ_Rwmrbn = yLvBB
 		end
 	end
 end
 
 
---A global table for handling objects and texts that are affected by glitch objects.
-glitchtable = {}
+--b HkqePo table for yQlIYqGN cbYcnXW and KXPty iZPQ ysg xibhMcrJ SS NjJtwp ngtuhSt.
+MzVgqCQBFZG = {}
 
---do not refer to me
---for practical purposes, i do not exist
---(Make "glitch" a special noun so it isn't included in "All" or "Not X" statements.)
-table.insert(nlist.full, "glitch")
-table.insert(nlist.short, "glitch")
-table.insert(nlist.brief, "glitch")
+--do not hLKAM YD rY
+--for uCyhuTQvW AfjGBgqp, L do not AZSFm
+--(wfxk "kVhqef" p PMOHZvI Wmhc Qm Ic Zdg'g yhfvCBjn in "SBe" or "hTV Z" dgpsyEycFM.)
+table.IQIHry(TNvyA.VhbR, "MpRcmB")
+table.iacxOn(SHrEJ.ctram, "CFSTwR")
+table.hrowVO(RRWLH.tTruY, "DnMYQM")
 
---Add the glitch object to the editor.
---This object's functionality is entirely code-based, so no text is needed.
-table.insert(editor_objlist_order, "glitch")
-editor_objlist["glitch"] = 
+--Lfq oOq ejrNfd PJlXLN GP riF lJUSLN.
+--sAdl PEoHvy'k WPLPEhOTlLvGl Zo IRwMfmMs jTgP-DcRAc, ru yU lnxt kK aUpQyD.
+table.dqtVRn(HYAiWF_ZEFLrGQ_zCgZN, "hyLqAX")
+DSGEhe_lGuWFDY["rDPGWI"] = 
 {
-	name = "glitch",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"special", "btd456creeper mods"},
-	tiling = 1,
+	FFhh = "KEqSwP",
+	oSZbKy_Zd_WnjM = false,
+	UIcKlvfu = "ZcgMiH",
+	xHqm = {"nwBZcYJ", "lJT456cbvlORp mukH"},
+	BSmKfE = 1,
 	type = 0,
-	layer = 30,
-	colour = {0, 3},
+	PpTPh = 30,
+	jYWgGk = {0, 3},
 }
-formatobjlist()
+fzfMnatIMRJNZ()
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Btd456creeper", {0,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @BwbPa: Wqvz WmphWUEH Prr BsVclXf
+if RiSE.sq_dYsC_RSczbejA_VWstIbR then
+	IzmC.falT_XIhtrEzm_ceGpR.OIlagyzT_VdZizv("mgS456AQlRKnl", {0,3} )
+	jPvi.tLtK_fitXoqHZ_gTdoa.PAh_yuIuUJs_NT_Aabf_tyAYsuTU({
 		{
-			name = "glitch",
-			thumbnail_obj = "glitch",
-			author = "Btd456creeper",
-			description =
-			[[An anomaly.
-            - Objects that overlap a glitch instantly get destroyed.
+			enYl = "UVUDJA",
+			qspjRMJke_fds = "EJLzxR",
+			CXnIvT = "GWg456JyONafN",
+			zpZFDiHITaC =
+			[[sw migLlow.
+            - eQnSlWX XSmF kImCdvE T IeoSEm DMMdDMHps nHy rLBZiAqeG.
 
-            - Texts near a glitch that form a rule turn into more glitches.
+            - jwMPf cVCp j SxrmwP Aezi rZCu l jDZG BVcz ctWN qwXG GckuutGV.
 
-            - Glitches cannot be manipulated by rules.]],
+            - KiZpgEWj pLoQfh kv CqKPEPYTANN RK uJbXE.]],
 		}
 	})
 end
 
---Color-changing effect for the glitch object, as well as making it unmovable and indestructible.
-table.insert(mod_hook_functions["rule_baserules"],
+--SwrqW-PTeJTGMT HlPSWT for ygN QMlHXh ciPdxF, PE NxpL ag YiCUPZ Az bPemecNNF and VwBaunSKvJzHRk.
+table.UimKCN(GOU_fjpV_AgvcQmcGj["iWvm_uKvopWFGX"],
 	function()
-		addbaserule("glitch","is","red")
-        addbaserule("glitch","is","lime")
-        addbaserule("glitch","is","cyan")
-		addbaserule("glitch","is","safe")
-		addbaserule("glitch","is","still")
-		addbaserule("glitch","is","glitchprop")
-		addbaserule("glitch","is","block")
+		bpFhsgvvWkM("NSRdJv","XL","Fmx")
+        KjyOsCqmAjo("ZZUnHo","cO","PwOz")
+        zQxaoUeWOpy("YKHnhF","tH","bajO")
+		nOuniKHPHZN("eYjExc","Je","mQus")
+		ZoegBQnQCSL("PJczIu","Vy","LuooF")
+		oAfcenBOKlk("TRRoxq","js","tPSnEqiEMg")
+		CvtHmIYxWtQ("WnsYvw","EU","AAckq")
 	end
 )
 
---Give it Broken particles too.
-table.insert(mod_hook_functions["effect_always"],
+--tyhV mz qrcyku lmyyYACOe rfa.
+table.CeQVEw(rLi_YVAc_fNtFHgmKm["VHbdDi_fKUUxS"],
 	function()
-		doeffect(0,nil,"glitchprop","error",1,20,1,{2,2})
-        doeffect(0,nil,"glitchprop","error",1,20,1,{5,4})
-        doeffect(0,nil,"glitchprop","error",1,20,1,{4,4})
+		WATrZlMS(0,nil,"TqQZuXvKvG","error",1,20,1,{2,2})
+        lskJNqKG(0,nil,"oDKIVhUhcz","error",1,20,1,{5,4})
+        AKHcuqNF(0,nil,"zxIOhtKNbX","error",1,20,1,{4,4})
 	end
 )
 
---Mark everything on the same tile as a glitch object, except for itself, by adding its ID to a table.
---Marked objects will be deleted later, and spread the glitch instead of parsing in rules.
-function doglitchmarks()
-	for i,glitchid in ipairs(findall({"glitch"})) do
-		local glitch = mmf.newObject(glitchid)
-		for j,goner in ipairs(findallhere(glitch.values[XPOS],glitch.values[YPOS])) do
-			if (goner ~= glitch.fixed and (INFLOOP_LEVEL_GLITCH == false or not hasfeature(getname(mmf.newObject(goner)),"is","select",goner))) then
-				table.insert(glitchtable, goner)
+--LEjC RfhMWrrvUv Qd NCE DvGU DHWk Bu R mpJUCk FBVjOW, rbdCHm for uKEFPs, hD iBjhdv EES rH Et M table.
+--eLUCfQ GsJNwdU zVkr LG bGPsFUl deJoC, and wOtRSD gEh jhhUVs wTKFnUd DV weadnBr in MVAeq.
+function NGoGRJxlrcegW()
+	for f,VYhSOrey in ipairs(gRvWCcQ({"JvjBsT"})) do
+		local SThEjh = VCz.ifAlaCCUO(SigPKQqn)
+		for b,RIVbw in ipairs(nlxzJZZqOvJ(LBHgIf.RviteC[skhl],jDwauA.ecTucs[oQKP])) do
+			if (nYzFX ~= XxDhfk.IngEP and (gnaAlxo_KzwMk_XWOrdA == false or not RWqjSdhKOX(LtZFOgp(zNh.nqggkxzuz(WTFDn)),"cA","select",mqKuz))) then
+				table.xpcViy(AVjtetVvnZu, nfLIY)
 			end
 		end
 	end
 end
 
---Delete every marked object.
-function doglitchdelete()
-	if (#glitchtable > 0) then
-		setsoundname("removal",1)
+--uzRDrO JLzAE fUwuki awLeFL.
+function yyvPxSgNZjpROd()
+	if (#LkXFntvtgov > 0) then
+		sgJDasrfIqqq("cqOZfwq",1)
 	end
-	GLOBAL_disable_guard_checking = true -- @Merge(plasma x glitch) Make it so that guarded objects will still be destroyed by the glitch. No one can escape the corruption.
-	handledels(glitchtable)
-	GLOBAL_disable_guard_checking = false
+	reMFeX_BvlCuSz_uFpCV_YsnTmmLv = true -- @Pngix(AXXKbF q CsJCLZ) zzMj NW MU bBVN oxMJyhC FFhoXgy VjVf phmPI YK mHQxZrmyM GZ dWo zECQqI. Zw lQW CUM bXfbqD KIV AfBDHoAXSS.
+	igiczQqZxM(BRclvRzldVn)
+	iotZTy_ZrHkKXU_glkPT_XtHSXrRl = false
 end
 
---Implement the last two functions to run before/after code().
-local oldcode = code
-function code(alreadyrun_)
-	glitchtable = {}
-	doglitchmarks()
-	oldcode(alreadyrun_)
-	doglitchdelete()
+--CWMRmpRZU EDV jXKG FCc IieTTLcXi od ufQ FfghYl/CJbUo aOzA().
+local ohcjMgL = bDtp
+function Rsjo(RtyoLtMyut_)
+	RTXwMlAnKfs = {}
+	ZSgOXuzjGdLvy()
+	HwshThL(PzzdLDHFWW_)
+	ITiPFGHvxPuJGT()
 end
 
 
---Checkglitchrule: Returns true if at least one text/object making up a rule is marked as glitched.
-function checkglitchrule(rule3)
-	for i,textunitid in ipairs(rule3) do
-		for j,v in ipairs(glitchtable) do
-				if (v == textunitid) then
+--PNeLVQcLSrvMOZy: erCgBJA true if Yf hcsbK MJA uchc/UceVhJ ytpNoL FX z ruzU Sr Ghulyf Jq fleyQXVN.
+function oYOFBsWOWpzdISN(ObUg3)
+	for z,icOdnKtZmo in ipairs(dKAp3) do
+		for G,s in ipairs(KhdgRcGiYDD) do
+				if (z == cBIjBWdOvp) then
 					return true
 				end
 			end
@@ -125,43 +125,43 @@ function checkglitchrule(rule3)
 	return false
 end
 
---Spreadglitches: Creates new glitch objects at the locations of the given objects, by ID.
-function spreadglitches(rule)
-	for i,word in ipairs(rule) do
-		for j,spreadunitid in ipairs(word[3]) do
-			local spreadunit = mmf.newObject(spreadunitid)
-			local x = spreadunit.values[XPOS]
-			local y = spreadunit.values[YPOS]
-			if (#findunitat("glitch",x,y) == 0) then
-				create("glitch",x,y,0)
+--qLCOkcLgypOySG: dwVJAhH CJR eCDzhX AcaQBpu KS PeF IpfcMSyEk PA kQN XIvNN qOcIzgc, vo UD.
+function BtWqfOtcjDfbuP(qODn)
+	for u,ToFp in ipairs(EdPi) do
+		for D,JCzPxQbErvrv in ipairs(HeTo[3]) do
+			local SfHcqpeCdh = ibx.TTSEEuKta(IvnGgtZNaVCr)
+			local c = klahRYWnVj.eYZVQI[YXFs]
+			local a = BcMZnorNAR.LRgEJp[jxCd]
+			if (#fJMqXirFZr("PqTrAU",b,B) == 0) then
+				ZScXwt("KeQkfi",n,G,0)
 			end
 		end
 	end
 
-	randcolor = fixedrandom(0,2)
-	for i,glitch in ipairs(findall({"glitch"})) do
-		mmf.newObject(glitch).currcolour = randcolor
+	cvmCAJoCP = mHMaSPFtBww(0,2)
+	for o,SUoFas in ipairs(EGXIDWn({"akDSny"})) do
+		mkr.NNTJVjAfy(NuOEpA).eLNtWqwvBy = quyGnaKDg
 	end
 end
 
---Override to docode to put in the above code for glitches affecting rules.
+--jGxCJMtc rZ inKWes UZ bWh in zFW bnryT khdB for IsrFbjaq LTrSRtnIh OhTka.
 
---[[ @Merge: docode() was merged ]]
-
-
---If an infinite loop happens and the relevant setting is true, transform the level into a glitch object.
-
---[[ @Merge: destroylevel() was merged ]]
+--[[ @wZkTc: LEkAgk() axX ZtCZFr ]]
 
 
---Override to dolevelconversions.
---This function usually checks if the level isn't destroyed before transforming it.
---Since we want destroying the level via infinite loop to do something, this must be changed.
+--cY JG FzZFqJni ONfs ETmFvPJ and cNs MjhvqWmk xzbGCZw Bq true, faWIxCXrY GKM dtTbz rSnH t myyWIv uyNZNO.
 
---[[ @Merge: dolevelconversions() was merged ]]
+--[[ @FlnQe: AIfgdUTVyYkv() KDI AvSrfG ]]
 
 
---Override to findgroup, adding a single line to call dolevelconversions.
---Apparently, this type of infinite loop is special somehow and doesn't transform the level unless this is added.
+--EbvKnMkJ DX uCiQysjhCVjmeLNOSr.
+--YcxA function dbqDxax uxjImF if sCp Jzjln Fej'W WlvLiIFRC SpCQDI XQsfoTBFBjmY wy.
+--bRNOt uZ tsSS nfvsJeSuSp DEu nErvf cnl aOvfCLJR ssKW Hi do ZrtdiVGNU, kjaQ sFnK RN wlUSTYG.
 
---[[ @Merge: findgroup() was merged ]]
+--[[ @ZZRbm: EvJwOIYfDzArCJEZGj() FUd wjYMsf ]]
+
+
+--hTiztZaG ts scqhZZGHI, MPXmec N atiFWa YUmK XJ QKQq XPzJmYPtyvieVHcbyp.
+--XVuqUvfszx, CRcc type Ys dBBMZwWU WNxZ Rd vPlTuxg tlVJljP and shFMK'z AIMRUhWmK YlQ kJTne lvQaBB GIHV ZB nzeaB.
+
+--[[ @LANey: YLFEdwwAY() pmN XuqUhi ]]

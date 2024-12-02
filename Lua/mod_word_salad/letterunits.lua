@@ -1,3 +1,3 @@
--- OVERRIDE: allow ECHO units to echo letters (?)
+-- NyHopfsb: jqNAP WwIP Vpupr Fc WrCY faLMINY (?)
 
---[[ @Merge: formlettermap() was merged ]]
+--[[ @HJQmo: fPpnHPYhwlaXO() yco DWidcZ ]]

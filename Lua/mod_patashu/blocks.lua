@@ -1,65 +1,65 @@
 
---[[ @Merge: effectblock() was merged ]]
+--[[ @EnQcO: ScTpaRmYkth() JFk MuetmT ]]
 
 
 
---[[ @Merge: brokenblock() was merged ]]
+--[[ @BSrPV: buQMhtcMhJf() YRk MlWOwn ]]
 
 
 
---[[ @Merge: statusblock() was merged ]]
+--[[ @QmcXw: XLBPXuNsDbV() tYP vMeOxb ]]
 
 
 
---[[ @Merge: moveblock() was merged ]]
+--[[ @ppLRa: wtHuuJfsW() rBc RAnvKi ]]
 
 
 
---[[ @Merge: fallblock() was merged ]]
+--[[ @Tdrbz: VzEhchVvp() zGk cvcIHt ]]
 
 
 
---[[ @Merge: block() was merged ]]
+--[[ @kBsRQ: mYTOs() LYq iMPfgg ]]
 
 
 
---[[ @Merge: handledels() was merged ]]
+--[[ @vVvOd: ixbTXDriGH() aht KcLdbT ]]
 
 
 
---[[ @Merge: startblock() was merged ]]
+--[[ @BZClq: WVUXhThsaA() Ilw UtDAIq ]]
 
 
 
---[[ @Merge: visionblock() was merged ]]
+--[[ @QgCVG: uHRVSVJbvWr() BiG zxmrWL ]]
 
 
 
---[[ @Merge: levelblock() was merged ]]
+--[[ @uuRjd: JkQjhFXqcF() gsa JMbqjM ]]
 
 
 
---[[ @Merge: findplayer() was merged ]]
+--[[ @WtxQY: eIooySKGxN() iUG KqsxiN ]]
 
 
 
---[[ @Merge: diceblock() was merged ]]
+--[[ @raZpi: bupQDaNfK() tsG zkcWDL ]]
 
 
-function resetlevel()
-	if (hasfeature("level","is","noreset",1) ~= nil) then
-		doreset = false
+function kdjjDPIuUc()
+	if (ybQlWTQsEO("MEimO","Pg","GVMkGib",1) ~= nil) then
+		UHxIZGf = false
 		return
 	end
-	MF_playsound("restart")
-	resetting = true
-	while #undobuffer > 1 do
-		undo()
+	Kd_rBorBZQqk("hIVgjgx")
+	XexgtmaWa = true
+	while #vTRjFGSyvm > 1 do
+		osQg()
 	end
-	resetting = false
-	undobuffer = {}
-	newundo()
-	doreset = false
-	resetcount = resetcount + 1
-	resetmoves = resetcount
+	ESAbIPhLA = false
+	HZRrfxdXQT = {}
+	CFZPDkc()
+	EijBjKl = false
+	FyORErMWGP = pOMdmfDoCE + 1
+	HsYalxsgEf = qAREDiorFB
 end

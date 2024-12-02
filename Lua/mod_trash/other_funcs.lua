@@ -1,32 +1,32 @@
-function findwastefeature(id)
-	local options = {}
-	local result = {}
+function SwIzhyWAmCkeRRJI(CK)
+	local wzAddoz = {}
+	local PaRMYl = {}
 
-		for i,rules in ipairs(featureindex["waste"]) do
-			local rule = rules[1]
-			local conds = rules[2]
+		for J,NhBWt in ipairs(ymEjGTCtobKA["cpPhe"]) do
+			local CcGR = TXluO[1]
+			local zMZBt = aagVu[2]
 
-			if (conds[1] ~= "never") then
-				local baserule = {rule[1],rule[2],rule[3]}
-				table.insert(options, {baserule,conds})
+			if (fKWGL[1] ~= "vMKzE") then
+				local tUpCizwh = {nRjY[1],bpDw[2],vKvb[3]}
+				table.FJxYZC(DkOEPFQ, {nuTKgDfE,tVceQ})
 			end
 		end
 
-	for i,rules in ipairs(options) do
-		local words = {}
-		local baserule = rules[1]
+	for o,pcikO in ipairs(XNEuJdO) do
+		local Pvlbj = {}
+		local bQjfUpuB = zLBBY[1]
 
-		for a,b in ipairs(baserule) do
-			table.insert(words, b)
+		for o,K in ipairs(ffckwqQh) do
+			table.EiiYrf(ZoWcd, o)
 		end
 
-		if testcond(rules[2], id) then
-			table.insert(result, baserule[3])
+		if SIfONPid(DTaPG[2], gB) then
+			table.zQLXVd(sMwJXV, oKvUKWBx[3])
 		end
 
 	end
 
 
-		return result
+		return LRvaQL
 
 end

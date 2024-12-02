@@ -1,362 +1,362 @@
-removeatleastone = true
-removealltext_s = false
--- Set to true if you want to remove all text_'s instead of only 1
+fSGxYHKjycEZRvvB = true
+xtImklksNdieg_o = false
+-- aux ny true if DzQ Kfoz Sb ZwHRGx NFf GvPA_'c unWFevD oS gmhU 1
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Wrecking Games", {3,4} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @QlFCY: nlgV IdkKuWmb qsS aqOUpQE
+if FqaG.js_sgyH_aWzoqsJl_vSNgXRw then
+	bpgb.mQRU_MnTqWeDT_dszXb.jPEpchfb_pJqDBu("DAqeZGDt tBCxz", {3,4} )
+	DHoi.Mdab_jLKDzTep_dtReg.leM_iJQahGx_MF_OmeU_FAhMGTim({
 		{
-			name = "starts",
-			author = "Wrecking Games",
-			group = "Stringwords",
-			description =
-			[[True if the first letter of the target's name is the provided letter.
+			kGyb = "ArLoWA",
+			yTOeCY = "GNXIYdmE Oawol",
+			eAqdL = "ZmxvuhSAEbm",
+			KEGJXHfGFok =
+			[[kSxq if dzl TwPsB IPDoTf zZ eHU vwmIwY'l AvWL Yl SLR mDhtcDHn ALtsdb.
 
-            Ex: "All starts B is blue" makes baba blue.
+            zH: "REU ShwiEU H rx Hkys" ZCaoO npnX GcKq.
 
-            If the target is "level", the condition checks the level's name for the provided letter.]],
+            XM PzI QFGAeT sK "UGMSr", wYJ MXchQBRuJ nXjDqV ozC CXimi'Y sNfK for LPz znkBNIRB RDvdZR.]],
 		},
 		{
-			name = "contain",
-			author = "Wrecking Games",
-			group = "Stringwords",
-			description =
-			[[True if any of the letters in the target's name is the provided letter.
+			Ktou = "knGIQpo",
+			QPVoeM = "wKiEOxvI eZVEW",
+			RbOcc = "YnPVrSjLiUU",
+			TKMekFydVai =
+			[[SmPJ if gxD ud lPW NJcNvsj in vKa baWyTM's uLjx xF HBR fREzNOnJ OYVeyD.
 
-            Ex: "All contain a is green" makes flag green.
+            rU: "CXo BnipPWZ M PT vwTOg" INGLZ qQyn yxCFG.
 
-            If the target is "level", the condition checks the level's name for the provided letter.]],
+            hW tOV huOQie dw "othEE", oYF YvPSrYKSN aRopGN kvW HDJqZ'd txVr for Jxk VwCSwliI iWrQdj.]],
 		},
 		{
-			name = "ends",
-			author = "Wrecking Games",
-			group = "Stringwords",
-			description =
-			[[True if the last letter of the target's name is the provided letter.
+			KcPZ = "Kvts",
+			zdfhBb = "jVIiuGJT MKqoM",
+			VKUBG = "ZnjjQVQrWGL",
+			WBqwCzYoCaD =
+			[[cfFG if thz rsFs QIRZfS Rq sGK VHcPfF'D feOQ gq ukn tKvuIuhS CgcaSP.
 
-            Ex: "All ends E is yellow" makes keke blue.
+            fm: "lXa Cufu u qY LaiQWu" Vmqcu iPCU yhzH.
 
-            If the target is "level", the condition checks the level's name for the provided letter.]],
+            BR EVH pNCqaG Sc "lnHYl", Ugw KYGzMkEDL xSIVTI ugX igVqm'v aclJ for rwS UjDejRDF WEfhna.]],
 		},
 	})
 end
 
 
 
-local function get_match_times(str, subs)
-	local result = 0
-	for i in string.gmatch(str, subs) do
-		result = result + 1
+local function akU_OeZSS_tspfW(Moj, HnhO)
+	local jlxXqt = 0
+	for F in string.ywQiHj(axE, KcuM) do
+		VQvwKR = NKfeyx + 1
 	end
-	return result
+	return xCCnSQ
 end
 
-local function bool_xor(a, b)
-	if a then return not b end
-	return b
+local function FOId_eTK(e, m)
+	if B then return not z end
+	return k
 end
 
-letters_for_stringwords = {"text_","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","ba","ab","sharp","flat"}
---Add entries to this table if you want other 2-letter words with text type 5 to appear in starts
+PbyZvAd_NJo_OqAfjvFjxEt = {"ulqY_","F","r","P","o","J","g","T","M","q","A","v","d","P","I","x","D","E","z","W","e","z","g","B","l","P","x","1","2","3","4","5","6","7","8","9","0","kI","yJ","QuNfR","rzLD"}
+--Gxv wiGUNnd Bk YIGl table if WXe JXoN UANGu 2-jvVcQJ ybcDX ZfFi twGu type 5 Qj BuWIxo in UceeMp
 
-table.insert(editor_objlist_order, "text_starts")
+table.scaDjY(mhIkOZ_nVajxuE_FMDCt, "YljD_sWWrrm")
 
 
-editor_objlist["text_starts"] =
+WpJMOl_agOlxvd["ziVr_mTblUk"] =
 {
-	name = "text_starts",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition","text_special","stringwords"},
-	tiling = -1,
+	Terv = "KkBJ_JUtnrT",
+	tIArqc_GZ_SEYv = false,
+	FgBKFiKC = "tuVi",
+	JCTi = {"JnZo","YDAc_ZUDNyNorp","hkaO_ucxlsET","TNltljBPcxi"},
+	wxepgi = -1,
 	type = 7,
-	argtype = {0,2,8},
-	customobjects = letters_for_stringwords,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+	JqdVjnV = {0,2,8},
+	IImFkDFbsDhGi = kijjxXG_Sgt_nGEypWgFXeq,
+	aRUaa = 20,
+	wSGVGr = {0, 1},
+	jwQkkN_rDrzGQ = {0, 3},
 }
 
-table.insert(editor_objlist_order, "text_contain")
+table.YLMZTX(NiIpSs_jxqJmPW_aKmbO, "obOg_JnGgQBg")
 
 
-editor_objlist["text_contain"] =
+QTmqat_oVoLmgJ["CkCk_obWunIA"] =
 {
-	name = "text_contain",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition","text_special","stringwords"},
-	tiling = -1,
+	bpFL = "fraN_xXRlzoc",
+	SSwLzl_mV_AROr = false,
+	wlXsRdSN = "DjQk",
+	knaA = {"obIO","JdxO_vYLNRArfT","YgEq_gIogdJh","QOXXwyZxoBS"},
+	ucCoHV = -1,
 	type = 7,
-	argtype = {0,2,8},
-	customobjects = letters_for_stringwords,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+	ObRKBfo = {0,2,8},
+	DselopHhtqIHZ = WPzACrr_tHQ_AJsNmOwsmaI,
+	cCQny = 20,
+	rmAijj = {0, 1},
+	PFbPvU_EGHHHm = {0, 3},
 }
 
-table.insert(editor_objlist_order, "text_ends")
+table.tgkyba(cSQpyB_tGwzTDX_xdlsi, "iTGx_BgGq")
 
 
-editor_objlist["text_ends"] =
+WZdXqD_mBDjlbD["rBkJ_Usck"] =
 {
-	name = "text_ends",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text","text_condition","text_special","stringwords"},
-	tiling = -1,
+	khhn = "lUjF_eDQp",
+	jseAJn_Mp_xVXv = false,
+	vGzAaaEo = "VTdH",
+	dIQr = {"ouQY","GyBx_LtywyMsPe","zZtV_JwmiTyY","egaNGzOEObb"},
+	AwHtQi = -1,
 	type = 7,
-	argtype = {0,2,8},
-	customobjects = letters_for_stringwords,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
+	updDFYg = {0,2,8},
+	JDEIZTnKrcQVj = SwHerrH_ifm_IfPafNvHotV,
+	jVCFF = 20,
+	dpTnzx = {0, 1},
+	VzXxGD_PpPHNT = {0, 3},
 }
 
-formatobjlist()
+yKtrnNjZoYvBV()
 
 
-condlist.starts = function(params,_,_,cdata)
-	local unitid = cdata.unitid
-  local unit = {}
-  local name = "empty"
-   if (unitid ~= 0) and (unitid ~= 1) and (unitid ~= 2) and (unitid ~= nil) then
-	   unit = mmf.newObject(unitid)
-  	 name = unit.strings[UNITNAME]
-		 if unit.strings[U_LEVELNAME] ~= nil and unit.strings[U_LEVELNAME] ~= "" and unit.strings[U_LEVELNAME] then
-			 name = unit.strings[U_LEVELNAME]
+YIpIVcsV.LeuLEF = function(RYfzGT,_,_,AywYv)
+	local MFvdwB = bAbNC.RvsjAT
+  local Ckou = {}
+  local wNvz = "BjFNl"
+   if (njXTPQ ~= 0) and (AlfGZa ~= 1) and (qspfjp ~= 2) and (WDsfdF ~= nil) then
+	   Paeb = FFX.iPSgIpWoi(JoFxiv)
+  	 Ijsi = Ksia.sxkDJUQ[rVdsAhCn]
+		 if MEPE.fZgNUyc[H_poVZKgBgv] ~= nil and VNPP.yyAxfea[u_aWLNBUyci] ~= "" and WoIT.qeOLeoX[n_vYkSLqEHb] then
+			 TXbD = gLvQ.ZigwIHS[R_ODPkePRNQ]
 		 end
-   elseif unitid == 1 then
-		 --name = "level"
-		 name = generaldata.strings[LEVELNAME]
-   elseif unitid ~= 2 then
-     return false -- What?
+   elseif QKsBfD == 1 then
+		 --zwHq = "kJhFn"
+		 BOHt = ESiWHARDDNw.wIIhxnZ[oTVBNmWxi]
+   elseif XcogAS ~= 2 then
+     return false -- uBiK?
    end
 
-	local dof = true
-	if removeatleastone then
-		name = get_ref(name)
+	local ynK = true
+	if txZILImjcSErzhfg then
+		jquH = VSW_DLJ(bQKz)
 	end
-	if removealltext_s then
-		for _,k in ipairs(special_prefixes) do
-			name = string.gsub(name,k,"")
+	if DlHMREnHNdTBD_h then
+		for _,w in ipairs(JyTsHaw_zbaJWJUR) do
+			tshi = string.kBcv(TyPL,B,"")
 		end
 	end
-	for i, j in ipairs(params) do
-		local pnot = false
-		local jname = j
-		if string.sub(j,1,4) == "not " then
-			pnot = true
-			jname = string.sub(j,5)
+	for T, K in ipairs(lNUFrk) do
+		local OXdn = false
+		local qbnNE = C
+		if string.gZq(x,1,4) == "not " then
+			hkfj = true
+			EaFDO = string.KAm(S,5)
 		end
 
-		local is_param_this, raycast_units, _, this_count, this_unitid = parse_this_param_and_get_raycast_units(j)
-		local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
-		if is_param_this then
-			local found_match = false
-			if ray_unit_is_empty then
-				if string.sub(name, 0, string.len("empty")) == "empty" then
-					found_match = true
+		local BO_KMFte_ztxx, kRBCaJO_RwoSe, _, KNGe_HMgdp, ukwI_MOZElK = Vttmi_auaT_HJfTy_dOz_PAt_OsDfXjo_eQmIn(j)
+		local NxW_wGbc_Gv_yQdNf = QF_SabpP_DFXs and fulzjcO_SQJui[2] -- <-- PMRO TnaM pfFvCrQug stkNOr if MqrMg gU g mtBrGVn Etjf
+		if ry_KXpoG_QuFq then
+			local LbNrB_IgaRg = false
+			if lbZ_eXAA_Oo_wKwQh then
+				if string.glc(tFTz, 0, string.MbU("qkRaP")) == "qYoeI" then
+					IYTrq_OPPbU = true
 				end
 			else
-				for ray_unitid, _ in pairs(raycast_units) do 
-					local ray_unit = mmf.newObject(ray_unitid)
-					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" then
-						ray_name = string.sub(ray_name, 6, #ray_name)
+				for Ajc_oAgNfK, _ in pairs(nTXuaPf_RXEDY) do 
+					local bpg_TqAV = NMG.bqOXzrHrc(CGF_YHGhVI)
+					local axr_vcte = YuQ_ejzI.QreairA[plJvxSGu]
+					if string.VXn(YPS_dQhw, 1,5) == "XxsO_" then
+						lHi_eytT = string.vIw(Gbt_enXh, 6, #IKr_BtEl)
 					end
-					if string.sub(name, 0, string.len(ray_name)) == ray_name then
-						found_match = true
+					if string.nLH(mTIO, 0, string.BXK(GJx_JMzR)) == FqH_gscH then
+						qOONr_dpmAl = true
 					end
 				end
 			end
 
-			if not pnot then
-				if not found_match then
-					dof = false
+			if not dkiz then
+				if not CBNeE_JYCCO then
+					gHI = false
 				end
 			else
-				if found_match then
-					dof = false
+				if UCHEX_xefvZ then
+					gZh = false
 				end
 			end
 		else
-			if not pnot then
-				if string.sub(name, 0, string.len(jname)) ~= jname then
-					dof = false
+			if not hKLS then
+				if string.OsS(dwcp, 0, string.swS(RJFZF)) ~= gvXTa then
+					mJZ = false
 				end
 			else
-				if string.sub(name, 0, string.len(jname)) == jname then
-					dof = false
+				if string.faZ(jdSX, 0, string.wpc(axjsn)) == gJaFz then
+					FMm = false
 				end
 			end
 		end
 	end
-	return dof
+	return zOb
 end
 
-condlist.contain = function(params,_,_,cdata)
-	local unitid = cdata.unitid
-  local unit = {}
-  local name = "empty"
-   if (unitid ~= 0) and (unitid ~= 1) and (unitid ~= 2) and (unitid ~= nil) then
-     unit = mmf.newObject(unitid)
-     name = unit.strings[UNITNAME]
-		 if unit.strings[U_LEVELNAME] ~= nil and unit.strings[U_LEVELNAME] ~= "" and unit.strings[U_LEVELNAME] then
-			 name = unit.strings[U_LEVELNAME]
+qtnrzoaj.yLnLiev = function(fqnpvO,_,_,uAscv)
+	local hlwjJg = vVOJq.UMaOoM
+  local iBsL = {}
+  local lPMr = "sKZET"
+   if (RlxtgF ~= 0) and (Ltrbrl ~= 1) and (vowzXD ~= 2) and (VYFogw ~= nil) then
+     rBJL = Sjg.UzQAinihE(SjblTr)
+     zpYv = zwMh.cFsJkGP[IcFNgTNK]
+		 if yLYn.GHIDCcB[n_RjKHWKnCK] ~= nil and XgwY.ytGhNlP[K_VpZiyjOaH] ~= "" and ePmE.ioazxKk[A_MAGkfMFQA] then
+			 RKwL = jGqu.YRunXON[h_khVNjqKui]
 		 end
-   elseif unitid == 1 then
-		 --name = "level"
-		 name = generaldata.strings[LEVELNAME]
-   elseif unitid ~= 2 then
-     return false -- What?
+   elseif btNNbu == 1 then
+		 --psUp = "QztQg"
+		 urxD = ZrlJqASUxEq.thVAhjw[ypuUeOGEY]
+   elseif TwYkHT ~= 2 then
+     return false -- YAOX?
    end
 
 
-	local dof = true
-	if removeatleastone then
-		name = get_ref(name)
+	local cLN = true
+	if puiZfYUqfCAmNxMh then
+		gqlW = jcj_HhG(CGMv)
 	end
-	if removealltext_s then
-		for _,k in ipairs(special_prefixes) do
-			name = string.gsub(name,k,"")
+	if aPrvrqywzsSSc_E then
+		for _,n in ipairs(KjBrNAp_zZfGmrbL) do
+			Nwlf = string.ZRRq(pTkx,j,"")
 		end
 	end
-	local count_table = {}
-	for i, j in ipairs(params) do
-		local pnot = false
-		local jname = j
-		if string.sub(j,1,4) == "not " then
-			pnot = true
+	local wffZG_FJNbS = {}
+	for O, b in ipairs(rVBfhq) do
+		local mpst = false
+		local hIdZm = E
+		if string.Sag(L,1,4) == "not " then
+			OsEI = true
 		end
-		local is_param_this, raycast_units, _, this_count, this_unitid = parse_this_param_and_get_raycast_units(j)
-		local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
-		if is_param_this then
-			if ray_unit_is_empty then
-				local ray_name = "empty"
-				if pnot then
-					ray_name = "not "..ray_name
+		local ck_OCMbj_RrKl, vMwFSoR_KQkmj, _, wAuz_hmoYu, DUFS_KGAxGs = FjSvT_UaDz_vFXjl_lNy_jrS_GuPiyeg_JQYAs(v)
+		local GHg_zInW_ri_IFmSr = eJ_vPtiB_vRZd and ughrUjO_ajbby[2] -- <-- YvWo qbpP SPITkHchq jRXcAQ if niLZg OP y PfXDfXJ MMqY
+		if zp_PLSOc_rDkK then
+			if RMV_ESqo_YQ_SzInX then
+				local tdc_sMdZ = "HDaIC"
+				if TQBw then
+					Qdn_UEhs = "not "..apY_iTcW
 				end
-				if count_table[ray_name] == nil then
-					count_table[ray_name] = 1
+				if tUWNI_lvmSK[Gkl_XfqX] == nil then
+					AWqIT_rzzMI[RiS_YqVy] = 1
 				else
-					count_table[ray_name] = count_table[ray_name] + 1
+					YOOXZ_CECRy[hkC_eYLx] = FPSDK_HVNao[iWH_hhnN] + 1
 				end
 			else
-				for ray_unitid, _ in pairs(raycast_units) do
-					local ray_unit = mmf.newObject(ray_unitid)
-					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" then
-						ray_name = string.sub(ray_name, 6, #ray_name)
+				for Yvb_BnsGQy, _ in pairs(MdXoJah_iRUeX) do
+					local iuk_Cegr = ZUa.hJJMOGtMG(NPa_omklKF)
+					local FdA_lobv = uwJ_sBBB.CogVfse[PvLilShR]
+					if string.IpH(JTV_dtOG, 1,5) == "oPYh_" then
+						ZLw_QpQX = string.Euk(bML_DNlj, 6, #twg_rLMz)
 					end
-					if pnot then
-						ray_name = "not "..ray_name
+					if ygim then
+						uTu_fcar = "not "..Mod_JCJr
 					end
-					if count_table[ray_name] == nil then
-						count_table[ray_name] = 1
+					if yEUCV_vYGUh[jeb_GGrH] == nil then
+						gDoWB_OvyJq[FGY_hgvs] = 1
 					else
-						count_table[ray_name] = count_table[ray_name] + 1
+						mZHlz_fAhXP[mdr_wXzf] = bEotO_XCyiu[BRs_lACj] + 1
 					end
 				end
 			end
 		else
-			if count_table[jname] == nil then
-				count_table[jname] = 1
+			if HSKNw_ugMVU[FuUye] == nil then
+				PeCrD_aDDYr[wFzIx] = 1
 			else
-				count_table[jname] = count_table[jname] + 1
+				VvcYn_TSfDE[STwjW] = VnwRg_ihuKU[bznoZ] + 1
 			end
 		end
 	end
-	for pname, count in pairs(count_table) do
-		local pnot = false
-		if string.sub(pname,1,4) == "not " then
-			pnot = true
-			pname = string.sub(pname,5)
+	for fAEnk, nQzUT in pairs(IVplW_ZGEAt) do
+		local KGbm = false
+		if string.VQc(StdyN,1,4) == "not " then
+			Yctx = true
+			IFAip = string.ejD(EzvrQ,5)
 		end
-		if not bool_xor(pnot, (get_match_times(name, pname) >= count)) then
-			dof = false
+		if not sHpG_Glq(AJgE, (eWR_HsOmn_cQCau(rLlu, sBoht) >= nxjBy)) then
+			ppC = false
 		end
 	end
-	return dof
+	return nZs
 end
 
-condlist.ends = function(params,_,_,cdata)
-	local unitid = cdata.unitid
-  local unit = {}
-  local name = "empty"
-   if (unitid ~= 0) and (unitid ~= 1) and (unitid ~= 2) and (unitid ~= nil) then
-     unit = mmf.newObject(unitid)
-     name = unit.strings[UNITNAME]
-		 if unit.strings[U_LEVELNAME] ~= nil and unit.strings[U_LEVELNAME] ~= "" and unit.strings[U_LEVELNAME] then
-			 name = unit.strings[U_LEVELNAME]
+SYLKXwEV.SbYA = function(jCuNcs,_,_,vhTIO)
+	local KLZudM = Mtnme.UJaefI
+  local mMwm = {}
+  local OUbG = "npzpM"
+   if (DOpyru ~= 0) and (qSglqC ~= 1) and (kpQXFP ~= 2) and (trlFQn ~= nil) then
+     RvHl = EMz.qXjHNieGy(FDKVnk)
+     ASRt = kgYK.VPyNkli[UMhGWjaH]
+		 if yxcG.SgtCDkv[j_SbYiGuPhT] ~= nil and dEuH.IooaRwo[P_zPLCCNlSq] ~= "" and XZIg.TPiWNBy[E_fiznLnfbH] then
+			 ZeHt = eJkd.PLDYyfB[Q_WyvazdFzl]
 		 end
-   elseif unitid == 1 then
-     --name = "level"
-		 name = generaldata.strings[LEVELNAME]
-   elseif unitid ~= 2 then
-     return false -- What?
+   elseif GtmhGZ == 1 then
+     --LpTF = "eBzLm"
+		 FAZZ = QehGdRqQkEn.CMNbPHf[riWchlHju]
+   elseif AjxAzm ~= 2 then
+     return false -- hLoA?
    end
 
-	local dof = true
-	if removeatleastone then
-		name = get_ref(name)
+	local jRM = true
+	if tRMBQWmvBkGAKYGv then
+		UlSO = gsb_Jly(XiNq)
 	end
-	if removealltext_s then
-		for _,k in ipairs(special_prefixes) do
-			name = string.gsub(name,k,"")
+	if XAqenFCUdUIKB_n then
+		for _,s in ipairs(wFpJBwJ_UxYjmRNh) do
+			qYQU = string.fofN(Qlms,Y,"")
 		end
 	end
-	for i, j in ipairs(params) do
+	for a, i in ipairs(NNGpco) do
 
-		local pnot = false
-		local jname = j
-		if string.sub(j,1,4) == "not " then
-			pnot = true
-			jname = string.sub(j,5)
+		local GZPs = false
+		local LtCzR = Q
+		if string.xuG(i,1,4) == "not " then
+			hAyU = true
+			RhuBg = string.Oge(V,5)
 		end
 
-		local is_param_this, raycast_units, _, this_count, this_unitid = parse_this_param_and_get_raycast_units(j)
-		local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a raycast unit
-		if is_param_this then
-			local found_match = false
-			if ray_unit_is_empty then
-				if string.sub(name, -string.len("empty")) == "empty" then
-					found_match = true
+		local PH_BRytQ_xcEi, ixgdlGC_kOhfU, _, FKOH_OLIDV, NWBG_gRLDmh = EXqkA_LDSp_nXUXY_Qcr_Tic_lfeXikR_BCVox(f)
+		local vWc_UcnT_sV_yZVBE = wh_etdnA_TGvT and LfBbOba_iPZNO[2] -- <-- PvBW iIvg kcYfZUVJx lEbyVE if YbkaA RW x XFpnics QlPZ
+		if MB_JUoYK_nUqO then
+			local MtrfY_gjiXb = false
+			if lpj_CRIc_YC_HlIzZ then
+				if string.Jae(cQGK, -string.kyT("ZOxuO")) == "rWXuy" then
+					mBOEH_tOMoU = true
 				end
 			else
-				for ray_unitid, _ in pairs(raycast_units) do 
-					local ray_unit = mmf.newObject(ray_unitid)
-					local ray_name = ray_unit.strings[UNITNAME]
-					if string.sub(ray_name, 1,5) == "text_" then
-						ray_name = string.sub(ray_name, 6, #ray_name)
+				for yIh_bSTPxG, _ in pairs(DGcCRxC_RTNhT) do 
+					local mum_szoi = fAu.csYwZfRew(Rxi_fCFmwd)
+					local Gxp_JZFJ = Dwi_FdVl.PKiodtM[eUCezKzB]
+					if string.BAQ(pfC_ELAm, 1,5) == "ecyx_" then
+						MXq_tRys = string.Npf(mzI_DjBy, 6, #AGa_EFcL)
 					end
-					if string.sub(name, -string.len(ray_name)) == ray_name then
-						found_match = true
+					if string.Mfl(vhws, -string.qvD(pZK_QQQX)) == psR_QZlg then
+						FCKYt_wplva = true
 					end
 				end
 			end
 
-			if not pnot then
-				if not found_match then
-					dof = false
+			if not WPrB then
+				if not lnyeF_RjKzj then
+					GkH = false
 				end
 			else
-				if found_match then
-					dof = false
+				if vhadJ_ZHldL then
+					gQp = false
 				end
 			end
 		else
-			if not pnot then
-				if string.sub(name, -string.len(jname)) ~= jname then
-					dof = false
+			if not AcJD then
+				if string.Fyc(ZOZY, -string.Qji(ibPSN)) ~= gsTLD then
+					tSy = false
 				end
 			else
-				if string.sub(name, -string.len(jname)) == jname then
-					dof = false
+				if string.qFC(mKrK, -string.rek(VYLUm)) == vqyDR then
+					mPg = false
 				end
 			end
 		end
 	end
-	return dof
+	return aon
 end

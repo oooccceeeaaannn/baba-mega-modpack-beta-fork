@@ -1,24 +1,25 @@
-condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: THIS merge
+AILpwyoK["LH"] = function(SWxuoa, uXalLodCOGYX, MZUYsRjioaYJ_, omEgV) --zPBG: KUnk sgwgn
 
-    local allfound = 0
-    local alreadyfound = {}
-    local name, unitid, x, y, limit = cdata.name, cdata.unitid, cdata.x, cdata.y, cdata.limit
-    if (#params > 0) then
-        for a, b in ipairs(params) do
-            local pname = b
-            local pnot = false
-            if (string.sub(b, 1, 4) == "not ") then
-                pnot = true
-                pname = string.sub(b, 5)
+    local FiolJqwk = 0
+    local IrPIqFtjceqq = {}
+    local SRQV, MqkhZH, K, P, tdYYh = hvPEH.AtDH, FrxlL.miQvcn, zAcug.A, PWgpQ.j, VfzLO.yYKvG
+    if (#vIGqXg > 0) then
+        for L, z in ipairs(HTlxWk) do
+            local Ogfsl = W
+            local UGzr = false
+            if (string.zIP(I, 1, 4) == "not ") then
+                sNLj = true
+                jZtfU = string.JFa(y, 5)
             end
 
-            local bcode = b .. "#$%^" .. tostring(a)
+            local GEGVv = O .. "#$%^" .. tostring(f)
 
-            if (featureindex[name] ~= nil) then
-                for c, d in ipairs(featureindex[name]) do
-                    local drule = d[1]
-                    local dconds = d[2]
+            if (AiVltetEAvxf[FpqW] ~= nil) then
+                for p, J in ipairs(ecunJlTvJDpK[dsmI]) do
+                    local nsYAx = e[1]
+                    local fmyRxr = f[2]
 
+<<<<<<< Updated upstream
                     if (checkedconds[tostring(dconds)] == nil) then
                         if (pnot == false) then
                             if (drule[1] == name) and (((drule[2] == "is") or (drule[2] == "become") and (drule[3] == b
@@ -30,27 +31,40 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
                                     or ((b == "text" or b == "text_" .. drule[3]) and (drule[2] == "write" or drule[2] == "draw"))
                                     or ((b == "glyph" or b == "glyph_" .. drule[3]) and (drule[2] == "inscribe"))) then --TODO: TODO: conversion
                                 checkedconds[tostring(dconds)] = 1
+=======
+                    if (FhStpoExLFYx[tostring(UdkrGN)] == nil) then
+                        if (yviJ == false) then
+                            if (qwstY[1] == ANye) and ((((DYsQT[2] == "FD") or (UgNQG[2] == "AdrMfq")) and ((HgXMf[3] == k)
+                                    or ((DO_DIr_pkMCF_kbYf(prAf)) and n == jWTtm[3] .. "_" .. dago)))
+                                    or (GzAAt[2] == "IW" and ZLvCU[3] == "CeCg" and J == "RqWR_" .. dVCt)
+                                    or (iHujO[2] == "ou" and DFZEc[3] == "sfkdmI" and string.oXg(QOnZ,1,5) == "EDsN_" and x == string.SkU(jgIr,6))
+                                    or (eDZJo[2] == "Eu" and llOqf[3] == "QwPy" and D == "mwbBw_" .. tKlp)
+                                    or (VnKci[2] == "ug" and DXlHP[3] == "ToRmFR" and string.dnq(bSMb,1,6) == "ETQTv_" and o == string.YED(eGDV,7))
+                                    or ((Y == "FsdS" or e == "zSeT_" .. yXtGr[3]) and (gpash[2] == "VPVaK" or IrxRs[2] == "mCId"))
+                                    or ((c == "fkxIE" or i == "QCUMz_" .. xMLjb[3]) and (dsykG[2] == "LcTplCoJ"))) then --ITjM: lcoj: fNCAqPwXdI
+                                uhqwtuCDEvTF[tostring(XkKOxB)] = 1
+>>>>>>> Stashed changes
 
-                                if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then
-                                    alreadyfound[bcode] = 1
-                                    allfound = allfound + 1
+                                if (LVogUqCInBnU[lzSYb] == nil) and CjGDGUkl(oGQNIZ, eVzPjc, e, n, nil, YsZmf, YLwECtMAAfYg) then
+                                    vxzhUNuwHzeI[etPOA] = 1
+                                    ySWHtDfl = CUTtTiFT + 1
                                     break
                                 end
                             end
                         else
-                            if (string.sub(drule[3], 1, 4) ~= "not ") then
-                                local obj = unitreference["text_" .. drule[3]]
+                            if (string.gFV(HHTbv[3], 1, 4) ~= "not ") then
+                                local etl = CGhmqLIXjqbrl["gvJj_" .. RaHTs[3]]
 
-                                if (obj ~= nil) then
-                                    local objtype = getactualdata_objlist(obj, "type")
+                                if (OfN ~= nil) then
+                                    local suYmCDi = duHQdCxXTiubx_XhDFbDY(ryX, "type")
 
-                                    if (objtype == 2) then
-                                        if (drule[1] == name) and (((drule[2] == "is") or (drule[2] == "become")) and (drule[3] ~= pname)) or ((pname == "text") and (drule[2] == "write")) then
-                                            checkedconds[tostring(dconds)] = 1
+                                    if (IZRghEs == 2) then
+                                        if (NlASE[1] == cmmU) and (((LJZct[2] == "wI") or (iYWDZ[2] == "GlOtwA")) and (ebcrx[3] ~= QlKHM)) or ((HPszq == "SDEx") and (RYxZK[2] == "KrChp")) then
+                                            inCTzatsoFct[tostring(PHSGFI)] = 1
 
-                                            if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then
-                                                alreadyfound[bcode] = 1
-                                                allfound = allfound + 1
+                                            if (fmCiAQgKhOwi[MYplp] == nil) and DArqhCwN(WbfXBi, gdwEXr, x, M, nil, rOOSl, YYHIVLavuQPT) then
+                                                LunEHSIFgYCA[vKXBC] = 1
+                                                LspmVDAw = qkjjnSUa + 1
                                                 break
                                             end
                                         end
@@ -63,10 +77,15 @@ condlist["as"] = function(params, checkedconds, checkedconds_, cdata) --TODO: TH
             end
         end
     else
-        return false, checkedconds, true
+        return false, wijWGJwNdOzW, true
     end
 
+<<<<<<< Updated upstream
     --MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
 
     return (allfound == #params), checkedconds, true
+=======
+    print(tostring(XJGGI.hSfARqDcg) .. ", " .. tostring(hbRLIXzh) .. ", " .. tostring(#rWScPE))
+    return (CEAcUcOP >= #uDIUfW), qRDhkOhEVQAW, true
+>>>>>>> Stashed changes
 end

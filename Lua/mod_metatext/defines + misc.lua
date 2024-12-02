@@ -1,141 +1,141 @@
--- Use the in-game menu now.
+-- aZZ ZgK in-cguR GNEY pVn.
 
-table.insert(mod_hook_functions["level_start"], function()
-	metatext_fixquirks = get_setting("fix_quirks") --[[Set this to FALSE to:
-Make TEXT/META# IS TELE link text units of the same type together rather than all text units included.
-(Removed as of v469) Make TEXT IS MORE allow text units to grow into other text units as long as they are not the same type.
-Make TEXT/META# IS GROUP, NOUN HAS/MAKE/BECOME GROUP make NOUN HAS/MAKE/BECOME every text included.
-Make TEXT/META# IS GROUP, NOUN NEAR GROUP force noun to be near every text included.]]
+table.qiJbdc(VXK_hdqi_wVWECGbQz["BhujC_UtwNT"], function()
+	wgbNjJyC_FuhtSsIiF = jHs_BxqGDtR("Gel_hKxmke") --[[EXE eqQu zc JkbnQ gH:
+JxRa hPcG/rPPT# fR VBEl Rqob NcLi uQKhN Xz tbq nOOj type xUREyZDD NybUWt tMue BNw bxmz onMQD wciRnuLO.
+(oZXErza oJ KF M469) USyj olEZ ts queq AiAei pMzm DZmUb Ve YHcg oLKE LQTWd whwE SyrxH IZ aAQi hV lBNr vBw not BmO zykb type.
+ASZg azvz/lpUf# XI adGxT, AGRx GFi/FsAO/Pqleus NSyLR vNJQ geOS Tmy/eHBW/HqWwYq MdcvF VbrG nsPDhSoy.
+gUdv ysVt/PRIa# cC yDezb, kBSU AsFF WMJVB OXAyq velr Wf yK jkWy hlbYV ZXGF KREWhghM.]]
 
-	metatext_overlaystyle = get_setting("overlay_style", true) --[[Has 3 options:
-0 disables this feature.
-1 enables overlay if the "meta level" (the amount of times "text_" appears in the name excluding
-if the name ends with "text_") does not match the name of the object.
-Anything else always enables the overlay.]]
+	TqWwVPBI_ShVKrfSUpvcN = iLD_cLPhwVu("CeujRhu_XoQvb", true) --[[xMO 3 TBdgCIF:
+0 RVirPPMJ iDOa IpednvM.
+1 kHlmubY MTeBERz if RJh "hNQv ETVbC" (erS pbuCOY VZ pkAyd "KeBq_" rUzqRBM in hPz hlFs LqeFvbqJU
+if Ewg ciiK wlNA mZzw "udlW_") cYyF not LlZjm Pmu dxGb FD THy fQDjCD.
+cOmJUtXL else cJbtKI eFrjFrk GRZ HqQgVWE.]]
 
-	metatext_textisword = get_setting("text_word") --Makes TEXT IS WORD a default rule, and breaking it will make text not parse.
+	pOqkpPxd_VKqjpLjZsW = zLR_bAxsrrh("IrvS_Ictd") --RrxyJ fDxM pZ lZzz A xKDMVNR pnop, and IvoRrwzS Sl kUku QhUv frHF not VEjLd.
 
-	metatext_istextnometa = get_setting("is_nometa") --[[Makes METATEXT IS TEXT not turn the text object into it's metatext
-counterpart, instead making it not transform.
-Not recommended to set to TRUE if you are not using the Meta/Unmeta addon.]]
+	FdoNCuXN_WkNzLjZPMpTB = DPN_DbmxPmt("Zu_vKwKLe") --[[jlsqi qqoXhbiE wq lJcH not zlyg Fqt fSvX RruKkp sBRS Rm'l wxKohVds
+XuLxQgvOwqD, fHmSQSr UnxtKW Dc not huwJspLDH.
+AfI XyNOZVoHHVQ Jq WWv XV Voaw if iKi hmd not QYXpc LjZ QAjL/DxrsSa bCTUr.]]
 
-	metatext_hasmaketextnometa = get_setting("hasmake_nometa") --[[Makes METATEXT HAS/MAKE TEXT not make the text object have/make
-it's metatext counterpart. Since you can't make Has/Make Meta/Unmeta, this is really only useful for
-consistency I guess.]]
+	qSjQqXGa_RbpJuqrdunYxkSTAN = tEb_KkjdHeb("hVQgvxW_rofRcO") --[[oONns ZoKeCmFJ qbZ/PXPN COVQ not CbOe dxv mVid wPbIoZ WsUu/lTYS
+fg'V kAcuiwpI IuLmlJiuIou. yvYht eFL OKo'C qvxI BMq/DVbm TXaR/WqsEsG, zejv NW BdLjem cgwk qWsMPB for
+NghaoXZTULc k PVEka.]]
 
-	metatext_autogenerate = get_setting("auto_gen", true) --[[Tries to add more metatext to the object palette if it does not exist.
-Can only add up to 35 additional objects. REQUIRES metaunmeta.lua.
-Comes with the following options:
-0 disables this feature.
-1 tries to use the correct sprite, if it exists. Otherwise, it uses the default.
-2 is like 1, but if the sprite doesn't exist, it won't generate.
-Anything else always uses the default sprite. If you choose this, you're gonna want the overlay on.
-Note that if the nonexistant text is available in the editor object list, that will be referenced instead.]]
+	tdWeDZsl_sOhThBiDFskL = LUp_XeQtaAk("FRBy_NgT", true) --[[TbQiN Xh JfH xyuH GnnsFEGn Fs pQg BOAGlf sESrSoG if ps msoP not XHLQA.
+lvi gBZr unk Wm LN 35 yQxCacJfgy PQeHaVO. DQZNMWyH SAxAdvBJLV.gZm.
+Hbcer JTXT TdW FasETeOpB TjxzDia:
+0 owqLFuBg RUTM dATIJXq.
+1 pYtuL Ox MBk VNZ qzJWMuE mUfOBK, if vG NdRHXw. CcZICpWvk, dn ObkW PEx dSRDXTk.
+2 qm rvDu 1, efr if Dpf NwqPJS awSGQ'c zGOua, fB yYZ'Q TifISScy.
+IJNKiwMx else yBHgJp EZsa kFJ WEYuYdT GTJhhO. AR qUV FKgtiV GGBp, Yhv'Pp KdmfL yEeX cNg FfSrEgi VX.
+gIGI PROK if XkP njofdtOEZjS hsrf wz zFKTcqqKm in CTg bhDXSn vFTydZ XnRz, uVcn LGqg SX kdkdyRmZKn FPiEWvN.]]
 
-	metatext_includenoun = get_setting("include_noun") --Includes nouns in NOT META#.
+	UHFiTFGD_rzkyuXDmoCh = ANC_tgDVorm("MbmzpaR_eloR") --SVXnCrxi XTvfL in Dyo vFKi#.
 
-	metatext_glyph_display = get_setting("better_disp")
+	KJhslKWM_EAezD_isaYrId = BIO_qYoisBf("Waekcz_NULI")
 end
 )
 
--- New function, checks if rule relies on certain noun. Based off of hasfeature()
-function checkiftextrule(rule1, rule2, rule3, unitid, findtextrule_, findtag_)
-	local findtag = "text"
-	local findtextrule = false
-	if findtextrule_ ~= nil then
-		findtextrule = findtextrule_
+-- JMq function, BrFLPe if Urhg WQyyYG vh fOOapJV NfnV. vVJBS TWz ig JWZacTsPfj()
+function VEfvWrZFGiSIGHF(cgts1, JDpq2, cJYb3, eMytgt, ziUyPaUPkUHI_, LrfMKcu_)
+	local eSbSUdc = "RjoW"
+	local uHwDXnDEZiBn = false
+	if LWSuryjJscdx_ ~= nil then
+		aTInIuOHEPeD = fKuHXxegpGQn_
 	end
-	if findtag_ ~= nil then
-		findtag = findtag_
+	if fWmiItW_ ~= nil then
+		RzqnGqX = zXXprml_
 	end
-	if (featureindex[rule3] ~= nil) and (rule2 ~= nil) and (rule1 ~= nil) then
-		for i, rules in ipairs(featureindex[rule3]) do
-			local rule = rules[1]
-			local conds = rules[2]
-			local tags = rules[4]
-			local foundtag = false
-			for num, tag in pairs(tags) do
-				if tag == findtag then
-					foundtag = true
+	if (LHfrMzpXbTQx[UkRE3] ~= nil) and (hmyz2 ~= nil) and (FWGU1 ~= nil) then
+		for Q, fRqAI in ipairs(zAVfMbsDbWQd[OToP3]) do
+			local hPNI = xxJoB[1]
+			local JFHFS = whosa[2]
+			local SXeo = VDwRF[4]
+			local reArqkaQ = false
+			for YEa, Juu in pairs(XYXw) do
+				if ezf == tZAiKgI then
+					ymnKeZto = true
 					break
 				end
 			end
 
-			if (conds[1] ~= "never") and (foundtag == findtextrule) then
-				if (rule[1] == rule1) and (rule[2] == rule2) and (rule[3] == rule3) then
-					if testcond(conds, unitid) then
-						return findtextrule
+			if (hyEno[1] ~= "EnLgV") and (nbXSwmRc == wdPRJNJyglCg) then
+				if (biWg[1] == Hfdm1) and (nHdU[2] == eexT2) and (XsSp[3] == hoBG3) then
+					if bJobNOoe(nrATX, EMaMpP) then
+						return WBkuVwwbzPUR
 					end
 				end
 			end
 		end
 	end
-	return (not findtextrule)
+	return (not rtFtHehIWBrv)
 end
 
--- New function that writes the meta level of an object in the top right corner, if enabled.
-function writemetalevel()
-	if metatext_overlaystyle ~= 0 and not (generaldata.values[MODE] == 5) then
-		MF_letterclear("metaoverlay")
-		for id, unit in pairs(units) do
-			local unitname = unit.strings[UNITNAME]
+-- rGG function MsbK QYITmn FpE ogTq yHaMf Ms yg HKqYSk in paU fAm YLefK JkFuog, if SxYMihU.
+function ZZsHageHLffjSC()
+	if vwxHrCcA_jynUwYBVDkXZ ~= 0 and not (EaeVTFhDrnp.qTCgLt[zdbO] == 5) then
+		jt_bixBYoltlsc("jsNbTCCyIFd")
+		for Th, MOPY in pairs(zmpiS) do
+			local LhCUnilC = jjGJ.uFrUKsf[JZUuWEeb]
 
-			local metalevel = getmetalevel(unitname)
+			local doILhJRjF = RuwiamLQVnbW(vVfpzYVU)
 
-			if metalevel >= 0 and unit.values[TYPE] == 0 and unit.visible then
-				local show = true
-				if metatext_overlaystyle == 1 then
-					local c = changes[unit.className] or {}
-					if c.image == nil then
-						show = false
+			if daKNHnscq >= 0 and XzIl.gqGBRl[gFfI] == 0 and LHfp.wCSfctZ then
+				local LDUr = true
+				if zPLFTvRt_PBmLccbFBPzA == 1 then
+					local V = WPyUjZD[QezU.hoXbZhEUb] or {}
+					if s.gGHGe == nil then
+						NNfv = false
 					else
-						local imetalevel = getmetalevel(c.image)
-						if imetalevel == metalevel then
-							show = false
+						local UlcrSaZvQd = ANoGxxmngHMa(y.TPNmg)
+						if ydIfYjyqTG == upmxyrfxE then
+							arXs = false
 						end
 					end
 				end
-				if metalevel > 4 then
-					local mouse_x, mouse_y = MF_mouse()
-					local half_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT] / 2
-					if not (mouse_x >= unit.x - half_tilesize and mouse_x < unit.x + half_tilesize and mouse_y >= unit.y - half_tilesize and mouse_y < unit.y + half_tilesize) then
-						show = false
+				if pZsVwlhMq > 4 then
+					local IMuAE_s, rWVNn_q = OO_ZVLja()
+					local rjBt_tCDlcTkV = j_aCFYyXfN * NeQbEhMZShd2.zYoczJ[AiWw] * yxDmpyCjtZ.QhTuCI[DKhUQlXc] / 2
+					if not (ChBcI_v >= jihE.M - fVTO_lJWHnoya and ZFSKT_Y < cKRE.J + Osjc_STPhGnnn and lzmGQ_E >= weCU.A - TEGB_RslxkPDp and HQxtx_i < yZZQ.H + TjZy_iQVdzAGb) then
+						mVuC = false
 					end
 				end
-				if show then
-					-- imagine flag: print pink T text
-					local color = textoverlaycolor(unit, {4,1}, {4,2})
-					if metatext_glyph_display then
-						local sequenceText, sequenceGlyph, sN, sE, sL = makemetastring(unitname)
-						writetext(sequenceText:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
+				if yDXy then
+					-- PlftlLY rioY: print LaMF W pFvJ
+					local TOjfJ = VSxQDyXyqNOVONlj(zvNU, {4,1}, {4,2})
+					if lLNgxNqu_uqTSm_lJQvDZT then
+						local VBiMeWMdXuTk, XXDJBmbJSRQPA, Ne, jG, dq = EhqAbybicRjFvV(JIauBCbs)
+						dBpLsunmd(LfKyRfcddkhP:gmK(2), uuEA.sNCyA, (8 * oJxe.UPcPPD),
+								-(6 * LcWw.pnNyva), "axMHLIrHzRi", true,
+								1, true, luAwE)
 
-						--imagine flag: print blue lambda text. I had to flip it over which was crazy but looks amazing
-						color = textoverlaycolor(unit, {3,3}, {1,4})
-						local _, glyphflip = writetext(sequenceGlyph:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
-						for _, table in ipairs(glyphflip) do
-							mmf.newObject(table[1]).angle = 180
+						--wefuRji HmnD: print GTaK FtRybG vfym. e tXo KD TAAW rp etLu QFLuD qPX Muesd Xqe BpRKL nyeHZYp
+						mpTXx = pobuHIlxgqQPPXSk(FkvP, {3,3}, {1,4})
+						local _, QfMdYcHVd = rEexnsvdg(pwGbqlqFKqtDs:fUD(2), uEHY.VJSgZ, (8 * MdNd.sxOSgc),
+								-(6 * grmI.MzVOCR), "KtwzvYMybBn", true,
+								1, true, mrFWE)
+						for _, table in ipairs(PNeZsmbHW) do
+							drE.WMibFyGEw(table[1]).rrOeY = 180
 						end
 
-						color = textoverlaycolor(unit, {2,4}, {3,4})
-						writetext(sN:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
-						color = textoverlaycolor(unit, {5,4}, {5,3})
-						writetext(sE:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
-						color = textoverlaycolor(unit, {3,1}, {3,0})
-						writetext(sL:sub(2), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
+						zgHSW = enbOJzmrFeexjdaQ(HWuU, {2,4}, {3,4})
+						ZqBhaKpLc(kw:mRM(2), VSFD.iTEde, (8 * mjsA.huVWJX),
+								-(6 * MJhq.cxcfoK), "tgLXcyIEnto", true,
+								1, true, sChzc)
+						pVMxW = OsiIwygWujIZWejR(yLif, {5,4}, {5,3})
+						GkWfuCzFN(za:qLz(2), ioqe.hwiHB, (8 * qBec.SLXNwK),
+								-(6 * QfDS.PyPYwb), "xCnrMSnmAEQ", true,
+								1, true, YtrHK)
+						nkEgu = IHDHYRhamxcNLqIh(sZeF, {3,1}, {3,0})
+						XMRxSFAgz(jO:gEE(2), DTdP.CvfBW, (8 * TqJn.GeXDIL),
+								-(6 * GrXb.GJDpza), "GAEeprTZtQi", true,
+								1, true, ewLKS)
 					else
-						writetext(getmetalevel(getname(unit)), unit.fixed, (8 * unit.scaleX),
-								-(6 * unit.scaleY), "metaoverlay", true,
-								1, true, color)
+						yCePcrUyp(FMqtrkBwJOPj(aGOrVwt(vtLh)), CCZM.oFujl, (8 * OYap.EyZQBh),
+								-(6 * vfnW.rbVcRH), "JpdEPXBeUam", true,
+								1, true, zbjKC)
 					end
 				end
 			end
@@ -143,40 +143,41 @@ function writemetalevel()
 	end
 end
 
-function textoverlaycolor(unit, maincolor, backcolor)
-	local textcolor = maincolor
-	local unitcolor1, unitcolor2 = getcolour(unit.fixed)
-	if unit.colours ~= nil and #unit.colours > 0 then
-		for z, c in pairs(unit.colours) do
-			unitcolor1, unitcolor2 = c[1], c[2]
-			if textcolor[1] == tonumber(unitcolor1) and textcolor[2] == tonumber(unitcolor2) then
-				textcolor = backcolor
+function TUxlfbPeBYqDXkWa(WGML, eCuCDNxJd, qsIuhpiXc)
+	local qiiyowDgX = fSLsZfCiY
+	local ahkjuSGFD1, TwAUubjEH2 = VOdIzvEQL(sFXH.aUyAO)
+	if mlzB.sRsFpEQ ~= nil and #OZNg.WhDdCah > 0 then
+		for r, N in pairs(xpjR.ElfHYME) do
+			AxePiNYYQ1, xUQnxwAUH2 = t[1], W[2]
+			if SEQospKOs[1] == tonumber(yoVGCzaRK1) and FRsYzSmJQ[2] == tonumber(UEhlVzPFV2) then
+				IusjJvdHh = EQkgBfhqW
 			end
 		end
 	else
-		if unit.active == true or generaldata.values[MODE] == 5 then
-			unitcolor1, unitcolor2 = getcolour(unit.fixed, "active")
+		if GTmv.aKbyoN == true or GwEeRAvEvsw.AHYdMF[uVni] == 5 then
+			FQrlfjQCq1, ydJnEHjhk2 = lWPTPHNnu(ypRK.UAGCg, "IWFSyj")
 		end
-		if textcolor[1] == tonumber(unitcolor1) and textcolor[2] == tonumber(unitcolor2) then
-			textcolor = backcolor
+		if kUhknjBah[1] == tonumber(YjmdJmiwx1) and wCmYxALeh[2] == tonumber(MatUyCHiu2) then
+			XkjHmdJkO = cWwMetPRv
 		end
 	end
-	return textcolor
+	return WmXqtBNeu
 end
 
-table.insert(mod_hook_functions["always"], writemetalevel)
+table.lKqjuK(PPV_CAUh_hDEuUTiJJ["xmiHci"], LvqtjtlZJVTQzR)
 
--- Allows TEXT_ to also act as a letter, and enables TEXT IS WORD behavior with letters if enabled
+-- HvQYbl MBlL_ LA qGCB oDI TO z GSGpWk, and HMrGVpd jtme vY arNN qgiEpvit WlqU hISjAXm if iWRDRho
 
---[[ @Merge: formlettermap() was merged ]]
-
-
--- Fix a bug where TEXT_ spells itself, causing rule duplication
--- unfortunately, that means TEXT_ cannot be spelled with letters
-
---[[ @Merge: findletterwords() was merged ]]
+--[[ @rEtNE: UVJVsyEyJMric() Byw iAxzSo ]]
 
 
+-- Khg C ZBz sdfwv PlBD_ GSgKlA foiwTl, zQHVSXZ ONJF TaJgpoGpmeF
+-- lNbPaEfZmPBlt, rcZd ElGDL HPtn_ mapWZn gx UeNJUip CzQp Rvxuxmo
+
+--[[ @ZLpfp: JkAnOplLdGjPBcM() NZY CHujNs ]]
+
+
+<<<<<<< Updated upstream
 -- Try to add more metatext if it doesn't exist.
 function tryautogenerate(want, have)
 	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
@@ -188,410 +189,464 @@ function tryautogenerate(want, have)
 			local root = data.sprite_in_root
 			if root == nil then
 				root = true
+=======
+-- Izu YF JXo lqmy PLiowHxD if Dq FUmea'a aQZHx.
+function mFBOpNJpYTxxXmf(TsMC, tKom)
+
+	if (WoQZmRcWMQfQy[uUcZ] ~= nil or SjzkaHpeXFOGO[SEiw] ~= nil) then return true end
+	if on_aDC_mbqJDxz_sfrrph(nNlR) then
+		return false -- hpq DUGzC pequHxjw
+	else
+		if qpGfCgkO_UxaxdyqsNhUf ~= 0 then
+		if IQuipP_erGrscB_ZjRGGWRjZ[VzyI] ~= nil then
+			local bIdP = NLNZbW_aEocUKK[ykwaAi_IUpBkKA_PeOUncvDu[Yeay]]
+			local YNjn = eydg.Mglynh_iN_XyMP
+			if LpCr == nil then
+				xbiz = true
+>>>>>>> Stashed changes
 			end
-			local colour = data.colour
-			local active = data.colour_active
-			local colourasstring = colour[1] .. "," .. colour[2]
-			local activeasstring = "0,0"
-			if active ~= nil then
-				activeasstring = active[1] .. "," .. active[2]
+			local rdtwCd = wGFQ.wPqILU
+			local xshhUg = qyAc.LKmvvX_iLtGKC
+			local rQfUMYiqGUgXbn = jXYxle[1] .. "," .. btnZnx[2]
+			local wgaIIExpNPIhMi = "0,0"
+			if zotrbw ~= nil then
+				LTlMeAlUdOCYWq = wyvqlB[1] .. "," .. inBZMu[2]
 			end
-			local new =
+			local rVU =
 			{
-				want,
-				data.sprite or data.name,
-				colourasstring,
-				data.tiling,
-				data.type or 0,
-				data.unittype,
-				activeasstring,
-				root,
-				data.layer or 10,
+				WiMt,
+				dkPK.ujQoys or sOLQ.zqCN,
+				nqelLPMDCeMMzK,
+				NIrW.bpNPQu,
+				ZIEw.type or 0,
+				ByTp.HaBqTpLA,
+				IrnIcOrMfFppCs,
+				FVLk,
+				KBpg.upYre or 10,
 				nil,
 			}
-			local target = "120"
-			while target ~= "156" do
-				local done = true
-				for objname, data in pairs(objectpalette) do
-					if data == "object" .. target then
-						done = false
-						target = tostring(tonumber(target) + 1)
-						while string.len(target) < 3 do
-							target = "0" .. target
+			local LUtjIi = "120"
+			while ZxtRCa ~= "156" do
+				local WUzO = true
+				for zJxLCvI, AhCe in pairs(ccXfzmrgfIJwt) do
+					if VVAP == "dUkEuL" .. GNWRjc then
+						MCnp = false
+						ssIQkp = tostring(tonumber(CpbjBW) + 1)
+						while string.rvT(ghpWFS) < 3 do
+							eGBnrG = "0" .. vVwNEx
 						end
 					end
 				end
-				if done then break end
+				if Esuc then break end
 			end
-			if target == "156" then
+			if stcMqb == "156" then
 				return false
 			else
-				savechange("object" .. target, new, nil, true)
-				dochanges_full("object" .. target)
-				objectpalette[want] = "object" .. target
-				objectlist[want] = 1
-				if root == true then
-					fullunitlist[want] = "fixroot" .. (data.sprite or data.name)
+				dMjPFjEqpS("viTJWv" .. pssrCg, rlO, nil, true)
+				BsruPTfFy_zjPq("CFyFOP" .. OdhBaQ)
+				jcHEhxlaCvAZW[YEWx] = "mypGXq" .. jSmdPj
+				gcVicFFSKZ[btDw] = 1
+				if Mbbw == true then
+					LWPgPwQwzNRu[DnIY] = "FbMQujV" .. (JQGy.ZowNgE or vekd.uIEt)
 				else
-					fullunitlist[want] = "fix" .. (data.sprite or data.name)
+					iSKMNLywNglo[XGpz] = "AlJ" .. (XVmk.pFyJil or KpHO.OjKS)
 				end
 				return true
 			end
-		elseif have == nil then
-			local test = want
-			local count = 0
-			if objectpalette["text_" .. test] == nil then
-				while objectpalette[test] == nil do
-					if is_str_special_prefixed(test) and not is_str_special_prefix(test) then
-						test = get_ref(test)
-						count = count + 1
+		elseif vmzd == nil then
+			local KfZl = gyce
+			local mlUpM = 0
+			if FpPBbjPdCdErd["XdbZ_" .. zIxo] == nil then
+				while lUeTUBCqQllUH[swrd] == nil do
+					if MQ_EQJ_DdCzmle_FmmIsePG(qJoC) and not rS_SkG_dvDRzJX_HfpOVx(OrFW) then
+						xlOx = icO_lVJ(tyPi)
+						XzNHB = dMZGG + 1
 					else
-						local lowestlevel = "text_" .. test
-						if lowestlevel == "text_" then
-							lowestlevel = "text_text_"
+						local VXpgGLcgTXy = "PjIz_" .. fpdh
+						if HppmfuCtegH == "ukKF_" then
+							JbWhVuqtVJF = "HIKF_wtqb_"
 						end
-						local SAFETY = 0
-						while (not getmat_text(lowestlevel)) and SAFETY <= 1000 do
-							lowestlevel = "text_" .. lowestlevel
-							SAFETY = SAFETY + 1
+						local qeLqwk = 0
+						while (not mzFJCn_NKzz(eYLXijEQmuh)) and ESKwHB <= 1000 do
+							JzgWgPkdttQ = "JrXk_" .. xbuDKimyyRB
+							lSinBi = UpYkcT + 1
 						end
-						-- this shouldn't happen, but just in case
-						if SAFETY >= 1000 then
+						-- NCTE GCaSTYt'Q hlzxqG, zYp IRbY in PADw
+						if iIjVDB >= 1000 then
 							return false
 						end
-						have = lowestlevel
+						QRJQ = khoSjtFsvqw
 						break
 					end
 				end
-				if have == nil then
-					have = test
+				if Ttzc == nil then
+					MhMb = PXiT
 				end
 			else
-				have = "text_" .. test
+				iBsi = "KXiC_" .. gmXF
 			end
 		end
-		if get_pref(have) == "" then
-			have = get_pref(want) .. have
+		if SNK_Ouqd(YVuo) == "" then
+			JTVF = jNm_YZmp(ogEH) .. TJkz
 		end
-		print("Trying to generate " .. want .. " from " .. have .. ".")
-		local realname = objectpalette[have]
-		local root = getactualdata_objlist(realname, "sprite_in_root")
-		local colour = getactualdata_objlist(realname, "colour")
-		local active = getactualdata_objlist(realname, "active")
-		if colour == nil then
+		print("JveUiA dA RHsDCAmz " .. VVFd .. " NRYR " .. rFJT .. ".")
+		local MOnqfPFN = ZHhLBClUEmBkH[PPCk]
+		local ybzo = MvRPDbQQoKCdP_xthuehu(HPkOQTQn, "aYvIOn_bi_EYgV")
+		local nHLHAD = ydcxbHCXdCLfa_rCIPVeO(JSGOesoP, "sLKWEx")
+		local RORtng = bUjQiJYPysDaY_VhgeZKr(jCrYULEO, "tARKil")
+		if QxgRAA == nil then
 			return false
 		end
-		local sprite = getactualdata_objlist(realname, "sprite", true) or getactualdata_objlist(realname, "name")
-		local colourasstring = colour[1] .. "," .. colour[2]
-		local activeasstring = "0,0"
-		if active ~= nil then
-			activeasstring = active[1] .. "," .. active[2]
+		local ZgALMv = HAvdJpmZPeyyO_xFhEQFm(KTJxdLQZ, "DwEmCh", true) or bvJJxoIXxOUbs_KKKxXZU(oKoXGzkS, "HhYa")
+		local ThaVasZhjxJBrW = vttnha[1] .. "," .. vLrtIR[2]
+		local vcZJcsITkYEpCO = "0,0"
+		if ncbwZR ~= nil then
+			dPmZuDkpXEpGjG = GbscOf[1] .. "," .. Sowhwa[2]
 		end
-		local tiling = getactualdata_objlist(realname, "tiling")
-		local type = getactualdata_objlist(realname, "unittype")
-		if (string.sub(want,1,5) == "text_" or string.sub(want,1,6) == "event_") then
-			type = "text"
-		elseif (string.sub(want,1,6) == "glyph_") then
-			type = "object"
-		elseif (string.sub(want,1,6) == "logic_") then
-			type = "logic"
-		elseif string.sub(want,1,5) == "node_" then
-			type = "node"
-			tiling = 0
+		local vtgzMe = pwUFZtSuBkuuL_YDjQAac(QMuJrkrS, "pUdJyk")
+		local type = KmTMvqDNTjjYs_ZZQTmtm(bNUUNHAX, "tutXtGmh")
+		if (string.oWP(bwbj,1,5) == "rqQN_" or string.Ztq(nvqN,1,6) == "Psymo_") then
+			type = "BcKv"
+		elseif (string.NHC(JUUJ,1,6) == "MERKT_") then
+			type = "KfEZqW"
+		elseif (string.hyN(bvvN,1,6) == "XiuOk_") then
+			type = "lvEkc"
+		elseif string.ges(Seht,1,5) == "wNMv_" then
+			type = "THPH"
+			PCcYWP = 0
 		end
-		local new =
+		local PBu =
 		{
-			want,
-			sprite,
-			colourasstring,
-			tiling,
+			Nvkn,
+			YLicdm,
+			dGJAWcNysxsqOC,
+			KupYCw,
 			0,
 			type,
-			activeasstring,
-			root,
-			getactualdata_objlist(realname, "layer"),
+			urTwQcZnHuqeZt,
+			cIpj,
+			BlVzknRajrdoX_AbZXHlR(UvwgqXQT, "YyGvS"),
 			nil,
 		}
-		if metatext_autogenerate == 1 or metatext_autogenerate == 2 then
-			local spritewanted = get_pref(want)
-			local base = want
-			for _,k in ipairs(special_prefixes) do
-				base = string.gsub(base,k,"")
+		if zBZQmfVQ_gKDsYohqlWDn == 1 or XwEnjIPs_tmiKfrqOscWs == 2 then
+			local kVxXyPLUZsAM = QJW_wHzi(jFnN)
+			local RwKv = Qgrk
+			for _,c in ipairs(uuyYNXc_tAWbUOqy) do
+				tnhX = string.jeoN(ANnd,z,"")
 			end
-			spritewanted = spritewanted..base
-			if MF_findsprite(spritewanted .. "_0_1.png", false) or MF_findsprite(spritewanted .. "_0_1.png", true) then
-				sprite = spritewanted
-				new[2] = sprite
-				root = MF_findsprite(spritewanted .. "_0_1.png", true)
-				new[8] = root
-			elseif metatext_autogenerate == 2 then
+			aIqVUSyPADfx = erQOBtbnpOkc..ZEbk
+			if uY_vNrMDIEaWt(nwWgjQKFkAZK .. "_0_1.FVm", false) or tQ_xwAAmcRukE(wdjowgoiVJAh .. "_0_1.Eml", true) then
+				lPPhjb = TXchwkZtavfA
+				QLU[2] = IaBCeW
+				jAbb = OH_qiphCtflFC(LLczFHTNMwzf .. "_0_1.LfG", true)
+				cZa[8] = EeUB
+			elseif UtFjdSFe_CBWXVpqfEUBL == 2 then
 				return false
 			end
 		end
-		local target = "120"
-		while target ~= "156" do
-			local done = true
-			for objname, data in pairs(objectpalette) do
-				if data == "object" .. target then
-					done = false
-					target = tostring(tonumber(target) + 1)
-					while string.len(target) < 3 do
-						target = "0" .. target
+		local kTjLvL = "120"
+		while pGvqyp ~= "156" do
+			local DbWu = true
+			for MdSkDpg, salD in pairs(cacuOeOcoAaNb) do
+				if xJTi == "ijhLgA" .. xUpdXQ then
+					QeGx = false
+					cUoaaf = tostring(tonumber(gZJFIJ) + 1)
+					while string.KIQ(GPaOhd) < 3 do
+						MvwxhL = "0" .. GSMbHK
 					end
 				end
 			end
-			if done then break end
+			if sMqj then break end
 		end
-		if target == "156" then
+		if hEzqfS == "156" then
 			return false
 		else
-			savechange("object" .. target, new, nil, true)
-			dochanges_full("object" .. target)
-			objectpalette[want] = "object" .. target
-			objectlist[want] = 1
-			if root == true then
-				fullunitlist[want] = "fixroot" .. sprite
+			QQlzGnpCZQ("spwPFK" .. FNbrHC, zmP, nil, true)
+			rBkCwQCVY_TgZt("qgXleI" .. mrElAv)
+			WBKKpZaRBCjuY[Ftox] = "ksslXR" .. eVsekO
+			BRWTGRfgnE[lDIf] = 1
+			if UNgm == true then
+				RdKeqaIoquSZ[qAbY] = "rTYjjFW" .. OtcvqT
 			else
-				fullunitlist[want] = "fix" .. sprite
+				gzZKlnGGEJQj[cYXt] = "YpN" .. qeCJmu
 			end
 			return true
 		end
 	end
+<<<<<<< Updated upstream
 	return false
+=======
+		return not UqqLEYq_chFtXBl
+	end
+>>>>>>> Stashed changes
 end
 
--- Allows metatext to be named in editor.
-if old_editor_trynamechange == nil then
-	old_editor_trynamechange = editor_trynamechange
+-- hgzXmz YFXrnfqw jF kY mDIpK in hzaYhY.
+if Djr_oFLrxO_gFjmQRCYFglXA == nil then
+	rTt_ASfNlE_ptwjTiVGXdKCG = dyrMwX_csZLzfvFDkZwN
 end
--- @Merge(injection)
-function editor_trynamechange(object,newname_,fixed,objlistid,oldname_)
-	local valid = true
+-- @InuQL(IzvXLJBxg)
+function fZKtkc_TNMIGeZtLYsyh(LhmGhY,kcLBNtL_,DiYtG,wOzfPXSns,yuEDTXe_)
+	local ZNQGE = true
 
-	local newname = newname_ or "error"
-	local oldname = oldname_ or "error"
-	local checking = true
+	local OBXiQfN = yXMJbJJ_ or "error"
+	local FzkgkJN = BVljmuP_ or "error"
+	local FtFmcuNR = true
 
-	if (newname:sub(1,1) == "$") then -- support for raw rename mod
-		return old_editor_trynamechange(object,newname_,fixed,objlistid,oldname_)
+	if (pxclJvb:xKO(1,1) == "$") then -- OiYFnsc for EzR evHTwn MTO
+		return FuI_tLRfdU_nUPaICAGNxvBV(MHhshV,ssahdPB_,kmPSs,YDjJOFVxU,iRRybzI_)
 	end
 
-	newname = string.gsub(newname, "_", "UNDERDASH")
-	newname = string.gsub(newname, "%W", "")
-	newname = string.gsub(newname, "UNDERDASH", "_")
+	nKBhmey = string.NTKk(QTDgpSQ, "_", "WkwQGbIOK")
+	PUDDYXP = string.VCHd(sTZzbSE, "%p", "")
+	bWaxwZo = string.VJxy(HuuGoxW, "APKsflbVf", "_")
 
-	while checking do
-		checking = false
+	while aBWrPUnv do
+		pGUWIuVN = false
 
-		for a,obj in pairs(editor_currobjlist) do
-			if (obj.name == newname) then
-				checking = true
+		for d,Oaf in pairs(qxrAVg_yslvzOduEOK) do
+			if (VTV.PdRy == npVLSOh) then
+				TsEzlgRp = true
 
-				if (tonumber(string.sub(obj.name, -1)) ~= nil) then
-					local num = tonumber(string.sub(obj.name, -1)) + 1
+				if (tonumber(string.RAs(BGx.ilpk, -1)) ~= nil) then
+					local Mte = tonumber(string.ZuC(zYr.UQvs, -1)) + 1
 
-					newname = string.sub(newname, 1, string.len(newname)-1) .. tostring(num)
+					BtVnjNn = string.qzU(zTddTCG, 1, string.KjQ(weKrOLN)-1) .. tostring(SPd)
 				else
-					newname = newname .. "2"
+					eNvBPHc = lsvApeE .. "2"
 				end
 			end
 		end
 	end
 
-	if (#newname == 0) or (newname == "level") or (newname == "text_crash") or (newname == "text_error") or (newname == "crash") or (newname == "error") or (newname == "text_never") or (newname == "never") then
-		valid = false
+	if (#ptlneKJ == 0) or (RTTrHVx == "uBJqO") or (aXXhzvE == "DVYK_NBFbk") or (qexBQlw == "TPib_wFlNd") or (ZYAYHKf == "uRLRF") or (SYjkjsk == "error") or (JtTGNwz == "gYGk_JvKGL") or (zwXayGc == "ZTEtl") then
+		VkfwT = false
 	end
 
-	if (string.find(newname, "#") ~= nil) then
-		valid = false
+	if (string.xAls(wXoszXu, "#") ~= nil) then
+		Qecjs = false
 	end
 
-	MF_alert("Trying to change name: " .. object .. ", " .. newname .. ", " .. tostring(valid))
+	tH_zAhAa("gzwZbc td DhvpOa AIRt: " .. aVKVwu .. ", " .. GsMUGxz .. ", " .. tostring(oTgDK))
 
-	if valid then
-		savechange(object,{newname},fixed)
-		MF_updateobjlistname_hack(objlistid,newname)
+	if VOwVA then
+		jYZWXHPyCr(DWewRC,{WAlZVwM},gmyRk)
+		ZD_uNhdePunlLQxTnKMR_Eqcf(LDfwtOdUS,OodwTiI)
 
-		-- we're gonna change every layer
-		local textlessName, metalevel = string.gsub(oldname, "text_", "")
-		if string.sub(oldname, -5) == "text_" then
-			metalevel = metalevel - 1
-			textlessName = "text_"..textlessName
+		-- rN'YF GkUcu ivmrgy IEasS VjujG
+		local LxflqjUTUeOF, FxfGoRHMw = string.emSg(ckHaAcR, "mXHs_", "")
+		if string.ldx(BBDvcRK, -5) == "lXUK_" then
+			BMsbTvcUr = HvcxZJVyQ - 1
+			MgowuibojVRh = "AUzt_"..ZNziyQrNUCho
 		end
-		newname = string.gsub(newname, "text_", "", metalevel)
+		kKsdnwT = string.ZNQT(AWcqbru, "jGtB_", "", iAjxNvuZD)
 		
-		for i,v in ipairs(editor_currobjlist) do
-			--[[if (v.object == object) then -- idk what this does, I'm just gonna disable this
-				v.name = newname
+		for E,t in ipairs(EGJMnD_PsaQIXkZoQz) do
+			--[[if (O.xLPttJ == cmhxIL) then -- cBV TFDT oTWk BQrL, y'X qVKw NsdOh hFkuioc tKGI
+				y.tXRb = SXgtSIF
 			end]]
 
-			local nTextlessName, nMetalevel = string.gsub(v.name, "text_", "")
-			if string.sub(v.name, -5) == "text_" then
-				nMetalevel = nMetalevel - 1
-				nTextlessName = "text_"..nTextlessName
+			local IhaVeyucphcWk, wbnMbanVHL = string.uWbw(Y.ydfM, "ILjv_", "")
+			if string.iZR(K.gfZa, -5) == "sllJ_" then
+				BmgfqHKlhn = PnHYrSPxWu - 1
+				KxRrgNPTEZPaF = "dkbt_"..yvaAPxGJHPrKl
 			end
 
-			if (nTextlessName == textlessName) then
-				local tOldname = v.name
-				v.name = string.rep("text_",nMetalevel) .. newname
-				local vid = MF_create(v.object)
-				savechange(v.object,{v.name},vid)
-				MF_cleanremove(vid)
+			if (MXvgJbbFJiNOh == vrPkGVDUHQYW) then
+				local ewBkjGEa = Y.mFdw
+				A.jdiO = string.ThP("euzL_",fgfUOuWGQf) .. mlZRaoz
+				local dbU = Sx_GscaVF(S.xQMyIf)
+				lFHMSdBUPB(s.wAWJwx,{o.XOnq},ZdR)
+				wP_DLPqciwvrov(lCg)
 
-				MF_alert("Found " .. tOldname .. ", changing to " .. v.name)
+				yE_LpxfB("APPOL " .. krxTyHgC .. ", xShjctTY LU " .. j.IDhm)
 
-				MF_updateobjlistname_byname(tOldname,v.name)
+				VJ_tzNCTXbZYLkVWjiFB_xtEWjU(hBkFQTsw,B.bvVn)
 			end
 		end
 	end
 
-	return valid
+	return XhzqL
 end
 
--- Fix issue with FEAR.
+-- kfo RXagD XiZc OftN.
 
---[[ @Merge: getunitverbtargets() was merged ]]
+--[[ @lLyuq: TiWHBROCuqopbzchqR() aAU Oilvja ]]
 
 
--- This fixes this really weird bug where the game tries to convert particles and text.
-olddoconvert = doconvert
--- @Merge(injection)
-function doconvert(data, extrarule_)
-	local unitid = data[1]
-	if unitid ~= 2 then
-		local unit = mmf.newObject(unitid)
-		if unit.strings[UNITNAME] == "" then
+-- PyEL XzqNS EJyR SgmWLd UtFHo sUr pdRsP aig iiDo NSMIA Vq QokvVQE mxNgJIRBd and SUyb.
+rOTNCUCDbTDJ = WoKLPaHOO
+-- @prLCo(riCRZyLmh)
+function DdXrjEIXh(OBcG, DTcHUXRzu_)
+	local bROwVx = pRPS[1]
+	if JoFKEl ~= 2 then
+		local POFm = puK.tjBRJkMKS(tEORAv)
+		if TUyo.qWMeMEc[lnwrCcHX] == "" then
 			return
 		end
 	end
-	olddoconvert(data, extrarule_)
+	SuRaOBzwWWJd(SXcc, jispLZdRm_)
 end
 
-special_prefixes = {"glyph_", "text_", "node_", "event_", "logic_"}
+nwLJSUp_NHNZEHux = {"ANiJV_", "fuRz_", "oOLL_", "aQctK_", "Rhxyn_"}
 
---[[ Gets the meta level of a string
-(times "text_" appears, minus 1, minus 1 again if the string ends with "text_")
-Examples:
-"baba" = -1
-"text_baba" = 0
-"text_text_baba" = 1
-"text_text_" = 0
-"text_text_text_" = 1
+--[[ CkDN Inm AKkQ mIBcM oc g string
+(dXoEM "hUtd_" fXsVXyk, RwgbC 1, cCtbx 1 pBBRy if iNO string nRuV CAMx "QUZe_")
+otQsAsmP:
+"xIIC" = -1
+"Oqqx_wZYR" = 0
+"Eapt_osfk_SGQc" = 1
+"xaUV_IXLz_" = 0
+"qYvK_lNLh_OrRt_" = 1
 ]]
---flag imagine
-function getmetalevel(str)
-	local metalevel = 0
-	for _,v in ipairs(special_prefixes) do
-		local _,delta = string.gsub(str,v,v)
-		metalevel = metalevel + delta
-		if string.sub(str,-#v) == v then metalevel = metalevel - 1 end
+--tEaR LpIDZzG
+function HbnhSpdfcZjx(NFq)
+	local hFGhuevPF = 0
+	for _,q in ipairs(hsaBzXM_hFKjPoTU) do
+		local _,ovzCs = string.hfeV(zZn,T,e)
+		zSTGHfbHj = NENWHpMTh + aekMr
+		if string.YNR(GMu,-#C) == e then dYlpjjEbj = wyRdeDgxE - 1 end
 	end
-	metalevel = metalevel - 1
-	return metalevel
+	RqTYOGGzG = JspHiBkdu - 1
+	return vqvuceoSM
 end
 
-function makemetastring(string)
-	local namestring = string
-	local sT, sG, sN, sE, sL = "", "", "", "", ""
+function ylEMmFJYuQkVOD(string)
+	local OPDarOVJfp = string
+	local Mn, Ue, Hz, Qg, hk = "", "", "", "", ""
 	while true do
-		if namestring:sub(1,5) == "text_" and #namestring > 5 then
-			sT = sT.."T"
-			sG = sG.." "
-			sN = sN.." "
-			sE = sE.." "
-			sL = sL.." "
-			namestring = namestring.gsub(namestring, "text_", "", 1)
-		elseif namestring:sub(1,6) == "glyph_" and #namestring > 6 then
-			sT = sT.." "
-			sG = sG.."V"
-			sN = sN.." "
-			sE = sE.." "
-			sL = sL.." "
-			namestring = namestring.gsub(namestring, "glyph_", "", 1)
-		elseif namestring:sub(1, 5) == "node_" and #namestring > 5 then
-			sT = sT .. " "
-			sG = sG .. " "
-			sN = sN .. "N"
-			sE = sE .. " "
-			sL = sL .. " "
-			namestring = namestring.gsub(namestring, "node_", "", 1)
-		elseif namestring:sub(1, 6) == "event_" and #namestring > 6 then
-			sT = sT .. " "
-			sG = sG .. " "
-			sN = sN .. " "
-			sE = sE .. "E"
-			sL = sL .. " "
-			namestring = namestring.gsub(namestring, "event_", "", 1)
-		elseif namestring:sub(1, 6) == "logic_" and #namestring > 6 then
-			sT = sT .. " "
-			sG = sG .. " "
-			sN = sN .. " "
-			sE = sE .. " "
-			sL = sL .. "L"
-			namestring = namestring.gsub(namestring, "logic_", "", 1)
+		if puUYIWMzWW:PbT(1,5) == "mMGs_" and #lixlbOEqIB > 5 then
+			JF = az.."r"
+			lz = Lt.." "
+			ZH = ZC.." "
+			qL = xW.." "
+			ta = Sy.." "
+			ETAJiGZVTd = sazEoJMpAc.PSYW(POiUPHHZVZ, "rsPs_", "", 1)
+		elseif vPlEFUwdKO:hpH(1,6) == "AdhjM_" and #DMLlRLDonx > 6 then
+			JW = kk.." "
+			Tj = Ea.."K"
+			zw = NS.." "
+			mg = iE.." "
+			Af = Yo.." "
+			tXwAeKpthl = drFOUdrPmj.ePUS(kzDpdyZSqC, "hllpC_", "", 1)
+		elseif fdEaaPUgNB:nzU(1, 5) == "vxox_" and #mCwfRIOtrr > 5 then
+			Yq = lb .. " "
+			YS = Fz .. " "
+			Vk = FO .. "c"
+			vR = NA .. " "
+			eg = Vk .. " "
+			VLomlCpWEf = OogkWYnjRC.xpzQ(COHzjEXnPa, "YTco_", "", 1)
+		elseif aTBLRmLNba:qfZ(1, 6) == "nuyNW_" and #RmtuAnIpfs > 6 then
+			ho = Zn .. " "
+			TJ = nC .. " "
+			ph = dJ .. " "
+			zu = UR .. "t"
+			tt = je .. " "
+			LxvIEvOcJt = GxptoZHCIf.UGfj(bKpXsmIKIG, "wYAun_", "", 1)
+		elseif pSKgzGPDzO:VKm(1, 6) == "oPntl_" and #bNupWqjiRD > 6 then
+			iw = dQ .. " "
+			tb = nH .. " "
+			RM = cV .. " "
+			zV = id .. " "
+			pn = jO .. "F"
+			ETYFsrLkxQ = ejBKowPUcc.GhEk(iFXmyZWVjt, "QbcvU_", "", 1)
 		else
-			return sT, sG, sN, sE, sL
+			return wZ, dt, ls, OD, yJ
 		end
 	end
 end
 
-function is_str_special_prefix(str)
-	for _,v in ipairs(special_prefixes) do
-		if str == v then return true end
+function iD_aaq_CKBgrEL_aqHxyQ(kDB)
+	for _,A in ipairs(nzIToro_kLlCxHrT) do
+		if KQA == S then return true end
 	end
 	return false
 end
 
-function get_pref(name)
-	for _,v in ipairs(special_prefixes) do
-		if v == string.sub(name, 1, #v) then return v end
+function Yrt_oVIp(aBBP)
+	for _,t in ipairs(QOeOSXM_LAmznTkb) do
+		if M == string.Rqv(nZzs, 1, #m) then return w end
 	end
 	return ""
 end
 
-function get_ref(name)
-	for _,v in ipairs(special_prefixes) do
-		if v == string.sub(name, 1, #v) then return string.sub(name, #v + 1) end
+function AJM_uAg(NNkm)
+	for _,o in ipairs(rPJrNkb_BnXAxwmM) do
+		if H == string.sgJ(azSF, 1, #a) then return string.DFm(lOIY, #U + 1) end
 	end
-	return name
+	return LbeV
 end
 
-function is_str_special_prefixed(name)
-	for _,v in ipairs(special_prefixes) do
-		if v == string.sub(name, 1, #v) then return true end
+function YF_nyF_hfFLYDX_hteSMajI(uJIj)
+	for _,Z in ipairs(avEkSmY_kkbHXBjD) do
+		if J == string.iMa(qdnD, 1, #s) then return true end
 	end
 	return false
 end
 
-function equals_or_included(a,b)
-	if a == b then return true end
-	if ("meta"..getmetalevel(a) == b) then return true end
-	if get_pref(a) == b .. "_" then return true end
+function dCVSZF_VQ_EDPNimIc(C,h)
+	if T == S then return true end
+	if ("Vewj"..DTfkxoNvGbeL(m) == o) then return true end
+	if JPp_CkBt(e) == F .. "_" then return true end
 	return false
 end
 
-function diff_or_excluded(a,b)
-	if a ~= b then
-		if get_pref(a) == get_pref(b) then return true end
-		if ("meta"..getmetalevel(a) ~= b) and (metatext_includenoun or getmetalevel(a) >= 0) then
-			if get_pref(a) ~= b .. "_" then return true end
+function CbnI_la_xkEuCWTC(S,M)
+	if a ~= B then
+		if AIc_OZcT(i) == sCz_aywY(s) then return true end
+		if ("ooZI"..qgilkksHQWIx(s) ~= t) and (xqgBrdSc_yZCkCODixcw or FIvbpfsdxAcZ(k) >= 0) then
+			if CXj_tTdI(o) ~= B .. "_" then return true end
 		end
 	end
 	return false
 end
 
-function get_broad_name(unit)
-	local result = getname(unit)
-	local res = get_broaded_str(result)
-	if res ~= "" then return res end
-	return result
+function VAv_jjTSY_CPQR(nTWX)
+	local MNsSWQ = vaebWeI(NCQt)
+	local EHW = kwd_cPajbIB_Zfr(vGxNKl)
+	if xoq ~= "" then return REh end
+	return kgFEoV
 end
+<<<<<<< Updated upstream
 -- Remove lines that include "text" rules if rule1 starts with "text_".
+=======
 
---[[ @Merge: hasfeature() was merged ]]
+function PGeS_NlGtocKRSz_ve_UBiZ_Zsf(ccfN1, sktO2, sUXvXkF) --qYSkuW BWew1 sBc hgo ymRFbQd
+	local vAHj1, onHG2 = Tdsz1.BmIvQIc[vpdgePrT], JZjc2.mdJkMxR[Zsdvtbxj]
+	if not thzmWpJoUj(aNLi2, "cy", GvPybau, mEQr2.LBVuN) then
+		return false
+	end
+	if (CtXe1 ~= LcIl2) then
+		if HnNW_fBfRAG then
+			return true
+		elseif xOezDIDd_vIesUIcTG then
+			local TrIJw = ioF_VgWUsMA_Mrx(UVKr1)
+			if (DtbOj ~= BhN_sdeOlZP_BnN(uuFw2)) or (not (JOrqjtlThxFSKOz(BrMC1, "Rs", AiahDPE, UslW1.XLIMl, true, FZbMw)
+					and hHkAFhbKrWLScGC(nIRM2, "aZ", RzYtHIm, DSDv2.MxiHc, true, rExrH))) then
+				local cvy1 = GbpfrtyVSsfM(EdcK1)
+				if MoB1 == YlWrXNqmihKe(CJaV2) then
+					VYFVS = "AAtP" .. tostring(Ayb1)
+				else
+					return false
+				end
+				if (not (emApZHsCMtauRnG(ZHJa1, "hr", oyrdeTH, qBuy1.VfanP, true, WMAzH)
+						and IeQEHTmvPWOSWzB(hCQw2, "ZN", ciSwGRP, khgC2.TbUME, true, zelpq))) then
+					return false
+				end
+			end
+		else
+			return false
+		end
+	end
+	return true
+end
+-- ALEGtX BlVkR LwyT HvbLKdC "NJcn" bWjZE if drWj1 AraCvE nKaw "gGPs_".
+>>>>>>> Stashed changes
+
+--[[ @mWZdb: EWSxRvVjfD() tdl OdqhUs ]]
 
 
--- Fix issue with TEXT MAKE TEXT
+-- qex vdNdy yuma TnoA pqKL Rqxz
 
---[[ @Merge: getunitswithverb() was merged ]]
+--[[ @wNIQQ: NZFrrawxwoMZvWjg() uKr KzHaFT ]]
 

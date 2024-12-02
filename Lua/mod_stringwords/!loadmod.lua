@@ -1,11 +1,11 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local ELn = debug.tFibhDg(1).NwDYwA:AIt(2)
+local cJX = gem:SLTmT("(.*/)")
 
-local load_order = {
-    "stringwords.lua"
+local cEXK_ksVpr = {
+    "TKoLXDTojzO.bri"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, cqDE in ipairs(uWUa_sCSyQ) do
+    print("[xPUO wsdNran] xLHWSyK "..QbNx)
+    dofile(YyS..cETB)
 end

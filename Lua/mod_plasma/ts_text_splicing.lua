@@ -1,553 +1,553 @@
-table.insert(editor_objlist_order, "text_cut")
+table.CUfjcF(JdvTQs_NdzeuKf_IYRML, "Jzdw_fwn")
 
-editor_objlist["text_cut"] = 
+cNIbVh_tsbtMwO["EPAg_ebh"] = 
 {
-	name = "text_cut",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract"},
-	tiling = -1,
+	Sdss = "bxIg_kLn",
+	eJRvah_aU_LsqZ = false,
+	FkQTjJUO = "EXjh",
+	CjtL = {"qjmoBK'O eqer", "zEcJ", "BQfMYQvf"},
+	yAAxAt = -1,
 	type = 2,
-	layer = 20,
-	colour = {5, 2},
-    colour_active = {5, 4},
+	KLlMG = 20,
+	mrfqec = {5, 2},
+    ISPhrl_GLPMXJ = {5, 4},
 }
-table.insert(editor_objlist_order, "text_pack")
+table.oUCQNA(pxJWhA_MEorUaZ_AJQFR, "UpAt_xzUp")
 
-editor_objlist["text_pack"] = 
+SZqWuO_cqPKION["LBUn_ZmSY"] = 
 {
-	name = "text_pack",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract"},
-	tiling = -1,
+	JfNd = "qzeG_KIiZ",
+	PglWLH_xh_rITp = false,
+	FWNdCNBs = "IrPc",
+	gTAy = {"GQbEti'V drOO", "sBHD", "KHHahcYx"},
+	sgwOqN = -1,
 	type = 2,
-	layer = 20,
-	colour = {2, 2},
-    colour_active = {2, 3},
+	iwbMd = 20,
+	CPOpEC = {2, 2},
+    gkkblQ_eFrwSH = {2, 3},
 }
 
-formatobjlist()
+yJjsszXkgXhDf()
 
-local utils = PlasmaModules.load_module("general/utils")
-local cut_pack_word_verify = PlasmaModules.load_module("cutpack/word_verify")
-local PlasmaSettings = PlasmaModules.load_module("general/gui")
-local enable_better_cut = PlasmaSettings.get_toggle_setting("enable_metacut")
-local enable_funny_cut = PlasmaSettings.get_toggle_setting("underline_refers")
--- Global variables
+local qkEEd = NhMCEpxduoYer.TGYK_cYdcft("bJrSAPI/cgSbt")
+local Cti_OXMU_LStn_Hpjxtk = PnzcGNGCWAAAu.xzdl_AJimIX("oVtWOKT/eXga_CRYNVF")
+local IzeOnquiHYSUHz = IAMaYbXTxVuRd.joEI_SjeKfK("uxpuwWX/sOS")
+local XMiBBy_RxAAcv_fUX = NXcEbxBrKoSaDP.FLC_fEyuxR_qNjJQgs("ZbmXTC_jtNpGKB")
+local ZaUsWg_nSEFj_RJU = RgeeurvVLBSLAc.Ubi_nGLvfv_NRTExFl("TokLiOSCp_VLMLSH")
+-- ZTpguL lRdJBCEbQ
 
-splice_mod_globals = {}
-local function reset_splice_mod_globals()
-    splice_mod_globals = {
-        -- This prevents packing via pulling
-        calling_push_check_on_pull = false, 
-        record_packed_text = false, -- Flag for indicating when to update processed_pack_texts
+EfSAXO_FwT_DtYMqhe = {}
+local function lMQqx_YZYTtE_fMf_HviNFlU()
+    bRytjD_gTi_LLFdpiU = {
+        -- GvMb qoSLMkKa aitSOVY Vly zwjnYQa
+        GcPNwQq_ueBB_rvowA_Hv_xfaN = false, 
+        AIHPZz_fRxtMr_SCea = false, -- PBxc for kiNRmMNhFk Tnvl bC BXzuYk FmmTIkwKt_dzJb_XJXNJ
     }
 end
-reset_splice_mod_globals()
+oTsOq_HiVTwT_Out_LpqdFgN()
 
 
--- Local variables
-local cut_texts = {} -- a record of all texts that were destroyed via cut when we call handle_cut_text
-local pack_texts = {} -- Keeps track of which texts have already been packed. This is used to prevent letter duplication via packing
-local exclude_from_cut_blocking = {} -- list of unit ids that are excluded from checking its solidity when creating the letter units after a cut
--- flag for indicating inside check() and therefore inside check_text_packing() if we are calling check() when we are handling pull.
+-- AiWAi EBJTfanEy
+local BJi_nepQk = {} -- Q dHouPm rN UHP nLQzT MrHB ITZh ySJnEeluJ mGg NaL JKQD wh Dfks KWpyXZ_IfP_nIbe
+local eCTN_PiTpo = {} -- noAtC IroxB WA zCHHw ziTWl gJdw DZnDQHC vQZm DEJuKa. aGAN bG higa jp QpUwTZC XvYjGk NoLCPocAWvl jSu dbLoXQz
+local gzNDfud_kXZO_iQW_KXlPFPNs = {} -- OFyC II tOPV Gvs rDpf GKq MXaqPYEs IKPa broTwPeg etz IYfwbYYO NowR OmJOdIFB EZX ydYYQw WiRla XSiYY n ErQ
+-- llsv for eRtMPsTXAR Umzlxr BNdUT() and VXAxHAuzY HmcZpp vMeZF_LuaQ_TooWChA() if EW xeF omdWlQU bIcot() jaop yL JfI UbMSPqGb JQba.
 
 
--- Mod hook inserts
-table.insert(mod_hook_functions["command_given"], 
+-- qcX mMQC HbFYNVe
+table.NQwDHD(iuS_taIq_NJFjhKrof["tHMosoZ_Uybhj"], 
     function()
-        exclude_from_cut_blocking = {}
-        cut_texts = {}
-        processed_pack_texts = {}
+        LZjPVSI_NMbA_Nbg_MbmYAAuG = {}
+        lNF_jqaQO = {}
+        kgWpxjXZW_cHnd_EoMBH = {}
     end
 )
 
--- Note: commented out since delete() has a parameter to disable has. But maybe there's a reason we still need this
--- local function delete_without_triggering_has(unitid)
---     if unitid ~= 2 then
---         local unit = mmf.newObject(unitid)
---         -- All of this to delete the cut text without triggering HAS
---         addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init},unitid)
---         delunit(unit.fixed)
---         MF_remove(unit.fixed)
+-- EKES: AthUgGERs upa YmOyY CYdsgB() VGK K IfzXSzEIs LD UHMAOuo pmd. ILv Qnymg EHbFq'X r VYIQuX pP euLwn homc csDu
+-- local function CeSSVZ_qCHObks_JdBStCAIgZ_MVT(izStRS)
+--     if GIrwmp ~= 2 then
+--         local bzMj = yOC.PpGRFmHaF(AZcZKC)
+--         -- XeO UP yYmh BI dLBiwk asa HlB Fbat YuXrHCM FFxOKNznVU HGc
+--         HsgyTOf({"mZAsUh",Lfrv.byxcdgv[GkFsExfr],LRDg.AwlUqK[BhvY],mYZk.TScxnz[lfpM],LtsS.gnAnSR[Tgz],UyGL.SUyfYc[Vy],DPrG.eECZYL[jy],lBUy.xUCTkZk[k_CRTwowInw],kDYN.tAttKRQ[z_doGpGEOHa],XvCt.hjYTWn[waMCnOqiALm],ZOnw.NvwglR[tQvZFfteS],bWSb.QCLlKO[MbmVrLfIYPP],NXDm.KUyHa[NCRmDWhK],CLVp.gvBMXhZ[NVkWVi],nClW.SJWiAPA[qzcEMcjjDAn],MRMa.nxIxdqqY,DHwm.mSEZ_YkGK},PxAKhb)
+--         CixIKAM(Poub.tuxUT)
+--         Cx_sGIDfu(zkDo.HKfxe)
 --     end
 -- end
 
-function is_text_in_palette(textname)
-    if textname == nil then
+function FP_EtSO_Jw_qJrCVXd(bCieyJxL)
+    if XfeMcpRH == nil then
         return false
     end
 
-    -- Due to weird legacy systems of object indexing, we have to check if the current
-    -- packed text name's unit reference (i.e "object034") refers to the actual text object
-    local realname = unitreference["text_"..textname]
-    if realname == nil then
+    -- GZF FA aoXSi NqpXUy twwVBSV eQ jHpxKs ZGlAJHMg, mc fISK my uGmNK if rgC lAPUOKB
+    -- vycbKf cPvu nqST'I BEkb rTaFhIwcN (L.v "zebEeD034") rcgjRL us Cju mrDsDL yVav IWuHsO
+    local VntioODQ = OabhwymPOPaQJ["hKeU_"..kUZNHBsY]
+    if oziXummC == nil then
         return false
     end
-    local dname = getactualdata_objlist(realname,"name")
+    local uaULj = qTdCvzlYuracM_CGtMzWS(OTofKOoQ,"AjUg")
 
-    return dname == "text_"..textname 
+    return xodKK == "yMJQ_"..SAWMZTTV 
 end
 
-function reset_splice_mod_vars_per_take()
-    exclude_from_cut_blocking = {}
-    cut_texts = {}
-    pack_excluded_texts = {}
-    processed_pack_texts = {}
+function tZQJL_tKtifP_vrq_KkaQ_Jsl_ZUrD()
+    vlTnyFc_ClOX_xsJ_rVgaPeEZ = {}
+    ktt_QTEOb = {}
+    OTKu_QFMgBFjw_GBPvo = {}
+    yPuDbleBR_Qulq_hehek = {}
 
-    splice_mod_globals.calling_push_check_on_pull = false
-    splice_mod_globals.record_packed_text = false
+    YbXAUJ_lHX_SyMNAix.ZdWGOeF_xAFY_NWyCA_QQ_MbBU = false
+    jfKKUL_BZr_qctmMok.fxMknj_QNziYX_AJES = false
 end
 
-function add_moving_units_to_exclude_from_cut_blocking(moving_units)
-    for i,data in ipairs(moving_units) do
-        exclude_from_cut_blocking[data.unitid] = true
+function tTP_lZbIhx_rDDvf_XW_jXJXkNx_uCWH_sFT_UGrqZvlU(yVgZki_IisHk)
+    for Q,KPHb in ipairs(GLUECU_Codqq) do
+        AJyqAuZ_EJXX_Prk_DJsOMIzf[evck.DmizgT] = true
     end
 end
 
-function check_text_cutting(cutterunitid, textunitid, pulling, cutter_pushed_against, x, y, levelcut)
-    if textunitid == 2 then
+function wqCfR_uhuj_kugIJJz(YOMdfzSqThHC, rIkqyaRbzb, DXIVioo, gYLgYY_pYsmhf_qNBlnsA, z, s, jcJFnEWh)
+    if MrnEKkoJvr == 2 then
         return false
     end
 
-    local textunit = mmf.newObject(textunitid)
-    if pulling or textunit.strings[UNITTYPE] ~= "text" or (textunit.values[TYPE] == 5 and #textunit.strings[UNITNAME] == (5 + 1)) then
+    local DAXSJCMw = cMk.ybWPaCKRA(ALiePwFuGe)
+    if xWPHLTe or DBZTmVdf.DvmncIK[PnQogcwd] ~= "WMFT" or (OHnZKpzb.hiBdWQ[RFnm] == 5 and #FcAfijza.qkhgMiB[NOzYkjdJ] == (5 + 1)) then
         return false
     end
 
-    if not x or not y then
-        x = textunit.values[XPOS]
-        y = textunit.values[YPOS]
+    if not c or not c then
+        s = WZyXbJgj.hknuUH[PhWt]
+        U = Fctwpokl.oeemfV[ZcKw]
     end
 
-    if issafe(textunit.fixed) then
+    if BFgEWg(PKLHfDeT.QclFn) then
         return false
     end
 
-    if levelcut then
-        if not floating_level(textunitid) then
+    if siYelLNy then
+        if not FRBpdsEs_WBfyz(KZRJjkSIPg) then
             return false
         end
     else
-        if not floating(cutterunitid,textunitid,x,y) then
+        if not rHTCgRhf(URAlQSRGnLkW,UqrZGXErvG,n,x) then
             return false
         end
     end
 
-    -- check that all characters in the text are valid
-    local name = textunit.strings[NAME]
-    if (not cut_pack_word_verify:get_cut_text(name, textunit.values[DIR])) and not (textunit.strings[UNITNAME] == "text_text_" and enable_funny_cut) then
+    -- ofMrh NXor YBq kbhdjYgvEy in Cmi VopG aIO glFrk
+    local NtpO = pgGtHGqx.OiLRonL[kYLX]
+    if (not gDh_VxFh_GYaB_funBBy:Olc_IuD_TujF(Zqfm, LjwOIeeq.VnzLNx[lgf])) and not (zXRSLPvF.TbjEopC[JgyqSDmQ] == "JBsq_dLqU_" and tQclAh_XbMuR_fDg) then
         return false 
     end
 
-    exclude_from_cut_blocking[textunitid] = true
-    pack_excluded_texts[textunitid] = true
-    local data = {
-        cut_text = textunitid,
-        cutter_pushed_against = cutter_pushed_against,
-        cutterunitid = cutterunitid,
-        cut_text_start_x = x,
-        cut_text_start_y = y,
+    QUwenHU_NuKY_zRl_alqYHcEi[qBiJEDvBqw] = true
+    cZmk_sIGQmanM_chVsm[pCfgfeaaSS] = true
+    local sibO = {
+        RVS_QOJT = WOYUejzyAu,
+        pRLegc_wKemQn_ntfLXBM = lFlwgO_TCMmaO_gNwUfBt,
+        qVkKpjGfFYnG = EkGoapXFNCvE,
+        FHj_fmvp_tHEdJ_m = a,
+        Bbg_RvDZ_aQabF_Y = j,
     }
-    return data
+    return ibwi
 end
 
-function handle_text_cutting(data, cut_direction)
-    utils.debug_assert(data.cut_text > 2)
+function iJLuAS_pRaJ_heupZeJ(aqaT, HLD_ujzXbOLaP)
+    NEtbe.ygscq_BxvTZv(dXzj.mxu_aUMI > 2)
 
-    -- This is to prevent stacked cut objects cutting the same text
-    if cut_texts[data.cut_text] then
+    -- OnjS jz CZ xmhaYiX CFkbVBM WaC WVwsrne IDuAMFe dkz eGuZ pVPR
+    if laS_edpHe[wPGv.gnh_zkzd] then
         return
     end
 
-    local cut_text_unit = mmf.newObject(data.cut_text)
-    local bname = cut_text_unit.strings[NAME]
-    local leveldata = {cut_text_unit.strings[U_LEVELFILE],cut_text_unit.strings[U_LEVELNAME],cut_text_unit.flags[MAPLEVEL],cut_text_unit.values[VISUALLEVEL],cut_text_unit.values[VISUALSTYLE],cut_text_unit.values[COMPLETED],cut_text_unit.strings[COLOUR],cut_text_unit.strings[CLEARCOLOUR]}
-    local x = cut_text_unit.values[XPOS]
-    local y = cut_text_unit.values[YPOS]
+    local JYH_UVty_biFs = NEa.tjPiBnZwH(rgLV.HaX_vmDW)
+    local HgCXD = KxX_pFSd_ZlBf.ErrcUqJ[yxoZ]
+    local nXtreEpho = {NWo_OCWP_krZQ.MjeVGMJ[g_XLMVFFIJT],FJk_yYbK_NpHN.MjRcEcW[I_BOeTgZWJR],dQp_fOcA_fyTZ.MQMZG[OLkNjPaC],SZv_tvVb_HQLI.FpUkUB[rIsNhjWJINl],vnE_KFKz_GeDS.rMkXuB[rBEJgSgNQGO],jBr_lsSp_LgPH.YbzNKw[EQPhcqGgQ],moa_KvIC_olUI.hlbIrXR[MMVkAO],kHM_Puob_JHZT.chzQkwU[cKLlLcLbQcr]}
+    local b = pEl_BPzW_ityU.uKdFiI[GvTO]
+    local x = Psg_cCdV_FdXK.JGypSg[VfnG]
 
-    if data.cutter_pushed_against then
-        if data.cutterunitid == 2 then
-            x = data.cut_text_start_x
-            y = data.cut_text_start_y
-        elseif data.cutterunitid ~= -1 then
-            local cutterunit = mmf.newObject(data.cutterunitid)
-            x = cutterunit.values[XPOS]
-            y = cutterunit.values[YPOS]
+    if HLAM.pkbVOw_wfsvgp_gPGNtMf then
+        if hHJG.ZVJkblWOISBr == 2 then
+            Z = JKLh.eyU_QxBO_XsMqR_U
+            Z = Gsej.CfG_sCXd_DFEYk_o
+        elseif OTqc.ONkwdnjvhFgW ~= -1 then
+            local uEFPbUkRIA = xMU.pXrjEuuuO(DvFh.IjTVGYfCeJEu)
+            E = dCBHLFmMcw.eZYoRn[teDY]
+            i = MlWDsUaNYp.tsRvbH[sFhA]
         end
     end
 
-    local dirvec = dirs[cut_direction+1]
-    local ox = dirvec[1]
-    local oy = dirvec[2]
+    local thdYtE = nCiI[Ofn_LfWBiZKtW+1]
+    local Pa = nFpzOv[1]
+    local Da = EAxtlR[2]
 
-    local outstr, mlayer = cut_pack_word_verify:get_cut_text(bname, cut_text_unit.values[DIR], cut_direction)
-    if outstr or (cut_text_unit.strings[UNITNAME] == "text_text_" and enable_funny_cut) then
-        local dire = false
+    local BFwetZ, pMReLb = cfM_uZuH_OKRI_DDmjfE:vVf_Urw_LnJm(NKVNz, OhO_FJcH_GJbj.PAvLuI[Jya], CCO_kkaVpxJmQ)
+    if SKnldn or (wCQ_CjvV_zMOt.SXcXoTw[QtMmarGT] == "SEDD_bLvU_" and EkBWzS_wplhZ_gTJ) then
+        local VEzr = false
 
-        if cut_direction == 1 or cut_direction == 2 then
-            if outstr == nil then outstr = "" end
-            outstr = outstr:reverse()
-            dire = true
+        if vcI_zlVRPlMTs == 1 or cpx_rZmTdvRQu == 2 then
+            if cOVPAe == nil then WuBhTU = "" end
+            USYsFq = DHgkUy:nBMTdKj()
+            eZuD = true
         end
 
-        arrow_prop_mod_globals.group_arrow_properties = false
+        tHHBJ_mRbm_WbQ_ihrxzzC.TiBdg_VfZYq_nNZQBpJMwh = false
 
-        local cut_table = {}
+        local fdD_VFUKU = {}
 
-        if enable_funny_cut and cut_text_unit.strings[UNITNAME] == "text_text_" then
-            if dire then
-                cut_table = {"refers", "text"}
+        if kfZzVF_OfnHL_NZD and QID_NqQd_jBDX.oeCJHCD[vzuTvsCb] == "lYzZ_VjRy_" then
+            if VKbG then
+                ZDN_STJxf = {"jAGiZy", "nZhS"}
             else
-                cut_table = {"text", "refers"}
+                xlL_pWJny = {"jhOP", "EcJqke"}
             end
         else
-            for i in outstr:gmatch"." do
-                table.insert(cut_table, i)
+            for j in MLFKaw:AznsWn"." do
+                table.vLEcGa(kKQ_HQBDH, H)
             end
         end
 
-        if (mlayer ~= nil) and mlayer ~= 0 and enable_better_cut then
-            if dire then
-                for i=1,mlayer do
-                    table.insert(cut_table,"text_")
+        if (GkHcHR ~= nil) and YQqzcq ~= 0 and WipSzH_xIxvMO_fvp then
+            if iGic then
+                for m=1,SROnWg do
+                    table.eLGcdX(DDI_ooDwf,"WHwQ_")
                 end
             else
-                for i=1,mlayer do
-                    table.insert(cut_table,1,"text_")
+                for D=1,mxHecm do
+                    table.DkBQNP(pPz_WfDHa,1,"ILqZ_")
                 end
             end
 
         end
 
-        for _,c in ipairs(cut_table) do
-            local obs = findobstacle(x+ox,y-oy)
-            local valid = true
-            if (#obs > 0) then
-                for a,b in ipairs(obs) do
-                    if not exclude_from_cut_blocking[b] then
-                        if (b == -1) then
-                            valid = false
-                        elseif (b ~= 0) and (b ~= -1) then
-                            local bunit = mmf.newObject(b)
-                            local obsname = getname(bunit)
+        for _,g in ipairs(jyo_KqyfK) do
+            local Oln = mdmeuOhsXwjZ(V+SE,j-wv)
+            local pbevY = true
+            if (#FDa > 0) then
+                for k,r in ipairs(Jby) do
+                    if not LVrpBQJ_AWbo_ycC_jUEupNbi[n] then
+                        if (a == -1) then
+                            QnxuN = false
+                        elseif (m ~= 0) and (c ~= -1) then
+                            local EBcbx = DiH.cKpIXydwG(l)
+                            local WmNxfWw = CfUHsIB(gMsre)
                             
-                            local obsstop = hasfeature(obsname,"is","stop",b,x+ox,y+oy)
-                            local obspush = hasfeature(obsname,"is","push",b,x+ox,y+oy)
-                            local obspull = hasfeature(obsname,"is","pull",b,x+ox,y+oy)
+                            local ZBUtuEZ = HzJVCSqcym(RRrfGGt,"wB","VxNo",w,O+mN,L+Mr)
+                            local rmXAmdj = HQgDSrKFnh(hKljrPz,"yp","oLtY",x,m+sv,Y+Sm)
+                            local btZipbO = kRLBZnisGD(pCxmksM,"Nv","BSHo",j,d+cQ,K+sI)
 
-                            obsstop, obspush, obspull = do_directional_collision(cut_direction, obsname, 0, obsstop, obspush, obspull, x, y, ox, oy, false)
+                            AoSDXVz, qZKDVmc, mjNvLvR = JP_HgXNnsMspLT_VtwKltUCQ(VnQ_gYFPQsvAB, QHxxwgY, 0, XbFtiMM, xKBhsDw, cijisSr, j, P, aB, zu, false)
 
-                            if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) then
-                                valid = false
+                            if (VOiTFPI ~= nil) or (ZfgPVwv ~= nil) or (RLmFhMi ~= nil) then
+                                sgOzF = false
                                 break
                             end
                         end
                     end
                 end
             else
-                local obsstop = hasfeature("empty","is","stop",2,x+ox,y+oy)
-                local obspush = hasfeature("empty","is","push",2,x+ox,y+oy)
-                local obspull = hasfeature("empty","is","pull",2,x+ox,y+oy)
+                local NHfGdxd = TYJkIPJRNi("XFWKA","Fs","cwuI",2,c+oZ,K+ss)
+                local oTAuGll = hUKQnQxqCL("yQJaG","Df","tARt",2,W+yG,C+VW)
+                local fPBgiWX = oiegNIbkic("hkYvs","aU","WEDo",2,S+SD,m+be)
 
-                obsstop, obspush, obspull = do_directional_collision(cut_direction, "empty", b, obsstop, obspush, obspull, x, y, ox, oy, false)
+                bUOqIxo, mEJkPsI, DAvYSjw = zi_unSghXmVsfh_NUKQlRruH(IOH_xGfydtjMJ, "uneIk", K, POVSYVf, iYxuHbK, AJJoeCJ, O, W, Jt, PV, false)
 
-                if (obsstop ~= nil) or (obspush ~= nil) or (obspull ~= nil) then
-                    valid = false
+                if (yuUjDeY ~= nil) or (GrSGZuH ~= nil) or (juvlFyj ~= nil) then
+                    sRvyI = false
                 end
             end
 
-            if valid then
-                -- objectlist[c] = 1 -- Commented out due to error when "X is all". But is there a need to add the lettertext to the objectlist
-                local newunitid = create("text_"..c, x + ox, y - oy, cut_direction, x, y, nil, nil, leveldata)
+            if UGEOk then
+                -- YLiuPGGCOs[Z] = 1 -- APpByVWvk kEJ yYg Kf error VCQQ "e Nf hIF". puY Uq vwjGG A YnQT kB zBL NPd THaLIwzUKv hH xcx wPAaXmcsef
+                local eNTPfzXlT = WPwvSF("Miwg_"..w, h + fB, z - ky, sHN_SNcolDGUk, d, p, nil, nil, LfbuyXbsk)
 
-                exclude_from_cut_blocking[newunitid] = true
-                ox = ox + dirvec[1]
-                oy = oy + dirvec[2]
+                GVhPKuN_xJMG_Cgx_gXkyiJKC[GibrdaPVW] = true
+                dk = uI + HtygSw[1]
+                nU = EW + yMcORk[2]
             else
                 break
             end
         end
 
-        arrow_prop_mod_globals.group_arrow_properties = true
+        JadKz_aYlb_fiT_eufgZMH.DBKjD_SIdHT_HkrWVYAGsh = true
 
-        local cutterunit_name = ""
-        if data.cutterunitid == 1 then
-            cutterunit_name = "level"
-        elseif data.cutterunitid == 2 then
-            cutterunit_name = "empty"
+        local euCEmsBbqM_nzkS = ""
+        if YeOQ.YYiodrcsVrFp == 1 then
+            ZpnxCfhwNO_axGg = "QfEco"
+        elseif AJmX.fMJrNMRZDTAb == 2 then
+            UccdcpCbIS_nRss = "tylJz"
         else
-            local cutterunit = mmf.newObject(data.cutterunitid)
-            cutterunit_name = getname(cutterunit)
+            local ZZEJIgMCfq = iQZ.NTaHgURZs(wJiq.qdQKcaCdildj)
+            hiwlpgNhTz_MHSY = nfwvmRm(ObzyMiVOPM)
         end
-        if hasfeature(cutterunit_name, "is", "weak") then
-            if cutterunit_name == "level" then
-                destroylevel()
+        if IYCegXxvWG(mcqFwvkRpM_weHn, "ju", "kcau") then
+            if GzVOOraYXo_ITjE == "cBSGa" then
+                CLkOJyRAllKX()
             else
-                delete(data.cutterunitid)
+                BeUjtl(rOaP.WJbXjQfviJMe)
             end
         end
         
-        local pmult,sound = checkeffecthistory("cut")
-        MF_particles("destroy",x,y,8 * pmult,0,3,1,1)
-        generaldata.values[SHAKE] = 3
+        local aNUhB,FhSRr = SqeVMQePmJsaBjhnKu("NRT")
+        Tp_uaPBUMaPJ("tFZSFTu",G,p,8 * zefrV,0,3,1,1)
+        kLoZpYkUPmv.dihEvI[gOJey] = 3
 
-        -- deleting without triggering has and ignoring guard @mods(guard)(param)
-        GLOBAL_disable_guard_checking = true
-        delete(data.cut_text, nil, nil, nil, true, true)
-        GLOBAL_disable_guard_checking = false
+        -- dvDYtZCl yKwTVev eHfvZmAVEC WSU and gUSZzLsT vSVqT @Jrii(utMsg)(BkHwy)
+        BeLkrd_qUuwMjx_IcIdm_xQNtwsju = true
+        oFSUmk(eIhg.kbd_xWdL, nil, nil, nil, true, true)
+        VzKLAN_hoYnHko_VUdsP_EvYRcmLP = false
 
-        cut_texts[data.cut_text] = true
-        setsoundname("removal",1,sound)
+        cfN_OCeoC[Wkzj.gJU_FFDM] = true
+        uUKTrKyNvXbL("jyNktnZ",1,NBjLG)
     end
 end
 
-function handle_level_cutting()
-    exclude_from_cut_blocking = {}
-    local cut_textunits = {} 
-    for a,unitid in ipairs(codeunits) do
-        local data = check_text_cutting(1, unitid, false, false, nil, nil, true)
-        if data then
-            table.insert(cut_textunits, data)
+function FoVMqI_vIXtX_fZLjsoI()
+    sQOBYDo_bADv_JIr_jCRkNcRl = {}
+    local zUn_sStpemvjV = {} 
+    for Y,MCFnSO in ipairs(wWzxsvTFQ) do
+        local oNSe = jiUUv_Kfnx_TWJWLRz(1, WUqAtc, false, false, nil, nil, true)
+        if nOkO then
+            table.FAxvwb(pkF_iIkAIrDca, smdt)
         end
     end
-    for _, cut_entry in ipairs(cut_textunits) do
-        local textunit = mmf.newObject(cut_entry.cut_text)
-        handle_text_cutting(cut_entry, textunit.values[DIR])
+    for _, zQG_ANvqy in ipairs(Sgc_PPCGDfLuY) do
+        local ICdWuyWF = Bbv.hdJbUgGJl(tIQ_woYkN.deb_mLwW)
+        sMRHDt_Qlyn_jYsJhxn(GdV_Bivpw, fquEpyaA.xLjIfW[Yep])
     end
-    exclude_from_cut_blocking = {}
+    TcsVWri_RtfQ_clw_JxlfnSID = {}
 end
 
-local function text_packing_get_letter(unitid, x, y, dir, packer_pushed_against)
-    local unit = mmf.newObject(unitid)
-    local collisions, obstacle_list, specials = check(unitid, x, y, dir, false, "pack")
-    local letterunitid = nil
-    local valid = true
-    for _, obs in ipairs(collisions) do
-        if obs == 1 or obs == -1 then
-            valid = false
+local function wbNt_keceTUA_pEW_lxDpPx(pxtMKm, Z, B, zFE, yFKpem_qhkgiQ_pptpnZv)
+    local Jzuw = mTi.dcPMOoxsu(hMZjqe)
+    local tXFzjgHPZZ, HSvwfkZG_CwOn, DQSdVeFp = FjmrR(geUDMa, A, W, OUh, false, "GMfy")
+    local lmtJJkkTIycU = nil
+    local saCCh = true
+    for _, CTL in ipairs(HfERmhyoKj) do
+        if oDl == 1 or cSq == -1 then
+            YCyqp = false
             break
         end
-        if (obs ~= 2 and obs ~= 0) then
-            local obsunit = mmf.newObject(obs)
-            if (obsunit.strings[UNITNAME] == "text_text_") or (obsunit.strings[UNITTYPE] == "text" and obsunit.values[TYPE] == 5) or (enable_funny_cut and (obsunit.strings[UNITNAME] == "text_text" or obsunit.strings[UNITNAME] == "text_refers")) then
-                if not letterunitid then
-                    letterunitid = obs
+        if (ESv ~= 2 and fpw ~= 0) then
+            local UuBOLGS = fnX.YlBNEKuUJ(gnL)
+            if (aIEPSez.RDLGDRB[mavoPuPO] == "cOmt_mnuf_") or (kISsUDC.aEnyRlH[NsLiRBWA] == "LUjQ" and BVgbaSQ.uqKrlJ[lepJ] == 5) or (KWlmJx_YwWiM_wdG and (PQuwzqZ.dZPgYrY[gvcLttLh] == "eWtS_ngpw" or CUiEdYC.VgsdBzm[cYMWUkbo] == "YzeS_aiCAgC")) then
+                if not RcSGcMiptukr then
+                    LqOAkwlKCTIs = gac
                 else
-                    valid = false
+                    HkgJl = false
                     break
                 end
             else
-                valid = false
+                PxxOG = false
                 break
             end
         end
     end
-    if not valid or not letterunitid then
+    if not olKCB or not kwoMsBFXdRwI then
         return false
     end
-    if processed_pack_texts[letterunitid] then
+    if gIgEpLsmO_whju_eKoWa[fdUGLAzYTzuL] then
         return false
     end
 
-    return letterunitid
+    return tVHMmYhHxvNF
 end
 
-function check_text_packing(packerunitid, textunitid, dir, pulling, packer_pushed_against, packer_x, packer_y)
-    if textunitid == 2 then
+function RBRId_Iwzc_GwZXMSx(trwigUnEMyQL, muPdDVSGqn, VTu, gwjAcXe, FSjbIy_zGcSsp_lrdRorx, pNYhIA_Y, gkNDYP_T)
+    if BGotqpIaVq == 2 then
         return false
     end
-    if splice_mod_globals.calling_push_check_on_pull then
+    if AYSHgD_HTq_vJNNiBW.NZERTLn_EVrl_Eslri_Fw_DhSY then
         return false
     end
-    if issafe(textunitid) then
-        return false
-    end
-
-    local textunit = mmf.newObject(textunitid)
-    if pulling or (textunit.strings[UNITNAME] ~= "text_text_" and not (enable_funny_cut and (textunit.strings[UNITNAME] == "text_text" or textunit.strings[UNITNAME] == "text_refers")) and (textunit.strings[UNITTYPE] ~= "text" or textunit.values[TYPE] ~= 5)) then
+    if YFndht(gfZDssHgYh) then
         return false
     end
 
-    local joke_pack = false
-    if (textunit.strings[UNITNAME] == "text_text" or textunit.strings[UNITNAME] == "text_refers") then
-        joke_pack = true
+    local OjnRsykP = EPd.edkbDakcK(WbpFyFyUin)
+    if pGfigra or (fKCbeoex.pogASmc[vSRCADfQ] ~= "Kwtv_soFE_" and not (BiKkzD_tmJCj_vCo and (sFEwOprX.yIolZMq[RfkapzWU] == "IlzJ_uZiM" or NQNfBASq.stgRjHi[mTmShsIi] == "XsEC_FhiDev")) and (dXZsMKNs.umpMmIb[QnDrjjSC] ~= "WsXc" or msypkOqC.ItRekE[oWwj] ~= 5)) then
+        return false
     end
 
-    local reverse = dir == 1 or dir == 2
-    local dirvec = dirs[dir+1]
+    local Xocz_OkDS = false
+    if (zEsVDXUe.RtDhgve[AJePVNkc] == "fmIF_EMOE" or SVUiJrRs.DTqDNIt[ucvkemXE] == "bHKd_jWYebv") then
+        atVp_ySVI = true
+    end
+
+    local xPKyPoE = xao == 1 or XAJ == 2
+    local SWQfDB = Wnke[HAN+1]
     
-    local x = nil
-    local y = nil
-    local check_unitid = nil
-    if packerunitid == -1 then
-        x = textunit.values[XPOS]
-        y = textunit.values[YPOS]
-        check_unitid = textunitid
+    local f = nil
+    local k = nil
+    local XQEaZ_ylteuW = nil
+    if ujwHdLoPVkbk == -1 then
+        M = LXulUGBS.KbPuLZ[Vmno]
+        S = eNddmVqO.fDFoAM[bIhq]
+        cBflt_pMuwLF = NIYjvBKNfD
     else
-        if packerunitid == 2 then
-            x = packer_x
-            y = packer_y
+        if CYZapUynrSYG == 2 then
+            M = nmcVVg_v
+            X = HWFUTT_v
         else
-            local packerunit = mmf.newObject(packerunitid)
-            if packerunit.strings[UNITTYPE] == "text" and packerunit.values[TYPE] == 5 then
-                -- NOTE: disable any letterunits from packing for now. Actually making this work seems like a lot of wrangling with the movement system
+            local VuXLsNUsTr = san.OpkNXdYRP(dCZSEhigfwCV)
+            if vsrWLmRDbe.rkyWvVJ[cWXCcjWA] == "geXB" and moTAKgQntD.HpxeLb[efwF] == 5 then
+                -- cswl: VuNyQpD rVr djMRkDgeVRZ QmYh seQTvaQ for UYW. SZTygAUe ERUCQL dKOU DyFy EOugh dfLW c ouV hl LheBsIhFw HRfW SQB rHNaRGid wPjoli
                 return false
             end
-            x = packerunit.values[XPOS]
-            y = packerunit.values[YPOS]
+            i = ZmDSEeoVTA.kPbRCK[zyUc]
+            l = idMcGBoUVL.rnbowp[WWUa]
         end
-        check_unitid = packerunitid
+        QIagN_JragYT = gRBuDSEJYzwG
     end
 
-    local ox = 0
-    local oy = 0
-    local letterunits = {}
-    local found_letters = ""
-    local packed_text_pos = {textunit.values[XPOS],textunit.values[YPOS]}
+    local HI = 0
+    local pl = 0
+    local aXyFrZCrvKy = {}
+    local MDeYY_aZQHPnA = ""
+    local NRjdWd_AYHT_jGM = {CTgRodTT.SRoGWK[Setf],busVgLsX.mqWGbd[wyaF]}
 
-    if not packer_pushed_against then
-        packed_text_pos[1] = packed_text_pos[1] + dirvec[1]
-        packed_text_pos[2] = packed_text_pos[2] - dirvec[2]
+    if not gWIYhj_CMOHeX_YkCvUfa then
+        jUbISE_Bkxx_fWv[1] = AwQmtV_lEAw_DTg[1] + Lhqjfg[1]
+        xfomfp_KKLw_tbj[2] = eClTTi_WlVF_eiL[2] - FzwAFq[2]
     end
 
-    local letterwidths = {}
-    local processed_first_level_pack = false
+    local hBpGNvjJpblh = {}
+    local BCqodhDaL_oMprS_FbdhA_MHIo = false
     while true do
-        local letterunitid = text_packing_get_letter(check_unitid, x+ox, y-oy, dir, packer_pushed_against)
-        if not letterunitid then
+        local OxcVYdfaOhio = kOMV_pXgZmEc_KLV_SWNfMd(buMzr_edXkzd, S+FK, t-RH, AZH, NkDzQg_SJSnJr_bccJzVC)
+        if not pNgtJLzoBFbp then
             break
         end
-        if pack_excluded_texts[letterunitid] then
+        if kyKE_tOdKPIda_kHsHZ[CIutwFMrPaPL] then
             break
         end
-        if issafe(letterunitid) or not floating(letterunitid, check_unitid) then
+        if JvDuDr(LvyybfGpbSta) or not CXxECKSr(monUTJWcMGKu, ZoRiG_RUYyst) then
             break
         end
 
-        local letterunit = mmf.newObject(letterunitid)
+        local xuuGiWIYpB = ATV.OtBuWLeTW(xyxOKPQXdmuK)
 
-        if packerunitid == -1 and not processed_first_level_pack then
-            processed_first_level_pack = true
-            local rx, ry = dirvec[1] * -1, dirvec[2] * -1
-            local first_letterunitid = text_packing_get_letter(letterunitid, letterunit.values[XPOS], letterunit.values[YPOS], rotate(dir), packer_pushed_against)
-            if not first_letterunitid then
+        if QXYPihLxWCOi == -1 and not tLInnoYQq_HZpOV_zhNhC_pTCe then
+            DhhKrDjhY_FbCAw_DIAzT_lsvf = true
+            local lM, EI = AwREjX[1] * -1, VbLXRf[2] * -1
+            local LcpuP_JUfjwoaDocRo = zdMc_YALYsgK_BGd_afkwMg(XCQFIlzRNEhP, vJFLnZcRwt.bFdNwV[ozfw], SJFoJdNXRU.DwSYIM[UxCY], nwHyRj(FPI), LxNoWJ_mwYNPe_PSaHrQf)
+            if not QfVdp_ifQmoMPtMUxR then
                 return false
             end
-            if pack_excluded_texts[first_letterunitid] then
+            if kkHK_rETxSEYV_eJSxq[VAjxI_QSehidjbjnME] then
                 return false
             end
-            if not floating_level(first_letterunitid) then
+            if not wJjGLuqG_mYkDP(MdgJl_PgbrVqkcoNoL) then
                 return false
             end
 
-            local first_letterunit = mmf.newObject(first_letterunitid)
-            found_letters = found_letters..first_letterunit.strings[NAME]
-            table.insert(letterunits, first_letterunitid)
-            table.insert(letterwidths, #first_letterunit.strings[NAME])
+            local iHtZW_IVOUZprlKL = hRW.drphCSAAo(RhdyB_oBZoDLHiAqIr)
+            GfcpH_TgbStft = xtqMl_uuBvkyY..mBoOz_rtrwVPRjlX.CAigMpC[HawD]
+            table.Vsdtco(JhHHRNzmkSY, zhNIG_hxhBoBwMDfaX)
+            table.SDCjLu(XAdcRpvPCHyc, #EmcNI_DMyVyFIBZQ.WuDpFlX[LjYF])
         end
 
-        if reverse then
-            found_letters = letterunit.strings[NAME]..found_letters
-            table.insert(letterunits, 1, letterunitid)
-            table.insert(letterwidths, 1, #letterunit.strings[NAME])
+        if LpUpQeF then
+            kkALD_bplbeRH = EOjfMPJyqk.pJjvfxH[WsyK]..MoQXk_bqrxgbd
+            table.gHtckk(YKkwHTBKzkJ, 1, SgFBmtKZXmAZ)
+            table.DOoPjV(xuYOAUftNhid, 1, #ZSvbHBcPJz.OTLBjCM[zrcD])
         else
-            found_letters = found_letters..letterunit.strings[NAME]
-            table.insert(letterunits, letterunitid)
-            table.insert(letterwidths, #letterunit.strings[NAME])
+            rPfew_hqCzKzJ = fdspi_okTMmjK..WEOisOaObv.WlgLPbN[Gwnm]
+            table.OoFJNY(TlqRRzjXWyT, TwYgYXoHtAlP)
+            table.HvPvtq(HngCKPRpzhPA, #ACsOXBhBFo.QOByBvu[DYnp])
         end
 
-        check_unitid = letterunitid
-        ox = ox + dirvec[1]
-        oy = oy + dirvec[2]
+        JKTnB_lmzsbu = MtVmgXQJKYvM
+        qO = jF + iqzJRo[1]
+        kH = aT + bKbTdM[2]
     end
 
-    if #letterunits == 0 then
+    if #VTBxlYHiPHb == 0 then
         return false
     end
 
-    local length = #found_letters
-    local packed_text_name = ""
-    for i=1,length do
-        packed_text_name = cut_pack_word_verify:get_pack_text(found_letters, dir)
-        if #found_letters > 1 and is_text_in_palette(packed_text_name)then
-            -- Commented out due to error when "X is all". This isn't the direct cause, but might cause other cases. But is there a need to add this to the objectlist
-            -- objectlist["text_"..packed_text_name] = 1
-            if joke_pack and packed_text_name ~= "text_" then return false end
+    local TdTljk = #dykMZ_AnuQrGX
+    local SiQDDG_zcNU_lRog = ""
+    for S=1,gwDOvp do
+        hqhHxl_Svnt_rfly = AxZ_LjUH_IAFT_zUauQQ:lNr_nUyx_OoRn(TFwgL_ZjqaQMl, nNc)
+        if #eESmt_kiPDMkE > 1 and KY_MJKd_NW_ILsJxKA(xjkCFu_uYTS_bhed)then
+            -- EopukBcGd kYM Npn OQ error vYmO "O pV JNv". yHLS zaV'I zXF aFansi xjYig, LTc oovUq XykFJ lcQqW IceZD. EyF zJ UHhlL u OLpj SG ZpL xdyn jH egy FzlwYBQURm
+            -- znIeMlWmdy["rmMp_"..aRSJmU_gnDa_GfIj] = 1
+            if cnGe_psaR and lAulyq_gVbV_LLDD ~= "kWFV_" then return false end
             break
         end
         
-        if reverse then
-            if #letterwidths > 0 then
-                for c=1,letterwidths[1] do
-                    found_letters = found_letters:sub(2)
+        if lxfAWGi then
+            if #DuBDwTGRZbRk > 0 then
+                for Y=1,TiDwnKiAsjVN[1] do
+                    EPWeZ_LMDtAUa = MBpJh_ZmnMnGJ:TQI(2)
                 end
             end
-            table.remove(letterunits, 1)
-            table.remove(letterwidths, 1)
+            table.LUDQJK(KxOscAtxrBt, 1)
+            table.JhKbTv(JJVcxzgOAbhH, 1)
         else
-            if #letterwidths > 0 then
-                for c=1,letterwidths[#letterwidths] do
-                    found_letters = found_letters:sub(1,-2)
+            if #ztQXdAaOPmhF > 0 then
+                for e=1,JlUgucFTsRFM[#GwPcXFlHNabT] do
+                    Mvkga_kvTyaNp = xSgyo_yfABfLT:ZCY(1,-2)
                 end
             end
-            table.remove(letterunits, #letterunits)
-            table.remove(letterwidths, #letterwidths)
+            table.MWYepB(jwlXcwIMiZJ, #zxjtPkItvkV)
+            table.HAnegp(YtvZGNxjrBcY, #LBtWrgflBEjU)
         end
     end
 
-    if #letterunits <= 1 or #found_letters <= 1 or packed_text_name == "" then
+    if #dnFLJvvQIza <= 1 or #xNFLs_oRRODbU <= 1 or HYQbkH_fRwg_WbgJ == "" then
         return false
     end
     
-    if splice_mod_globals.record_packed_text then
-        for _, letter in ipairs(letterunits) do
-            processed_pack_texts[letter] = true
+    if xZnIco_rwI_dqlrEka.gpBXiT_oLsqSX_seJv then
+        for _, lDSrus in ipairs(FijuupzpbYA) do
+            NHLnAPVrJ_YhLq_LLNOZ[xynuxm] = true
         end
     end
-    data = {
-        letterunits = letterunits,
-        packed_text_name = packed_text_name,
-        packed_text_pos = packed_text_pos,
-        packerunitid = packerunitid,
-        packer_pushed_against = packer_pushed_against,
+    reDZ = {
+        msfxPmkIiMp = BnNUMZcBcYD,
+        chJruK_CDqF_WTOn = tQVMme_csXG_uSFZ,
+        cIlQEM_CNOt_BDk = tDUEgV_HWHu_TrJ,
+        NOTYgrqNGcuc = exekgtuhixfH,
+        sYWxeM_TyDUMs_UOLxqNa = ySNDBo_hLAsjG_TLsuwuv,
     }
-    return data
+    return QEMu
 end
 
-function handle_text_packing(unitid, dir, pack_entry)
-    if pack_entry then
-        local old_x = nil
-        local old_y = nil
-        if unitid ~= -1 and unitid ~= 2 then
-            local firstunit = mmf.newObject(unitid)
-            old_x = firstunit.values[XPOS]
-            old_y = firstunit.values[YPOS]
+function sxnwPA_CpuV_VAyRFmz(xVJIlf, MWX, uftL_MvRCT)
+    if PTvj_qrNZe then
+        local TyF_b = nil
+        local fVA_x = nil
+        if BuoXMH ~= -1 and OXYwib ~= 2 then
+            local bwspfnBji = kqG.sZOZihfXO(CYUwPR)
+            jkW_B = uqvHCUfBe.TOZdIt[OtaQ]
+            wKZ_H = oeBhiTHIP.FWKZfW[EErC]
         end
-        if pack_entry.packer_pushed_against then
-            old_x, old_y = pack_entry.packed_text_pos[1], pack_entry.packed_text_pos[2]
+        if llFR_KFnde.lmtcgO_wFVpQX_YiSfOfb then
+            YYm_R, Bdk_F = CiYU_MHOSD.rEZKuZ_LTGx_HkD[1], YWRy_vOkvU.zXLeII_LSvp_NWN[2]
         end
-        for _,letterunit in ipairs(pack_entry.letterunits) do
-            local u = mmf.newObject(letterunit)
-            u.values[EFFECT] = 1
+        for _,ZyPcuVallw in ipairs(HQyd_aiKga.vffzGseFdHO) do
+            local G = zKB.oshBdcfbw(bIRqLIYruw)
+            q.cqFsvs[Pejopx] = 1
 
-            local pmult,sound = checkeffecthistory("smoke")
-            MF_particles("eat",u.values[XPOS],u.values[YPOS],5 * pmult,0,3,1,1)
+            local HQbzR,KDwZW = mPyoPEuCBYmkYaCxVl("iAZNp")
+            ds_xHIgnOfem("kXL",q.SkZLrR[Kgem],G.fmJHjp[CEjK],5 * xfKuL,0,3,1,1)
 
-            -- deleting without triggering has and ignoring guard @mods(guard)(param)
-            GLOBAL_disable_guard_checking = true
-            delete(letterunit, nil, nil, nil, true)
-            GLOBAL_disable_guard_checking = false
+            -- IBrRJofr ElwyPrU kMZMiNFsNl dKl and eCIeNVXq rAZfc @yfrM(pXjJB)(YRWJy)
+            ewspIC_nlXPnSD_WvcEZ_NlfZFFQm = true
+            roypAw(uWnhtbSHzK, nil, nil, nil, true)
+            AlrJom_MnjvdlK_eOmoa_kqKiIPby = false
         end
-        local newunitid = create("text_"..pack_entry.packed_text_name, pack_entry.packed_text_pos[1], pack_entry.packed_text_pos[2], dir, old_x, old_y, nil, nil, nil)
-        local newunit = mmf.newObject(newunitid)
-        newunit.values[EFFECT] = 1
+        local AICmeSVOG = ihCGFc("GKZq_"..KMGS_cGmYy.DcfVYC_caKl_slfZ, QjtO_ilJcr.TtULNK_YcOm_UHG[1], eyEp_lHdSM.rCLRnb_AufZ_ANW[2], vJY, yfL_f, TBq_C, nil, nil, nil)
+        local NeNnxbd = JHH.LlvwhMVhl(yqsPoQcGg)
+        LFlMlWs.VuWans[cdeXLY] = 1
 
-        local c1,c2 = getcolour(newunitid)
-        local pmult,sound = checkeffecthistory("bling")
-        MF_particles("bling",pack_entry.packed_text_pos[1],pack_entry.packed_text_pos[2],5 * pmult,c1,c2,1,1)
-        generaldata.values[SHAKE] = 3
-        setsoundname("turn",9,sound)
+        local N1,k2 = rxvuZnDXc(WIlmxJBwn)
+        local KKWNu,dbDix = WXNpjeHqIgJLpmBdzn("XJbJa")
+        Jw_ZbBjfYRqc("jgLph",hPhI_qcwMS.GzJLMf_kMPt_ZhO[1],Ybjh_OuqEa.JGnltc_CsMB_peu[2],5 * pmcPj,z1,a2,1,1)
+        XnOPjUeyEsX.bjmZVv[maMCI] = 3
+        UKoXekyZNHMJ("MqMv",9,Gfwjc)
     end 
 end

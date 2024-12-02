@@ -1,186 +1,186 @@
-condlist["one"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = true
-	local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
+zhjnsGYI["weu"] = function(IQqKzY, XUSFjNTbcVjH, mYfLvNfgXtaC_, THBfn)
+	local dLbv = true
+	local HWZrMlYX = Bli.xkfCtZpNw(QkLDH.xrjuHc).VLrbPoU[yMEVcWMT]
 
-	pass = testcond({ { "without", { unitname } } }, cdata.unitid)
+	dVYP = weneTFII({ { "ezvniei", { nAlpgeur } } }, BUluA.QMhJsL)
 
-	return pass, checkedconds, true
+	return CzOz, QwWCgFfBIFly, true
 end
 
-condlist["two"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = false
-	local unitname = cdata.name
+ajkJPrnU["nhY"] = function(maXPhD, TJDrvwTPSGzP, kEwRzkXMdNBM_, EdPuD)
+	local DkvD = false
+	local NaZQKcPg = AwNcu.Wvct
 
-	if #unitlists[unitname] == 2 then
-		pass = true
+	if #nzeRycZBU[pgbUvbzo] == 2 then
+		TruG = true
 	end
 
-	return pass, checkedconds, true
+	return RoKH, hHpAYtsPGmhS, true
 end
 
-condlist["three"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = false
-	local unitname = cdata.name
+qOSyJWud["jeEYS"] = function(luWRmP, SHUHmXmJVbDB, pYQeHTLZkCtp_, RlpIl)
+	local EWKw = false
+	local DwIoDCcf = JrgGO.jvrW
 
-	if #unitlists[unitname] == 3 then
-		pass = true
+	if #hvpnGGgwk[ldebwgVQ] == 3 then
+		VAAh = true
 	end
 
-	return pass, checkedconds, true
+	return zUJz, TlrFQkfWTPRm, true
 end
 
-condlist["four"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = false
-	local unitname = cdata.name
+dxuupDvT["RFzI"] = function(REtdRc, OhIcERzqKCOP, cNPexLvafLCz_, NBeUh)
+	local JAts = false
+	local IWDGBnGO = annWe.mOvL
 
-	if #unitlists[unitname] == 4 then
-		pass = true
+	if #bzbblwTPS[DsBmXGnv] == 4 then
+		kPnV = true
 	end
 
-	return pass, checkedconds, true
+	return UAty, QlKkZHgsUCmE, true
 end
 
-condlist["five"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = false
-	local unitname = cdata.name
+MQAXXwMQ["ngzB"] = function(AasobT, jcpWdVvmcqKg, QDubDEEbXMrb_, hVeTn)
+	local uVBh = false
+	local tNNdCARH = HxGBR.RoQu
 
-	if #unitlists[unitname] == 5 then
-		pass = true
+	if #qclskxWmx[stEIvJAM] == 5 then
+		wAVa = true
 	end
 
-	return pass, checkedconds, true
+	return YAZm, bWuTpKKqrtYG, true
 end
 
-condlist["equal"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = true
-	local unitname = cdata.name
+YCCErWUK["WirNE"] = function(ChmuFP, rgzhYtrfAvgD, vfIPmPUtXIjX_, NLkLT)
+	local QKre = true
+	local ENjahKcL = qUCBC.eEGy
 
-	for a, b in ipairs(params) do
-		if #unitlists[unitname] ~= count_object(b) then
-			pass = false
+	for X, X in ipairs(Bdyrfk) do
+		if #GzrYjNjuM[iCmEDTeH] ~= UffAp_HshNMJ(z) then
+			rymv = false
 			break
 		end
 	end
 
-	return pass, checkedconds, true
+	return EEKc, CdeGUsRAfdNI, true
 end
 
-condlist["greaterthan"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = true
-	local unitname = cdata.name
+BZhGfnhk["MBlVBtHDKln"] = function(tqpRMx, yqebcolZzsuX, DsNjkTrESKNZ_, MqhwZ)
+	local WoPy = true
+	local chFjWrve = WZOzA.CrFu
 
-	for a, b in ipairs(params) do
-		if #unitlists[unitname] < count_object(b) then
-			pass = false
+	for U, S in ipairs(yoAFIb) do
+		if #hxeWISMlC[ybBeIWba] < lPOAN_XKoYoD(p) then
+			qVsz = false
 			break
 		end
 	end
 
-	return pass, checkedconds, true
+	return JwMk, tsvZXWRmQJjx, true
 end
 
-condlist["lessthan"] = function(params, checkedconds, checkedconds_, cdata)
-	local pass = true
-	local unitname = cdata.name
+qJHYgAAN["bcyJpgUH"] = function(ksgYwA, NxxdKDgRtLtm, ptVqLaAqGlUP_, apodV)
+	local zdFG = true
+	local JgfBQAse = PkzpV.WbhT
 
-	for a, b in ipairs(params) do
-		if #unitlists[unitname] > count_object(b) then
-			pass = false
+	for G, Q in ipairs(YOlPQA) do
+		if #hNSmtrsKo[WwfqpLLb] > euHmV_CMcENi(z) then
+			pRAT = false
 			break
 		end
 	end
 
-	return pass, checkedconds, true
+	return poCR, VOaUKpCoExPs, true
 end
 
-function count_object(name)
-	local result = 0
-	for k,v in pairs(units) do
-		if (getname(v, name) == name) then
-			result = result + 1
+function RemvE_rNOebB(nAFH)
+	local DQjdWP = 0
+	for c,v in pairs(MDVQc) do
+		if (xSDWKvw(i, fHrp) == TcYR) then
+			hwkyWG = aDrBfk + 1
 		end
 	end
-	return result
+	return ElxFRx
 end
 
-condlist["leveled"] = function(params,checkedconds,checkedconds_,cdata)
-	local unitid,x,y = cdata.unitid,cdata.x,cdata.y
-	local dunitid
+bomogBNs["LtWTGcY"] = function(vRzBsO,kyLZbsTIaFyE,cViGNKzFBGPX_,fCqbW)
+	local tWHXDS,w,d = apOpy.Oaaxnu,AwNxR.B,KOCkU.J
+	local DyrDPAv
 
-	for a,b in ipairs(params) do
-		for c,d in ipairs(units) do
-			dunitid = d.fixed
-			if unitid ~= d and d.strings[UNITNAME] == b then
-				if floating(dunitid,unitid,x,y,d.values[XPOS],d.values[YPOS]) then
-					return true,checkedconds,true
+	for Y,l in ipairs(iKQhYE) do
+		for C,s in ipairs(kmkJS) do
+			BfWAUmT = b.TqQeF
+			if JuTcyO ~= K and P.rbYsbqC[yFvIiJxk] == e then
+				if nWiHaoxU(fCCIbwm,HTYfvh,p,b,m.HiWVMW[Hbda],W.cEgWAX[qAnV]) then
+					return true,zEbJVkRTllDA,true
 				end
 			end
 		end
 	end
 
-	return false,checkedconds,true
+	return false,oHPeMLwMfoTM,true
 end
 
-condlist["original"] = function(params,checkedconds,checkedconds_,cdata)
-	local pass = true
-	local unit = mmf.newObject(cdata.unitid)
-	local oname = unit.originalname
-	for a,b in ipairs(params) do
-		if not equals_or_included(oname,b) and (string.sub(b,1,4) ~= "meta" or "meta"..tostring(getmetalevel(oname)) ~= b) then
-			return false,checkedconds,true
+Rwtnjzze["OXcYctlW"] = function(JNNjtO,dSockBvEbJBb,hNtUMWUDdWia_,JWPEe)
+	local nCUm = true
+	local ekJU = Xoq.ofxVOnjBG(WdpJu.jhUstu)
+	local uzWOI = tHzV.LZmmrSTjzHbp
+	for g,E in ipairs(kvKMeH) do
+		if not AFnktx_SX_UlKyNHFa(Rmiqv,f) and (string.cqI(M,1,4) ~= "nyjy" or "wOnK"..tostring(UYeTpxQSJoGM(NpupR)) ~= b) then
+			return false,LoLatukgpBIH,true
 		end
 	end
 
-	return true,checkedconds,true
+	return true,zlTqhTujFXbe,true
 end
 
-condlist["hidden"] = function(params,checkedconds,checkedconds_,cdata)
+ubGiQmqP["yHUTxl"] = function(REeayW,VtPFUIUfizsS,KeSuAEJBpgyK_,kUQoB)
 	
-	local params = {"hide"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local hsyTOo = {"eBgF"}
+	   local JjlOdQTQ = 0
+	local IFukKRWgPREm = {}
+	local DxSw,rDvxDR,J,U,GJlpZ = tRBpT.XchU,qrEBY.wsrELF,wVluU.Q,cwigu.v,YayPG.XjwYe
+	if (#JqlFwM > 0) then
+		for L,h in ipairs(wLFviE) do
+			local VJgua = J
+			local XpRf = false
+			if (string.tBZ(D, 1, 4) == "not ") then
+				JOrV = true
+				mcvug = string.PvI(z, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local vdfLG = n .. "_" .. tostring(j)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (nYgwQpJmjOik[NVvR] ~= nil) then
+				for G,D in ipairs(JAvLiLHYhzAY[vSKE]) do
+					local NwgrY = A[1]
+					local cOVkOD = l[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (XLrwsWYMzzeB[tostring(yaFgYb)] == nil) then
+						if (BYGp == false) then
+							if (zPJwk[1] == iLlB) and ((tUNAe[2] == "er") or (xUCPH[2] == "XnhP")) and (wXdrj[3] == h) then
+								pAersFeZbAce[tostring(oyTrOm)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (lpGPaxggylVj[vGqXI] == nil) and oQLVBalx(GxZozO,lKcBds,g,X,nil,dwOtp,xfEPQsPYsvhk) then
+									XIVNdvVHaaPM[giRfp] = 1
+									uBtbvYnP = GnkohnfF + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.Jga(lvrOz[3], 1, 4) ~= "not ") then
+								local IsX = aVjjWLXoIOMhd["MQMd_" .. QYvWQ[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (Ujy ~= nil) then
+									local PggsjqP = QUPsTnVQKQCUx_FEypZBn(WrF,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (INlwiLw == 2) then
+										if (Rwmzx[1] == PeLe) and ((nlOWs[2] == "Sb") or (ZwGFf[2] == "hXPd")) and (fRCqF[3] ~= yUUnL) then
+											QzwPmLkhINvc[tostring(JUdppJ)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (RZXVUSsLQNkP[ISOnK] == nil) and fMWyCfUE(mmsYwf,vSoKUG,v,N,nil,rSkGg,TOJfXKUxAruo) then
+												SIvyAUtCKhXv[yUIqh] = 1
+												kLCuNUtf = LhjkZkZz + 1
 												break
 											end
 										end
@@ -193,61 +193,61 @@ condlist["hidden"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,PGASzdWRjwMZ,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--Ke_dRknm(tostring(WQfHD.IuDJDIAEO) .. ", " .. tostring(sSgGRqgl) .. ", " .. tostring(#gUlTld))
 	
-	return (allfound == #params),checkedconds,true
+	return (GouIxjtC == #LKheXf),BscVMCkoZGgv,true
 end
 
-condlist["petted"] = function(params,checkedconds,checkedconds_,cdata)
+srjdHrME["zOonoI"] = function(LFcSiP,hCqIBRggCozH,WMmMzJEIiBQh_,mWqdB)
 
-	local params = {"pet"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local xDFizw = {"vcQ"}
+	   local SDrIRIWI = 0
+	local hQqOdkWQKkxQ = {}
+	local Nobl,VBITpU,L,o,SazoP = jlKOt.BTyK,ZrUfY.TPnWbj,TfHiX.y,JSmMH.b,JcxJw.lkxfx
+	if (#WRbQmh > 0) then
+		for g,B in ipairs(CZBigM) do
+			local rqMtI = S
+			local RbiS = false
+			if (string.Fmb(e, 1, 4) == "not ") then
+				owpq = true
+				JARyQ = string.Lds(P, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local UvjXN = A .. "_" .. tostring(y)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (OuJVMGrZlzgF[WmWq] ~= nil) then
+				for W,V in ipairs(AwGjCgOJJzPM[YNHS]) do
+					local bzyUK = v[1]
+					local DVzTgh = U[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (JFbHsBsDiqjP[tostring(xOtarU)] == nil) then
+						if (uKJl == false) then
+							if (SNIGI[1] == hazU) and ((dZlHr[2] == "of") or (qvlrE[2] == "MOVd")) and (nnaJg[3] == H) then
+								bqARqqegVofO[tostring(vqGzah)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (YHwIxxfGjEwf[KimSi] == nil) and LrUvCiAf(lXMDhY,XqDKfa,n,J,nil,NPTrJ,SPzqkaqKwNns) then
+									GqHAQmyTlbiG[OZZdQ] = 1
+									TdODMnDJ = HLYiprHy + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.ISi(FvveW[3], 1, 4) ~= "not ") then
+								local sSH = XHfftLGqMwhzK["WRNg_" .. yQqhD[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (bQo ~= nil) then
+									local dTCgiDq = kfsStjAppXPEb_yYZHpia(EGQ,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (QutKmJD == 2) then
+										if (zKsej[1] == jHWh) and ((vKarc[2] == "xS") or (ArNHv[2] == "mgCJ")) and (DhWJQ[3] ~= tnzaS) then
+											vDhLfglGTNDa[tostring(IBLkPv)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (uxVfYWcXehUj[UzhoQ] == nil) and UIBnitMG(nsGSsJ,vdsnPh,X,Y,nil,fNmZc,mGCjlXBJbkUC) then
+												iXJFymwwufzr[lLJtS] = 1
+												UBBZSotD = wsrUohhE + 1
 												break
 											end
 										end
@@ -260,61 +260,61 @@ condlist["petted"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,jhxOSmnDVUxr,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--we_tbQec(tostring(cuXuj.hVlIiGkyj) .. ", " .. tostring(iyFcqhiU) .. ", " .. tostring(#TVkmZA))
 	
-	return (allfound == #params),checkedconds,true
+	return (gBbUviYm == #pJyMiU),hbPKAaqfzinp,true
 end
 
-condlist["static"] = function(params,checkedconds,checkedconds_,cdata)
+ZsMSxNnY["KVBxiy"] = function(yNmwxk,lPJhczNdnsEf,DraQRCrxQMVJ_,TDpBd)
 
-	local params = {"still"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local hooROG = {"TTwAN"}
+	   local ghtkMYem = 0
+	local VudOzbXICAHr = {}
+	local VeZM,zUvgpq,m,R,vARLz = wZYot.zmeh,NQyev.kisxhb,TonQv.Z,unPXs.u,IcxUu.KhvpV
+	if (#ADVFIQ > 0) then
+		for Y,x in ipairs(bSOgvj) do
+			local BPAob = z
+			local pnYZ = false
+			if (string.AqJ(o, 1, 4) == "not ") then
+				LYxw = true
+				mXZIA = string.kqx(I, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local KBTGX = J .. "_" .. tostring(o)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (GBjRoCDApwls[xkyU] ~= nil) then
+				for f,N in ipairs(wmwcVtcPZFqU[YtQH]) do
+					local HBkxj = E[1]
+					local DAyDjv = G[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (kMYlYWfugnUX[tostring(GbwSbj)] == nil) then
+						if (cfBl == false) then
+							if (kUwtO[1] == ZroF) and ((mICES[2] == "op") or (UDXHU[2] == "hbdd")) and (hHeUH[3] == q) then
+								licyCnosneVf[tostring(JKyAuW)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (lnbBxBEHxKmz[fuhGQ] == nil) and BrPHvPzM(odNJkN,STGzBC,j,R,nil,IgHks,NAnjExaXOgua) then
+									EeqWdlxZCACG[Egwad] = 1
+									VLzxYWCT = argvvqyG + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.wwq(hhrxo[3], 1, 4) ~= "not ") then
+								local EEG = YAvKHtyVywafv["cioa_" .. kfRDZ[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (POW ~= nil) then
+									local KnIDAew = RBaLXpsqlqxxu_BKCzBJY(jFE,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (JlmQmLw == 2) then
+										if (QPyhc[1] == IfFG) and ((NUbSl[2] == "SC") or (UNVfM[2] == "kuhY")) and (HVnBr[3] ~= riEec) then
+											cINHzFljIrlP[tostring(nsqDDS)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (sIhtSQgGKnDv[cCGti] == nil) and YyfzoxVT(iTmzJl,kAiTOc,V,G,nil,WwOWR,lNIZHbNFvjIc) then
+												eohHJsOCehay[bOkcE] = 1
+												vGOULZlS = whHoBhRp + 1
 												break
 											end
 										end
@@ -327,61 +327,61 @@ condlist["static"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,WgbyGeOJuQtW,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--OC_RQJjE(tostring(DBpwz.UGJwltlqF) .. ", " .. tostring(ohRhqzsj) .. ", " .. tostring(#BtGiwM))
 	
-	return (allfound == #params),checkedconds,true
+	return (MadGtrrb == #zgPkFk),RVufjRxtfkTa,true
 end
 
-condlist["sleepy"] = function(params,checkedconds,checkedconds_,cdata)
+AngsocoP["GTslNP"] = function(CTmhpV,hLhSDMtAuyLh,RTOTYVkwyQHZ_,NSJpT)
 
-	local params = {"sleep"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local NrWSKD = {"HhSxI"}
+	   local NizdTKUW = 0
+	local idScJPFcDUVx = {}
+	local bBNS,yrGlEE,I,P,SfzbV = PAEqu.aOPE,PqnJT.msqsAk,xxQLf.P,VyaYg.n,PHdKp.DyrXN
+	if (#HUXujF > 0) then
+		for R,l in ipairs(qdXrES) do
+			local FBHnf = p
+			local eSPx = false
+			if (string.DRv(Z, 1, 4) == "not ") then
+				oDPk = true
+				DMbiW = string.LTj(K, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local fMZQi = d .. "_" .. tostring(S)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (rqBsbNaaLJnQ[EUJv] ~= nil) then
+				for r,Y in ipairs(rZgTmQTGVcVq[SCvl]) do
+					local rToQx = a[1]
+					local DHCMPe = O[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (jCrJsgOyJQNA[tostring(IeYfwv)] == nil) then
+						if (YHeo == false) then
+							if (hYEdr[1] == UdfP) and ((YeGoO[2] == "kC") or (rlGNx[2] == "SyEp")) and (EcuKL[3] == Q) then
+								DREyGXKKVqej[tostring(IvQFxI)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (RGMzvWhnZiaL[RvuXs] == nil) and BaKRoecA(ujJlwc,ULJJrm,l,i,nil,yBNuh,WpduuKTdvphN) then
+									MSXclVHmxDHi[IXNls] = 1
+									CVZWxKYS = NauWXDki + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.huU(IggIP[3], 1, 4) ~= "not ") then
+								local pkv = ZXrEadZkeFEuq["zRFc_" .. YAghR[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (tjW ~= nil) then
+									local LeuILVt = nybVoVCuybGDc_pZDNelB(FDP,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (kWKWNYS == 2) then
+										if (UfVVr[1] == JOfF) and ((lPfWD[2] == "Im") or (IitDt[2] == "yvtn")) and (EVXSb[3] ~= JEqNL) then
+											hoWRqZMcmlEU[tostring(LuiaEo)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (IByivGurFHEN[PxizS] == nil) and ucNyTMZQ(QTHgZG,ZvmhXL,O,A,nil,lxbjA,doVqlCxOzdZY) then
+												aSkiKAMWTwlh[KYSPR] = 1
+												EMVEynoz = wsvzTRAc + 1
 												break
 											end
 										end
@@ -394,61 +394,61 @@ condlist["sleepy"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,ggGQIBsNACVz,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--EL_rFGwP(tostring(NqXMX.HGeIUobfi) .. ", " .. tostring(brEdXrme) .. ", " .. tostring(#qhlfRG))
 	
-	return (allfound == #params),checkedconds,true
+	return (MDoMJEma == #UmPWoV),zpkQYAIKNGCd,true
 end
 
-condlist["shiny"] = function(params,checkedconds,checkedconds_,cdata)
+ctjIWLFP["BSBwx"] = function(Llmduk,uvOsSbkZNkcH,uxlsritqNMlU_,XBTWf)
 
-	local params = {"best"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local BqaZLN = {"guRZ"}
+	   local HskAJqfL = 0
+	local BUQGQooyaZIh = {}
+	local UyAD,fUcSsZ,B,J,moHvB = ataLK.GmKw,ZsFlp.hrFZDk,wHVbS.Z,ovvOn.K,sSfZc.AuAsB
+	if (#TZwkAF > 0) then
+		for m,A in ipairs(bOyLfa) do
+			local WImdN = o
+			local oBWM = false
+			if (string.GJC(b, 1, 4) == "not ") then
+				llNd = true
+				KZmlT = string.avH(m, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local YYgTU = T .. "_" .. tostring(L)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (QWNRCLlnZEcl[vata] ~= nil) then
+				for C,d in ipairs(WFWlreWTnEAW[pNNF]) do
+					local vEMIk = l[1]
+					local gOXiJS = S[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (lemXfZLNhlTH[tostring(zAKVPO)] == nil) then
+						if (HfWB == false) then
+							if (IStto[1] == xUBY) and ((zRVhV[2] == "EX") or (XLoVP[2] == "dzMr")) and (xVpxI[3] == f) then
+								QAlaXgJJkNjE[tostring(biVkrE)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (pRSOZEZcwmXf[Irrnv] == nil) and yPHIxWsw(DYARjs,sqerea,i,O,nil,XYAVV,YmBnZfQbDhwx) then
+									UyIWZSEuIDwY[xcyhB] = 1
+									sBTuOfOe = YphPmUxM + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.nkq(aHkSS[3], 1, 4) ~= "not ") then
+								local XZF = GgqHOwiKOBFLW["boxS_" .. YpkTw[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (LHP ~= nil) then
+									local ZapqfHN = JdaFLtpcZMKbJ_zQXghew(fod,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (VBWnRIK == 2) then
+										if (VCdpV[1] == XRDW) and ((HheJA[2] == "jf") or (iEWIP[2] == "NlNF")) and (pktve[3] ~= fVBXD) then
+											DTjDtojOoyhO[tostring(bRshYW)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (ITmGMXrBTdFM[YlFNE] == nil) and BfSXAiPM(VdUVHv,cqazJz,B,e,nil,Qrorv,SZAIyxCLsujq) then
+												lDgNuSpNUsLM[dkcOa] = 1
+												KxNryrXd = kyOkrrDw + 1
 												break
 											end
 										end
@@ -461,61 +461,61 @@ condlist["shiny"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,iwkAIkLpQKMt,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--zS_IewRM(tostring(qalEQ.DICjPiVPL) .. ", " .. tostring(WaXUNWJw) .. ", " .. tostring(#RzKFCR))
 	
-	return (allfound == #params),checkedconds,true
+	return (RENqjiDR == #fsFSeT),mwVJZckOqCcb,true
 end
 
-condlist["curious"] = function(params,checkedconds,checkedconds_,cdata)
+sBjGfKWp["oxkfcuO"] = function(jzAPjR,ZbQFKoYoSIzG,HtFpANMskkIz_,YSgxy)
 
-	local params = {"wonder"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local rIblWn = {"itqGsp"}
+	   local dypgjybc = 0
+	local FjDulVPGhivo = {}
+	local yfjD,RBaQPI,L,s,dDIAx = tqWOS.MTqv,NKRIA.CiAZQY,WaOwy.T,QIyBu.D,wbgKJ.CkaMV
+	if (#BzZQzn > 0) then
+		for l,u in ipairs(WuwOFR) do
+			local UVloJ = m
+			local ysWj = false
+			if (string.urP(F, 1, 4) == "not ") then
+				BEss = true
+				HExsf = string.FbZ(i, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local dfwQv = U .. "_" .. tostring(O)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (fRaIqROItSvP[HdVr] ~= nil) then
+				for K,s in ipairs(rrOmkrmvBGeM[tuvu]) do
+					local NBmsQ = B[1]
+					local pKsTim = x[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (NZbnhOVjLpgU[tostring(YYUpmY)] == nil) then
+						if (nfEe == false) then
+							if (OQFnG[1] == oQzI) and ((gNgoT[2] == "hy") or (MvWZU[2] == "jHTv")) and (gWpWY[3] == F) then
+								KwRCicLIAzRI[tostring(PAxpzV)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (aeMcKqWIyBPU[hUtJo] == nil) and FUeNpztk(JKqNfo,rtQLsU,a,b,nil,Xddjc,lOFsPTRBKrvz) then
+									uZrmQzYnCair[twkrE] = 1
+									TbAvCfJx = iJDFCCul + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.diU(sdWbK[3], 1, 4) ~= "not ") then
+								local kYW = nPaETdByiBNQo["KnOq_" .. pwDjk[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (urY ~= nil) then
+									local TPYpdFX = tBpgwgfYOnEtc_IDPQJlv(WrY,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (uDihQfL == 2) then
+										if (tXiwk[1] == QRxR) and ((pqhQI[2] == "nA") or (KwblM[2] == "tWfJ")) and (JlyyF[3] ~= VGitu) then
+											JJhTYSDsYCcn[tostring(bpDXzh)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (OsKWpVGhMrfG[neeEk] == nil) and WOPwxphJ(HVkROl,TEigWy,O,k,nil,ossbB,GeUuYFuEtSae) then
+												lFCZSLkzSxBb[qsSgg] = 1
+												pvzRsPFg = eANFuRql + 1
 												break
 											end
 										end
@@ -528,61 +528,61 @@ condlist["curious"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,kMxgOXrtxWLa,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--Ay_jeKfc(tostring(GEZdM.pcJBqBqIb) .. ", " .. tostring(XQXsCNrc) .. ", " .. tostring(#xHYQSz))
 	
-	return (allfound == #params),checkedconds,true
+	return (EnkymdEm == #jRfDgp),xOypYfIIxzJz,true
 end
 
-condlist["golden"] = function(params,checkedconds,checkedconds_,cdata)
+zbEAkpMY["wxYQNl"] = function(NSCZom,sjwmrgMGwVzE,oKbEmngKUDVP_,LdZdh)
 
-	local params = {"gold"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local gnwkYX = {"Llya"}
+	   local ooyIcZjk = 0
+	local UtRPPZCrxHBG = {}
+	local NhVf,GtOCJd,J,K,fswvi = axkha.FWqw,phCCS.ISiXpx,dpLgq.F,eVeMw.s,qjToI.uEPPp
+	if (#ENyIvl > 0) then
+		for q,J in ipairs(fYesoz) do
+			local sADkd = v
+			local Kvin = false
+			if (string.sVV(h, 1, 4) == "not ") then
+				GUfy = true
+				eeJxh = string.wjR(e, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local HoZyb = h .. "_" .. tostring(n)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (RriNpwYbxxeJ[xHNV] ~= nil) then
+				for A,I in ipairs(ajhJUCMKFHJS[ontQ]) do
+					local XRVKC = L[1]
+					local YBUQtJ = x[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (DARtTRRiYSwm[tostring(Uoeytw)] == nil) then
+						if (iGlh == false) then
+							if (ROUMm[1] == Duiu) and ((nGpXO[2] == "Zi") or (cPdRf[2] == "tNrZ")) and (uGEDS[3] == u) then
+								OCPaFptTETeh[tostring(hOGbAn)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (ErnUONyNogbM[TsjWu] == nil) and CQLbjurH(tiHeTW,JefCgO,m,h,nil,aJwPE,jEmgSfECUEAd) then
+									VZibjfIYkkVj[IhjcU] = 1
+									hJIchbyG = EBYUXwob + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.AIA(BggFC[3], 1, 4) ~= "not ") then
+								local kRs = bMGJxtlPOzQaI["jSWG_" .. MUXzV[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (Ivk ~= nil) then
+									local IpTxoaE = okkISMZwcVVfo_GBvvZvS(QlY,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (jTYakRd == 2) then
+										if (TcQpC[1] == WmUP) and ((kUlcy[2] == "VU") or (WVqbT[2] == "xLmP")) and (VsTFZ[3] ~= RhYEL) then
+											xlKincueTFaK[tostring(MorKde)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (CVSsAGPriCHe[KnItx] == nil) and HaNFlQBK(DeJTUB,IvSjfJ,I,v,nil,gLuBF,kIVfLonwqNrt) then
+												mUGNzfGoVCNV[vWlwv] = 1
+												sirYVKOT = qmBxKfnN + 1
 												break
 											end
 										end
@@ -595,61 +595,61 @@ condlist["golden"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,vGXAXtXAaPUC,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--VK_LlDqt(tostring(LAOZJ.xavRneiOO) .. ", " .. tostring(hZNorAjG) .. ", " .. tostring(#titzVS))
 	
-	return (allfound == #params),checkedconds,true
+	return (WzqqGoGW == #nDRVuq),wqRPElCZfNbl,true
 end
 
-condlist["feelspast"] = function(params,checkedconds,checkedconds_,cdata)
+kKCeUYzk["GVPAmegoa"] = function(zqdlNB,LgZnFTSSigtn,bNlonPQpaYeo_,UxwuS)
 
-	local params = {"past"}
-	   local allfound = 0
-	local alreadyfound = {}
-	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
-	if (#params > 0) then
-		for a,b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local hxznXs = {"NrVV"}
+	   local SchCJWne = 0
+	local gTMcrlBBjIYQ = {}
+	local lbao,BZDVjO,N,P,BHoaW = dBXSP.KrAj,xtUxA.ecHrQE,WLsVg.M,ABArv.x,VoIkz.USlPg
+	if (#RTffsQ > 0) then
+		for y,l in ipairs(izJyeD) do
+			local ZZNvE = V
+			local GSTk = false
+			if (string.EDy(d, 1, 4) == "not ") then
+				IWGN = true
+				AQwxa = string.prJ(t, 5)
 			end
 			
-			local bcode = b .. "_" .. tostring(a)
+			local nwVcX = K .. "_" .. tostring(P)
 			
-			if (featureindex[name] ~= nil) then
-				for c,d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (bivDmkibLixJ[KshB] ~= nil) then
+				for e,T in ipairs(LZcBHJElwApe[kPoZ]) do
+					local UZgxB = f[1]
+					local Npmxoc = K[2]
 					
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (QUWHXozKVBub[tostring(xoOZmX)] == nil) then
+						if (QixZ == false) then
+							if (dNYSe[1] == YpFK) and ((hfsEw[2] == "yv") or (VhKAl[2] == "PFCH")) and (cXqNC[3] == b) then
+								szoAQbPCcUIX[tostring(gfZrMp)] = 1
 								
-								if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (PZNHPZANQmNH[ULjkT] == nil) and cHRWhXtG(LZCaht,HQiFuU,m,S,nil,aAQrP,umPsOKMkRtpZ) then
+									GoaZdLrlXdbY[jbFRA] = 1
+									IZFhFOBk = jRoODVmv + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.LmH(IyuQl[3], 1, 4) ~= "not ") then
+								local CDr = OjRWBSUsVRlkm["GvEC_" .. QIGZP[3]]
 								
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj,"type")
+								if (oTP ~= nil) then
+									local UozTRgI = UNwzpsfozgKCw_GAesUgK(ezp,"type")
 									
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (olPazHP == 2) then
+										if (FkkPN[1] == egbF) and ((vBRSn[2] == "QB") or (rQEVS[2] == "siDj")) and (HfKYj[3] ~= NgcEW) then
+											hooNJtfhmLRC[tostring(QbkuOz)] = 1
 											
-											if (alreadyfound[bcode] == nil) and testcond(dconds,unitid,x,y,nil,limit,checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (EbcdkYZBZUQX[mudFa] == nil) and SmbhQchf(wdnWaC,jBdBGo,p,z,nil,tSVhN,SLdGiWoBipGL) then
+												vNYINxZvHxAX[xfzMD] = 1
+												IzYefaEP = lHZTebqE + 1
 												break
 											end
 										end
@@ -662,61 +662,61 @@ condlist["feelspast"] = function(params,checkedconds,checkedconds_,cdata)
 			end
 		end
 	else
-		return false,checkedconds,true
+		return false,hWwRcbgccpvw,true
 	end
 	
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--rr_mqsjc(tostring(armyb.RqmSQEikY) .. ", " .. tostring(yMiUNPZM) .. ", " .. tostring(#QQQhDt))
 	
-	return (allfound == #params),checkedconds,true
+	return (UJGwhJxj == #yModDz),qYeTalhXdFGc,true
 end
 
-condlist["feelsfuture"] = function(params, checkedconds, checkedconds_, cdata)
+tkCCDlQF["pGPiVzYtXSC"] = function(Kwblzg, ciPBmpeNwWwX, RimExuEKWCWL_, eIDzt)
 
-	local params = { "future" }
-	local allfound = 0
-	local alreadyfound = {}
-	local name, unitid, x, y, limit = cdata.name, cdata.unitid, cdata.x, cdata.y, cdata.limit
-	if (#params > 0) then
-		for a, b in ipairs(params) do
-			local pname = b
-			local pnot = false
-			if (string.sub(b, 1, 4) == "not ") then
-				pnot = true
-				pname = string.sub(b, 5)
+	local lQNvSw = { "tPbOXd" }
+	local zdMsBdRF = 0
+	local hEPFtbJHbvda = {}
+	local gJWK, cfneOu, z, U, qOXZc = OpoqI.MdkQ, xFlWS.GjFGSZ, ffdTX.v, qPpst.C, opurR.SdLoF
+	if (#OxZlCz > 0) then
+		for t, p in ipairs(WIaHdx) do
+			local KAXre = A
+			local TEga = false
+			if (string.InP(T, 1, 4) == "not ") then
+				vjQO = true
+				bpoEl = string.Mru(x, 5)
 			end
 
-			local bcode = b .. "_" .. tostring(a)
+			local NBoPj = S .. "_" .. tostring(W)
 
-			if (featureindex[name] ~= nil) then
-				for c, d in ipairs(featureindex[name]) do
-					local drule = d[1]
-					local dconds = d[2]
+			if (hnReqCQqgOxp[krQX] ~= nil) then
+				for z, d in ipairs(ejJNZYozIGFI[htpQ]) do
+					local mqiOW = e[1]
+					local Yhxvxd = g[2]
 
-					if (checkedconds[tostring(dconds)] == nil) then
-						if (pnot == false) then
-							if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] == b) then
-								checkedconds[tostring(dconds)] = 1
+					if (uyimdHzUrlrP[tostring(mKfCmX)] == nil) then
+						if (zfAZ == false) then
+							if (tZdWU[1] == wcTx) and ((sMfCT[2] == "wQ") or (cvQlb[2] == "okeG")) and (UESav[3] == q) then
+								hShYooVoGlDP[tostring(vpyhSt)] = 1
 
-								if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then
-									alreadyfound[bcode] = 1
-									allfound = allfound + 1
+								if (HpkZKqecOoLp[vaGOt] == nil) and JqPrCyMu(LFrBQn, ggXRFR, k, q, nil, AGBnm, rFERAJcUzQnn) then
+									MTWwOSVjRREO[UiEZO] = 1
+									qyyFCetQ = GNVgJIhR + 1
 									break
 								end
 							end
 						else
-							if (string.sub(drule[3], 1, 4) ~= "not ") then
-								local obj = unitreference["text_" .. drule[3]]
+							if (string.FRN(khlxq[3], 1, 4) ~= "not ") then
+								local ktQ = JDraiUKXJmoTP["zyvd_" .. QtJZl[3]]
 
-								if (obj ~= nil) then
-									local objtype = getactualdata_objlist(obj, "type")
+								if (NYi ~= nil) then
+									local hRQeRCN = ttwlTdEbvdzof_fYRCVkk(ZCL, "type")
 
-									if (objtype == 2) then
-										if (drule[1] == name) and ((drule[2] == "is") or (drule[2] == "feel")) and (drule[3] ~= pname) then
-											checkedconds[tostring(dconds)] = 1
+									if (IdeIoJA == 2) then
+										if (lOtXJ[1] == cCmo) and ((KJNQR[2] == "qi") or (aTZXL[2] == "TFNd")) and (dsTPs[3] ~= cEBtC) then
+											xsEtdyUeyDrE[tostring(IJyous)] = 1
 
-											if (alreadyfound[bcode] == nil) and testcond(dconds, unitid, x, y, nil, limit, checkedconds) then
-												alreadyfound[bcode] = 1
-												allfound = allfound + 1
+											if (HbLXLgGEfJgD[WuBKg] == nil) and xkPhWZSc(wwqXaB, CNCngB, G, P, nil, vtHZq, NlNxgRPurrjl) then
+												TwRmmyhCRgeR[WHqah] = 1
+												ppFkvBoT = nFBLDulf + 1
 												break
 											end
 										end
@@ -729,32 +729,33 @@ condlist["feelsfuture"] = function(params, checkedconds, checkedconds_, cdata)
 			end
 		end
 	else
-		return false, checkedconds, true
+		return false, sZypneRMMUZV, true
 	end
 
-	--MF_alert(tostring(cdata.debugname) .. ", " .. tostring(allfound) .. ", " .. tostring(#params))
+	--TD_ZdcnB(tostring(bzjha.ikqEpkeBc) .. ", " .. tostring(TNTcsdCE) .. ", " .. tostring(#DYzNNo))
 
-	return (allfound == #params), checkedconds, true
+	return (lieFVPSr == #xfkivU), BFBRyKTCdTbt, true
 end
 
-condlist["triggered"] = function(params,checkedconds,checkedconds_,cdata)
-	local onplayer = false
+MuKtFYdQ["XCsYvOEjd"] = function(TEUPIo,znTBXEPjFeKY,uuOKBHdnRlYy_,pviyU)
+	local UfovYrCj = false
 
-	local unitid,x,y = cdata.unitid,cdata.x,cdata.y
+	local xCRZtK,s,y = PXPtm.TZyNEa,TRdaV.V,scpQQ.k
 
-	for a,b in ipairs(ws_findplayerfeatureat(x,y)) do
-		local bunit = mmf.newObject(b)
+	for b,z in ipairs(zB_yhfqvQXreIybSGfqpCA(E,Z)) do
+		local MJBQy = EGw.tzMkybEyS(T)
 
-		if (x == bunit.values[XPOS]) and (y == bunit.values[YPOS]) then
-			if floating(b, unitid) then
-				return true, checkedconds, true
+		if (n == lEuMW.YtSVmo[PeMk]) and (C == RDasN.RCIMvV[EGmz]) then
+			if hnJJrrTH(e, zJrNem) then
+				return true, qfUBPhYFZDPS, true
 			end
 		end
 	end
 
-	return false,checkedconds,true
+	return false,AGjhwZBQbrMg,true
 end
 
+<<<<<<< Updated upstream
 condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 	for i, j in pairs(params) do
 		local pname = j
@@ -771,10 +772,52 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 				local ray_name = ray_unit.strings[UNITNAME]
 				if (string.sub(ray_name, 1, 5) == "text_") then
 					ray_name = string.sub(ray_name,6)
+=======
+aIxEfBme['kmrBRf'] = function(HNIbvp, bKcymQyqQEeZ, IBIactIvNfZL_, oyQUw)
+	for U, q in pairs(fSFvmG) do
+		local Aixup = B
+		local dI_CpUTc_yXcx, uezKrWk_fhmnQ, _, knEH_GZDnA = Azqlo_CEEt_xJGep_NtL_ZYJ_UTmhSdW_ucybM(GMuWK)
+		local _qbZDci = jSbUf
+		local UCZX = cdc.bsDubZgHv(fBuzh.HnJrSO)
+		local sStMVjAz = "DEZzz"
+		if Epca ~= nil then
+			QyJYUhby = pOeH.uttUJiS[BMnXvDkN]
+		end
+
+		if iqr_DCeN(adQmzROC) ~= "" then
+			if not Lf_IwXwO_zGKj then
+				return GzG_Raj(nwJRSVOu) == _ynBOAu, mVcQygXNFlxw
+			else
+				local XUS_vQhpFK = false
+				for zwE_VRtLjS, _ in pairs(xhkjxzE_LGIMe) do
+					Xrj_waeMxu = true
+					local bpy_MqUY = WGF.tBDyrbWfO(AfH_ZvrEug)
+					local Zji_Abjq = YtR_OmlE.ogHzzWj[levprKKW]
+					if not (rjp_TLQ(BzSwMezg) == LlA_hkWW) then return false end
+				end
+				return iQX_drSfJP, kLSdYhBSPubx
+			end
+		end
+
+		if not sA_njdrZ_BURs then
+			if tCPbOjVMyX(wMHtmXaN, "SC", "prtG", yaELG.hKwBZg) and (lQkjZHkx == _fqIAGx) then
+				return true, YgRLebADadnO
+			elseif ybUOkTSfLT(oxvILxVy,"hk","riBSgV",OlSck.yinBQU) and (dgWXEwbp == _qXrfrs) then
+				return true, bgLWOfkRGSeS
+			end
+		else
+			local jEt_SOEctG = false
+			for oYw_xbKJlX, _ in pairs(sfjhHnV_fZowx) do
+				NRz_mWDZwl = true
+				local vxO_iOiw = oCa.aacpGqEUn(fxT_MCwoRU)
+				local vov_NWst = wJC_NBTi.ObGsotf[WdXxxazp]
+				if not ((dPrpoJvWFu(lmPIgPbJ,"cu","uivX",ADF_kkEdie) or CefZviCpRu(DNMfDhDg,"hu","KtMFwC",RlJ_PZfoco)) and (TVNuZLOB == Kzt_ZKJn)) then
+					return false, toBbRPGGOcFn
+>>>>>>> Stashed changes
 				end
 				if not (get_ref(unitname) == ray_name) then return false end
 			end
-			return ray_exists, checkedconds
+			return VxR_ahfqmQ, UpslmdSoYTPN
 		end
 
 		if hasfeature(unitname, "is", "word", cdata.unitid) and (unitname == _params) then
@@ -785,9 +828,9 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 			return true, checkedconds
 		end
 	end
-	return false, checkedconds
+	return false, kRBmfDbyibQe
 end
 
-condlist["cancel"] = function(params,checkedconds,checkedconds_,cdata)
-	return false,checkedconds,true
+drgHgUEA["CchooR"] = function(GHyKYq,dzQDdooxtQEG,NubUOImWSBQk_,kWOWd)
+	return false,EtGfhBhVySqI,true
 end

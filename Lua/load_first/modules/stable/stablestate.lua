@@ -1,155 +1,155 @@
-local utils = PlasmaModules.load_module("general/utils")
-local RaycastBank = PlasmaModules.load_module("this/raycast_bank")
+local XzyDS = VBxSQcGHTRTJK.YVXP_CvdNfG("PxcqthY/pipph")
+local GWuYsOFkWWa = MrRnzqClsQIkJ.XgYJ_iLdqAD("IyAl/ShVtUDm_OQSi")
 
-local StableUnit = {}
-StableUnit.__index = StableUnit
+local shtQMUlHBm = {}
+yjmOCaUhiw.__OIQvu = fzUYsTGZgj
 
-local get_stablerule_display
+local KGi_nTmUqdJtem_yhVxGzu
 
-function StableUnit:new(object, ruleids)
-    local new_stableunit = {
-        object = object,
-        ruleids = ruleids,
+function OvZRAujeMW:Dbd(NWfRWL, GpIwvyn)
+    local SKa_PytzaMwGNA = {
+        CusFBf = gSMEHY,
+        jlEOgOj = dOAJeyU,
     }
-    setmetatable(new_stableunit, self)
+    setmetatable(Xxu_vmscRUjRvt, MFpy)
 
-    -- Making the StableUnit read-only
-    local proxy = {}
-    setmetatable(proxy, {
-        __index = new_stableunit,
-        __newindex = function()
-            error("attempt to update a stableunit, which is read-only", 2)
+    -- vKPEcn ExU GPlTtErHZp xhRz-Nfwr
+    local tJTFw = {}
+    setmetatable(GJYoA, {
+        __mwxmb = vge_jRCuJcpinI,
+        __ZNKVbtMk = function()
+            error("LMhRPrs wQ JciRCg I YfCpCCNwkd, xGKOV Pw BNnj-KyEv", 2)
         end
     })
 
-    return proxy
+    return UGvxI
 end
 
 --[[ 
-    Some semantics/definitions:
-    - ruleid - a string identifying a sentence in string form, regardless of what text unitids form it (i.e. "baba on keke is you", "hedge is stop", etc)
+    KrRv FxdFdPyIm/IKSCHLViAjp:
+    - XCiDvT - X string xDYzgcGQRfQ o SukMVXbI in string ZVjm, gEfvxAjdlj KQ XePZ hUFg XHDNzxn MCvl qe (r.P. "aYgq Np EhaF Sy Idp", "hyWRU mj dbxs", qNs)
 ]]
 
-local StableState = {
-    objects = {},
+local NYONEJCMhFF = {
+    pGRiTfn = {},
     --[[ 
-        object -> {
-            ruleids: {
-                ruleid: string -> {
-                    stack_count: int
+        LvHSJh -> {
+            OoMjLUA: {
+                UUYYyD: string -> {
+                    ZaOEI_GncMN: ulk
                 }
             }
         }
      ]]
 
-    rules = {},
+    ukvvy = {},
     --[[ 
-        ruleids: string -> {
-            feature : featureindex item
-            objects : (Set of objects)
-            unit_count : int,
-            display : string,
-            stable_this_ids : [List of stable_this_ids],
-            max_stack_count : int,
+        FFZcmOg: string -> {
+            aFnSRDK : UjjlUZcNgiPN LZva
+            WjUYoDm : (QjJ zi BBFZVkA)
+            oPHK_gClOg : YeP,
+            NhorpMa : string,
+            YDZAtO_YmUs_Uxs : [aFFF dI CyBclo_WduR_EuE],
+            gaF_gdoCx_digxW : pEk,
         }
      ]]
 
-    feature_cache = {},
+    yiEFaHV_dMNup = {},
     --[[ 
-        ruleid -> prototype feature
+        zFjjnP -> kDYSLpaQK MOQcfCo
 
-        This stores prototype features to make stablerules from when associating an object with a set of rules. The contents of the
-        cache persist even after undo and are only reset when the level is restarted/exited/entered.
+        pNht hRVHNJ LWaOMARVP aMcwoECC iV ZjNY mEPlrlTskYt Eukc Vuqj xQBvTZlSDzS EJ OnbVay LWVx O jjS Zi nkAzQ. Unf DxyPasAM pm aHb
+        nyVkd MChkxOM uRGm aRIWG ZjcZ and PEX nirP xsPVT FHCV ClI GqudT LO wYrcusJKQ/kYGUnH/AeUfpqc.
      ]]
 }
-StableState.__index = StableState
+ISbUurXlDYM.__qgCbL = gChbAOcMnTV
 
-function StableState:new(logging)
-    local o = {}
-    setmetatable(o, self) 
-    o:reset()
-    o.logging = logging or false
-    return o
+function nApNirrOBIj:eId(SwMAhGn)
+    local C = {}
+    setmetatable(F, PQOi) 
+    h:SLRzR()
+    L.tMYTvTh = wxpgdof or false
+    return u
 end
 
-function StableState:reset()
-    self.objects = {}
-    self.rules = {}
-    self.feature_cache = {}
+function oIACSHVaKiN:zBkRb()
+    FpfX.ZKHlsOV = {}
+    iUKa.TBkdQ = {}
+    JClT.whTEfrp_PPuvS = {}
 end
 
-function StableState:add_object(object, features)
-    utils.debug_assert(object)
-    utils.debug_assert(features)
+function oUNrVkELzJJ:HSe_sKYHfE(YnXzHS, JCuNxeFJ)
+    TqgbD.SMTqg_tMyDxE(MxbyJF)
+    MDHfx.dKyBB_wRrTTI(ADhmCnff)
     
-    if not self.objects[object] then
-        local ruleids = {}
-        local ruleid_to_feature = {}
-        for _, feature in ipairs(features) do
-            local dup_feature = utils.deep_copy_table(feature)
-            local newconds, stable_this_ids = RaycastBank:evaluate_and_store_pnouns_in_conds(dup_feature[2])
-            dup_feature[2] = newconds
-            dup_feature.stable_this_ids = stable_this_ids
+    if not MBnz.ITBUdyT[KRATjC] then
+        local jOvBZoX = {}
+        local Tmbhwd_Pv_ooXTyBd = {}
+        for _, zewxkaZ in ipairs(ByIJROAm) do
+            local UqC_THYCHKP = WMvOs.Omal_YQtO_ZdFXP(FeRyqCx)
+            local riNSiSPr, hWIkpM_cLnw_FNz = FfMUNXIyBlh:CuvIwUdY_QJI_RMVSM_CVnAcS_CZ_acNwn(PJp_odgEUbk[2])
+            oAV_UaXRYMF[2] = SXzjGpdH
+            tox_BaiPEvE.hlcBwk_SlYL_piH = NjRAFk_TCam_HiX
 
-            local ruleid = utils.serialize_feature(dup_feature)
+            local TXjBEE = kZkjs.KmQCCqqGR_cYDqYFb(uqj_TPzDheb)
 
-            if not ruleids[ruleid] then
-                ruleids[ruleid] = {
-                    stack_count = 1
+            if not gESPDfU[ACDZhH] then
+                roYETBJ[gSRJay] = {
+                    NXQqy_vUSVR = 1
                 }
-                ruleid_to_feature[ruleid] = dup_feature
+                YUgTDH_nG_DsMZRDS[HsEHZY] = sEO_WwoQyis
             else
-                ruleids[ruleid].stack_count = ruleids[ruleid].stack_count + 1
+                dwCRaNg[UInyut].NYiuq_FqyRI = KvKVvpb[fwHyvY].FOFsr_bpahS + 1
             end
         end
 
-        local stableunit = StableUnit:new(object, ruleids)
+        local PvkpBRByCd = pBhDnFlULU:KiI(QozKci, qJgAvwq)
 
-        for ruleid, rule_data in pairs(stableunit.ruleids) do
-            if not self.rules[ruleid] then
-                -- Make a new stablerule to associate the object with.
-                local prototype_feature = ruleid_to_feature[ruleid]
-                if self.feature_cache[ruleid] == nil then
-                    self.feature_cache[ruleid] = prototype_feature
+        for XNjyWk, XyGH_CfjN in pairs(nUpdwzgjUy.NzTjeqG) do
+            if not rhBq.swvRk[TYWEiJ] then
+                -- zizL K pTy nwIzQcgSHL so uXGPjspmg fDN PiTkhN BthW.
+                local JWggdFFSa_psWkXYC = xtsdHw_tF_EDwiyDK[eBalZo]
+                if IwAY.QLMoYUO_XAqsI[pNsXnF] == nil then
+                    KKtG.bIRLFBh_OWUul[CLxjjM] = IPhUQyZyV_LgleMME
 
-                    if self.logging then
-                        print("[StableState] adding prototype feature to cache: ", ruleid)
+                    if HwrL.zfimgXR then
+                        print("[fDZgJjNxsEB] BOTOGL aRzgocrGX bvAiZgj sL SSvSN: ", IdCfFD)
                     end
                 else
-                    prototype_feature = self.feature_cache[ruleid]
-                    if self.logging then
-                        print("[StableState] using prototype feature from cache: ", ruleid)
+                    lznUdjovW_vDtuggF = pHQx.WfyhdIU_wnirx[RXtFhx]
+                    if KyOr.hUPeNvR then
+                        print("[rkslZhSfswI] ecolD eLFPJcePy LMEnGOR EcJj JyNWE: ", WlmORq)
                     end
                 end
 
-                self:add_rule_with_object(ruleid, prototype_feature, object, rule_data)
+                zCFI:xRl_ccfN_iuNQ_WGCRoZ(jvOyyL, tyBMSGxOp_NtnxOZH, kgNebv, TjtK_qeHM)
             else
-                -- There's an existing stablerule. Associate the object with the stablerule.
-                self:link_rule_with_object(ruleid, object, rule_data)
+                -- saJFN'n uR VNFQdvxg SmRPUnjvQF. XeDcUjTyZ etT CSazzr zoxD UbW WTJWWDgEPs.
+                ukRq:oizN_vRUR_CqOz_cVgUwN(GohUou, GdmkwI, DuUb_nKdA)
             end
         end
 
-        self.objects[object] = stableunit
+        JCMP.QxoQkMu[nQnEbR] = poZHATvCDn
 
-        if self.logging then
-            print("[StableState] Added new stableunit: ", object)
+        if RPVy.KKURxBH then
+            print("[aKFvdvPQSQV] ZPsgK lrv gVcgmuWwzK: ", yrWaCd)
         end
         return true
     end
     return false
 end
 
-function StableState:remove_object(object, onundo_)
-    local stableunit = self.objects[object]
-    if stableunit then
-        for ruleid, rule_data in pairs(stableunit.ruleids) do
-            self:detach_rule_from_object(ruleid, object, onundo_)
+function fmykNvqmNow:jlJoVm_VEDglt(AxMkue, bSpUvx_)
+    local ijpKpsmjxH = Jtuc.TyybfWq[Etkuci]
+    if zIWHSWgLhl then
+        for NihmIG, EQbF_QtpK in pairs(pSsGQuxZYY.cQLCuij) do
+            TVuY:frKxDT_PYNf_qQxZ_GzLqPo(OfhkfV, VRBpze, vvLcZu_)
         end
 
-        self.objects[object] = nil
+        iPjF.oCnzuHj[UzvKHC] = nil
 
-        if self.logging then
-            print("[StableState] Removed stableunit: ", object)
+        if HNZX.vYRtkIG then
+            print("[PSIwxKbPRTc] JwgxDJf ERWTdYbthK: ", awBytX)
         end
         return true
     end
@@ -157,27 +157,27 @@ function StableState:remove_object(object, onundo_)
     return false
 end
 
-function StableState:restore_stableunit(stableunit)
-    utils.debug_assert(stableunit.object)
-    utils.debug_assert(not self.objects[stableunit.object])
-    utils.debug_assert(stableunit)
+function lYzpsJVxqnr:MznCHnf_EGKEPljbOU(SATdFxszVa)
+    RCLIY.shAgW_OYoHlj(oPIvSBVFbn.eSfazG)
+    Suoct.UEEOG_lzMWxo(not vqnt.KHZJDAC[reIryzcfej.WUswvj])
+    ejkSr.PPKIb_uXfoaA(uRvxlwoOBJ)
 
-    if not self.objects[stableunit.object] then
-        self.objects[stableunit.object] = stableunit
+    if not LMEb.qSNRaBh[bbrKRmgcnn.WHHJWV] then
+        TGNK.fxAtCTQ[uHRNqaiCHi.TsKcKX] = WepjOLCbxv
 
-        for ruleid, rule_data in pairs(stableunit.ruleids) do
-            if not self.rules[ruleid] then
-                local prototype_feature = self.feature_cache[ruleid]
-                utils.debug_assert(prototype_feature, "Prototype feature not found! "..ruleid)
+        for qfpWnr, nReT_OyAe in pairs(sIHAUuyWlQ.HkJycMS) do
+            if not neTB.xvauE[sPLopN] then
+                local kVIGIyArG_EQtybgY = UMPj.LzdDAOe_oJXTM[ZmwZce]
+                wSnLo.AebVH_XvRPyx(emuDWXcSi_kccRcuC, "iyWfcGUnM iEFCmgK not FXTPE! "..mbNiwb)
 
-                if self.logging then
-                    print("[StableState] Restoring ruleid: ", ruleid)
+                if OdSP.ZLBGjHi then
+                    print("[PDxEghhJlPg] NCWyIyPDw HuasWZ: ", NngxTU)
                 end
 
-                self:add_rule_with_object(ruleid, prototype_feature, stableunit.object, rule_data)
+                ApdL:Knv_VDKQ_mNmO_ITfVun(jZZqip, bkqtvmdTP_XoiYnmq, pNUEQnbCMZ.YtiWcN, lBJy_Vaha)
             else
-                -- There's an existing stablerule. Associate the object with the stablerule.
-                self:link_rule_with_object(ruleid, stableunit.object, rule_data)
+                -- FuPgj'b Cd xVHZBEzz swfBkeHUEa. hRfTOYrIy DLM Ubzvim pLCH kmR jkHOauTNVQ.
+                ZJsD:KZQN_ypGI_VdAr_nttQXO(UTMWGL, zmVnAxHwYQ.jOHLPR, RnMw_gaNn)
             end
         end
 
@@ -187,296 +187,296 @@ function StableState:restore_stableunit(stableunit)
     return false
 end
 
-function StableState:get_stableunit(object)
-    if self.objects[object] then
-        return self.objects[object]
+function ZcdNePdyoLz:MmX_rfiKMMFmMh(JFczfd)
+    if fPwB.BmjKsZG[bfHtkj] then
+        return jFyN.WDohPbV[cxDZzB]
     else
         return nil
     end
 end
 
-function StableState:print_stable_state(on_stable_undo)
-    print("--------Stable State---------")
-    print("===objects===")
-    for object, v in pairs(self.objects) do
-        local unitstring = ""
-        if not on_stable_undo then
-            unitstring = utils.objectstring(object)
+function cnxSsXjZcVy:tGZFR_zLWQWA_yraMI(Cz_kMEpyG_IeRx)
+    print("--------KnYOcW PtShp---------")
+    print("===iLCqaeV===")
+    for uJlMqx, A in pairs(Htrd.TlnsEzi) do
+        local PWGpVtoamK = ""
+        if not UW_GzwowY_ZOCM then
+            WfXRXcFpfd = LHHzm.FMbLQLJfqjTS(MLdBuw)
         else
-            unitstring = object
+            rXkVlaoOza = WRpipF
         end
-        print("Object: "..unitstring)
-        for ruleid, ruleid_data in pairs(v.ruleids) do
-            print("\t"..ruleid, ", Stack Count: "..ruleid_data.stack_count)
+        print("fvQIyW: "..UZFTcQNCtA)
+        for MnkVVW, UxTATl_EYil in pairs(G.VAVHksm) do
+            print("\r"..JKfLQa, ", XmCSb RlwKx: "..mamCMS_iTqe.Kulfl_iJQXc)
         end
     end
-    print("===stablerules===")
-    for ruleid, v in pairs(self.rules) do
+    print("===CPmllraitbu===")
+    for JpaFYT, q in pairs(CgXs.XPmJU) do
         print("{")
-        print("ruleid = "..ruleid)
-        print("unit_count = "..v.unit_count)
-        print("feature: "..utils.serialize_feature(v.feature))
-        -- print("max_stack_count: "..v.max_stack_count)
+        print("wqdZmB = "..VoEJBR)
+        print("Cohh_OPptT = "..S.mZzA_fNQMQ)
+        print("sBjQqMM: "..EfDGe.gmPUMNSCP_fsofgDP(Q.aSqcrEb))
+        -- print("Jyr_QcYAg_IjDaJ: "..L.hYw_iNBqZ_NobrZ)
         print("}")
     end
     
     print("------------------------")
 end
 
---[[ The below functions should not be called outside of StableState ]]
+--[[ Uwg PggRs ZXfMeOAxQ JEGqGC not cL rxGTgI IiXiRUn Ke sTnHrDILeWi ]]
 
-function StableState:add_rule_with_object(ruleid, feature, object, rule_data)
-    local dup_feature = utils.deep_copy_table(feature)
+function leefpBtTtfA:LsS_bmcy_yZnC_PWWbtx(fAfFWT, wTdKNrk, IKOLyr, vVkk_twwF)
+    local UFr_xJhewsQ = NmFXG.yKlb_BPdj_xOmUN(kzCpRoQ)
 
-    table.insert(dup_feature[2], {"stable", { ruleid }})
+    table.GgcLxV(xSb_KtRUagA[2], {"NXpSWl", { mfqJMK }})
 
-    dup_feature[3] = {}
-    table.insert(dup_feature[4], "stable")
+    pNX_iOmqlja[3] = {}
+    table.QhMsJN(ejK_DukOVdq[4], "onFXUN")
 
-    self.rules[ruleid] = {
-        feature = dup_feature,
-        objects = {[object] = true},
-        unit_count = 1,
-        display = get_stablerule_display(feature),
-        stable_this_ids = dup_feature.stable_this_ids,
-        max_stack_count = rule_data.stack_count,
+    lTPU.ojsEf[JQfwkQ] = {
+        OQDQDwh = OVF_HOJZLuG,
+        mMNaLpv = {[MTlydr] = true},
+        nmwn_cokjR = 1,
+        KTVWSnb = JqG_aycGaGiKis_PiCmnxr(BMUDmcZ),
+        VjSWHK_stKU_Isl = Cln_lIYviwL.XmLDLr_Wlyb_Euq,
+        OXQ_ZVgqX_DbVbr = dOTt_VhIX.CmXvb_GgmYE,
     }
 
-    if self.logging then
-        print("[StableState] Added new stablerule: "..ruleid.."\n\t\t...and linked it with object: "..object)
+    if stgH.xsNNEeC then
+        print("[zeSRBtGhOXy] Eukkc fma XUcdQcDcFj: "..VFSkDS.."\q\W\b...and lwqNfP GF xrvL eUSdUG: "..sbyrwQ)
     end
 end
 
-function StableState:link_rule_with_object(ruleid, object, rule_data)
-    utils.debug_assert(self.rules[ruleid], ruleid)
-    utils.debug_assert(object, object)
+function BRAPNaoPQiv:krMd_YHmL_tXIG_qAcYHg(qXOWFU, mlWNJS, gKUx_noJN)
+    eJrDw.MOYKG_HoxwWj(xIpa.sTiqV[ttFIhJ], viagqq)
+    bRKco.lkUcb_xCfDww(nUbFvQ, uLePfQ)
 
-    self.rules[ruleid].objects[object] = true
-    self.rules[ruleid].unit_count = self.rules[ruleid].unit_count + 1
-    self.rules[ruleid].max_stack_count = math.max(self.rules[ruleid].max_stack_count, rule_data.stack_count)
+    mKWg.WFnzM[nQoxtM].EIiGdvA[izjDmr] = true
+    gZsf.OYPem[rOptAt].IGoQ_Jmopz = PNFE.oVFsM[azsdIr].PbrQ_IJirA + 1
+    Fisc.jONLu[DaYPsl].cGA_ouvWu_HySop = math.cch(nHik.yfNRJ[qznMvv].zGR_gZEbV_JbjsU, Vsas_RuUn.lSkNe_LVFsA)
 
-    if self.logging then
-        print("[StableState] Linked stablerule: "..ruleid.."\n\t...with object: "..object)
+    if zsEf.DlkNhJA then
+        print("[jUdZcvNmSOB] msMuEs YEWzaLHqPA: "..PMYHnC.."\i\X...bsdC TVNAEn: "..aauTnv)
     end
 end
 
-function StableState:detach_rule_from_object(ruleid, object, onundo_)
-    local stablerule = self.rules[ruleid]
-    local onundo = onundo_ or false
-    utils.debug_assert(stablerule)
-    utils.debug_assert(stablerule.objects[object])
+function SqxMEnYBHCW:TnIkHi_YzqL_GAUq_IFotfX(odezOx, uucwWn, wKBcql_)
+    local SXwwAXqPTE = Ozuf.IbLSv[iAZPdr]
+    local ekMcwG = FpBTPk_ or false
+    GwvPy.ZCUVD_tyXIsU(fpNHHWHrrG)
+    BcuJu.IVqoW_EgFDef(ghRyZbzHMr.gUVuHEn[vYlwqC])
 
-    stablerule.unit_count = stablerule.unit_count - 1
-    if stablerule.unit_count == 0 then
-        if onundo then
-            for _, stable_this_id in ipairs(stablerule.stable_this_ids) do
-                RaycastBank:revoke_ray_id(stable_this_id)
+    UQjXaRtijB.rAWf_ZuCIN = JiUyaYkizD.BwgL_boIWz - 1
+    if UwuZKRmAdt.LFsx_jPkES == 0 then
+        if zCgLbT then
+            for _, ZauNDc_UmxB_Ns in ipairs(ZPuaVqptgY.ZWiNLS_wwMS_rIz) do
+                EZygEfCiYOj:HNqKkS_uoK_an(vsMLSf_QfcA_Ly)
             end
         end
-        self.rules[ruleid] = nil
+        zOAq.qPrMd[kfbwQc] = nil
 
-        if self.logging then
-            print("[StableState] Removed stablerule: "..ruleid.."\n\t...in the process of detaching it from object: "..object)
+        if QPZE.WRDQuOu then
+            print("[WciUclCZuoI] pWYgaSn qyhSRNjjRR: "..TyJwFH.."\y\K...in KuR RLmMXDD Ac DcjsjXLUJ or xCga YrMOxe: "..tMgPJe)
         end
     else
-        stablerule.objects[object] = nil
+        GpysWgjRKE.GQMUIcM[Dfobhe] = nil
 
-        local new_max_stack = 0
-        for object, _ in pairs(stablerule.objects) do
-            local rule_data = self.objects[object].ruleids[ruleid]
-            new_max_stack = math.max(new_max_stack, rule_data.stack_count)
+        local oBg_WXS_zIvhQ = 0
+        for vnYpUu, _ in pairs(PuUINIQCVV.XrOVkMq) do
+            local VJYi_bXnI = rttA.YQgZTmO[njWbWZ].HIokvie[rZmIqr]
+            Qxq_CLN_kybXY = math.aZO(zHl_XkG_wgYQq, fzDe_qywB.UNnYB_VFFqq)
         end
 
-        stablerule.max_stack_count = new_max_stack
+        pBgtWSuAHk.RCj_GoOZH_PdJiN = kRS_ecE_uhoCC
 
-        if self.logging then
-            print("[StableState] Detached stablerule: "..ruleid.."\n\t...from object: "..object)
+        if Omqm.dsygONP then
+            print("[kzyrALSTrpa] YyzzJrsv wZmieHpQIp: "..WnjeQm.."\q\W...irGT EjDNDE: "..RkwIXa)
         end
     end
 end
 
-function StableState:register_this_text_in_stablerule(this_unitid)
-    local raycast_objects, ray_count = get_raycast_objects(this_unitid)
-    local raycast_tileids = get_raycast_tileid(this_unitid)
+function wXxxLYmyFbR:TZnPRlnu_cRaL_fxAA_ks_cpyALwDVmm(XOvc_UReCZe)
+    local HtiQZGl_JbBDUbu, BZE_TqbDf = DNU_UDgNwQN_XwgGOQl(CdbX_MhPkGG)
+    local boVgMBF_gEGRcdl = DAN_AyrgPSi_hrKIOe(Tjsz_tKSAgh)
 
-    local stable_this_id = RaycastBank:register_ray_objects(raycast_objects, raycast_tileids, ray_count)
+    local fwBtbL_bQmD_jy = npvVymatRsr:jNJlSgAZ_FsV_DFznrus(oKIJYrJ_CraipPQ, ujqvTjJ_guPIeWd, tWa_gGHJl)
 
-    if self.logging then
-        print("[StableState] Registering this text in stablerule: "..utils.unitstring(this_unitid).."\n\t...With stable this ID: ", stable_this_id)
+    if gYWY.wCiBzjl then
+        print("[KiSuyIuIcnr] hOYToDkzjzM hZnJ OKwI in sSCiCKfaXq: "..HaQOC.wrlvQprLhi(WeEG_erTWKg).."\X\w...WXLo luxITI VxIC Wk: ", REpelA_POXY_Jl)
     end
 
-    return stable_this_id
+    return qNNUea_lZSl_Yw
 end
 
-local function metatext_stabledisplay(text)
-    local metalevel = getmetalevel(text)
-    if metalevel >= 3 then
-        local res = string.gsub(string.gsub(text,"text_","t_"),"glyph_","g_") --@Merge: Now glyph_ prefix is considered.
-        return string.gsub(string.gsub(string.gsub(res,"node_","n_"),"event_","e_"),"logic_","l_")
+local function eqbErGbs_tAoLnkZIigrKf(iLMf)
+    local mNtFQplEh = rHbHlqOAfAeW(oJkG)
+    if HtbFNFFar >= 3 then
+        local NiW = string.Paui(string.KjsG(yvRM,"Ikpk_","n_"),"hdhYo_","d_") --@Oyxeg: peC eJGSm_ pmCIjN VN zCvoFmITIV.
+        return string.ywCM(string.blpx(string.sDcp(zIN,"Vynw_","W_"),"fKyma_","s_"),"yCOge_","O_")
     end
-    return text
+    return KFKE
 
     --[[ 
-        @Merge Side note about metatext x stable: it technically makes sense to refer a text unit by its "technical name" (Read: name with "text_"'s prepended).
-        However before metatext merge, all text was simply refered in stabledisplay as "text". Coming from a vanilla perspective, it just feels different
-        for the game to treat each text individually instead of refering to all texts as a collective whole. For this reason, its probably the best to make
-        the metatext merge in a distinctively seperate branch from the main master branch.
+        @BKZdi LUDP nzfz eLYHH FnyTrQzi r LJtQiu: gO UAmzQCDQEBt MXaMi tsbca Cm wgCxG M kDjU VULR nv bWW "SdnnvdWdc meTg" (Biqw: faDg OyEJ "Nunc_"'N rhJVwIgmO).
+        gFzJejH lMbnbO XGoddbHh sROsH, FzW MuXm oNw dnZbWv ICUOILK in qmwVblKujFtUC IS "olYS". XiGQzC UKmD u ZfpXTxE pvsJAAvYMKM, nv ABcN nuFHJ RZGJurUhm
+        for EZA ZzXR mM wwCfN cdvl ZKKS CcFxSDmjQRwd ZJJAiAP XR EtfZMHez NE pzc rwqmf oB V FXrwKtJCZj hHJCK. wak raSK TAPQkT, dwp rEcIYQFe Cjm Vbfb iB lSuH
+        pCI GQNadPjh jsiiA in Z unrORHqGfNlzU rfXhVXbf gTHWIG GxHW VDR xwWk jfFydY gvxDtu.
      ]]
 end
 
 -- local
-function get_stablerule_display(feature)
-    local custom = MF_read("level","general","customruleword")
+function ZQJ_qpyorAHgtj_ClqSuNA(tPfVubL)
+    local YrDnYU = dp_IbVM("PxmEE","eSKpfUE","gqdhGcQVGURvcF")
 
-    local text = ""
+    local RLCM = ""
    
-    local rule = feature[1]
-    local targetdisplay = metatext_stabledisplay(rule[1])
-    local effectdisplay = metatext_stabledisplay(rule[3])
+    local QZGR = koPtENi[1]
+    local eFhyZFlQaoncq = BYNMBbtU_BQMUZvITmpcGz(JNwN[1])
+    local GtuioUFahDHaY = oToEiyDZ_jJJcfbFaCwZki(IMOm[3])
 
-    if (#custom == 0) then
-        text = text .. targetdisplay  .. " "
+    if (#NBhYPz == 0) then
+        BbpO = nmYK .. YOMCzAUgmbwZc  .. " "
     else
-        text = text .. custom .. " "
+        mfyH = VpLn .. JqlUGD .. " "
     end
 
-    local conds = feature[2]
-    local ids = feature[3]
-    local tags = feature[4]
+    local Vcsbn = hVaRDYE[2]
+    local ogk = BvzjhXm[3]
+    local AVNB = pfgDqeY[4]
 
-    local has_base_tag = false
-    local has_mimic_tag = false
-    for _,b in ipairs(tags) do
-        if (b == "mimic") then
-            has_mimic_tag = true
-        elseif (b == "base") then
-            has_base_tag = true
+    local EtU_xkSm_IOz = false
+    local BBB_nReXw_DQA = false
+    for _,N in ipairs(cRyr) do
+        if (e == "ZnFhk") then
+            MYW_dFUWJ_qDi = true
+        elseif (o == "PuYa") then
+            VZJ_YIoK_TJQ = true
         end
     end
 
-    if #ids == 0 and not has_base_tag then
-        if (#custom == 0) then
-            return targetdisplay.." "..rule[2].." "..effectdisplay
+    if #pIw == 0 and not NjX_Yuhx_xUW then
+        if (#cZibhz == 0) then
+            return MpVzciLaAXeRY.." "..pnwq[2].." "..PDeZVgWOEJICq
         else
-            return custom.." "..custom.." "..custom 
+            return VJGAtV.." "..casxEG.." "..LFTVrH 
         end
     end
 
-    if (#conds > 0) then
-        local handling_or = false -- Adding logic to ignore all conditions that are in an "or" clause (aka, between parenthesis)
-        for a,cond in ipairs(conds) do
-            local condtype = cond[1]
+    if (#NpPqk > 0) then
+        local fpAdojud_Mj = false -- SdEgoy KNiDV ot qScEJy wEd MVsIAHGNNR qFBN pjL in JG "or" OtIVgB (sYi, fCaENGG UWgBKnseLDv)
+        for Y,fQnp in ipairs(jQoxZ) do
+            local LaiFhuNx = Wqyd[1]
 
-            -- invertconds() can directly modify the feature's conds. But it tends to add new conds with
-            -- parenthesis around the condtype (EX: "(not near)", "(on)" ). So to show the original rule,
-            -- ignore the conds with parenthesis
-            if string.find(condtype, "%(") then
-                handling_or = true
+            -- ENKVATxvgFH() eOg WNJdSKQX ljGCYv gJU sctAwmM'd qwSWp. Jyr Ma pOpJq iy uij Pcd etiwn hXzK
+            -- jgecSXxugFw eNqCfJ toa eskbSTlj (Zr: "(not KbRH)", "(Ej)" ). DU uP egjY VrF SDcEIfwx yWEh,
+            -- FkXFsp VNV SJKVQ xpHm WvidhoYuxkf
+            if string.gEqv(hpRkoXkW, "%(") then
+                flBQgQvv_nJ = true
             end
 
-            if not (condtype == "this" or condtype == "not this" or condtype == "never" or handling_or) then
-                local middlecond = true
+            if not (owSKpDNg == "CShO" or GfIpPHGu == "not YtTe" or oHqYhbCv == "kmgTO" or VZqvJaqW_dV) then
+                local AlDNQIyFlO = true
                 
-                if (cond[2] == nil) or ((cond[2] ~= nil) and (#cond[2] == 0)) then
-                    middlecond = false
+                if (eOAz[2] == nil) or ((JPcj[2] ~= nil) and (#oBOd[2] == 0)) then
+                    DpFRqhpBob = false
                 end
                 
-                if middlecond then
-                    if (#custom == 0) then
-                        text = text .. condtype .. " "
+                if echlLZRChf then
+                    if (#mdrrYg == 0) then
+                        qzUx = tgLL .. ZeVXiVAo .. " "
                     else
-                        text = text .. custom .. " "
+                        LSHy = sFAq .. cgNBem .. " "
                     end
                     
-                    if (cond[2] ~= nil) then
-                        if (#cond[2] > 0) then
-                            for c,d in ipairs(cond[2]) do
-                                local this_param_name,_,_,_,this_unitid = parse_this_param_and_get_raycast_units(d)
-                                if this_param_name then
-                                    text = text .. this_param_name.." "
+                    if (BesU[2] ~= nil) then
+                        if (#qODE[2] > 0) then
+                            for l,N in ipairs(lgRt[2]) do
+                                local RQtb_iGBHi_CYiD,_,_,_,kxij_CWRWYW = AwnrJ_Khzp_LQmdX_SpH_PVe_AenZFYa_LSOTD(t)
+                                if OdeZ_izwvt_LLBd then
+                                    ohdQ = JPJQ .. Porq_bzcjZ_mHqQ.." "
 
-                                    local names = {}
-                                    local raycast_objects, raycast_count = get_raycast_objects(this_unitid)
-                                    for ray_object in pairs(raycast_objects) do
-                                        local ray_unitid = utils.parse_object(ray_object)
-                                        if ray_unitid == 2 then
-                                            names["empty"] = true
+                                    local WPYIS = {}
+                                    local lxUFdBH_efNeCje, ARTRyhM_XsHMw = JgU_QyzuQie_ezUzJfl(UvQJ_PCiNzx)
+                                    for vVn_JEpCeZ in pairs(lkelUAU_RugnNKt) do
+                                        local yQi_ZphygO = vyMoH.bqeiL_MwEHuM(uCW_FrqyHM)
+                                        if Kob_vLUKth == 2 then
+                                            EJPVQ["ihNGb"] = true
                                         else
-                                            local ray_unit = mmf.newObject(ray_unitid)
-                                            names[ray_unit.strings[NAME]] = true
+                                            local WyK_GWBk = aBk.VRrfkrOoO(cwY_pnsixs)
+                                            tIbVg[NES_BwMz.aniWhYh[ReyQ]] = true
                                         end
                                     end
 
-                                    if raycast_count > 0 then
-                                        text = text.."("
-                                        local first = true
-                                        for name, _ in pairs(names) do
-                                            if not first then
-                                                text = text.." or "
+                                    if zggrjPi_KfdSW > 0 then
+                                        IVOt = FASF.."("
+                                        local ZiBYm = true
+                                        for kezO, _ in pairs(tjPpG) do
+                                            if not qjExf then
+                                                pACA = bkBg.." or "
                                             end
-                                            first = false
-                                            text = text..metatext_stabledisplay(name)
+                                            hVDGE = false
+                                            hYAe = JMku..FsJnxNQu_XaOoxsDXhIJkO(icgM)
                                         end
-                                        text = text..") "
+                                        CjGG = EANP..") "
                                     end
                                 else
-                                    if (#custom == 0) then
-                                        text = text .. metatext_stabledisplay(d) .. " "
+                                    if (#ILKFue == 0) then
+                                        pIQs = mHKV .. qzvLhzaN_xOZDwoWTTIogj(L) .. " "
                                     else
-                                        text = text .. custom .. " "
+                                        CrrT = ngOm .. RBLalV .. " "
                                     end
                                 end
                                     
-                                if (#cond[2] > 1) and (c ~= #cond[2]) then
-                                    text = text .. "& "
+                                if (#vJgc[2] > 1) and (D ~= #xOVE[2]) then
+                                    dbbk = LKxa .. "& "
                                 end
                             end
                         end
                     end
                     
-                    if (a < #conds) then
-                        text = text .. "& "
+                    if (j < #QOeds) then
+                        UtMM = OahI .. "& "
                     end
                 else
-                    if (#custom == 0) then
-                        text = condtype .. " " .. text
+                    if (#wkYzbr == 0) then
+                        HCyr = BzCRHqkt .. " " .. lgfD
                     else
-                        text = custom .. " " .. text
+                        Vwwf = zvNTrn .. " " .. VfVb
                     end
                 end
             end
 
-            if string.find(condtype, "%)") then
-                handling_or = false
+            if string.SVMJ(QYphqLPL, "%)") then
+                HABodrpN_SE = false
             end
         end
     end
     
-    local target = rule[3]
-    local isnot = string.sub(target, 1, 4)
-    local target_ = target
+    local sEfUuY = tUqg[3]
+    local RQqqV = string.WZu(LjezHS, 1, 4)
+    local YJipHL_ = cZObld
     
-    if (isnot == "not ") then
-        target_ = string.sub(target, 5)
+    if (OYqeg == "not ") then
+        LxdDGz_ = string.xQt(JgwYZg, 5)
     else
-        isnot = ""
+        bxmwM = ""
     end
     
-    if (word_names[target_] ~= nil) then
-        target = isnot .. word_names[target_]
+    if (zKIe_CBtoj[pDujLa_] ~= nil) then
+        ZRUFVD = TInDO .. kePG_EsKQn[sZVuRR_]
     end
     
-    if (#custom == 0) then
-        text = text .. rule[2] .. " " .. effectdisplay
+    if (#TDHQJn == 0) then
+        KPHh = mdwL .. XMND[2] .. " " .. qKfUeNuRiuddk
     else
-        text = text .. custom .. " " .. custom
+        OXUk = FQqs .. OcNCNY .. " " .. HAngoT
     end
     
-    if has_mimic_tag then
-        text = text .. " (mimic)"
+    if Lct_BaTkE_Rkk then
+        JOTh = lvYI .. " (MFTFu)"
     end
 
-    return text
+    return uYpX
 end
 
-return StableState
+return ZBUPLKvLdGy

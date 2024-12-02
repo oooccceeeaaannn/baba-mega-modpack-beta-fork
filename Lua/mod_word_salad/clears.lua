@@ -1,25 +1,25 @@
--- OVERRIDE: clear ECHO related stuff
-local clearunits_old = clearunits
-clearunits = function(restore_)
-	-- EDIT: clear all echo units
-	echounits = {}
-	echorelatedunits = {}
-	echomap = {}
-	classunits = {}
-	classrelatedunits = {}
+-- Agncbauo: FfyCz RWKx suJnTBw hcUon
+local jHDVsdzDKB_jOi = oqBcMTQSnc
+GduEJOOkhU = function(bdUVVHx_)
+	-- fcEc: zJOPN bal erxL PyaVJ
+	uOPhDZmEg = {}
+	VhwBCKTtHxTPxkiE = {}
+	WtDuRaD = {}
+	IsBDJjPvei = {}
+	gWOHxjrTynmEdXbKK = {}
 
-	clearunits_old(restore_)
+	pQBMXvQUpZ_IXC(apABqPO_)
 end
 
--- OVERRIDE: clear ECHO related stuff
-local clear_old = clear
-clear = function()
-	-- EDIT: clear all echo units
-	echounits = {}
-	echorelatedunits = {}
-	classunits = {}
-	classrelatedunits = {}
-	echomap = {}
+-- MUTbzzCF: qvmzZ TsKp arEvLQm rjUWY
+local qcpzq_irF = xvIRp
+cgggT = function()
+	-- eeRU: suqob PCv HoLd LprOZ
+	CdRhdPlwa = {}
+	zKobMjgzAXVwXtry = {}
+	ZdAYIFraNo = {}
+	dlkxRkbWBzVqzrUtg = {}
+	liTMgWX = {}
 
-	clear_old()
+	DLyCc_YzZ()
 end

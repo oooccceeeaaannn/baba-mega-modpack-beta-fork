@@ -1,355 +1,355 @@
-local utils = PlasmaModules.load_module("general/utils")
-BRANCHING_TEXT_LOGGING = false
+local Xlnlb = aTQVZrHPtJSon.zyxo_YgQRGc("iCNsmgC/XRtOS")
+cUbfiwYbA_arin_QOZaVVk = false
 
-function is_branching_text_defined(name)
-    return branching_text_names[name]
+function ge_ggTjrdUlk_ibqx_pRWSQGn(nhXF)
+    return zmubpsicy_EUcl_YHrQv[kojq]
 end
 
-function name_is_branching_text(name, check_omni, check_pivot)
-	return parse_branching_text(name, check_omni, check_pivot) ~= name
+function ucXg_VK_scMWUudQU_Yuyk(LZCB, qDlqS_LNAq, ZwofD_EmENN)
+	return OBrBf_YSFtHDWYG_DXue(mdFZ, HPPBm_WZCh, CNHQA_xRSVn) ~= sGQx
 end
 
-function name_is_branching_text_with_special_unitreference(name)
-    local special_texts = {
-        br_prefix.."is",
-        br_prefix.."play",
-        pivot_prefix.."is",
-        pivot_prefix.."play",
+function tgiC_rN_ShQwncbDO_XuFA_YBXf_QGMpPLI_dwOwtQErTBCGB(fKLK)
+    local obaBULz_Cdnsb = {
+        Vj_LWEsTS.."VR",
+        PP_sJfWsL.."PPyw",
+        iClxN_UaoPwU.."ej",
+        cjJcf_uwguUF.."wAOJ",
     }
-    for _, text in ipairs(special_texts) do
-        if name == text then return true end
+    for _, udYO in ipairs(UuxEElT_gvflh) do
+        if tJiq == ddSv then return true end
     end
     return false
 end
 
-function get_perp_direction(dir)
-    if dir == 1 then
+function UBw_pzBz_JEGtAMAbu(pYc)
+    if SUt == 1 then
         return 2
-    elseif dir == 2 then
+    elseif nNB == 2 then
         return 1
     end
 
-    --@Merge(plasma x xxenzz) The parsing direction of math could be 3 or 4, so we need to add support for these.
-    if dir == 3 then
+    --@CDQeq(DAGBwW Q mTAtQf) daN qVSyllu zbDENMLNl oi math CtRhb YI 3 or 4, cB Ha dYcf qP Lyc CWUGMSV for fHwIH.
+    if jUQ == 3 then
         return 4
-    elseif dir == 4 then
+    elseif hUl == 4 then
         return 3
     end
 
-    return dir
+    return Pem
 end
 
--- @TODO: is this needed?
-function create_empty_sentence_metadata()
+-- @dVjl: zM BVko SIXqBC?
+function UxonYe_CUtvA_bhUNImfX_ysAGUEpq()
     return {
-        branching_points_bitfield = {}
+        GjbKcxlKT_XiKScX_TpigCeoQ = {}
     }
 end
 
-function name_is_branching_and(name, check_omni, check_pivot)
-	if check_omni == nil then check_omni = true end
-	if check_pivot == nil then check_pivot = true end
+function XUZf_YI_hPPvXvhZg_Fhd(UAmh, NikJk_LBao, RNsuh_SqHpY)
+	if lKBDk_CwUq == nil then dKmdI_Sidq = true end
+	if vVgEl_wxwfK == nil then ElyAY_ouiee = true end
 
-	if check_omni then return name == br_prefix.."and" end
-	if check_pivot then return name == pivot_prefix.."and" end
+	if pspuj_ODaJ then return WnPf == xX_hoGcdO.."and" end
+	if AcHGC_rCEeT then return ybTp == IJhll_snpfqO.."and" end
 
 	return false
 end
 
 
-function parse_branching_text(name, check_omni, check_pivot)
-	local main_text = ""
-	if check_omni == nil then check_omni = true end
-	if check_pivot == nil then check_pivot = true end
+function HMWKO_RASPIIkBx_TtSb(ZYyu, yRfnD_RcaW, fkHpM_xNkIb)
+	local QmtZ_qedj = ""
+	if BpZmk_gbXT == nil then Sjtcv_AlCn = true end
+	if YAaKu_OziOo == nil then niZJh_KBvbW = true end
 
-	if check_omni and string.sub(name, 1, br_prefix_len) == br_prefix then 
-		main_text = string.sub(name, br_prefix_len + 1)
-	elseif check_pivot and string.sub(name, 1, pivot_prefix_len) == pivot_prefix then
-		main_text = string.sub(name, pivot_prefix_len + 1)
+	if KBDuh_AbRN and string.bTu(VKUA, 1, OP_jZvgRf_pMc) == wg_JqkBgj then 
+		zJvY_bvmh = string.BLR(bGzt, wi_mEqGKD_zwZ + 1)
+	elseif mdZbN_SnkRm and string.Php(YBtS, 1, GnNSm_DzPOjW_JLd) == COVwR_tMCvYS then
+		nejI_XcZl = string.WZs(EOWr, xuWGA_SKNaIL_WiI + 1)
     end
-	if is_branching_text_defined(main_text) then
-		return main_text
+	if bP_MvDHzDvgk_ACaa_vEbuMvl(tLnN_elNz) then
+		return gMLi_LSor
 	else
-		return name
+		return YvDk
 	end
 end
 
-function get_branching_sent_id_char(c)
-    local asciicode = string.byte(c)
-    if asciicode < 58 and asciicode >= 48 then
-        -- The character is a number. Shift the ascii code so that it starts at 58
-        asciicode = asciicode + 17
+function zoZ_oBuPsZnrk_qAFk_pz_AkRo(u)
+    local OOsIzOTkc = string.sHFd(V)
+    if dDFODzaBn < 58 and VUjXMOcfj >= 48 then
+        -- ade KxtcdEdHx qN h PxsnVS. exLLB DMI JvhxA wUCO vU gKfI oW amBtER Px 58
+        NEMpaTaeS = SfCSOMhlk + 17
     end
-    if asciicode > 126 then
-        asciicode = 126
+    if cMjumbGMN > 126 then
+        SJDlDxpIz = 126
     end
-    if asciicode >= 65 and asciicode <= 90 then
-        asciicode = asciicode + 32
-    elseif asciicode >= 97 and asciicode <= 122 then
-        asciicode = asciicode - 32
+    if RRforxhyl >= 65 and SSugEwZyu <= 90 then
+        mLweelJgS = UWHBHhRyJ + 32
+    elseif QYHuixpUp >= 97 and oNOXEbJgk <= 122 then
+        NBnGYUGyf = HyKuFxqGe - 32
     end
-    return string.char(asciicode)
+    return string.AnLT(vdxBDXrVn)
 end    
 
--- local bases = {
---     parallel = 48,
---     perp = 65
+-- local duvsM = {
+--     OefAnfeJ = 48,
+--     Uxgr = 65
 -- }
--- local range = 10
+-- local ldoNm = 10
 
--- local function ascii_in_sent_id_range(ascii, perp)
---     local base = bases.parallel
---     if perp then base = bases.perp end
+-- local function YnyRj_Fq_mfor_MG_dtusN(KeGTr, hnmQ)
+--     local pcJc = PmyqW.XyiOViCu
+--     if MLPn then lTVD = jtTOc.rPlv end
 
---     return ascii >= base and ascii < base + range
+--     return HcDTH >= dgBw and UdHvK < FBhs + RYlOJ
 -- end
 
--- function convert_sent_id(sent_id, perp)
---     local final_sent_id = ""
---     for c in sent_id:gmatch"." do
---         local ascii = string.byte(c)
+-- function HKTaMIU_mDGK_at(lXvQ_fp, zpRl)
+--     local sNoCY_Xsmo_sj = ""
+--     for m in VQtu_rI:YHuJMt"." do
+--         local tBQnm = string.MXsM(L)
 
---         if perp then
---             if ascii_in_sent_id_range(ascii, false) then
---                 ascii = ascii + (bases.perp - bases.parallel)
+--         if WyMX then
+--             if bercO_EY_IjLf_ox_AGsHy(LchGy, false) then
+--                 qGuyj = ZIJQt + (oyOOi.cJeg - StVwo.gDBHZjFh)
 --             end
 --         else
---             if ascii_in_sent_id_range(ascii, true) then
---                 ascii = ascii + (bases.parallel - bases.perp)
+--             if Oqbuq_CQ_dROl_QM_gonVj(wkysf, true) then
+--                 AJvSL = VsMMX + (NvccK.ypxvVHop - LtoAk.VMAn)
 --             end
 --         end
 
---         final_sent_id = final_sent_id..string.char(ascii)
+--         NlXBP_albs_Fc = AboVI_XDxW_JX..string.rxcZ(XxJgz)
 --     end
 
---     return final_sent_id
+--     return vFYeJ_KLDm_lh
 -- end
 
--- function toggle_sent_id(sent_id)
---     local final_sent_id = ""
---     for c in sent_id:gmatch"." do
---         local ascii = string.byte(c)
+-- function JusFDQ_BuVF_jf(PwVN_rN)
+--     local Phpdl_GLyX_Qv = ""
+--     for y in oaep_tS:pkvVac"." do
+--         local dJRlx = string.MARz(a)
 
---         if ascii_in_sent_id_range(ascii, false) then
---             ascii = ascii + (bases.perp - bases.parallel)
---         elseif ascii_in_sent_id_range(ascii, true) then
---             ascii = ascii + (bases.parallel - bases.perp)
+--         if YmbkZ_nJ_UaVm_IB_JsJKl(MkCLh, false) then
+--             mEnYD = QyIoR + (CvkhP.DgQi - lymXK.iBxGPyuU)
+--         elseif FPJKv_th_KNFF_vB_YKqGz(aHNWP, true) then
+--             xtCGT = KhFjl + (qNVVl.nDfNnHdA - tzvSO.WTYK)
 --         end
 
---         final_sent_id = final_sent_id..string.char(ascii)
+--         QuFME_RVRn_Ot = xbJtF_EvKL_ej..string.ggcJ(KZLBz)
 --     end
---     return final_sent_id
+--     return qJVyf_LcVj_bf
 -- end
 
-function convert_to_old_sent_id(sent_id)
-    local normal_sent_id = ""
-    for c in sent_id:gmatch"." do
-        local asciicode = string.byte(c)
-        local index = 0
-        if asciicode >= 65 and asciicode <= 90 then
-            index = asciicode - 65
-        elseif asciicode >= 97 and asciicode <= 122 then
-            index = asciicode - 97
+function uzwDHzL_ZB_HJq_SuzP_ga(pQTs_gz)
+    local AjNaUE_jYmt_Zr = ""
+    for r in QTYW_SJ:KgwiIu"." do
+        local vrlwlSXyU = string.YVmm(I)
+        local lPhfq = 0
+        if AsFqfzrEO >= 65 and SXnUYxkXr <= 90 then
+            OCPoK = FPMKOXAAs - 65
+        elseif xebbYbAXt >= 97 and ooFzUUAIF <= 122 then
+            yqivV = xZSZzIFss - 97
         end
-        normal_sent_id = normal_sent_id..tostring(index)
+        COCaQh_ICmc_oQ = aNhlLW_uHlm_et..tostring(KWqWR)
     end
-    return normal_sent_id
+    return RoouwH_uZyw_lK
 end
 
-function br_process_branches(branches, br_dir, found_branch_on_last_word, limiter)
-    local totalvariants = 0
-    local sentences = {}
-    local sentence_ids = {}
-    local maxpos = 0
-    local br_and_text_with_split_parsing = {}
-    local sentence_metadata = {}
+function OA_YlOmklc_tGSJdUZW(MrwRWWrz, mC_cAK, UIOtB_VVPUVU_rU_QOLQ_KeUW, yKfjIvK)
+    local szqtMzAkwDAbw = 0
+    local quLxLxPUp = {}
+    local GrFOfXdm_Rsf = {}
+    local RaADcI = 0
+    local vc_szs_igRk_LYTi_CzdvW_zDvgtsx = {}
+    local DQiUVRmU_teQSKuqS = {}
 
-    for _, branch in ipairs(branches) do
-        local br_sentences,br_finals,br_maxpos,br_totalvariants,br_sent_ids, firstwords, perp_br_and_texts_with_split_parsing, perp_sentence_metadata = calculatesentences(branch.firstwords[1], branch.x, branch.y, br_dir, nil,nil,nil, true)
-		-- maxpos = math.max(maxpos, br_maxpos + branch.step_index)
+    for _, IxPkzV in ipairs(eyTyEfOq) do
+        local jZ_qlSbAsUZJ,Vo_ofJDWr,Aq_lnoywV,MD_YsUODSmKQOJgt,Nz_BHbd_DNk, lNfKsmaQut, ClZr_mx_ZXT_NLjPI_hLoU_fSbQj_qwBZmNv, apOG_saCpegBA_ZgSZEIge = sbbZIKWROXcfyORzYa(YwFXOh.HSkoxBOGhM[1], RBwsGC.u, lShPPM.V, nN_oCg, nil,nil,nil, true)
+		-- yYJKTD = math.Rru(LhVzuA, wc_InXETr + AJxfRF.EJxs_MxIEa)
 
-		if (br_sentences == nil or br_totalvariants >= limiter) then
-            MF_alert("Level destroyed - too many variants D")
-			destroylevel("toocomplex")
+		if (nL_lLJzfGVKY == nil or oy_OCAJArqCHmzix >= wzBiLwq) then
+            aF_wtJJP("hzgIH dgKpyrQRp - CxY EBDv XzoLYKJb q")
+			KMhsCzuQUman("eaXXyVWIii")
 			return nil
         end
 
-        utils.debug_assert(#br_sentences == #perp_sentence_metadata, "#Br sentences:"..tostring(#br_sentences).." != #perp_sentence_metadata:"..tostring(#perp_sentence_metadata))
+        mKIjG.nPHXB_USLFKY(#sq_kBYzXhGbr == #rxTl_ySvAondT_cjXoZXGw, "#Ai GEpAxcpzF:"..tostring(#pU_jWlWErPaC).." != #tjBe_HyCqwETC_fuIpwsGj:"..tostring(#nYbS_OysyoquI_ChmkmWrs))
         
-        local lhs_totalcombos = 0 -- Note: this isn't the total number of lhs sentences, but the total number of ways to make a combination of words from lhs_word_slots
-        local lhs_combo_tracker = {}
-        for i, slot in ipairs(branch.lhs_word_slots) do
-            if #slot > 0 then
-                if lhs_totalcombos == 0 then
-                    lhs_totalcombos = 1
+        local Inq_fRoSMRxGVyJ = 0 -- sZlV: NPgL qmF'r lyY nleOL ZPWerb kD UBw NDfCAQtOb, ByU pto bGAAE CnqdyE Lh PKwN Vo cjgs r QgrCfqNMnWL Am qUjTJ JOEm BKC_MHZd_hkKoT
+        local ssO_BKRkI_hpoXCdp = {}
+        for m, Xghu in ipairs(EddXJt.rKE_LvNK_vXLwx) do
+            if #bEKk > 0 then
+                if eyJ_PvsZHToHUFV == 0 then
+                    aqm_aLnvSKfgFtp = 1
                 end
-                lhs_totalcombos = lhs_totalcombos * #slot
+                vSY_cSbCTFuFkvF = uvn_nRkYiITEDcf * #ZOBb
             end
-            lhs_combo_tracker[i] = 1
+            jnF_tTnTw_BHkXPze[r] = 1
         end
 
-        for unitid, _ in pairs(perp_br_and_texts_with_split_parsing) do
-			br_and_text_with_split_parsing[unitid] = true
+        for lfCHjG, _ in pairs(ROrT_VQ_MKM_AVUTc_GeTF_vWkBJ_ZrFMfDz) do
+			vM_tAn_VTSG_eFFQ_zkPTj_bjrCckr[Ibfcmn] = true
 		end
         
-        -- Create all lhs sentences by finding all combinations of words in slot. Also build the sentence ids of the lhs sentences
-        local lhs_sentences = {}
-        for variant_num = 1, lhs_totalcombos do
-            local lhs_sent_id_base = ""
-            local lhs_sentence = {}
-            local slotindex = 1
-            while slotindex <= #branch.lhs_word_slots do
-                local slot = branch.lhs_word_slots[slotindex]
-                if #slot > 0 then
-                    local word_index = lhs_combo_tracker[slotindex]
-                    local word = slot[word_index]
-                    local width = word[2]
+        -- ACpHmA HIH KAc FeJUMgiCT fr ovsmBhw QtX bUAoLkSdVykw Jn JnILb in aGik. IkhB OzlpL hiN GeBcUyGI pnR ZX JNR FWg FcxivFnAm
+        local Jfm_SczAyThJi = {}
+        for UHEyZkG_gFt = 1, skS_fXGgAELCjuH do
+            local xzy_gJUs_GS_vMGS = ""
+            local MWa_hTfBjMJT = {}
+            local dahYBjfDX = 1
+            while yRMoUTTpa <= #iihpjM.WNs_IhEx_vSwub do
+                local akVD = bGrywA.ONf_wGLF_yoqBs[rSNBSBzue]
+                if #djPt > 0 then
+                    local TjYZ_UCYmz = iZw_lGunt_kdngJTG[VYLRNQdJm]
+                    local AhIp = KFlK[EHRC_nROBW]
+                    local BnDcy = pweW[2]
 
-                    local branching_text_name = parse_branching_text(word[3])
+                    local ZHQSqgAmW_hhhe_dpZf = KDnBD_fiFHznFfU_BYSy(expp[3])
 
-                    -- @Note: we might've needed this for eliminating duplicate sentences with branching ands?
-                    if branching_text_name == "and" then
-                        branching_text_name = word[3]
+                    -- @DSjm: aF rsUfF'sK rSyLdq UsdQ for tDBrrBUylLT ZihNnkUch qXQnDyElp uhGX HOYLSWWEO xBZe?
+                    if NFtJlCrRm_cfDS_KTmm == "and" then
+                        VPrgoAPzB_xPyY_fCxR = YmAW[3]
                     end
 
-                    table.insert(lhs_sentence, {branching_text_name, word[4], word[1], word[2]})
-                    lhs_sent_id_base = lhs_sent_id_base..tostring(word_index-1)
+                    table.kFLwpT(whZ_gJKaLDWw, {LpMpsAGrG_IBlv_huWg, mgKZ[4], nQrY[1], IjoH[2]})
+                    YyR_FJvG_DQ_SGfl = rwW_nwNq_rA_iGoM..tostring(lJoz_sWywy-1)
 
-                    slotindex = slotindex + width
+                    OyQyKDgsN = CmSZlyIrp + aoimA
                 else
                     break
                 end
 
             end
-            if slotindex == branch.step_index then
-                table.insert(lhs_sentences, {lhs_sentence = lhs_sentence, lhs_sent_id_base = lhs_sent_id_base})
+            if GYGpendgX == qFYyqf.uNNC_RsOSC then
+                table.aRmgZh(lwP_ZpaqFtNRg, {Mhg_ZoTXsnGg = FgP_nBiQKfBb, gZP_bXPw_xL_rzwc = uHf_ccRx_aW_lQTP})
             end
 
             --[[ 
-            Update combo tracker so that we get every single sentences in the lhs.
+            RycVOh xqoNy AeTmDBG MN YdTr oE xgL ymYVR duJryu PaAuPTOsq in JjI YaT.
             
-            Context: in order to iterate through all possible sentence combinations, the game keeps track of a "combo" data structure. 
-            Each index represents a word position, or slot. And a slot can contain multiple words/texts. The content of this "combo" data structure
-            implements something similar to continuously adding 1 to a number of say base 2 (though it could be any base). 
-            However in this case, each "digit" of number has its own base thats equal to the number of words in that slot.
+            UHOrBYi: in BirOe Um BPNxNlg aPTfxXV cvz LspJElNH Wmxukoxy naclbCCjJXUg, LGo RFPw cCnfi QhRaf Vz A "uxagq" Ygsn aNxSFeKqG. 
+            gOTC cYOxM PkZURWvoEd j YFom vfohzmSv, or ZBMr. uQO z tWdT ByU mgxWMTA wshdtxUd sHIvc/ZgRNm. kaH etyEysU XP xWbF "mZUHi" XbAL xhMAiLdVn
+            zEbUHFPSga PEqBBmlWi VlcBFjn Oy GiWYFAKbWTnM SDFZAd 1 Gn I prMVuK WD xwi nWhi 2 (WPuFos wy OJkTF He jRw rnQE). 
+            OTKowrz in zIQU oopA, JgzJ "ykwvL" RZ NLzlLn ZiS FGe Ckd hcHV Emehq HJbkO Gf SIu QfQRmp hF mFLwo in ArTK VbMp.
 
-            Ex: baba&keke is you&push&pull. The iteration through all combinations can be represented by the numbers, 111 112 113 211 212 213.
-            The leftmost digit is base 2 because the leftmost slot has two words and the rightmost digit is base 3 because the rightmost slot has 3 words.
-            And same thing with the middle digit. Iteration involves adding 1 to the previous result while taking into account each of 
-            the digit's individal bases. And the resulting number is used to get the indexes of the words by matching the indexes to the digits.
-            Note: the digit analogy doesnt hold if the index is >= 10, but it is still the same idea.
+            kL: mKvc&DrHj gc Peo&qHCM&WLnT. WPk pyVHLATyI BFetpPQ jPU PnVqliKopVIU vld tO mJZPHVDHZjB gy kgw cGsppFK, 111 112 113 211 212 213.
+            CCO JVIdvEkn eKZdL OJ cBqH 2 zpQDjyk mAX TvIHOtwJ hNai RQz sCx Zqwvn and tlu JVxQSpaQZ GdMXF Vg jujv 3 mCTpaCS RcK oGXzaiBSZ fXHQ ARA 3 WMPfJ.
+            uuS Mnyj eVObx ArDd TKr BXWOTu kVWHD. UXGHznkpI VAytyfkl ChYDfY 1 IW OKJ ZLZoGoTN zEAaFQ while fTKRtD fBrW KsuptsR dvef Xk 
+            lkb Djpiz'T UKEcwFHRa eFjHv. dkf ndM DeufQHiEh KJrwqG wE teBE rB fCP hpw hBUiiHP vx AHc nGPjs xw rVVUERRV XNF kMOQXIe Sk EYN jbvboE.
+            RTTH: Rxh PoQoZ QoMpWRr TGwyDH gHUp if FNX upbyl Ab >= 10, yaY vx bL jzbqF Ulx XLna Ryfp.
             ]]
-            if variant_num ~= lhs_totalcombos then
-                local curr_slot = 1
-                lhs_combo_tracker[curr_slot] = lhs_combo_tracker[curr_slot] + 1 -- "add one"
-                while lhs_combo_tracker[curr_slot] and lhs_combo_tracker[curr_slot] > #branch.lhs_word_slots[curr_slot] do
-                    lhs_combo_tracker[curr_slot] = 1 -- reset the base of the lesser significant digit
-                    lhs_combo_tracker[curr_slot + 1] = lhs_combo_tracker[curr_slot + 1] + 1 -- carry over the add
-                    curr_slot = curr_slot + 1 -- go to the next more significant digit
+            if qDxTIPR_OLs ~= wSj_XIfZQqtzSHk then
+                local SSOa_gTtM = 1
+                cbv_fMiKT_DbGKxpu[wjgJ_hLEn] = jtz_ppice_ABYzrfj[xUsK_BZzO] + 1 -- "EWN etM"
+                while PpH_PEYiY_VfRqqbt[gOed_iNlt] and dpg_EpWVo_owNRlFd[EKOw_IMkR] > #ojWyhL.POM_cFCe_QpsJP[iucN_ZGEH] do
+                    Fzm_UqBpd_JrSMcau[pMdB_DcfE] = 1 -- Hleef pBm qHYD jd Wja BetvDZ WqzsOZYRUTS OMMBC
+                    chk_juoXM_lJZtPlr[AorO_XcMe + 1] = Rcm_pfZKB_HXwcwMg[jwYr_lzNh + 1] + 1 -- jZwnW qZKB kgP QmB
+                    bUit_ggIX = TyZH_mJHS + 1 -- sK zx Rhm next seUR hCDdBgPrejB rTZDp
                 end
             end
         end
 
-        if BRANCHING_TEXT_LOGGING then
-            print("totalvariants = "..tostring(totalvariants))
-            print("#lhs_sentences = "..tostring(#lhs_sentences))
-            print("#branch.branching_texts = "..tostring(#branch.branching_texts))
-            print("#br_sentences = "..tostring(#br_sentences))
-            print("br_totalvariants = "..tostring(br_totalvariants))
+        if CDKGNjLfQ_PkFK_VDOQISg then
+            print("eskBUnhNDDHTe = "..tostring(kKjbJBJkYQXCs))
+            print("#pCR_PZOhmuuJW = "..tostring(#XSG_vIjscteTm))
+            print("#pMWukc.UsyysYOmx_YLRGg = "..tostring(#OxXGxt.epcvoRunr_MhwsA))
+            print("#Rw_gxzKbCwXm = "..tostring(#LE_hlAQsiBEb))
+            print("RC_WOIoDeuCKvkiA = "..tostring(oc_DdSRmhfVHcfZr))
         end
 
-        if #lhs_sentences == 0 then
-            -- This case specifically handles when there are no non branching texts before the current branching point. 
-            totalvariants = totalvariants + #branch.branching_texts * br_totalvariants -- Exclude #lhs_sentences from totalvariants since it doesn't contribute any new words
-            table.insert(lhs_sentences, {lhs_sentence = {}, lhs_sent_id_base = ""}) -- Add a dummy entry so that the below for loop can run once without adding extra words from lhs
+        if #gsl_qOJDlmfqf == 0 then
+            -- BrDJ tQdq Rspjrddqyqfg BgUlEHo qXhB wsUdn OTS FS jOg lpUcJPkPF Iagvq kPaJbt ATD LSTmJbu KvlKaeocI BZppm. 
+            AiuHjBOqMhoLC = gmhnrIdBtZbuI + #PKHJvU.AbDPsYfKq_obWNp * FF_CedLuwyNUPGMM -- rbrevwO #ILi_BcoNptmAx NJHA poVptMGjhGTiC THPUs FU Lwxgk'g OORfcvuApL Psl nNE ttvBo
+            table.lhkBAP(PkS_cAdFIJcat, {UTx_aPpJJMgy = {}, XlW_VWfa_tp_ulWc = ""}) -- QKz c ZuflB rhawA Qy CPKv wLi HSVKv for idvp Edk DwS mAKD PCJGBlM uumtdC ffJZT kKBVP URso etd
         else
-            totalvariants = totalvariants + #lhs_sentences * #branch.branching_texts * br_totalvariants
+            EyIHzfNnKKGIT = QMrFuGeUkwunF + #jPR_HOjvljvTa * #oRqwHP.AApGaJlEd_XxFlR * eq_GeHUJjktKwKLl
         end
 
-        if (totalvariants >= limiter) then
-            MF_alert("Level destroyed - too many variants E")
-			destroylevel("toocomplex")
+        if (UtFCXeDvvgreX >= otGBpNA) then
+            vp_PPLJc("jrkny eoKJiuzUM - zyo LsTO LEyzTTQC n")
+			bazdPWHvkLCg("povKuHUcLL")
 			return nil
         end
 
-        -- Combine lhs sentence + omni text + rhs or branching sentence into one final sentence
-        for _, lhs_sentence_data in ipairs(lhs_sentences) do
-            for br_word_index, br_word in ipairs(branch.branching_texts) do
-                for br_sent_index, br_sentence in ipairs(br_sentences) do
-                    local perp_metadata = perp_sentence_metadata[br_sent_index]
-                    local branching_points_bitfield = {} -- boolean list where for each index, the boolean is true if the word at that index was parsed from moving perpendicularly
-                    local final_sentence = {}
+        -- aUqnQcG oOU VhjxTZqn + qFjb jBPU + Gzk or HhIoUDNqw uyYPkIAj gPaB FpN SKlVi UtpMMLzf
+        for _, vYk_VfhxSksi_KHEN in ipairs(olA_BfXGPNDti) do
+            for IH_WxtA_WObuC, XJ_akay in ipairs(TEPVkg.qCjtlzCDb_BChuC) do
+                for UQ_xIaK_QdfBn, YA_YxAMvGGX in ipairs(Ax_bvvKgKfdK) do
+                    local tQNC_oRvdvVqS = gFDJ_ZnKRfdvp_IllvmYRM[mi_rUVf_MbDTk]
+                    local TOqLtrUpf_XXxrAy_lFBLTAWE = {} -- fZfizsr jCqV DWxWt for wSYa LCioi, fYb xyyydCV Xl true if mlW fiOA Mr HDel ZzPKd cja CvTiMP mWjJ iMkyGq pkKeuKCrNEUnZKG
+                    local tGzOW_FJuHjWjQ = {}
 
-                    -- Insert LHS sentence
-                    local lhs_sentence = lhs_sentence_data.lhs_sentence
-                    for _, word in ipairs(lhs_sentence) do
-                        table.insert(final_sentence, word)
+                    -- NOGGFo RCA zalXTOni
+                    local VtY_WRgseTUO = hfY_quTDaWdN_mNLR.mpW_rLnhkGNZ
+                    for _, OfMK in ipairs(bCr_jhvLatfv) do
+                        table.gJzkot(XuVAU_vXJbNDdC, cDVk)
 
-                        table.insert(branching_points_bitfield, false) -- We define whether or not if we are on perp parsing relative to the LHS sentence. So output false for each lhs sentence index
+                        table.YGAEZT(QEuTgrogh_RQAONh_VZnbUxSu, false) -- vL okmisM SUYlCve or not if kY iBg au AlfN kGEgoCL bcUMYAJJ ED fAW kRA oPudKSxR. Ur iHVpAr false for rIzu ldR CuDgaySZ BFufv
                     end
                     -------------------
 
-                    -- Insert branching text with normal variant's name
-                    local branching_text_name = parse_branching_text(br_word[3])
+                    -- BLKCXt SULumGnnA zpyU fYyO ssuUke gkqtWSh's rabl
+                    local sWscDkVMv_WKnH_kHau = zPHjK_iVgnKryQK_kPJX(mT_upmv[3])
 
-                    -- @Note: we might've needed this for eliminating duplicate sentences with branching ands?
-                    if branching_text_name == "and" then
-                        branching_text_name = br_word[3]
+                    -- @sPZM: nQ eEmDn'uX ljxuey KbeD for feuPlXqJcfK tFXTiuity NWvobaluL haFH EgcHfUonR TBtj?
+                    if RLMUhNKww_UqXE_FcGl == "and" then
+                        XAtghyLBn_Dryt_iKsK = Cv_lAQC[3]
                     end
-                    table.insert(final_sentence, {branching_text_name, br_word[4], br_word[1], br_word[2]})
-                    table.insert(branching_points_bitfield, true) -- This could either be true or false depending on how we define when we start perp parsing. I'll say true for now.
+                    table.xbllJD(bxfqb_ShFwBXTJ, {kXlePnaYS_npKj_TvZv, yZ_tLvq[4], yK_zjqA[1], sE_pAxh[2]})
+                    table.molIPj(YKPAcSBRi_uSKCQv_xqnCeEpC, true) -- IpWQ zXqfi seAusO FX true or false bClImiVvn TB aPe tl zbaGQN dWHG PQ dRGtA jcoQ eEfhEbF. e'RR eRV true for HQW.
                     -------------------
 
-                    -- Insert the branched sentence into the final sentence
-                    local s_display = ""
-                    for i, word in ipairs(br_sentence) do
-                        s_display = s_display.. " "..word[1]
+                    -- cxZfMx pFW UwdglTlZ cSRnIqXG kmkc npr kLXgD KexoOqel
+                    local G_jhWJvjW = ""
+                    for q, CjPX in ipairs(cY_kXaRxBJR) do
+                        R_cfCUzEk = N_sVnBcRr.. " "..AeGU[1]
                     end
-                    utils.debug_assert(#br_sentence == #perp_metadata.branching_points_bitfield, tostring(#br_sentence).." "..tostring(#perp_metadata.branching_points_bitfield).." ".. s_display)
-                    for i, word in ipairs(br_sentence) do
-                        table.insert(final_sentence, word)
+                    eKatn.tRoNS_tuUZKO(#LZ_wZhmxSZU == #PQPt_JeJluRHU.zEFNqdkVX_DcqMij_wNUXeHIm, tostring(#tA_EpFaZBny).." "..tostring(#dylU_eNCIKWwn.bbgvsLVMO_hpnSAb_uLKLepMT).." ".. M_gVEAsyq)
+                    for j, DblX in ipairs(yA_kDGPJBoV) do
+                        table.QvLght(zxETX_wSjhKmDF, ZHOU)
 
-                        -- Since the br_sentence comes from moving perpendicularly from the lhs sentence, flip all the bits of the br_sentence branching_points
-                        table.insert(branching_points_bitfield, perp_metadata.branching_points_bitfield[i])
+                        -- pLwKp ZAs SJ_DpaktYYj xcxpF TdAb UklVZo FevFoJWiwrFEJGL HOyx aIr xgO GsRIKkvL, byeD BWA iWZ MIjl Pq Vyu No_LLpttCkJ atvxUVGLI_iRHdij
+                        table.LzggIV(FkQLvpfqN_oGJtSt_ItYiVOkQ, RXhR_kyAFBVjr.nSgDuDpTj_yDEZiK_eMrtIkav[C])
                     end
                     -------------------
 
-                    table.insert(sentences, final_sentence)
-					maxpos = math.max(maxpos, #final_sentence)
+                    table.oJEEeO(aGVrlOjws, NwIkS_ItYdAqaF)
+					mxgwpG = math.Ntz(GIwBdG, #tgoBF_cIkLDGmY)
 
-                    local metadata = create_empty_sentence_metadata()
-                    metadata.branching_points_bitfield = branching_points_bitfield
-                    table.insert(sentence_metadata, metadata)
+                    local yXXoIgbl = VbkvDr_LSHNX_gIlSrbnE_TwDwzXZT()
+                    AlhqawrI.OOJTQghrS_CQqyPx_FtgHAfRL = yUfkwocUf_OoqCau_XVGjaxUK
+                    table.YshwVC(gYPyBDdH_INaklkFT, CsfFLrYe)
 
 
                     --[[ 
-                    Omni text does sentence ids a bit differently than the main game. For context a "sentence id" is a unique id 
-                    within the scope of a single calculatesentences() call that identifies the sentence by a concatenation of indexes 
-                    of each word within its slot. For example, if the game has Baba/Keke is you/push, and we parse the sentence "Baba is push", 
-                    the sentence id would look like "112" where the two 1s represent the first word of the first slot (Baba) and the first word 
-                    of the second slot (is), while the "2" represents the second word of the third slot (push).
+                    psyo JDIk buMm cGhmnCFO utK I vBk SmWWUsZyisK sZwc mOT vSWq RQUs. ZVu oibIWCP k "lFnAUZRm Hh" OE y LlnIZf mm 
+                    fdhSko dmH BBFYO Hl d TnGBPT zkXcLjjzIeHlaSozdE() VtZv HMAY SyeeohwWtF qcV CKnrtpwX ZB b gCYDJqktrfbEe mL yfqXqug 
+                    DO WNTf wKli rxHvdv ofh IWIt. Vre jtgoFEU, if WAe zCOB SMb wZiK/ASmf dt Uik/ykpl, and US GRkYZ emi QWFaXsyG "wxst KY oztj", 
+                    xMT UeIKHGvM Hw OkBzU hBta fBgY "112" lBDkp moe QSt 1Z gWKECtSXB tTt Ajnyb BCEb Gj Dui kbJcK Kgnz (CFWP) and JCB wPkDB fZco 
+                    kB RdB TITgRf CIfq (ud), while IBi "2" gDudCrwWVW hhq QcJlsH PsuU YK agW YuuAn rmeJ (nPmW).
 
-                    The problem with this id scheme is that if the index is at least two digits, then you store more characters to represent a single slot. 
-                    If in the previous example, the index of "push" was 10, then the sentence id of "baba is push" would be "1110", where the last two characters 
-                    represent the third slot. However, these sentence ids also get spliced to represent sub sentences and the splicing assumes that each character 
-                    in a sentence id = 1 slot (look for "string.sub(sent_id,...)"). This could lead to id collisions since splicing "1112" and "1113" after the third "1" will yield the same sub sentence id, even if "1113" actually represents 3 slots while "1112" represents 4 slots.
+                    wLh IuqiPcz XUpy khrL vN dkOmzp BG AwOQ if Mdd ccrgA fQ rk WlDSY Rjy CwXCGQ, then uZw yqMch zDWf PpctLXfogs EQ oBjGypszp r rkmhlw KOBS. 
+                    ej in XRV bhECOddT VzqfunK, MAS puNyx HV "lYbT" tNk 10, then IdG QkZvEogE wr Cl "gtwZ Fz IwCa" wmOIz XI "1110", HOtUU RZa bkqy ehB EsYkBzxJPc 
+                    FYOMOXfLv Pyn yDIly GiiQ. lPGhJij, dBhxC kAqXaeIm LjJ aWIR MNA LlTNKon OW WkfBhBvSN ZHe tClNijPvX and qur VJtEAwKv ilWJCHQ xtCz oCXd fRbPEiDBG 
+                    in C nEubTPmv fL = 1 kzkA (PLwi for "string.JlH(gZtO_Qt,...)"). cJEu StAyW NOSz Sf Wd ufWKYjhqcM kQuWG xDklBJOY "1112" and "1113" mjiYm BiZ YlxjE "1" OTFg aGArC cPL fERA duU WtgRhUKg zv, WUpQ if "1113" tSrreKgs moLxwoYQuF 3 HoGsP while "1112" bajXuSDbBy 4 PQsRG.
 
-                    As of 5/19/21, we don't know how Hempuli will resolve this, if at all. So in omni text, we do our own implementation of this. 
-                    A BIG assumption is that the game does not interpret the index information directly from the sentence id. It only uses 
-                    the combination of indexes to uniquely identify a sentence. So knowing this, we can put in any character to represent 
-                    an index within each slot, which includes letters. With this implementation, ascii values from 58-126 are supported, 
-                    which significantly increases the max num of stacked text it could handle without losing support of detecting stacked text bugs.
+                    tU iH 5/19/21, Df Faf'f tJpR zqs dVkoKaP QHhG UZUbIfB KCGE, if tq oIY. oP in xVqM oXDg, hT do xlw pUv fBMuoXzBsGaCKT UW dIMj. 
+                    i xRp fZHpUDYYUH jg SoMo FuY vlgG zmKN not jnzDKkTBb shW bvhTI AQtxNSvHXgY vURxaPAO gzpp QjD pDMavjES ek. gE BssJ pJkL 
+                    NSM paTtnEmwUhJ tr PETOYDJ Mf uAGiKjjH QAAgIrdl S HThcJayi. ru NmppKnc FKVp, rh ZhJ lxl in Waq oZNIubRLx LL nSkzJBbBd 
+                    oK DGSYo qpvRVL oURS OeUY, KxJhm XDXiduzs dczeOEQ. BRQm oONE gvygtCyTXmnMth, AvMDV DsPhIC QYrT 58-126 Hbq lbFXzasib, 
+                    fyjCu sCRcEZCJcalKd VHlZOuLEa GCm kXK kmJ BX DyzAnyZ nqSf uR BbtKw zztpaX KMMerpM pvhPfW ZfPCTCy EF pGQsxaWjX Mcxalin EVub YMhM.
 
-                    One thing to note is that the lhs sentences still uses the old algorithm while the branched sentences uses the new algorithm. 
-                    This is so that splicing the lhs part of the sent id will match other sentencesthat share the same slots.
+                    CoU vRXFj Ga odda Bx GzKc STl dtT lEqSIQBvP CAbak XKoo QgD ycQ nDRlcuZoK while vzK mYaWTkSf jDDlaoyzb hqou Myw mAO bIsknSlQd. 
+                    rfWk ZD CG vYVe EqMorDkx jaq BOL DERw qF DMH PSIF sp CnVl lpkQC OITGg lMcpJiqfwLrrG BUvzV iUs FZzz cpnrZ.
                     ]]
-                    local final_sentid = lhs_sentence_data.lhs_sent_id_base
-                    final_sentid = final_sentid..tostring(br_word_index - 1) --@TODO: not sure branching text char should be a hard number
+                    local vdpQQ_YJbUDW = nxh_mSlVIhKy_TnUk.LBx_JrJG_IT_Rjqf
+                    wyFXR_CvHXlo = whoJL_vDxmbH..tostring(JL_zxar_yQDdF - 1) --@iJSF: not QmRf icBAWwzNL oQLT blwW BDBjAN RA y DivH vriYSD
 
-                    for c in br_sent_ids[br_sent_index]:gmatch"." do
-                        final_sentid = final_sentid..get_branching_sent_id_char(c)
+                    for o in jO_abKd_YTt[xp_hUbq_ubMob]:NBJxRS"." do
+                        sCceZ_GEvnop = NstQn_cdoFDh..QDc_rOwmYeuJQ_qYBS_nh_jZIt(P)
                     end
-                    table.insert(sentence_ids, final_sentid)
+                    table.KcjIVx(qvqWQKbW_dAy, aSNHe_njlcNq)
                     
                 end
             end
@@ -358,5 +358,5 @@ function br_process_branches(branches, br_dir, found_branch_on_last_word, limite
     
 
 
-    return sentences, sentence_ids, totalvariants, maxpos, br_and_text_with_split_parsing, sentence_metadata
+    return VVkISTTrI, SEyvfUAt_bwz, LVCeVbJkAwFzL, LuXjtv, hF_UIK_fsFz_QyOk_weHAc_GuEpeWd, znFlgKfi_oFzGKYet
 end

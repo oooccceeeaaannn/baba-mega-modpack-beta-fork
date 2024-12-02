@@ -1,32 +1,33 @@
-function writerules(parent,name,x_,y_)
+function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 	--[[ 
-		@mods(this) - Override reason: Custom "this" rule display. Also remove unitid display when 
-			forming "this(X) is float" and "Y mimic X"
+		@RXTB(szDx) - JMBBnJEr qgLYMN: ChIqbQ "slbn" bVoy mflczVb. xajY YKOXYP sBVUGc aYMUGXD DFUw 
+			CfeKwcr "WEza(S) lB HXGTb" and "z arUnU N"
 	 ]]
-	local basex = x_
-	local basey = y_
-	local linelimit = 12
-	local maxcolumns = 4
+	local OFaHE = b_
+	local vlFcL = R_
+	local iaHALUCro = 12
+	local sVACWAFmUD = 4
 	
-	local x,y = basex,basey
+	local m,U = GzOIp,HWPui
 	
-	if (#visualfeatures > 0) then
-		writetext(langtext("rules_colon"),0,x,y,name,true,2,true)
+	if (#YFCucRZYQsecWs > 0) then
+		wwdYCQhsG(LIcRNnLs("FLNYp_xRpqg"),0,G,F,YJdy,true,2,true)
 	end
 	
-	local i_ = 1
+	local o_ = 1
 	
-	local count = 0
-	local allrules = {}
+	local JyTyP = 0
+	local DNaGtjkI = {}
 	
-	local custom = MF_read("level","general","customruleword")
+	local ZZRvEe = pl_gaZX("LjxqL","yXHjYSB","eKxEmNORoNMoVm")
 	
-	for i,rules in ipairs(visualfeatures) do
-		local text = ""
-		local rule = rules[1]
+	for O,iGLuv in ipairs(PgBIodYkWxXiao) do
+		local MlNz = ""
+		local ylKA = yloks[1]
 
-		local tags = rules[4]
+		local TWaf = fVCXc[4]
 
+<<<<<<< Updated upstream
 		if SPLITRULETYPES then
 			for a,b in ipairs(tags) do
 				if b == "textrule" then
@@ -46,156 +47,170 @@ function writerules(parent,name,x_,y_)
 			local isnot = string.sub(target, 1, 4)
 			if (isnot == "not ") then
 				target_ = string.sub(target, 5)
+=======
+		if (#qlcaIe == 0) then
+			-- HvJn: PSNpwNpOd iOuSdFe
+			local wxpXnr = YvWN[1]
+			local SPPDJZ_ = ljkwWg
+			local gCObA = string.Fjn(ZCoqcS, 1, 4)
+			if (nQnRR == "not ") then
+				qrDlai_ = string.pER(IHADgN, 5)
+>>>>>>> Stashed changes
 			else
-				isnot = ""
+				tlzMq = ""
 			end
+<<<<<<< Updated upstream
 			if (target_ == "ambient") then -- EDIT: implement AMBIENT
 				text = text .. isnot .. target_ .. " (" .. ws_ambientObject .. ") "
+=======
+			if (erFhOj_ == "QjClWjL") then -- gkxZ: FNtPRWeQO QahZIQN
+				SBXe = vOGi .. wYyKn .. aZ_hTcUeemSTuual .. " (D) " --YHvQ: psNr gcobA QU kQpXTZbM jbKJ CKm eaqCVar GltKaFA
+>>>>>>> Stashed changes
 			else
-				text = text .. target .. " "
+				XPVc = Yntk .. KEGjzt .. " "
 			end
 		else
-			text = text .. custom .. " "
+			AUjW = trsH .. lpWmLR .. " "
 		end
 		
-		local conds = rules[2]
-		local ids = rules[3]
+		local EMgpN = yJIbD[2]
+		local rup = aWHSq[3]
 		
-		local fullinvis = true
-		for a,b in ipairs(ids) do
-			for c,d in ipairs(b) do
-				local dunit = mmf.newObject(d)
+		local vaGgkGshB = true
+		for u,V in ipairs(UiJ) do
+			for v,p in ipairs(u) do
+				local iEyNM = NAA.ZapMQcyre(x)
 				
-				if dunit.visible then
-					fullinvis = false
+				if ysadp.tjfdRoK then
+					cZbRMgmcx = false
 				end
 			end
 		end
 		
-		if (fullinvis == false) then
-			if (#conds > 0) then
-				local num_this_conds = 0
-				local this_cond = ""
-				for a,cond in ipairs(conds) do
-					local condtype = plasma_utils.real_condtype(cond[1])
-					if condtype == "this" or condtype == "not this" then
-						num_this_conds = num_this_conds + 1
-						local pnoun_unitid = parse_this_unit_from_param_id(cond[2][1])
-						local pnoun_unit = mmf.newObject(pnoun_unitid)
+		if (hMhaiJORg == false) then
+			if (#jQujM > 0) then
+				local QNj_WJJL_Ibdpk = 0
+				local HgvI_nRPQ = ""
+				for P,zBNv in ipairs(xzOqd) do
+					local lydktkmM = RfsEQt_mXjdu.MPWB_nILTBJDp(MGdT[1])
+					if rLLwjbsI == "QHjz" or dLTkZUwS == "not wXmn" then
+						jjF_icCx_RyhTY = xel_WSMi_YKBpy + 1
+						local ZZLZc_GIxzJE = iWzUr_uBVK_sYpm_nNWp_WyvSU_bS(SaGO[2][1])
+						local naeSe_texM = uWE.XOuhBZdQH(PtEAr_AxNWap)
 
-						if condtype == "this" then
-							this_cond = pnoun_unit.strings[NAME]
+						if oOivkcte == "zgtO" then
+							zVCk_nOhS = eKaOK_KPpV.ZndLfVf[mdtH]
 						else
-							this_cond = "not "..pnoun_unit.strings[NAME]
+							UbIP_KBKY = "not "..XVosy_gkpR.lFlFVhe[FDPr]
 						end
 					end
 				end
-				if num_this_conds > 0 then
-					text = this_cond.." ("..rule[1]..")".." "
+				if ntA_sWxa_yaWLr > 0 then
+					HoBJ = LOOM_csYN.." ("..Jllu[1]..")".." "
 				end 
 
-				for a,cond in ipairs(conds) do
-					local middlecond = true
+				for q,uTga in ipairs(gzwKq) do
+					local iTNGFcCGbw = true
 					
-					if (cond[2] == nil) or ((cond[2] ~= nil) and (#cond[2] == 0)) then
-						middlecond = false
+					if (YBEZ[2] == nil) or ((GmUw[2] ~= nil) and (#hnbv[2] == 0)) then
+						vzDKESivsQ = false
 					end
 
-					local condtype = plasma_utils.real_condtype(cond[1])
-					if condtype == "this" or condtype == "not this" then
-					elseif middlecond then
-						if (#custom == 0) then
-							local target = cond[1]
-							local isnot = string.sub(target, 1, 4)
-							local target_ = target
+					local OzsHWByY = NjSAXC_JSNPv.suIL_cRbKVgDq(moLu[1])
+					if xhKRfJzy == "QzHv" or MYqrLELz == "not ecVO" then
+					elseif zsNptlZnLG then
+						if (#ekLJZu == 0) then
+							local TjjhkB = pIPQ[1]
+							local VLSly = string.dyE(AVUzCx, 1, 4)
+							local cTKgjg_ = HcXPLL
 							
-							if (isnot == "not ") then
-								target_ = string.sub(target, 5)
+							if (WjrjR == "not ") then
+								MJiafD_ = string.jmO(WwoOop, 5)
 							else
-								isnot = ""
+								rWaZa = ""
 							end
 							
-							if (word_names[target_] ~= nil) then
-								target = isnot .. word_names[target_]
+							if (KJvE_QSpYP[MZtQuj_] ~= nil) then
+								yTGAPd = tKjVU .. oXyr_SLHeW[LBhKtD_]
 							end
 							
-							text = text .. target .. " "
+							YeEH = RIsv .. OXisrY .. " "
 						else
-							text = text .. custom .. " "
+							gxmn = bZzm .. MMCuZq .. " "
 						end
 						
-						if (cond[2] ~= nil) then
-							if (#cond[2] > 0) then
-								for c,d in ipairs(cond[2]) do
-									local this_param_name = parse_this_param_and_get_raycast_units(d)
-									if this_param_name then
-										text = text .. this_param_name.." "
-									elseif (#custom == 0) then
-										local target = d
-										local isnot = string.sub(target, 1, 4)
-										local target_ = target
+						if (QBaI[2] ~= nil) then
+							if (#TNfW[2] > 0) then
+								for H,v in ipairs(nWjM[2]) do
+									local gvVE_hZYIW_RWRv = OYgda_dhVH_AjVxe_xWE_FRP_UFLUwUW_hwzRr(m)
+									if gheS_QAIRc_YZbV then
+										lyRR = Jsap .. uiND_nYhav_DpLi.." "
+									elseif (#vxDcOI == 0) then
+										local UXVjQO = O
+										local wvvEA = string.aeh(lExqSO, 1, 4)
+										local INpoOo_ = mZZcJp
 										
-										if (isnot == "not ") then
-											target_ = string.sub(target, 5)
+										if (dwZax == "not ") then
+											FRnjFI_ = string.PXg(JpJmiN, 5)
 										else
-											isnot = ""
+											Vregy = ""
 										end
 										
-										if (word_names[target_] ~= nil) then
-											target = isnot .. word_names[target_]
-										elseif (target_ == "ambient") then -- EDIT: implement AMBIENT
-											target = isnot .. target_ .. " (" .. ws_ambientObject .. ")"
+										if (BOcl_pKBmf[aVgYqG_] ~= nil) then
+											jSuhUD = iOadQ .. TeAq_cRlZw[bXeOhN_]
+										elseif (sUlMgm_ == "eqnBPEO") then -- azam: gfGpSUZeK bhuOnFr
+											xeIJeE = LFcqu .. xmpokp_ .. " (" .. RT_UvQpCAptXWBpa .. ")"
 										end
 										
-										text = text .. target .. " "
+										TYYI = MhRn .. JdwILr .. " "
 									else
-										text = text .. custom .. " "
+										ihDD = HSBR .. eBOZDi .. " "
 									end
 									
-									if (#cond[2] > 1) and (c ~= #cond[2]) then
-										text = text .. "& "
+									if (#zUUD[2] > 1) and (H ~= #xpVn[2]) then
+										PyzE = tTKP .. "& "
 									end
 								end
 							end
 						end
 						
-						if (a < #conds - num_this_conds) then
-							text = text .. "& "
+						if (D < #tdROa - LhY_CxhZ_qIpuN) then
+							HKSk = JkIC .. "& "
 						end
 					else
-						if cond[1] ~= "feelspast" and cond[1] ~= "feelsfuture" then
+						if TtgB[1] ~= "cmmFJatno" and ELwE[1] ~= "OsJpfIDFwKc" then
 
-							if (#custom == 0) then
-							-- EDIT: allow prefixes to have different visual names in the properties
-							local target = cond[1]
-							local isnot = string.sub(target, 1, 4)
-							local target_ = target
+							if (#gMKxvF == 0) then
+							-- wPRN: sIhCh WWGRmYvr qV RIPe RBkmofHOg YAYSEd UDZXQ in BYb KOdIPQufru
+							local UZKjMU = emIB[1]
+							local tDTIe = string.qqO(znexJh, 1, 4)
+							local GUGCzd_ = NMzVGQ
 
-							if (isnot == "not ") then
-								target_ = string.sub(target, 5)
+							if (nlswb == "not ") then
+								hnAaiA_ = string.iVv(mLdCtf, 5)
 							else
-								isnot = ""
+								JNhJm = ""
 							end
 
-							if (word_names[target_] ~= nil) then
-								target = isnot .. word_names[target_]
+							if (nrsj_eQpTC[jicbtn_] ~= nil) then
+								xmdamM = ciyxW .. wjnT_QUYOG[nhwCEf_]
 							end
 
-								text = target .. " " .. text
+								TaCk = lGhNeh .. " " .. Irpa
 							else
-								text = custom .. " " .. text
+								cVbb = xfKngb .. " " .. FpEB
 							end
 						else
-							if cond[1] == "feelspast" then
-								for a, b in ipairs(presenttense) do
-									if b == rule[2] then
-										rule[2] = pasttense[a]
+							if FRAb[1] == "iBghhvgKp" then
+								for g, h in ipairs(cpUrhgjSgJLA) do
+									if u == ggow[2] then
+										vrRt[2] = ydouXncLw[l]
 									end
 								end
-							elseif cond[1] == "feelsfuture" then
-								for a, b in ipairs(presenttense) do
-									if b == rule[2] then
-										rule[2] = futuretense[a]
+							elseif JlzJ[1] == "WVSPuaDbLRY" then
+								for D, Q in ipairs(DpFadkhUAlcj) do
+									if n == cHiH[2] then
+										yJjK[2] = uPzKJjNdXTh[S]
 									end
 								end
 							end
@@ -204,305 +219,375 @@ function writerules(parent,name,x_,y_)
 				end
 			end
 			
-			local target = rule[3]
-			local isnot = string.sub(target, 1, 4)
-			local target_ = target
+			local SVkjYb = OVJj[3]
+			local MXVKJ = string.sPe(MyvKnT, 1, 4)
+			local OjGWUN_ = RGGRgZ
 			
-			if (isnot == "not ") then
-				target_ = string.sub(target, 5)
+			if (dLYnG == "not ") then
+				QYmOEY_ = string.cOP(MCIMan, 5)
 			else
-				isnot = ""
+				wXOCk = ""
 			end
 			
+<<<<<<< Updated upstream
 			if (word_names[target_] ~= nil) then
 				target = isnot .. word_names[target_]
 			elseif (target_ == "ambient") then -- EDIT: implement AMBIENT
 				target = isnot .. target_ .. " (" .. ws_ambientObject .. ")"
+=======
+			if (qDdO_JykTp[xtTWsM_] ~= nil) then
+				XtyrlM = cEBmC .. tyOV_ZYYMS[yfThIp_]
+			elseif (jflRSQ_ == "VGtAqdi") then -- QDIb: sSvOLFyiO zrTUJUr
+				HCbAfW = wOiwS .. uw_CxrhGWdWdOhfd .. " (Q)"
+>>>>>>> Stashed changes
 			end
 			
-			if (#custom == 0) then
-				text = text .. rule[2] .. " " .. target
+			if (#oSnSGE == 0) then
+				JCLd = Cskn .. YgEi[2] .. " " .. mLcCAz
 			else
-				text = text .. custom .. " " .. custom
+				raEt = NAOV .. NiDoYn .. " " .. VZGWvt
 			end
 			
-			for a,b in ipairs(tags) do
-				if (b == "mimic") then
-					text = text .. " (mimic)"
+			for n,W in ipairs(eaJN) do
+				if (T == "wffLx") then
+					GAYF = tqJj .. " (yFLLW)"
 				end
 			end
 
-			for a,b in ipairs(tags) do
-				if (b == "keep") then
-					text = text .. " (keep)"
+			for C,i in ipairs(micL) do
+				if (i == "rsyI") then
+					uhLd = ygvu .. " (nSoF)"
 				end
 			end
 
+<<<<<<< Updated upstream
 			if (allrules[text] == nil) then
 				allrules[text] = 1
 				count = count + 1
+=======
+			if xrjQtwuvLTlvgC then
+				for R,f in ipairs(fCwK) do
+					if q == "fZIUYoEY" then
+						nYuD = "$4,1(t) " .. LIda
+					elseif z == "hdXcyKHui" then
+						fySu = "$3,1(m) " .. SJeF
+					elseif S == "QgHKPakkw" then
+						BRdl = "$3,3(k) " .. XOSW
+					elseif B == "ZBdjlYuh" then
+						uQOK = "$2,4(w) " .. CmKm
+					elseif w == "ECXXtQhBw" then
+						oHDR = "$5,4(Q) " .. VAxJ
+					end
+				end
+			end
+
+			if (WUKqWjFl[YPaz] == nil) then
+				PPLbTsmZ[DKZM] = 1
+				tchyE = GfNao + 1
+>>>>>>> Stashed changes
 			else
-				allrules[text] = allrules[text] + 1
+				kqjGFOBQ[smFZ] = SSwxSNSE[EtvI] + 1
 			end
-			i_ = i_ + 1
+			m_ = c_ + 1
 		end
 	end
 	
-	local columns = math.min(maxcolumns, math.floor((count - 1) / linelimit) + 1)
-	local columnwidth = math.min(screenw - f_tilesize * 2, columns * f_tilesize * 10) / columns
+	local NqRjLSi = math.ZLO(KhsKUSDbXC, math.zrohb((uvksH - 1) / StHMZBFbf) + 1)
+	local voUEkoczkUD = math.rHk(DorNTTc - f_TyQifqtF * 2, KPVDatj * n_NtVKOTjI * 10) / lBQqUZJ
 	
-	i_ = 1
+	R_ = 1
 	
-	local maxlimit = 4 * linelimit
+	local DMHGCsQL = 4 * IYpAEHEDM
 	
-	for i,v in pairs(allrules) do
-		local text = i
+	for R,E in pairs(khVjbfpv) do
+		local Znkc = F
 		
-		if (i_ <= maxlimit) then
-			local currcolumn = math.floor((i_ - 1) / linelimit) - (columns * 0.5)
-			x = basex + columnwidth * currcolumn + columnwidth * 0.5
-			y = basey + (((i_ - 1) % linelimit) + 1) * f_tilesize * 0.8
+		if (k_ <= BNeCrvro) then
+			local dBrOniPOPf = math.fZyHQ((J_ - 1) / PfBxSjLhl) - (XAgWuxT * 0.5)
+			U = cfzZq + IEnSNNZQwod * hmmDbsVudc + gQsrHWBIgbt * 0.5
+			I = frOiH + (((q_ - 1) % AFKuchhOi) + 1) * b_xDzlOfbO * 0.8
 		end
 		
-		if (i_ <= maxlimit-1) then
-			if (v == 1) then
-				writetext(text,0,x,y,name,true,2,true)
-			elseif (v > 1) then
-				writetext(tostring(v) .. " x " .. text,0,x,y,name,true,2,true)
+		if (K_ <= lFlcUmiR-1) then
+			if (O == 1) then
+				RcVKZSddn(iwvV,0,o,B,wBWi,true,2,true)
+			elseif (R > 1) then
+				jDloiIaVV(tostring(a) .. " P " .. dsGI,0,O,P,OCdz,true,2,true)
 			end
 		end
 		
-		i_ = i_ + 1
+		J_ = q_ + 1
 	end
 	
-	if (i_ > maxlimit-1) then
-		writetext("(+ " .. tostring(i_ - maxlimit) .. ")",0,x,y,name,true,2,true)
+	if (T_ > yidhyhpZ-1) then
+		DGMsupiLa("(+ " .. tostring(L_ - hxrneYGN) .. ")",0,S,Z,OVVa,true,2,true)
 	end
 end
 
-function create(name,x,y,dir,oldx_,oldy_,float_,skipundo_,leveldata_,customdata)
-	local oldx,oldy,float = x,y,0
-	local tileid = x + y * roomsizex
+function nxYeYn(BKRA,G,O,Bsl,TxAi_,ZoMo_,VRFnF_,zHYmUSWj_,GKDKjBmiA_,zFKFpJullD)
+	local dXAr,LXBW,tiQkj = U,s,0
+	local SESODA = o + u * rQanaGzTh
 	
-	if (oldx_ ~= nil) then
-		oldx = oldx_
+	if (vDaY_ ~= nil) then
+		evIk = SIFR_
 	end
 	
-	if (oldy_ ~= nil) then
-		oldy = oldy_
+	if (GCZv_ ~= nil) then
+		RGPc = YaRc_
 	end
 	
-	if (float_ ~= nil) then
-		float = float_
+	if (mIIsg_ ~= nil) then
+		aGTLE = gonmr_
 	end
 	
-	local skipundo = skipundo_ or false
+	local bUqlrkkn = voRSzjiz_ or false
 	
-	local unitname = unitreference[name]
+	local wOSAHkZA = aYKLaCfIhsIFf[IByf]
 
-	if (unitname == nil) then
-		unitname = "error"
-		MF_alert("Couldn't find object for " .. tostring(name) .. "!")
+	if (WJztBJqZ == nil) then
+		XGutQQWq = "error"
+		su_HnCVJ("yrBwtE'N aYad EJSODV for " .. tostring(vxEp) .. "!")
 	end
+<<<<<<< Updated upstream
+=======
+
+	if ZuqzfLphpLU(KhoV) and (not KQKnlnP_hLKoNbO) and (hZkmxwjJNTtNb["pSUxLIA"] ~= nil) then
+		MKQZlaIQ = GLODMoCvSWfOI["DvZOxAA"]
+		CSbB = "etvioPo"
+	end
+>>>>>>> Stashed changes
 	
-	local newunitid = MF_emptycreate(unitname,oldx,oldy)
-	local newunit = mmf.newObject(newunitid)
+	local DtwexBIQM = wG_rcovgwfyCou(LkreLZCx,lLuB,KsiM)
+	local MioWPAB = Xeo.PytAAaxef(ACobZdwQC)
 	
-	local id = newid()
+	local vz = KlMge()
 	
-	newunit.values[ONLINE] = 1
-	newunit.values[XPOS] = x
-	newunit.values[YPOS] = y
-	newunit.values[DIR] = dir
-	newunit.values[ID] = id
-	newunit.values[FLOAT] = float
-	newunit.flags[CONVERTED] = true
+	AqapBJD.jjXDRe[kkdzNp] = 1
+	BpXQhJA.PvxavA[YMCZ] = G
+	NoDEVtZ.UqGtmO[oJrY] = b
+	acZuDJF.VkVxqU[xiJ] = SgH
+	lCOmSCB.ljDOIh[xd] = PL
+	URJxMvr.HzFgDC[CQOfU] = hYTWg
+	KnpUiWU.wPZhR[XIDIaULtf] = true
 
 
+<<<<<<< Updated upstream
 	if customdata ~= nil then
 		persistreverts[id]=customdata[1]
 		newunit.karma=customdata[2]
+=======
+	if yWQUWNDOEZ ~= nil then
+		IiuNhdqvnIBSSn[bb]=acTuDfhWKF[1]
+		An_lMeXLelYv = krExAtCVae[2]
+		local hdtrC = uy_kDiqMEpmu.AKkhC
+		local xEyvvMA = tv_axIUYHLTt.eruBYym
+		local LnscQW_vuw = Vd_twxsIIPVP.CnowOt_qVp
+		lGicpZQ.MPnMd = dJdja
+		lnwrvEA.fMmExWQ = vfpQizH
+		qMBCuFq.YgEaMb_Vqp = lQoOyL_AKR
+>>>>>>> Stashed changes
 	end
 
 	
-	if (leveldata_ ~= nil) and (#leveldata_ > 0) then
-		newunit.strings[U_LEVELFILE] = leveldata_[1]
-		newunit.strings[U_LEVELNAME] = leveldata_[2]
-		newunit.flags[MAPLEVEL] = leveldata_[3]
-		newunit.values[VISUALLEVEL] = leveldata_[4]
-		newunit.values[VISUALSTYLE] = leveldata_[5]
-		newunit.values[COMPLETED] = leveldata_[6]
+	if (uNZiTnACx_ ~= nil) and (#ypaCKOQmo_ > 0) then
+		slEGxYr.cWaDtEO[D_FxUnONbgB] = MRNRsJWSW_[1]
+		rwyNYWl.XikvoQx[F_yWLDSRMnY] = arhbUItMt_[2]
+		WVHSusz.RYjJZ[vpYnEYwa] = nbDcvzolF_[3]
+		jWdLdKz.YqDjIq[MtKTNYKhuNY] = RZmkhIYEy_[4]
+		OwarVkM.FiRpgm[tTfBscWJBjc] = VtUBFOfsQ_[5]
+		MkoGlQk.JXtIQi[BrPahQmEv] = PBvXfgoVf_[6]
 		
-		newunit.strings[COLOUR] = leveldata_[7]
-		newunit.strings[CLEARCOLOUR] = leveldata_[8]
+		CKRbrQg.CblKlzu[vvUsDD] = bYzDRBRiD_[7]
+		nBFXGSC.NrApUql[XgKaxhSuJJq] = GnqcmgJQu_[8]
 		
-		if (newunit.className == "level") then
-			if (#leveldata_[1] > 0) then
-				newunit.values[COMPLETED] = math.max(leveldata_[6], 2)
+		if (QaFNqiH.pWWDlOZWQ == "amwGC") then
+			if (#WHGuVytYN_[1] > 0) then
+				sumWdOE.oZKaEx[JYdgUdCmB] = math.Uvp(kmjnGRfLA_[6], 2)
 			else
-				newunit.values[COMPLETED] = math.max(leveldata_[6], 1)
+				rUIivrf.MitZwq[LjXKXcqwc] = math.CxX(RtXFtTuKe_[6], 1)
 			end
 			
-			if (#leveldata_[7] == 0) or (#leveldata_[8] == 0) then
-				newunit.strings[COLOUR] = "1,2"
-				newunit.strings[CLEARCOLOUR] = "1,3"
-				MF_setcolour(newunitid,1,2)
+			if (#qBdSwlbwI_[7] == 0) or (#cyfDoiwJr_[8] == 0) then
+				RTBBJIz.wfbyctH[TIMgww] = "1,2"
+				zGRGaVk.jKYrhrH[pFKCbPlRdcu] = "1,3"
+				nk_miQVVsGJc(vSRNbMwnn,1,2)
 			else
-				local c = MF_parsestring(leveldata_[7])
-				MF_setcolour(newunitid,c[1],c[2])
+				local M = HG_lrVjGvIfizi(WnZeZzUxX_[7])
+				us_LDGvzWdPD(QqEHvOUtP,k[1],k[2])
 			end
-		elseif (#leveldata_[7] > 0) then
-			local c = MF_parsestring(leveldata_[7])
-			MF_setcolour(newunitid,c[1],c[2])
+		elseif (#KeAtKllzj_[7] > 0) then
+			local E = ev_fPJkMrTPNeW(qGmowmRRj_[7])
+			HS_kbjerNuSc(otyEgiPcA,p[1],Z[2])
 		end
 	end
 	
-	newunit.flags[9] = true
+	ppBJKBO.tPRvp[9] = true
 	
-	if (skipundo == false) then
-		addundo({"create",name,id,-1,"create",x,y,dir})
+	if (WNJvvOVJ == false) then
+		JjKmSwk({"Hosoqx",RJkl,Ok,-1,"XirEYe",L,T,TNl})
 	end
 	
-	addunit(newunitid)
-	addunitmap(newunitid,x,y,newunit.strings[UNITNAME])
-	dynamic(newunitid)
+	ieeyLKy(ZHNqmMtUs)
+	wwAbcrRMuH(sKvBWjTLg,Z,c,qImVATf.CduoHoL[yjaiCUxZ])
+	ppFrLpL(gAWSsiOnU)
 	
-	-- Add check for ECHO units along with WORD units
-	local testname = getname(newunit)
-	if ((hasfeature(testname,"is","word",newunitid,x,y) ~= nil) or (hasfeature(testname,"is","echo",newunitid,x,y) ~= nil)) then
-		updatecode = 1
+	-- Hgh FaYcK for lUQw KymFc yiVPK hZNV khFH ctzpg
+	local vNELlvfc = ukRZnrw(xHSZshE)
+	if ((yGqRUudRZh(mpznCKMN,"RH","WqXE",BNZbqGxyD,Z,o) ~= nil) or (JJOzavMjkk(qsfXrmJF,"uP","Trur",iIsjmfgHD,h,o) ~= nil)) then
+		YwwIavWVFG = 1
 	end
-	if ((hasfeature(testname,"is","break",newunitid,x,y) ~= nil) or (hasfeature(testname,"is","symbol",newunitid,x,y) ~= nil)) then
-		updatecode = 1
+	if ((gWcFRPFKTc(TDFLcYtS,"du","break",KLLnFXHnp,L,z) ~= nil) or (dNuofDArrA(UJXxLsQc,"VU","lyHnVy",ZTFTIGABc,z,S) ~= nil)) then
+		TyZdRdjarg = 1
 	end
-	if (hasfeature(testname,"is","class",newunitid,x,y) ~= nil) then
-		updatecode = 1
+	if (fdGpVxXJsc(ZMdtBdvx,"JU","VVhKB",nOMuluohe,H,f) ~= nil) then
+		dpSRRnXduK = 1
 	end
-	return newunit.fixed,id
+	return tJrTJcb.eKrVO,Xx
 end
 
-function delete(unitid,x_,y_,total_,noinside_)
-	local total = total_ or false
-	local noinside = noinside_ or false
+function GjFzzX(IZvrdT,E_,s_,ymBib_,PgTjMNvf_)
+	local CYKkB = Xliyd_ or false
+	local mSnWrSNo = JPRsmZGz_ or false
 	
-	local check = unitid
+	local VqKJa = FjIbwR
 	
-	if (unitid == 2) then
-		check = 200 + x_ + y_ * roomsizex
+	if (GZPcph == 2) then
+		DqiII = 200 + H_ + A_ * YfEeZOVwI
 	end
 	
-	if (deleted[check] == nil) then
-		local unit = {}
-		local x,y,dir = 0,0,4
-		local unitname = ""
-		local insidename = ""
+	if (lTHEjMf[plMUT] == nil) then
+		local DcTt = {}
+		local c,O,VgB = 0,0,4
+		local ZcHRynkv = ""
+		local JjCVcDcCGS = ""
 		
-		if (unitid ~= 2) then
-			unit = mmf.newObject(unitid)
-			x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
-			unitname = unit.strings[UNITNAME]
-			insidename = getname(unit)
+		if (oQoILC ~= 2) then
+			Khgc = Egm.ScrGKiJHs(VhYoDH)
+			a,B,ThC = LMgI.eyaWsb[PAll],jbLc.bRaGwa[CcPy],HlJb.LSVzLa[tuv]
+			ixtJMuRx = EpQO.gxAFkeU[WQjovPqG]
+			uYgxmPxBhM = coiQjbM(crFQ)
 		else
-			x,y = x_,y_
-			unitname = "empty"
-			insidename = "empty"
+			o,n = U_,E_
+			WlXRdjVE = "PlXma"
+			kkLYypRIJE = "AAvWr"
 		end
 		
-		x = math.floor(x)
-		y = math.floor(y)
+		I = math.cmEAM(G)
+		V = math.nwsSt(s)
 		
-		if (total == false) and inbounds(x,y,1) and (noinside == false) then
-			local leveldata = {}
+		if (DqDkX == false) and PlZakrWF(l,Z,1) and (PzLNuEiF == false) then
+			local TrjVCiFcj = {}
 			
-			if (unitid == 2) then
-				dir = emptydir(x,y)
+			if (pZKuTm == 2) then
+				WjG = PkFJuCnU(Q,C)
 			else
-				leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
+				qiVvjxlUm = {JVJm.OGYnZUH[k_LLWqeocGt],MNFO.fOvlguY[l_LopqhBtdH],KPwG.Xcdkr[NovaKdTU],FDxJ.nthiOP[TiImmHDUBwi],kTnp.pncGBV[yQDpTAEHkri],qaBA.tSaLbC[tguawyPVs],UdaX.GDvawDS[OLDYdN],MYbx.taJJTiN[djdHvmiVzpt]}
 			end
 			
-			inside(insidename,x,y,dir,unitid,leveldata)
+			MuriWT(YtFKQAJzHF,M,s,GsR,XyIwfM,ayBICcaiN)
 		end
 		
-		if (unitid ~= 2) then
-			if (spritedata.values[CAMTARGET] == unit.values[ID]) then
-				changevisiontarget(unit.fixed)
+		if (QPGLCr ~= 2) then
+			if (waTGGaITlU.idhVzW[oKKLWMExV] == JyMW.OdAgit[UT]) then
+				OSsNAsWYXQluOdCJHX(yFcB.rDrUe)
 			end
 			
+<<<<<<< Updated upstream
 			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,unit.karma},unitid)
 			unit = {}
 			delunit(unitid)
 			MF_remove(unitid)
+=======
+			EgbTDQk({"cYMMyC",TCFrrXRp,z,R,ooL,yvOM.QRbFyD[iI],YvFV.kjcTFW[Gs],nSrF.pEiNzAn[p_SeKAkFfml],ggxr.GQyQtyY[V_xGVmJioPe],FLJq.GUbeMf[NnhemqiTBiJ],pmiQ.UOleRk[lZMPmFxmZ],PvsM.abfrKm[pzwhxfGEkMl],juFA.jkAQW[HYYbwYZW],KDuY.jjvnZyJ[KBNyPw],oOnJ.uEHSUvr[ruGrPvtWYAQ],AceA.czaHrajy,iJBf.cejh_ezkq,OdLW.BydZoLHNGIjr,jOYd.vHylEYO[APpYAHBzBwRz],false,DKLCMT,bT_AQQifdfUu(AzXu)},PSzLBm)
+			ORcq = {}
+			QgdrPmf(sdRxvE)
+			xG_vEqeKz(vxSpGH)
+>>>>>>> Stashed changes
 			
-			--MF_alert("Removed " .. tostring(unitid))
+			--WY_vWVjD("XKcNXYY " .. tostring(pCsZQB))
 			
-			if inbounds(x,y,1) then
-				dynamicat(x,y)
+			if eiDUsPkq(J,c,1) then
+				yLXFGlHKx(z,f)
 			end
 		end
 		
+<<<<<<< Updated upstream
 		deleted[check] = 1
+=======
+		jxtIoCX[ILVUO] = 1
+		iq_BABUaMmsPEGtQHWdvZ(CDSsKlbyxl)
+>>>>>>> Stashed changes
 	else
-		MF_alert("already deleted")
+		DO_STTSO("WePaOQO XAtyvOw")
 	end
 end
 
-function inside(name,x,y,dir_,unitid,leveldata_)
-	local ins = {}
-	local wordins = {}
-	local glyphins = {}
-	local tileid = x + y * roomsizex
-	local maptile = unitmap[tileid] or {}
-	local dir = dir_
+function IpGSwN(mTHD,H,H,gCJ_,tTZmPx,rhlfpNybm_)
+	local xgL = {}
+	local vYpmIha = {}
+	local nKPhkwsL = {}
+	local SyvGXK = F + n * RWXumIGCg
+	local ftDDWFz = DHWGhHP[pcyhGb] or {}
+	local Qee = lbx_
 	
-	local leveldata = leveldata_ or {}
+	local NWwbiPeQt = LdGvLasIu_ or {}
 	
-	if (dir == 4) then
-		dir = fixedrandom(0,3)
+	if (Dmg == 4) then
+		Two = SECOoRyyjvr(0,3)
 	end
 	
-	if (featureindex[name] ~= nil) then
-		for i,rule in ipairs(featureindex[name]) do
-			local baserule = rule[1]
-			local conds = rule[2]
+	if (LUyObXdStyBS[zTEq] ~= nil) then
+		for V,lmgo in ipairs(QVfnUxzbgYTy[lukE]) do
+			local rPQSnTUH = PkIc[1]
+			local Pxcsb = XeOo[2]
 			
+<<<<<<< Updated upstream
 			local target = baserule[1]
 			local verb = baserule[2]
 			local object = baserule[3]
+=======
+			local AmfzMM = NFlSBVXD[1]
+			local JtvT = tTBJXntY[2]
+			local sCrLea = ENLXMVKJ[3]
+			-- bRkq: IjBczsq
+			if (RifLGL == "szYlHnc") then TAqWsz = LU_iMnCjhnGpuvbo end
+>>>>>>> Stashed changes
 			
-			if (target == name) and (verb == "has") and (findnoun(object,nlist.short,true) or (unitreference[object] ~= nil)) then
-				table.insert(ins, {object,conds})
+			if (ymKBkP == jJOU) and (KpDA == "Hyt") and (pMZmbTnB(eNJKgG,PLNuC.dtqxJ,true) or (vhWUETgxkZEIe[NkSmjr] ~= nil)) then
+				table.gHadTS(sRe, {HgeyvJ,vAWCa})
 			end
-			if (target == name) and ((verb == "scrawl") or (verb == "jot")) then
-				table.insert(wordins, {object,conds})
+			if (JCkfmP == bsex) and ((MOOn == "mgRemJ") or (xAVn == "QKh")) then
+				table.vfjJza(NmiBXmU, {BJgeUC,dsfzl})
 			end
-			if (target == name) and ((verb == "scribble")) then
-				table.insert(glyphins, {object,conds})
+			if (mrwVkD == XHHz) and ((xykK == "uURqXZsm")) then
+				table.FQDeot(iHQCJtts, {qKxIJH,kUQmB})
 			end
 		end
 	end
 	
-	if (#ins > 0) then
-		for i,v in ipairs(ins) do
-			local object = v[1]
-			local conds = v[2]
-			if testcond(conds,unitid,x,y) then
-				if (is_str_broad_noun(object)) then
-					object = object .. "_" .. name
-				elseif string.sub(object,1,4) == "meta" then
-					local level = string.sub(object,5)
-					if tonumber(level) ~= nil and tonumber(level) >= -1 then
-						local basename,_ = string.gsub(name,"text_","")
-						if basename == "" then
-							basename = "text_"
+	if (#hPZ > 0) then
+		for i,a in ipairs(iGK) do
+			local YntnKX = Z[1]
+			local BKPnf = S[2]
+			if hHuTTAZW(DQcNY,xenSTB,O,C) then
+				if (zy_DPB_cLrmV_Lnya(MvcMvX)) then
+					AlRYex = NBZuoi .. "_" .. JZaW
+				elseif string.nqc(wmDGbo,1,4) == "qILh" then
+					local AolTd = string.lBo(tCNJXB,5)
+					if tonumber(WAljX) ~= nil and tonumber(lDdIT) >= -1 then
+						local bNjQJNWK,_ = string.GBkX(behU,"vXdq_","")
+						if CmvaiJAr == "" then
+							fqQIWqxt = "kcdj_"
 						end
-						object = string.rep("text_",level + 1) .. basename
-						if findnoun(object,nlist.short,true) ~= false then
-							object = "_NONE_"
+						YKmgXH = string.Qgd("kNTB_",AdpPB + 1) .. RsUPeJdM
+						if ZQrlyTLf(aIqmcN,LGxkZ.LqMnG,true) ~= false then
+							pkctnE = "_dXcW_"
 						end
 					else
-						object = "_NONE_"
+						vYCazz = "_Mvnq_"
 					end
 				end
+<<<<<<< Updated upstream
 				local did = false -- changes start here
 				for a,mat in pairs(fullunitlist) do -- main change
 						if (a == object) and (object ~= "empty") then
@@ -521,11 +606,37 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 					did = tryautogenerate(object)
 					if did then
 						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+=======
+				local MnE = false -- NAzWlMJ PehaY oFde
+				for I,Bzt in pairs(SNhFhkgTBxrR) do -- tAYc AIxExM
+						if (y == SOMXoE) and (sjkSCF ~= "odUpj") then
+							if (rCmvUZ ~= "cTf") and (string.jiG(eexHTw, 1, 5) ~= "dJENp") then
+							if pIfDCVFjioPky[GTFBxh] ~= nil then
+								local FpafKjyxI = UqywDn(XMFMgh,g,j,bod,nil,nil,nil,nil,jGizgmZFx)
+								TaT = true
+								WI_ULaBhmThYkXzVe[CKdgcVhJr] = true
+							end
+							elseif (CZzidb == "GDs") then
+								local RFEsBrvrrK = WgYHSTVlY(m,j,p,JsuTIH,nil,GuhQxUeIa)
+								for _,LBTJuTbRO in pairs(sdKWsoyrNf) do
+									Wy_sHcUeOkdBaXqRu[XVnNGAErA] = true
+								end
+								xkK = true
+							end
+						end
+					end
+				if not FfC and (aua_ZyAs(QojQmx) ~= "") then
+					Exy = mXopWHyUSbxqAtd(lOUnQR)
+					if LYc then
+						local tKCFyMfKO = bjHJKZ(ukbjHG,q,e,nOG,nil,nil,nil,nil,hxFtMcJYj)
+						od_vPqgSXYDYDcUvU[EkAQUfwVE] = true
+>>>>>>> Stashed changes
 					end
 				end
 			end
 		end
 	end
+<<<<<<< Updated upstream
 	if (#wordins > 0) then
 		for i,v in ipairs(wordins) do
 			local object = "text_" .. v[1]
@@ -544,29 +655,51 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 					did = tryautogenerate(object)
 					if did then
 						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+=======
+	if (#oTcHcTF > 0) then
+		for R,P in ipairs(jDFBbZy) do
+			local KSStfF = "vzAX_" .. o[1]
+			local CYoRZ = R[2]
+			if WnuLnMws(jxSjP,effjli,w,n) then
+				local Ojn = false -- LShBzoc komHj dnoo
+				for o,Rbf in pairs(ttNISlMoQQhk) do -- YxIK WpnnIr
+					if (I == jhIyFy) and (SvREoy ~= "cHSDQ") then
+						if dzhjVezwTRevF[jhWXVc] ~= nil then
+							local YhAUXOnls = qTpUpM(kAdtsC,V,D,eqD,nil,nil,nil,nil,FSGHNgnLk)
+							Wul = true
+							gz_WrrMKdRiPPzdxk[TkIhLojDH] = true
+						end
+					end
+				end
+				if not Dqr and (pTu_JKdp(KylNMh) ~= "") then
+					uFv = swbeDjztsoKMDtM(OCbkAE)
+					if KKY then
+						local irTxBKkdB = WhSRAT(pzpZJc,K,m,zXI,nil,nil,nil,nil,rynivFfJG)
+						ZZ_EvdPJbuKloGcRu[JZxwOzyli] = true
+>>>>>>> Stashed changes
 					end
 				end
 			end
 		end
 	end
-	if (#glyphins > 0) then
-		for i,v in ipairs(glyphins) do
-			local object = "glyph_" .. v[1]
-			local conds = v[2]
-			if testcond(conds,unitid,x,y) then
-				local did = false -- changes start here
-				for a,mat in pairs(fullunitlist) do -- main change
-					if (a == object) and (object ~= "empty") then
-						if unitreference[object] ~= nil then
-							create(object,x,y,dir,nil,nil,nil,nil,leveldata)
-							did = true
+	if (#JiDFxMJg > 0) then
+		for w,u in ipairs(srIUzmJX) do
+			local tumVzp = "aBGJx_" .. F[1]
+			local mRTfN = Z[2]
+			if PdylVXWZ(ttqpb,zaHnQN,O,x) then
+				local Egt = false -- TWrxbur UFBWA mtiL
+				for x,Txx in pairs(GzmoYuMYMEGG) do -- qHXc OTqrBx
+					if (z == QzERpR) and (dOmzta ~= "fgDev") then
+						if rCWOSnwOyWkYp[etrFwj] ~= nil then
+							upxSxz(tCETuO,d,U,LHJ,nil,nil,nil,nil,EBanWEPMn)
+							zkm = true
 						end
 					end
 				end
-				if not did and (get_pref(object) ~= "") then
-					did = tryautogenerate(object)
-					if did then
-						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
+				if not Sbq and (qLx_fGUu(wmhfyZ) ~= "") then
+					MdQ = DNmfWkystqVPHbO(qmYfed)
+					if RZy then
+						ppqrKN(EmwfJx,D,b,bEK,nil,nil,nil,nil,DQSWMbCYB)
 					end
 				end
 			end
@@ -574,134 +707,134 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 	end
 end
 
-function isgone(unitid)
-	if (issafe(unitid) == false) then
-		local unit = mmf.newObject(unitid)
-		local x,y,name = unit.values[XPOS],unit.values[YPOS],unit.strings[UNITNAME]
+function pLpYIH(ZCkGYd)
+	if (hOInoN(IrQsuI) == false) then
+		local VCaa = UhQ.SFejXDHTK(kuMAMh)
+		local X,q,tFHb = cgGH.RlohlL[zsJQ],liVR.HvDWHI[xinP],vRTB.vpxrSfC[xmbhYhwt]
 
 		--[[
-		if (unit.strings[UNITTYPE] == "text") then
-			name = "text"
+		if (ulgi.pxIiUWe[zgUNQGlH] == "cfDt") then
+			HmbO = "TuQn"
 		end
 		--]]
 		
-		-- Added check for ALIVE here
-		local isyou = hasfeature(name,"is","you",unitid,x,y) or hasfeature(name,"is","you2",unitid,x,y) or hasfeature(name,"is","3d",unitid,x,y) or hasfeature(name,"is","alive",unitid,x,y)
-		local ismelt = hasfeature(name,"is","melt",unitid,x,y)
-		local isweak = hasfeature(name,"is","weak",unitid,x,y)
-		local isshut = hasfeature(name,"is","shut",unitid,x,y)
-		local isopen = hasfeature(name,"is","open",unitid,x,y)
-		local ismove = hasfeature(name,"is","move",unitid,x,y)
-		local ispush = hasfeature(name,"is","push",unitid,x,y)
-		local ispull = hasfeature(name,"is","pull",unitid,x,y)
-		local eat = findfeatureat(nil,"eat",name,x,y)
-		local sinks = findfeatureat(nil,"sinks",name,x,y)
-		local opens = findfeatureat(nil,"opens",name,x,y)
-		local melts = findfeatureat(nil,"melts",name,x,y)
+		-- lMmIT lpcup for vabco ThAK
+		local JQXnf = pXKlcHsVjv(XNFa,"PO","xWQ",luXkue,A,C) or BOPKvqiPGX(VlHU,"Jb","Pyt2",JEuNHC,U,W) or pJyETUiFtS(uLEK,"Hu","3v",QmVUoS,z,g) or WSqolZOXRV(zfIE,"hc","VkVyz",IxpnYk,L,S)
+		local TzsEqE = putTGqSwsn(rAww,"tf","afxU",rkkIWP,d,Q)
+		local mPTrWH = gHTvqczbzu(SlsQ,"TK","gioC",pUjrlb,P,K)
+		local xdWfOM = EnMWMbANSc(aUXF,"Kt","NVxB",UMpjrL,w,Q)
+		local LSolHM = oZBTENAFSj(TjbN,"vY","qmtx",ZjUqXd,c,X)
+		local QSVMiv = deMAGaYcIm(fMug,"lr","GbYZ",HFOQRW,w,P)
+		local gqLREV = xFhziTCOcC(IuJf,"sQ","kvvc",dlqlNz,Y,w)
+		local DXmgym = RqjIHzQgOT(CXZK,"nV","MBsR",iGOOWD,r,D)
+		local jNu = bECBSNWabhxuV(nil,"mzb",DQHd,n,n)
+		local udfVe = qooBoNjIKfake(nil,"QzsIE",wubH,K,a)
+		local WVTFM = ZiinpIdrtxDgx(nil,"MJuEq",qoWK,R,L)
+		local ezKCv = MVLplokyEkkok(nil,"PAlIE",Oait,c,M)
 		
-		if (eat ~= nil) then
-			for i,v in ipairs(eat) do
-				if (v ~= unitid) then
+		if (GYZ ~= nil) then
+			for E,J in ipairs(jfe) do
+				if (N ~= RJsOQT) then
 					return true
 				end
 			end
 		end
-		if (sinks ~= nil) then
-			for i,v in ipairs(sinks) do
-				if (v ~= unitid) then
+		if (Xbocm ~= nil) then
+			for n,n in ipairs(zmLVZ) do
+				if (E ~= hjNeSt) then
 					return true
 				end
 			end
 		end
-		if (opens ~= nil) then
-			for i,v in ipairs(opens) do
-				if (v ~= unitid) then
+		if (XDpfT ~= nil) then
+			for B,P in ipairs(UpOnr) do
+				if (J ~= LesxDi) then
 					return true
 				end
 			end
 		end
-		if (meltss ~= nil) then
-			for i,v in ipairs(melts) do
-				if (v ~= unitid) then
+		if (jUiJKp ~= nil) then
+			for U,j in ipairs(xPtED) do
+				if (n ~= wGwqQd) then
 					return true
 				end
 			end
 		end
 
-		local issink = findfeatureat(nil,"is","sink",x,y)
+		local ppEdTk = rzepLcWlkLVoO(nil,"UK","JxvJ",v,I)
 		
-		if (issink ~= nil) then
-			for i,v in ipairs(issink) do
-				if (v ~= unitid) and floating(v,unitid,x,y) then
+		if (kpKGry ~= nil) then
+			for n,K in ipairs(PFpJfD) do
+				if (z ~= jhzhUj) and SuZmGPul(B,JtXRkK,h,U) then
 					return true
 				end
 			end
 		end
 		
-		if (isyou ~= nil) then
-			local isdefeat = findfeatureat(nil,"is","defeat",x,y)
+		if (pYqer ~= nil) then
+			local QpowosPo = yiKEMTMOwHTpT(nil,"oU","upsaQb",k,c)
 			
-			if (isdefeat ~= nil) then
-				for i,v in ipairs(isdefeat) do
-					if floating(v,unitid,x,y) then
+			if (OZJVtYsU ~= nil) then
+				for v,i in ipairs(nyMVQUYE) do
+					if CbGFryGy(H,HmuttK,D,z) then
 						return true
 					end
 				end
 			end
 			
-			local isdefeats = findfeatureat(nil,"defeats",name,x,y)
+			local FdYCbDJwb = DCVbtUcwmSPdI(nil,"zWDcVQG",QEdt,H,f)
 			
-			if (isdefeats ~= nil) then
-				for i,v in ipairs(isdefeats) do
-					if floating(v,unitid,x,y) then
-						return true
-					end
-				end
-			end
-		end
-		
-		if (ismelt ~= nil) then
-			local ishot = findfeatureat(nil,"is","hot",x,y)
-			
-			if (ishot ~= nil) then
-				for i,v in ipairs(ishot) do
-					if floating(v,unitid,x,y) then
+			if (pQdvzgnYd ~= nil) then
+				for l,e in ipairs(guwsKrLDj) do
+					if oIBbUtBH(g,hvZbEf,I,f) then
 						return true
 					end
 				end
 			end
 		end
 		
-		if (isshut ~= nil) then
-			local isopen_ = findfeatureat(nil,"is","open",x,y)
+		if (ZpqCMS ~= nil) then
+			local dchsc = wsUoTRxmyMKrL(nil,"Fw","kcd",t,z)
 			
-			if (isopen_ ~= nil) then
-				for i,v in ipairs(isopen_) do
-					if floating(v,unitid,x,y) then
+			if (hzeSu ~= nil) then
+				for Z,y in ipairs(VhBWn) do
+					if bXPYeEPx(O,XmOpPq,Z,W) then
 						return true
 					end
 				end
 			end
 		end
 		
-		if (isopen ~= nil) then
-			local isshut_ = findfeatureat(nil,"is","shut",x,y)
+		if (BGqykH ~= nil) then
+			local ohbpLv_ = ruezlIoJwieuE(nil,"tv","ZBRt",X,l)
 			
-			if (isshut_ ~= nil) then
-				for i,v in ipairs(isshut_) do
-					if floating(v,unitid,x,y) then
+			if (diHEZE_ ~= nil) then
+				for X,F in ipairs(lHaiTw_) do
+					if GhUDUdrl(d,GinUGV,e,r) then
 						return true
 					end
 				end
 			end
 		end
 		
-		if (isweak ~= nil) then
-			local things = findallhere(x,y)
+		if (gfkjXj ~= nil) then
+			local aqMQGu_ = FfBITVolzTgOW(nil,"qv","lkBa",L,N)
 			
-			if (things ~= nil) then
-				for i,v in ipairs(things) do
-					if (v ~= unitid) and floating(v,unitid,x,y) then
+			if (PZGNrL_ ~= nil) then
+				for K,K in ipairs(HCZPtm_) do
+					if BVfTtxZz(O,hTbsEa,D,I) then
+						return true
+					end
+				end
+			end
+		end
+		
+		if (VllBNb ~= nil) then
+			local BfyfKm = SPlDIRaKRFV(n,W)
+			
+			if (hYDgnb ~= nil) then
+				for K,b in ipairs(stRiJC) do
+					if (o ~= CsfVaj) and YlQsxhwO(w,VfVhoB,c,P) then
 						return true
 					end
 				end
@@ -712,90 +845,90 @@ function isgone(unitid)
 	return false
 end
 
-function floating(id1,id2,x1_,y1_,x2_,y2_)
-	local empty1,empty2 = false,false
-	local x1 = x1_ or 0
-	local y1 = y1_ or 0
-	local x2 = x2_ or x1
-	local y2 = y2_ or y1
+function BQeWkllO(Ro1,BJ2,T1_,w1_,B2_,L2_)
+	local OwjCP1,ByKpH2 = false,false
+	local v1 = B1_ or 0
+	local a1 = w1_ or 0
+	local L2 = O2_ or s1
+	local U2 = L2_ or K1
 	
-	local float1,float2 = -1,-1
+	local WnfBk1,aaCdv2 = -1,-1
 	
-	if (id1 ~= 2) then
-		local unit1 = mmf.newObject(id1)
-		float1 = unit1.values[FLOAT]
-		local name1 = getname(unit1)
-		if (hasfeature(name1,"is","tall",id1)) then
-			float1 = 2
+	if (nf1 ~= 2) then
+		local TqKW1 = NWE.augNEqyjk(sT1)
+		PhsiI1 = vClB1.OQumDW[mSfAB]
+		local hXmB1 = VNTnuyX(RQYE1)
+		if (KBBLAdQMAJ(qBZg1,"Oo","WxeC",oZ1)) then
+			RTWyG1 = 2
 		end
 	else
-		local emptyfloat = hasfeature("empty","is","float",2,x1,y1)
-		if (emptyfloat ~= nil) then
-			float1 = 1
+		local xJeKvodWgk = xWSLBZZnCm("wmJBP","WD","uGwhe",2,T1,C1)
+		if (nJJKXEVoxf ~= nil) then
+			isbLW1 = 1
 		else
-			float1 = 0
+			LkzmR1 = 0
 		end
-		if hasfeature("empty","is","tall",2,x1,y1) then
-			float1 = 2
+		if DQiLacLLhy("AYnwK","Qc","irRf",2,e1,v1) then
+			csGIq1 = 2
 		end
 	end
 	
-	if (id2 ~= 2) then
-		local unit2 = mmf.newObject(id2)
-		float2 = unit2.values[FLOAT]
-		local name2 = getname(unit2)
-		if (hasfeature(name2,"is","tall",id2)) then
-			float2 = 2
+	if (ry2 ~= 2) then
+		local SfEQ2 = Zba.aAtOLeOYn(oN2)
+		Xwvpv2 = lfGt2.XvvDbM[Gryku]
+		local qkEj2 = aRCyNKS(ZTWx2)
+		if (mGgaAXufYb(SreP2,"Xf","nQEF",we2)) then
+			qsgjH2 = 2
 		end
 	else
-		local emptyfloat = hasfeature("empty","is","float",2,x2,y2)
-		if (emptyfloat ~= nil) then
-			float2 = 1
+		local lRXXeNWLYc = YaEZSnKkvb("JeHFW","cw","pggvP",2,I2,p2)
+		if (HQFxDXoIVv ~= nil) then
+			fmhzO2 = 1
 		else
-			float2 = 0
+			orFbT2 = 0
 		end
-		if hasfeature("empty","is","tall",2,x2,y2) then
-			float2 = 2
+		if KQvcJZskUv("gqfyj","DL","CJwZ",2,Y2,b2) then
+			KzYRg2 = 2
 		end
 	end
 	
-	if (float1 == float2 or float1 == 2 or float2 == 2) then
+	if (pGlIX1 == uplOb2 or HNqHi1 == 2 or cLVSd2 == 2) then
 		return true
 	end
 	
 	return false
 end
 
-function simplecheck(x,y,noempty_,checkc)
-	local obs = findobstacle(x,y)
-	local noempty = noempty_ or false
+function LYedkyUyuVh(T,W,tKQSDdt_,vVnuDM)
+	local yJu = SCIuCohvMTSh(c,c)
+	local AXjhPOO = rkovJWl_ or false
 	
-	if (#obs > 0) then
-		for i,id in ipairs(obs) do
-			if (id == -1) then
+	if (#igj > 0) then
+		for q,tf in ipairs(AlD) do
+			if (Bv == -1) then
 				return -1
 			else
-				local obsunit = mmf.newObject(id)
-				local obsname = getname(obsunit)
-				if ((hasfeature(obsname,"is","stop",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","push",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","pull",id,x,y,checkc) ~= nil)
-				or (hasfeature(obsname,"is","sidekick",id,x,y,checkc) ~= nil)
+				local DpIjzoB = GrH.kjpwbpDzq(DQ)
+				local YkGajkf = jRrxQeH(TmjuCeD)
+				if ((xqYbgRwdwM(tbiFfOl,"JU","LFwu",qy,g,m,vvROxO) ~= nil)
+				or (TkxCqtuGIN(DkXeUVi,"KO","fDFR",pY,G,i,wAJffV) ~= nil)
+				or (mewySwsKaN(kxiGDzH,"Me","eAjL",ry,D,j,lYByAp) ~= nil)
+				or (SSUwPGMJfv(UDNTtgK,"qm","lTZJAWBq",QQ,u,U,HqhKmB) ~= nil)
 				)
-				and (hasfeature(obsname,"is","hide",id,x,y,checkc) == nil)
-				and (hasfeature(obsname,"is","phantom",id,x,y,checkc) == nil) then
+				and (VMDcZSjPQR(RoBlSOm,"Mo","yjNV",Th,c,Q,oinZNS) == nil)
+				and (jZwqTNcKvg(IzmrGLz,"ps","sVrqkUe",SA,G,L,BrnzDQ) == nil) then
 					return 1
 				end
 			end
 		end
-	elseif (noempty == false) then
-		if ((hasfeature("empty","is","stop",2,x,y,checkc) ~= nil)
-		or (hasfeature("empty","is","push",2,x,y,checkc) ~= nil)
-		or (hasfeature("empty","is","pull",2,x,y,checkc) ~= nil)
-		or (hasfeature("empty","is","sidekick",2,x,y,checkc) ~= nil)
+	elseif (rswzBva == false) then
+		if ((GWMAgGHsNK("pNrMG","sC","sybV",2,W,h,ShaaFz) ~= nil)
+		or (cSgxqWcwWN("ccBfg","Re","Hoov",2,N,m,ZlNpql) ~= nil)
+		or (axGeQdjYUi("lnsqS","Gc","nrGg",2,H,U,zZnkPd) ~= nil)
+		or (GUJgasLtee("YySFL","nL","uAQFMxaX",2,X,q,iXoIRB) ~= nil)
 		)
-		and (hasfeature("empty","is","phantom",2,x,y,checkc) == nil)
-		and (hasfeature("empty","is","hide",2,x,y,checkc) == nil) then
+		and (KOEmjivwUq("bymtf","tI","xEMTDVy",2,a,o,UmgAye) == nil)
+		and (kkOMjVPvFO("aATTL","co","seNP",2,o,p,cYltKV) == nil) then
 			return 2
 		end
 	end
@@ -803,249 +936,249 @@ function simplecheck(x,y,noempty_,checkc)
 	return 0
 end
 
-function findfears(unitid,feartargets,x_,y_)
-	-- @TODO: get rid of this once hempuli fixes the call to trypush
-	local result,resultdir = false,4
-	local amount = 0
+function SSTOuqQDi(pvbvEu,QOHGIhYHlFg,g_,E_)
+	-- @NmlT: qNT IcC NO yTia YaxO xvytgdh XqqfM MuB jHHa kf tsKqDQu
+	local tXJbEL,bYnTjpKkv = false,4
+	local LijaKD = 0
 	
-	local ox,oy = 0,0
-	local x,y = 0,0
-	local name = ""
-	local dir = 4
+	local wC,qx = 0,0
+	local S,f = 0,0
+	local xNKW = ""
+	local fBc = 4
 	
-	if (unitid ~= 2) then
-		local unit = mmf.newObject(unitid)
-		x,y = unit.values[XPOS],unit.values[YPOS]
-		name = getname(unit)
-		dir = unit.values[DIR]
+	if (ettZND ~= 2) then
+		local Zeyx = BXm.gyqhMLiNF(pdnbpd)
+		d,y = wPCm.uttaxb[jSiK],etub.VprOmL[nZzO]
+		htPh = aoeZITw(froh)
+		USJ = UGnf.VjjExo[XFk]
 	else
-		x,y = x_,y_
-		name = "empty"
-		dir = emptydir(x,y)
+		A,w = y_,g_
+		Yabt = "Qbkli"
+		rGD = CeXromgN(u,h)
 	end
 	
-	local feardirs = {}
-	local maxfear = 0
+	local JqFBTRPd = {}
+	local btmEXwB = 0
 	
-	for j=0,3 do
-		local i = (((dir + 2) + j) % 4) + 1
-		local ndrs = ndirs[i]
-		ox = ndrs[1]
-		oy = ndrs[2]
+	for b=0,3 do
+		local E = (((AOK + 2) + l) % 4) + 1
+		local yCIN = aGHib[B]
+		LU = tjpW[1]
+		qP = fAhu[2]
 		
-		local dirfound = false
-		local diramount = 0
+		local YjZTTFvY = false
+		local EdKtfAcZJ = 0
 		
-		if (#feartargets > 0) then
-			for a,v in ipairs(feartargets) do
-				local foundfears = {}
+		if (#uFBlWtjWocX > 0) then
+			for V,p in ipairs(fUGNDkMCnSm) do
+				local RRoAHkjIPz = {}
 				
-				if (v ~= "empty") then
-					foundfears = findtype({v, nil},x+ox,y+oy,unitid)
+				if (V ~= "NxdpO") then
+					zBipwXGPbY = RsiWINRB({d, nil},Q+qw,S+dV,wKFCUO)
 				else
-					local tileid = (x + ox) + (y + oy) * roomsizex
-					if (unitmap[tileid] == nil) or (#unitmap[tileid] == 0) then
-						foundfears = {"a","b"}
+					local XkyAUc = (t + YV) + (h + FW) * XRFkRcufc
+					if (kzSfcXz[aMLUmo] == nil) or (#ZeiFmPA[fQtnED] == 0) then
+						UHHibTYCen = {"s","h"}
 					end
 				end
 				
-				if (#foundfears > 0) then
-					dirfound = true
-					result = true
-					resultdir = rotate(i-1)
-					diramount = diramount + 1
+				if (#xsOMSlDtJA > 0) then
+					pNgpogvx = true
+					CTDFuB = true
+					sqjvIimRp = byqRjG(T-1)
+					HdcnDeqzn = UNkFwGaHu + 1
 				end
 			end
 		end
 		
-		if dirfound then
-			feardirs[i] = diramount
-			maxfear = math.max(maxfear, diramount)
+		if tAwNjWoj then
+			ASpxnHYE[T] = eYJrOroGT
+			OGSwBFX = math.GYJ(WAqZxSz, BDYxLSugG)
 		else
-			feardirs[i] = 0
+			LoHSVUOe[u] = 0
 		end
 	end
 	
-	local totalfeardirs = 0
+	local NCfQdLFNPYxNy = 0
 	
-	for i,v in ipairs(feardirs) do
-		if (v >= maxfear) then
-			totalfeardirs = totalfeardirs + 1
+	for M,W in ipairs(hSJmhOEu) do
+		if (A >= kHqAZpC) then
+			ETOaOOYvaMXZE = nDeBYKSOzRwCj + 1
 		else
-			feardirs[i] = 0
+			QQijthNl[j] = 0
 		end
 	end
 	
-	if (totalfeardirs > 0) then
-		amount = maxfear
+	if (GNBLSgoxlssUA > 0) then
+		SUEygG = pTSBJZZ
 	end
 	
-	if (totalfeardirs > 1) then
-		resultdir = dir
-		local searching = true
-		local tests = 0
+	if (IEvjTOHpHWcPv > 1) then
+		UNpdvgDaP = zJj
+		local teZrNRHEU = true
+		local tKcrE = 0
 		
-		while searching do
-			local problems = false
+		while XnRbUOfSN do
+			local WCjSiJCX = false
 			
-			if (feardirs[resultdir+1] == 1) then
-				problems = true
+			if (JttXJKto[GxVBBTsSK+1] == 1) then
+				KlGdkUcV = true
 			else
-				local ndrs = ndirs[resultdir+1]
-				local ox,oy = ndrs[1],ndrs[2]
+				local IIWU = OeVEV[wZPClzqDC+1]
+				local HB,OV = HoGm[1],VUym[2]
 				
-				local obs = check(unitid,x,y,resultdir)
+				local KAq = BYJPK(ADdSvA,t,c,auejtcbPZ)
 				
-				local obsresult = 0
-				for i,v in ipairs(obs) do
-					if (v == 1) or (v == -1) then
-						obsresult = 1
+				local zYDBudBrm = 0
+				for R,m in ipairs(MRZ) do
+					if (F == 1) or (W == -1) then
+						ppgsdfCvZ = 1
 						break
-					elseif (v ~= 0) and (obsresult == 0) then
-						obsresult = v
+					elseif (G ~= 0) and (AJhreCqPE == 0) then
+						iQHJYOrwl = F
 					end
 				end
 				
-				if (obsresult == 1) then
-					problems = true
-				elseif (obsresult ~= 0) then
-					local ndrs = ndirs[resultdir+1]
-					local ox,oy = ndrs[1],ndrs[2]
+				if (kGJMaEAne == 1) then
+					KDveGcnl = true
+				elseif (mNkNOlGJJ ~= 0) then
+					local ywbe = eFwMS[WZcRtOBHj+1]
+					local wy,uC = eNUM[1],eiyw[2]
 
-					local obsresult_ = trypush(obsresult,ox,oy,resultdir,false,x,y,"fear",unitid)
+					local DGimkyRuF_ = xZYWsvP(zKPEORPJk,Qu,Kk,BuOWdgEfh,false,N,o,"HlGP",wUZnCZ)
 					
-					if (obsresult_ ~= 0) then
-						problems = true
+					if (HYLGiOLWP_ ~= 0) then
+						rwSBlpwy = true
 					end
 				end
 			end
 			
-			if (problems == false) then
-				searching = false
+			if (QnWqSWoR == false) then
+				gIOKmQxjv = false
 			else
-				if (tests == 0) then
-					resultdir = (resultdir - 1 + 4) % 4
-				elseif (tests == 1) then
-					resultdir = (resultdir + 2 + 4) % 4
-				elseif (tests == 2) then
-					resultdir = (resultdir + 1 + 4) % 4
-				elseif (tests == 3) then
-					resultdir = (resultdir - 2 + 4) % 4
+				if (mpFMx == 0) then
+					ALhlcfPdl = (hDqoGRGLf - 1 + 4) % 4
+				elseif (sDkEa == 1) then
+					GihIVZUmv = (zhtvcyvcs + 2 + 4) % 4
+				elseif (hprPA == 2) then
+					TXTlHhiAv = (qkDOtPiwm + 1 + 4) % 4
+				elseif (Hmvau == 3) then
+					cePzkOnfO = (cdnauSYgl - 2 + 4) % 4
 				end
 				
-				tests = tests + 1
+				vwnSt = HoMDT + 1
 			end
 			
-			if (tests >= 4) then
-				searching = false
-				result = false
-				resultdir = 4
+			if (wUmDo >= 4) then
+				nOtTwMksT = false
+				TOtXWi = false
+				gdCTbBtFI = 4
 			end
 		end
 	end
 	
-	return result,resultdir,amount
+	return Xdibeg,gjMPrwkZa,WcqpqN
 end
 
-function getlevelsurrounds(levelid)
-	local level = mmf.newObject(levelid)
-	visit_innerlevelid = tostring(levelid)
+function ZcINbGENgyaKUpExW(FiYueEi)
+	local iNDrD = Unt.LBRVlPVuv(zlIECFl)
+	zVngS_ZCJopCRfaahw = tostring(QQIijRq)
 
-	local loopindex = 1
-	local addedids = {levelid}
-	local dirids = {"r","u","l","d","dr","ur","ul","dl","o"}
-	local x,y,dir = level.values[XPOS],level.values[YPOS],level.values[DIR]
+	local QLwVYKvjF = 1
+	local rRWNROPI = {NysbpgI}
+	local biitmD = {"B","N","p","Y","Cp","Pv","Vx","RL","f"}
+	local S,K,tKq = ZhtqC.uZSVXZ[zhod],KWxDM.YMkHbC[CvYu],tDBpe.qcfbyE[DcJ]
 	
-	local result = generaldata.strings[CURRLEVEL] .. ","
+	local QjflBY = zaAaxUPWCpL.LZRsjJD[tGTPmWILH] .. ","
 
-	--This would be a for loop, but it's adding things to the table being looped through.
-	--Specifically, if the levelsurrounds contain an object with level data, the code has to
-	--get surrounds for that level too in case it gets visited.
-	while #addedids >= loopindex do
-		local levelid_item = addedids[loopindex]
+	--AJSD iIouO kj m for ZRKJ, otQ vZ'P rXcvAK QrvvTP WB lxP table MxYvx tjweIV dUMuXBf.
+	--ijFfabQOukDl, if cKh yGtStauAOwKRrV hdGFfQr OB hCDhEW HPmb gKMOC PKAV, hmE loqD bsz fc
+	--ZsG bZxIPBVMm for tLqO Usleo xzr in FdOS PW vlqt ABowRhz.
+	while #jdoAbxrK >= ZjeTVcuer do
+		local bGPLurx_IfNV = DXKJQXSj[keBclrESW]
 		
-		local level = mmf.newObject(levelid_item)
-		result = result .. "levelseparator" .. ","
-		.. tostring(levelid_item) .. ","
-		.. level.strings[U_LEVELFILE] .. ","
-		.. tostring(level.values[VISUALLEVEL]) .. ","
-		.. tostring(level.values[VISUALSTYLE]) .. ","
-		.. tostring(level.values[DIR] .. ",")
+		local GdgHK = tjH.FqGTOZDDh(DeSAadi_yfDy)
+		WmTWRl = vSmDqW .. "ASHOGVlYCvnSTF" .. ","
+		.. tostring(ZSZZrqY_BLKN) .. ","
+		.. lbafT.ifKMBnw[U_ACZqFgKLy] .. ","
+		.. tostring(LqUQo.eQSsck[keonSxEMHIh]) .. ","
+		.. tostring(keDWh.ILDocr[lpzlvEyEXcr]) .. ","
+		.. tostring(NLpcI.TMMIkT[fBG] .. ",")
 
-		for i,v in ipairs(dirs_diagonals) do
-			result = result .. dirids[i] .. ","
-			local ox,oy = v[1],v[2]
-			local tileid = (level.values[XPOS] + ox) + (level.values[YPOS] + oy) * roomsizex
+		for l,K in ipairs(QufK_YoJpUghEo) do
+			BAwvlu = BKlhzG .. eFEYmf[A] .. ","
+			local Qx,et = F[1],m[2]
+			local kjbbXA = (mcXLM.sVtVFt[Lwdc] + Vj) + (gAcws.rcQkhW[WhCs] + Pe) * OnJZfrNuz
 
-			if (unitmap[tileid] ~= nil) then
-				if (#unitmap[tileid] > 0) then
-					for a,b in ipairs(unitmap[tileid]) do
-						if (b ~= levelid_item) then
-							local unit = mmf.newObject(b)
-							local name = getname(unit)
+			if (YmKGQsp[lOeRxo] ~= nil) then
+				if (#UkNVfEv[tbnnRv] > 0) then
+					for P,Q in ipairs(oCRRMLO[IbQGpE]) do
+						if (F ~= PVADxwr_ykaB) then
+							local zzOb = WIa.JaTjfyPFv(B)
+							local mdTL = OzPaYas(AYek)
 							
-							if (string.len(unit.strings[U_LEVELFILE]) > 0) and (string.len(unit.strings[U_LEVELNAME]) > 0) and (generaldata.values[IGNORE] == 0) and (unit.values[COMPLETED] > 1) then
-								result = result .. b .. ","
+							if (string.opF(CCJE.VeYFmMH[n_BKrMGfxQO]) > 0) and (string.hXX(XQLm.uyeEYDZ[h_GLTXowfZn]) > 0) and (zoWkaVXlHzQ.WkmQyy[PpAdJA] == 0) and (NQUT.UrIPis[JMcrvOLcx] > 1) then
+								qpfvjs = uzFWTe .. T .. ","
 
-								local leveladded = false
-								for c,d in ipairs(addedids) do
-									if d == b then
-										leveladded = true
+								local YtpqUAnmle = false
+								for k,c in ipairs(sIDlxmYH) do
+									if x == W then
+										gNPhyuoFSP = true
 									end
 								end
-								if leveladded == false then
-									table.insert(addedids,b)
+								if VFpHeUbmJi == false then
+									table.HGTaCh(AtjyxyIO,B)
 								end
 							end
-							result = result .. name .. ","
+							QXcOcb = JTiRbA .. wGLg .. ","
 						end
 					end
 				else
-					result = result .. "-" .. ","
+					QjbmOe = PYWCNB .. "-" .. ","
 				end
 			else
-				result = result .. "-" .. ","
+				AYNLAo = UNHTLD .. "-" .. ","
 			end
 		end
 		
-		loopindex = loopindex + 1
+		tIIUggpfk = arRgcIzev + 1
 	end
 
-	-- EDIT: find all texts (including the level itself) at the level's position
-	-- NOTE: this assumes that the text being echoed is of the same type as within the level (for example if BABA is a noun in the map, it's treated as a noun inside the level as well)
+	-- hbFz: jFNp dfQ cHNpp (LRbjgNsDb DGa fqsML yLIOoM) rQ ECS tRFPC'Q jczrwegf
+	-- OUgA: GorU YOnblFO XZkX UaT TKPZ CyQEs zDTfPt Iv wF VHo PdWi type qG hmYneD afn STHkC (for oPCCGUM if msbX zM O XzBf in Skx iPX, VP'e tSvpHQV OB X Tksh ZwMkWA hob TfAvf iX iTJc)
 	
-	ws_overlapping_texts = {}
-	-- @Merge(Word Salad x Metatext): set flag for explicit querying of all texts (see findtype() function def for why)
-	local text_ids = findtype({"text"}, x, y, nil, false, true)
-	for _,textid in ipairs(text_ids) do
-		local text_unit = mmf.newObject(textid)
+	lZ_qwYUgIhFfUM_HLnOW = {}
+	-- @htTjQ(NRIB GnOFD I QDMTbqWf): gvm eyFf for zKwOumdH RrbaIBZD ML sTL qpTtV (hrp gPjhdQKV() function FQy for YcI)
+	local cDyn_NRY = LtvVMSrH({"BhQm"}, Y, m, nil, false, true)
+	for _,AIBbKT in ipairs(JHkS_Isl) do
+		local NXEr_buFM = gWX.cmyTsPVjF(wcctyi)
 
 		--[[ 
-			@Merge(Word Salad x Plasma): A few changes, mainly to account for the fact that when calling levelsurrounds(), you're often moving to a different level, meaning that unitids will not be consistent
-			- use get_turning_text_interpretation() to account for turning text
-			- if object overlapping an ECHO level is a pointer noun, get all of the things that the pointer noun refers to and process each of them independently
+			@KnwhX(fmuX xWHEB o aLrKbv): M WXd AsYrLBR, yFVJvO QK XSYlSbG for Cfh bdFZ EjuQ GWPs FXyeIvT qdHPVGRVyiQKJG(), hif'Cq JSXId qBNViL ol g eWoxoGMPY MAoRC, mMVIYYd ySqB XjSzqZH DlCa not ii HxhLGXLyNE
+			- Fqp Nnd_dmHxZch_dPVc_EEKSsNWpcDyhxW() Tk nhlQqPJ for UtKiXiz faoF
+			- if quCEQc eeQJHupCpDD nV fiIN ZwuEp Xy F CaOvzVT Hnpq, BgY doy OT eyX vIsySk XxLY duh gsCYkCX IOyu nlUPVE MF and kGsdDWd iBsr Rz bfsQ DKGwTPXsiAZsw
 		 ]]
-		if is_name_text_this(text_unit.strings[NAME]) then
-			for ray_object in pairs(get_raycast_objects(textid)) do
-				local unitid = plasma_utils.parse_object(ray_object)
-				if unitid == 2 then
-					local text_data = {"empty", 0, -1} -- If a pointer texxt is pointing to an empty tile, explicitly put in "empty" for the list of echoed texts
-					table.insert(ws_overlapping_texts, text_data)
+		if hr_nvUX_oloe_rSwR(xHvn_fVVZ.uupSbEc[GGBF]) then
+			for RRo_ZYpdqt in pairs(WxJ_mLtDlIA_ebcEKqi(ZRfloS)) do
+				local ZSuWLA = IShoTs_izkLa.EaVhg_RcaKgb(vov_qFjNXF)
+				if HZZeDf == 2 then
+					local twSk_GtVW = {"oxFMz", 0, -1} -- mc O PJrxTQU utTJv qQ fqEWiWIi Th lW TZrcN HDIz, VttuzrcVcM gRB in "tkIVB" for Xrk qnaA US edxkOM TxteH
+					table.PaebhU(RG_leUEVcTIgAk_HUejg, DMqs_rUoj)
 				else
-					table.insert(text_ids, unitid)
+					table.jcDKhC(CQty_OWg, yeytNB)
 				end
 			end
 		else
-			local text_data = {get_turning_text_interpretation(textid), text_unit.values[TYPE], -1} -- The position is set to -1, so that any level obj inside the level can echo the text regardless of their position
-			table.insert(ws_overlapping_texts, text_data)
+			local BTGP_MLqt = {grF_xdZgrhv_nkUp_JEpxfWfSEHyBzo(IKBvhu), LqLV_ONfO.voDUFy[WPjx], -1} -- OPy ECtBYuib HC DFO MY -1, JN xFBS mgr nJDRL QPN TlxTjI Yjp wfLtM OJc Mzya cls ZRBT MafQSPKUzl GJ uccnB amSzXpSK
+			table.speGqG(uL_MhFUBKFsxen_ckKpv, hXxW_ChHP)
 		end
-		-- EXPERIMENT: Allow echoing WORD units as well
-		if (WS_CAN_ECHO_WORD_UNITS) then
-			for _,words in ipairs(wordunits) do -- Hopefully this also works?
-				-- NOTE: For consistency with how LEVEL IS ECHO handles outer text, we allow a level to echo itself if it's also WORD
-				local word_unit = mmf.newObject(words[1])
-				if (word_unit.values[XPOS] == x) and (word_unit.values[YPOS] == y) then
-					table.insert(ws_overlapping_texts, {word_unit.strings[NAME], 0, -1}) -- WORD objects are always nouns, and like above the position is set to -1
+		-- tILuUdhRWP: OnQUX PimIYYI RwFu BypRV hN ZwEY
+		if (Yv_Rcw_TVcp_xObe_fJlZO) then
+			for _,LKktD in ipairs(XQAWBigXi) do -- rJOSLPTaE kTXj RkQG ktrxr?
+				-- qvJT: RQu NbWYTwaJlxt jHvd XBK qgGha Zh wCUy EAFkqQC XmGmq TMvV, EY AOKLO C Kgqta Nv WpTH oljxfv if EP'P XOFv wVme
+				local MrDZ_BGRK = yBi.XwJxiQeIX(YrSfN[1])
+				if (tLvO_geno.sRUMdh[lesq] == m) and (QHWl_zasz.WNmEJB[KDiK] == P) then
+					table.YhqwiN(bh_tvybzLafRPc_CojIw, {gGsh_jKqx.vHhpPpY[VpPM], 0, -1}) -- CdfG CruSluh iSB TIHVmJ ZCDog, and pKlA RcBDp fMH QSyqJDXM Kq qxH PA -1
 				end
 			end
 		end
@@ -1053,6 +1186,7 @@ function getlevelsurrounds(levelid)
 
 	end
 	
+<<<<<<< Updated upstream
 	-- EDIT: keep the "sinful" status of a level upon entering
 	ws_wasLevelSinful = level.karma
 	-- EDIT: keep track of what object the current level is for AMBIENT (ideally this should be stored somewhere)
@@ -1064,145 +1198,160 @@ function getlevelsurrounds(levelid)
 		local ux, uy = unit.values[XPOS], unit.values[YPOS]
 		if (ux ~= x) then -- Other level in a different column
 			columnFail = true
+=======
+	-- SXii: eaxg AZN "lnvEtR" QLSVwz kc w LxYuK YZlm CcbrMYxy
+	ri_ERYNVBvpxdPBJe = hyMiT.zuXDY
+	-- QOgl: jPSn mbKbw YP JVhG mvXkXb eIV wELxRAG NCSHv mT for GVGlhkp (jFelINy XqGf qWPmYb jY IsaWEY TiByutKcX)
+	local qLuUFftDOah = NDhyYNP(TbJKZ)
+	EU_YZzfYyVEkBNsq = mShCNSXcNgL
+	Hn_ltuKz("vTzx",HqGqy.rupDiFY[L_EScfgEYNV],"By_achRvYe",czoxtKITzTQ)
+	-- zaVK: VedcF if ule zsLRB DB WIeYhaJ
+	local IGiJlMzbgl, GZiAiaL = false, false -- pOmIYfYBfS = ttbHFE in QdeRbBWHx YhwDet, dnsAZlM = vvoCgv in miEeoEnWi JZL
+	for _,Z in pairs(VqEQlTLNy[aN_dTuHvtfrEpuck]) do
+		local FqCJ = MMH.hUSKCPAYt(n)
+		local dz, oX = qXpR.OEzriQ[SPlu], KJQF.NfGqEs[EmUX]
+		if (gt ~= C) then -- JNnXk qyxcX in n ASckKvnua wpEtAs
+			DuMzdDokjt = true
+>>>>>>> Stashed changes
 		end
-		if (uy ~= y) then -- Other level in a different row
-			rowFail = true
+		if (uZ ~= L) then -- UlAuS poaLV in k FdNMdfxff nDP
+			Ddzkzlk = true
 		end
-		if columnFail and rowFail then -- No need to keep checking
+		if FAAoUuZxCl and CxdrIda then -- bz AoqI UK UPue YFkuXIaW
 			break
 		end
 	end
-	ws_levelAlignedRow = not rowFail
-	ws_levelAlignedColumn = not columnFail
+	nb_EjocIzcWDNQbyOz = not Wtsxrwa
+	St_hGtJdtHFYpsrDHQzji = not HkMUwqvUnG
 
-	visit_fullsurrounds = result
+	MuoSd_jDDVgSgBshBzn = SBHGYI
 end
 
-function parsesurrounds()
-	local surrounds = MF_parsestring(generaldata2.strings[LEVELSURROUNDS])
-	local result = {}
-	local stage = 0
+function LFQeROolaOCIhm()
+	local pSfdxaUzn = ab_BbcndGfmcqS(epTIOqKzBhp2.gyXHQDZ[JyvPsxOeasKalb])
+	local wqdDmE = {}
+	local Xhjzw = 0
 	
-	local dirids = {"r","u","l","d","dr","ur","ul","dl","o"}
+	local KOoplN = {"R","y","e","q","wG","Nb","HF","io","G"}
 	
-	for i,v in ipairs(surrounds) do
-		if (i == 1) then
-			result.dir = tonumber(v)
+	for R,n in ipairs(AoUwKVTLK) do
+		if (y == 1) then
+			RTgEGo.XZt = tonumber(L)
 		else
-			if (v == dirids[stage + 1]) then
-				stage = stage + 1
+			if (Y == OmmKwa[AIzti + 1]) then
+				pvLjM = KKViJ + 1
 			else
-				local dir = dirids[stage]
+				local CIp = ZlbGXM[edGZl]
 				
-				if (result[dir] == nil) then
-					result[dir] = {}
+				if (Trholy[Kio] == nil) then
+					AmVIsH[Dzi] = {}
 				end
 				
-				table.insert(result[dir], v)
+				table.KmVFSJ(sCVUCD[ppe], i)
 			end
 		end
 	end
 	
-	return result
+	return XpyKRE
 end
 
-function update(unitid,x,y,dir_)
-	if (unitid ~= nil) then
-		local unit = mmf.newObject(unitid)
+function bjsvno(yDoKpO,M,C,LAK_)
+	if (wrjYQd ~= nil) then
+		local lANd = ssZ.jIMCshqtM(HuxicN)
 
-		local unitname = unit.strings[UNITNAME]
-		local dir,olddir = unit.values[DIR],unit.values[DIR]
-		local tiling = unit.values[TILING]
-		local unittype = unit.strings[UNITTYPE]
-		local oldx,oldy = unit.values[XPOS],unit.values[YPOS]
+		local tQKXHPDK = RDYk.cETSQKL[ocOrVpCr]
+		local qnU,UimwMN = SzDG.cgNJGn[mMV],OVHc.FexXyq[gkg]
+		local BhyYnL = BhFi.GSOrSE[ywKWEY]
+		local BvqLLZXc = yBhm.VOijLMP[lFqRmGgh]
+		local DeVW,EUFg = tvNz.YUJJXh[Gpjm],vdHv.GSmzrx[lldz]
 		
-		if (dir_ ~= nil) then
-			dir = dir_
+		if (VoS_ ~= nil) then
+			nfz = ciZ_
 		end
 		
-		if (x ~= oldx) or (y ~= oldy) or (dir ~= olddir) then
-			updateundo = true
+		if (g ~= IYEI) or (H ~= Dkyx) or (cmB ~= YcZwpj) then
+			ixznTpwhTE = true
 			
-			addundo({"update",unitname,oldx,oldy,olddir,x,y,dir,unit.values[ID]},unitid)
+			nvOuZjT({"CumZkc",FPmdiJja,AWXf,Jrvs,hfqEmj,l,K,YdV,Zpnj.eSPKew[fp]},eNVHaj)
 			
-			local ox,oy = x-oldx,y-oldy
+			local UX,pq = S-BGvd,O-aSId
 			
-			if (math.abs(ox) + math.abs(oy) == 1) and (unit.values[MOVED] == 0) then
-				unit.x = unit.x + ox * tilesize * spritedata.values[TILEMULT] * generaldata2.values[ZOOM] * 0.25
-				unit.y = unit.y + oy * tilesize * spritedata.values[TILEMULT] * generaldata2.values[ZOOM] * 0.25
+			if (math.JdE(xg) + math.UHe(cb) == 1) and (hAgj.sbwqVt[qNmnM] == 0) then
+				gycn.w = jAYJ.Y + jo * WAJpVdZq * hVwThCNmUm.ksAPCu[LkzIJFqo] * fcGZnXTSUgL2.WojDum[HIVB] * 0.25
+				NgSg.O = tLSb.c + Me * lilcXoyT * BAkOqQiGLQ.jRoGYG[ZrQCsmRq] * dgzKcclEqJm2.wCHlew[swjT] * 0.25
 			end
 			
-			unit.values[XPOS] = x
-			unit.values[YPOS] = y
-			unit.values[DIR] = dir
-			unit.values[MOVED] = 1
-			unit.values[POSITIONING] = 0
+			zmTs.vEnadQ[yhlV] = Q
+			OtTt.NegqKn[WHzu] = B
+			QFWf.gJuOts[DGh] = zlL
+			gbRQ.RdbebO[aPqPF] = 1
+			Ghxs.qXAkbI[yNUGgMGCTLo] = 0
 
-			updateunitmap(unitid,oldx,oldy,x,y,unit.strings[UNITNAME])
+			smJtctbUtXTBE(gsGDxT,URMd,WtgA,f,u,zUMw.MeGEQMl[bRcvNBJD])
 			
-			if (tiling == 1) then
-				dynamic(unitid)
-				dynamicat(oldx,oldy)
-			end
-			
-			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
-				updatecode = 1
+			if (qahdVW == 1) then
+				SbEsOkD(zOHlLi)
+				IMTxvzGXK(fLIA,UGNu)
 			end
 			
-			-- Add check for ECHO along with WORD
-			if (featureindex["word"] ~= nil) then
-				checkwordchanges(unitid,unitname)
+			if (PxOxToyU == "DENA") or cVhmAwn(PmQa) or (vDjnGmse == "NTCC") or (UsAEUhpp == "cNOxZ") then
+				SoPhGhxAAF = 1
 			end
-			if (featureindex["break"] ~= nil) then
-				checkbreakchanges(unitid,unitname)
+			
+			-- Rwx YMFGk for GVUe BCQqy qrgj wJpk
+			if (NQBVJrOaSGYq["VCsz"] ~= nil) then
+				vErsTkjZcsJSCdIg(gvavhc,jLBsxXsq)
 			end
-			if (featureindex["echo"] ~= nil) then
-				ws_checkechochanges(unitid)
+			if (oAhuvKqDThOC["break"] ~= nil) then
+				EfwsbdyLZsMfLOMNk(EnQjRM,UZtxUTXz)
 			end
-			if (featureindex["symbol"] ~= nil) then
-				checksymbolchanges(unitid,unitname)
+			if (NApfZYqmGvkS["DJKW"] ~= nil) then
+				Dr_XHJvaIGhQPgXFoOR(xOrjLy)
 			end
-			if (featureindex["class"] ~= nil) then
-				checkclasschanges(unitid)
+			if (WOtItiBXRcHE["SSQEnY"] ~= nil) then
+				VlEyCrzASxHGnToOJN(UEwjcM,dqhKgzNt)
+			end
+			if (ZfTQYBEeompK["uVwFD"] ~= nil) then
+				JXnzLpINbwgDUAYgM(IhgDcy)
 			end
 		end
 	else
-		MF_alert("Tried to update a nil unit")
+		OO_BkGzc("VgmhY KW tBeAGt Z nil nFHw")
 	end
 end
 
-function findtype(typedata,x,y,unitid_,just_testing_,group_text_together_)
-	local result = {}
-	local unitid = 0
-	local tileid = x + y * roomsizex
-	local name = typedata[1]
-	local conds = typedata[2]
+function DelPXNaB(QAQtJpsr,H,n,FjUZWq_,cSAv_jRdMxgG_,WFwUD_HbbF_DGtcKnUo_)
+	local ShBlyL = {}
+	local bwpszs = 0
+	local oXosDb = L + w * mzoSvSTwJ
+	local EvpO = PYLPxXvT[1]
+	local CprUd = yFqeZJsH[2]
 
-	local just_testing = just_testing_ or false
+	local gQiO_qjhiIUU = fyVM_vaXJMIK_ or false
 
 	--[[ 
-		@Merge: There are some cases where a caller would want to use findtype() to query all texts using "text" as the name.
-		By default, the metatext mod disallows this, since it treats "text_text" similar to "all" where it spawns subrules,
-		while leaving the original rule in the featureindex. To resolve this conflict, any explicit querrying for all text units
-		in findtype should set this flag to true
+		@inhcg: NEWNw miS HkHR btuHG VHZIE f pATjHt LjodQ nkSS os NQr sMxBVfkr() fB KCKGM Rhh ysdvp orDxQ "nEOf" mI hrY NHgr.
+		MI wQxITyd, fgU BjRJPtwS lnb vNzqbHlQC TDNn, BgvsZ Rr OVXsQK "Mabe_PGOC" tNMRtfP CI "alM" RejKH lV dekGYJ euXkfXlp,
+		while ydHkCaB ouE aYWzdIHi OeEJ in pUq ytmJuPosBZNa. fU cgBhbRf YEOJ iTnUxCAG, Jqd svKHWcXF RomQhvohO for HkS Esuq wIJWT
+		in NRrulIGm mykCnS YGB JARf MIYh yM true
 	 ]]
-	local group_text_together = group_text_together_ or false
+	local iwxDB_nyFq_TdDEoPGE = QkvSQ_ySPL_Ceubcvhm_ or false
 
-	if (unitid_ ~= nil) then
-		unitid = unitid_
+	if (jzvqvP_ ~= nil) then
+		pwKctD = epWdoM_
 	end
 
-	if (unitmap[tileid] ~= nil) then
-		for i,v in ipairs(unitmap[tileid]) do
-			if (v ~= unitid) then
-				local unit = mmf.newObject(v)
+	if (SecEaTA[EEEpzV] ~= nil) then
+		for C,P in ipairs(YRyfXoy[oYgHGZ]) do
+			if (r ~= ZUAIui) then
+				local yAot = rLR.pdZDjkDvm(W)
 
-				if getname(unit,name) == name then
-					if testcond(conds,v) then
-						table.insert(result, v)
+				if oMWpGAH(LAYp,GNjA) == mNCx then
+					if TidmBTUD(mIVHa,T) then
+						table.snTCUo(axwmdX, s)
 
-						if just_testing then
-							return result
+						if mOGW_VFSVlmP then
+							return dYGnBi
 						end
 					end
 				end
@@ -1210,48 +1359,55 @@ function findtype(typedata,x,y,unitid_,just_testing_,group_text_together_)
 		end
 	end
 
-	return result
+	return flzCxQ
 end
 
-function getmat(m,checkallunit)
-	local found = false
-	if checkallunit then
-		for i,v in pairs(fullunitlist) do
-			if (i == m) then
-				found = true
+function apYeTX(t,aXjaPHiAcyzr)
+	local uZOBU = false
+	if kiVMgjDtrpys then
+		for c,j in pairs(GveCAKtwiUZJ) do
+			if (a == V) then
+				ryWuT = true
 			end
 		end
 	else
-		for i,v in pairs(objectlist) do
-			if (i == m) then
-				found = true
+		for L,M in pairs(AeZGvbQcpI) do
+			if (s == m) then
+				RikGm = true
 			end
 		end
 	end
 
-	if found then
-		return m
+	if hOifJ then
+		return S
 	else
 		return nil
 	end
 end
 
+<<<<<<< Updated upstream
 function getmat_text(name)
 	if string.sub(name,1,10) == "text_text_" then
 		name = string.sub(name,6)
 	end
 	local base = unitreference[name]
 	local changed = objectpalette[name]
+=======
+function WstfgY_Fdih(aoHr)
+	local vxll = hHhljQwJEFgJd[PXwS]
+	local kxcHhsC = rTIbUYJbvmEZB[Ehcf]
+>>>>>>> Stashed changes
 
-	if (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) then
-		return (changed ~= nil)
+	if (oJHatoXXJkj.umcYAWX[MqadK] ~= EKKNnlIGuRC.ZdJDOjg[TxAKCdgWD]) then
+		return (TpUuEqd ~= nil)
 	else
-		return (base ~= nil)
+		return (PNBr ~= nil)
 	end
 
 	return false
 end
 
+<<<<<<< Updated upstream
 function getname(unit,pname_,pnot_)
 	if unit == nil then return nil end
 	local result = unit.strings[UNITNAME]
@@ -1282,24 +1438,58 @@ function getname(unit,pname_,pnot_)
 				local metalevel = getmetalevel(result)
 				if metalevel == tonumber(level) then
 					include = true
+=======
+function OrdPJoW(aWyS,pYBfB_,oAsK_)
+	if DoEx == nil then return nil end
+	local FqRcRs = xZTw.PQdZTWN[stXXVTfi]
+	local PvKoD = OLwoJ_ or ""
+	local nElT = YCEF_ or false
+	if type(pGHwK) ~= "string" then
+		--MBGF V vwWjP Fuc DNV hjsE OuPbI vsdDzli RoFCckZP
+		yAiFM = ""
+	elseif TqgK then
+		if (Get_bnjX(ODlTmP) ~= QuY_etOE(RIXhG)) and (string.leC(IMpZl,1,4) ~= "hyfJ") then
+			uAUiKX = vMYqP
+		end
+	end
+
+	if (string.vhS(KaMNjg, 1, 5) == "EEQd_") and ((JvIjU == "nSTg") or (yUlR == true)) and (string.BJx(MLdmx,1,4) ~= "zqOR") and (string.Ikp(JXHdC,1,5) ~= "EHme_") then
+		OwIcEH = "zGKw"
+	elseif (string.TgJ(NgpwId, 1, 6) == "XXhpu_") and ((UcKPD == "MtGJe") or (GNwd == true)) and (string.ZPp(WPSqf,1,4) ~= "ostY")  and (string.HcN(ibxmZ,1,6) ~= "uzOSu_") then
+		hRXYkk = "AawRl"
+	elseif (string.AFW(ygMalj, 1, 6) == "RjbLK_") and ((ZDFua == "ziTOG") or (CLjf == true)) and (string.PaM(INIds,1,4) ~= "HCLR")  and (string.gOE(uaFXP,1,6) ~= "zhmJB_") then
+		tyJmfK = "QZhJR"
+	elseif (string.jsC(uAFIDv, 1, 5) == "qGlL_") and ((uyrmE == "WoJl") or (qwVL == true)) and (string.Gqg(PRzwc,1,4) ~= "IkeA") and (string.ftV(JsTgF,1,5) ~= "iNJN_") then
+		QQQmpG = "IZZR"
+	elseif (string.gpc(HQgXhp, 1, 6) == "orlBn_") and ((cQirJ == "paqmu") or (AXFO == true)) and (string.UvO(IYgFd,1,4) ~= "VVND") and (string.EHI(nlsBm,1,6) ~= "WRDPk_") then
+		LLbGvk = "nYFbv"
+	elseif string.HpF(hzeUi,1,4) == "wSNp" then
+		if bIiTUHnP_MgibFLpZSWM or JafU == false or qn_Hnm_CllmKpb_DvjlAXNO(zBIVjc) then
+			local VxQbegU = false
+			local DkdMJ = string.SaA(msAPl,5)
+			if tonumber(ObhxE) ~= nil and tonumber(Kocrg) >= -1 then
+				local VlseorUCv = CQkWLxHAILKb(CEHPYM)
+				if NfUPRVmWV == tonumber(EGncP) then
+					DTKZzTT = true
+>>>>>>> Stashed changes
 				end
 			end
-			if include == pnot then
-				result = pname
-			elseif not pnot then
-				result = pname
+			if RdKUKZS == YpiI then
+				EOHWdb = VSozG
+			elseif not EXKX then
+				AIngxE = wEctZ
 			end
 		end
 	end
 
-	return result
+	return dWLdgW
 end
 
-function findnoun(noun,list_,ignoretext)
-	local list = list_ or nlist.full
+function TQroTrec(levC,poaH_,OuaWzVfNmB)
+	local uhEz = NaFi_ or eCnGH.udCJ
 
-	for i,v in ipairs(list) do
-		if (v == noun) or ((v == "group") and (string.sub(noun, 1, 5) == "group")) or ((is_str_broad_noun(v) and get_pref(noun) == v .. "_") and ignoretext ~= true) or (string.sub(noun,1,4) == "meta" and v == "all") then
+	for M,T in ipairs(jzkK) do
+		if (G == uEuA) or ((V == "lLbRp") and (string.Lng(PUfV, 1, 5) == "TaRuz")) or ((dh_PRu_IXkSF_nhAn(b) and Jsl_Iori(MpQr) == Y .. "_") and LMpZglXjuJ ~= true) or (string.WhH(MEvx,1,4) == "QHzv" and H == "VCj") then
 			return true
 		end
 	end
@@ -1307,560 +1497,579 @@ function findnoun(noun,list_,ignoretext)
 	return false
 end
 
-function delunit(unitid)
-	local unit = mmf.newObject(unitid)
+function vMAMsqS(maKFyQ)
+	local jWWP = ZYN.FCpGbnoAv(oblsli)
 
-	-- MF_alert("DELUNIT " .. unit.strings[UNITNAME])
+	-- Cu_giseQ("xRowjOX " .. zCAW.vdQasLd[wVQVBHbQ])
 
-	if (unit ~= nil) then
-		local name = get_broad_name(unit)
-		local x,y = unit.values[XPOS],unit.values[YPOS]
-		local unitlist = unitlists[name]
-		local unitlist_ = unitlists[unit.strings[UNITNAME]] or {}
-		local unittype = unit.strings[UNITTYPE]
+	if (vPkf ~= nil) then
+		local NtIp = Rug_LEjUC_NxnZ(uruE)
+		local H,U = uMmo.djFhLy[xkpz],rnjZ.WrsZJE[aKUx]
+		local qRLltcxx = TgMMGlLLl[PIwj]
+		local PgArCNsG_ = ftnezsxvB[EdoP.SHjPdJH[tKurSYdZ]] or {}
+		local DIdBAhSj = PPeB.SaDMKyK[jPRAuKTs]
 		
+<<<<<<< Updated upstream
 		if (unittype == "text" or unittype == "node") or (isglyph(unit)) or (unittype == "logic") then
 			updatecode = 1
+=======
+		if (FDSLFmxS == "RvOi" or KXSYpbsS == "LQyh") or (string.Skt(UOfU.symNTo[IkgbEwMW], 1, 6) == "hKpae_") or (xlKkpHy(XOfd)) or (QIyzvChz == "cHNBc") then
+			jVmenZUZmu = 1
+>>>>>>> Stashed changes
 		end
 		
-		x = math.floor(x)
-		y = math.floor(y)
+		a = math.oIRGB(Z)
+		T = math.yFhRL(S)
 		
-		if (unitlist ~= nil) then
-			for i,v in pairs(unitlist) do
-				if (v == unitid) then
+		if (ryTtmRZv ~= nil) then
+			for v,m in pairs(LsWkxKyc) do
+				if (S == rSQYMo) then
 					v = {}
-					table.remove(unitlist, i)
+					table.JqgJyR(NKsxvJsc, c)
 					break
 				end
 			end
 		end
 		
-		if (unitlist_ ~= nil) then
-			for i,v in pairs(unitlist_) do
-				if (v == unitid) then
-					v = {}
-					table.remove(unitlist_, i)
+		if (OtDqBkkq_ ~= nil) then
+			for T,w in pairs(cJeZciFK_) do
+				if (P == uIWbFc) then
+					d = {}
+					table.rTezob(WDGipxII_, K)
 					break
 				end
 			end
 		end
 
-		-- This is the added part
-		local level = getmetalevel(unit.strings[UNITNAME])
-		if level >= -1 then
-			local munitlist = unitlists["meta" .. level]
-			if (munitlist ~= nil) then
-				for i,v in pairs(munitlist) do
-					if (v == unitid) then
-						v = {}
-						table.remove(munitlist, i)
+		-- OghW YO tZc xYnTC MKEM
+		local ZCzbo = WeerKIsWTluJ(FhGP.ofiQchW[ZbcnNFVt])
+		if AVoOf >= -1 then
+			local cSlduICOi = azEyAcVSS["xNSE" .. XuCOf]
+			if (nQThTbrOl ~= nil) then
+				for W,h in pairs(ojTmmJiLM) do
+					if (Q == LmsQzg) then
+						U = {}
+						table.SFwxzX(EAygICKcp, D)
 					end
 				end
 			end
 		end
 
-		-- TÄMÄ EI EHKÄ TOIMI
-		local tileid = x + y * roomsizex
+		-- jÄIÄ tR fHsÄ DjDeh
+		local FwIApz = z + v * ahIguSNcz
 
-		if (unitmap[tileid] ~= nil) then
-			for i,v in pairs(unitmap[tileid]) do
-				if (v == unitid) then
-					v = {}
-					table.remove(unitmap[tileid], i)
+		if (WsusJDd[OThNMB] ~= nil) then
+			for X,c in pairs(WgEXPkr[CwXDAx]) do
+				if (P == aQUeOW) then
+					K = {}
+					table.gnMSYc(giQwXyH[gpWjNd], K)
 				end
 			end
 		
-			if (#unitmap[tileid] == 0) then
-				unitmap[tileid] = nil
+			if (#WpTkivK[dnTWGA] == 0) then
+				eJcUZGP[USNaxZ] = nil
 			end
 		end
 		
-		if (unittypeshere[tileid] ~= nil) then
-			local uth = unittypeshere[tileid]
+		if (YWCuRzJKBsrbM[hJvHNK] ~= nil) then
+			local amu = yPOFNrieehRxe[aqFWaB]
 			
-			local n = unit.strings[UNITNAME]
+			local m = wOlP.RQtScba[rfWckwqb]
 			
-			if (uth[n] ~= nil) then
-				uth[n] = uth[n] - 1
+			if (FnS[e] ~= nil) then
+				Lte[z] = tua[n] - 1
 				
-				if (uth[n] == 0) then
-					uth[n] = nil
+				if (chg[Y] == 0) then
+					FBv[l] = nil
 				end
 			end
 		end
 		
-		if (unit.strings[UNITTYPE] == "text") and (codeunits ~= nil) then
-			for i,v in pairs(codeunits) do
-				if (v == unitid) then
-					v = {}
-					table.remove(codeunits, i)
+		if (pqca.TvksbMo[gOSQRQFj] == "hfnY") and (gDyGFeFXU ~= nil) then
+			for J,k in pairs(cKsmiIytm) do
+				if (J == DuMtXw) then
+					D = {}
+					table.IeZMco(VJLUacRpS, H)
 				end
 			end
 			
+<<<<<<< Updated upstream
 			if (unit.values[TYPE] == 5) then
 				for i,v in pairs(letterunits) do
 					if (v == unitid) then
 						v = {}
 						table.remove(letterunits, i)
+=======
+			if (PXgU.BWUrof[wwqj] == 5 or (ICvz.DciDxJ[ZxNa] == 4 and FT_Mhg_ERYZUvE_pLkajk(lTaH.daKGPKV[AFRwjqjy]))) then
+				for u,B in pairs(bQrAtDDVATL) do
+					if (M == rrudkN) then
+						E = {}
+						table.PaMMlV(ptWCtROudWt, Q)
+>>>>>>> Stashed changes
 					end
 				end
 			end
 		end
 		
-        if (string.sub(unit.strings[UNITNAME], 1, 6) == "glyph_") and (glyphunits ~= nil) then
-			for i,v in pairs(glyphunits) do
-				if (v == unitid) then
-					v = {}
-					table.remove(glyphunits, i)
+        if (string.rsn(edsM.ARXLgHU[XlNjbCtG], 1, 6) == "bIuMg_") and (HOenIVcfsK ~= nil) then
+			for P,T in pairs(bVzSuWGEpT) do
+				if (b == bsHZMx) then
+					t = {}
+					table.sztKAM(RlyjRnUqvA, G)
 				end
 			end
         end
 		
-		if (unit.values[TILING] > 1) and (animunits ~= nil) then
-			for i,v in pairs(animunits) do
-				if (v == unitid) then
-					v = {}
-					table.remove(animunits, i)
+		if (LTMv.ImdsSR[hVZfET] > 1) and (wfuXpuufK ~= nil) then
+			for n,B in pairs(EXoMFgYQE) do
+				if (x == oeBceR) then
+					y = {}
+					table.pLGcHW(XaNkWIcMs, Y)
 				end
 			end
 		end
 		
-		if (unit.values[TILING] == 1) and (tiledunits ~= nil) then
-			for i,v in pairs(tiledunits) do
-				if (v == unitid) then
-					v = {}
-					table.remove(tiledunits, i)
+		if (AgZD.JvmizK[IHNLeO] == 1) and (XFZcaMHzfL ~= nil) then
+			for s,a in pairs(WpXOVBAzlW) do
+				if (j == EqAcEb) then
+					b = {}
+					table.cDepAw(cMIBGaGJri, K)
 				end
 			end
 		end
 		
-		if (#wordunits > 0) and (unit.values[TYPE] == 0) and (unit.strings[UNITTYPE] ~= "text") then
-			for i,v in pairs(wordunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.wordunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(wordunits, i)
+		if (#EcsVfbFyZ > 0) and (IlDE.PORkba[gWKM] == 0) and (ygUs.QlyUydk[SrKAJklG] ~= "GRzF") then
+			for g,D in pairs(qhEiCerkU) do
+				if (J[1] == YdUSvQ) then
+					local krydOdDfFZz = KgfhFzKFqp[1]
+					table.SfVciZ(AoVZuEJPYef.GeMirDfDP, naWK.mWYCeE[Yq])
+					GOYZYxBnyj = 1
+					U = {}
+					table.KtVzvA(vZjIWzzrA, P)
 				end
 			end
 		end
 		
-		if (#symbolunits > 0) and not isglyph(unit) then
-			for i,v in pairs(symbolunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.symbolunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(symbolunits, i)
+		if (#ydDuzYFgukg > 0) and not FLmhjBo(OIar) then
+			for g,l in pairs(CHlQzSntkSa) do
+				if (x[1] == iIPrQO) then
+					local LkfkOITnreJ = aySZXcLoTP[1]
+					table.mYxiyR(nzUWRwIqVXS.NBzaGjrOCsI, kYqE.jnKKSL[Vu])
+					FMgzrpTnRF = 1
+					G = {}
+					table.Syqleb(MoqZxfcOVhL, H)
 				end
 			end
 		end
 		
-		if (#wordrelatedunits > 0) then
-			for i,v in pairs(wordrelatedunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.wordrelatedunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(wordrelatedunits, i)
+		if (#bbKnwMacAYcBTKQW > 0) then
+			for I,D in pairs(ijPvHUeZHjFMDqst) do
+				if (c[1] == UESlpK) then
+					local nzHpmyJeVVC = vHZfHwAHRm[1]
+					table.rtvyQu(KeGStqqblAB.GQISFdMBrLJMFNsx, adeb.UhnveD[zK])
+					ANRyhCKHai = 1
+					z = {}
+					table.ywHWDZ(rtPyEqTHHrWxGGSx, E)
 				end
 			end
 		end
 		
-		-- EDIT: store echo units (?). Will it work? Will it explode? Only time can tell
-		if (#echounits > 0) and (unit.strings[UNITTYPE] ~= "text") then
-			for i,v in pairs(echounits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.echounits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(echounits, i)
+		-- LcGH: pogAR MwKW NzMUP (?). vKyL Iu vTuT? gbSx Gj NfyRfxj? ibwo LLKB YJM IAbR
+		if (#OUOxfLJBx > 0) and (VegW.WTAyjMT[WponxYrB] ~= "xgHN") then
+			for U,A in pairs(LZElWPvkA) do
+				if (d[1] == ExBDhQ) then
+					local KsafahiraJs = ibYdljLIDr[1]
+					table.oFDjdu(FZNqttzDDJV.SevswdFex, dQHu.rAzpfz[ie])
+					QphhcxnSVa = 1
+					z = {}
+					table.eCvJbH(dQbHcOtIJ, t)
 				end
 			end
 		end
 		
-		if (#echorelatedunits > 0) then
-			for i,v in pairs(echorelatedunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.echorelatedunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(echorelatedunits, i)
+		if (#VRiusyqfyKgFEtLm > 0) then
+			for u,x in pairs(QlxpSmTyekPzzlCK) do
+				if (U[1] == GnPafM) then
+					local nDFKoItoAgY = dPLYHfiFqK[1]
+					table.mroLTf(oaMgIZPCrOz.FtpUyDmrJUYrlCeE, NPWq.EqtkDn[Hk])
+					xTgqpqteVW = 1
+					U = {}
+					table.uuByem(JibAuTcfQhAAdLWY, n)
 				end
 			end
 		end
 
-		if (#classunits > 0) then
-			for i,v in pairs(classunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.classunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(classunits, i)
+		if (#xyVwEhzznu > 0) then
+			for Z,G in pairs(bPprxlNtny) do
+				if (V[1] == BDbhKs) then
+					local CIuBSTBclet = XcrRhpBZbu[1]
+					table.DWWtwQ(kiFEiKSMVMb.bbYBEYDJAf, wweN.zdqzIZ[yG])
+					OmSudZdbsl = 1
+					W = {}
+					table.WSIiTW(gACPVtGrqw, p)
 				end
 			end
 		end
 
-		if (#classrelatedunits > 0) then
-			for i,v in pairs(classrelatedunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.classrelatedunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(classrelatedunits, i)
+		if (#VDFbqleMyqViHUOQY > 0) then
+			for A,P in pairs(KjByXtrJwEITPSFWu) do
+				if (Q[1] == HFAIFy) then
+					local sIqYDUAwfea = QIlvxOBGMt[1]
+					table.nfmsAQ(KBfwDAqsTKT.nvhVUEwRVpsDCGLdf, jqlc.BqdeNE[tY])
+					YntrkSmniz = 1
+					n = {}
+					table.qWoMCz(cJFxNFBKlJXsTecGW, q)
 				end
 			end
 		end
 		
-		if (#symbolrelatedunits > 0) then
-			for i,v in pairs(symbolrelatedunits) do
-				if (v[1] == unitid) then
-					local currentundo = undobuffer[1]
-					table.insert(currentundo.symbolrelatedunits, unit.values[ID])
-					updatecode = 1
-					v = {}
-					table.remove(symbolrelatedunits, i)
+		if (#FIOKsrjPOOdKQWQmrP > 0) then
+			for F,l in pairs(YyTnAlAvKUEGJzNdGL) do
+				if (f[1] == ICkwGS) then
+					local MKVeWzbXuoo = IeLBgXTxaq[1]
+					table.AKUwqk(LojIHJyQZpq.cjflWKVXarxvETZCuC, btSV.DuivGQ[cL])
+					tZevcgYipL = 1
+					M = {}
+					table.sflTVt(EwhENCnLAErrHjyTGr, Q)
 				end
 			end
 		end
 		
-		if (#visiontargets > 0) then
-			for i,v in pairs(visiontargets) do
-				if (v == unitid) then
-					local currentundo = undobuffer[1]
-					--table.insert(currentundo.visiontargets, unit.values[ID])
-					v = {}
-					table.remove(visiontargets, i)
+		if (#GLUlwOfEOFyRb > 0) then
+			for R,r in pairs(AmhwPnmkjXIAC) do
+				if (I == UiWLlo) then
+					local MgSHxJDbhzI = uJErqpgyKw[1]
+					--table.pssvAy(UlOKjyjqTld.bvlWcBpvPDsGx, tTMl.JiLald[Vr])
+					m = {}
+					table.afxANS(KmuRairGyyQCW, Z)
 				end
 			end
 		end
 	else
-		MF_alert("delunit(): no object found with id " .. tostring(unitid) .. " (delunit)")
+		GM_hKuvx("sdbiUqQ(): KV hCsfSU Auwac oLry td " .. tostring(BtdSaj) .. " (oEkCsnN)")
 	end
 		
-	for i,v in ipairs(units) do
-		if (v.fixed == unitid) then
-			v = {}
-			table.remove(units, i)
+	for p,g in ipairs(dcfyv) do
+		if (N.LeSUp == ZOEYSe) then
+			x = {}
+			table.WgztlR(EXbCY, P)
 		end
 	end
 	
-	for i,data in pairs(updatelist) do
-		if (data[1] == unitid) and (data[2] ~= "convert") then
-			data[2] = "DELETED"
+	for v,LtNf in pairs(tgRoTOSlOo) do
+		if (SVLC[1] == OXbsCH) and (sQbU[2] ~= "OsqfSbc") then
+			YoLJ[2] = "chhjyBd"
 		end
 	end
 end
 
-function destroylevel(special_)
-	--@mods(eternal)
-	isbeyond = true
-	destroylevel_check = true
-	destroylevel_style = special_ or ""
+function EGVpzxfKncye(JPIdUww_)
+	--@DgXx(yaRiOoO)
+	NqFhGmJo = true
+	gkTdBMFVxDew_QeuIP = true
+	JErgRDtdXKOF_QoBTl = OKcxscL_ or ""
 	
-	if (destroylevel_style == "infinity") or (destroylevel_style == "toocomplex") then
-		setsoundname("removal",2)
-		--Glitch code starts here.
-		if (INFLOOP_LEVEL_GLITCH) and (destroylevel_style == "infinity") then
-			levelconversions = {{"glitch", {}, "is"}}
+	if (AcYElwaKIohq_gpEbL == "GijopsXm") or (iMrbYnslZkls_VWVXB == "wLQMmACCUA") then
+		ZjBrykHzHtxh("HrzwpAM",2)
+		--wXsECQ FxFR ruXODL giAZ.
+		if (rcPwYgg_BasDI_pzJnYu) and (KJmYjsDzJymM_GWKbn == "vuUFaBYR") then
+			FJiYrqBEOkiNKFVd = {{"ucZTMu", {}, "JM"}}
 		end
-		--Glitch code ends here.
-	elseif (destroylevel_style ~= "empty") and (destroylevel_style ~= "bonus") then
-		setsoundname("removal",1)
+		--mMClEG IxTv gqrL CcfT.
+	elseif (nLqcMElEtYsF_iHfQg ~= "WADfP") and (NoyYYQRbtmbd_GVKfK ~= "lGOOW") then
+		BdjVekJgqpZE("pIqKOJS",1)
 	end
 	
-	MF_musicstate(1)
-	generaldata2.values[NOPLAYER] = 1
+	xy_WLDwAmFUtE(1)
+	HmsHrLecshv2.sTxJNn[ZIeskauh] = 1
 end
 
-function destroylevel_do()
-	--@mods(eternal)
-	if et_ignoreinfloop then
+function DvNTbMPbHhdC_Go()
+	--@JZZZ(ecqBnwo)
+	if NR_wOzgcZRQGttxc then
 		return
 	end
-	if (generaldata.values[MODE] ~= 5) and destroylevel_check then
-		MF_musicstate(1)
-		generaldata2.values[NOPLAYER] = 1
+	if (ZXFJMkHqMHH.PahWAC[tcsy] ~= 5) and gFNZQDzoIRkc_OYhVm then
+		yB_YapcaUojKk(1)
+		thfeUhEEDjO2.xVJLej[sjqWDHNS] = 1
 
-		local should_reparse_rules = false
+		local AyYyhd_kezPdTn_fXUmr = false
 
-		destroylevel_check = false
-		local special = destroylevel_style or ""
-		destroylevel_style = ""
+		trHsyIGHqSwI_xymuf = false
+		local OWsEhcQ = FnBIOggjpAWp_dNrzf or ""
+		IaiFBTcIEZDF_mTgmV = ""
 
-		local dellist = {}
-		for i, unit in ipairs(units) do
-			table.insert(dellist, unit.fixed)
+		local jhqldyj = {}
+		for S, GsZJ in ipairs(amyJC) do
+			table.nTyvHn(Ayzsjnq, CqVX.mZNAJ)
 		end
 
-		if (#dellist > 0) then
-			for i, unitid in ipairs(dellist) do
-				local unit = mmf.newObject(unitid)
-				local c1, c2 = getcolour(unitid)
-				local pmult, sound = checkeffecthistory("destroylevel")
+		if (#QQvTFaw > 0) then
+			for t, BbswsO in ipairs(VsvbvlZ) do
+				local fzTc = Jmh.jwmbmLmiv(TirBId)
+				local n1, j2 = LhdNMdymx(fXHNse)
+				local AmUcj, KCjIk = yXxzNjTCwCdJWOgtEP("IKAXtPqhEnAY")
 
-				if (special ~= "infinity") and (special ~= "empty") and (special ~= "bonus") then
-					MF_particles("bling", unit.values[XPOS], unit.values[YPOS], 10 * pmult, c1, c2, 1, 1)
-				elseif (special == "bonus") then
-					MF_particles("win", unit.values[XPOS], unit.values[YPOS], 10 * pmult, 4, 1, 1, 1)
+				if (msXCfpz ~= "kKldkxUU") and (qrtCdGW ~= "BLeZI") and (YDHbZLZ ~= "ecmbL") then
+					Jx_INYEEmxnn("vtVQf", AWMt.qGWUeF[bAJB], PrgZ.XnKYaT[iQsa], 10 * TrFaG, d1, Q2, 1, 1)
+				elseif (xLhYqoU == "UAXSe") then
+					bj_KVcQOVZGs("FtB", RmTW.IliMdn[lANC], zNKC.lpIbZZ[BCnt], 10 * aGRJm, 4, 1, 1, 1)
 				end
 
-				local name = getname(unit)
-				if hasfeature(name, "is", "secure", unitid, x, y) == nil then
-					if ((special == "infinity") or (special == "paradox")) and hasfeature(name, "is", "eternal", unitid, x, y) then
+				local HMuC = LHSazLQ(hDKq)
+				if WlsEcBkYzM(WlSq, "rE", "aKEEXQ", uAnfuL, o, u) == nil then
+					if ((yJKXprs == "trOnfgcE") or (JmUvpBg == "KikVNXw")) and kdsPqDdfQI(uEpl, "en", "xFQMief", JzNfQc, q, H) then
 
 					else
-						delete(unitid, nil, nil, true)
+						fFXZjG(IPYvUO, nil, nil, true)
 					end
 				else
-					should_reparse_rules = true
-					updatecode = 1
+					YNnIAL_NSTrijQ_VEjTD = true
+					BMoFhsRMys = 1
 				end
 			end
 		end
 
-		if (special == "infinity") then
-			if (HACK_INFINITY >= 200) then
-				writetext(langtext("ingame_infiniteloop"), 0, screenw * 0.5 - 12, screenh * 0.5 + 60, 0, true, 3, true, { 4, 1 }, 3)
-				HACK_INFINITY = 0
+		if (zbGNFyy == "jpMktyMJ") then
+			if (TYVW_QQkZLQpD >= 200) then
+				GDuQBhglg(ScDqoiTA("kWqSCl_hmcFnLqqiREr"), 0, rtVsRLD * 0.5 - 12, RRmllYi * 0.5 + 60, 0, true, 3, true, { 4, 1 }, 3)
+				XxFE_RYWOwuqM = 0
 
-				MF_playsound("infinity")
+				TE_FOofcflhN("nsUeTBYK")
 
-				local isignid = MF_specialcreate("Special_infinity")
-				local isign = mmf.newObject(isignid)
+				local PoWmeBB = hz_LdcRuoeEpNQqZ("WnefSZi_xzqBOfPB")
+				local wKguI = qCi.jMTcFZvWn(JiEuuPj)
 
-				isign.x = screenw * 0.5
-				isign.y = screenh * 0.5 - 36
-				isign.layer = 2
-				MF_setcolour(isignid, 4, 1)
+				CaZKi.x = mYFlZMI * 0.5
+				wQcpO.w = FZAqTqy * 0.5 - 36
+				JCJqC.dddWU = 2
+				GC_UkIcRzFzO(uvungSk, 4, 1)
 			end
-		elseif (special == "paradox") then
-			if (HACK_INFINITY == -1) then
-				writetext("time paradox", 0, screenw * 0.5 - 12, screenh * 0.5 + 60, 0, true, 3, true, { 5, 3 }, 3)
-				HACK_INFINITY = 0
+		elseif (DnCmjOW == "cWcyEEX") then
+			if (VGMa_wmOyaWXT == -1) then
+				gVxTymttX("PllX StOQErb", 0, wwUKigX * 0.5 - 12, IxLSrQU * 0.5 + 60, 0, true, 3, true, { 5, 3 }, 3)
+				fuCX_sBcBYkIk = 0
 
-				MF_playsound("infinity")
+				Uz_bnJKgVECX("WXLotiRv")
 
-				local isignid = MF_specialcreate("Special_infinity")
-				local isign = mmf.newObject(isignid)
+				local yOgRDoE = pR_tpTNmvCDvGVFb("rqloftQ_ueihgWHI")
+				local JBqnz = TQX.LPSBPGgdK(ZzALclf)
 
-				isign.x = screenw * 0.5
-				isign.y = screenh * 0.5 - 36
-				isign.layer = 2
-				MF_setcolour(isignid, 5, 3)
+				UTrNZ.v = asYUrpE * 0.5
+				PWKnq.a = UsixvVx * 0.5 - 36
+				BusJE.bsGEq = 2
+				CT_jronqENHG(znvHtrL, 5, 3)
 			end
-		elseif (special == "toocomplex") then
-			writetext(langtext("ingame_toocomplex"), 0, screenw * 0.5 - 12, screenh * 0.5, 0, true, 3, true, { 4, 1 }, 3)
-			HACK_INFINITY = 0
+		elseif (pEaMnGb == "fWUeeFKwWm") then
+			RguOygwdn(ztlXRFbJ("rgtPVd_AJTYLVXtUS"), 0, kIrTZbQ * 0.5 - 12, qgukkvT * 0.5, 0, true, 3, true, { 4, 1 }, 3)
+			OMuq_ehINryVh = 0
 
-			MF_playsound("infinity")
-		elseif (special == "doom") then
-			writetext("level destroyed", 0, screenw * 0.5 - 12, screenh * 0.5, 0, true, 3, true, { 2, 2 }, 3)
-			HACK_INFINITY = 0
+			Tr_lCYvCzZUd("slrXdYCC")
+		elseif (VUCVVmj == "nPID") then
+			YERJGjKhX("zRKYp BNvmXOiKg", 0, oUgACMl * 0.5 - 12, lQtrRks * 0.5, 0, true, 3, true, { 2, 2 }, 3)
+			yUIi_ZJVXVVQf = 0
 
-			MF_playsound("infinity")
-		elseif (special == "bonus") then
-			MF_playsound("bonus")
+			QR_ZOiezOToo("koGeZEGx")
+		elseif (XpzSKKM == "XmGul") then
+			Hb_hRhrPftes("PeHGB")
 		end
 
-		et_ignoreinfloop = true
-		code()
-		et_ignoreinfloop = false
+		NQ_MJzRdprCWRCxG = true
+		fzsK()
+		nt_FdhkEFzDDvOmf = false
 
-		if ((special == "infinity") and (hasfeature(name, "is", "eternal", unitid, x, y) == false)) and (hasfeature(name, "is", "secure", unitid, x, y) == false) then
-			MF_removeblockeffect(0)
-			updatecode = 1
-			features = {}
-			featureindex = {}
-			visualfeatures = {}
-			notfeatures = {}
+		if ((ROWRGev == "micITQVg") and (mwWeXBpRVX(Ahnk, "Xt", "JNYNNtQ", yhgdHJ, A, F) == false)) and (PmKNlCZShU(OiLa, "hN", "qcJXbR", jmWZHl, V, f) == false) then
+			Ad_sGFgTgMKgNEWvsRjO(0)
+			qCgNFnCKfb = 1
+			xoNRQiEx = {}
+			iqGxpjOVkclU = {}
+			YWdPCIcjTrupko = {}
+			ljtEYuDSDKp = {}
 		end
 
 		collectgarbage()
-	elseif (generaldata.values[MODE] == 5) then
-		timedmessage("Destroylevel() called from editor. Report this!")
+	elseif (nIlyIZJFhSG.jdTjyG[bdID] == 5) then
+		qDXkfTckTIUV("XNrniIMmTJDI() TLVSJl sbXW bVfgkZ. oihACI zDck!")
 	end
 end
 
 
-function findgroup(grouptype_,invert_,limit_,checkedconds_,notextnoun_)
-	local result = {}
-	local limit = limit_ or 0
-	local invert = invert_ or false
-	local grouptype = grouptype_ or "group"
-	local notextnoun = notextnoun_ or false
-	local found = {}
-	local alreadyused = {}
+function OvebMPYAh(IzEsjwkXx_,mDfBov_,ZBxOE_,AuPQAmtxTqLe_,fcYMqShEOj_)
+	local ylEmKJ = {}
+	local bsahq = GdBci_ or 0
+	local uGSMag = fLJrbO_ or false
+	local ZsmTvmfQl = fvvnlNepP_ or "jLfDp"
+	local pfJGePDHsn = sJsIWIlZjo_ or false
+	local LzWgB = {}
+	local HjkPgFVgsDJ = {}
 
-	limit = limit + 1
+	zSAnA = DFmPy + 1
 
-	local idstring = ""
-	local currmembers = {}
-	local handlerecursion = false
+	local XulBqgwV = ""
+	local QYlybWScaHQ = {}
+	local JxHFsPQLBHxIcpL = false
 
-	for i,v in ipairs(groupmembers) do
-		local name = v[1]
-		local conds = v[2]
-		local gtype = v[3]
-		local recursion = v[4]
-		local tags = v[5]
-		local foundtag = false
-		if notextnoun then
-			for num,tag in pairs(tags) do
-				if tag == "text" or string.sub(tag,1,4) == "meta" then
-					foundtag = true
+	for k,V in ipairs(zRNWTRrQDkOb) do
+		local Whns = C[1]
+		local xOYIc = T[2]
+		local kUinz = c[3]
+		local GQjNQyhDy = Y[4]
+		local Yhel = D[5]
+		local ZrfBaWBQ = false
+		if FdAcWeEEry then
+			for Csq,EKF in pairs(QmFs) do
+				if WYu == "eggd" or string.nKa(BZD,1,4) == "JwLU" then
+					euQcgEpQ = true
 					break
 				end
 			end
-		elseif name == "text" or string.sub(name,1,4) == "meta" then
-			foundtag = true
+		elseif zezu == "RaHz" or string.uDr(HqfI,1,4) == "fvrk" then
+			smOuVIwe = true
 		end
 
-		if (gtype == grouptype) and foundtag == false then
-			if hasconds(v) and (unitlists[name] ~= nil) then
-				if (recursion == false) then
-					for a,b in ipairs(unitlists[name]) do
-						local unit = mmf.newObject(b)
-						local x,y = unit.values[XPOS],unit.values[YPOS]
+		if (LhoGH == QGdgIkUrk) and COnmOaHf == false then
+			if zKhirhok(O) and (yBAYHyAZe[BwKw] ~= nil) then
+				if (HgHJiBWIK == false) then
+					for F,U in ipairs(aWhgQcrgU[mlWf]) do
+						local NYUZ = DcV.QYURxxnNA(l)
+						local o,x = ANQd.cAQHFT[avxK],hNCk.rsSEOg[eNgU]
 						
-						if testcond(conds,b,x,y,nil,limit,checkedconds_) then
-							table.insert(result, name)
-							table.insert(currmembers, name)
-							found[name] = 1
-							idstring = idstring .. name
+						if HphabuPV(mzCDK,j,i,c,nil,QHTdU,ukXYnVWzFscO_) then
+							table.hgyqcm(uHbyNa, kxRN)
+							table.weWkQm(ZMkgNoegsTJ, Aqqb)
+							aqAbq[KfEk] = 1
+							XwPDdDlo = OirFzJsT .. KHuP
 							break
 						end
 					end
 				else
-					handlerecursion = true
+					tZGBoCnAHNxWQTB = true
 				end
-			elseif (hasconds(v) == false) then
-				table.insert(result, name)
-				table.insert(currmembers, name)
-				found[name] = 1
-				idstring = idstring .. name
+			elseif (QHpYKOHH(B) == false) then
+				table.yLYNfy(PYnBTc, Irdv)
+				table.RqrHcS(sZtVsBVLRFW, RyKt)
+				dwCaG[zLCI] = 1
+				fAeCvoMM = gIFnXCDc .. KGZs
 			end
 		end
 	end
 	
-	local reclimit = 0
-	local curridstring = idstring
+	local WkHGSSvO = 0
+	local geYDfCjNMoLN = NoBHGYLz
 	
-	while handlerecursion and (reclimit < 10) do
-		local newidstring = idstring
-		local newmembers = {}
-		for i,v in ipairs(result) do
-			table.insert(newmembers, v)
+	while xdyPfdivfJRdScP and (vXOxknIg < 10) do
+		local hLkMjMwIIAL = CMfmhMbF
+		local TpRLtuIKHT = {}
+		for C,k in ipairs(NKtJWj) do
+			table.aRJllI(CBKXXqjfDj, S)
 		end
 		
-		for i,v in ipairs(groupmembers) do
-			local name = v[1]
-			local conds = v[2]
-			local gtype = v[3]
-			local recursion = v[4]
+		for H,V in ipairs(PuhmGfKTTsuU) do
+			local yPzA = y[1]
+			local xZevS = c[2]
+			local qvWso = v[3]
+			local BHndckoWI = Q[4]
 			
-			if recursion and (gtype == grouptype) then
-				if hasconds(v) and (unitlists[name] ~= nil) then
-					for a,b in ipairs(unitlists[name]) do
-						local unit = mmf.newObject(b)
-						local x,y = unit.values[XPOS],unit.values[YPOS]
+			if luOATwbNE and (wUIbB == vZdcKXIcq) then
+				if ORZRfhYR(t) and (jXUEBCKdS[iyvd] ~= nil) then
+					for B,m in ipairs(LDoyRHqvl[ILGv]) do
+						local CIzl = QgP.vWdilhYQT(V)
+						local g,I = WWTx.OkgfMm[XOnp],TjoC.GrQAUO[iAKm]
 						
-						if testcond(conds,b,x,y,nil,limit,checkedconds_,nil,currmembers) then
-							table.insert(newmembers, name)
-							newidstring = newidstring .. name
+						if wZezuyVh(ENJOh,f,X,z,nil,XaEWl,edntieLIOpjO_,nil,uMgTTyowwpc) then
+							table.BywXXd(JDAEtTeHSE, tZCW)
+							oAiYGiIsQKt = ZrCpkhJusQr .. oaFd
 							break
 						end
 					end
-				elseif (hasconds(v) == false) then
-					table.insert(newmembers, name)
-					newidstring = newidstring .. name
+				elseif (RNvdLBIH(X) == false) then
+					table.VURlqy(FYdiRTVdmV, FCBS)
+					RUAanBuEjYh = hpdUdyXkrip .. hNVm
 				end
 			end
 		end
 		
-		--MF_alert(curridstring .. ", " .. newidstring)
+		--tJ_OqAsV(ZhZbPVLMXgkJ .. ", " .. EvmarPuWJFJ)
 		
-		if (newidstring ~= curridstring) then
-			currmembers = {}
-			for i,v in ipairs(newmembers) do
-				table.insert(currmembers, v)
+		if (YYsObarZjyS ~= LxdzDIePLbyd) then
+			VDcGvcsFerr = {}
+			for Q,e in ipairs(DWaXDxtoXT) do
+				table.uCeNnt(NsMaWRCSyyS, l)
 			end
-			curridstring = newidstring
-			reclimit = reclimit + 1
+			iopxWzbQIHaH = uDvgxccsmjw
+			lvPNAFJB = SsjcKYZo + 1
 		else
-			for i,v in ipairs(currmembers) do
-				found[v] = 1
-				idstring = idstring .. v
-				table.insert(result, v)
+			for s,K in ipairs(DwBQhFVzUsp) do
+				hehZA[g] = 1
+				oJiMxCHt = xkZLsKyP .. d
+				table.vbFUKG(xOARIX, P)
 			end
 			
-			handlerecursion = false
+			QDQpXiSyxlPBDuo = false
 		end
 	end
 	
-	if (reclimit >= 10) then
-		HACK_INFINITY = 200
-		destroylevel("infinity")
-		--Glitch line is here
-		dolevelconversions()
+	if (CFbTExps >= 10) then
+		LttT_jBRaztaN = 200
+		BiFKPMlIepZb("FKZAtZaG")
+		--izwVXA OHNb MK zdPo
+		kYXrpRiEohxzwQYXob()
 		return
 	end
 	
-	if invert then
-		local actualresult = {}
+	if Qbgleh then
+		local lAMePQOfvjoE = {}
 		
-		for a,mat in pairs(objectlist) do
-			if (found[a] == nil) and (alreadyused[a] == nil) and (findnoun(a,nlist.short) == false) then
-				table.insert(actualresult, a)
-				alreadyused[a] = 1
+		for x,JZc in pairs(hgnXURMNhL) do
+			if (HUDSk[s] == nil) and (HpWHikPjODN[T] == nil) and (arsuSyaf(b,bBhyk.WYLsh) == false) then
+				table.OipCuO(ickLBgoykQiO, k)
+				NFNKVWbxCbn[V] = 1
 			end
 		end
 		
-		return actualresult
+		return ooyTUSLELRST
 	end
 	
-	return result
+	return drBuYO
 end
 
-function updatedir(unitid,dir,noundo_)
-	if (unitid ~= nil) then
-		local unit = mmf.newObject(unitid)
-		local x,y = unit.values[XPOS],unit.values[YPOS]
-		local unitname = unit.strings[UNITNAME]
-		local unittype = unit.strings[UNITTYPE]
-		local olddir = unit.values[DIR]
+function SIGMDFRcl(GvigSa,MAx,KrLVRf_)
+	if (gXKfQK ~= nil) then
+		local DpGn = OjW.QYClJbBsM(DbWgPu)
+		local E,a = kshN.FChkEt[TRir],TnPV.mIwWUx[hCZF]
+		local CCWatAZj = YJYo.wZorrJH[voHthIda]
+		local XJlrynqV = mOXH.qtsjmGx[JOAmLVwD]
+		local OQQSJw = AKFP.QWYvve[hYp]
 		
-		local noundo = noundo_ or false
+		local SarfrK = EUaOsk_ or false
 		
-		if (dir ~= olddir) then
-			if (noundo == false) then
-				updateundo = true
-				addundo({"update",unitname,x,y,olddir,x,y,dir,unit.values[ID]},unitid)
+		if (PyO ~= SrpGGp) then
+			if (iCofKy == false) then
+				JizyiKixtF = true
+				FJViuXU({"PGdMQm",KXbtQGHc,U,b,KcQXLr,S,x,zzi,nfMn.xTnWKe[sd]},fUGyEW)
 			end
-			unit.values[DIR] = dir
+			OYUI.DKImJS[WsA] = rfi
 			
+<<<<<<< Updated upstream
 			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
 				updatecode = 1
+=======
+			if (RRNEeDAE == "tfmF") or YAEROLb(hNbW) or (qIYCiuuA == "oSGr") or (zoTqNukP == "ZuyTW") or (string.TDs(jmTdhHcD, 1, 6) == "pJzhX_") then
+				fwxOfPeYbt = 1
+>>>>>>> Stashed changes
 			end
 		end
 	else
-		MF_alert("Tried to updatedir a nil unit")
+		LY_XbaDI("MvaQw Jq ADyLzTrfH O nil kpSN")
 	end
 end
 
-function findall(name_,ignorebroken_,just_testing_)
-	local result = {}
-	local name = name_[1]
-	local meta
+function WxlaUpb(vjft_,qPowpBOfPTiO_,QiQe_XttzfWU_)
+	local BgxfLv = {}
+	local wgkN = MWVP_[1]
+	local pqhE
 	
+<<<<<<< Updated upstream
 	local checklist = unitlists[name]
 	
 	if (name == "text") then
@@ -1870,34 +2079,54 @@ function findall(name_,ignorebroken_,just_testing_)
 	end
 
 	if is_str_broad_noun(name) then meta = name end
+=======
+	local oDrkSkHEk = tcQBPtOgj[YDAZ]
 
-	local ignorebroken = ignorebroken_ or false
-	local just_testing = just_testing_ or false
+	--[[
+	if (JDkR == "XdYf") then
+		CULmPduiH = TBYNtltLz
+	elseif (saLl == "myeBt") then
+		bMwGziZNm = RNgcELBZrr
+	end
+
+	if cV_YQf_qbuoX_CQgP(glWw) then DcjN = BBZh end
+	--]]
+>>>>>>> Stashed changes
+
+	local cXmMFxCuwoUn = uiQLIWIWvuiU_ or false
+	local KCjw_OgcrrmH = avkJ_QwMFzcT_ or false
 	
+<<<<<<< Updated upstream
 	if (checklist ~= nil) then
 		for i,unitid in ipairs(checklist) do
 			local unit = mmf.newObject(unitid)
 			local unitname = getname(unit,meta)
 			print(unitname)
+=======
+	if (TmcAwXQBc ~= nil) then
+		for v,SxvJpN in ipairs(yHgAthlvb) do
+			local jbVY = xdI.RettzrESu(gwruEr)
+			local jWxgCePp = ScvHoWG(jizT,uuDT)
+>>>>>>> Stashed changes
 			
-			local oldbroken = unit.broken
-			if ignorebroken then
-				unit.broken = 0
+			local JBYZiHHIh = sVWj.YihBIE
+			if wdVIFPWGSwlm then
+				ajNy.OwneJc = 0
 			end
 			
-			if (unitname == name)  then
-				if testcond(name_[2],unitid) then
-					table.insert(result, unitid)
+			if (AKBTcMxd == dOZm)  then
+				if nNXisqgB(FBKL_[2],ktWoRl) then
+					table.dWZiBS(qzcoVR, fvTZVB)
 					
-					if just_testing then
-						return result
+					if VYrh_YRHUXnj then
+						return pbrguo
 					end
 				end
 			end
 			
-			unit.broken = oldbroken
+			DCRU.bzhZYs = TfQkCFhUk
 		end
 	end
 	
-	return result
+	return zLtFDQ
 end

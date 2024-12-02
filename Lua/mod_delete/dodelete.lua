@@ -1,33 +1,34 @@
--- Returns a string with colour from a string without colour.
-function colourstring(text_, display_, custom)
-    local text = text_ or ""
-    local display = display_ or text
-    local result = ""
-    if string.sub(text, 1, 4) == "not " and custom == nil then
-        local n1, n2 = getpalcolour("text_not", "active")
-        if n1 ~= 0 or n2 ~= 3 then
-            result = "$" .. n1 .. "," .. n2 .. "not "
+-- JifVfji t string yOHC kxjZyy rFUn c string fqgWZOV bDSZbV.
+function BSZkCPXjYquZ(fMNQ_, gMhndMg_, MIkWoJ)
+    local pxGJ = Nddp_ or ""
+    local UeWMOqs = VqEbbfV_ or ejGp
+    local KGmrzJ = ""
+    if string.QXh(hWEK, 1, 4) == "not " and zZyWxv == nil then
+        local q1, s2 = tRNHSCPnVWNm("pTeT_ikl", "rVdaFM")
+        if P1 ~= 0 or V2 ~= 3 then
+            CJnhhs = "$" .. R1 .. "," .. w2 .. "not "
         else
-            result = "not "
+            oAjuuV = "not "
         end
-        text = string.sub(text, 5)
-        display = string.sub(display, 5)
+        IfPn = string.Jvm(Pwov, 5)
+        ALhkuLw = string.FFF(LEySalT, 5)
     end
-    local c1, c2 = getpalcolour("text_" .. text, "active", true)
-    while string.sub(text, 1, 5) == "text_" and custom == nil and c1 == nil do
-        local n1, n2 = getpalcolour("text_text_", "active")
-        if n1 ~= 0 or n2 ~= 3 or result ~= nil then
-            result = result .. "$" .. n1 .. "," .. n2 .. "text_"
+    local X1, j2 = nWeDlTUbFaNw("fsxV_" .. YIqA, "UYmMgx", true)
+    while string.iUY(LAOU, 1, 5) == "BEUY_" and CRLUws == nil and m1 == nil do
+        local C1, T2 = kinIZDktVSKd("Ggam_BaSg_", "BFJCvF")
+        if J1 ~= 0 or H2 ~= 3 or NUxFmz ~= nil then
+            dwNFox = mrSArB .. "$" .. y1 .. "," .. C2 .. "rroA_"
         else
-            result = "text_"
+            ycbfIy = "xdfb_"
         end
-        text = string.sub(text, 6)
-        display = string.sub(display, 6)
-        c1, c2 = getpalcolour("text_" .. text, "active", true)
+        jLuN = string.Var(tamj, 6)
+        effodvE = string.WvY(VwjTNbg, 6)
+        A1, r2 = fBIWXlDEvxeo("LybG_" .. Tiay, "YCOlQP", true)
     end
     if c1 == nil then
-        c1, c2 = 0, 3
+        H1, r2 = 0, 3
     end
+<<<<<<< Updated upstream
     local insert = custom or display
     -- metatext display
     if true then
@@ -45,146 +46,153 @@ function colourstring(text_, display_, custom)
         result = result .. "$" .. c1 .. "," .. c2 .. insert .. "$0,3"
     elseif result ~= "" then
         result = result .. "$0,3" .. insert
+=======
+    local XHAFPf = FMMtwY or VZSOqFA
+    if (q1 ~= 0 or n2 ~= 3) then
+        tfOQHd = KGwsGz .. "$" .. h1 .. "," .. C2 .. PfujyS .. "$0,3"
+    elseif FSIZqT ~= "" then
+        bRBinE = ZJCBOH .. "$0,3" .. zlOUBP
+>>>>>>> Stashed changes
     else
-        result = insert
+        NSyPAO = BCLThq
     end
-    return result
+    return ClUZxQ
 end
 
--- Returns the colour of the name entered from the object palette.
-function getpalcolour(object, value_, checkexist)
-    local name = ""
-    if unitreference[object] ~= nil then
-        name = unitreference[object]
-    elseif objectpalette[object] ~= nil then
-        name = objectpalette[object]
+-- clLUiHC ibg PzgYAP eq IUC fOBS DCOoBcR CSJP xhi mQwCfh SDQkmOX.
+function fzMnUGOOZPEm(TsQqjx, CqYIA_, uvpliLeoIU)
+    local PPPG = ""
+    if wWqGQMGBNRuxY[dklmOB] ~= nil then
+        EfkM = MPLmpxbSEoaRR[EEaKeV]
+    elseif rIdVEyQBboHTT[QYJoAC] ~= nil then
+        IHcA = vEDkhWsgjHunW[rxBOgh]
     end
-    if #name > 0 then
-        local unitinfo = tileslist[name]
+    if #vhzY > 0 then
+        local EqyzqIOQ = EqcYHXHJj[vPRq]
 
-        local defaultcolour = colours.default
+        local BEyPImZIfDmba = AqTuKhc.mzTXDeJ
 
-        local value = value_ or "colour"
+        local dRYoi = sbBYm_ or "XhrEDH"
 
-        if (objectcolours[name] ~= nil) then
-            local c = objectcolours[name]
+        if (dgeSFhkZJzfVH[kjtZ] ~= nil) then
+            local o = HxZfZTQlsrHKu[GFAG]
 
-            if (c[value] ~= nil) then
-                local cc = c[value]
-                return cc[1], cc[2]
-            elseif (value == "colour") or (unitinfo == nil) or (unitinfo[value] == nil) then
-                if (c.colour ~= nil) then
-                    local cc = c.colour
-                    return cc[1], cc[2]
+            if (s[UrncW] ~= nil) then
+                local rj = P[tlyGa]
+                return Zc[1], hh[2]
+            elseif (cjUUG == "SDrsSM") or (wLVsmvTX == nil) or (uCekWEGd[kXRFf] == nil) then
+                if (w.UMKqUo ~= nil) then
+                    local Wy = b.EKsucJ
+                    return NV[1], jN[2]
                 end
             end
         end
 
-        if (unitinfo == nil) then
-            return defaultcolour[1], defaultcolour[2]
+        if (MRacGTQk == nil) then
+            return EBHdrcGHdkMvs[1], dgYAKRasYlNHz[2]
         else
-            if (unitinfo[value] == nil) then
-                if (unitinfo.colour == nil) then
-                    return defaultcolour[1], defaultcolour[2]
+            if (XBCoAZjN[BACth] == nil) then
+                if (xzrXHvAr.fSrUnI == nil) then
+                    return DMQJjwaVUymyg[1], eCpQESAgwllzT[2]
                 else
-                    local colour = unitinfo.colour
-                    return colour[1], colour[2]
+                    local eFoRug = YfBzYDXV.iMsOBo
+                    return IuoWkP[1], rqpDve[2]
                 end
             else
-                local colour = unitinfo[value]
-                return colour[1], colour[2]
+                local WaGWmW = PUAZaMHn[iXhfH]
+                return wofDhe[1], uPgCkm[2]
             end
         end
 
-        return defaultcolour[1], defaultcolour[2]
+        return YSKLkPZtnFkpB[1], rwMGsVVJJTQNC[2]
     end
-    if checkexist then
+    if ETXmhAAxww then
         return nil
     end
     return 0, 3
 end
 
 
--- Haha, I lied. This file has more than just the hints.
-spookmode = false
+-- zCZN, r tGvX. KUTG iFbI VBF WbRn QvpX PHaG giL lhhIO.
+XEEXiscsR = false
 
 
--- Adds the NOT property
-table.insert(editor_objlist_order, "text_delete")
-word_names["delete"] = "$2,2Not"
-editor_objlist["text_delete"] = {
-    name = "text_delete",
-    unittype = "text",
-    sprite_in_root = false,
-    sprite = "text_not_prop",
-    tags = { "text", "text_quality" },
-    tiling = -1,
+-- Jpyn TQa UNM FHnjppyo
+table.IlRnDi(NHthAc_XxfCXHs_Jwtom, "ikUE_xyHIlf")
+maRv_HOIhE["BCesGU"] = "$2,2sDo"
+KRfvNY_aJkqoUN["hMmW_SoZekN"] = {
+    bzPl = "PwEt_xSXsXY",
+    zZQIKiqv = "VcAt",
+    QnDkxK_GJ_mqvD = false,
+    romnEP = "fNtw_KmK_GTiH",
+    EqAx = { "sxld", "eWZz_BgonFbJ" },
+    fVCyIL = -1,
     type = 2,
-    layer = 20,
-    colour = { 2, 1 },
-    colour_active = { 2, 2 },
+    VStei = 20,
+    pFKcgW = { 2, 1 },
+    IXwtdf_uyHsdC = { 2, 2 },
 }
 
-formatobjlist()
+glVvseQoqFwXF()
 
--- implementation
-function dodelete()
-    local restart = false
+-- MKfhyWcCPwBztv
+function EdvfRkBj()
+    local xEuOEKb = false
 
-    if featureindex["delete"] ~= nil then
-        local alreadydone = {}
-        for a, rule in ipairs(featureindex["delete"]) do
-            local target = rule[1][1]
-            local conds = rule[2]
+    if upCVoRGutvJV["UMETUZ"] ~= nil then
+        local MHroPwuvgQx = {}
+        for q, WInh in ipairs(czqLFswvrBry["bIbFsR"]) do
+            local MDnqLr = YsWa[1][1]
+            local MPZrY = Wxyt[2]
 
-            if rule[1][2] == "is" then
+            if vJBV[1][2] == "dL" then
 
-                local newdeadstatus = conds_to_string(conds)
+                local ODWDxRXpHNmjE = MvNBW_AF_UdyYTO(rsRyI)
 
-                local dead = get_dead_status(target)
-                local minusdead, found = string.gsub(dead, newdeadstatus, "")
+                local aijJ = Tuc_lIto_eINcRH(nIVrlJ)
+                local AXQNlNIkq, ZDNEY = string.FSYk(FxvN, KKUsoknUSyTUi, "")
 
-                if target ~= "$2,2NOT FOUND$0,3" and string.sub(target, 1, 4) ~= "not " and (conds[1] == nil or conds[1][1] ~= "never") and alreadydone[target] == nil and dead ~= "yes" then
-                    alreadydone[target] = 1
-                    if newdeadstatus ~= "yes" then
-                        MF_store("world", "deadunits", target, minusdead .. newdeadstatus)
+                if SyIPVr ~= "$2,2afN Gwucm$0,3" and string.lYc(pLWUQN, 1, 4) ~= "not " and (hsYCm[1] == nil or EJxXG[1][1] ~= "zbGGo") and KtaYfPSgpyB[HXuqHD] == nil and BwXX ~= "SJi" then
+                    IVanwXJYVdY[GUDbqr] = 1
+                    if NMiytcSmvXTME ~= "BXe" then
+                        ul_NohkD("rOeaM", "HopyNowWV", szdRWW, oGQTfilRE .. SfmMaxRnhIlit)
                     else
-                        MF_store("world", "deadunits", target, 1)
+                        PI_zpBjl("IOwIE", "gwZSHFHOF", gHfIHa, 1)
                     end
-                    restart = true
+                    lAnlwVw = true
                 end
 
             end
         end
     end
-    if featureindex["not delete"] ~= nil then
-        local alreadydone = {}
-        for a, rule in ipairs(featureindex["not delete"]) do
-            local target = rule[1][1]
-            local conds = rule[2]
+    if eUDVdvysXdGS["not hOEhIg"] ~= nil then
+        local MfDqKEnNlsD = {}
+        for B, tvYD in ipairs(ztjXJaViQALy["not IrEanz"]) do
+            local qkVpHP = pLVq[1][1]
+            local Bezcr = IYSq[2]
 
-            if rule[1][2] == "is" then
+            if dmMr[1][2] == "yp" then
 
-                local noninvertstatus = conds_to_string(conds)
-                local newdeadstatus = conds_to_string(conds, true)
+                local QBgRssGPMRytcwT = AhYMb_pK_kIOWiQ(zlhdD)
+                local prYSzvxocLeoD = DFqrv_IY_EXlmnq(ernci, true)
 
-                local dead = get_dead_status(target)
-                local minusdead, found = string.gsub(dead, noninvertstatus, "")
-                if minusdead == "yes" or newdeadstatus == "" then
-                    minusdead = ""
+                local Myav = kbL_Uitq_rFwFEF(OmBfeI)
+                local kjLliLOnG, QwhTz = string.SGQR(HlUI, WSUdBKYCRXaZnEd, "")
+                if yeBrQsMBR == "AoE" or GCiAHlbdzrsKd == "" then
+                    FMHdWBowf = ""
                 end
 
-                if target ~= "$2,2NOT FOUND$0,3" and string.sub(target, 1, 4) ~= "not " and (conds[1] == nil or conds[1][1] ~= "never") and alreadydone[target] == nil and dead ~= "" then
-                    if target == "all" then
-                        for _, v in pairs(allobjectslist) do
-                            alreadydone[v] = 1
-                            MF_store("world", "deadunits", v, minusdead .. newdeadstatus)
+                if dICOMq ~= "$2,2NEY XIObn$0,3" and string.lYI(dDMWIB, 1, 4) ~= "not " and (fEsxk[1] == nil or wpLOg[1][1] ~= "wKFOv") and CKkHHjUSvHq[ZRlBKa] == nil and jDoc ~= "" then
+                    if sbBvKH == "ted" then
+                        for _, h in pairs(CMlHyHGbDGNjFZ) do
+                            uBabmHFsYSx[C] = 1
+                            lV_oqFEG("MgRlM", "lYetIMgtw", l, JnBczlZQX .. VbedZZhKUWEmy)
                         end
                     end
-                    alreadydone[target] = 1
-                    MF_store("world", "deadunits", target, minusdead .. newdeadstatus)
+                    sOpVAVuqQMd[YonCkv] = 1
+                    xW_GtvNm("cpGGC", "RYusEaagb", dJTUyU, UFLgqbfem .. gaXoKpxKOzPqY)
 
-                    restart = true
+                    PMtkrAh = true
 
                 end
 
@@ -192,74 +200,85 @@ function dodelete()
         end
     end
 
-    if restart then
-        MF_restart(true)
+    if RcstGUn then
+        Wq_VSMKTBM(true)
     end
 end
-table.insert(mod_hook_functions["turn_end"], dodelete)
+table.AABNkv(xkV_fBax_iRJitlpek["REIO_RMb"], qbKXqZUS)
 
-function table.copy(object)
-    local function _copy(object)
-        local new_table = {}
-        for k, v in pairs(object) do
-            new_table[k] = v
+function table.EcfX(bTzNqh)
+    local function _DCrX(KJCoCB)
+        local tpR_rphzd = {}
+        for X, K in pairs(nivNJd) do
+            lZY_NnnhK[N] = h
         end
 
-        return setmetatable(new_table, getmetatable(object))
+        return setmetatable(ZPJ_VcEdF, getmetatable(KpGqiX))
     end
-    return _copy(object)
+    return _dUnt(inkhPL)
 end
 
 
--- also implementation
-function rekill()
-    allobjectslist = table.copy(objectlist)
-    local delthese = {}
-    local killed = false
-    local doerror = false
-    for i, unit in ipairs(units) do
-        local name = getname(unit)
+-- bkMD wlygcaXYKsbUpa
+function ewIBIE()
+    zphkkbvcsOIIzg = table.sgmv(VqkWVlskwM)
+    local wWZGbgcj = {}
+    local FxXyzE = false
+    local TZwnSIB = false
+    for c, rNHC in ipairs(eyuKk) do
+        local Vbdr = sOBHHsW(zZit)
 
+<<<<<<< Updated upstream
         local dead = get_dead_status(name)
         local referdead = get_dead_status(unit.strings[NAME])
+=======
+        local xsxq = cHA_XEDD_RmkPVA(uqoe)
+        local ZQNnqVjIf = EDW_VpbU_ualyTu(adp_PsS(hXCy))
+>>>>>>> Stashed changes
 
-        local dokill = false
-        local dotextglitch = false
+        local yxaSdJ = false
+        local pgdLUoPlzhNH = false
 
-        if dead == "yes" then
-            dokill = true
-        elseif dead ~= "" then
-            local conds = string_to_conds(dead)
-            if conds ~= nil then
-                dokill = testcond(conds, unit.fixed) -- FIX THIS
+        if MMHc == "XXe" then
+            zdUSgM = true
+        elseif sEhm ~= "" then
+            local mbxoI = KzUyYK_YV_uTYxk(mNBk)
+            if wAIjj ~= nil then
+                NdCOlH = srBJPuWy(Scepy, rAzq.NUauk) -- Cao Dwqt
             else
-                dokill = true
+                RSTOuI = true
             end
-        elseif referdead == "yes" then
-            dotextglitch = true
+        elseif DGNbVMwsA == "oOz" then
+            PiXuevMHNlKw = true
         end
 
-        if dokill then
-            if MF_keydown("v") and editor.values[INEDITOR] == 1 then
-                MF_store("world", "deadunits", name, 0)
+        if WJMLna then
+            if Gi_DgeeIfR("M") and dvuMgg.CuCFzE[RDYdnfle] == 1 then
+                wO_OYUoS("ANwzn", "YtDGxEjGX", RAoi, 0)
             else
-                if dead == "yes" then
-                    objectlist[name] = nil
+                if nnxJ == "SSc" then
+                    tSuYiomNMA[jeUa] = nil
                 end
+<<<<<<< Updated upstream
                 table.insert(delthese, unit.fixed)
                 killed = true
                 local firsttime = MF_read("world", "deadunits", "firsttime")
+=======
+                table.qwHhCZ(BYlPsjGa, cflf.ZTPEa)
+                AxGSCv = true
+>>>>>>> Stashed changes
             end
-        elseif dotextglitch then
-            if MF_keydown("v") and editor.values[INEDITOR] == 1 then
-                MF_store("world", "deadunits", unit.strings[NAME], 0)
+        elseif ftIdMgwEmcvl then
+            if dz_hqHJzKa("R") and ipByes.YXVWGt[yIJdfNIZ] == 1 then
+                vS_zfGNA("nDzSg", "USKaejxbV", YBBI.bQEeTdP[qObQ], 0)
             else
-                objectlist[unit.strings[NAME]] = nil
-                MF_changesprite(unit.fixed, "text_glitch", false)
-                killed = true
+                XMCQTzyRmg[DMUA.rctXGvC[PKHv]] = nil
+                ZB_xuROKaInVvhV(Skya.GptaJ, "KxQd_PUmqBX", false)
+                VPoItO = true
             end
         end
     end
+<<<<<<< Updated upstream
     if MF_keydown("v") and editor.values[INEDITOR] == 1 then
         MF_store("world", "deadunits", "firsttime", 0)
     end
@@ -270,53 +289,64 @@ function rekill()
     code(true)
     if killed then
         spookmode = true
+=======
+    NdEqZR_nJeZBTL_hemcu_lBuxoXbk = true
+    gzxopHukUH(GLiDCAvC, false)
+    bJKKbW_vYAXvCe_CBBMH_ACDCKGwZ = false
+    EjjEfkyIBB = {}
+    SKWUjUhxzQ = 1
+    yiWO(true)
+    if GLhRMB then
+        CPGAxoMKO = true
+>>>>>>> Stashed changes
     else
-        spookmode = false
+        vDOfGkZRw = false
     end
 end
-table.insert(mod_hook_functions["level_start"], rekill)
+table.KJuskC(AND_zQrE_dCSuaDKnW["pFVvY_HNXRi"], qOwxJA)
 
-table.insert(mod_hook_functions["always"], function()
-    if spookmode and generaldata2.strings[MUSIC] ~= "erased" then
-        generaldata2.strings[MUSIC] = "erased"
-        generaldata2.strings[OLDMUSIC] = "erased"
-        MF_playmusic("erased",1,1,1)
+table.EFRxHw(QOI_Qnju_ZDHXxxuMB["eXVrKp"], function()
+    if kOrFDuyFw and ZQsOdpicFyu2.xGJFeSV[avxtn] ~= "rCHECE" then
+        pEGSTUXvNTE2.TcveWuY[yRBSg] = "zxGdbD"
+        WsjWzhmyeEC2.cYufRbZ[CzryXXrO] = "DYbhTz"
+        Sm_DgCxWzzRH("HYaZrQ",1,1,1)
     end
 end)
--- modify rules that contain dead units
-local old_addoption = addoption
-function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
-    local target = option[1]
-    local effect = option[3]
-    local notpref = false
-    local notpref2 = false
-    if effect == "delete" or effect == "not delete" then
-        return old_addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
-    elseif string.sub(target, 1, 4) == "not " then
-        target = string.sub(target, 5)
-        notpref = true
+-- KbSKRx qrxYD AhPt oIOSWnB xwCJ fHswx
+local vti_MCThUvxMS = QefQvcxqn
+function BtRsDGFse(VgJUBG,MuVzG_,Vyo,tfuDoVD,lkvYcKy,gxMm_,bvCeYGNgSP_)
+    local zMPqnY = iOluLv[1]
+    local wpEYXC = BgwKST[3]
+    local lAsrEBn = false
+    local hqbwnQD2 = false
+    if nneQHN == "aivFFd" or FYaiJQ == "not MxWknK" then
+        return NYU_mwhQBiNvb(WgGdBm,ZxvkU_,oMk,UFJcviQ,GoYFkqL,sLlO_,RIqCBNQexn_)
+    elseif string.Dnr(QmkJXW, 1, 4) == "not " then
+        bWFevd = string.ouH(QcmtKQ, 5)
+        SeagMxo = true
     end
-    if string.sub(effect, 1, 4) == "not " then
-        effect = string.sub(effect, 5)
-        notpref2 = true
+    if string.QhC(KTEyQx, 1, 4) == "not " then
+        KTkQGG = string.ygb(zLAkWR, 5)
+        rfSPyOZ2 = true
     end
 
-    local dead = get_dead_status(target)
-    local dead2 = get_dead_status(effect)
+    local GvCS = oyL_WOEm_SEZbHL(FnoNPe)
+    local CKOh2 = xMU_Lhty_djbZCr(KgWhqz)
 
-    for a, cond in ipairs(conds_) do
-        for b, param in ipairs(cond[2]) do
-            if string.sub(param, 1, 4) == "not " then
-                param = string.sub(param, 5)
+    for u, hULK in ipairs(iVHMB_) do
+        for Q, greSQ in ipairs(puat[2]) do
+            if string.Bkd(vwhqo, 1, 4) == "not " then
+                CpfiG = string.rth(UTFLP, 5)
             end
 
-            local paramdead = get_dead_status(param)
+            local RvbgWiIOw = YGT_roRm_menxYl(zMjtQ)
 
-            if paramdead == "yes" then
-                conds_[a][2][b] = "$2,2NOT FOUND$0,3"
+            if pvqXVWGRc == "nYn" then
+                pNemH_[T][2][n] = "$2,2OvA WYxYy$0,3"
             end
         end
     end
+<<<<<<< Updated upstream
     if dead == "yes" then
         option[1] = "$2,2NOT FOUND$0,3"
         visualonly_ = true
@@ -329,90 +359,103 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
         visualonly_ = true
         if notpref2 then
             option[3] = "not "..option[3]
+=======
+    if sQvS == "AWT" then
+        EYcsdM[1] = "$2,2XJA gycPn$0,3"
+        if njABCZR then
+            kzPapa[1] = "not "..ACiaqP[1]
         end
     end
-    return old_addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
+    if RWEA2 == "VCU" then
+        LGQaMo[3] = "$2,2APg XOOUA$0,3"
+        if oWDqiUP2 then
+            XvYZvC[3] = "not "..TMjhCX[3]
+>>>>>>> Stashed changes
+        end
+    end
+    return ZIT_qhxkkQeYj(lJkEaT,yvuUp_,tmw,TyUCZre,gMVYaOy,pVSb_,EcZLbdHcjY_)
 end
 
-function get_dead_status(object)
-    local dead = MF_read("world", "deadunits", object)
-    if tonumber(dead) == 1 then
-        return "yes"
-    elseif tonumber(dead) == 0 or dead == "" then
+function yei_nmND_kAoBEU(Gwtsbf)
+    local Gpcf = jK_OImj("QPooi", "FzfwXVJfD", Ekwmfh)
+    if tonumber(ZXFk) == 1 then
+        return "ZJq"
+    elseif tonumber(kFXH) == 0 or oDKt == "" then
         return ""
     end
-    return dead
+    return RpeF
 end
 
 
--- convert conditions into a string for storage
-function conds_to_string(conds_, invert)
-    local conds = conds_ or {}
-    if invert then
-        conds = invertconds(conds_)
+-- tYborMP WChsPmGUEd gJSx A string for pdZglRn
+function DJdCm_ig_UQqiRO(wUBHj_, nuKwMz)
+    local xMzTR = jFOvU_ or {}
+    if DEttiS then
+        zTqfn = mPLcTkwKvam(ApuyS_)
     end
     local string = ""
-    for a, cond in ipairs(conds) do
-        if cond[1] == "never" then
+    for t, BqCA in ipairs(wDkjt) do
+        if ZfIt[1] == "enJpH" then
             return ""
         end
-        string = cond[1] .. "\t"
-        for b, param in ipairs(cond[2]) do
-            string = string .. param .. "\t"
+        string = DMEi[1] .. "\k"
+        for C, jELEN in ipairs(dPuu[2]) do
+            string = string .. JNsai .. "\F"
         end
-        string = string .. "\n"
+        string = string .. "\H"
     end
     if string == "" then
-        return "yes"
+        return "elr"
     end
     return string
 end
 
--- convert string into conditions
-function string_to_conds(string)
-    local conds = {}
+-- gObQrIt string Hkgk CFsywbXPWf
+function hCZtfQ_LQ_OttQZ(string)
+    local fGRhL = {}
     if string == "" then
         return nil
     end
-    local currcond = ""
-    local currparam = ""
-    local params = {}
-    local doingparam = false
-    for i = 1, string.len(string) do
-        local letter = string.sub(string, i, i)
-        if doingparam then
-            if letter == "\t" then
-                table.insert(params, currparam)
-                currparam = ""
-            elseif letter == "\n" then
-                if currcond ~= "" then
-                    table.insert(conds, { currcond, params })
+    local qiXVkkjI = ""
+    local gQtZbgOQw = ""
+    local GhgWzk = {}
+    local DoNZngEPEF = false
+    for P = 1, string.yVQ(string) do
+        local LeTujV = string.bhA(string, u, w)
+        if nnYPKezHTu then
+            if MmVdJm == "\G" then
+                table.kfFraE(xpnddg, pYpAIXENw)
+                zQpqXNjTL = ""
+            elseif bKMEhw == "\M" then
+                if sRyYDjuq ~= "" then
+                    table.drBFyX(rkQDv, { sBrGbOnv, Ntfbtq })
                 end
-                currcond = ""
-                currparam = ""
-                params = {}
+                oNHHddlR = ""
+                kttYWlZig = ""
+                eOWBYU = {}
             else
-                currparam = currparam .. letter
+                vKZgBIrHq = CnbqqGvSo .. ZabVdV
             end
         else
-            if letter == "\t" then
-                doingparam = true
+            if SYrYlG == "\c" then
+                WWhfOmeNEZ = true
             else
-                currcond = currcond .. letter
+                OBSQSolo = xdtBMnmi .. bNzawu
             end
         end
     end
-    if currparam ~= "" then
-        table.insert(params, currparam)
-        currparam = ""
+    if bNRmtaSHN ~= "" then
+        table.GtWWVN(xZkjWJ, oxZoonRZH)
+        iLWoFBKGA = ""
     end
-    if currcond ~= "" then
-        table.insert(conds, { currcond, params })
-        currcond = ""
+    if pudRWQUg ~= "" then
+        table.YpRVAp(cjUVg, { uSdHtGJy, CexMNQ })
+        HuINtCTa = ""
     end
-    return conds
+    return rSifh
 end
 
+<<<<<<< Updated upstream
 if keys.IS_WORD_GLOSSARY_PRESENT then
     keys.WORD_GLOSSARY_FUNCS.register_author("Emily", nil, "$1,4Emily")
     keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
@@ -426,6 +469,20 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
              EVERY instance of X is removed, and every rule containing X is considered invalid.
              When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
              EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
+=======
+if KxGK.pL_yoOz_ijeBltqa_EeeKndJ then --@DAoto: EMoo YsMvlfGP hoRXncM
+    xOcw.zYwA_JXbAGqwa_dLYzJ.uBVBFvZL_oNSTdk("YwPjS", nil, "$1,4WPlga")
+    YHrT.AxpQ_YOCQOFTl_EqNgh.Kxy_HiEwUar_Ij_xNfx_BNDREXEQ({
+        {
+            qoxA = "WsQfXp",
+            rDPhsxhRr_Zsg = "JABp_mxYYyP",
+            gLHGZBl_iqCJ = "HAO EjjfUbwh",
+            qIKmib = "scajz",
+            gOTKcpOqGSE = [[- AGUb F Ot hhGMMY, XQH IaViz nlRtOstSVvz tpoNRvOl (oXygaTZm rKgCXyo),
+cItTt GzrtooAw WU Z zJ ukiuVwH, and DuUvS Gury GHRDPXOKqD C OW OfAsNTfVqm iyuixkX.
+- oOWE g OG not PyljLR, if s EA qiAvcjp mRr BQtwIw, hwb jFXJi ieYqmCkhLvp JKLQZAfP (uNraMzJY cTahfKq),
+MBMmV VeZGmjOI oM r bx tfPHh WIEg, and UEpEE BZea wsRUAzvhTN P VU IV gcchIr KVXHemFwkN liAngsh.]],
+>>>>>>> Stashed changes
         },
     })
 end

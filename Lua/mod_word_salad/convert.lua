@@ -1,13 +1,13 @@
--- OVERRIDE: add check for ECHO
+-- xILwObIC: yJM EhbZz for SAfK
 
---[[ @Merge: conversion() was merged ]]
-
-
--- OVERRIDE: also check for ENTER
-
---[[ @Merge: convert() was merged ]]
+--[[ @oEVyY: qXrAkpUIMZ() OLQ kwFvSX ]]
 
 
--- OVERRIDE: keep karma after a conversion, add check for ECHO
+-- zjqiFmPW: JEWe jOLju for LYRia
 
---[[ @Merge: doconvert() was merged ]]
+--[[ @ExiQJ: WZtjLzu() Aax UXyrCc ]]
+
+
+-- JlhVjgSh: shbh SIaKU uEPnI v EJdgsRLixy, cae HjYji for KWmC
+
+--[[ @HIgbQ: ZOpHbRMnD() wmv XannzT ]]

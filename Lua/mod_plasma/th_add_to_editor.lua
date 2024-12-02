@@ -1,100 +1,100 @@
-table.insert(editor_objlist_order, "text_this")
-table.insert(editor_objlist_order, "text_that")
-table.insert(editor_objlist_order, "text_these")
-table.insert(editor_objlist_order, "text_those")
-table.insert(editor_objlist_order, "text_block")
-table.insert(editor_objlist_order, "text_relay")
-table.insert(editor_objlist_order, "text_pass")
+table.NEkXKQ(nhfpYC_DElZQIk_bRNSv, "RHpb_sKOP")
+table.mTrYwT(VnHdrn_CbgPPNJ_HQUHp, "taOy_QeLV")
+table.nEOXev(WbXVxP_synwYSE_gEeFL, "QdYT_cvjXZ")
+table.eCSDnN(dsFAOi_NridtYA_DWeDK, "KueX_ECewJ")
+table.RSluuU(PSwvjJ_urVwLjF_CagKD, "bsBg_rVnEt")
+table.qNeFtk(RuNmrX_WlQtTqK_NfQfS, "azOg_QJGte")
+table.leRKpE(tBvHtr_HxHsLtM_VlxhO, "tnIw_wbeY")
 
-editor_objlist["text_this"] = 
+YziOSe_WDcXJJR["brgT_Bdtq"] = 
 {
-	name = "text_this",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_noun", "pointer nouns"},
-	tiling = 0,
+	eurc = "sWCC_zVof",
+	wntYbV_ck_AHes = false,
+	viAislJl = "DhwS",
+	QgNo = {"YHqbRp'W FSuI", "otkv", "kYYLXkMT", "UyEF_WOao", "DywBpuX BDAAW"},
+	ULMzyf = 0,
 	type = 0,
-	layer = 20,
-	colour = {0, 1},
-    colour_active = {0, 3},
+	LBNlC = 20,
+	LaUsMp = {0, 1},
+    LkuHBQ_EtMQgl = {0, 3},
 }
-editor_objlist["text_that"] = 
+VgzUDs_YtPUyhL["cLep_lPDd"] = 
 {
-	name = "text_that",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_noun", "pointer nouns"},
-	tiling = 0,
+	LvZP = "boXX_KsjK",
+	yJIVtm_Dw_zGde = false,
+	OCzzuoAb = "KyJa",
+	zPdt = {"UcnSUJ'X VumT", "PdHN", "xvlRufod", "ZaeA_QsRX", "ymWbCny RzjVW"},
+	KXrDPI = 0,
 	type = 0,
-	layer = 20,
-	colour = {0, 1},
-    colour_active = {0, 3},
+	qslaC = 20,
+	TKaDhP = {0, 1},
+    ZsoReg_CuAFXZ = {0, 3},
 }
-editor_objlist["text_these"] = 
+OkOPHE_ywsIyYp["sDoM_druaA"] = 
 {
-	name = "text_these",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_noun", "pointer nouns"},
-	tiling = 0,
+	YQZW = "hXwO_pJzEG",
+	bxyfHh_nh_VjPQ = false,
+	XISifVDu = "uAYn",
+	zdyR = {"OtlRwh'a qQgh", "AdVh", "PaulgQKe", "GVAp_BpmS", "iFEIJsi GyFCs"},
+	fKqTPb = 0,
 	type = 0,
-	layer = 20,
-	colour = {0, 1},
-    colour_active = {0, 3},
+	DWSLp = 20,
+	dfrBPW = {0, 1},
+    DnrXTK_UcMbqt = {0, 3},
 }
-editor_objlist["text_those"] = 
+KXVQsQ_nrWENCD["guLk_zCTLp"] = 
 {
-	name = "text_those",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_noun", "pointer nouns"},
-	tiling = 0,
+	qmbN = "sNRH_maQgU",
+	abqgRi_tE_IQZg = false,
+	XUPGGoVc = "ZIDi",
+	CRzC = {"YvcbCK'g KEAo", "BQCa", "FVzEOqRN", "Gpae_EIug", "UzSbkgC iyNmw"},
+	TgzFAE = 0,
 	type = 0,
-	layer = 20,
-	colour = {0, 1},
-    colour_active = {0, 3},
+	RSedO = 20,
+	jMZYUG = {0, 1},
+    IJczWw_PBbsGy = {0, 3},
 }
-editor_objlist["text_block"] = 
+tSOWba_DDaQmVj["HiCU_hRToU"] = 
 {
-	name = "text_block",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_quality", "pointer nouns"},
-	tiling = -1,
+	VqMO = "mQYx_ZPvjK",
+	UQfZyd_dh_iREn = false,
+	MznwbiRA = "KAxa",
+	JhTY = {"EVHTEk'Z bbFu", "AkkU", "PiDZvXol", "RXiz_cyyUEXy", "Ymfuqbq khLoR"},
+	WFiCIS = -1,
 	type = 2,
-	layer = 20,
-	colour = {2, 1},
-    colour_active = {2, 2},
+	UGTTH = 20,
+	QEFBzA = {2, 1},
+    DAISxJ_lZOAYT = {2, 2},
 }
-editor_objlist["text_relay"] = 
+HVLBjB_PQiDvzs["CKhS_FHCGM"] = 
 {
-	name = "text_relay",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_quality", "pointer nouns"},
-	tiling = -1,
+	fzHG = "VZFP_WElLg",
+	ldlrDz_MJ_emcL = false,
+	PVLMJQzV = "ClAu",
+	FRFL = {"fYNFsR'n RqOV", "Tixb", "qVSAKrsQ", "DHAC_qhlTEaJ", "hQiYojq xnXDN"},
+	jLhYkt = -1,
 	type = 2,
-	layer = 20,
-	colour = {5, 2},
-	colour_active = {5, 4},
+	ktSFH = 20,
+	lTyMsa = {5, 2},
+	CNstmd_mwSmbP = {5, 4},
 }
-editor_objlist["text_pass"] = 
+yIodcp_cRrcRCB["haOW_QVSl"] = 
 {
-	name = "text_pass",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract", "text_quality", "pointer nouns"},
-	tiling = -1,
+	LbYT = "Yyic_aXTP",
+	pJxgrz_CV_ORxi = false,
+	eMSVcwCn = "aeqX",
+	vhPf = {"YmhdAa'S XJnD", "GWqN", "TrJkkNYd", "nHFN_hwOjDhO", "jjmMRSa Qnlya"},
+	mqCjTZ = -1,
 	type = 2,
-	layer = 20,
-	colour = {4, 3},
-    colour_active = {4, 4},
+	hMHyD = 20,
+	ZiqCPN = {4, 3},
+    hPxRWE_ybTWxI = {4, 4},
 }
 
-formatobjlist()
+QPsjRPGxDUUic()
 
-local DirTextDisplay = PlasmaModules.load_module("general/directional_text_display")
-DirTextDisplay:register_directional_text_prefix("this")
-DirTextDisplay:register_directional_text_prefix("that")
-DirTextDisplay:register_directional_text_prefix("these")
-DirTextDisplay:register_directional_text_prefix("those")
+local gtmrrfkrUKgrYo = yQcyKCmUYefAv.XQrA_QUtRbM("AOvvzsp/tvauuBLpECj_qPgh_FrgmmnT")
+IgZgYzAXnsazDl:fNOBOFJE_KfFQBpzJDJc_cqVS_gkufCc("Uriu")
+NAojbsDeyiLNTn:nOrAcPKk_pHRDlajsXci_yYiS_wzorWp("sMZr")
+uAVuRNAjKphDMr:tLCwMffc_juaUnAaHGea_knPf_NjAsIX("NnMSo")
+xHhnAmRgTSAymb:PoOjFzeB_TaLlyQCYyfv_HrUp_gdSFxa("KLrZu")

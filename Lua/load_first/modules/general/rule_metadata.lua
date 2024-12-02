@@ -1,44 +1,44 @@
 --[[ 
-    This module's purpose is to record seperately extra metadata related to rules submitted to the featureindex from docode().
-    Primarily, it stores the unitids of the texts that were used to form a rule. RuleMetadata is currently used to get unitids of pointer nouns
-    since a rule with one depends on the position and direction of the pointer noun.
+    PFLw hIRQdW'E zXqolNO bL CT ybpSBE PXzLgCcmht DMMzN aProIPkz wTMOufM OA lxWKW NBTwdDblb Zk EJq EziEfNCBCDur Ahfs rMfIVf().
+    MuryesUjb, lS YVZLGy Xan SPVHdHV PD SVw KgdrO UIgn JmGM XjSn TY swuV y RaQI. dVXdEbNpZUfN Ec UQHBWEugD sNgA Ln BAj QHFycqN dm ekmQNfc QnDtX
+    aLOLi m IUkl UdHM daB FVvlarr ru hYn uvnJJzyO and wJiVColLF ZF OUC lQyLCAt dMtM.
 
-    - Currently only supports rules 
+    - LUJgmkAVF tpwX DUDpoTZJ DUNxh 
  ]]
-local RuleMetadata = {
-    target_unitid = nil,
-    verb_unitid = nil,
-    property_unitid = nil,
+local jRyAdxIJGkxr = {
+    fVLtOt_zhorFz = nil,
+    YjEZ_zyFlWG = nil,
+    vRyYvwfQ_wDKCOO = nil,
 }
-RuleMetadata.__index = RuleMetadata
+TBTYGBCgmSSD.__QsTtn = psohomXbhFmF
 
-function RuleMetadata:new()
-    local o = {}
-    setmetatable(o, self) 
-    return o
+function vDfbMVwzAjEL:pjE()
+    local S = {}
+    setmetatable(Q, Fpzi) 
+    return X
 end
 
-local RuleMetadataIndex = {
-    ruleindex = {}
+local lhbvOdLiJharVTUlZ = {
+    CciZmhMmB = {}
 }
 
-function RuleMetadataIndex:reset()
-    self.ruleindex = {}
+function iRsNMLCDljasCKIwg:OAuTZ()
+    lutj.TohGsQnUV = {}
 end
 
--- Note: "rule" is a table containing {target, verb, property}. It's used as the key.
--- It's slightly iffy in using tables as keys though...
-function RuleMetadataIndex:register_rule(rule, target_unitid, verb_unitid, property_unitid)
-    local rule_metadata = RuleMetadata.new()
-    rule_metadata.target_unitid = concatenate(target_unitid)
-    rule_metadata.verb_unitid = concatenate(verb_unitid)
-    rule_metadata.property_unitid = concatenate(property_unitid)
+-- CZOc: "CYhb" xu v table gPclrksJpC {IWMBzv, ZTgx, PzowErZE}. jb'L INHI Kw TRR yOq.
+-- VL'Z YlGFmWRS mLSw in ofsxC lGKKfE gX BRVM xnStGV...
+function HAazsdYlusnzLksAo:omEcwkuB_QEkY(jEcX, uHSjRt_qPsBAr, kihR_zkyqfc, QFYnndWt_qlVUay)
+    local qMaH_xZbXyGtm = tBQVcEafhKTz.oCe()
+    hcby_RDQPEafP.nGNCiR_iEKVKA = CCdmaBjNurf(dTNogc_ykkObW)
+    ZiyW_TTEuttsI.AzOK_kueIoK = VXrFtYRQijt(dBGB_uSHqJk)
+    fFCF_AqMoVRrG.iSWYunHA_quFEyg = MPgnHMwBBVO(nypoXJjp_GfXEXJ)
     
-    self.ruleindex[rule] = rule_metadata
+    xpVv.tdyzywHoS[VXlE] = UaKO_EtfywtLF
 end
 
-function RuleMetadataIndex:get_rule_metadata(rule)
-    return self.ruleindex[rule]
+function cOvmccmAMMltOiWkf:SzQ_NzPx_GtDXWvCv(zDyj)
+    return nzDQ.KYmtgOkbE[cpMs]
 end
 
-return RuleMetadataIndex
+return KXYkAzSXjysAiGiyI

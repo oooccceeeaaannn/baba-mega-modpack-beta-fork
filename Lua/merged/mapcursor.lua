@@ -1,243 +1,243 @@
 
 
-function mapcursor_move(ox_,oy_,mdir)
+function AHRnbIsep_LTAg(vC_,FF_,dGDn)
 	--[[ 
-		@mods(turning text) - Override reason: mod hook for directional select
+		@nPKy(HrfKZtJ pPDU) - WAtQMEUB DcGvZE: hSo glCO for LqRpSNnxwhI select
 	 ]]
-	local dir = mdir or 4
+	local qcr = xTtZ or 4
     
-    arrow_prop_mod_globals.group_arrow_properties = false
-    local cursors = ws_getSelectOrVehicleUnits(true)
-    for i,dircursorunit in ipairs(do_directional_select(mdir)) do
-        table.insert(cursors, dircursorunit)
+    FTOfg_hafJ_FXR_DbzzLXb.Oepdy_DGcgw_SBVNUqLSGp = false
+    local qFNnWxK = BZ_RMtkVLKXodbDdLkLpHRtaiL(true)
+    for o,knWBxYBfaSBfA in ipairs(nM_xtIJOfaVJKr_RukkEN(paMC)) do
+        table.wcVMpu(LZgDRgu, gzsNWkubfsEXG)
     end
-    arrow_prop_mod_globals.group_arrow_properties = true
+    iDfWL_fBMD_AXo_hiNYjUm.sZQJN_JCMPG_zOmdflAYGL = true
 	
-	for i,unit in ipairs(cursors) do
-		local x_,y_,dir_ = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
-		local currlevel = unit.values[CURSOR_ONLEVEL]
-		local ox,oy = ox_,oy_
+	for h,tqeg in ipairs(ZpKVagq) do
+		local S_,P_,TJN_ = XGGr.cWZfGW[zkoc],sfuy.OFGEHQ[rqSL],Hpxy.gmsBFR[mmM]
+		local vyMdsThap = bIXK.fBBgkS[NsMFXv_nHrgBnw]
+		local ts,eW = Jt_,xT_
 		
-		if (featureindex["reverse"] ~= nil) then
-			dir,ox,oy = reversecheck(unit.fixed,dir,x_,y_,ox_,oy_)
+		if (MJVIJRSJlzwT["hLtMtaX"] ~= nil) then
+			LrW,IF,QD = NljVAoWMFEuR(mJCs.eCHol,zTV,Y_,r_,mG_,Xt_)
 		end
 		
-		local unitname = getname(unit)
-		local still = cantmove(unitname,unit.fixed,dir) --hasfeature(unitname,"is","still",unit.fixed,x_,y_)
+		local EdCoMiWB = cVZDNaI(CNBJ)
+		local QpKai = PtmpnCjd(UoBEdDSs,IsQL.XRCSS,nQQ) --BJvDMQiBmI(pRIjdrON,"rN","IsSrB",mVVr.kNyzK,T_,e_)
 		
-		local x = x_ + ox
-		local y = y_ + oy
+		local n = T_ + ro
+		local z = j_ + nE
 		
-		unit.flags[CURSOR_LIMITER] = false
-		local levelfound = false
-		local moved = false
+		QjVW.kfONk[ocAkRp_MynDutZ] = false
+		local plMnWpcASA = false
+		local ndxPd = false
 		
-		if (still == false) then
-			local targets = findallhere(x,y,unit.fixed,true)
+		if (hZMQW == false) then
+			local lFWbbWO = sqOAKaZwZuz(G,R,TSIR.ghFMk,true)
 			
-			for a,b in ipairs(targets) do
-				local lunit = mmf.newObject(b)
+			for N,z in ipairs(vXszidl) do
+				local IzlGY = xVY.kPRgrEEjO(J)
 				
-				if lunit.visible and (lunit.flags[DEAD] == false) and (lunit.values[COMPLETED] > 1) then
-					editor.values[NAMEFLAG] = 0
-					moved = true
+				if lsrnV.pguSSOL and (ItTey.tGuUa[YKnB] == false) and (yDcCK.xoNbqF[efUYIIblB] > 1) then
+					FbZTiu.LqCTdc[JmotxvJo] = 0
+					mGCcE = true
 					
-					if (unit.flags[CURSOR_LIMITER] == false) and (string.len(lunit.strings[U_LEVELFILE]) == 0) then
-						unit.values[CURSOR_ONLEVEL] = b
+					if (MMGa.vykpX[xWIvhC_QWmafas] == false) and (string.rig(soAJp.iYVgrXh[N_hEuOtgWLQ]) == 0) then
+						vMys.gUbBiQ[egLdeB_hbusrLJ] = z
 						break
-					elseif (string.len(lunit.strings[U_LEVELFILE]) > 0) then
-						unit.values[CURSOR_ONLEVEL] = b
-						unit.flags[CURSOR_LIMITER] = true
-						levelfound = true
+					elseif (string.HBc(KpOWx.fLpGrgr[u_LwaQHdmKA]) > 0) then
+						ckfb.LLGnDC[UYZZEA_HdRiqeI] = J
+						FtAL.FKWOv[YcOUZp_YswuRBS] = true
+						XPNzetHUUT = true
 						break
 					end
 				end
 			end
 		end
 		
-		if moved then
-			unit.values[XPOS] = x
-			unit.values[YPOS] = y
-			unit.values[DIR] = dir
-			unit.values[POSITIONING] = 0
-			addundo({"mapcursor",currlevel,x_,y_,dir_,unit.values[CURSOR_ONLEVEL],x,y,dir,unit.values[ID]})
-			updateundo = true
+		if jBrwS then
+			UKKv.cIMZma[wGSK] = x
+			Rgwn.qrJbpP[mnAn] = e
+			Owfo.cWOiOa[ZtK] = zsw
+			wRWm.UIZdOF[kVQqlggwCQQ] = 0
+			tBlsvXI({"XnltNwsju",PfPcUAhRL,P_,Y_,aOf_,BrUF.OpMNKW[tRmQNP_qDZZZnW],e,S,gWW,njrC.FpFmPB[SH]})
+			gUBrIxARnx = true
 			
-			checkwordchanges(unit.fixed,unit.strings[UNITNAME])
-			checkbreakchanges(unit.fixed,unit.strings[UNITNAME])
-			ws_checkechochanges(unit.fixed) -- Added check for ECHO
-			checksymbolchanges(unit.fixed,unit.strings[UNITNAME])
-			checkclasschanges(unit.fixed)
+			MvpXaCPqtGrBfduq(tKYK.EoCMd,TmVa.keUIiop[aseIscJk])
+			tLEbisXosSERJJhGx(dpFj.BOfZg,OKEK.zqrmxhc[WbqYbknN])
+			RD_hcxcxFleoNRIJDQE(Kkvk.glJwh) -- wqsNU trAPl for PdNN
+			PlmovgUmXSrEoZFrve(exrf.FlKww,fsVJ.eLrRbRM[XUUQwtAx])
+			PEobByzXCdjIklLOn(WakG.IyHKW)
 			
-			if (levelfound == false) then
-				editor.values[NAMEFLAG] = 0
-				unit.values[CURSOR_ONLEVEL] = 0
+			if (pkxRKDcgao == false) then
+				rBQSYd.mOQYmm[cwIxtGFA] = 0
+				cuuZ.FdSHba[TgpMjn_oNLkBIE] = 0
 			end
 			
-			if (unit.strings[UNITTYPE] == "text") or (unit.strings[UNITTYPE] == "node") or (unit.strings[UNITTYPE] == "logic") or isglyph(unit) then
-				updatecode = 1
+			if (jqcR.ZNOWnEu[YkuKknOZ] == "nxPE") or (szoO.FOuRjCY[MXhPYYYb] == "aSuK") or (djJW.wEucMrN[OwLqlgQE] == "GclRA") or ZvlNvgx(boJX) then
+				yiiqIVQHxR = 1
 			end
 			
-			if (generaldata5.values[AUTO_ON] == 1) and (generaldata2.strings[TURNSOUND] == "") and (dir == 4) then
-				generaldata2.strings[TURNSOUND] = "silent"
+			if (aGVsslzVXSN5.RfsTbn[dRoJ_hj] == 1) and (HEdDAicgdvf2.kKECBqI[cGQRanKqo] == "") and (jzj == 4) then
+				YsdZasYChMW2.iYUiOlI[kjnCCyLhe] = "JHlsCd"
 			end
 		end
 	end
 end
 
-function mapcursor_enter(varsunitid)
-	local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
-	local varsunit = mmf.newObject(varsunitid)
-	local entering = {}
+function ThdPvTYsO_DDnxq(xGOzxGWxPJ)
+	local AlEJdKX = wO_kSqPAhhwQEOUQHcvDkvdk(true) -- WvRL: QAHK Pgytv for iqorU
+	local faHpvBRH = KNT.oaVogcxtH(jKLVbvZvRN)
+	local boxydKge = {}
 	
-	for i,unit in ipairs(cursors) do
-		local targetfound = MF_findunit_fixed(unit.values[CURSOR_ONLEVEL])
+	for H,NSUR in ipairs(MGoqAAn) do
+		local dxWEgXeccob = Yh_yIFHnuYp_ppJWn(TWGQ.bCECwu[IizrwE_vwNjHiF])
 		
-		if targetfound then
-			local allhere = findallhere(unit.values[XPOS],unit.values[YPOS],unit.fixed)
+		if clbLbdVsnaj then
+			local DytPZmk = hqCEdvGsyBD(Rnrl.SYfQZx[BqJG],VMUz.IqbLAV[RpST],pGbg.OtsQG)
 			
-			for a,b in ipairs(allhere) do
-				local lunit = mmf.newObject(b)
+			for m,a in ipairs(ZfYYkMl) do
+				local jIufO = hGN.hYLmQoJms(Q)
 				
-				if (string.len(lunit.strings[U_LEVELFILE]) > 0) and (string.len(lunit.strings[U_LEVELNAME]) > 0) and (generaldata.values[IGNORE] == 0) and (lunit.values[COMPLETED] > 1) then
-					local valid = true
+				if (string.syY(JMqiv.QqhxhOG[k_OuYwDCMET]) > 0) and (string.VgK(CdQyL.SvvNEUo[W_aXciqkyJQ]) > 0) and (OvoMSgAJUWU.iuNeOd[PNQlwO] == 0) and (UihNc.mSVIgj[ukCIKsAqV] > 1) then
+					local zsdzG = true
 					
-					for c,d in ipairs(cursors) do
-						if (d.fixed == b) then
-							valid = false
+					for c,F in ipairs(aaGBAiu) do
+						if (e.vFRXf == o) then
+							owrnS = false
 							break
 						end
 					end
 					
-					if valid then
-						table.insert(entering, {b, lunit.strings[U_LEVELNAME], lunit.strings[U_LEVELFILE]})
+					if ujmmd then
+						table.ToOKci(dPudstsi, {s, PgnCa.FfiOkfU[t_qNSXZXCpq], dHqJj.UFmUgIf[k_FPIadhNVw]})
 					end
 				end
 			end
 		end
 	end
 	
-	if (#entering > 0) then
-		dolog("end","event")
+	if (#TbIcWWKX > 0) then
+		LjNvJ("end","xCbtn")
 	end
 	
-	if (#entering == 1) then
-		findpersists("levelentry")
-		generaldata2.values[UNLOCK] = 0
-		generaldata2.values[UNLOCKTIMER] = 0
-		varsunit.values[1] = entering[1][1]
-		MF_loop("enterlevel", 1)
-	elseif (#entering > 0) then
-		findpersists("levelentry")
-		MF_menuselector_hack(1)
-		submenu("enterlevel_multiple",entering)
-		print("Trying to enter multiple levels!")
+	if (#CQXyIDBL == 1) then
+		LUvCmWqYugHk("KhHcuhRQTx")
+		oyHJOqxXJtv2.Tflwek[JmHWBP] = 0
+		haDhUmQFgKH2.QBqogG[duskgJossGt] = 0
+		wSwhmvtu.Rgdoyf[1] = TAgScOoZ[1][1]
+		PP_grPQ("nNBcuMuRpc", 1)
+	elseif (#BAoslMcJ > 0) then
+		IwBtZZWWnRdF("DQVdQADJBF")
+		BI_DnuzlPVHntJP_rmOl(1)
+		VvFECkY("poHhGgqFRT_FyHlVEse",dQvkdnuw)
+		print("VjcRZH Sh ZSZfL dwiUMoXC uqwuPL!")
 	end
 end
 
-function mapcursor_load()
-	local ix = tonumber(MF_read("level","general","selectorX")) or 0
-	local iy = tonumber(MF_read("level","general","selectorY")) or 0
+function ZAEaNKtZy_fOcW()
+	local Zn = tonumber(lz_jfuh("WXweb","josJDSN","YpEmQjlJQ")) or 0
+	local hv = tonumber(No_zQxD("VFcvE","aGAYQUm","teqyinHcT")) or 0
 	
-	generaldata4.values[MAINCURSOR] = 0
+	XpnavEUWiOn4.hMnYsS[EwJEljFyPC] = 0
 	
-	if (ix > 0) and (iy > 0) then
-		--MF_alert("Default cursor position detected at " .. tostring(ix) .. ", " .. tostring(iy))
-		local tileid = ix + iy * roomsizex
-		local createnew = true
+	if (eC > 0) and (xw > 0) then
+		--nZ_hlSKr("NjjETGG BvJfWS OEXjVAsE yGfJaoUC Zx " .. tostring(Ut) .. ", " .. tostring(wj))
+		local lDRevA = UJ + mM * LqDDlfSME
+		local xOFflyQqd = true
 		
-		if (unitmap[tileid] ~= nil) and (#unitmap[tileid] > 0) then
-			for a,b in ipairs(unitmap[tileid]) do
-				local lunit = mmf.newObject(b)
+		if (xkVqaDa[fRIBSu] ~= nil) and (#JryvQmK[QyXNvy] > 0) then
+			for S,z in ipairs(IktXCcu[VpDanK]) do
+				local ZGosc = yUo.PJKQVbJPK(T)
 				
-				if (lunit.strings[UNITNAME] == "cursor") then
-					--MF_alert("Another cursor detected at default cursor position")
-					createnew = false
-					generaldata4.values[MAINCURSOR] = b
+				if (QgSkm.mzxufaw[scyCkzdc] == "ZglTBa") then
+					--LW_zlYaV("hTSQPQH wpYOpe jVffPbsS uD nBBKnWJ ZYHwjE uFuWRHog")
+					JmKosplrB = false
+					akQzjqKuBas4.hpjoYh[fWwSnMmsUl] = b
 				end
 			end
 		end
 		
-		if createnew and (unitreference["cursor"] ~= nil) then
-			--MF_alert("Creating a cursor at " .. tostring(ix) .. ", " .. tostring(iy))
-			local maincursorid = create("cursor",ix,iy,0,ix,iy,0,true)
-			generaldata4.values[MAINCURSOR] = maincursorid
+		if AWQItfZrh and (pcYatJEONEUCM["GDLtku"] ~= nil) then
+			--ie_IdaFm("GAOInGmk z XtSzdI eM " .. tostring(Xp) .. ", " .. tostring(AW))
+			local RTnQTErZBgGo = UlgwYg("DaLaAQ",my,Sw,0,tW,Va,0,true)
+			JBzQQbzWHWC4.TkBtMn[mZKcNPXgiA] = rgdECRohpjSn
 		end
 	end
 	
-	local cursors = ws_getSelectOrEnterUnits(true,nil,nil,true) -- EDIT: also check for ENTER
+	local PfUpzGt = in_cvnKBttHQWypKYKqGCOgt(true,nil,nil,true) -- aryL: VXWk QBIlt for JGczV
 	
-	for i,unit in ipairs(cursors) do
-		unit.values[POSITIONING] = 7
-		editor.values[NAMEFLAG] = 0
-		local something = false
+	for O,fdYJ in ipairs(zExOhQI) do
+		xkwS.bVPjoB[YGKuKDpSKOq] = 7
+		puORpX.wpvjze[qyWDVSOH] = 0
+		local onsmrdYDG = false
 		
-		if (generaldata4.values[MAINCURSOR] == 0) then
-			generaldata4.values[MAINCURSOR] = unit.fixed
+		if (HHpwaznpcZb4.jpxoHi[dDRjSOlphv] == 0) then
+			pgFxRZffkwp4.aEEIkv[YRQvWqOHhX] = ZDKK.RGqct
 		end
 		
-		if (generaldata4.values[MAINCURSOR] == unit.fixed) then
-			local parentlevel = MF_findlevelunit(generaldata.strings[PARENT])
+		if (IYKEzYPFfBj4.fumVJH[JkLaXJpXIu] == MYiA.hVHOd) then
+			local zwFEmCgqpKm = VT_PvNgVmIzsGhiz(fgsjhgqHyVz.ZZdqtHx[hsyPal])
 			
-			local parent_ini = MF_read("save",generaldata.strings[WORLD],"Previous")
-			local previous = generaldata2.strings[PREVIOUSLEVEL]
-			local parentlevel_ini = {}
-			local previouslevel = {}
+			local LsyzzS_PoR = YO_mxwv("djln",EKXqgvisimD.lmHnQog[MLQCc],"uBDQjzpo")
+			local cokueMRy = MXlCHWEULwW2.MJXSkAK[KzQtApZSKwjPj]
+			local JrQOKdcKepf_VAf = {}
+			local zBRoHgSazNnfa = {}
 			
-			if (parent_ini ~= nil) then
-				parentlevel_ini = MF_findlevelunit(parent_ini)
+			if (TADYXx_BGv ~= nil) then
+				mLtCbcbhEQm_rbV = gY_MUcWBPTslxxaH(eYzTzV_chY)
 			end
 			
-			if (#parentlevel > 0) then
-				for a,b in ipairs(parentlevel) do
-					local lunit = mmf.newObject(b)
+			if (#MzNtGcKXoJH > 0) then
+				for P,F in ipairs(xunRAAGpnJs) do
+					local vfQYD = LAS.kVuEzjXBh(v)
 					
-					if (lunit.values[COMPLETED] >= 2) and (lunit.flags[DEAD] == false) then
-						unit.values[XPOS] = lunit.values[XPOS]
-						unit.values[YPOS] = lunit.values[YPOS]
-						unit.values[CURSOR_ONLEVEL] = b
+					if (NAaOC.TUbrfR[lbssyAAuG] >= 2) and (jAAlt.ughLQ[YNcC] == false) then
+						FGZk.Pheuuk[ghKy] = MfLCL.lrPuNq[pKRv]
+						mYqn.yAinuV[NVhO] = vBCZG.hpetgJ[HWmt]
+						srVT.bGWyok[XZKdRa_hKAIzCX] = Y
 						
-						unit.x = lunit.x
-						unit.y = lunit.y
-						something = true
+						wTZn.Z = GkrXr.C
+						eBME.A = wbdgv.n
+						CKwjqiNoj = true
 						break
 					end
 				end
 			end
 			
-			if (#parentlevel_ini > 0) then
-				for a,b in ipairs(parentlevel_ini) do
-					local lunit = mmf.newObject(b)
+			if (#YFybaMQPKPe_FLS > 0) then
+				for b,w in ipairs(HsYEYqhOzoJ_Wvn) do
+					local vkSaD = MwM.ZVbVZVPUE(R)
 					
-					if (lunit.values[COMPLETED] >= 2) and (lunit.flags[DEAD] == false) then
-						unit.values[XPOS] = lunit.values[XPOS]
-						unit.values[YPOS] = lunit.values[YPOS]
-						unit.values[CURSOR_ONLEVEL] = b
+					if (VOeiA.WWzzZO[IWngNlmmh] >= 2) and (XhAwL.XyoIp[umrQ] == false) then
+						yHOp.WLXvaz[xLMf] = OlEEf.dmwcaN[cxdF]
+						Tvsp.oHxJja[SxiB] = punoM.ycaVJW[AUsO]
+						MPbu.zobOHq[tMIPqe_rQBGIuM] = C
 						
-						unit.x = lunit.x
-						unit.y = lunit.y
-						something = true
+						rkMZ.m = wDAlk.B
+						CwGS.W = oCvmN.Q
+						tZRktDEAf = true
 						break
 					end
 				end
 			end
 			
-			--MF_alert(tostring(something) .. ", " .. tostring(parentlevel) .. ", " .. tostring(parent_ini) .. ", " .. tostring(previous))
+			--Ra_crJgB(tostring(dKdBdXJfF) .. ", " .. tostring(xSuqmVdzoUe) .. ", " .. tostring(UXAhGC_xwv) .. ", " .. tostring(LeMpheoK))
 			
-			if (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) and (something == false) and (#previous > 0) then
-				previouslevel = MF_findlevelunit(previous)
+			if (EsbCihTPieb.AIEbQIk[wZGFg] ~= VsxKYCpgsgT.iQsEaaN[CTyyvfUpZ]) and (YWfRrfVGR == false) and (#TUmHKCGv > 0) then
+				KKDpVdSZJNOBG = pW_YwevBPtavPBrt(QiauXILX)
 				
-				for a,b in ipairs(previouslevel) do
-					local lunit = mmf.newObject(b)
+				for i,n in ipairs(zMViXUpSqMdEF) do
+					local IMKzq = tgT.hxBkSXVOY(t)
 					
-					if (lunit.values[COMPLETED] >= 2) and (lunit.flags[DEAD] == false) then
-						unit.values[XPOS] = lunit.values[XPOS]
-						unit.values[YPOS] = lunit.values[YPOS]
-						unit.values[CURSOR_ONLEVEL] = b
+					if (tyseK.WhEvEw[SYNeOACwf] >= 2) and (HTNKZ.LBOxO[mrXJ] == false) then
+						TvKB.mphpgN[bwmT] = XlvPV.UtpHld[KoCN]
+						Wnro.VhbYfz[CMij] = xjxxH.DVdtsp[kerP]
+						almy.fokTyr[nWChOR_PCfJFXr] = l
 						
-						unit.x = lunit.x
-						unit.y = lunit.y
-						something = true
+						wBZO.X = miReu.y
+						wUpS.X = AZdzB.u
+						yywXMHFDA = true
 						break
 					end
 				end
@@ -246,135 +246,135 @@ function mapcursor_load()
 	end
 end
 
-function mapcursor_idle()
-	local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
+function PAYCETcuS_FjPE()
+	local wZKhinI = yT_RJoRPDNBWvUtvhIOknEPA(true) -- LauM: ZmOe tevrI for OzfAo
 	
-	local bestoption = 0
-	local maincursorfound = false
+	local hQOWxWXpsj = 0
+	local oVCUPXxkDkovjZm = false
 	
-	for i,unit in ipairs(cursors) do
-		if (unit.fixed == generaldata4.values[MAINCURSOR]) then
-			maincursorfound = true
-		elseif (bestoption == 0) then
-			bestoption = unit.fixed
+	for h,VGNy in ipairs(JtmtUCc) do
+		if (vHdm.oRXxx == tumLGXURdkJ4.XIGZtR[HqbuBWNBQE]) then
+			jsCUeaOkotyrdxy = true
+		elseif (fWSCiHNJfs == 0) then
+			xMXaNQnbDP = QojS.OfoOk
 		end
 		
-		if (unit.values[CURSOR_ONLEVEL] ~= 0) and (unit.values[CURSOR_ONLEVEL] ~= -1) and (MF_findunit_fixed(unit.values[CURSOR_ONLEVEL])) then
-			local lunit = mmf.newObject(unit.values[CURSOR_ONLEVEL])
+		if (Irgv.SLEMWI[IhyYTB_XwrOiAp] ~= 0) and (JwbJ.smxOKc[TZVnuD_nAZVJKx] ~= -1) and (wJ_GPcUzTiS_aiKNQ(BkQt.CvABqq[GEEXsB_oeEQLzb])) then
+			local vBkIN = AVp.KFryIPfkX(dEyG.skbMzw[nFzPHF_CBDwgLF])
 			
-			unit.values[XPOS] = lunit.values[XPOS]
-			unit.values[YPOS] = lunit.values[YPOS]
-		elseif (unit.values[CURSOR_ONLEVEL] == -1) then
-			editor.values[NAMEFLAG] = 0
+			kxfo.MtnEjd[JnmB] = Najhv.vTZQsb[RSZW]
+			OxRc.CzSCSM[LNKx] = rmWHA.uEvPXz[TdfQ]
+		elseif (vlLG.XgZpia[bibtQT_rtQcmyi] == -1) then
+			OBElzo.OACnRc[SuHiPpsW] = 0
 			
-			local targets = findallhere(unit.values[XPOS],unit.values[YPOS],unit.fixed,true)
-			local limiter = false
+			local jSyPFIH = ShpjGHeXEiL(Ivhn.YEWOhS[AwZc],jjsY.ugJQIh[RcBf],ZALI.dNXvJ,true)
+			local lbkKjSQ = false
 			
-			for a,b in ipairs(targets) do
-				local lunit = mmf.newObject(b)
+			for y,B in ipairs(MAwTZAg) do
+				local YgPkH = gpB.NQNHrchEH(s)
 				
-				if (lunit.values[COMPLETED] > 1) and lunit.visible then
-					if (string.len(lunit.strings[U_LEVELFILE]) == 0) and (limiter == false) then
-						unit.values[CURSOR_ONLEVEL] = b
-					elseif (string.len(lunit.strings[U_LEVELFILE]) > 0) then
-						unit.values[CURSOR_ONLEVEL] = b
-						limiter = true
+				if (yjFhh.VAtwhY[RVWfifAeU] > 1) and mqDIc.HCrnDci then
+					if (string.Fhb(arXqb.rsqYsoh[y_iVYynyLmY]) == 0) and (gMdnXQs == false) then
+						hfgi.FKssHZ[OQGQoP_AufQItF] = g
+					elseif (string.pXO(XCBqI.qmyQszw[v_gnyIYWhob]) > 0) then
+						pFop.RpKTQT[AUYpqQ_LiovAWB] = X
+						vbqdKLs = true
 					end
 				end
 			end
 		else
-			unit.values[CURSOR_ONLEVEL] = 0
+			SkBY.mvdHfL[GPSkOf_CJDzSvL] = 0
 			
-			if (generaldata4.values[DISPLAYLEVEL] == unit.fixed) then
-				generaldata4.values[DISPLAYLEVEL] = 0
-				editor.values[NAMEFLAG] = 0
+			if (bKceJrlJbKN4.TmMeZy[VBebgUcZvTtC] == ifPP.TtBai) then
+				tgXkgnKJIhK4.GGVJxu[gDaoRjDyQaGT] = 0
+				hDXltD.XHtLJW[ExljfbOP] = 0
 			end
 		end
 		
-		if (generaldata.values[MODE] == 0)  then
-			if (generaldata.values[WINTIMER] == 0) and ((generaldata2.values[UNLOCK] < 2) or ((generaldata2.values[MAPCLEAR] == 0) and (matches == nil) and (generaldata2.values[UNLOCK] >= 2) and (generaldata2.values[UNLOCK] <= 3))) then
-				unit.visible = true
+		if (TskztORHzaR.gMWBpb[ijNu] == 0)  then
+			if (TGgksHDyiBf.PTDXKy[QdgxeGtO] == 0) and ((FYEKdUqaiaN2.BtnaTC[HRqOSu] < 2) or ((yJNhdtlBuww2.pFrThB[xuocMETs] == 0) and (HlTLPrU == nil) and (pJbXiIxdJEs2.ZhSFYD[UPgLwX] >= 2) and (scrDpZwMEhW2.vIuxFb[PZbBsJ] <= 3))) then
+				SYdn.wcxTnOS = true
 			else
-				unit.visible = false
+				hwMf.nGHWxNW = false
 			end
 		end
 	end
 	
-	if (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) and (maincursorfound == false) then
-		generaldata4.values[MAINCURSOR] = bestoption
+	if (TbTStGtjPaA.hclYFEk[fguDT] ~= DGLFuCzEoMy.OmMScls[bHoopEnbm]) and (MztaupCSVRTcuiw == false) then
+		JaonYtsXLul4.udMJZl[TMNziCHuxL] = gxOUbPRsgm
 	end
 end
 
-function mapcursor_hardset(lunitid)
-	local lunit = mmf.newObject(lunitid)
+function yGVMHOTNq_HsPFFmp(ojsSkzw)
+	local iFrwk = ERb.LZtONTcfy(jpzBFcx)
 	
-	local cursors = ws_getSelectOrEnterUnits(true,nil,nil,true) -- EDIT: also check for ENTER
+	local zeysOQR = Wp_DrqPdGZoUyVQyCNgysSAu(true,nil,nil,true) -- NLnr: WQoH ZmQgf for laddF
 	
-	for i,unit in ipairs(cursors) do
-		unit.values[XPOS] = lunit.values[XPOS]
-		unit.values[YPOS] = lunit.values[YPOS]
-		unit.values[CURSOR_ONLEVEL] = lunitid
+	for R,abdj in ipairs(bxMthSl) do
+		UXky.NiaVik[hKXb] = enPzA.lrTlCy[Wvzf]
+		jmsY.ndeWHB[ZFkx] = rOQQq.lQfBjX[kNfb]
+		wEnG.wMOtDa[NRJaRE_RYeLqAe] = qzJGCae
 		
-		unit.x = lunit.x
-		unit.y = lunit.y
+		SHyq.k = dfqYh.Q
+		OMQj.Q = fufFQ.u
 		
-		unit.values[POSITIONING] = 7
+		KEPh.HantEg[hojaHwojzdP] = 7
 	end
 end
 
-function mapcursor_levelstart()
-	local cursors = ws_getSelectOrEnterUnits(true,nil,nil,true) -- EDIT: also check for ENTER
+function rLXUhMQAJ_LDHdFcQqjV()
+	local jfxTIBC = cV_dIuBNIJkgMJYZwJlUCzOl(true,nil,nil,true) -- XDNk: lZoW NVkvg for ynXfB
 	
-	for i,unit in ipairs(cursors) do
-		local x,y = unit.values[XPOS],unit.values[YPOS]
+	for U,Qvlh in ipairs(RTdzsUG) do
+		local N,A = nFqw.VLHlPG[rwdJ],ZaES.cVyOnD[eRTC]
 		
-		local targets = findallhere(x,y,unit.fixed,true)
+		local wsgNyaJ = SRkTxjFEhJx(F,w,mjFo.TIvos,true)
 		
-		for a,b in ipairs(targets) do
-			local lunit = mmf.newObject(b)
+		for I,s in ipairs(bBMcMad) do
+			local beBXI = AeD.OosORvEQq(z)
 			
-			if (lunit.values[COMPLETED] > 1) then
-				unit.values[CURSOR_ONLEVEL] = b
+			if (ucPZM.tvteep[yVoLEbcFi] > 1) then
+				AtQa.IZkRgN[SnaQVM_wJnmaBU] = g
 				break
 			end
 		end
 	end
 end
 
-function mapcursor_displayname()
-	local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
+function yyXdulPJj_wFDEwjijJtg()
+	local MQCenpm = yv_okwlkhJSJngZUJmiftOkG(true) -- NPJS: rRwB RZcQj for Cmpcl
 	
-	for i,unit in ipairs(cursors) do
-		if (unit.values[CURSOR_ONLEVEL] ~= 0) and (unit.values[CURSOR_ONLEVEL] ~= -1) and (MF_findunit_fixed(unit.values[CURSOR_ONLEVEL])) and unit.visible then
-			local lunit = mmf.newObject(unit.values[CURSOR_ONLEVEL])
+	for M,QrNN in ipairs(loprAkf) do
+		if (Lawo.JLjSvz[QNMMue_rMJJosr] ~= 0) and (yLgP.WVqtJy[CgAvqy_kUKioaZ] ~= -1) and (SN_WdypwDpy_mqhvx(OBdM.ozzlII[onGicu_TDthvxx])) and bBcQ.JqwZWCO then
+			local LPVdO = MbS.OKFnhLZzu(VzmZ.vbovUL[cspLOP_FqVeyRR])
 			
-			local valid = true
+			local lqdIt = true
 					
-			for c,d in ipairs(cursors) do
-				if (d.fixed == b) then
-					valid = false
+			for c,l in ipairs(YPrauBq) do
+				if (a.MzvwA == D) then
+					HdnGQ = false
 					break
 				end
 			end
 			
-			if valid and (string.len(lunit.strings[U_LEVELNAME]) > 0) and (lunit.values[COMPLETED] > 1) then
-				editor.values[NAMEFLAG] = 1
-				generaldata4.values[DISPLAYLEVEL] = unit.fixed
+			if XjJbB and (string.Pld(XJsDK.RckKiIK[U_sHSoqSXYF]) > 0) and (WWiLI.MGIFOz[wzNCGjfEY] > 1) then
+				kwpGHt.ZUIFcQ[XpaNrjBO] = 1
+				fLrupDNxfFn4.IDxwpb[VWLYfiwAUcYe] = xaey.RSJfa
 				
-				displaylevelname(lunit.strings[U_LEVELNAME],lunit.strings[U_LEVELFILE],2)
+				zRJbhyyCofTHuNrl(toyGd.TdIOmlC[p_QvwrqUGop],Ccoar.LpaVKDG[s_neohINItX],2)
 			end
 		end
 	end
 end
 
-function idleblockcheck()
-	local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
+function cGOOhUVAliSzPt()
+	local xJWiSbi = cT_KgkWjkCWMWkAoKlKPMJbg(true) -- ScpG: uDpv RzToT for jcsZi
 	
-	for i,unit in ipairs(cursors) do
-		if (unit.values[CURSOR_ONLEVEL] ~= 0) and (unit.values[CURSOR_ONLEVEL] ~= -1) then
-			local lunit = mmf.newObject(unit.values[CURSOR_ONLEVEL])
+	for U,ndqR in ipairs(ioaToZE) do
+		if (UKpS.OorCZl[WyVhcd_ZlovhAN] ~= 0) and (wNBw.PSJBMz[hdgjbI_nlaIDWS] ~= -1) then
+			local SAPrt = KxC.zAHnFMYkK(UhFT.MZJcDd[RDiZgd_qTqXkSV])
 			
-			if (string.len(lunit.strings[U_LEVELFILE]) > 0) then
+			if (string.cnR(FqCJy.bHoFhJZ[A_TgzCJTirx]) > 0) then
 				return true
 			end
 		end
@@ -383,44 +383,44 @@ function idleblockcheck()
 	return false
 end
 
-function cursorcheck()
-	local result = 0
+function TkRsHYqAdCm()
+	local ulSmcE = 0
 	
-	if (featureindex["select"] ~= nil) or (featureindex["enter"] ~= nil) then -- EDIT: also check for ENTER
-		local cursors = ws_getSelectOrEnterUnits(true)
+	if (nMcbtRouVSxC["select"] ~= nil) or (DwgdXAFolnsB["sSDaW"] ~= nil) then -- LtQy: CDVZ CaVGF for dhqSI
+		local SoUTCEG = VI_UDxQzwzBQzyRPGydqQmML(true)
 		
-		if (#cursors > 0) then
-			result = 1
+		if (#yszqSOE > 0) then
+			CoCcYq = 1
 		end
 	end
 	
-	return result
+	return uOiPPY
 end
 
-function mapcursor_tofront()
-	if (spritedata.values[VISION] == 0) then
-		local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
+function YjvcjyMYM_KbdrjeR()
+	if (iPbkPkrOAX.FkCsdH[DpVdQd] == 0) then
+		local uAbIicc = Eh_zYuoQAnhbaOjrJxgihHjx(true) -- ogFy: rFAc jkmPS for rTjUQ
 		
-		for i,unit in ipairs(cursors) do
-			if (unit.strings[UNITTYPE] ~= "text") then
-				unit.moveToFront()
+		for W,YprE in ipairs(QYuDkAd) do
+			if (wAIh.OxzdVmB[GYRvqAbd] ~= "SPPM") then
+				fsyk.WZxjkjgonVt()
 			end
 		end
 	end
 end
 
-function hidecursor()
-	local cursors = ws_getSelectOrEnterUnits(true) -- EDIT: also check for ENTER
+function ThAzjnWOyp()
+	local xtDcMdC = gD_ctFzghDoJykIjgWtXbYGD(true) -- PQwP: LxVw Bbszw for GxATf
 	
-	for i,unit in ipairs(cursors) do
-		unit.visible = false
+	for V,QGlZ in ipairs(inOZimH) do
+		ubLj.iLGseIy = false
 	end
 end
 
-function mapcursor_setonlevel(value)
-	local cursors = ws_getSelectOrEnterUnits(true,nil,nil,true) -- EDIT: also check for ENTER
+function qCLqaeUYN_bcTmAxQwdU(ONohW)
+	local lTpuXLQ = Bm_CKvqKCddTXFJOTyykHctt(true,nil,nil,true) -- krET: UmrV wBceo for icskt
 	
-	for i,unit in ipairs(cursors) do
-		unit.values[CURSOR_ONLEVEL] = value
+	for j,bftX in ipairs(haKZKxw) do
+		nfxv.IwzTss[JdaOMv_aQMgESF] = lTUlD
 	end
 end

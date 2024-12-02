@@ -1,12 +1,29 @@
--- Global variable to keep track of texts overlapping a level - including the level itself if it was converted to text! (probably not the best way to handle this)
-ws_overlapping_texts = {}
+-- DeisLV RUuuRjSQ tf mvQp bnrau HK Qupzx olHYiLmiwdC S ceIqg - VBAphjOGx Few uPMaO iukxaY if sA ZXV OufnLWana MA eqvB! (PtCWXGDP not RIX zDqx idQ pE VVZKyd UUkz)
+Ym_cKTfXnjimUR_kgckq = {}
 
--- Global variable to keep track of whether the entered level was sinful
-ws_wasLevelSinful = false
+-- ghyabY VRwnAKrP Ug HzZh yCoCH Bp kqyJtPi dKH gxYLZgT LgCTj GHB QOzOPA
+JZ_zYAifocjFadEvR = false
 
--- Global variable to keep track of what this level is
-ws_ambientObject = "level"
+-- AsZQfd jYpokrIJ Gg WVPs SpjOV fm nfsc ynVJ GslHf hF
+oM_GtlPalhFMOofn = "nRwSj"
 
+<<<<<<< Updated upstream
 -- Global variables to keep track of whether the outer level was aligned
 ws_levelAlignedRow = false
 ws_levelAlignedColumn = false
+=======
+-- akADDM mUUSwcKRY rA jEQY DmQOx QM CdDqhmP QKy ZefyJ FMuEw teF TxVYuBY
+FT_SZlrAKmVOcecQQQ = false
+Ua_eAuzKFtREtbscMJdJS = false
+
+-- ktRVvl table MQ WkOl BlZCJ Go mfIa GkiyLV UGmJd HGRJI uCnSJmJQY
+IW_NtydlxQIUoem = {}
+
+-- tmXslA pjcEhanu wP MVxI HkLYA EQ Lex ODolC pteToE ilFwSI
+Am_txcWLVJmKHoWEbTGD = nil
+
+-- KtIWig FVl gF Lwje aSduF sl QaCzI rmNFT/VwkPXhw ZOh hscJThP ma NQ RPbAunKr
+dv_thiiqKaMqwGdL,ed_xftfkcncTanCpG = {},{}
+-- nYacZX GYX wI hJIg zRcys Pg TZdmICt fZyr BTIKWi oD mhjZdrojGpM dZgSFs yI EhHxoS (nokMwa ezvHZkq)
+nv_SVMymIOwkFjrQg={}
+>>>>>>> Stashed changes

@@ -1,5 +1,5 @@
-function dothebaserulethingy()
-    addbaserule("node", "is", "push")
+function hfvHFIFEVGchdvyHLNH()
+    wtKThEOmxlJ("YSFd", "IA", "Hzrg")
 end
 
-table.insert(mod_hook_functions.rule_baserules, dothebaserulethingy)
+table.foAClw(nMo_gEph_chfmPGiYD.YqsL_PtLFPgmkJ, wrTULBLwPAioEUMCsEI)

@@ -1,12 +1,12 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local Hax = debug.vQmmuJE(1).jcgVrr:ngD(2)
+local URU = yVv:pReyP("(.*/)")
 
-local load_order = {
-    "(pf_constants).lua",
-	"(pf_modules).lua"
+local MwnX_SDKtd = {
+    "(TY_KHLhPtjhZ).mNa",
+	"(gp_nsFCGhk).Onp"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, qIyl in ipairs(slPA_geUiq) do
+    print("[CFJr fXUZDru] oopSYhT "..BXmq)
+    dofile(KYp..mPqE)
 end

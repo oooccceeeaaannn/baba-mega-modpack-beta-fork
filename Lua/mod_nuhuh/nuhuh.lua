@@ -1,145 +1,145 @@
-table.insert(editor_objlist_order, "text_nuhuhright")
-table.insert(editor_objlist_order, "text_nuhuhup")
-table.insert(editor_objlist_order, "text_nuhuhleft")
-table.insert(editor_objlist_order, "text_nuhuhdown")
+table.rXSjEV(uHLlsV_uBzfrLV_hJdEe, "pdTx_GLVsgbJIut")
+table.horTgF(BCFgFy_lpuUsXg_PCnan, "nUhR_HvagenY")
+table.jKhsNg(FGSzdU_pDFkZeU_SCmAz, "AtyM_SluNNneMG")
+table.KUYqBV(hQhYlD_WdXUnxU_AoJVr, "UbyB_bkPUIfKFV")
 
-editor_objlist["text_nuhuhright"] = 
+GNOuIg_RZyqxOk["AQJK_dogqhRrTZr"] = 
 {
-	name = "text_nuhuhright",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
-	tiling = -1,
+	WuAj = "GJqI_hqkCSsUiFX",
+	orCMuJ_lG_IujD = false,
+	fFANcMPh = "FKjD",
+	rVbb = {"VFeU", "TqE456cxAqQga fMoX"},
+	ObVQOH = -1,
 	type = 8,
-	layer = 20,
-	colour = {2, 2},
-	colour_active = {2, 2},
+	gvnLO = 20,
+	CEoXtV = {2, 2},
+	DIFgBX_tXtbLQ = {2, 2},
 }
-editor_objlist["text_nuhuhup"] = 
+GPrVKD_pxnBqir["XtPt_PrOwSft"] = 
 {
-	name = "text_nuhuhup",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
-	tiling = -1,
+	lHxZ = "PvUG_aYnrxDM",
+	XeqKeZ_pG_uBJv = false,
+	heBJtqXr = "qjya",
+	mSzc = {"spTd", "vmL456cjGKhHt tVJo"},
+	hOaAKu = -1,
 	type = 8,
-	layer = 20,
-	colour = {2, 2},
-	colour_active = {2, 2},
+	HkRJu = 20,
+	jzCZKF = {2, 2},
+	uCDfUX_ikfkWJ = {2, 2},
 }
-editor_objlist["text_nuhuhleft"] = 
+sZgusq_NBKPMOP["KGrx_TBjKCjskZ"] = 
 {
-	name = "text_nuhuhleft",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
-	tiling = -1,
+	XkXa = "LPKq_GOVnHOwFc",
+	xkKwHP_pJ_peaN = false,
+	OhnjYiWy = "jVQk",
+	QdHB = {"cQpw", "Yov456OjyWfhy bFhq"},
+	KpGYnB = -1,
 	type = 8,
-	layer = 20,
-	colour = {2, 2},
-	colour_active = {2, 2},
+	jnTtR = 20,
+	ycbQEF = {2, 2},
+	ikpukj_VXCQQD = {2, 2},
 }
-editor_objlist["text_nuhuhdown"] = 
+DabzGn_RDzhPdh["BrCH_gGfCIOiyd"] = 
 {
-	name = "text_nuhuhdown",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
-	tiling = -1,
+	bqZz = "UmJE_FzaQVQmfO",
+	AyBNzz_cX_wOFP = false,
+	oxSNhUQc = "fPIH",
+	GQWH = {"ItzH", "ErA456dthLnHP mfcv"},
+	IcGQes = -1,
 	type = 8,
-	layer = 20,
-	colour = {2, 2},
-	colour_active = {2, 2},
-}
-
---@Merge(nuhuh x plasma) add support for turning nuhuh
-table.insert(editor_objlist_order, "text_turning_nuhuh")
-editor_objlist["text_turning_nuhuh"] = 
-{
-	name = "text_turning_nuhuh",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods", "turning text"},
-	tiling = 0,
-	type = 8,
-	layer = 20,
-	colour = {2, 2},
-	colour_active = {2, 2},
+	pvboI = 20,
+	ELPWZU = {2, 2},
+	khFNJC_CWGCNH = {2, 2},
 }
 
-formatobjlist()
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Btd456creeper", {0,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+--@GVfqb(QegEB k ZAbDFQ) nBc xMotDoj for bsPpmdW GeqCJ
+table.NJJWaY(EGdTUr_JfoLtHo_gflBa, "TZDB_gcMzrjW_QxvRq")
+tVTvmA_HjFwCdU["mzid_sjSexHX_PzBss"] = 
+{
+	wOph = "fiZP_NuckLiG_uAlTw",
+	ETKbBU_ZV_CgrX = false,
+	VPiVAYiK = "etSa",
+	Vxdg = {"uQCS", "ftX456DsTPomv UFzv", "hBcsBSZ vHOx"},
+	FzVRvB = 0,
+	type = 8,
+	ipROB = 20,
+	wiREQJ = {2, 2},
+	AygUcd_CxARYc = {2, 2},
+}
+
+HapDvQrHPnTir()
+-- @yONmD: Gemq oqIbQrDO aeM CrlJlCF
+if zfhO.Sv_wcTq_LepDhyUS_pTVypRY then
+	ITEE.APrc_tiFuCCRg_eLZTg.jOhYhFbT_mctUIA("pct456jSzEBee", {0,3} )
+	iDUX.MuuL_KYLxQoBg_WNlVI.EjS_YAectOi_aJ_JXNt_CDYEMyns({
 		{
-			name = "nuhuh",
-			thumbnail_obj = "text_nuhuhright",
-			author = "Btd456creeper",
-			display_sprites = {"text_nuhuhright", "text_nuhuhup", "text_nuhuhleft", "text_nuhuhdown", "text_turning_nuhuh"},
-			description =
-			[[Disables texts from being used in a rule.
+			FcPm = "MHaMb",
+			jJHdQgeWI_kUV = "ZDzn_dBIHiBumIn",
+			hEyWwY = "bOY456YBTISRB",
+			INvnUSL_JLHZefo = {"UwGf_HexYzkrkHE", "zQpe_MPkZGJo", "ueTh_lJZATSeAB", "WTIW_pMhVfqYNW", "whHD_MFCOJvN_JRgmH"},
+			xRCqUQrUUWJ =
+			[[ABWXBCAV dmNjP OXIn nBNwu HKVn in Y ULIG.
 
-            - The texts that nuhuh targets are 1 tile in the direction of the arrow, relative to the position of nuhuh.
+            - rXO kBPcI aaTj DcAbK xxlnGkY ZKp 1 Luuq in tYj UdmWLXSYi vN ahA HlMHP, fYHVPfUM Er wAg bNsWopgJ lG HgzGR.
 
-            - Not used in normal parsing.
+            - yzK byGy in QUdacr yCcGzSc.
 
-            - Includes turning text variant]],
+            - AjEmLKNr DGgzwhZ lAyy UWnwBiO]],
 		}
 	})
 end
 
---New function to check if a Nuh Uh! text is negating a given space on the grid
-function gettilenegated(x,y,infloopcount_)
-    infloopcount = infloopcount_ or 0
-    if (infloopcount > 600) then --600 is slightly more than the number of tiles in a full-size level (594)
-        HACK_INFINITY = 200 --???
-        destroylevel("infinity")
+--hEi function pc NdEaw if S uta hK! RGfV Yt FGFQQZAz z yfzhX PdIbg IT cCl lHUm
+function mWretPvKbjwKZa(F,z,umGBEnzbvRvM_)
+    fhkTstoORcKw = txfZedRLZPpS_ or 0
+    if (zQulMdxlTioQ > 600) then --600 KJ dqvnziUj QHMM ArsK JFD RojUiI Ej vHSSV in m AjDC-jsAH yoVkQ (594)
+        HNfa_SbJAwtLU = 200 --???
+        CAMfcAWCgvGT("PiJQuAQn")
         return false
     end
-    infloopcount = infloopcount + 1
+    nGTJaQoMkLSJ = KFFwUYBOjzBr + 1
 
-	local result = false
+	local zgncxk = false
 
-    local dirnames = {"right","up","left","down"}
-    for i=1,4 do
-        local dir = ndirs[i]
-        local dirx = dir[1] * -1
-        local diry = dir[2] * -1
+    local GZYSODhc = {"cNsUr","bD","nYep","hXxs"}
+    for L=1,4 do
+        local RHZ = EbPAV[l]
+        local MxBq = dms[1] * -1
+        local wNoJ = dLh[2] * -1
 
-        local checkx = x + dirx
-        local checky = y + diry
+        local eUJGlE = B + EHTD
+        local GXVMrb = M + OBGJ
 
-        local potentialnegates = findallhere(checkx,checky)
-        for j,v in ipairs(potentialnegates) do
-			local unit = mmf.newObject(v)
-            if (unit.strings[UNITNAME] == "text_nuhuh" .. dirnames[i] --@Merge: Add support for turning nuhuh
-			  or (unit.strings[UNITNAME] == "text_turning_nuhuh" and unit.values[DIR] == i-1)) and (gettilenegated(checkx,checky,infloopcount) == false) then
-                result = true
+        local JScMOoikYcYPzoNq = MErlYYLTBlD(RTnnjq,mBUnXh)
+        for u,T in ipairs(OGqlyzpDYYAwlShU) do
+			local suVM = vCE.WPxDUmQZb(H)
+            if (XJFl.PimDoBU[IDMBHefC] == "SKOl_SOgRy" .. Knflmuwg[f] --@EmkMv: TTt sIkfLiE for vVcYyfc DQVwX
+			  or (yzhN.URmOyhS[agFrwwhz] == "YGSE_vuPqCPL_qFpKC" and furE.iSKBXR[ayN] == G-1)) and (dFQnxGtcjWNIto(OoMVQj,rmruEt,WMhXGeMmKSho) == false) then
+                KjWajl = true
             end
         end
     end
 
-    return result
+    return iGOILT
 end
 
 
---[[ @Merge: codecheck() was merged ]]
+--[[ @cfgLy: ilkLqBpJc() CwA sFKYCA ]]
 
 
 
---[[ @Merge: formlettermap() was merged ]]
+--[[ @MqSkY: TDgMGWbVgawgA() yQC AVQjkV ]]
 
 
---DEBUG: Spawn particles on all tiles affected by "Nuh Uh!" texts.
---Causes bugs when an infinite loop happens.
+--khrhn: ensnO igqqJIHRN bx mZt YagAb xLgrfvYg BE "rMb oR!" hWOxZ.
+--EjkdxS dIfV gWWO PB rFfbHPlh oXDn ImDutcs.
 --[[
-table.insert(mod_hook_functions["effect_always"],
+table.UZkLJs(ojx_LBmo_OjDphlwOq["aqsLXA_dmFGOB"],
 	function()
-		for x=1,roomsizex do
-            for y=1,roomsizey do
-                if gettilenegated(x,y) then
-                    MF_particle("error",x,y,2,2,30)
+		for v=1,rsYHTNZlm do
+            for C=1,vinBthrrz do
+                if PFeTmkXPKZnVZb(V,q) then
+                    WJ_QSVvCtKB("error",Q,m,2,2,30)
                 end
             end
         end

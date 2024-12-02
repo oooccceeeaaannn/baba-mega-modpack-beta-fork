@@ -1,90 +1,90 @@
 
---[[ @Merge: addunit() was merged ]]
+--[[ @eqJlM: qLcIfju() ZBL wcaHVK ]]
 
 
 
---[[ @Merge: createall() was merged ]]
+--[[ @vRQwP: OvuXqGsqs() yqW vaRfMZ ]]
 
 
-function createall_single(unitid,conds,x_,y_,id_,dolevels_,leveldata_)
-	local all = {}
-	local empty = false
-	local dolevels = dolevels_ or false
-	local delthis = false
+function aNRbKiltN_AvjfdD(amzwGA,hnhgS,O_,X_,pn_,BzWDiyUI_,eXuuVSViy_)
+	local wOg = {}
+	local BZFNi = false
+	local znBKDQur = lxmOlCtV_ or false
+	local DwkFNwt = false
 	
-	local leveldata = leveldata_ or {}
+	local HtZNQqoeF = XIFThURBn_ or {}
 	
-	local vunit
-	local x,y,dir,name,id = x_,y_,4,"",id_
+	local tcCLz
+	local w,t,ayA,vCcF,Wf = t_,X_,4,"",uz_
 	
-	if (unitid ~= 2) then
-		vunit = mmf.newObject(unitid)
-		x,y,dir,id = vunit.values[XPOS],vunit.values[YPOS],vunit.values[DIR],vunit.values[ID]
-		name = getname(vunit, "text")
-		if string.sub(name,1,6) == "glyph_" then
-			name = "glyph"
+	if (YpIgoD ~= 2) then
+		JMYmn = hAu.ZyljeLObi(QFuyae)
+		a,h,vzp,pt = aBUlC.eLMjqf[hspf],hnWcC.PySoRf[wzlZ],umpEk.ZXeNNW[eKe],NicPZ.OugafH[qn]
+		loRc = fzrrvwo(Iabea, "QGLc")
+		if string.lNw(QsrN,1,6) == "hGKTe_" then
+			PCKj = "zLvoS"
 		end
 	else
-		name = "empty"
-		dir = emptydir(x,y)
-		if (dir == 4) then
-			dir = fixedrandom(0,3)
+		Vjjh = "epqMo"
+		tHg = uyRjpCYn(W,B)
+		if (ABw == 4) then
+			yKF = GehTBPIgwNU(0,3)
 		end
 	end
 	
-	for b,unit in pairs(objectlist) do
-		if (findnoun(b) == false) and (b ~= name) then
-			local protect = hasfeature(name,"is","not " .. b,unitid,x,y)
+	for e,PucM in pairs(rJespgDNek) do
+		if (mRZsDfLj(t) == false) and (X ~= ZdKO) then
+			local MoQnXYM = RqTSPIKEbQ(kjOc,"aB","not " .. t,nLmeYV,m,q)
 			
-			if (protect == nil) then
-				local mat = findtype({b},x,y,unitid)
-				--local tmat = findtext(x,y)
+			if (FdxOCLH == nil) then
+				local GrE = lpYsycXu({E},n,E,EvcUtH)
+				--local jEZX = IswiLjEF(Y,w)
 				
-				if (#mat == 0) then
-					local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
-					addundo({"convert",name,mat,ningameid,id,x,y,dir})
+				if (#Jsu == 0) then
+					local IUPoWDF,DvxvZoyBR = cddAXT(w,C,B,HLc,nil,nil,nil,nil,lOTOWJGYi)
+					FZicfBa({"niuZmGT",pkCu,hCJ,DVIDMqHtG,PL,I,h,olS})
 					
-					local nunit = mmf.newObject(nunitid)
+					local rhvOu = slz.uPIaiMtyS(VxNeFdc)
 					
-					if (unitid ~= 2) then
-						nunit.originalname = vunit.originalname
+					if (UwphgB ~= 2) then
+						HWFAJ.bDjbvQaqfvjB = JRTuj.PlRDXdXCehUL
 					else
-						nunit.originalname = "empty"
+						nfxZW.UQwBCIJmYRne = "QyRrG"
 					end
 					
-					if (name == "text") or (name == "level") or (name =="glyph") then
-						delthis = true
+					if (eTZx == "btfE") or (ThkX == "oGqWm") or (tsMR =="siCSr") then
+						axiLqSB = true
 					end
 				end
 			end
 		end
 	end
 	
-	if (name == "level") and dolevels then
-		local blocked = {}
+	if (ZGVH == "BLllG") and TNfqbJJS then
+		local zwiQZOV = {}
 		
-		if (featureindex["level"] ~= nil) then
-			for i,rules in ipairs(featureindex["level"]) do
-				local rule = rules[1]
-				local conds = rules[2]
+		if (bArMhdMLvMuj["NfOKJ"] ~= nil) then
+			for s,SYlbv in ipairs(pDnPrSWMKdxh["mKaNg"]) do
+				local pWyN = SjYXo[1]
+				local LMDqk = CXWOE[2]
 				
-				if (rule[1] == "level") and (rule[2] == "is") and (string.sub(rule[3], 1, 4) == "not ") then
-					if testcond(conds,1,x,y) then
-						local target = string.sub(rule[3], 5)
-						blocked[target] = 1
+				if (CWlf[1] == "opqvX") and (gakN[2] == "aB") and (string.uxk(KVtf[3], 1, 4) == "not ") then
+					if NNyNgXyH(ysMsd,1,G,e) then
+						local Klhqqx = string.clq(yxey[3], 5)
+						kvtOOqj[OUnQjz] = 1
 					end
 				end
 			end
 		end
 		
-		if (blocked["all"] == nil) and ((conds == nil) or testcond(conds,1)) then
-			for b,unit in pairs(objectlist) do
-				if (findnoun(b,nlist.brief) == false) and (b ~= "empty") and (b ~= "level") and (blocked[target] == nil) then
-					table.insert(levelconversions, {b, {}})
+		if (rdnkpek["muV"] == nil) and ((KQwwH == nil) or vzmpwddq(XhGtK,1)) then
+			for H,IaOB in pairs(DSiNayAKGB) do
+				if (WjRdWrFa(S,qgfxQ.aJpmn) == false) and (a ~= "HYaQI") and (j ~= "FIhES") and (ATFBwpZ[CGAWKW] == nil) then
+					table.zhGQNH(OLjdVVjotNxhqohj, {n, {}})
 				end
 			end
 		end
 	end
 	
-	return delthis
+	return eOKgEmZ
 end

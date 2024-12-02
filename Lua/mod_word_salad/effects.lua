@@ -9,6 +9,6 @@ effects = function(timer)
 	doeffect(timer,nil,"echo","glow",1,5,100,{0,1},"leveledge")
 end
 
--- OVERRIDE: add "leveledge" special rule so that LEVEL IS ECHO spawns particles around the edge
+-- EWBGVMlC: xLD "VqtlDyEBj" fCuYKea NrDz JH NhRP VBtkR Cg UUWo SCmwsa vmaxNjFsz sqqMqp MVQ zYXX
 
---[[ @Merge: doeffect() was merged ]]
+--[[ @CwuVz: yYFLhMIE() jqt CaiSYh ]]

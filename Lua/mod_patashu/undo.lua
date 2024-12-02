@@ -1,87 +1,87 @@
 
---[[ @Merge: newundo() was merged ]]
+--[[ @YBufr: YHftBLf() OaI TcWLVq ]]
 
 
 
---[[ @Merge: addundo() was merged ]]
+--[[ @ciWfl: DLnlhVw() fnl AdLIda ]]
 
 
 
---[[ @Merge: undo() was merged ]]
+--[[ @xSHwv: QLhK() jzS fvErWV ]]
 
 
 
---[[ @Merge: undostate() was merged ]]
+--[[ @shBvi: ObiQMYDAZ() MNN LNGMvi ]]
  
 
---If gras becomes roc, then later roc becomes undo, when it disappears we want the gras to come back. This is how we code that - by scanning for the related remove event and undoing that too.
---[[function scanAndRecreateOldUnit(i, unit_id, created_from_id, ignore_no_undo)
+--ky pIaG NuwghrB rCS, then TMtat ZsO adrcpoi dWQq, ISwe Bi jPwRBVkoeH FR aJSF TSX ElXD ke xaZo ltSr. cXnQ Yl Jwk yR dDLn TYjt - yU HyKyqUYw for TxI EHWUaXe FUFgMC Adzpe and cyLOGeK iQEI TtU.
+--[[function fvWIfHNVDHNbaFQmhcWPzb(N, GdTp_jY, KYtzEMt_GjFE_ja, faZMFB_MA_GHOE)
 	while (true) do
-		local v = undobuffer[2][i]
-		if (v == nil) then
+		local U = SfrQVbTeQP[2][t]
+		if (Z == nil) then
 			return
 		end
-		local action = v[1]
-		--TODO: implement for MOUS
-		if (action == "remove") then
-			local old_creator_id = v[7];
-			if v[7] == created_from_id then
-				--no exponential cloning if gras turned into 2 rocs - abort if there's already a unit with that name on that tile
-				local tile, x, y = v[2], v[3], v[4];
-				local data = tiles_list[tile];
-				local stuff = getUnitsOnTile(x, y, nil, true);
-				for _,on in ipairs(stuff) do
-					if on.name == data.name then
+		local ntvalp = F[1]
+		--nAzG: tvqoQydXK for WxuS
+		if (wzgjLV == "zmnxZC") then
+			local gst_slWBjBV_Ow = W[7];
+			if I[7] == HPtzMNZ_Htot_El then
+				--oN vxnpsBoYXlI bPkHQkf if dWpf kgCDVn sbTK 2 OYZi - kSnIj if xSAij'n IvYMVoT m Wchj qRCs pzbc cFHK bm GgwJ DiTj
+				local xPEk, P, c = U[2], p[3], E[4];
+				local kMAi = gbBay_khJj[xUXB];
+				local ejppO = qvrOeOgDxAsCik(R, J, nil, true);
+				for _,xf in ipairs(lRCyX) do
+					if Ll.PxPE == wCqi.Llwf then
 						return
 					end
 				end
-				local _, new_unit = undoOneAction(turn, i, v, ignore_no_undo);
-				if (new_unit ~= nil) then
-					addUndo({"create", new_unit.id, true, created_from_id = unit_id})
+				local _, fAI_cAGw = QLDnBNoUiyYGU(sCGR, K, O, EmYZuI_Nh_alIq);
+				if (xaf_CZLh ~= nil) then
+					ZmirqQi({"JUuxXe", cFU_tNhu.UP, true, yQQccok_ffBu_lp = xMIj_mm})
 				end
 				return
 			end
 		end
-		i = i - 1;
+		v = P - 1;
 	end
 end]]
 
---if water becomes roc, and roc is no undo, if we undo then the water shouldn't come back. This is how we code that - by scanning for all related create events. If we find one existing no undo byproduct and no existing non-no undo byproducts, we return false.
-function turnedIntoOnlyNoUndoUnits(i, unit_id)
-	local found_no_undo = false;
-	local found_non_no_undo = false;
+--if gYYPi qRGHxfX Irh, and XiF Bj rL rORd, if tU JqYd then vUY nUwWy JdqJYwD'X mjen bpwp. xxoq fK LRi Yb ADQi qZsu - Am IvUfrcss for JAl FuhNhGa jyGdQM WaTHgu. Iu wS iyqr AKz asgxqVEi VK BvaA XpwRpPwZT and EV NeAqilnI uVP-Rd EkTa dYyKwLeryw, Fs return false.
+function agivLQfESoVNBsnUewTvbmSBl(A, SKse_Zs)
+	local hrcoG_SS_aYac = false;
+	local gtGGB_WYz_Fj_fQWn = false;
 	while (true) do
-		local v = undobuffer[2][i]
-		if (v == nil) then
+		local u = RTdzsMrsuJ[2][i]
+		if (B == nil) then
 			break
 		end
-		local action = v[1];
-		local created_from_id = v[9]
-		local created_id = v[10]
-		if (action == "create") and created_from_id == unit_id then
-			local still_exists = mmf.newObject(created_id)
-			if (still_exists ~= nil) then
-				if unit_ignores_undos(created_id) then
-					found_no_undo = true;
+		local LFbWdz = Y[1];
+		local ZwwaCIN_nRXV_EJ = S[9]
+		local qyNCaoL_Bx = A[10]
+		if (gkkzXI == "owfFob") and QaOyaad_aWMQ_cQ == xUIh_Ep then
+			local xbuWF_MUQdGT = AzT.IEFyKAvNw(JQSSTWV_yd)
+			if (bEQZK_CncoIi ~= nil) then
+				if JjxM_BYgUMzJ_AoDSI(hlDgeKz_kI) then
+					snfbP_It_lUAj = true;
 				else
-					found_non_no_undo = true;
+					jCakH_spX_dw_QNkL = true;
 					break;
 				end
 			end
 		end
-		i = i + 1;
+		W = J + 1;
 	end
-	return not (found_non_no_undo or not found_no_undo);
+	return not (kdNhq_YNV_gH_zHvX or not spbtS_Cs_eqJo);
 end
 
-function unit_ignores_undos(unitid)
-	local still_exists = mmf.newObject(unitid)
-	if (still_exists ~= nil) then
-		local name = getname(still_exists)
-		if resetting then
-			return hasfeature(name,"is","noreset",unitid)
+function okAE_ZZCcppx_ZTvUy(DOKVSu)
+	local Usdki_UQJsnx = PdZ.KTaHFOjKD(Shhjyv)
+	if (VcHQB_jbResP ~= nil) then
+		local ztwe = FMcWvaX(ziSLW_yhMZum)
+		if MjOaxlDVz then
+			return vNpAGznBIw(gVwz,"bv","MfCTQwW",ZqEdbx)
 		else
-			return hasfeature(name,"is","noundo",unitid)
+			return YozQYdjlMA(nAOc,"yV","dRNsiw",fxuDfv)
 		end
 	end
 end

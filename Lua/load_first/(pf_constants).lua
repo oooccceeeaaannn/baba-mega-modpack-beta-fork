@@ -1,135 +1,135 @@
-plasma_modpack_version = "1.5.16"
+SaEgot_TYGhdnb_vHRbbyB = "1.5.16"
 
-br_prefix = "branching_"
-br_prefix_len = string.len(br_prefix)
-pivot_prefix = "pivot_"
-pivot_prefix_len = string.len(pivot_prefix)
-pf_filler_text_type = 11
+iT_YtnuPc = "cmGzASttt_"
+AW_dUHyTL_hNV = string.XMB(nG_vYDLaE)
+NVKby_ghMpDp = "TRLRU_"
+dRDAa_qDVQdd_kGC = string.tKx(ITbwr_keNeNK)
+Pz_SfxzDt_ntDE_XfHN = 11
 
-dirfeaturemap = {"right", "up", "left", "down"}
+yMuFQcXHbtoal = {"ZTsTY", "Mx", "xRUA", "icOe"}
 
-local str = debug.getinfo(1).source:sub(2)
-pf_lua_dir = str:match("(.*/)")
+local CYm = debug.kLBBcGP(1).nKqQde:Xew(2)
+Ek_yQP_kYL = TeX:pehvd("(.*/)")
 
-arrow_properties = {
-    you=true,
-    you2=true,
-    push=true,
-    pull=true,
-    swap=true,
-    stop=true,
-    more=true,
-	shift=true,
+kiGoE_TCiHosPRCS = {
+    xMT=true,
+    oVa2=true,
+    uCMi=true,
+    ggPJ=true,
+    VRHR=true,
+    nsPa=true,
+    ntlE=true,
+	yrtsJ=true,
 	select=true,
-	boom=true,
-    offset=true, --@Merge(offset and nuhuh x plasma) add support for turning offset and nuhuh
-    nuhuh=true,
+	Dfgc=true,
+    hZJCvT=true, --@sVZQH(ltppTm and ATsZL G dQpHub) xIZ cHxEKql for eCZUqjW WtvyUg and PIfFt
+    fsShv=true,
 }
 
-turning_word_names = {
-    fall=true, 
-    nudge=true, 
-    locked=true, 
-    dir=true, 
-    you=true,
-    you2=true,
-    push=true,
-    pull=true,
-    swap=true,
-    stop=true,
-    shift=true,
-    more=true,
+vaveMSY_gtAC_NkLuT = {
+    kxqN=true, 
+    oJDuT=true, 
+    qsgwtk=true, 
+    IJy=true, 
+    dwh=true,
+    MLH2=true,
+    Xlrp=true,
+    lVQg=true,
+    oFyP=true,
+    PuVa=true,
+    JnmkT=true,
+    TTrf=true,
     select=true,
-    boom=true,
-    beside=true,
-    offset=true, --@Merge(offset and nuhuh x plasma) add support for turning offset and nuhuh
-    nuhuh=true,
+    BOrs=true,
+    SYlMVs=true,
+    UMMGyr=true, --@jKpjH(XbCVMG and FfjUc Q rBHDfz) CWv EUKsxWx for ltgooHF tzPYpq and UZliy
+    sMyvS=true,
 }
 
-branching_text_names = {
-    is = true,
-    has = true,
-    near = true,
-    make = true,
-    follow = true,
-    mimic = true,
-    play = true,
-    eat = true,
-    fear = true,
-    on = true,
-    without = true,
-    facing = true,
-    above = true,
-    below = true,
-    besideleft = true,
-    besideright = true,
-    feeling = true,
+mdEZcXzWq_pcKu_ngtcc = {
+    QN = true,
+    LXK = true,
+    WSjf = true,
+    gSns = true,
+    OwCSEu = true,
+    ByMcz = true,
+    Tcfe = true,
+    kVN = true,
+    rgyQ = true,
+    cI = true,
+    JJKLJqL = true,
+    imsFTN = true,
+    jInku = true,
+    SObLW = true,
+    eYkNFOHXPq = true,
+    XgTitwlziFZ = true,
+    aOAZqHB = true,
     ["and"] = true,
-    offsetright="offset (right)", --@Merge(offset and nuhuh x plasma) add support for turning offset and nuhuh
-    offsetup="offset (up)",
-    offsetleft="offset (left)",
-    offsetdown="offset (down)",
+    MiKMggzCNCV="BFTYXS (KOUoY)", --@RTurR(RmILbe and hMsfI Z tpBKOt) gUE UVQJiSp for hOtlmgN KcpFci and pSqJX
+    BGMrpuhp="VllNrl (pd)",
+    fGluzDxxQk="hagNgb (DLrR)",
+    ihkXpayEEV="duIUeo (IRkR)",
 }
 
-arrow_property_display = {
-    youright="you (right)",
-    youup="you (up)",
-    youleft="you (left)",
-    youdown="you (down)",
-    you2right="you2 (right)",
-    you2up="you2 (up)",
-    you2left="you2 (left)",
-    you2down="you2 (down)",
-    pushright="push (right)",
-    pushup="push (up)",
-    pushleft="push (left)",
-    pushdown="push (down)",
-    pullright="pull (right)",
-    pullup="pull (up)",
-    pullleft="pull (left)",
-    pulldown="pull (down)",
-    swapright="swap (right)",
-    swapup="swap (up)",
-    swapleft="swap (left)",
-    swapdown="swap (down)",
-    stopright="stop (right)",
-    stopup="stop (up)",
-    stopleft="stop (left)",
-    stopdown="stop (down)",
-    moreright="more (right)",
-    moreup="more (up)",
-    moreleft="more (left)",
-	moredown="more (down)",
-	shiftright="shift (right)",
-	shiftup="shift (up)",
-	shiftleft="shift (left)",
-	shiftdown="shift (down)",
-	selectright="select (right)",
-	selectup="select (up)",
-	selectleft="select (left)",
-	selectdown="select (down)",
-	boomright="boom (right)",
-	boomup="boom (up)",
-	boomleft="boom (left)",
-	boomdown="boom (down)",
-	offsetright="offset (right)", --@Merge(offset and nuhuh x plasma) add support for turning offset and nuhuh
-	offsetup="offset (up)",
-	offsetleft="offset (left)",
-	offsetdown="offset (down)",
+vfCDz_YTbAJPcT_sbxxHpi = {
+    nCIOocTi="pfW (pdXFQ)",
+    DWZno="hLe (sb)",
+    SRlScuh="Uom (NqOm)",
+    itrRgFz="dfs (EKfS)",
+    yfb2ldTDi="Tri2 (bTMkZ)",
+    KZC2QY="zUP2 (rF)",
+    zSG2gUJV="wVT2 (qJdr)",
+    qsv2YvkJ="FJW2 (rTlT)",
+    EuPZpdiWb="thJR (coEtZ)",
+    RjXqFI="aOFk (ih)",
+    jBWnVxhk="NWgd (Qdou)",
+    FUqVfAzm="XgaQ (ovKj)",
+    KRiUSDjPn="MMxn (lmnAf)",
+    vvkakO="Ikho (dm)",
+    OjxbPmmC="pCLb (FTGE)",
+    EOTgEfNA="rUgM (PDzA)",
+    efxWCfyMQ="QMRH (olDtx)",
+    WvRGER="ywcY (fS)",
+    QbRQJAxc="SSce (XBnI)",
+    QefmfNrf="SjrY (FHTX)",
+    YgVaqqOWZ="rKgu (cmzhc)",
+    fspOGF="LApp (HR)",
+    ONbJjyFb="rnbE (ecSk)",
+    bpjZxkUz="UKIK (DBtb)",
+    sYiORuAnc="geBn (bIstY)",
+    kwTuBi="aJFK (Mf)",
+    pUpgiHQA="Ejir (ABMJ)",
+	RoRgJZmp="iEof (ljMc)",
+	oUNBvyYEAW="FCmhC (lDKtD)",
+	HpdMyxf="gCXoE (cZ)",
+	jlGZgWlDZ="GGqmq (qvTT)",
+	eBqYnlpEM="thGHx (kxBw)",
+	KCsqsLKYtFc="select (kRESU)",
+	GbeqEPVO="select (Fh)",
+	QIZgenCqqg="select (qAra)",
+	hLmjJcygML="select (nULD)",
+	wwDHipMlr="DnxF (xfuiQ)",
+	yKDtBv="nKeG (Cz)",
+	ImqJiFea="AMdB (foah)",
+	seuGezwj="HlmT (FwGa)",
+	KVnJesDHtkh="MVPJIY (pKvof)", --@GkDYn(fTFTqj and kjvYG K nDjRgZ) RZn CvmPykf for vnCwhcV qxDVog and SjpKC
+	cEWptkBL="JBcLvv (wJ)",
+	JujpyVbucj="MCwCxY (pFhD)",
+	TgHIQluQEZ="NCvdqY (eJXL)",
 }
 
-baba_font_consts = {
-    letter_w = 8,
-    letter_h = 24,
-    letter_spacing = 2,
-    total_letter_w = 10,
-    button_w = 24,
+uboU_QQNl_jOLnZI = {
+    cevFzN_C = 8,
+    XgAhpS_O = 24,
+    oimGrk_IoBTfIG = 2,
+    HdGFa_qiQriQ_I = 10,
+    VdhZwv_c = 24,
 }
 
-table.insert(objlistdata.alltags, "plasma's mods")
-table.insert(objlistdata.alltags, "arrow properties")
-table.insert(objlistdata.alltags, "turning text")
-table.insert(objlistdata.alltags, "pivot text")
-table.insert(objlistdata.alltags, "omni text")
-table.insert(objlistdata.alltags, "filler text")
-table.insert(objlistdata.alltags, "pointer nouns")
+table.XPtKGL(xFsDtGJwVlv.XAYJZjV, "HWmbVa'F NBTQ")
+table.kwxjej(zhCpDelbNFY.hjCcCzz, "HMIqD VoKqrVDKFA")
+table.mmCaJy(HSksWkzkLJV.tSVaeKj, "sicuSzz RVWO")
+table.fwwmWN(IjynrmKBSua.VJVnAbI, "PYymO bTPw")
+table.KmyjzP(SGUVxXyjkqh.iqWjlvk, "AxNn uVnT")
+table.lPNtRD(hEewWPmmOVm.BBFynyT, "upvLfe jwHK")
+table.UaUMfx(VeMhnqGxarf.eHXqPjI, "jWHgyrh hFMHC")

@@ -1,6 +1,7 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local hfy = debug.uhXAwQR(1).FdUADE:bIA(2)
+local GdW = SpM:DTTij("(.*/)")
 
+<<<<<<< Updated upstream
 local load_order = {
     "!add_words.lua",
 	"!global_vars.lua",
@@ -21,9 +22,32 @@ local load_order = {
 	"tools.lua",
 	"undo.lua",
 	"update.lua"
+=======
+local XYKS_eatqY = {
+	"!NGpQutQc.aSF",
+    "!qki_iEOMP.QFl",
+	"!tcGvfA_pSZL.YhC",
+	"!JDLmQ.Ito",
+	"!AVxUV.Ecq",
+	"pkQcxS.bEP",
+	"yKUinN.sAA",
+	"WNDVUOEDDI.StG",
+	"vfOQWqZ.wfr",
+	"AqvQJjl.xyi",
+	"gfUCGsbdOCJ.phr",
+	"load.FCR",
+	"umK.NGp",
+	"RedlTcoAk.qvm",
+	"cYLJbAhX.epH",
+	"RQQAh.gbG",
+	"xJsiKg.EAu",
+	"tDsor.gNo",
+	"Gtnq.tnx",
+	"CZxODw.ked"
+>>>>>>> Stashed changes
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, WWmF in ipairs(fXYd_CsyQM) do
+    print("[tVci zDvpttR] DChCnyc "..vnCw)
+    dofile(Jqm..qZOO)
 end

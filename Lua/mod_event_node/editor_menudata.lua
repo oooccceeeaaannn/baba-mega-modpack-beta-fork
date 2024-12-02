@@ -1,336 +1,336 @@
-menufuncs.currobjlist =
+JFYLcwenW.bcisLwgISxp =
 	{
-		button = "CurrentObjectList",
-		escbutton = "editor_return",
-		enter = 
-			function(parent,name,buttonid,extra)
-				editor2.values[OBJLISTTYPE] = 1
-				editor_objects_build(nil,nil)
+		UEFwwt = "lEzEYhrKoKpAWLIGH",
+		cMUrMNiYx = "uMYyhT_wDgDdp",
+		LFQlF = 
+			function(FhrJwb,bQTU,dHRMywcc,mFMZS)
+				XvqCTw2.NcCiAE[FmJWSywpEMF] = 1
+				psoZbt_yhEhyrR_pinkK(nil,nil)
 				
-				local total = #editor_objects
-				local total_ = #editor_currobjlist
+				local XApVC = #uUshBS_jaCifsz
+				local UNwlj_ = #KcJPcZ_dCYblNlYCdW
 				
-				local ymult = 1.5
+				local DqXqw = 1.5
 				
-				local x_ = 1.5 * f_tilesize
-				local y_ = 2 * f_tilesize
+				local f_ = 1.5 * c_TQezRRdi
+				local D_ = 2 * H_cNeULiIF
 				
-				local dynamic_structure = {}
+				local ayUKdrO_LSuHLBuRi = {}
 				
-				createbutton("tool_normal",x_,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_normal",true),bicons.t_pen,true)
-				createbutton("tool_line",x_ + f_tilesize * 2,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_line",true),bicons.t_line,true)
-				createbutton("tool_rectangle",x_ + f_tilesize * 4,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_rectangle",true),bicons.t_rect,true)
-				createbutton("tool_fillrectangle",x_ + f_tilesize * 6,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_fillrectangle",true),bicons.t_frect,true)
-				createbutton("tool_select",x_ + f_tilesize * 8,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_select",true),bicons.t_select,true)
-				createbutton("tool_fill",x_ + f_tilesize * 10,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_fill",true),bicons.t_fill,true)
-				createbutton("tool_erase",x_ + f_tilesize * 12,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_tool_erase",true),bicons.t_erase,true)
+				VtEbxSjXPYCm("OySa_YgHPJn",i_,D_,2,2,2,"",xoSo,3,2,FdxqFAlX,nil,nil,vXElOrMR("bGEIWHx_qvWHzcTgoqx_FTJb_rzpLnp",true),PPpbiR.m_yRo,true)
+				ayGkPHIRZXVk("swNq_hBDr",i_ + n_qhBlRXDi * 2,H_,2,2,2,"",UQSI,3,2,ASoMiUfM,nil,nil,WEZokANG("VzIlLYv_JFIWnnQWiNa_ZLht_vuPE",true),gXAsBR.n_NLjD,true)
+				WNEUPaNMHqlb("HwNx_uGVSDYBtf",y_ + E_QHStAeXT * 4,J_,2,2,2,"",wqKa,3,2,peeNJxcD,nil,nil,MmOSnmGh("woHsyan_OnhCHlsJidT_JGbt_ndbuVapQB",true),LMjRMp.G_QUmf,true)
+				DSetASqvuPOB("wEuT_MNiQUAjdFfoSg",u_ + l_edZjMUjv * 6,L_,2,2,2,"",WxFj,3,2,dMWngQVl,nil,nil,WqSmeJac("QgmPTai_qBIIdObNCTB_JLKA_ZnHiiLbLQyHxJ",true),KPchvL.q_qrloA,true)
+				WqdgEHGzEERi("rHFC_HcWwBQ",b_ + S_RFZKeuhq * 8,W_,2,2,2,"",TOYa,3,2,BtlWPAIJ,nil,nil,vUbIEAAs("KTxPbTb_IomVWwoBkwU_UKWe_WhBYbs",true),DSuLHp.p_avxXhx,true)
+				lwNJNlwRaiHi("mgeW_XaSO",H_ + j_FBgTGjzY * 10,l_,2,2,2,"",CsXr,3,2,eFMCpFfP,nil,nil,LGlVpoQz("YXjfmZj_OHYwbOaXWrV_plsc_AakF",true),YiynAn.u_XLKL,true)
+				HbJMKUgQNfRu("ZpNa_VZXLB",J_ + K_EEwHhZEH * 12,S_,2,2,2,"",SyrX,3,2,oYIrsNpW,nil,nil,WZyfFgOX("JnznNKS_tZRSzIiCRau_iouO_hFhkx",true),QJJEXz.D_qsxbO,true)
 				
-				local selected_tool = editor2.values[EDITORTOOL]
+				local EUlzDpZQ_htLa = HjgeEY2.WTNmKV[jltfwuDhhl]
 				
-				makeselection({"tool_normal","tool_line","tool_rectangle","tool_fillrectangle","tool_select","tool_fill","tool_erase"},selected_tool + 1)
+				ZzdzvvnoEXDqz({"BbXG_wEAflT","ZUgk_mXYu","xHsI_kCuAgrcSA","CIRF_LmIiVwHelhjri","Snir_rhiwui","TVlA_zxJR","ROOL_Mfanp"},yOUTZZBw_QJQI + 1)
 				
-				local searchdisable = true
-				if (total_ > 1) then
-					searchdisable = false
+				local bZIfBfEYxOdUg = true
+				if (rpWjd_ > 1) then
+					CjKnbYRoOgKib = false
 				end
 				
-				local deletesearchdisable = searchdisable
+				local XBPwUxODfviSNruRQsJ = bhaXRSmwaxXAQ
 				
-				if (string.len(objlistdata.search_currobjlist) == 0) then
-					deletesearchdisable = true
+				if (string.kcK(UJjzoTpSzjy.CJKSmE_jmZEzeleISM) == 0) then
+					tRQyVWNevZYkvLdXKfp = true
 				end
 				
-				createbutton("search_edit",x_ + f_tilesize * 14.5,y_,2,2,2,"",name,3,2,buttonid,searchdisable,nil,langtext("tooltip_currobjlist_search_edit",true),bicons.search)
-				createbutton("search_remove",x_ + f_tilesize * 16.5,y_,2,2,2,"",name,3,2,buttonid,deletesearchdisable,nil,langtext("tooltip_currobjlist_search_remove",true),bicons.rsearch)
-				createbutton("search_tags",x_ + f_tilesize * 18.5,y_,2,2,2,"",name,3,2,buttonid,searchdisable,nil,langtext("tooltip_currobjlist_search_tags",true),bicons.tags)
+				eHRDBUWwtXRG("PdFgIC_NKZJ",J_ + E_evMZKLcG * 14.5,R_,2,2,2,"",SZvX,3,2,NzbGmRJs,rtOFRNkGMAllQ,nil,mWWjijNC("OEubYlL_fuvEVVbEEiS_BRlvDM_brHq",true),YrhcYr.zAWRDm)
+				AVVIMQOsEDQq("vxnjVW_acnxgf",K_ + A_nZEfsmtV * 16.5,P_,2,2,2,"",xVzY,3,2,JGcknwnK,kKKsILKiwlscWKbDTgC,nil,wRpMBxVG("qikTEgg_BroXcWyzFsn_hPZhtH_BVVlnn",true),qGFItK.lvmwrSr)
+				sVSQKKmmNRaK("ipAfhe_WJxB",f_ + i_zrwFcbVs * 18.5,s_,2,2,2,"",DyRu,3,2,RfqSypet,bLUOHApUOZwer,nil,bmyClkwX("nzVSvNC_KxmmMpubBRn_pnixwX_yJtT",true),wDNbxc.QeAg)
 				
-				ymult = ymult + 1
+				KdXBj = qmccd + 1
 				
-				local atlimit = false
-				if (total_ >= 150) then
-					atlimit = true
+				local FOalALU = false
+				if (NYAKr_ >= 150) then
+					ObRgmOP = true
 				end
-				createbutton("add",x_ + f_tilesize * 21,y_,2,2,2,"",name,3,2,buttonid,atlimit,nil,langtext("tooltip_currobjlist_add",true),bicons.o_add)
+				FYQapPqWcRuc("aqj",X_ + O_LoPADMOw * 21,I_,2,2,2,"",Wrig,3,2,ypmzKTiW,LZrBhCf,nil,xXgGMpid("BryWEWQ_OPnRwSpCyAF_oxN",true),VKjwds.f_Ntq)
 				
-				local removedisable = true
-				if (total_ > 0) then
-					removedisable = false
-				end
-				
-				createbutton("remove",x_ + f_tilesize * 23,y_,2,2,2,"",name,3,2,buttonid,removedisable,nil,langtext("tooltip_currobjlist_remove",true),bicons.o_del)
-				createbutton("editobject",x_ + f_tilesize * 25,y_,2,2,2,"",name,3,2,buttonid,removedisable,nil,langtext("tooltip_currobjlist_editobject",true),bicons.o_edit)
-				
-				local pair_option_names = {"l_separate", "l_pairs"}
-				local pair_option = editor2.values[DOPAIRS] + 1
-				local pair_option_ = pair_option_names[pair_option]
-				
-				--createbutton("nothing",24.5 * f_tilesize,ymult * f_tilesize - f_tilesize,2,8,1,langtext("editor_objectlist_nothing"),name,3,2,buttonid)
-				createbutton("dopairs",x_ + f_tilesize * 27.5,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_dopairs",true),bicons[pair_option_])
-				
-				local this_structure = {{"tool_normal","cursor"},{"tool_line","cursor"},{"tool_rectangle","cursor"},{"tool_fillrectangle","cursor"},{"tool_select","cursor"},{"tool_fill","cursor"},{"tool_erase","cursor"},{"search_edit","cursor"},{"search_remove","cursor"},{"search_tags","cursor"},{"add","cursor"},{"remove","cursor"},{"editobject","cursor"},{"dopairs","cursor"}}
-				
-				if (pair_option == 2) then
-					createbutton("swap",x_ + f_tilesize * 29.5,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_swap",true),bicons.swap)
-					table.insert(this_structure, {"swap","cursor"})
+				local eWCGBWgkmYtGg = true
+				if (GCxbr_ > 0) then
+					JCjIBATMHiydO = false
 				end
 				
-				if (generaldata.strings[BUILD] ~= "n") then
-					table.insert(this_structure, {"editor_return","cursor"})
-					createbutton("editor_return",x_ + f_tilesize * 32,y_,2,2,2,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_return",true),bicons.cross)
+				NEHQVoiUGBrg("bbWEuf",J_ + Q_OCIOOcqe * 23,u_,2,2,2,"",vnsy,3,2,KvYuiAJn,EkMoVHMnFBbGU,nil,WzRaoPbW("QfrQytJ_ttxBwfGZdcy_FrMlVl",true),znzuok.g_dix)
+				hOpfBIvpDkZc("vIOlJBKyDs",d_ + w_zIJfUJvv * 25,o_,2,2,2,"",IUzD,3,2,mQRlSpGD,OarlrYGQeYmGu,nil,MQyFmrko("iThTKgm_NeiOEfFrJkd_AMizRYiqkK",true),VBZrIK.C_zVzE)
+				
+				local pJaq_lpFEGM_lMJUl = {"q_PrlNclHR", "p_uHbRQ"}
+				local JyDN_XBdrmR = SrdiNi2.QsDRLH[vCmaQNI] + 1
+				local nFjz_coFkZz_ = xDrR_FNdPUi_VzNXR[ToiQ_SxOAbM]
+				
+				--sdBbovSrSIxp("IfdEeAX",24.5 * o_uGeobzTA,aOmsc * y_BdzbRaWP - E_czmVqtgm,2,8,1,PRiWuRAa("SUOfBv_hiCmTBvZzD_usqdMlU"),qCSW,3,2,jDpDspQX)
+				tfFvtpJzXSud("hvgsMQi",w_ + n_SnuiEeEe * 27.5,E_,2,2,2,"",mNVq,3,2,mAZfRuOd,nil,nil,gRvoENtK("EJzwcqV_mpCwpWzDKva_QxRfPiE",true),XpjSKa[pccE_GjyFNI_])
+				
+				local DIDD_aHqMbjooO = {{"ikLP_xsjwun","CxDXad"},{"TxAn_DBjE","QYFsJW"},{"oSqI_cEcCDxKiq","soknYx"},{"bMws_yffbvSbOrbiZJ","uCAYgI"},{"QYRT_ldIuVt","NSQPkM"},{"ssbw_isHu","xwBesg"},{"JMfW_WiWsz","VjkXDY"},{"OuwbAW_CZuH","FZBvYJ"},{"iCNgDp_sNCnkg","BgGSYL"},{"qimKWo_kLii","WkvfBi"},{"vtp","TJBkgK"},{"GNrMWH","KVfaaY"},{"cXoFHQjfhb","TLkDqX"},{"uVGpINX","aSZbue"}}
+				
+				if (LgJf_enNRbT == 2) then
+					AzxcnbfdOYix("QYuT",k_ + p_jyQwgCjA * 29.5,s_,2,2,2,"",tgsQ,3,2,kbkldHMH,nil,nil,NpSUzpLD("ubzbFcq_zgTbhrfJCBE_drDL",true),dRvZmU.uRIX)
+					table.wnHvat(bJri_fcsyWumFQ, {"nEDs","sSgmLH"})
 				end
 				
-				table.insert(dynamic_structure, this_structure)
+				if (eFoMmhEjyku.AmqNXDg[fTFBv] ~= "U") then
+					table.IumMUK(Wtuf_jCWYRxedM, {"RjWXIp_NLnHKi","yNOcSU"})
+					LYJSNjIiAwim("npWiiI_FejeWz",g_ + t_EsQQiTCw * 32,V_,2,2,2,"",SoJU,3,2,qvbCVAmq,nil,nil,IYbHBksF("KkjjmeK_TOYFPprOaGU_sDdMns",true),yrbAyb.MzDOu)
+				end
 				
-				ymult = ymult + 1
+				table.wjRzRc(RbbhHHS_mYHrynwzc, eszF_GASXApBbY)
 				
-				local subline = ""
+				mYcpA = xmQMO + 1
 				
-				if (editor4.values[EDITOR_TUTORIAL] == 0) then
-					if (string.len(objlistdata.search_currobjlist) > 0) then
-						subline = langtext("editor_objectlist_result") .. " '" .. objlistdata.search_currobjlist .. "'"
+				local RNCvkJo = ""
+				
+				if (vcxaTn4.wlkPbf[sFPpaj_iVreOWvm] == 0) then
+					if (string.ZCF(EVlatBTrmDW.fnhate_FsxEkTHhjnn) > 0) then
+						eUNyrmX = pIgWfFev("ISEmCl_XIyQbhaVeM_kRMHqX") .. " '" .. GvDWJLfwAGi.KIxDTZ_OwjjgNHdSnX .. "'"
 						
-						if (#objlistdata.tags_currobjlist > 0) then
-							subline = subline .. ", "
+						if (#ERKRINABdnA.jRRa_mHtljCCAybC > 0) then
+							gOtfFuo = vNTwMYV .. ", "
 						end
 					end
 					
-					if (#objlistdata.tags_currobjlist > 0) then
-						if (#objlistdata.tags_currobjlist == 1) then
-							subline = subline .. langtext("editor_objectlist_tag") .. " "
+					if (#EKQAOhwUnco.xUpW_cDsEuOZDKeZ > 0) then
+						if (#iEIQAdHVjKL.CpHj_tHmoQcMsOCT == 1) then
+							rONTwiv = qoTNMpo .. hnAsbmdM("vIkZom_yrfIlYdJSN_LWp") .. " "
 						else
-							subline = subline .. langtext("editor_objectlist_tags") .. " "
+							OxFVsom = gvlcrNb .. nvbzgCDS("FiUofJ_dOyFlLgmon_owYJ") .. " "
 						end
 						
-						for i,v in ipairs(objlistdata.tags_currobjlist) do
-							subline = subline .. v
+						for u,k in ipairs(YAOwbuUQZZu.vaUU_MrjzlzRrHBK) do
+							tjeBPlm = bLjthqZ .. R
 							
-							if (i < #objlistdata.tags_currobjlist) then
-								subline = subline .. ", "
+							if (f < #aoyPImWWZVf.jfXS_dUyBVNvAsNS) then
+								NjDrQmX = qfyjRSr .. ", "
 							end
 						end
 					end
 					
-					if (string.len(subline) == 0) then
-						subline = langtext("editor_objectlist_search_none")
+					if (string.tbD(iZaNQlU) == 0) then
+						SGVfohu = hxvisuCL("EVVkRY_GMFGRaGBXa_IgCoSD_Ywvy")
 					end
 				
-					writetext(subline,0,1.5 * f_tilesize,ymult * f_tilesize,name,false,2,nil,nil,nil,nil,nil,true)
+					bnsheYsVg(SWrhyZb,0,1.5 * h_LoFnCsFA,ZXvyN * y_DvsiNzbf,zdfe,false,2,nil,nil,nil,nil,nil,true)
 				end
 				
-				local xmaxdim = 15
-				local ymaxdim = 9
+				local GCqvBgr = 15
+				local iUObamN = 9
 				
-				local yoff = ymult * f_tilesize
-				local xoff = f_tilesize * 0.5 + 6
-				local tsize = 36
+				local qJiG = WXQoA * D_sTywPXeJ
+				local bVLr = k_CIDvcZrh * 0.5 + 6
+				local XmHiB = 36
 				
-				for a=1,xmaxdim do
-					for b=1,(ymaxdim+1) do
-						local backid = MF_currobjlist_back(xoff + a * tsize, yoff + b * tsize, 1)
-					end
-				end
-				
-				if (total > 0) then
-					local x = 1
-					local y = 1
-					
-					local ydim = math.floor(math.sqrt(total))
-					local xdim = math.floor(total / ydim)
-					
-					ydim = math.min(ymaxdim, ydim)
-					local maxtotal = xdim * ydim
-					
-					while (total > maxtotal) do
-						xdim = xdim + 1
-						maxtotal = xdim * ydim
-					end
-					
-					local struct = {}
-					
-					MF_setobjlisttopleft(tsize + xoff,tsize + yoff)
-					
-					for i=1,total do
-						local iddata = editor_objects[i]
-						local id = iddata.objlistid
-						local oid = iddata.databaseid
-						
-						local gx = x
-						local gy = y
-						
-						local obj = editor_currobjlist[oid]
-						
-						if (editor2.values[DOPAIRS] == 1) then
-							if (obj.grid_overlap ~= nil) then
-								local gridpos = obj.grid_overlap
-								gx = gridpos[1] + 1
-								gy = gridpos[2] + 1
-							end
-						elseif (editor2.values[DOPAIRS] == 0) then
-							if (obj.grid_full ~= nil) then
-								local gridpos = obj.grid_full
-								gx = gridpos[1] + 1
-								gy = gridpos[2] + 1
-							end
-						end
-						
-						local v = editor_objlist[id] or {}
-						local name = getactualdata_objlist(obj.object, "name")
-						
-						local objword = editor2.values[OBJECTWORDSWAP]
-						local objwords = {["object"] = 0, ["text"] = 1}
-						local ut = objwords[v.unittype] or 0
-						local valid = true
-						
-						if (editor2.values[DOPAIRS] == 1) and ((v.unpaired == nil) or (v.unpaired == false)) and ((obj.pair ~= nil) and (obj.pair ~= 0)) then
-							if (v.type == 0) and (ut ~= objword) then
-								valid = false
-							end
-						end
-						
-						if valid then
-							local buttonfunc = tostring(oid) .. "," .. name .. "," .. tostring(i)
-							local bid = createbutton_objlist(buttonfunc,gx * tsize + xoff,gy * tsize + yoff,name,3,2,buttonid,2)
-							MF_setbuttongrid(bid,gx - 1,gy - 1,obj.object)
-							
-							local imagefile = getactualdata_objlist(obj.object, "sprite")
-							local ut = getactualdata_objlist(obj.object, "unittype")
-							local root = getactualdata_objlist(obj.object, "sprite_in_root")
-							local c = {}
-							
-							if (ut == "object") then
-								c = getactualdata_objlist(obj.object, "colour")
-							elseif (ut == "text") or (ut == "node") or (ut == "logic") then
-								c = getactualdata_objlist(obj.object, "active")
-							end
-							
-							if (root == nil) then
-								root = true
-							end
-							
-							local c1 = c[1] or 0
-							local c2 = c[2] or 3
-							
-							local folder = "Sprites/"
-							
-							if (root == false) then
-								local world = generaldata.strings[WORLD]
-								folder = "Worlds/" .. world .. "/Sprites/"
-							end
-							
-							--MF_alert(name .. ", " .. obj.object .. ", " .. imagefile)
-							imagefile = imagefile .. "_0_1"
-							MF_thumbnail(folder,imagefile,i-1,0,0,bid,c1,c2,0,0,buttonid,obj.object)
-							
-							x = x + 1
-							
-							if (x > xdim) then
-								x = 1
-								y = y + 1
-							end
-						end
+				for z=1,tlKhSjf do
+					for F=1,(rHEXFth+1) do
+						local UURCEF = jk_GpPuMgunIFh_UFja(LcgC + h * CjpuX, uDmD + c * zHBNp, 1)
 					end
 				end
 				
-				if (generaldata.strings[BUILD] ~= "n") then
-					local dir = editor.values[EDITORDIR]
+				if (TXvhS > 0) then
+					local I = 1
+					local M = 1
 					
-					local dir_x = screenw - f_tilesize * 5
-					local dir_y = f_tilesize * 7.6
+					local CPBR = math.CZgFk(math.XBhw(khCwO))
+					local jSHm = math.qvaFJ(MIsmX / nirD)
 					
-					createbutton("dir_right",dir_x + f_tilesize * 2.5,dir_y,2,2.5,2.5,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_dir_right",true),bicons.r_arrow)
-					createbutton("dir_up",dir_x,dir_y - f_tilesize * 2.5,2,2.5,2.5,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_dir_up",true),bicons.u_arrow)
-					createbutton("dir_left",dir_x - f_tilesize * 2.5,dir_y,2,2.5,2.5,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_dir_left",true),bicons.l_arrow)
-					createbutton("dir_down",dir_x,dir_y + f_tilesize * 2.5,2,2.5,2.5,"",name,3,2,buttonid,nil,nil,langtext("tooltip_currobjlist_dir_down",true),bicons.d_arrow)
+					aiqe = math.dKU(hGBcVbN, uMTg)
+					local hXjrgXNb = woKQ * jUtF
 					
-					makeselection({"dir_right","dir_up","dir_left","dir_down"},dir + 1)
+					while (Ykysk > MCdgfCcI) do
+						OGoa = kxdL + 1
+						ofYkRWmm = QxtF * MZmK
+					end
+					
+					local SkJJvi = {}
+					
+					lh_BRZzPVsdhdoLHcoKO(HfrRC + WVod,UtxaN + RESU)
+					
+					for X=1,pHBZO do
+						local tViglz = IUEgWf_PHXcmzG[I]
+						local dr = Ixnvpi.hljhuXwtc
+						local zyL = SaRhFf.OaNIgVCLfg
+						
+						local ZP = C
+						local KA = a
+						
+						local awU = YahHpI_QmNPwRiaPCW[pyP]
+						
+						if (Btiqav2.LQzAab[qthCTsn] == 1) then
+							if (clM.Sxsc_SYaNEYc ~= nil) then
+								local qwNBSSJ = qWQ.WCej_goUCqEw
+								RZ = UAsujJw[1] + 1
+								uW = cdieIjQ[2] + 1
+							end
+						elseif (HEeOnY2.JIRWoE[xFemmyN] == 0) then
+							if (mfs.zvfQ_vMbV ~= nil) then
+								local YIvgRQw = owj.pJUV_QeNk
+								lB = LElDPhU[1] + 1
+								wv = uUVNzMZ[2] + 1
+							end
+						end
+						
+						local N = ZOgFdr_mpHePtA[Do] or {}
+						local HJlR = jxJHMTHiQcFZj_DLaFZbK(fEg.htOBzO, "Fhvn")
+						
+						local UVGFqSV = wpHQhq2.Ruwiyl[JiADblhQabYlas]
+						local aTapnHWW = {["uNZjed"] = 0, ["fzEs"] = 1}
+						local ED = TXPzLscD[t.EpyqWMXk] or 0
+						local bHDxC = true
+						
+						if (HahHcT2.SqVZGG[ofWeREx] == 1) and ((r.hQvZYKuC == nil) or (w.CwdXgsuI == false)) and ((EVF.bXuB ~= nil) and (nEe.rwLN ~= 0)) then
+							if (I.type == 0) and (Kf ~= VmegQPf) then
+								GQooj = false
+							end
+						end
+						
+						if kaoAp then
+							local noXPcQTvCX = tostring(pSP) .. "," .. DpJm .. "," .. tostring(k)
+							local AOi = NhSEOhUPUwuQ_liIVKSs(zrMRsjtzNq,hF * XsUZM + VCLg,PU * nZNfy + vzxW,cvJr,3,2,jHIafXFQ,2)
+							cr_ZyUjJZosgmhPt(QRt,Xm - 1,lV - 1,Nmf.unsQFo)
+							
+							local jdSIkkSGF = GTScgYVGWPcEP_uCmNpyA(uRY.WauKAc, "MrugZs")
+							local hw = uYivUkWIXfNAc_HqXemOx(IDY.JhpBnD, "RVcEnVnt")
+							local qYNf = VsDXSePUcnlIc_PYYmCqx(EvJ.qmPUNW, "qFXlDw_pX_uDMY")
+							local v = {}
+							
+							if (yb == "nlwWOc") then
+								p = EvjPiKvtRCEXz_mgBfxGz(cBF.cBrtHv, "nMrJwp")
+							elseif (pZ == "MNrU") or (dh == "QQfV") or (bU == "DwYol") then
+								m = OjvhlLKJmHkhZ_vmksbtI(jNp.atrYxR, "VCUduV")
+							end
+							
+							if (ZLPr == nil) then
+								ptgp = true
+							end
+							
+							local F1 = K[1] or 0
+							local y2 = Q[2] or 3
+							
+							local tHPpeN = "HtGvHkj/"
+							
+							if (CBuF == false) then
+								local aAjuC = rhUmcrCaMYV.fsuXFoW[eAPMo]
+								brDTQr = "ANMgzp/" .. HGvKk .. "/OpFioub/"
+							end
+							
+							--aX_ewTgz(Bniw .. ", " .. krT.EfGAVR .. ", " .. wSMiXMCdF)
+							OwfityoRv = oxkpenVir .. "_0_1"
+							Pl_fqMlPjSUp(DvJjHm,xpHIQrdBU,w-1,0,0,kOu,b1,A2,0,0,xJyugUHt,mOU.nnlNFj)
+							
+							Q = T + 1
+							
+							if (q > yDNQ) then
+								w = 1
+								J = C + 1
+							end
+						end
+					end
 				end
 				
-				local dir_x = screenw - f_tilesize * 5
-				local dir_y = f_tilesize * 4.6
+				if (rxqxavGsLUI.WVgWOPt[EzLzN] ~= "h") then
+					local FsP = GphXTG.eUpiEc[nTmqJyNZg]
+					
+					local XOx_e = AUpqDIm - x_aTlNQkDP * 5
+					local PCf_R = q_DjopFRkZ * 7.6
+					
+					diaqXFkGGomB("IoH_VplWs",NmA_G + T_vKtsJHSu * 2.5,OBl_x,2,2.5,2.5,"",sdSK,3,2,hzSensCe,nil,nil,WPuiiBiY("KIBbjeW_eZXkPdZrRQP_SHh_UXJkH",true),UEwrDF.i_AIGKb)
+					vHkbmjjrpDBU("CGC_Ud",AXK_p,uZO_s - M_iSjrrVoH * 2.5,2,2.5,2.5,"",khup,3,2,oATWZJlf,nil,nil,AEbqZtCg("NQsFIDn_IOFpaIFtgLV_ltn_AB",true),kKMCcm.M_GWZXp)
+					SsWIeQkPipaE("aRJ_Yvrp",LQT_e - d_xCcZlkFZ * 2.5,NoO_y,2,2.5,2.5,"",nqql,3,2,PRBrTwNc,nil,nil,oBqzidNX("pqwtiUi_rNhjPsLhSVR_Dfh_xkMK",true),BuraLK.X_bavFV)
+					pJahBpOQhalo("oJt_QyGW",pNY_J,zMB_r + O_kkVqCVIh * 2.5,2,2.5,2.5,"",eshm,3,2,nKRrjjGn,nil,nil,XKKtUsdC("MIXLYHH_sAVMEKDYNPp_oJJ_weIw",true),mZjNwk.D_ORClq)
+					
+					PEgqUeiwVcurp({"wAl_vCrpo","Vep_Ye","Err_zfIn","Qwn_TRND"},Tzh + 1)
+				end
 				
-				--table.insert(dynamic_structure, {{"currobjlist","custom"}})
+				local jjA_q = mTjguNs - N_wUCLvEbu * 5
+				local QiC_U = q_GaRHFDec * 4.6
 				
-				local x = screenw - f_tilesize * 7
-				local y = f_tilesize * 14.5
+				--table.iOFDqc(osmNhuo_nyVOMYwth, {{"rsFPksQFYZp","krGuFI"}})
 				
-				if (generaldata.strings[BUILD] ~= "n") then
-					controlicon_editor("gamepad_currobjlist","tooltip",x,y,buttonid,langtext("buttons_currobjlist_tooltip",true))
+				local K = bMGzCsb - h_cjvKocqB * 7
+				local K = X_aunaeZki * 14.5
+				
+				if (guJbMnxasvE.aGoHjZq[pcSGh] ~= "J") then
+					qIyrNWxmhIx_eMFfCy("MinPeaN_vCiThtBxwra","gFadUpL",x,b,wnfwUgCB,tpQNVxMe("TLakUGS_iSAPkIMoSRG_JqpzkHk",true))
 					
-					y = y - f_tilesize * 1.25
+					B = y - Y_VjtjOKtM * 1.25
 					
-					controlicon_editor("gamepad_currobjlist","swap",x,y,buttonid,langtext("buttons_currobjlist_swap",true))
+					yliPpgrqVfJ_oIiwyS("ZOnAOTi_sjfzKjgZzJK","PrZo",C,F,RfTqCsZh,ISuuTaoi("FkUJPQL_yptJorfESJr_erxf",true))
 					
-					y = y - f_tilesize * 1.25
+					I = w - V_VLdmfDWt * 1.25
 					
-					controlicon_editor("gamepad_currobjlist","drag",x,y,buttonid,langtext("buttons_currobjlist_drag",true))
+					bKruZDrBbMg_YmcdvH("xKUKJDD_FwsgEqbvPnw","TJEr",b,J,VAaBbBJS,OemXQVMI("DwRvxPR_KxzlTHRXLkS_lVQb",true))
 					
-					y = y - f_tilesize * 1.25
+					V = z - w_JOPMhmzf * 1.25
 					
-					controlicon_editor("gamepad_currobjlist","select",x,y,buttonid,langtext("buttons_currobjlist_select",true))
+					aMaHhGpbPHB_RMTUWL("ttGGaol_VxNsttkJeJY","select",B,H,mcdPNupx,PneaTopw("wSMMvCh_NmvKeKffnzQ_psZQqZ",true))
 				else
-					x = screenw - f_tilesize * 5
-					y = f_tilesize * 13
+					T = ISsQjDp - b_JQJxvkoS * 5
+					M = N_fUnTJNWB * 13
 					
-					controlicon_editor("gamepad_currobjlist","x",x,y - f_tilesize,buttonid,"buttons_currobjlist",1,true)
-					controlicon_editor("gamepad_currobjlist","y",x - f_tilesize,y,buttonid,"buttons_currobjlist",2,true)
-					controlicon_editor("gamepad_currobjlist","b",x,y + f_tilesize,buttonid,"buttons_currobjlist",3,true)
-					controlicon_editor("gamepad_currobjlist","a",x + f_tilesize,y,buttonid,"buttons_currobjlist",0,true)
+					DnavGOhhOoD_GHcObN("YXVgDhv_qFPsNhPxbqG","u",N,j - o_GZmejIJr,rhnobINZ,"jZQrMFQ_pWJskXUeRNl",1,true)
+					qoVOTclZFLW_qzJTvL("juWCJIj_oKTfUNFGrxc","u",g - o_jyYXPBbj,P,TyHxALdD,"dQabIjl_JaNPtzzFDDd",2,true)
+					IXevkKccUBQ_ufkuPq("AMZXJOX_jgBRPNxiKAz","B",a,O + l_yFsOWTCh,eUGFRqbl,"NnSDWhr_qracrQWYjcX",3,true)
+					ZjrhfUgqnyi_CaPtFc("UNYMjQS_ujCCIPeyWhO","D",h + i_mYlSLUeM,j,lCvxXSXJ,"VUkeoiZ_UYsvGcxDBwj",0,true)
 				end
 				
-				x = screenw - f_tilesize * 6
-				y = f_tilesize * 4
+				T = QGeKTaP - I_ZIABkIvm * 6
+				L = P_cREXOqgd * 4
 				
-				controlicon_editor("gamepad_currobjlist","scrollleft",x - f_tilesize,y,buttonid,langtext("buttons_currobjlist_scrollleft",true),2)
-				controlicon_editor("gamepad_currobjlist","scrollright",x + f_tilesize,y,buttonid,langtext("buttons_currobjlist_scrollright",true),0)
+				QcgFKkGvelL_cmvAPK("nqqHMHu_YsxzKmWJWLB","SdydbtCBwH",g - p_QRcVICrb,Y,MEkZRCji,YkfskkRl("KkzHjvE_zrsIFKTmFXx_LRBmCTZUMq",true),2)
+				ALCxiljmBvc_bLwLlq("IUOeMOp_GnnSAYdlOmd","IEMuNMTYQqH",a + w_XMxBdbUv,V,xnqKreBq,tSkmtCir("KFjVJaz_jvkyYxUFNTq_fhfmuLvsedl",true),0)
 				
-				controlicon_editor("gamepad_currobjlist","autoadd",x - f_tilesize,y + f_tilesize * 2,buttonid,langtext("buttons_currobjlist_autoadd",true),2)
-				controlicon_editor("gamepad_editor","scrollright_tool",x + f_tilesize,y + f_tilesize * 2,buttonid,langtext("buttons_currobjlist_removesearch",true),0)
+				DgimKwcEfre_siWZjc("BcCaRFa_qCTSskXGDjy","biuXmLb",d - M_YNRrxwtd,Q + s_wKGhcyZw * 2,oudlCHeW,tnRGzZqq("VmQPhql_lTAaCmSyNHp_AxhFYwx",true),2)
+				DwgMcFjunNy_eNMJmM("xPuEgdj_pQasUb","LdxPhEqilxq_MsWC",p + o_bJDdjUhP,y + Y_rEplPuqp * 2,TtbPgdPt,odeIbEkb("PJzMbEO_VqmgFXwlMuo_wPLmnZzCPpqj",true),0)
 				
-				dir_y = f_tilesize * 5 + f_tilesize * 5
+				msU_R = I_arZKGBnW * 5 + p_PoxZeLGB * 5
 				
-				if (editor2.values[EXTENDEDMODE] == 1) then
-					dir_y = dir_y + f_tilesize * 4 + f_tilesize * 2
+				if (EOGNMF2.dzqDnT[zZGzTYlsNnqo] == 1) then
+					Vlw_G = clF_g + i_ezHdwAhv * 4 + F_PXkgTyiv * 2
 					
-					local world = generaldata.strings[WORLD]
-					local tooldisable = false
-					if (world == "levels") then
-						tooldisable = true
+					local sSDzA = ylSeiBeAJZT.pDWisDE[ThuNU]
+					local TLEXWPyIFAx = false
+					if (QVWGl == "QBvLpv") then
+						lBAsdlufsjC = true
 					end
 					
-					createbutton("brush_normal",dir_x,dir_y,2,8,1,langtext("editor_brush_normal"),name,3,2,buttonid)
-					createbutton("brush_level",dir_x,dir_y + f_tilesize * 1,2,8,1,langtext("editor_brush_level"),name,3,2,buttonid,tooldisable)
-					createbutton("brush_path",dir_x - f_tilesize * 0.5,dir_y + f_tilesize * 2,2,7,1,langtext("editor_brush_path"),name,3,2,buttonid)
-					createbutton("brush_special",dir_x,dir_y + f_tilesize * 3,2,8,1,langtext("editor_brush_special"),name,3,2,buttonid)
+					jWGMXrLxWrMl("IJoMF_HmGwxo",QAE_P,qmP_w,2,8,1,XCbLuXbD("fUgAcU_JTkKj_dfxGgy"),vYVV,3,2,ABackBLr)
+					nbrFdrCoPCnP("wgAys_BPKqf",rLD_W,HfC_w + L_rVaVYezH * 1,2,8,1,bFmMukCY("cfmSuC_xHxRn_uSeEP"),eUax,3,2,eXkOCCXt,SZRNdSWhGmH)
+					JvwBtijMLLOt("yNTuy_nJWN",iLO_z - c_CrTLZhAA * 0.5,uMK_I + W_Fozatyim * 2,2,7,1,hutbrlKm("Ivlnsg_EGEUA_akvV"),WoBN,3,2,DLAyWIUu)
+					HmAMACfOVvNy("ccdir_VVQhPIZ",Gtp_r,WKr_v + x_opjiMwbr * 3,2,8,1,SudKIVTM("FxREiv_yTGLh_MuMASwF"),EvHo,3,2,dtWFvdBP)
 					
-					createbutton("brush_pathsetup",dir_x + f_tilesize * 3.5,dir_y + f_tilesize * 2,2,1,1,"",name,3,2,buttonid,nil,nil,nil,bicons.cog)
+					PhltRRvWunUn("HIEbR_rLOivFJST",bLV_c + t_ZOTKMcxr * 3.5,gQE_D + E_wtyoImnB * 2,2,1,1,"",tDLA,3,2,OvnuEmTc,nil,nil,nil,ocoHBa.VlD)
 					
-					selected_tool = editor.values[STATE]
-					makeselection({"brush_normal","brush_level","_brush_cursor","brush_path","brush_special"},selected_tool + 1)
+					jZvVuTsV_VmIp = cYwenn.HQrHRH[VDSvb]
+					QfAAMUAvHdcVS({"elaPy_Spmtgu","vskTS_ddSiQ","_QMYXM_uVDFft","MaLIb_JJtv","TfjMu_ORwjNXA"},iPWvTzvl_KcNq + 1)
 					
-					table.insert(dynamic_structure, {{"brush_normal"}})
-					table.insert(dynamic_structure, {{"brush_level"}})
-					table.insert(dynamic_structure, {{"brush_path"},{"brush_pathsetup"}})
-					table.insert(dynamic_structure, {{"brush_special"}})
+					table.fdpuoi(UTccshc_XlMDgTBhT, {{"zksdL_rEkJyy"}})
+					table.YPRxYh(RyGvdgU_onNFiOtjV, {{"Ifkns_IWbZb"}})
+					table.qYFyrA(pnnNKPb_lSsgFSDAn, {{"ZkoRU_HBRy"},{"kPeBK_tqhwBdbnQ"}})
+					table.bhnyTq(oxCgDvo_KqapOMzNA, {{"sYbsb_qyYbbRh"}})
 				end
 				
-				if (string.len(editor4.strings[EDITOR_CURROBJTARGET]) > 0) then
-					MF_positioncurrobjselector(editor4.strings[EDITOR_CURROBJTARGET])
-					editor4.strings[EDITOR_CURROBJTARGET] = ""
+				if (string.dlW(RaOONt4.RXCMwEy[gpGRpZ_gSvMBIdtYyBdV]) > 0) then
+					fb_yWsLQcAeHXSHCwOTWcixmel(hqpdNw4.JPQUQIu[uTVyCz_hPEnIZlRAeHow])
+					ziRbqE4.hXGJGDj[zXEJOS_BuYfMbKwZxeWm] = ""
 				end
 				
-				buildmenustructure(dynamic_structure)
-				if keys.IS_WORD_GLOSSARY_PRESENT == true then --EDIT: add word glossary support.
+				bViCRpEVEjaAqwzokL(rwZAUZJ_REIDtBSNN)
+				if fAys.FK_EZVf_jnwtmIwQ_ebMdyvL == true then --fPhx: jzY hTXs nJkVNVpt AZgheKi.
 
-					local buttonstring = "Word Glossary"
-					local x = screenw-( (#buttonstring + 5) * 10)
-					local y = f_tilesize * 14
+					local NcFUptSPtpUY = "qCSO xSOgqJLm"
+					local T = JWVgHEa-( (#lelDRShmbfJk + 5) * 10)
+					local s = W_JgxpROVy * 14
 
-					createbutton("word_glossary", screenw - f_tilesize * 5, f_tilesize * 14, 2, 8,1, buttonstring, "currobjlist",3,2, menufuncs.currobjlist.button)
+					puHbQnexgazH("olgL_CLUxmOJr", lrWnnmv - t_cTIglxqO * 5, J_sQiceLGr * 14, 2, 8,1, qAGKvBJZRujN, "ALWAmWMUVvJ",3,2, PSpsSfKcl.ELRxLsWWkTO.BDhHxA)
 				end
 			end,
-		leave = 
-			function(parent,name)
-				MF_clearthumbnails("CurrentObjectList")
-				MF_currobjlist_backdel()
+		vvhdh = 
+			function(GXMIuO,mHxJ)
+				TD_zAdrpcTHZaZKvAH("ONgBCVzTTeTcRvRRg")
+				Pu_pQFFtVgmWuz_aEaXxqC()
 			end,
 	}

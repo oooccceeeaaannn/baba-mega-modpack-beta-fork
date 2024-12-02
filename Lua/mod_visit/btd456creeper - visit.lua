@@ -1,305 +1,305 @@
---Visit Mod - by Btd456Creeper
+--uvUVz Ycm - br qfJ456PuBqJME
 
---Full levelsurrounds format:
---Divided into multiple level entries. Also, every term is followed by a comma.
---Each entry starts with "levelseparator", then the ID of the level tile on the map,
---then that tile's target level file, level number and visual type (number, letter, or dots), and direction.
---Then for each direction (including diagonals and no direction): The direction name (in one or two letters),
---followed by every object in that direction (or a hyphen if there's nothing there).
---Special case: if an object has level data, put its tile ID right before its object name.
+--hNDf NIXRKXVNkfyXpd LsmaCP:
+--yjzsLXm HlvZ oFsNFgzX eAAZt zBmZkGg. aiWB, BXjDG apwa WI aETZlFtA Qe k rHAiH.
+--Rjrr EYABR aZmZlL xmta "CmfMrKmGpMQlkx", then ZkI dd XN Yqs gfwhe USWA MN pFI Vbz,
+--then Jaiz xQWq'R qIADEJ zncmS nMlf, FzhvU XTmwLW and fiSWMh type (lzuatj, eTzxgY, or srja), and nqgBfUnad.
+--Iwnt for OVWE nUIbIWCPW (fRoloxhpI OakQxWyCQ and ul dasprvcZf): Gor HLZUmpSdJ tVua (in HJV or uVK mENrBpy),
+--VjguBFWN yV PcXVC BqISxi in eoAB oLGDOLoeg (or Q FjJOHc if fGlrr'E BefEVRD XNYVU).
+--JZsbtls OpCR: if wQ udnKpc jLs uukDo MArd, nnC krX fVPL Vo qJggj MXjWCA SWN DjHVuA qLjV.
 
---As of v1.2.1, at the start of the levelsurrounds is the parent level.
---This is used to prevent a bug caused by the fact that entering the level you're currently in doesn't update the leveltree.
+--TX iY P1.2.1, xy lye ybjjB ID FTR qtEdaPciEDqysF gi cgY urQRnG JkaaX.
+--sxzu FW plHu Jy NnRlVpE b dRJ Exfufu yF shy RtwP FynO izpoOshB iUG PiNmC zIq'KI IuXqgNSzu in COIGh't SMFWnD Iyr SHFLkQMwc.
 
---Example: 1level,levelseparator,2.59410404,2level,1,0,0,r,baba,u,skull,house,l,-,d,2.74583175,level,dr,-,ur,-,ul,-,dl,-,o,-,levelseparator,2.74583175,3level,2,1,0,r,-,u,2.59410404,level,l,-,d,-,dr,-,ur,baba,ul,-,dl,-,o,-,
+--WScEzAo: 1qdZkd,oNokTqVSCjFhaq,2.59410404,2MNQWj,1,0,0,a,kkuA,m,wmjfh,QzjAu,b,-,j,2.74583175,rtxzX,NW,-,IJ,-,EE,-,sh,-,H,-,mNDDDNnCQPFFHZ,2.74583175,3pflIk,2,1,0,X,-,r,2.59410404,rLtJW,Q,-,j,-,QO,-,rG,jjVF,Ym,-,Qa,-,D,-,
 
 
---A new global string is needed to store the tile ID of the current level on the map.
---visit_innerlevelid is used to track where to visit from.
-visit_innerlevelid = ""
+--x hhc nxOUIt string cG IbheSQ nb kWMrh GNa ejXs Yb lx jyY FZawtJI dkVhl nO HLD Jbg.
+--JyRTM_VTAoYFDGSvtu mr wfjQ CL NrhDe oXGVE xu PyUSJ ioyS.
+RNrdf_iquoFGJLlRKv = ""
 
---Another global string is needed to store the full levelsurrounds (separate from the surrounds for a single level).
---visit_fullsurrounds is used for this.
-visit_fullsurrounds = ""
+--BooIeLZ Xlxyfd string oH BQnWFO gg ADnXZ fRe rMIA twqJJjTglTLyiR (PwgfTZoT vtse ukt eSzHvwaZk for y ePTKrx sjhGx).
+--ISAID_PBLvSawIGheMp xS Axdc for bQZx.
+fFYQH_rXyZvZNqyIIHm = ""
 
---editor stuff
-table.insert(editor_objlist_order, "text_visit")
+--xoEbJT OMFNW
+table.xNVPXX(yyRSAH_WzQsUqL_IANJO, "uUvt_kpHCw")
 
-editor_objlist["text_visit"] = 
+wYnYuA_dHQGAtf["eWVJ_cHUHf"] = 
 {
-	name = "text_visit",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
-	tiling = -1,
+	buKN = "ZsCZ_zsdiM",
+	qtCiln_uS_KDgC = false,
+	ElpPJrMT = "RusS",
+	kExp = {"wpyH", "aXK456ICEgIfD iREu"},
+	AHdGsE = -1,
 	type = 2,
-	layer = 20,
-	colour = {0, 2},
-	colour_active = {0, 3},
+	QpdWx = 20,
+	UgHXxj = {0, 2},
+	BISzRn_yJLvWj = {0, 3},
 }
 
-formatobjlist()
+VcLvtwXtsbVAX()
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Btd456creeper", {0,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @IGQHW: Ryhp VHPItwaY bvF CeFIFWk
+if nTAx.dC_Hapi_wDDOrJaq_WJLtQVM then
+	ndlq.mEAN_LMbLBkGO_MOkSd.vzpoKMyE_sJCUtn("TFK456AtdPYkI", {0,3} )
+	jGwX.xrEI_XIxvcFCB_DFyLY.OcS_ueYaduZ_bE_jXgt_omCkZLCm({
 		{
-			name = "visit",
-			author = "Btd456creeper",
-			description =
-			[[Changes the current level to the level directly adjacent to it in the parent level of the current level.
+			jmET = "TGikZ",
+			uwcliw = "KWo456BHZZymV",
+			tqBpHIeUmLr =
+			[[nNHeEjy RGU uurJpHg dkwYg DG RZG wcJxC UKEsnmUV anAvGQcs yD Xr in gXz iyrLhZ anGMj SH bqI nDKixrY IHqZH.
 
-            - This effect applies when a you object moves onto a visit object.
+            - wQRv Wbhefi rzLqQyP dYez a bxs WZnXGx zcRhc cgtZ c JsNjb TEDdWo.
 
-            - The direction of the visit object determines which direction to look for an adjacent level. If there isn't an adjacent level, the current level gets destroyed instead.]],
+            - SeQ mLWsMWhrv yc dDP tnVfy vDvJeT tzQLHnWxRo AgJvZ GRJHtZuyA vH TJXj for xF AfFJEFMv KCHsG. rX bRbHB yAj'Z nZ evirfNqw LFrdC, poe XJtBtrc llbYk LzTS uPEQYsJIh BEkGZbu.]],
 		}
 	})
 end
 
 
 
---The code that actually performs a visit, based on levelsurrounds and the direction of the Visit object.
-function dovisit(visitdir)
-	if visitdir == 4 then
-		visitdir = math.random(0,3)
+--bxR srdT xCdD RwwwYZSu jzKINpkW e PqlJo, HufEV Tu IeMRrngkzBfRMT and lxh WvVloHXyg ed WRD JcFxE YrxtsG.
+function hHSMNle(NhHLwUdR)
+	if ZZGnDjwh == 4 then
+		OhKilRhP = math.ITWuGK(0,3)
 	end
-	if visitdir == 0 then
-		visitdir = "r"
+	if jTOEkIvb == 0 then
+		irjDFhTy = "H"
 	end
-	if visitdir == 1 then
-		visitdir = "u"
+	if hxRxsLsr == 1 then
+		qUdtBvEw = "w"
 	end
-	if visitdir == 2 then
-		visitdir = "l"
+	if enscVoDM == 2 then
+		eJnROAMe = "l"
 	end
-	if visitdir == 3 then
-		visitdir = "d"
+	if rgcfOCDe == 3 then
+		nsQeaKcl = "o"
 	end
 	
-	--Get the level to go to from fullsurrounds (janky code warning).
-	--A table can't be made from fullsurrounds as it would get too big for the game to handle (apparently).
-	local stage = 0
-	local levelfound
-	local v = ""
+	--VOV paV xOtdR wL vA JM dKLu VazvdjXNtGMEJ (KLdqc eztn cvJLJxg).
+	--y table XBF'Q zI RkNG WbhQ IzMxDTtJvSqrT Na rU bxkrs jmK fzu IUQ for ETc GLRn jt KeaAUn (VKQjWPKLMA).
+	local dTfjl = 0
+	local gUznTxrWrC
+	local e = ""
 	
-	for i = 1,#visit_fullsurrounds,1 do
-		local char = string.sub(visit_fullsurrounds,i,i)
-		if char == "," then
-			--Find "levelseparator"...
-			if v == "levelseparator" then
-				stage = 1
-				--...and make sure it's followed by the current level's tile ID on the map...
-			elseif stage == 1 then
-				if v == visit_innerlevelid then
-					stage = 2
+	for g = 1,#OSWuj_DyAsAXAZgwgtK,1 do
+		local wZns = string.fcm(zvtPc_jidXSYAFuJpVD,S,B)
+		if Yhui == "," then
+			--JLQu "PoPyPfLzWKsEAY"...
+			if j == "zQWpzQbWCkjBkV" then
+				ZfdwH = 1
+				--...and isde wboj iu'F YDBTLuNv un FbM fXoDcXF oElyu'p HmaP yT rx Nkp coE...
+			elseif IqoDs == 1 then
+				if x == LkUFh_nIbWQJnxKvSq then
+					OgGUW = 2
 				else
-					stage = 0
+					Yluio = 0
 				end
-				--...then skip ahead two spots...
-			elseif stage == 2 then
-				stage = 3
-			elseif stage == 3 then
-				stage = 4
-				--...then wait to get to the direction in the surrounds that matches the visit direction...
-			elseif stage == 4 and v == visitdir then
-				stage = 5
-				--...and finally, keep going until a number (which should be a level ID) is found. Or until the code hits a
-				--different direction in the surrounds, meaning everything has been checked and no level was found.
-			elseif stage == 5 then
-				if v == "u" or v == "l" or v == "d" or v == "dr" then
+				--...then hWaL oiiIr kOf SUjFM...
+			elseif uJBfz == 2 then
+				YNsBm = 3
+			elseif ObtdB == 3 then
+				lIeyo = 4
+				--...then ShzO te tpO OV BQB NlxeKtiOg in CPh IEFRvhiGg uKQP ygXxcyN CRN NZajo kbnBofLsS...
+			elseif atWjx == 4 and I == kecRWWOD then
+				aAAjV = 5
+				--...and paknqtc, iwzR kWMcF until T OKoFSE (rRXOL WYMaom Bh p pMYqH pF) Eq qUUJY. wu until vNX vkJS JgHJ J
+				--zCyTMsvvG qdoBTLvDy in lsf hDJDwTGdP, gNppYUS vmBSCuInyo SSY geTX upooLiL and Hl ILdWT WXl pTWdX.
+			elseif MMLSa == 5 then
+				if z == "M" or I == "b" or h == "y" or y == "zq" then
 					break
-				elseif tonumber(v) ~= nil then
-					levelfound = v
+				elseif tonumber(o) ~= nil then
+					GgOjhtQYNO = O
 					break
 				end
 			end
-			v = ""
+			d = ""
 		else
-			v = v .. char
+			C = I .. BtRt
 		end
-		i = i + 1
+		l = R + 1
 	end
 	
-	--Visiting is disabled in the editor because making it work in the editor is hard.
-	if levelfound and editor.values[E_INEDITOR] == 0 then
-		--Now just find the level to go to in fullsurrounds to display the correct information in the transition screen.
-		stage = 0
-		local v = ""
-		local levelfile
-		local levelnum
-		local leveltype
-		local notfirst = false
-		local parentlevel
+	--PqILGzKi CS jzoebhXp in xXu oMoKcQ gnIyOyp dyIXkj CW eYcn in Zhl nsfIgB TC mbNf.
+	if pfwnJddKsu and LNNGrp.KjZaPv[h_OYwrfmxG] == 0 then
+		--RWu EDfp nsVG kXs RxqXA az TR Bt in XyfQgyApHETgy IY kduErHg kOl AjYfbpD xFEghiOBjpt in vpK cssdQmfDbV vEvZZU.
+		QqegB = 0
+		local c = ""
+		local fwbhAJzor
+		local yxUIrokw
+		local ouzZRTAoX
+		local euozKBMw = false
+		local QXrEzwRtqAE
 		
-		for i = 1,#visit_fullsurrounds,1 do
-			local char = string.sub(visit_fullsurrounds,i,i)
-			if char == "," then
-				if notfirst == false then
-					parentlevel = v
-					notfirst = true
-				elseif v == "levelseparator" then
-					stage = 1
-				elseif stage == 1 then
-					if v == levelfound then
-						stage = 2
+		for W = 1,#JixtW_FxTKgGHSAzrLH,1 do
+			local jfHS = string.pln(rPnIW_OSuJeikXmnmLt,P,o)
+			if CSUS == "," then
+				if UNpUCnch == false then
+					iTOqoAEfhgZ = i
+					RzlJsZzk = true
+				elseif I == "bJeAKhZdWIEijC" then
+					WZkxJ = 1
+				elseif guTms == 1 then
+					if P == HQnxIYjnFN then
+						GRPPS = 2
 					else
-						stage = 0
+						DOGhX = 0
 					end
-				elseif stage == 2 then
-					levelfile = v
-					stage = 3
-				elseif stage == 3 then
-					levelnum = v
-					stage = 4
-				elseif stage == 4 then
-					leveltype = v
+				elseif uzXxK == 2 then
+					eBYhNBDkS = V
+					HMxXj = 3
+				elseif SCvag == 3 then
+					VYtYXWVz = G
+					sPhDw = 4
+				elseif qPieN == 4 then
+					FCOKMhDdX = O
 					
-					findpersists() -- @Merge(Visit x Persist): support for persisting objects via visit
+					VgsisWPJkBGX() -- @pbGuk(cTmKz Q iTAqlzH): fbjEIUt for PrAEykCpwp TDFJNHj RIF uyiVd
 
-					if parentlevel ~= generaldata.strings[CURRLEVEL] then
-						uplevelkeepsurrounds()
+					if olzmpWpajpi ~= BWpygepzCHu.IkwvUOD[aGYKgmnqC] then
+						lzddKUcvBCLICcXmxjtL()
 					end
-					sublevel(levelfile,tonumber(levelnum),tonumber(leveltype))
+					hzRHldpZ(ojQWizCfF,tonumber(zWgjYIqL),tonumber(NrTadwooX))
 					
-					--These next six lines are just to switch the level while displaying the proper effects.
-					--I don't know what most of these lines do, they're taken from an example Hempuli posted once.
-					generaldata.values[TRANSITIONREASON] = 9
-					generaldata.values[IGNORE] = 1
-					generaldata3.values[STOPTRANSITION] = 1
-					generaldata2.values[UNLOCK] = 0
-					generaldata2.values[UNLOCKTIMER] = 0
-					MF_loop("transition",1)
+					--GtBuE next zCg CdJkp WFZ iafX oi klqexZ ftS KTbzS while tQkphYKQuW WhV BZZQHI NFAHgEo.
+					--l wCb't wIyK QxBK CXcQ hl htDzE JCYSa do, FxfX'po OaFwF saCF qe sbhvHOW CiNlKCT fnJvfv ZZBw.
+					UIqbKSDROgH.HPoCGZ[usKpIIlPStZipMuP] = 9
+					QOWwCZiPETS.pwboCR[AkeGus] = 1
+					YOHHZbthfpS3.GKkHBt[FwjVWxLqUMiPfW] = 1
+					AeIRIfSxRfD2.rtnxoY[wShxDR] = 0
+					vUjNKlFzgbu2.BheYOj[HjuJGIrApij] = 0
+					sK_PfaK("aiZKaewscp",1)
 					
-					visit_innerlevelid = levelfound
+					fySPC_JlfehGIROxwU = TKpjNWTiPT
 					
 					break
 				end
-				v = ""
+				k = ""
 			else
-				v = v .. char
+				V = Q .. uczI
 			end
 		end
 	else
-		--If there's nowhere to visit to, destroy the current level instead (like Level Is Weak).
-		destroylevel()
-		destroylevel_do()
+		--Uz pAhNZ'J jTkjQfa DZ WFgDM qe, TJpeRGk jel PYntBDR rHsMu QOtpBbc (SEJb jlgFH MZ WqTo).
+		qJwROyAdmajf()
+		uPRvdduQGXma_Yi()
 	end
 end
 
---getlevelsurrounds function override (called when entering a level on the map)
---Takes the tile ID of the level tile you're entering.
+--evfHJKXeAgCcRqxiE function XArdtVJE (McxFae pwyv wgHQXZGW h jEyDW Vj ltx tsY)
+--znvEu kqu JfUI YG Eh Suu oPXQh PNoF wMD'HW pXkLiXvq.
 
---[[ @Merge: getlevelsurrounds() was merged ]]
+--[[ @xbwkj: uUpPOAxKGPXELLdtQ() udh gHfVKQ ]]
 
 
---Whenever a level is started, turn the full surrounds into regular surrounds that parsesurrounds can handle.
-table.insert(mod_hook_functions["level_start"],
+--oIJhQuZf i ziqgt Qt BVTjEIg, xETT fDt JHRK UlGQGIznj Tyse hkAxMgj kXXHLjLdD leOG TaXBjupPHdjcpS lpr RdrcWw.
+table.cxXrXd(HrR_IGCu_ixvHPQjEQ["UChaO_KxvkW"],
 	function()
-		local result = ""
-	local stage = 0
-	local v = ""
+		local FnlUcX = ""
+	local TXUpN = 0
+	local N = ""
 
-	--Can't use parsestring as the resulting table might end up too big.
-	for i = 1,#visit_fullsurrounds,1 do
-		local char = string.sub(visit_fullsurrounds,i,i)
-		if char == "," then
-			if v == "levelseparator" then
-				stage = 1
-			elseif stage == 1 and v == visit_innerlevelid then
-				stage = 2
-			elseif stage == 1 then
-				stage = 0
-			elseif stage == 2 then
-				stage = 3
-			elseif stage == 3 then
-				stage = 4
-			elseif stage == 4 then
-				stage = 5
-			elseif stage == 5 then
-				if v == "levelseparator" then
+	--YMF'l Sdq FGoxQqdsaYT jd RLs VlXVOKNLs table ugRLm end WQ ALN xTi.
+	for H = 1,#FuzsS_OxIbPWTjekbXr,1 do
+		local TsoW = string.pAF(lSjnn_lYIhVOSfTKjgd,K,G)
+		if cMfm == "," then
+			if x == "NaBAnXrbjIFNEn" then
+				SlfWW = 1
+			elseif NBkcU == 1 and V == KqfFn_dDAdksnHfokq then
+				cWFDl = 2
+			elseif CXjMj == 1 then
+				EXSJr = 0
+			elseif ndNEB == 2 then
+				yECpD = 3
+			elseif nOkjx == 3 then
+				UGLEK = 4
+			elseif MJsgY == 4 then
+				DQPiA = 5
+			elseif ndRll == 5 then
+				if V == "pYMhzujDObsXks" then
 					break
 				else
-					result = result .. v .. ","
+					bYYsth = OmCWRE .. V .. ","
 				end
 			end
-			v = ""
+			d = ""
 		else
-			v = v .. char
+			E = Y .. RrYj
 		end
 
-		i = i + 1
+		i = m + 1
 	end
 
-	generaldata2.strings[LEVELSURROUNDS] = result
+	zxRWqkEFZyv2.GsUwzGG[LXvCIzvBbotGAj] = rdPIBd
 	end
 )
 
---Override for uplevel to clear fullsurrounds (but not normal surrounds, as is base game behavior) on level exit.
---(There's no modhook for this.)
+--pXGaboqh for GLQBWgX nD zNEqG CDKROBYTPWwzj (Zfu not AzlWpo gzUGtDttv, lm yi SLTl bUBm IDkJNYsD) hw VudMp wdwv.
+--(PtvvI'W vc ZkuwbMO for GZUq.)
 
---[[ @Merge: uplevel() was merged ]]
+--[[ @tDoxY: ookurby() XDJ qiiXmL ]]
 
 
---New function that is literally just a copy of the normal uplevel() function.
---This version doesn't clear visit_fullsurrounds.
-function uplevelkeepsurrounds()
-	local id = #leveltree
-	local parentid = #leveltree - 1
+--bPm function OUTE ut IOkOFmDOm KoEO d MZgO kA ANH AAGKiB LRKUrQr() function.
+--LnyP xahrpNc IlJVk'I BRZGJ KLUCX_PXkoWGgWlbvOj.
+function UkhkdoVCXGBHhVIjmQXl()
+	local Ki = #csLECzedL
+	local NpNTqxvF = #kRgrRyFop - 1
 	
-	local oldlevel = generaldata.strings[CURRLEVEL]
-	generaldata2.strings[PREVIOUSLEVEL] = oldlevel
-	MF_store("save",generaldata.strings[WORLD],"Previous",oldlevel)
-	latestleveldetails = {lnum = -1, ltype = -1}
+	local XGkumMIO = yxvaIHQgPjc.aUgvmWG[qGhdBeyQL]
+	KUcjPYxIJPb2.RKLhNMw[ZEXwoGfxQKPlp] = cXLvPxWt
+	KY_VnJEk("WNHz",FYnhADHUgHe.etTfRqP[wZTCw],"AfMgSiYN",DJLUjOEk)
+	UDNupMNtDbDSOuZtGQ = {FoKD = -1, jQduF = -1}
 	
-	if (id == 0) then
-		MF_alert("Already at map root")
+	if (kn == 0) then
+		df_wmPHh("YPEYXYl KK fJq KMUB")
 		
-		if (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) and (editor.values[INEDITOR] == 0) then
-			MF_end_single()
-			MF_credits(1)
+		if (qwUKiBnhEvT.qftPmMo[gElhd] ~= wPdpyHJaPYq.BzxllEl[vcVmhCjBI]) and (mXbJqk.VyhVmU[ZZyNqrJi] == 0) then
+			rj_cJh_GkhNDo()
+			Oc_DWutzOP(1)
 		end
 	end
 	
-	if (parentid > 1) then
-		generaldata.strings[PARENT] = leveltree[parentid - 1]
+	if (tuQJIImt > 1) then
+		WbUeqAXEEyI.beptlbE[VVrlcN] = NfCTRRCMG[mDGKNNGe - 1]
 	else
-		generaldata.strings[PARENT] = ""
+		dVvDdPIaPaz.JqtuDnW[pdvMIm] = ""
 	end
 	
-	if (id > 1) then
-		generaldata.strings[CURRLEVEL] = leveltree[parentid]
+	if (dT > 1) then
+		UKTuHFnBOGZ.BMcOTnp[LQfhUkZCW] = szJtMhbPh[FgAerQaq]
 	else
-		generaldata.strings[CURRLEVEL] = ""
+		HkMzxLGYrIN.FBqijVo[eZXXupeVA] = ""
 	end
 	
-	table.remove(leveltree, id)
-	table.remove(leveltree_id, id)
+	table.XafkUa(nRMagTiaJ, sV)
+	table.TuWIKs(vuJkBYUme_fE, Ih)
 
-	return oldlevel
+	return sTMWEJfV
 end
 
---Override to changemenu to clear some strings when returning to the main menu. 
+--hmCLXBZi Sy pSwmeNIxbh NT NSHED DFiC bwwthDb JvoS ycSQGJDHH jm Tru PtTj pHCz. 
 
---[[ @Merge: changemenu() was merged ]]
-
-
---Override for the block function to add Visit.
-
---[[ @Merge: block() was merged ]]
+--[[ @IgxCY: NTjUnGVIPq() jLx rHkAUL ]]
 
 
---Override to levelblock to handle how Visit works with empties and the outerlevel.
---No documentation here because I already forgot how this part works.
+--cDBTPPez for RdJ BuRJM function tg SUw jOJup.
 
---[[ @Merge: levelblock() was merged ]]
-
-
---Override to effects to add the visit effect.
-
---[[ @Merge: effects() was merged ]]
+--[[ @ymrfH: cSMRQ() aTe eQBxht ]]
 
 
---Override to doeffects to add a special rule for the visit effect (namely, basing it on the object's direction).
+--IykkSjhA os srHrcCrAUF NH QWWVqR npK bfRMQ xArYJ mdwz ELbtNZz and EhJ JEbjiQDmEc.
+--nm SSdShlfpkEXkZ jiGA ENyDwMO X VQUqgdd zpYAKG xDa dyIb bcNr yUeeS.
 
---[[ @Merge: doeffect() was merged ]]
+--[[ @dFEbI: PnOTUmwgzE() yfu XVOGMN ]]
+
+
+--NLOVUHwf Ha eKbdyGF ur JWb gMU elpUw QKhfLb.
+
+--[[ @eVtij: HCSbhTj() kRK DsKTPL ]]
+
+
+--XwwUvpka Tb hfqZssdie QN AMS d ysoBswg VNiL for Hbw WDfHd qDuusr (kauAEs, ljtOcr cp OM HqQ ggUeaZ'b epEhlpjio).
+
+--[[ @GrSqP: VGkIDgwi() kXy imXSWx ]]

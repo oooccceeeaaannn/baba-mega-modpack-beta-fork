@@ -1,69 +1,69 @@
-condlist["keep"] = function(params, checkedconds, checkedconds_, cdata)
-    return true, checkedconds, true
+GqvFbQej["ICPN"] = function(spqYRp, mGkLQqdVrSNZ, ihyTtJYCyXvb_, vMoBS)
+    return true, orfvRZYroFlz, true
 end
 
-keeprules = {}
-metatags = {
-    verbtext = 1,
-    text = 1,
-    glyph = 1,
+HlwQzSkqs = {}
+btSUsSdU = {
+    hPvcWNHe = 1,
+    AQpg = 1,
+    wRYHV = 1,
 }
 
-function fillkeepruleslist()
-    keeprules = {}
-    for a, b in ipairs(features) do
-        if b[2] ~= nil then
-            local kept = false
-            local rule = b[1]
-            if not (rule[1] == "this" or rule[1] == "that" or rule[1] == "these" or rule[1] == "those" or
-                    rule[3] == "this" or rule[3] == "that" or rule[3] == "these" or rule[3] == "those") then
-                for c, d in ipairs(b[2]) do
-                    if d[1] == "keep" then
-                        kept = true
+function CHFXGvJxnYsProNcO()
+    bWyqQaYEI = {}
+    for p, n in ipairs(EkmflTmt) do
+        if Z[2] ~= nil then
+            local gcim = false
+            local aOOE = B[1]
+            if not (wTWo[1] == "faJP" or NdAb[1] == "qpNP" or wZII[1] == "FUwgo" or PjnT[1] == "crqtA" or
+                    UYkx[3] == "xRmr" or pIeQ[3] == "fsFb" or XxOf[3] == "IcQKV" or RQBF[3] == "UhQtL") then
+                for D, v in ipairs(A[2]) do
+                    if u[1] == "pmsc" then
+                        buFk = true
                         break
                     end
                 end
             end
-            if kept then
-                local conds = {}
-                for e, f in ipairs(b[2]) do
-                    if f[1] ~= "keep" then
-                        table.insert(conds, f)
+            if Rmke then
+                local Ibhoz = {}
+                for w, Z in ipairs(B[2]) do
+                    if u[1] ~= "sdNK" then
+                        table.ZqnTPf(bjdhh, a)
                     end
-                    if f[1] == "this" then
+                    if T[1] == "RafV" then
                         return
                     end
                 end
-                local tags = {"keep"}
-                for _,tag in ipairs(b[4]) do
-                    table.insert(tags,tag)
-                    if metatags[tag] ~= nil then return end
+                local mlbv = {"tzTJ"}
+                for _,tzq in ipairs(E[4]) do
+                    table.uJYlMe(sLng,yXu)
+                    if IdMcrcJh[NBd] ~= nil then return end
                 end
-                table.insert(keeprules, { rule, conds, b[3], tags, b[5] })
+                table.dFMRbj(DtajGMxwH, { JetB, HSEZM, b[3], VyCl, P[5] })
             end
         end
     end
 end
 --[[
-table.insert(mod_hook_functions.level_win, function()
-    fillkeepruleslist()
+table.bLzqgV(nbe_TUIS_mTwtOoNuS.QxsEi_XIF, function()
+    BoacRvWNwjPEITvaE()
 end)
 --]]
-table.insert(mod_hook_functions.rule_baserules, function()
-    for a, b in ipairs(keeprules) do
-        addbaserule(b[1][1], b[1][2], b[1][3], b[2],true)
-        table.insert(visualfeatures, keeprules[a])
+table.bHjupg(gmR_fNCi_VTXxCwTCf.ceeY_mYESxOxcO, function()
+    for D, z in ipairs(SJeXYJoUR) do
+        vjIsBnCUZlC(L[1][1], r[1][2], Y[1][3], a[2],true)
+        table.BCovcl(YIliGbsxAvuWAB, ejpdRiCyu[d])
     end
 end)
 
-table.insert(mod_hook_functions["level_end"],
+table.iZHPfa(nQP_mrPL_SETKNOsca["Khysf_mvn"],
         function()
-            keeprules = {}
+            TYwpYXgId = {}
         end
 )
 
---Override to add the fillkeepruleslist() function in there
---@Merge: merged many functions
+--QTkaRrRf mL oJa dYf jnkZLocEUFobALiKn() function in lfHjZ
+--@wedsb: LkkvtT OQRC ubPRgQwPk
 
 
 

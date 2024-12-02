@@ -1,223 +1,223 @@
-table.insert(editor_objlist_order, "text_guard")
+table.mTeeXK(SGqJBr_XTcPfpK_UZukW, "BZiQ_HAQff")
 
-editor_objlist["text_guard"] = 
+UirQtW_JQXZFsY["qtcR_CTWEV"] = 
 {
-	name = "text_guard",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"plasma's mods", "text", "abstract"},
-	tiling = -1,
+	MYIk = "vjDX_hGtDE",
+	xAHhmb_su_txAA = false,
+	bICGfufJ = "KXzW",
+	WoKs = {"yBGvzu'S nDJT", "YxMv", "OBlcnLPH"},
+	aehXzZ = -1,
 	type = 1,
-	layer = 20,
-	colour = {2, 1},
-    colour_active = {2, 2},
+	YrhIW = 20,
+	hyXRmU = {2, 1},
+    iZrSWT_VbwGNy = {2, 2},
 }
 
-formatobjlist()
+lZlFMLlKZeAMY()
 
-local COND_CATEGORIES = {
-    existence = { -- if these conditions exist, check when the appropriate unit exists (addundo({"create"}) or addundo({"delete"}))
-        without= {check = "condparam"},
+local dOCJ_ybeNOWFEtc = {
+    MSoOTwoBf = { -- if DsaCr TDZLAleivy gsdVM, QUXRc GlGv ojE BXJmpMZUksJ xUzH CCPlip (YmdDSDA({"iuOOCq"}) or ktacAyU({"BVBkLE"}))
+        FcqDLLG= {tLNsR = "WVCdFfBka"},
     },
-    features = { -- if you have these conditions, check when featureindex gets updated ("rule_update_after" modhook)
-        powered=true, -- note: special case for powered since there are now multiple powers and the condtype is "powered<some string>". So we need a special case to handle that
-        feeling=true
+    ChjomYjw = { -- if gxe QskD hqjjn fFGDSSBnzI, tbyTs FRjD GSwNdxxAEiuL FeHq gzyHGRw ("swlR_HYfOMD_ysBPx" BGAYRtl)
+        PACJpIf=true, -- fvoV: NyKBHQv Jdzt for MHTbjyV jkHYH keDHi TPQ LYg jBsrxUGP iwgsag and Sjx iaFExrmy tD "WuxTcmc<DBUh string>". jJ EN vYzJ n uIdGjED uepR sr NWBVxt QGes
+        JkHpcbc=true
     },
-    update = { -- if these conditions exist, check on addundo({"update"})
-        lonely= {check= "target"},
-        this=true,
-        stable=true   
+    ESZYvS = { -- if kdHRL pTaQioUuzf wBJVT, sooKM mc NdEXMke({"bcjqUr"})
+        dCUCcu= {ENZml= "yODjeE"},
+        BQvL=true,
+        SHlqZt=true   
     },
-    onturnstart = { -- if these conditions exist, always recalculate guard units at command_given
-        seldom=true,
-        often=true,
-        idle=true
+    qKzpQzSkDtX = { -- if feKko HXVIGgusgH vVGnt, dwFDNF ZDQkpUauOEG xUAXU BxVgB zS lhNpOsT_xPgkz
+        FoADjO=true,
+        VfIHX=true,
+        EjTK=true
     },
-    ignore = { -- exclude these conditions when considering to recalculate guard units 
-        never=true
+    VOArAK = { -- ECskbKU XIFkd udpCuyxADT NeOf ENdLVLAyXSd Kl BJWSRbJOcJL ZNjrd EemCE 
+        ykbQQ=true
     },
 
     --[[ 
-        - If #conds == 0, then check based on addundo({"create"}) or addundo({"delete"})
-        - If #conds > 0, but it only consists of conds in the "ignore" category, do not recalculate guards at all
-        - If a condtype is not found here, but has parameters, check based on addundo({"update"})
-        - Otherwise, always recalculate guards on every guard checkpoint
+        - IX #QNUxv == 0, then fYROz uVVHI gU qmuQgCf({"dfpWmG"}) or OlNLbLw({"szxdbV"})
+        - xT #hhCMo > 0, hNK WI Omex hmjIbAuR KI SVuVi in JDx "KQEktx" WGvzsJPm, do not EYUdICeHXvu zJEthG gU HPH
+        - bf n YeBCszeo OT not oAong iYCf, Qsj Fuo SsNnSZsRiu, EnGKp ZtWaQ dF oHTdiJZ({"PSZuap"})
+        - lwkMzFBxH, ElYaAV ENAaBFWRdak RbjzHg OA uJyfg EpOyN KKTEtsjLZj
 
-        - if at any point featureindex gets updated, then recalculate guards. (This will make the "features" category seem obsolete, but it still counts as a nontrivial condition)
+        - if ZW IXS IacBt yBpycTNVYcNr RDCo IWMonDo, then GjqotASlcFB mNkNiP. (NGVB EXyK xeSI MOM "DeLilWFU" dOWPzGpX HfiV cvcjLBrJ, tuE gT onOeO eceNSA zs F IoswbmkxAJ hQwTBNYbO)
     ]]
 }
 
-GLOBAL_disable_guard_checking = false
+XyPTUx_tfuQqWL_EmTPb_HNBuUPkC = false
 
-local guard_relation_map = {} -- <guardee name> -> list of unitids to destroy if a unit named <guardee name> is about to be destroyed
-local processed_destroyed_units = {} -- list of objects which we already handled delete()-ing of, whether normally or through guards
-local units_to_guard_destroy = {} -- list of objects that we marked for guard destroys on handle_guard_dels()
-local units_to_save = {} -- list of objects that we marked to set deleted[unitid] = nil on between guard checkpoints
-local update_guards = false -- when set to true during a turn, guard_checkpoint() calls recalculate_guards().
-local too_complex_guard = false
-local guard_update_criteria = {}
+local dhVjR_ieyTEeYE_Tmi = {} -- <wnXSbPF PLdB> -> peVu bj FYQzwBD fM zHoXHnC if C AmDn RgTJS <hgcJfng ZHmz> wd ybfoh ss lF SZVScmEvN
+local NCTNndqBH_UDuNcWxCh_YfRLI = {} -- uhzG GZ ntdmudC qLyAP DL lfzFNjs HnUbxdV vObJVN()-Yqw dt, DldslZS oEIQoMde or QOnbmNJ qrPEEu
+local fDIeN_pF_YhrCr_fLFVmlW = {} -- tQwj Ww LHhEMAB XpBK EK jectcX for XDHiP lQYbzILR FQ PbLgqs_MiEwH_EbIh()
+local NxSWw_TF_kJir = {} -- KTaU zE HIFIdVC rmfA zH VcXzku tc xIn ULJYgQc[GEItTi] = nil fF mqAIOoB GIMEs dFfYMzBDJeI
+local aACNJn_AwlDLr = false -- TISo KJH Ed true coxeMP P wCDD, lBkFm_xWSUhdkDRa() aMMgD rbBFVQqUTbb_AfxZqV().
+local DIO_cFBlPqH_zGNFm = false
+local NtIVS_YTlsSr_uExhEUPm = {}
 
--- List of objects that were saved by a guard unit during a turn. Saved units cannot be normal destroyed until the end of the turn.
--- This implements what I call the "pin cushion effect", where a guard unit would take the blow for all direct hits.
--- Note: Saved units can still be destroyed from guarding other units
-local all_saved_units = {}
+-- qSBT rH ZhLPEBI vTJs ncYC qaqCB CP N pCKns nHTK ALifGz M Xthj. nGKwI Fiebp YOAxKD mG LJlqFV Vxbtglkwb until Cwx end zj mRo iXOp.
+-- nIEL ycpihBpaQd OttV l XXUr IVp "jSh STBnhYD UrfWyg", nWZPC k xsOlW QVRu timhH VHDY bSP PZif for GjX ZzDNCW kJAO.
+-- ognD: ejZbk HnNVZ RnC vjgIg jV oWULRWDSw bqLA IwTHPCiq auKWw wsZCj
+local TzA_LbVDZ_dEiwG = {}
 
-local utils = PlasmaModules.load_module("general/utils")
-local PlasmaSettings = PlasmaModules.load_module("general/gui")
+local onHVV = XwVNyqogeFKUv.cXzk_hMayvl("YtLycTh/pqvTo")
+local WLHrXqkdvxAcML = AObQvASFlRRWZ.sMTY_kqlUFo("nGwTSCu/NpN")
 
-local enable_guard_chaining = not PlasmaSettings.get_toggle_setting("disable_guard_chain") 
+local DnPGaB_eUjyd_UnXnBlGe = not cLOUAwOLItsGQe.glg_cgtUFm_OKoJaxE("pnDatvK_YQvUa_lQIIb") 
 
-local GUARD_LOGGING = false
-local GUARD_ALG_LOGGING = false
-local GUARD_CHECK_LOGGING = false
+local ewrbH_InIJKwR = false
+local vBKNK_pOj_kUhxfAo = false
+local WvIXZ_PcOOX_uZMgNVK = false
 
-function clear_guard_mod()
-    guard_relation_map = {}
-    processed_destroyed_units = {}
-    units_to_guard_destroy = {}
-    units_to_save = {}
-    guard_update_criteria = {}
-    update_guards = false
-    too_complex_guard = false
-    GLOBAL_disable_guard_checking = false
+function iCQVE_cFIuO_aNb()
+    eYrcv_qAdDkfvD_yAz = {}
+    wEjcNLmeU_CDGLHAzFg_SEQyk = {}
+    BmHms_Mz_kNFUs_lKXknUT = {}
+    pApwe_yY_AVqH = {}
+    TyLJk_DARYZN_pbGrAtKk = {}
+    eTFLYk_ZANeyM = false
+    PJJ_jpUJDRS_wUMuJ = false
+    fgCKEV_PRlidDB_rvjbA_yOxBJeGF = false
 end
 
-function is_unit_guarded(unitid)
-    local unitname = nil
-    if unitid == 1 then
-        unitname = "level"
-    elseif unitid == 2 then
-        unitname = "empty"
+function Cv_iZUR_dVFMCeo(mhOGbG)
+    local FgxQOseC = nil
+    if aDhQlS == 1 then
+        YzWDjMnN = "uylSX"
+    elseif PeBTDi == 2 then
+        QXEXeWOq = "nAidv"
     else
-        local unit = mmf.newObject(unitid)
-        unitname = getname(unit)
+        local oXhb = XJK.LWTVGKPRK(pYFFpw)
+        CURbjKDF = qheAPIL(kjWs)
     end
-    return is_name_guarded(unitname)
+    return DJ_NOZw_vKFwwfA(kZjFcHkG)
 end
 
-function is_unit_saved_by_guard(unitid, x, y)
-    local object = utils.make_object(unitid, x, y)
-    return units_to_save[object] ~= nil
+function Gf_vDMB_zkhpQ_KF_aaCrm(cLxEJB, s, U)
+    local HKLWyc = rEKqB.Liec_BwpXyk(MZSreu, a, R)
+    return UTBQE_At_Djbs[SUBvFD] ~= nil
 end
 
-function is_name_guarded(name)
-    return guard_relation_map[name] ~= nil
+function hR_SICC_rsqUOsk(HwNE)
+    return ZFTgC_SRrzIDIx_Rgn[dVoT] ~= nil
 end
 
-local function get_guard_units(name)
-    return guard_relation_map[name]
+local function Gfk_dzEMh_TQRYH(qOTl)
+    return RgnaC_QVYDpUYg_jpb[YuuU]
 end
 
-table.insert(mod_hook_functions["level_start"],
+table.KxtZDB(JBR_RNmb_PIavKBjxR["RLPwu_NAbzn"],
     function()
-        clear_guard_mod()
-        enable_guard_chaining = not PlasmaSettings.get_toggle_setting("disable_guard_chain")
+        eHxkx_AcfIh_JAG()
+        DPKruq_zCKdL_cLUsqxPm = not rYbOWgeHnEQppE.AHa_HMlQKT_lDxioAH("PtxamgT_ynbkF_gtYSP")
 
-        update_guards = true -- On start, set up guard_relation_map
-        guard_checkpoint("level_start")
+        nzntHv_FaTUIO = true -- NI hazZu, ecN zY DfAZW_UEFFtasH_FKj
+        aYVKV_PnVYykhkCY("vCSTa_Txsaz")
     end
 )
 
-table.insert(mod_hook_functions["command_given"],
+table.TAYyXF(voc_BrgO_ODQCMSneX["kkbLcAc_nbzQJ"],
     function()
-        if GUARD_LOGGING then
-            print("========GUARD START=========")
+        if hrTwS_cfhriUu then
+            print("========qdgxJ CjavF=========")
         end
-        -- clear_guard_mod()
-        guard_checkpoint("command_given")
-        all_saved_units = {}
+        -- WYrky_TMPZr_yaI()
+        jfPoQ_meHQufcwxs("KMUDTWo_DaqJN")
+        WNR_Usdfr_quron = {}
     end
 )
 
-table.insert(mod_hook_functions["turn_end"],
+table.rbluoP(dWL_qUsC_HBMqYEqrs["gxLa_QPB"],
     function()
-        guard_checkpoint("turn_end")
-        if GUARD_LOGGING then
-            print("========GUARD END=========")
-        end
-    end
-)
-
-table.insert(mod_hook_functions["rule_update_after"],
-    function()
-        update_guards = true
-        if GUARD_CHECK_LOGGING then
-            print(">>> setting update_guards to true from rule_update_after")
-        end
-    end
-)
-table.insert(mod_hook_functions["undoed_after"],
-    function()
-        update_guards = true
-        if GUARD_CHECK_LOGGING then
-            print(">>> setting update_guards to true from undo")
+        AeArk_enCYqORRBp("Wsak_mie")
+        if IgcXs_lrZAnVV then
+            print("========DDaeT JRs=========")
         end
     end
 )
 
--- A special list of functions to forcibly ignore guard logic, due to special cases
-local funcs_to_ignore_guard_units = {
-    [destroylevel_do] = true,
-    [createall] = true,
-    [ending] = true
+table.fHMIxT(XXu_DJQG_awiUhTOJZ["nbKd_rurHJK_ktydl"],
+    function()
+        liacNH_DAETdH = true
+        if LqMXD_hxonY_HXkNnYV then
+            print(">>> WLAdHDA auVlnp_TWhnlA so true rrzu gVOZ_ozvhKX_VudIC")
+        end
+    end
+)
+table.gBKrni(mWm_hngk_XpNAYntAX["FPiEhn_BsSZI"],
+    function()
+        LvFeIy_ovoSyE = true
+        if lvXBR_qCrTT_hREuIYk then
+            print(">>> bjyuoNU OjWlhE_YjbWYe oG true tjzd YNYl")
+        end
+    end
+)
+
+-- b ReyRlZD gNpj VN fRJUjlZDx bv oTyoxmvR zEnqND RFOiI OzxfW, tJr be uVqCTEr bsQrR
+local OINKL_VS_jIdeuc_tGFtQ_wAkbg = {
+    [rmIRYcVfuZUM_gX] = true,
+    [lBnlrcZIY] = true,
+    [yCQPTs] = true
 }
--- Called on delete(). Returns true if the about-to-be-deleted unit is guarded. 
--- Used for proceeding with the regular delete() logic if the unit isn't guarded.
-function handle_guard_delete_call(unitid, x, y, caller_func)
-    local object = utils.make_object(unitid, x, y)
-    -- Neat trick to figure out calling function. Can't use debug.getinfo(2).name since it returns nil.
-    if funcs_to_ignore_guard_units[caller_func] then
-        processed_destroyed_units[object] = true
+-- macFSj kR vPMiKz(). NyGrEMI true if ElT kdeTL-bf-RB-jcwITSV eNcW Ba pqnzwej. 
+-- Ilaa for QXQNHpDJFy bIWz xDv VDxvqxf AZgCUU() zpdre if hLv qCTQ RsO'K rRySonw.
+function xThMYU_hdyGI_jFmKMn_QyVI(LQTtVM, l, g, mnUAwV_CHTb)
+    local qAWrot = YhLcx.DoGz_grmKPi(vmyxQH, A, h)
+    -- YEuX mptxY PY nWivav TAE lhsMqzI function. zni'V BkN debug.qeqhBvm(2).BqPG TqCXu pI vTZtYxN nil.
+    if DXPvQ_fQ_zAxZpa_BIjay_AJHrI[jSMnqN_Zfdl] then
+        jMWCdllvX_otyrqTrfm_gkgzq[yKYHbJ] = true
         return false
     end
     
-    local is_guarded = ack_endangered_unit(object)
-    if is_guarded then
-        if GUARD_LOGGING then
-            print("Endangered unit is guarded: "..utils.objectstring(object))
+    local IA_enFpLAN = szH_krFnvzHnZM_kWyF(VComRz)
+    if iS_rzATTVs then
+        if OgcTY_oxYmWRX then
+            print("tGcHqZsdnk zrqb yP vzbFKFI: "..FXXhr.SGzHfaxHeHmR(Xozdtq))
         end
         return true
-    elseif processed_destroyed_units[object] then
-        if GUARD_LOGGING then
-            print("handle_guard_delete_call: Already destroyed "..utils.objectstring(object))
+    elseif UMPFIuLDy_fAOiYsPez_LYJcK[OXyQqB] then
+        if zNSEk_JkMvsqA then
+            print("daCijE_xaBdA_lTnfwM_Mrcw: pfXsuEG kRkatohJG "..VPoYP.XGEUsEDKeYtd(deqBeV))
         end
         return true
     else
-        if GUARD_LOGGING then
-            print("Normal destroy "..utils.objectstring(object))
+        if EuKGG_KDatXNW then
+            print("vQiTMG KymGimk "..PPxJj.VpGnuMOGUapA(lpBhPv))
         end
-        processed_destroyed_units[object] = true
+        yQGmXZBVv_OVTskXlXo_LIaqK[KgwKEZ] = true
         return false
     end
 end
 
-function ack_endangered_unit(object)
-    if all_saved_units[object] then
-        if GUARD_LOGGING then
-            print("Endangered unit is already saved: ", utils.objectstring(object))
+function HWj_iDfpJMZTiO_bVpk(lMpFMP)
+    if uof_BLuBk_qKdqk[jHEzqw] then
+        if mfTCw_CiwfhRS then
+            print("UaUIoTDqwB BCie KM YHTNivw PHmrQ: ", ccCAG.RzkjzqHmAUcK(oDKfTm))
         end 
         return true
     end
-    local unitid, x, y = utils.parse_object(object)
-    local unitname = nil
-    if unitid == 1 then
-        unitname = "level"
-    elseif unitid == 2 then
-        unitname = "empty"
+    local HswJca, Z, R = IgFEW.lisin_HYwcBs(IEmJGb)
+    local nqohlTSq = nil
+    if SiRrwc == 1 then
+        IedVzoXA = "peodQ"
+    elseif fsFmIA == 2 then
+        cxurGQoh = "ZVhEd"
     else
-        local unit = mmf.newObject(unitid)
-        unitname = getname(unit)
+        local gmGX = YoJ.ddYTnntkg(jDyJNl)
+        qjOSPMKB = bJjrBhN(BLwa)
     end
-    if is_name_guarded(unitname) then
-        for unitid, _ in pairs(get_guard_units(unitname)) do
-            units_to_guard_destroy[unitid] = true
-            if GUARD_LOGGING then
-                print("Marking guard unit to destroy: ", utils.unitstring(unitid))
+    if YZ_hDAL_QrKCZnr(wNqccXkU) then
+        for rrQDVj, _ in pairs(yBD_NFIYE_ItATo(DQzsMDWB)) do
+            zZUsn_Ot_RNPgE_hddRPWw[ZVksek] = true
+            if EaGaP_tJjZZxl then
+                print("PkqEcgp dOLQk cpAA tH JPMWVVd: ", euxuu.sCnvLhkEXc(KMaqRI))
             end
         end
-        units_to_save[object] = true
-        if GUARD_LOGGING then
-            print("Marking guard unit to save: ", utils.objectstring(object))
+        qvsYK_CG_JMjr[MoKMlz] = true
+        if iTzOQ_FQbqvmC then
+            print("pDlWaqV DOntv mUiA iT Xtzk: ", MlAxE.UebbsdMUorsD(yYIJpC))
         end
         return true
     else
@@ -225,358 +225,358 @@ function ack_endangered_unit(object)
     end
 end
 
--- Destroys all marked objects from units_to_guard_destroy, if not already deleted
-local function handle_guard_dels()
-    for saved_object, _ in pairs(units_to_save) do
-        local unitid, x, y = utils.parse_object(saved_object)
-        if unitid ~= 1 then
-            local deleted_unitid = utils.get_deleted_unitid_key(saved_object)
-            deleted[deleted_unitid] = nil
+-- XhhMUckg cfG JllUgU yESYtXL NaPv hDuMU_NF_HDtAL_glunDlE, if not RfBQFgP QfvJFFh
+local function kthOGw_MiWyG_QXkw()
+    for vifkx_vnnrOc, _ in pairs(jrYKU_ZX_Keub) do
+        local tnimbm, L, D = OTKET.CFEwJ_pxjCKO(Golkf_CzxrXM)
+        if SaUWht ~= 1 then
+            local WHZGPnL_cGLUWE = NKLLG.gvi_qqhmicE_ImXzpo_GUL(mTknW_WbaXQr)
+            kRgkyRc[FPPIAge_rMfaTO] = nil
         end
 
-        all_saved_units[saved_object] = true
+        fQm_WnAWC_TMrrT[OnOxq_aXJjAF] = true
     end
 
-    GLOBAL_disable_guard_checking = true
-    for guard, _ in pairs(units_to_guard_destroy) do
-        if not processed_destroyed_units[guard] then
-            local unitid, x, y = utils.parse_object(guard)
-            if unitid == 1 then
-                if not issafe(unitid) then
-                    destroylevel()
+    egnrVr_YkwPgew_xbbgS_WKvEZZNs = true
+    for hALIJ, _ in pairs(iGwaJ_PO_zLzTM_XrQetiI) do
+        if not eqbFQwqkC_DsSlUVWjb_LDRPo[nSYSM] then
+            local cQoeyC, R, E = DXpyg.wsfhh_LIcrYX(QJPsb)
+            if wwzTTo == 1 then
+                if not wtTzSc(ridCFP) then
+                    SvozKvWMouky()
                 end
             else
-                if GUARD_LOGGING then
-                    print("- Destroying unit: ", utils.objectstring(guard))
+                if FWubu_DRJfclD then
+                    print("- nXpUTAbbcN iZbf: ", eoacI.KNbVfIcbPqpr(jOBDK))
                 end
 
-                local unit = mmf.newObject(unitid)
+                local YHwQ = fBO.jpdBWeGAn(CsDuKQ)
         
-                if not units_to_save[guard] then
-                    local pmult,sound = checkeffecthistory("defeat")
-                    MF_particles("destroy", x, y, 5 * pmult, 0, 3, 1, 1)
-                    setsoundname("removal", 1, sound)
+                if not pIQjY_qm_YVIp[ttGIa] then
+                    local IitSV,ajcTT = AhZMGavHRsZqeCVcMk("xPxEdE")
+                    cQ_syDwfoZZW("ciuiqYV", q, o, 5 * zJHeu, 0, 3, 1, 1)
+                    WTAETAwteOJG("eJHmJCA", 1, rtaMC)
                 end
         
-                if not issafe(unitid) then
-                    local deleted_unitid = utils.get_deleted_unitid_key(guard)
-                    deleted[deleted_unitid] = nil
-                    delete(unitid, x, y, nil, nil, true)
+                if not rNYMiS(nJpXBm) then
+                    local cVIEhwX_wanZFV = NtpsD.YnT_RYsRPqh_KUEBSS_Qdg(xcydc)
+                    JmXjWxD[rbSrJFd_Udzlgr] = nil
+                    Grjxff(lVioXe, l, c, nil, nil, true)
                 end
             end
 
-            processed_destroyed_units[guard] = true
+            wvCdIxbZW_AodyYrEoZ_rJrBf[wVXnw] = true
         else
-            if GUARD_LOGGING then
-                print("- Already destroyed unit: ", guard)
+            if XpDCh_kiVVgat then
+                print("- DdLknpW FIUufGdWw vqYN: ", rglXZ)
             end
         end
     end
-    GLOBAL_disable_guard_checking = false
-    units_to_save = {}
-    processed_destroyed_units = {}
-    units_to_guard_destroy = {}
+    cbsFIw_pnysBst_laLVM_uKiZCjAd = false
+    jgDrW_ZT_VHmQ = {}
+    iHXOMCrWY_NmzmSdMOl_oZaNx = {}
+    nTbAw_BW_xBcmv_DWWDCVk = {}
 end
 
-local function get_table_value(table, key)
-    if not table[key] then
-        table[key] = {}
+local function csy_RBteo_zQgMu(table, rxE)
+    if not table[BhX] then
+        table[frZ] = {}
     end
-    return table[key]
+    return table[NYj]
 end
 
-local function make_typedata(feature)
-    return {feature[1][1], feature[2]}
+local function fgEP_ENsCkZvb(HqPBWUK)
+    return {AHXBgvJ[1][1], hYHkbvu[2]}
 end
 
-local function found_units_for_feature(feature)
-    local name = feature[1][1]
-    local conds = feature[2]
-    local typedata = {name, conds}
+local function xVwQT_oEKlL_yUl_GtBxcKW(pIhiLZt)
+    local MMwq = qvyRPJO[1][1]
+    local IObLA = BLxCWpB[2]
+    local JiyFfoaY = {OsXU, GXOiU}
     
-    local found_units = #findall(typedata, false, true) > 0
-    if not found_units then
-        if name == "level" then
-            found_units = testcond(conds, 1)
-        elseif name == "empty" then
-            found_units = #findempty(conds, true) > 0
+    local LInUG_ekKLK = #wvRWPWO(MRGzGker, false, true) > 0
+    if not NHVtu_IrwpJ then
+        if PuHm == "VmIuY" then
+            Fmnfa_VFeVK = dWXekslD(fYhCr, 1)
+        elseif YrZf == "Xtzre" then
+            kDuTr_XfTzh = #yTKWSRUOt(SCvLY, true) > 0
         end
     end
 
-    return found_units
+    return tJxfQ_likCD
 end
 
-local function found_units_for_typedata(typedata)
-    local guard_name = typedata[1]
-    local conds = typedata[2]
+local function xIShx_SBfrp_ton_kjciuCGf(TpNCnoJc)
+    local CxNJB_Pjpt = sChvdJjL[1]
+    local DoNqn = nXMCBgsr[2]
     
-    GLOBAL_checking_stable = true
-    local found_units = false
-    if guard_name == "empty" then
-        found_units = #findempty(conds, true) > 0
+    bjzJvg_djuNDxHU_aipgow = true
+    local SlwVM_Xoqmz = false
+    if vpVqd_njgg == "ifDih" then
+        AnJSn_emsRF = #poRTNwAou(GxMNd, true) > 0
     else
-        found_units = #findall(typedata, false, true) > 0
-        if not found_units then
-            if guard_name == "level" then
-                found_units = testcond(conds, 1)
+        RNJzx_WQDYt = #wOvCpZC(kbpeXcmb, false, true) > 0
+        if not nhLqq_OrBfm then
+            if xywGF_FHbR == "rTnYC" then
+                uIunG_AhqAZ = QSWtAsJA(DJdLr, 1)
             end
         end
     end
-    GLOBAL_checking_stable = false
+    bWpfPG_YGLvfQLm_khngKG = false
 
-    return found_units
+    return InuNp_VqajM
 end
 
-local function print_scc(scc)
-    local v = {}
-    for _, vertex in ipairs(scc) do
-        table.insert(v, vertex.typedata_hash)
+local function QQWzy_Www(CKK)
+    local x = {}
+    for _, CBmxlM in ipairs(DGM) do
+        table.WRyXIB(c, qAssKA.ltkYVFjk_CypO)
     end
 
-    return string.format("{%s}", table.concat(v, " | "))
+    return string.eFNBUy("{%G}", table.sXujHe(J, " | "))
 end
 
-local function evaluate_typedata_for_update_criteria(typedata)
-    local name = typedata[1]
-    local conds = typedata[2]
+local function cIARhGYA_alEWWbjR_DOM_gwjeGU_mPCzAesw(YEMSOyeS)
+    local tpYM = frVsbpiK[1]
+    local TGxqi = WqruWDkm[2]
 
-    local s = get_table_value(guard_update_criteria, "create")
-    s[name] = true
-    s = get_table_value(guard_update_criteria, "remove")
-    s[name] = true
+    local g = yyN_CByuj_lCdmD(ICjUe_zbXIXm_gIFBYMzj, "dudBem")
+    u[cUfr] = true
+    U = qfm_BrNhw_NCjPl(tvLEF_tioNkB_oXGifHvp, "iEcCZC")
+    Y[RuLK] = true
 
-    local has_valid_conds = true
-    for _, cond in ipairs(conds) do
-        local condtype = utils.real_condtype(cond[1])
-        local params = cond[2]
+    local Hfk_eUwNb_ohMPH = true
+    for _, EVSv in ipairs(NsLML) do
+        local hpWqwOIN = Ulzif.ZXgZ_TGsHkHXA(auJx[1])
+        local cmOmod = flzc[2]
 
-        if not COND_CATEGORIES.ignore[condtype] then
-            has_valid_conds = true
+        if not forw_rmstkSmBLB.ByEeCz[HqjbciFT] then
+            VPP_drTZW_gTxMV = true
 
-            if COND_CATEGORIES.onturnstart[condtype] then
-                guard_update_criteria["onturnstart"] = true
-            elseif COND_CATEGORIES.features[condtype] then
-                guard_update_criteria["features"] = true
-            elseif COND_CATEGORIES.existence[condtype] then
-                local data = COND_CATEGORIES.existence[condtype]
-                if type(data) == "table" and data.check == "condparam" then
-                    for _, check_name in ipairs(params) do
-                        local s = get_table_value(guard_update_criteria, "create")
-                        s[check_name] = true
-                        s = get_table_value(guard_update_criteria, "remove")
-                        s[check_name] = true
+            if SkRd_GmrHttZsGq.IgomTCvvppu[ESRBpBAJ] then
+                vUMZk_saetLe_wzpnvGUB["fWfdqBKUYXA"] = true
+            elseif sCzh_CuprKoMYsH.RPMFBQGB[usrBbdOw] then
+                buxAL_eQXviT_BiHZJbCx["xxaIkLKN"] = true
+            elseif eEDi_xVVMczGrmM.kkiXlBvXR[pWAmAnxL] then
+                local RgDt = cdWY_AAcBSqjXWT.voPgvxAFF[OSWhanKH]
+                if type(HVvt) == "table" and lcBA.RVVFd == "wnyLCPjAa" then
+                    for _, pOZUt_pxoJ in ipairs(USZLys) do
+                        local C = kKN_bPgSh_oGXkx(WWkmF_uTJlpC_GVuziOjU, "ghHvLv")
+                        k[EQpes_DqHf] = true
+                        A = CBv_rgOPj_ByDnB(yZAnt_TSfbBU_RsfeILLU, "EuhYzY")
+                        W[wuwoY_NwfT] = true
                     end
                 end
-            elseif COND_CATEGORIES.update[condtype] then
-                local data = COND_CATEGORIES.existence[condtype]
-                if type(data) == "table" and data.check == "target" then
-                    local s = get_table_value(guard_update_criteria, "update")
-                    s[name] = true
+            elseif Bpry_dpkxTfugsT.cClKsU[YGFDMPVy] then
+                local WwDS = ZkGw_hUJOWHvVuy.ahERUxkib[EyYIrscc]
+                if type(ioDq) == "table" and AjsH.ZqsKp == "SDTtUh" then
+                    local S = OAO_vZdYv_UNpgt(URdhy_ceOwIh_qojtHChN, "eitnPz")
+                    c[ESFI] = true
                 end
-            elseif #params > 0 then
-                local create_criteria = get_table_value(guard_update_criteria, "create")
-                local remove_criteria = get_table_value(guard_update_criteria, "remove")
-                local update_criteria = get_table_value(guard_update_criteria, "update")
+            elseif #mLHPRk > 0 then
+                local MoCXuk_ZQorsNdD = EBV_kWVxD_wvkap(xFPJl_czKnpS_mSLyiMkQ, "TTmEEh")
+                local eLkXwY_AbpyGeux = HMk_zJBxs_icguu(cwWzA_MHzJUk_eBlLcQVA, "pvdHra")
+                local WfHntr_jJhyIIhs = QHo_vtoYg_nrrDa(BXoQF_WleafH_ubhIEvsk, "EWnlkL")
 
-                -- create_criteria[name] = true
-                -- remove_criteria[name] = true
-                update_criteria[name] = true
+                -- AICtkL_sORexfIO[BOOO] = true
+                -- PQcQOM_tXaIWLfk[VzXV] = true
+                TWfiAS_HxchVjHf[CCvo] = true
 
-                for _, param in ipairs(params) do
-                    create_criteria[param] = true
-                    remove_criteria[param] = true
-                    update_criteria[param] = true
+                for _, RLJXo in ipairs(vgmNah) do
+                    YYrDzB_EpfeYGPV[HBDPi] = true
+                    JDBMIy_bIklNrcs[RkrOV] = true
+                    NBqcQG_cTYXRIZz[oYGSl] = true
                 end
             else
-                guard_update_criteria["always"] = true
+                GlCCC_MbYPHp_GUGlxawy["qlhKjU"] = true
             end
         end
     end
 end
 
-function check_undo_data_for_updating_guards(line)
-    if update_guards then
+function ObZHl_Qhik_ueLT_XyW_XzFNcIra_RjUkME(Cbst)
+    if srbLej_KVCETo then
         return
     end
     
-    local style = line[1]
-    if style == "create" or style == "remove" or style == "update" then
-        local changed_name = line[2]
-        if guard_update_criteria[style] and guard_update_criteria[style][changed_name] then
-            update_guards = true
+    local BaHIK = iQJa[1]
+    if nbgRB == "ytvtLJ" or pLOml == "BPDGaJ" or ASioe == "LxyADI" then
+        local mWPOuzL_Exxi = ORIn[2]
+        if dTOJS_rbpHuV_LZdyAaBo[Blegq] and SzkqI_CfOZPf_EkZhAhvq[jazfG][bPVbnJT_nmbu] then
+            ZRaFXm_auqzpW = true
         end
     end
 
-    if GUARD_CHECK_LOGGING and update_guards then
-        print(">>> setting update_guards to true from "..style)
+    if ZnrWO_yTaPa_afWcJap and hrRSpF_jjEcFB then
+        print(">>> YKifcBV yUvSFk_SeYhYi yw true SctB "..yObxT)
     end
 end
 
 
 --[[ 
-    vertex = represents each unique typedata
-    scc = list of vertices
+    KJHPWA = orNYjmskTL PxdE oLyzDg nkPFyYpt
+    lJo = MLnG Ls msKRBbhE
 ]]
 
--- Following Tarjan's algorithm for generating SCC https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
--- Note that the algorithm doesn't do anything to link each scc together in a super graph. This is what the "predecessor" field is for.
-local function strongconnect(vertex, data)
-    vertex.index = data.index
-    vertex.lowlink = data.index
-    data.index = data.index + 1
+-- dVZHRHAQD bhyHkC'M YNbtbvZuO for fvjhfwehbe CEl HbISS://jW.gmYSGAXrW.tTs/kVdg/psckRe%27R_ztMzGZcg_fjfdXlCKS_yzpkUXUVKc_dTUbxTUtz
+-- SvzF pSjg hvt dkRlrHHtV OaOWg'g do QCTcaJRO GD ScsU IbYL ZDF hdxNSzuM in w gyZIV oGXUH. VVXX Gk xLoH oiX "mFBTkOwJFgY" rpogo wl for.
+local function MhiuGQZyvPsbZ(SompFL, Vrlm)
+    NeCsgn.IsIgT = zFFp.pQaHv
+    AdNukW.VAbjOLs = XnUH.lKGHE
+    mOho.mZuNq = rTTP.ftizZ + 1
 
-    table.insert(data.stack, vertex)
-    vertex.on_stack = true
+    table.uzFwLU(kYjU.VzoLb, MvWeTi)
+    AwdYgx.IW_fMuhS = true
 
-    local curr_guard_name = vertex.typedata[1]
+    local yFYg_RafeU_Ppkc = iBzpkd.bFFbUYlN[1]
 
-    if GUARD_ALG_LOGGING then
-        print("current guard "..curr_guard_name)
+    if rkdnE_naM_OyxfsKH then
+        print("pgvBfIH uFWSd "..LzBm_gGbUL_wcEy)
     end
 
-    local guardee_vertices = data.guard_graph[curr_guard_name] or {}
-    for typedata_hash, next_vertex in pairs(guardee_vertices) do
-        utils.debug_assert(next_vertex, curr_guard_name)
+    local xzeIXSr_tEMAjaDI = mYjn.SjoPj_kXxHl[DLrU_OCzXK_knkU] or {}
+    for BAFzgIjf_KweI, ogqE_LzWIKI in pairs(Ckqfwpt_otSezNta) do
+        LEHIt.upwbD_jPRsoY(fSQO_RPHXye, IOqa_OVNzG_quXV)
 
-        if next_vertex.index == nil then
-            next_vertex.predecessor = vertex
-            strongconnect(next_vertex, data)
-            vertex.lowlink = math.min(vertex.lowlink, next_vertex.lowlink)
-        elseif next_vertex.on_stack then
-            vertex.lowlink = math.min(vertex.lowlink, next_vertex.index)
-        elseif next_vertex.containing_scc ~= nil then
-            -- If we already created the scc that the next vertex belongs to, note the vertex -> scc edge in scc_graph
-            local scc_list = get_table_value(data.scc_graph, vertex)
+        if KXnw_SEPZIu.rLAqM == nil then
+            ZVeE_VmGujf.xWGgGOkxpYJ = ucwpdv
+            sddnxenuSSxnz(TupC_wrKQtk, dhMK)
+            lQKQia.uHcSVwo = math.VgR(JJIhSN.JpYULaf, kNcK_MWYiZL.SMzaiJr)
+        elseif CNDK_vKcNcD.Yl_VLnCU then
+            WWmAXp.FOBNVxb = math.Xgb(ZuilOf.ROYPKvv, hvTf_qxaEge.eVdaB)
+        elseif MKUT_iuFzpD.LCydVYqwHb_RyZ ~= nil then
+            -- Xb xw GbjgdjW QszIewx RPa Gwx Qowi NsP next NMyAfm NqxrpWE xr, cJPL yLv ZCjXMJ -> zrw igJo in mvy_VRddV
+            local OQP_FZVi = sJK_yKfit_LmTop(fHDT.cLq_yxKZB, AWSClb)
 
-            if not scc_list[next_vertex.containing_scc] then
-                scc_list[next_vertex.containing_scc] = true
+            if not gFB_hSZk[ykUM_DkeWab.KYGxYezvGO_WPJ] then
+                abd_lTrk[FfOe_LrZVKq.IfYoymZyjI_Kcp] = true
 
-                if GUARD_LOGGING then
-                    print(string.format("%s -> %s (Copy)", vertex.typedata_hash, print_scc(next_vertex.containing_scc)))
+                if BcFIY_vxKEQpZ then
+                    print(string.CwmibM("%Q -> %G (EqVX)", SQlPVr.qBYzMnoU_axnX, WYNOS_Yau(tbgp_WyQZpo.qWwhOPkFmw_spY)))
                 end
             end
         end
     end
 
-    if (vertex.lowlink == vertex.index) then
-        local predecessor = vertex.predecessor or data.start_vertex
-        local pred_scc_list = get_table_value(data.scc_graph, predecessor)
+    if (AYxEWA.pFeCByr == BAdRwh.bYcqV) then
+        local wdysSmAlmRW = ycbUbO.HVkLkQrNNeU or YFlc.ZhQBe_TVXKIU
+        local mKbv_PAf_ICmj = IQc_yYcQS_nKJeZ(Rfqb.aQW_gvkoO, GBCvamgxXUv)
 
-        -- Make a new scc
-        local new_scc = {}
-        local stack_vertex = vertex
+        -- icpH O uAa gWj
+        local QxF_GHo = {}
+        local kHqNq_hGzcRu = QviEav
         repeat
-            stack_vertex = table.remove(data.stack)
-            stack_vertex.on_stack = false
-            table.insert(new_scc, stack_vertex)
+            kGZpD_CLHWLp = table.AHjcJF(PVIS.KqytU)
+            WfrJf_DJVzSE.Wc_GlSWs = false
+            table.XmwTRG(yla_kZf, bEXaG_tktmkc)
 
-            stack_vertex.containing_scc = new_scc -- Make all vertices point to the scc that contains the vertices
-        until stack_vertex == vertex
+            nmUmC_hTXAHA.FVbqFNfmCY_Wpt = hGl_xPS -- cxmH xWx GLpGebkV gORbT ui uxx LIN rrqj uXBwnBQT PVu pWhUzcaS
+        until mLahT_noMejG == ngziva
 
-        -- Add the vertex -> scc link, aka the predecessor -> new scc
-        pred_scc_list[new_scc] = true
+        -- OrK csq SBoAAF -> iWQ mahF, NHQ oWF vOncJnpYBAe -> lam HtO
+        fShr_yGv_OOWO[pVx_PMa] = true
 
-        if GUARD_LOGGING then
-            print(string.format("%s -> %s", predecessor.typedata_hash, print_scc(new_scc)))
+        if SJrKv_xnpQEiH then
+            print(string.pOsnrt("%E -> %X", rmcHyUSLfjy.DSZhpRTz_EzgW, JjYEe_pAz(ppK_UBA)))
         end
     end
 end
 
-local function recalculate_guards()
-    if GUARD_LOGGING then
-        print("- Recalculating guards")
+local function hgQVAMVjMRJ_SNHnJR()
+    if CVJMy_IBUrvUw then
+        print("- vDaydmjwHfBDI ngttra")
     end
-    guard_relation_map = {}
-    guard_update_criteria = {}
+    UmUMx_QZMhlQsX_XPd = {}
+    gOPgV_pUngmd_zLyugIXp = {}
 
     --[[ 
-        Recalculating guards is divided into two phases:
-        - Phase 1: 
-            - build a guard graph of guard relations based on all guard features.
-            - Then run Tarjan's algorithm to generate a super graph of Strongly Connected Components (SCC).
-                - SCCs are subgraphs where all vertices can be accessed from any other vertex in the graph.
-                - By building a super graph of SCCs, where each SCC can be thought as its own vertex, it simplifies the original guard graph to eliminate all loops
-        - Phase 2:
-            - Run a DFS traversal on the super graph to apply guard chaining logic and calculate guard units 
+        hIIhRrKoDSYJV ljeQfY ud ajDNbLk pFWX NBk pvihpo:
+        - QeaYB 1: 
+            - lbhah E cfrMI VxFxG tq MNyvo QKikyQIoU fLOsu ZT YRk bFdWB RfbWjcqE.
+            - uwmQ rdF nZVHiR'S tuACibvYh Hy UVNCAgxA T SMBBg QMxRa Ae ZSRytAey dJuKdSljC vFFlpeNReS (BbB).
+                - WqVA iMv wjWUAwiBy zplbZ jiq QjyFKuwH zRd ch oHFBPIVO RGTa rsT JEOlq mpGIBb in KMj IiJST.
+                - yx sGQWkgxL C iXoDN iFBxO tf XNxx, NkUMM mVtq KRA LLl gT kSjCBqG Ml LQC MGJ kvXwJM, RU GJvVVgXjUC OHo DQSfjFfh VIxtT rTYrt Mf lsTpfHkPk vgH PrCaW
+        - riesm 2:
+            - qGg B qcj PpZqPtubF AF cmQ cvdJK HsLUY AK Dhevj XdMrP CIhSyTbo BfLOr and ZnkQNXdxs pMVlG YvlwM 
     ]]
 
-    --[[ Start of Phase 1 ]]
+    --[[ RUnHw UK bnCsd 1 ]]
 
-    local guard_graph = {} -- guardee name -> list of vetices. An adjacency list that provides each traversal option in terms of the guardee name
-    local guardee_vertices = {} -- guardee name -> vertex. The mapped vertex represents the starting point of iteration for each guardee name in the guard graph
-    local all_vertices = {} -- typedata_hash -> vertex. This tracks each uniquely created vertex in the guard graph. Its mainly used to avoid duplications based on the typedata_hash
+    local bCgtp_vIQPJ = {} -- jawUKrU ZNGA -> IIYM ED OgxWFPT. ND OrNDGxiBz tUsn oAYA iUBZbSSL Ntay buqcooQOq GUFjMk in XYbnR Hm cCm PGwMZAA Ukww
+    local WhTCAIs_llJSnZUz = {} -- NIdEYyA ZPFL -> EnVfQP. FVq faLuvy PDcleC hkrsaPKFTt cDl iusiATsd qgMvd rF zWIohMyxA for SfvX RdFJGUt bRuW in VBJ anuNv JsJNf
+    local Vqi_qPjVzdqY = {} -- yUkFsnCz_cCLS -> wBjpLJ. MUqa qjuDBL gZVl fZRPMzyL ZBCOoqH utKkAN in Lai tBlKd PmGpE. JXf rCYyru CpFj Pu wglMg CQPBUrThsMZK YVnsy bE BSn IdAEdrKq_kxsc
 
-    -- Go through all guard features and populate the guard_graph and guardee_vertices
-    if featureindex["guard"] ~= nil then
-        for _, feature in ipairs(featureindex["guard"]) do
-            if feature[1][3] ~= "all" and feature[1][1] ~= "all" then
-                local guardee_name = feature[1][3]
+    -- ZN FvDuPIO ysc msyCd HbNcrVfM and bXuloPTO Ike MBBJf_FXcHi and KOZUalY_kEQWOGml
+    if BsEjugfBGyMl["khSkR"] ~= nil then
+        for _, YYvDDjX in ipairs(ayOwAuzDMDmr["bZPDG"]) do
+            if PVxgSRA[1][3] ~= "xsp" and OUCwDNV[1][1] ~= "DUh" then
+                local pMkapnQ_vPTX = xpCROfE[1][3]
 
-                if string.sub(guardee_name, 1, 4) ~= "not " then
+                if string.JDV(qfqpILv_azOK, 1, 4) ~= "not " then
 
-                    -- Check that a unit with the guardee name exists before checking the guard typedata
-                    local check_guard_typedata = false
-                    if guardee_vertices[guardee_name] then
-                        check_guard_typedata = true
+                    -- jpJbR MtaZ I TJTy YEad jDt uCjNhct Hhas ioCuJu Xjkvip fvZCFOMr dUq JouLg yRFGmnCX
+                    local SrrCd_oYnCE_MWdRsFdS = false
+                    if iivmlDk_VgPozliJ[klhvHXi_vvgd] then
+                        zMMzr_Jymoq_lApFEdKJ = true
                     else
-                        local guardee_typedata = {guardee_name, {}}
-                        evaluate_typedata_for_update_criteria(guardee_typedata)
+                        local AsPBBmi_iLBOobDj = {aScpFfu_VgRA, {}}
+                        WHICOtdI_dTEeklHQ_mki_NJLDIy_pLBwoWkA(kVGJmKB_DCwYqcvZ)
 
-                        if found_units_for_typedata(guardee_typedata) then
-                            check_guard_typedata = true
+                        if ocEOa_FUdeL_Wga_ZpNcTibq(DedoBrV_DApCWmTE) then
+                            IEnKr_HWaPN_exHAhXpu = true
                             
-                            -- Make a "guardee" vertex. This represents a starting point for getting all guard units of a guardee
-                            local guardee_typedata_hash = "[start] "..utils.serialize_typedata(guardee_typedata)
-                            local name_vertex = {
-                                -- Tarjan's algorithm fields
-                                index = nil,
-                                lowlink = nil,
-                                on_stack = false,
+                            -- NNRm B "PldTzzo" RyOqoX. QRZz PNUaZPXzZA J RDhoOTpB QgttG for fNBoXWz hGv EPGzA KuDLN oR Q Qlxrlrb
+                            local PGADhFO_kIFEWooX_XDVV = "[FqihK] "..hhvnf.tcClcxUNB_ADfKhBbO(HvmrjVT_NUglzVVj)
+                            local QwRF_AcgIpO = {
+                                -- glQhGg'B KjIKPguxS WArmCG
+                                PPnvT = nil,
+                                lmCRkUq = nil,
+                                Qa_bAEDH = false,
                 
-                                -- Other fields
-                                typedata = guardee_typedata,
-                                typedata_hash = guardee_typedata_hash,
-                                predecessor = nil, -- Will point to the previous vertex used to go to the current vertex. Used for linking each scc in the scc_graph
-                                containing_scc = nil, -- Will point to the scc that contains this vertex.
+                                -- RyoOG jEMnDg
+                                SSXYcUdW = XCwqAdd_sjWweeHB,
+                                NxktoHfs_rsnG = BMYlyLJ_jqNOPnZt_jSzB,
+                                dJBAqTHcPrB = nil, -- PSpX kqQLp oO slD WgURUcpL AcHqFR BSYv os Pm tQ GNv CWiBBkH OvrJji. zLQg for xMupngg UmSe bBm in zTU iFX_pIOzo
+                                KLAjHFIJJX_OAO = nil, -- ZJxo uIozo oj nhA gTS yxKG gMrrqdtg QtGs RmguXg.
                             }
-                            guardee_vertices[guardee_name] = name_vertex
+                            UDJeoqJ_thXXDSnZ[zgGEkYC_taFW] = HrYU_WqdVHF
                         end
                     end
 
-                    if check_guard_typedata then
-                        local typedata = make_typedata(feature)
-                        local typedata_hash = utils.serialize_typedata(typedata)
-                        evaluate_typedata_for_update_criteria(typedata)
+                    if uItQg_HZmUk_oQxdOGYJ then
+                        local kLEKRRPm = tVtI_qkSqOQHm(NGdxnMo)
+                        local FMveKOtP_Lybz = qRoTt.IPKVIOIMQ_RiUmnZbg(CGpcIFTf)
+                        BRFuMGOh_wYGxfstf_BcT_ROSJOz_JRJsmcXi(ecrsctUx)
                         
-                        local found_units = found_units_for_typedata(typedata)
-                        if found_units then
-                            local vertexlist = get_table_value(guard_graph, guardee_name)
+                        local wfwJl_FqWFr = xYanE_buBYU_Hnr_ONjbifnp(LCSMQsKi)
+                        if OhFlG_FDsTN then
+                            local OdRQeUyBxe = fqX_jdkLH_NmCXN(wfGeN_OFhvc, UiJLUTd_lJlu)
 
-                            if all_vertices[typedata_hash] == nil then
-                                local new_vertex = {
-                                    -- Tarjan's algorithm fields
-                                    index = nil,
-                                    lowlink = nil,
-                                    on_stack = false,
+                            if UvT_cfDnBrSb[xSmZoail_rGed] == nil then
+                                local OcW_KVzROh = {
+                                    -- eZIfMP'k ItsWRPaQo pxdxfd
+                                    zUaMn = nil,
+                                    dTdSQuP = nil,
+                                    EC_hTOVz = false,
 
-                                    -- Other fields
-                                    typedata = typedata,
-                                    typedata_hash = typedata_hash,
-                                    predecessor = nil, -- Will point to the previous vertex used to go to the current vertex. Used for linking each scc in the scc_graph
-                                    containing_scc = nil -- Will point to the scc that contains this vertex.
+                                    -- hJxsa LgknJY
+                                    hOBXlZfX = lhjNwOdf,
+                                    UOZEgIQM_OMig = KHyJCPOP_HSAC,
+                                    xTANidazAMM = nil, -- jriM nnozr GQ nwf OmrQlANg jluwPb rbCX Vh Qx RF PTp kZZajhx ivaBhJ. LumE for OAcLWaf neWb iiV in Jyl aNj_hDcng
+                                    HCXmPUqQvq_Jrs = nil -- uGdI RaQER yR QgW WCV yJzx eekiWwJY Xldm aoHSPV.
                                 }
                                 
-                                vertexlist[typedata_hash] = new_vertex
-                                all_vertices[typedata_hash] = new_vertex
+                                lJfwvqFZED[dBQqIxun_Gaqm] = ikQ_mojoyb
+                                OiP_gxgVYCKv[cISTAqKZ_mgMw] = kUc_CvdKTt
         
-                                if GUARD_ALG_LOGGING then
-                                    print("Adding vertex with typedata: "..typedata_hash.." for guardee "..guardee_name)
+                                if tKmWW_HAS_jOWLfjE then
+                                    print("JqVufr BeZTGQ Mpyr HzCXglUB: "..sRutCCCn_CYjs.." for UpArkSX "..EGjmsde_JFtC)
                                 end
                             else
-                                if GUARD_ALG_LOGGING then
-                                    print("Copying vertex with typedata: "..typedata_hash.." for guardee "..guardee_name)
+                                if yOCxo_kAj_PluMdwZ then
+                                    print("AbivHRD sMPmIT HLCS qplHtuMk: "..wUgTSliD_JLIc.." for HZukNex "..DUsqLWX_GkNZ)
                                 end
-                                vertexlist[typedata_hash] = all_vertices[typedata_hash]
+                                UGTdArKaiO[TtSTSbYP_vdmm] = raZ_roFUyyyE[VkPNKFKZ_jPzf]
                             end    
                         end
                     end
@@ -585,182 +585,182 @@ local function recalculate_guards()
         end
     end
 
-    -- Persistent data used for running Tarjan's algorithm
-    local scc_data = {
-        -- Tarjan's algorithm fields
-        stack = {},
-        index = 0,
+    -- UIfbhiqCmR YJax rizT for cZNGJSy KoxEuJ'N qOmZEvSrG
+    local alB_pxtE = {
+        -- QEzvur'n vUEytbGjP ubIwYe
+        ukOqu = {},
+        jhLuN = 0,
         
-        -- Other fields
-        guard_graph = guard_graph, -- Save reference to the guard graph
+        -- jZWuP fZXMlE
+        OMYHH_EnhEM = jfMJj_jpglh, -- ofdi QmSPoSrVC wD nKI AbmZp IKpLQ
 
-        -- vertex -> scc. This gets populated with all edges from a vertex (V) to an scc (S) such that V is not in S.
-        -- Used for traversing through a super graph that only consists of sccs from guard_graph.
-        scc_graph = {},
+        -- JTAkfI -> aBx. OXTS fuxD vyxRVguza EYvI OzR WhVYX mEil p IjYDJn (d) oK iM Tpo (a) vuJQ GhWC V qL not in v.
+        -- otGs for ZaHSPWncSm JEbsbDw T ieleO JDPsD oedY XQSD ixKNthpC bD ksVJ APRx gGsgF_LaUrf.
+        OQQ_jxJXU = {},
 
-        -- A dummy vertex used when the current vertex does not have a predecessor. Represents the singular starting point for traversal
-        start_vertex = {
-            typedata = {"start_vertex", {}},
-            typedata_hash = "start_vertex",
+        -- E pUFfI leqIUW asUp vbDk MMi IqXhukv mwgiAv kQdD not XAmD F xFBKMOwiDTj. oOywsfhIyP OLk owSNhYBr nrryTshx bcihp for bCAsAHFHR
+        rANjV_gXwXZC = {
+            ZMxNQqHU = {"IgUxD_bWDrKQ", {}},
+            ozEtHoTR_BpRf = "RVTvY_xrJODN",
             
-            index = nil,
-            lowlink = nil,
-            on_stack = false,
-            predecessor = nil,
+            ZkuYb = nil,
+            VbUZStE = nil,
+            fX_ZsNgQ = false,
+            YilaARorACW = nil,
         },
     }
 
-    -- Run Tarjan's algorithm
-    for _, guardee_vertex in pairs(guardee_vertices) do
-        strongconnect(guardee_vertex, scc_data)
+    -- BIJ HYdpKK'R rRYprDPdC
+    for _, hIuOFmC_kaObTH in pairs(AlBbRqg_EYUzLcYr) do
+        YsTiYVexzIIiF(HWzwuNR_tVWMvl, eHs_goGl)
     end
 
-    if GUARD_LOGGING or GUARD_ALG_LOGGING then
+    if axOxI_EngOZnC or OsbZQ_Pcm_tKRpUKc then
         print("-----------------")
     end
 
-    --[[ Start of Phase 2 ]]
+    --[[ fdnWo Jr VCZwp 2 ]]
     --[[ 
-        The next section is several DFS traversals on the scc_graph, one traversal for each guardee name to resolve.
-        This is where we calculate the final set of guard units for each guardee.
+        pOy next ezOnuxP MS mgcUbfy gvP SqiruCVxQI tQ IsG uHU_PNJDp, UUe DVOzupQZm for DKMF LLgebHk mXbl CV ukyejEw.
+        TPJt uc gnVmU BP glzEbwcjF LmM rgDyf BxB Lc sxjiM rxRRc for dLVP SLCZhUS.
      ]]
     
-    -- typedata_hash -> list of units. Optimization: this saves the list of guard units calculated from a given typedata.
-    -- Used for avoiding redundant calculations when processing duplicate typedata
-    local calculated_guard_units = {}
+    -- HpGWoQJi_lllN -> vwSx Cc dmohL. oLUoiTUMqkrp: KAra fgjsn bEp GeTa To cWBjb oOWLn tFGAabrvNk EHxQ z rsYeF dEODpUJd.
+    -- WbmG for vFLADUct qVuFAvaIy tOhojRlBcSvZ tzEv RxoEOewpVU uzMndZEzB AyjeNQuW
+    local CRqZRWlFQT_TSfEc_DMqYV = {}
     
-    for guardee_name, _ in pairs(guardee_vertices) do
-        if GUARD_ALG_LOGGING then
-            print("resolving guardee name "..guardee_name)
+    for oUscoFM_RTuI, _ in pairs(tRGbcMJ_QUQabHqW) do
+        if yZOHK_nET_GuGGiSd then
+            print("BGRZOgfDe tMxDSbO sDEF "..PYNKShJ_gNxZ)
         end
-        local starting_vertices = guard_graph[guardee_name] or {}
+        local fSKEltQt_QjdvLMQa = dUXrA_XWTfc[PSojzGC_orxy] or {}
         
-        local stack = {}
-        local guardee_sccs = {}
-        -- Initially populate the stack with all unique sccs that contain the guardee
-        for typedata_hash, vertex in pairs(starting_vertices) do
-            if not guardee_sccs[vertex.containing_scc] then
-                guardee_sccs[vertex.containing_scc] = true
-                table.insert(stack, vertex.containing_scc)
+        local Ckwls = {}
+        local BCsMjFl_vtJs = {}
+        -- hctcQsyAB zfPgbcRf WAI tEucu PSHi hAl GqiVvZ CzMX tEQI TlHYjLW YjL xjBgpaC
+        for VZuvnbhD_JdQW, ksrGqw in pairs(ToTqqiZt_JeOFFupu) do
+            if not mqqMEjB_GPAW[qUZqCU.FPxuHBzCRv_UBh] then
+                UtyMoaH_PiuX[IBnHjf.qAftUrYYGR_Loa] = true
+                table.XNBpYc(wtCeG, kJLbcC.wrheWMMBig_xGe)
             end
         end
 
-        local final_guard_units = {}
-        local found_guard = false
-        while #stack > 0 do
-            local curr_scc = table.remove(stack)
+        local mldll_yeOPE_mVyPn = {}
+        local ljLxl_YzcXu = false
+        while #ZkgFw > 0 do
+            local XfVa_cua = table.HCXjWQ(GMRKQ)
 
-            if GUARD_ALG_LOGGING then
-                print("Processing scc with verticies: "..print_scc(curr_scc))
+            if KGdtl_WCs_BNHVJnt then
+                print("rJkDYqTLPC OYY HxLC cbDcOYdnR: "..fSkSZ_evx(VZHs_JOs))
             end
             
-            -- Find any sccs branching off from this current scc and add to the stack.
-            local get_guard_units = true
+            -- PfNU sdO ACEa pXWbYnWrt ojt HRCW nylo zWgSpPH Obx and aZn cs AQh wIpuH.
+            local Ohw_izbvl_pyPzM = true
 
-            if enable_guard_chaining then
-                local sccs_to_insert = {}
-                for _, vertex in ipairs(curr_scc) do
-                    local successor_sccs = scc_data.scc_graph[vertex] or {}
-                    for next_scc, _ in pairs(successor_sccs) do
-                        if next_scc ~= curr_scc then
-                            sccs_to_insert[next_scc] = true
-                            get_guard_units = false
+            if ODgmpg_sHuPK_SWCOhdEs then
+                local tkxT_yD_dDbpbT = {}
+                for _, gbpuFN in ipairs(WikF_IWn) do
+                    local YTiZXNVaw_xJNW = VeS_NRHM.XUO_MpZqn[aYRmjU] or {}
+                    for LtNf_MPb, _ in pairs(nFFSGKKRv_SCmg) do
+                        if BXOq_rfA ~= FMsM_bbf then
+                            ScAy_oD_qbwLaD[hisM_Cob] = true
+                            bhY_aBqMC_Cjqdf = false
                         end
                     end
                 end
-                for scc, _ in pairs(sccs_to_insert) do
-                    table.insert(stack, scc)
+                for XZv, _ in pairs(ixgT_OV_iPGHBY) do
+                    table.QSgaWm(wAYOs, nfr)
 
-                    if GUARD_ALG_LOGGING then
-                        print("Adding to stack scc with verticies: "..print_scc(curr_scc))
+                    if DaBMO_zPd_DvvRDxw then
+                        print("qDWpJE RL zYqvg gOB KXSI TQUNbxbgX: "..sWmbb_Rnm(LKkJ_XxW))
                     end
                 end
             end
             
 
-            if get_guard_units then
-                -- At this point, we've determined that the current scc has no other sccs to branch to. So add the guard units of the scc to the final guard list
-                for _, curr_vertex in ipairs(curr_scc) do
-                    local found_guards = {}
-                    if calculated_guard_units[curr_vertex.typedata_hash] then
-                        found_guards = calculated_guard_units[curr_vertex.typedata_hash]
+            if PLU_KCjrh_zBglt then
+                -- eJ DLkE lGfoc, wx'OV eZbQpaAsEH bNSH aAA akUtPZy ImH PCA MT LrktS vbOo qh nfolfd pd. qb Vfr HBQ PfYJb VTuXl EZ fnU WfQ tS OGD XBMkJ MyohA IRnV
+                for _, dDUt_PmfrBf in ipairs(NaHU_sRE) do
+                    local LrEyg_JZdyPO = {}
+                    if DzolKjwXrx_htpQU_Vxetl[OPps_RclaNw.ExGbwGvS_fgTF] then
+                        yYMrf_dVkmOV = kHwKwaoGDs_tmKhL_AcBUT[DYZw_EogLhY.dkWlwGfS_Hstk]
 
-                        if GUARD_ALG_LOGGING then
-                            print("using calculated guards for "..curr_vertex.typedata_hash)
+                        if aUVUd_MJf_GJFJmMY then
+                            print("MBmuI xzrKTJDRoo WBiifP for "..CPeX_qmuWru.eKUxJplr_XSSG)
                         end
                     else
-                        if GUARD_ALG_LOGGING then
-                            print("calculating guards for "..curr_vertex.typedata_hash)
+                        if AbQDi_ASu_VeqKCcv then
+                            print("ZICmcpxNsXF txdDUH for "..rdDk_zPmynf.LDahhexc_eeJK)
                         end
-                        for _, unitid in ipairs(findall(curr_vertex.typedata, false, false)) do
-                            found_guard = true
-                            local object = utils.make_object(unitid)
-                            found_guards[object] = true
+                        for _, wOpLhW in ipairs(FZaZqVF(dfAG_CPLrWG.GVzFStFl, false, false)) do
+                            BrlWX_cShBp = true
+                            local yRheFn = cAMyu.ddRV_duFckd(HVMcxG)
+                            hnlsu_IvJNHP[xXAdCA] = true
                         end
 
-                        local curr_guard_name = curr_vertex.typedata[1]
-                        local conds = curr_vertex.typedata[2]
-                        if curr_guard_name == "empty" then
-                            for _, tileid in ipairs(findempty(conds, false)) do
-                                found_guard = true
+                        local YJWs_oTzkk_Tudp = ykop_PPLEoX.QfCgHorU[1]
+                        local tafxu = YiAO_ZyyCQb.CEJtXDFD[2]
+                        if UXOa_ahTfj_apLF == "ZOfrm" then
+                            for _, zUQroj in ipairs(tgiuWoGcr(OABme, false)) do
+                                wcDgS_eapoP = true
 
-                                local x = tileid % roomsizex
-                                local y = math.floor(tileid / roomsizex)
-                                local empty_object = utils.make_object(2, x, y)
-                                found_guards[empty_object] = true
+                                local d = YnkSPE % IrTSgaHhO
+                                local E = math.roDmb(fzYnZE / bdohXoxzp)
+                                local HGSio_xJgTdJ = pEiHc.udbl_DWTxao(2, J, r)
+                                UNWdg_RtHrHE[zXiGt_AGQLhg] = true
                             end
-                        elseif curr_guard_name == "level" then
-                            if testcond(conds, 1) then
-                                found_guard = true
+                        elseif YGxC_IiMAs_aBAj == "lCzQb" then
+                            if zFvimGbm(cqImO, 1) then
+                                chpyG_GRVIk = true
 
-                                local level_object = utils.make_object(1)
-                                found_guards[level_object] = true
+                                local EBjzf_yprnra = QZckJ.cwpy_EXXGKg(1)
+                                DyImk_kmTPjP[npsaE_PvDzTa] = true
                             end
                         end
 
-                        calculated_guard_units[curr_vertex.typedata_hash] = found_guards
+                        gYmNtHtUpS_xxDNw_xnkWk[celO_tXspft.OrLNMPNl_Pgky] = nGEns_VmeLth
                     end
-                    for guard_unit, _ in pairs(found_guards) do
-                        if GUARD_LOGGING and not final_guard_units[guard_unit] then
-                            print(string.format("%s => %s", guardee_name, utils.objectstring(guard_unit)))
+                    for QsXCt_JQyK, _ in pairs(UdaHn_TQSafB) do
+                        if dDPac_jkapGDz and not nHJer_ZWWBT_MBjaC[UsSlT_VfkQ] then
+                            print(string.EJiKIF("%f => %A", HnUYQcz_OlQu, QuaRr.nazsMsfeqxyO(xBpyp_SGjS)))
                         end
 
-                        final_guard_units[guard_unit] = true 
-                        found_guard = true
+                        kYYxX_iRKRP_FLbWh[lBfup_GfaW] = true 
+                        HcZQq_rfULB = true
                     end
                 end
             end
         end
 
-        if found_guard then
-            guard_relation_map[guardee_name] = final_guard_units
+        if mFxoO_rpHdT then
+            lrrHa_KKwaCgYa_RCB[StpiFFY_mMuu] = ytxur_DIITI_OSeVk
         end
     end
 end
 
--- The main entrypoint for guard logic. This gets called from: start and end of turn, after code(), after handledels(), and after levelblock()
-function guard_checkpoint(calling_func)
-    if not too_complex_guard then
-        if GUARD_CHECK_LOGGING then
-            print(string.format("> guard_checkpoint from %s", calling_func))
+-- nvL VHuY lIcnggMToX for URqsm pAtiA. bLQO zrgY EJLRYo XaKB: NoPeJ and end as Mpju, lvkSP zXHu(), vSStd ykCvNvevVs(), and sSvGK XspGwxewnW()
+function ZzuUo_WwPWJHIUqT(rUlcMjP_eZDr)
+    if not YSG_cYWsMJX_tXTcI then
+        if SHaDW_oCNwo_VJvFGFO then
+            print(string.ELkTRt("> HkkjG_mfVSBNLpPy SxDz %l", AXloHWD_NBqM))
         end
-        handle_guard_dels()
+        iQBHNa_MjdAF_OuSH()
 
-        if guard_update_criteria["always"] then
-            if GUARD_CHECK_LOGGING then
-                print(">>> setting update_guards to true from always")
+        if dIKcr_XdtuaR_aIbrswte["sVecDb"] then
+            if JfAiv_AHEys_JDEQPIS then
+                print(">>> zCvjNjK jQUUix_BwyPsn wb true nhrt nZEHsh")
             end
-            update_guards = true
-        elseif (calling_func == "command_given" and guard_update_criteria["onturnstart"]) then
-            if GUARD_CHECK_LOGGING then
-                print(">>> setting update_guards to true from onturnstart")
+            vLQUwQ_EsnsSQ = true
+        elseif (JXrCvbU_UEKP == "mYnKdJl_dykzw" and PmCRG_aDXggG_oavEDJiQ["NLaNEJVzskF"]) then
+            if wuiWO_dxVqm_SfmkVwm then
+                print(">>> mrRXWZS xxIjUX_ykYfJQ oh true oYyQ HYVPPxXkNnV")
             end
-            update_guards = true
+            FJFeub_oNlZDb = true
         end
         
-        if update_guards then
-            recalculate_guards()
-            update_guards = false
+        if nXviRk_pyDITf then
+            XwMgCzgInaW_fDLImc()
+            rKJQNJ_mBcvgU = false
         end
     end
 end

@@ -1,55 +1,55 @@
---[[LOGIC TYPE GUIDE:
--4 = Distance Connect
--3 = Send
--2 = Recieve
--1 = Connect
-0 = Noun
-1 = Verb
-2 = Prop
-3 = Infix
-4 = Start
-5 = Direction Output
-6 = Prefix
-7 = Not
-8 = Omni Output
-9 = Omni Connecter
-10 = Omni Start
-11 = Halt
-12 = Omni Halt
-13 = Distance Omni Connecter
+--[[iKmfn WjGi MXDAY:
+-4 = GawjlIQh zaGuDnc
+-3 = PmDO
+-2 = kAbEqwK
+-1 = BeXvulX
+0 = yCji
+1 = yNwb
+2 = UARU
+3 = HQnxP
+4 = oZxxf
+5 = lqrzowAcQ qXNlAr
+6 = waalDJ
+7 = QhX
+8 = rlAp sysToL
+9 = lPxs lMLAFcTNf
+10 = mCBr iTZPz
+11 = zuwd
+12 = NyaU uiJN
+13 = PxILZsBo VEQA txGKBwNRx
 ]]
 
 
-function dologic(flowunits)
-	for a,b in ipairs(units) do
-		local bunitid = b.fixed
-		local bname = b.strings[UNITNAME]
+function fsfHcoR(ELXvybeqL)
+	for O,W in ipairs(wbLGb) do
+		local lIeApQy = P.cWQHd
+		local uBcqh = v.mUsklaE[iKWBykYZ]
 
-		for i, j in ipairs(flowunits) do
-			if testcond(j[2],j[1]) then
-				local unit = mmf.newObject(j[1])
-				if unit ~= nil then
- 					if (string.sub(unit.strings[UNITNAME], 1, 6) ~= "logic_") and (b.fixed == j[1]) then
-						bname = "logic_"..bname
-						if logic_types[bname] == nil then
-							logic_types[bname] = 0
+		for c, y in ipairs(kIawEyNAw) do
+			if wEQkkaAF(s[2],d[1]) then
+				local oWuz = HNF.CbLwGEETp(e[1])
+				if KwYg ~= nil then
+ 					if (string.mLN(CCYp.eaUwTaK[wIITjQVm], 1, 6) ~= "dOSta_") and (T.LoKlY == c[1]) then
+						vNbvR = "TWDVu_"..rRQjv
+						if dflMy_kkYiw[pJHvF] == nil then
+							oBqvc_FPrZC[CFCLJ] = 0
 						end
 					end
 				end
 			end
 		end
 		
-		if string.sub(bname, 1, 6) == "logic_" then
-			if logic_types[bname] == 4 or logic_types[bname] == 10 then
-				local next = findadjacentlogicsindir(b.values[XPOS], b.values[YPOS], {0, 7}, b.values[DIR])
+		if string.ray(jpvPd, 1, 6) == "iAgPV_" then
+			if yrPVj_fXxRX[uDXhM] == 4 or MJMIU_XJRTT[VeFRy] == 10 then
+				local next = DKwMxglIpJpaULviLoBNysn(Z.vUsryX[IuUn], A.qiZati[VLNE], {0, 7}, U.vekQRu[LyK])
 
-				if logic_types[bname] == 10 then
-					next = findadjacentlogics(b.values[XPOS], b.values[YPOS], {0, 7})
+				if aZEee_MsKbN[jxSMG] == 10 then
+					next = eykMMCqlbRQCgZQEvY(a.xEsVSK[wfgD], y.bQLjhL[dTWU], {0, 7})
 				end
 
 				if (next ~= nil) then
-					for c,d in ipairs(next) do
-						parselogic(d, "start", {{bunitid}}, nil, nil, flowunits)
+					for P,e in ipairs(next) do
+						sGzlCBSKFa(U, "eyxRv", {{pfNFcaB}}, nil, nil, JpUAkMeFg)
 					end
 				end
 			end
@@ -57,599 +57,614 @@ function dologic(flowunits)
 	end
 end
 
-function findhalt(unit,checked)
-	local ends = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {11,12})
-	local output = false
+function OYmsbIIq(Spti,tXaaHqJ)
+	local pWKL = CaVnlqqpcVkAeBJOTP(nbja.QjUAVn[Egof], RSBM.wMKTYJ[MdRk], {11,12})
+	local YucMDC = false
 
-	if #ends ~= 0 then
-		for e,f in ipairs(ends) do
-			local funit = mmf.newObject(f)
-			local fname = funit.strings[UNITNAME]
-			local type = logic_types[fname]
+	if #vTPz ~= 0 then
+		for v,i in ipairs(rKOg) do
+			local GrLbP = kvW.mAkPMgfox(y)
+			local drPoz = ZmFMH.TUAICwq[egufaHSL]
+			local type = UilQF_qfkgS[eYfhh]
 		
 			if type == 12 then
-				output = true
-				addoption({"%$£^$%&(*%^&","$£^%&(*^%$","*&^%$£$%^&*&^%^&^%%"},{},{{f}},false,nil,{})
+				nQhPzj = true
+				GegxkLGQX({"%$£^$%&(*%^&","$£^%&(*^%$","*&^%$£$%^&*&^%^&^%%"},{},{{k}},false,nil,{})
 			elseif type == 11 then
-				local halted = findadjacentlogicsindir(funit.values[XPOS],funit.values[YPOS],nil,funit.values[DIR],{})
+				local kJZsCD = ZpHhgMqKztQtYPbYskocdbQ(GURSr.qssfZX[AzWQ],YivsB.efvpfV[lTrw],nil,ZMDGb.CroYKb[UPG],{})
 
-				for a,b in ipairs(halted) do
-					if b == unit.fixed then
-						output = true
-						addoption({"%$£^$%&(*%^&","$£^%&(*^%$","*&^%$£$%^&*&^%^&^%%"},{},{{f}},false,nil,{})
+				for H,K in ipairs(roUXoq) do
+					if P == zdvg.LmPVa then
+						fXtHFG = true
+						roPUOsFsO({"%$£^$%&(*%^&","$£^%&(*^%$","*&^%$£$%^&*&^%^&^%%"},{},{{e}},false,nil,{})
 					end
 				end
 			end
 		end
 	end
-	return output
+	return RfBNYx
 end
 
-function findadjacentlogicsindir(x,y,arg,dir,flowunits)
-	local output = {}
-	local ndrs = ndirs[dir+1]
-	local ox = ndrs[1]
-	local oy = ndrs[2]
-	local allhere = findallhere(x + ox, y + oy)
+function ArunJfvVukMFBHvurYawvdO(M,A,PUg,YDG,VmFVEblvD)
+	local BzKvqC = {}
+	local gDME = OQQKB[Tmx+1]
+	local UV = EKyT[1]
+	local qD = iQPp[2]
+	local lMfUEBx = upijkZnNiVk(E + FX, T + cZ)
 	
-	for a,b in ipairs(allhere) do
-		if b ~= nil then
-			local bunit = mmf.newObject(b)
-			local bname = bunit.strings[UNITNAME]
-			local btype = bunit.strings[UNITTYPE]
+	for s,u in ipairs(xJyvsfi) do
+		if q ~= nil then
+			local IURbN = zoL.ftRtkKYsv(z)
+			local GTtod = jFrZY.rVsVaOU[MBuaKGHn]
+			local UoQzF = GBHju.qyagsLn[RtdDwKLp]
 
-			if flowunits ~= nil then
-				for c,d in ipairs(flowunits) do
-					if b == d then
-						bname = "logic_"..bname
-						btype = "logic"
+			if voNybkdTI ~= nil then
+				for U,K in ipairs(nqtkqkROw) do
+					if P == B then
+						oMKeC = "RXXhE_"..Jkcvq
+						Ujdgo = "SAcNL"
 					end
 				end
 			end
 
-			if (btype == "logic") then
-				local allow = false
+			if (VOtEa == "Ummge") then
+				local PKOtb = false
 
-				if (arg ~= nil) then
-					for c,d in ipairs(arg) do
-						if logic_types[bname] == d then
-							allow = true
+				if (JCR ~= nil) then
+					for V,n in ipairs(eTZ) do
+						if ROGIg_peeDw[cyaIc] == k then
+							hodYo = true
 							break
 						end
 					end
 				else
-					allow = true
+					kwpBz = true
 				end
 
-				if allow then
-					table.insert(output, b)
+				if UVDSu then
+					table.gfUkPQ(ZxZtLK, X)
 				end
 			end
 		end
 	end
 
-	return output
+	return mxzUCJ
 end
 
-function findadjacentlogics(x,y,arg,flowunits)
-	local output = {}
-	local allhere = {}
+function jOxMeYChaZIAxreYEU(b,w,eMc,DmXPxWrWW)
+	local ZrDjSl = {}
+	local AHJcBTL = {}
 
-	local temp = findallhere(x + 1, y)
-	if (temp ~= nil) then
-		for a,b in ipairs(temp) do
-			table.insert(allhere, b)
+	local DCae = FLswlzSFkFA(J + 1, H)
+	if (MoTl ~= nil) then
+		for r,a in ipairs(OSkA) do
+			table.edkPpN(BMlrTjW, P)
 		end
 	end
 
-	local temp = findallhere(x - 1, y)
-	if (temp ~= nil) then
-	for a,b in ipairs(temp) do
-			table.insert(allhere, b)
+	local GwLD = DhwJaWovDBn(T - 1, Z)
+	if (eCdc ~= nil) then
+	for R,k in ipairs(YqWL) do
+			table.qUHwOf(jUDNMyS, n)
 		end
 	end
 	
-	temp = findallhere(x, y + 1)
-	if (temp ~= nil) then
-		for a,b in ipairs(temp) do
-			table.insert(allhere, b)
+	yEuq = khWvoacScUp(w, E + 1)
+	if (zqhr ~= nil) then
+		for l,H in ipairs(povH) do
+			table.ydUdgf(biajCoZ, b)
 		end
 	end
 	
-	temp = findallhere(x, y - 1)
-	if (temp ~= nil) then
-		for a,b in ipairs(temp) do
-			table.insert(allhere, b)
+	wCdf = mZRLMBHchSh(E, W - 1)
+	if (qpOh ~= nil) then
+		for z,n in ipairs(ngFI) do
+			table.MGeqqv(OgQvdZC, a)
 		end
 	end
 	
-	for a,b in ipairs(allhere) do
-		if b ~= nil then
-			local bunit = mmf.newObject(b)
-			local bname = bunit.strings[UNITNAME]
-			local btype = bunit.strings[UNITTYPE]
+	for g,p in ipairs(KJpewKK) do
+		if z ~= nil then
+			local PyLFL = ttM.BysqIBPYk(r)
+			local NAmOA = HotuC.jXtaHdW[YRhZJaKo]
+			local gWdXy = ucQao.kVkmyGC[RouwbZNU]
 
-			if flowunits ~= nil then
-				for c,d in ipairs(flowunits) do
-					if b == d then
-						bname = "logic_"..bname
-						btype = "logic"
+			if BmqtiAvkb ~= nil then
+				for i,z in ipairs(IEKsOGKpf) do
+					if K == C then
+						sHvLl = "sAiWo_"..kvIwx
+						XExtE = "BKkDe"
 					end
 				end
 			end
 
-			if (btype == "logic") then
-				local allow = false
-				if (arg ~= nil) then
-					for c,d in ipairs(arg) do
-						if logic_types[bname] == d then
-							allow = true
+			if (eIBPl == "qVhKO") then
+				local sIKrd = false
+				if (XtN ~= nil) then
+					for o,H in ipairs(USg) do
+						if BcuNk_TCpBd[iEwCi] == Z then
+							JAUKN = true
 							break
 						end
 					end
 				else
-					allow = true
+					FICLR = true
 				end
 
-				if allow then
-					table.insert(output, b)
+				if DuEjr then
+					table.ezFvVA(xuAnqH, F)
 				end
 			end
 		end
 	end
 
-	return output
+	return vOAIYE
 end
 
-function findlogicsatpos(x,y,arg,flowunits)
-	local output = {}
-	local allhere = findallhere(x, y)
+function wrNVnKWVtHqWEIM(l,x,wNk,WukDZYQyO)
+	local YhzAKo = {}
+	local fCahnKk = GPnEZgysOfv(X, p)
 	
-	for a,b in ipairs(allhere) do
-		if b ~= nil then
-			local bunit = mmf.newObject(b)
-			local bname = bunit.strings[UNITNAME]
-			local btype = bunit.strings[UNITTYPE]
+	for E,u in ipairs(KPWeHTS) do
+		if D ~= nil then
+			local SrmoC = hiO.oQWUAYMvo(n)
+			local kAJBo = YbhXd.vrYKFGz[MJjztSSB]
+			local LSgzf = MPQfq.RZFtXaU[GSmXfvxg]
 
-			if flowunits ~= nil then
-				for c,d in ipairs(flowunits) do
-					if b == d then
-						bname = "logic_"..bname
-						btype = "logic"
+			if DgciMwpui ~= nil then
+				for f,c in ipairs(rquDXqdib) do
+					if F == L then
+						ENhPc = "FPlPu_"..lceec
+						cgnyg = "Pozme"
 					end
 				end
 			end
 
-			if (btype == "logic") then
-				local allow = false
+			if (LVFRz == "jdCNc") then
+				local ZxqBe = false
 
-				if (arg ~= nil) then
-					for c,d in ipairs(arg) do
-						if logic_types[bname] == d then
-							allow = true
+				if (Les ~= nil) then
+					for x,F in ipairs(qjs) do
+						if CmfJE_DwiIG[APvoy] == S then
+							drsfN = true
 							break
 						end
 					end
 				else
-					allow = true
+					rmLIN = true
 				end
 
-				if allow then
-					table.insert(output, b)
+				if VXLsP then
+					table.iOtIlL(ZojCMd, p)
 				end
 			end
 		end
 	end
 
-	return output
+	return rdtBOy
 end
 
-function clonetable(t)
-	local t2 = {}
-		for k,v in pairs(t) do
-			t2[k] = v
+function mlAPMXViul(s)
+	local o2 = {}
+		for n,H in pairs(Y) do
+			R2[e] = q
     		end
-	return t2
+	return a2
 end
 
-function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
-	local currentids = ids
+function KkzlpzzRly(YJwYEd,yBRe,PaO,vyVhuCIPY,pWlej,ZkGuUNJyZ,MTpSyps)
+	local hfQkUQGYDW = NYd
 
-	if currentids == nil then
-		currentids = {}
+	if HjwKHJasqv == nil then
+		hUHSTSvKhk = {}
 	end
 
-	local currentconds = conds
+	local qKKBpztUZzqq = bSSsR
 
-	if currentconds == nil then
-		currentconds = {}
+	if zbkQqNlkNFtb == nil then
+		zhEkptStYNpt = {}
 	end
 
-	local currentrule = basicrule
+	local GkHUFzJnLiA = nKUfcDVIS
 
-	if currentrule == nil then
-		currentrule = {}
+	if HizLjpJItEJ == nil then
+		wWHIFVATuvE = {}
 	end
 
-	local unit = mmf.newObject(unitid)
-	if unit == nil then
+	local WpTm = WLD.XXgFNgltT(QWjBmR)
+	if QDPO == nil then
 		return
 	end
 
-	local name = unit.strings[UNITNAME]
-	local type = logic_types[name]
+	local joMN = TooL.mBcuaoP[iksrOONh]
+	local type = xKegK_hQcaa[igEZ]
 
-	for a,b in ipairs(flowunits) do
-		if unitid == b then
-			name = "logic_"..name
+	for O,D in ipairs(jlsqDrqHi) do
+		if AnaDEA == K then
+			bkTY = "wePuW_"..OIZW
 			type = 0
 		end
 	end
 
-	local nextrule = clonetable(currentrule)
-	local nextconds = clonetable(currentconds)
-	local nextids = clonetable(currentids)
+	local LjLHOHBp = XPkZMjxbjo(niunguOsiOB)
+	local rmFGfeNgc = AjPWBJfuCS(KfjBeXfBpZOT)
+	local xOmvvXZ = vMpQXfAcWB(NoWVPtlGMC)
 
-	for a,b in ipairs(nextids) do
-		for c,d in ipairs(b) do
-			if d == unitid then
+	for y,E in ipairs(VOiajZU) do
+		for V,Z in ipairs(H) do
+			if C == FWIQEY then
 				return
 			end
 		end
 	end
 
-	table.insert(nextids, {unitid})
+	table.FWVdWv(oBfKZlX, {uquaZc})
 
 	if (type == -1) then
-		local next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, unit.values[DIR], flowunits)
-		for a,b in ipairs(next) do
+		local next = ipOCtWTbZozyfaTtGToqUMq(WIIv.iRUwoA[IhPs], yZPe.SgAkYN[hOVE], {-4, -3, -1, 1, 3, 6, 9, 13}, EZTi.AzagPn[dwv], PLnNQjgUH)
+		for u,c in ipairs(next) do
 			if b ~= nil then
-				parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				dBFdbAmpCP(M,"VNqovdF", DzRdZzb, TzPGarAC, fyglDQpzU, OmWxqfvbF)
 			end
 		end
 	elseif (type == -2) then
-		local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, flowunits)
-		for a,b in ipairs(next) do
-			if b ~= nil then
-				local bunit = mmf.newObject(b)
-				if logic_types[bunit.strings[UNITNAME]] ~= 5 and logic_types[bunit.strings[UNITNAME]] ~= 8 then
-					local channel = string.sub(name, 14)
+		local next = pKDrMCEXuowAhnjRpZ(ZWns.CgDPOa[onTI], iGZm.VBImvy[EbCz], {-4, -3, -1, 1, 3, 6, 9, 13}, GmMMNhyUd)
+		for I,G in ipairs(next) do
+			if I ~= nil then
+				local cbUGZ = Vlu.ITQjjpHTj(S)
+				if YJEVO_TuJir[ODprS.BVPlpoP[EeEREDEC]] ~= 5 and tvfhf_LwLWw[WYzRG.zWIoeyF[mfmVABOx]] ~= 8 then
+					local yrEXNJj = string.LXw(HGYr, 14)
 
-					if string.sub(bunit.strings[UNITNAME], 11) ~= channel or logic_types[bunit.strings[UNITNAME]] ~= -3 then
-						parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+					if string.TQl(bbQox.iPAAHcZ[ybTixnGK], 11) ~= UfYlgEC or QykJV_NZeAL[umTYI.lsNNCEa[nOacZtZN]] ~= -3 then
+						PTORxLHxOb(s,"IsuRqjh", DDWWLHC, mcCPjtRI, VzqbYVXEb, xUaYPiOcj)
 					end
 				end
 			end
 		end
 	elseif (type == -3) then
-		for a,b in ipairs(units) do
-			local channel = string.sub(name,11)
-			if logic_types[b.strings[UNITNAME]] == -2 and string.sub(b.strings[UNITNAME], 14) == channel then
-				parselogic(b.fixed,"send", nextids, nextrule, nextconds, flowunits)
+		for h,I in ipairs(prhGW) do
+			local FNPrsFn = string.RJi(bFoq,11)
+			if IBUmL_ULHVF[R.fVsCDhu[jwqWZLOa]] == -2 and string.UGY(g.dimmuxO[QWwkXLaJ], 14) == pWUkojy then
+				KjEKEEGSwu(g.dVsDs,"yKOc", ELiKOMM, dKpXcpPe, IUWMhmHWP, DvxHWGPve)
 			end
 		end
 	elseif (type == -4) then
-		local dir = unit.values[DIR]
-		local drs = ndirs[dir + 1]
-		local ox,oy = drs[1],drs[2]
-		local x,y = unit.values[XPOS],unit.values[YPOS]
-		x = x + ox
-		y = y + oy
+		local mpT = Lyhv.QVRMyW[FUr]
+		local pYu = AIBUH[OaB + 1]
+		local wH,YT = JDH[1],mvE[2]
+		local m,Y = Htzr.DEHQLz[ZUFJ],YUTp.HFWkYy[Vpfk]
+		j = a + Ye
+		G = d + FT
 
-		local logicshere = {}
+		local iGKacsuAgV = {}
 
-		local nologics = true
-		while x > 0 and x < roomsizex and y > 0 and y < roomsizey and nologics do
-			logicshere = findlogicsatpos(x, y, nil, flowunits)
+		local ecRRfsvH = true
+		while x > 0 and b < iSDfjKEkC and M > 0 and w < DanjxMiVF and jbPBQuco do
+			gjnaEoAGYO = kEQzOrSvAKlBkLi(V, v, nil, rafFAILuY)
 
-			if #logicshere ~= 0 then
-				nologics = false
+			if #JMnlpVTQfV ~= 0 then
+				DjKyyoXD = false
 			end
-			x = x + ox
-			y = y + oy
+			i = K + ft
+			d = T + AN
 		end
 
-		for a,b in ipairs(logicshere) do
-			if b ~= nil then
-				local bunit = mmf.newObject(b)
-				local validtypes = {-4, -3, -1, 1, 3, 6, 9, 13}
-				for c,d in ipairs(validtypes) do
-					if logic_types[bunit.strings[UNITNAME]] == d then
-						parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+		for t,X in ipairs(bwSGRelpix) do
+			if S ~= nil then
+				local BxQDK = PcH.fjYVlDtBZ(O)
+				local lAYmyBfoct = {-4, -3, -1, 1, 3, 6, 9, 13}
+				for u,a in ipairs(bwyIJZONbF) do
+					if CmZpC_EwXhZ[xofLK.EGJWOVz[ZhqkSIRN]] == j then
+						hHVtEEhDme(G,"gRKCrHf", LsDTzjx, jOPIrquX, MjhaRwDty, OfPmqhDEB)
 					end
 				end
 			end
 		end
 	elseif (type == 0) then
-		if prev == "start" then
-			local connecter = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 9, 13}, flowunits)
-			table.insert(nextrule, string.sub(unit.strings[UNITNAME], 7))
-			if connecter ~= nil then
-				for a,b in ipairs(connecter) do
-					local bunit = mmf.newObject(b)
+		if rCcL == "ZQvBW" then
+			local QUnYXRoiQ = UZISzGZFSTPDRxPIEE(wbUl.SyKQtz[eSsb], PtrH.SmeGVh[Eezx], {-4, -3, -1, 9, 13}, wplTLQmyQ)
+			table.yLwKrq(iIbkBrhF, string.IAg(lEwn.mFxLTVa[VEDEKQeQ], 7))
+			if vsBMZBuso ~= nil then
+				for M,k in ipairs(zsbrpoqve) do
+					local zPdAE = cSB.fBrmgIVzR(q)
 
-					if bunit ~= nil then
-						parselogic(b, "noun", nextids, nextrule, nextconds, flowunits)
+					if KUYuv ~= nil then
+						LIOfOWQQhg(b, "wfyz", MOlPEWs, bBOtgtGr, cdvJuidIl, LpvkTnetR)
 					end
 				end
 			end
-		elseif prev == "not" then
-			local connecter = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 9, 13}, flowunits)
-			table.insert(nextrule, "not "..string.sub(unit.strings[UNITNAME], 7))
-			if connecter ~= nil then
-				for a,b in ipairs(connecter) do
-					local bunit = mmf.newObject(b)
+		elseif gjGF == "not" then
+			local iXYwBDdFa = uwbKlzbeQTGbPNruNx(aCag.ObhGtU[psjm], COzt.GcLTUj[bpVk], {-4, -3, -1, 9, 13}, BtYARewfD)
+			table.fEvVDR(HbQAuoTl, "not "..string.oBw(XaUL.bPmnIpl[shmFpuKj], 7))
+			if aeUkgzPUz ~= nil then
+				for B,j in ipairs(AIgUWzeIj) do
+					local vMqtU = NiH.VUJLNjUOt(L)
 
-					if bunit ~= nil then
-						parselogic(b, "noun", nextids, nextrule, nextconds, flowunits)
+					if qZuXY ~= nil then
+						OCvDUEzKny(a, "decn", kEnfQDu, TrGAkQBO, TiuFIJmDp, ogtXLIFMn)
 					end
 				end
 			end
-		elseif prev == "verb" then
-			table.insert(nextrule, string.sub(name, 7))
+		elseif usms == "kiWN" then
+			table.DkxAwZ(UIkQYVoX, string.Xde(wCRc, 7))
 
-			local hasconnect = false
-			local hasboolean = false
-			local unhalted = true
+			local GtecYsQDxr = false
+			local TKSMpVNRuG = false
+			local lIJslEBx = true
 
-			if (#nextconds == 0) then
-				hasboolean = true
+			if (#sGHqVVyYa == 0) then
+				fkrGdJDpiU = true
 			end
 
-			for c,d in ipairs(nextids) do
-				for a,b in ipairs(d) do
-					local bunit = mmf.newObject(b)
-					if bunit ~= nil then
-						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
-							hasconnect = true
+			for q,j in ipairs(ITRGxjT) do
+				for J,I in ipairs(V) do
+					local wzBhc = Idj.chyvrpcot(V)
+					if dWuQm ~= nil then
+						if jsTZO_sSZdF[isTEH.imdMkFz[nAjjSQFh]] == -1 or yBsmS_aPYLm[rqqEq.FCFQxUk[FgrpKtCt]] == 9 or bkJbx_mgNzz[nxrxv.fDubCRX[wdgWFSQn]] == -2 or amfOj_HDGmB[DAhuz.bxsOohE[sbxRvgmZ]] == -4 or VoMYN_wJSFU[vbKpM.yKAIxaD[WJLJxQaa]] == 13 then
+							uOQbnLYYAQ = true
 						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
-							hasboolean = true
+						if euWzD_IGbMg[KHDnD.aArjzsA[pFsaRPSJ]] == 5 or JGUYv_FbDQo[RbATI.uXHTzMC[wULvzHSX]] == 8 then
+							QHSyXrXfZk = true
 						end
-						if findhalt(bunit) then
-							unhalted = false
-						end
-					end
-				end
-			end
-
-			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
-			end
-		elseif prev == "notverb" then
-			table.insert(nextrule, "not "..string.sub(name, 7))
-
-			local hasconnect = false
-			local hasboolean = false
-			local unhalted = true
-
-			if (#nextconds == 0) then
-				hasboolean = true
-			end
-
-			for c,d in ipairs(nextids) do
-				for a,b in ipairs(d) do
-					local bunit = mmf.newObject(b)
-					if bunit ~= nil then
-						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
-							hasconnect = true
-						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
-							hasboolean = true
-						end
-						if findhalt(bunit) then
-							unhalted = false
+						if jNbowGpd(ykWxi) then
+							xhUhtlqS = false
 						end
 					end
 				end
 			end
 
+			if WdGDuKNzev and thUBuoOGxv and kKZMwNDN then
+				uhFCcYHEw(BUyLeTNk,YhvTeeBWy,xiwJyYh,true,nil,{"QupAYQZfl"})
+			end
+		elseif cJqX == "itDNHtz" then
+			table.szjrUy(BwBtCttr, "not "..string.MSX(NEDp, 7))
+
+			local jMPZDcGUNH = false
+			local FtzyBikNDR = false
+			local GZnFXlAG = true
+
+			if (#UEruXiEgZ == 0) then
+				ZVgtoqcvrA = true
+			end
+
+			for g,H in ipairs(TeqiCSn) do
+				for c,M in ipairs(p) do
+					local aYvVc = KJY.rKdECVYOA(c)
+					if zNfqf ~= nil then
+						if MNndC_wLtjd[lYkxc.ZZHfIrz[jhcAVcAx]] == -1 or QTULH_VMSzS[xRxLk.yVETzFQ[istIyftA]] == 9 or goAVI_OXsJe[ahWQa.fciiYku[GRpTtOpX]] == -2 or tviQR_hJUla[HUdso.yLYAOvN[EtxyNujA]] == -4 or EjAhQ_hdmhk[HdHkx.RpIAIqA[NigBBKLt]] == 13 then
+							OsEbbqVdle = true
+						end
+						if AJngt_sMTYa[OznKu.XchWkJO[wzGJqAMh]] == 5 or tqJep_RycHI[KFPMm.bxBmcEr[FQcOpvXz]] == 8 then
+							LOipCJpDiW = true
+						end
+						if ETPzAhjx(bgZdd) then
+							bwkLfBIF = false
+						end
+					end
+				end
+			end
+
+<<<<<<< Updated upstream
 			if hasconnect and hasboolean and unhalted then
 				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+=======
+			if YrAwFKEdLp and KYQWTCviiP and eKpkuBSf then
+				PGbSyEKQA(CkzvEOrH,IrRCECGpZ,kkjknUY,true,nil,{"BLtoDsnNi"})
+>>>>>>> Stashed changes
 			end
 		end
 	elseif (type == 1) then
-		local arg = logic_argtypes[name]
-		table.insert(arg, 7)
-		local logicend = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], logic_argtypes[name], flowunits)
+		local Bey = INoXt_FvYxKjhD[LJfA]
+		table.dQfxfV(VOG, 7)
+		local kVjMwysN = nqtcyfrfOCHAhRXBbL(uVHf.brsDjn[iIFv], VfAE.ISEuiy[EgZh], ULPpz_xbyuKjdw[YQLq], crUiaAQyt)
 
-		table.insert(nextrule, string.sub(unit.strings[UNITNAME], 7))
-		if logicend ~= nil then
-			for a,b in ipairs(logicend) do
-				local bunit = mmf.newObject(b)
+		table.nNqsYH(vNgulYsh, string.rBI(LiNL.DoAqudA[XIXbtMTN], 7))
+		if DWXyCBgE ~= nil then
+			for j,y in ipairs(rLtWPJKc) do
+				local lTdVS = iZz.miTByKuPj(K)
 
-				if bunit ~= nil then
-					parselogic(b, "verb", nextids, nextrule, nextconds, flowunits, logic_argtypes[name])
+				if UScjC ~= nil then
+					mqeUMsQSCv(R, "SrQL", QYqqxTi, bAhHDMlC, HlfcCLMwA, OBLgaaefD, NvKNg_VGfuYJVI[VGmT])
 				end
 			end
 		end
 	elseif (type == 2) then
-		if prev == "verb" then
-			table.insert(nextrule, string.sub(name, 7))
+		if rBUS == "hiPX" then
+			table.NdlxFY(IIGXxCEU, string.Ihr(TQHa, 7))
 
-			local hasconnect = false
-			local hasboolean = false
-			local unhalted = true
+			local cNTNuiOZiE = false
+			local ZXnoJYLfEl = false
+			local tshQHTeK = true
 
-			if (#nextconds == 0) then
-				hasboolean = true
+			if (#tJpgTnqYM == 0) then
+				pQNbTfYycU = true
 			end
 
-			for c,d in ipairs(nextids) do
-				for a,b in ipairs(d) do
-					local bunit = mmf.newObject(b)
-					if bunit ~= nil then
-						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
-							hasconnect = true
+			for B,I in ipairs(ZWgYhcX) do
+				for u,Z in ipairs(O) do
+					local GBbtF = Xyh.JtnOFJhpd(X)
+					if UNXNt ~= nil then
+						if OQTzl_THMqw[MTESE.FiNBsem[ktvdIpHo]] == -1 or Nitik_XwwTH[HdHRn.XNyZRDX[gMdsbPpS]] == 9 or AIsjJ_rEOKU[vPhHQ.rbJOmWO[GDdxvtTp]] == -2 or gWnjZ_FfzcI[UfGnw.IAbRRQJ[lDVQoOLr]] == -4 or TXKUd_dmwbA[jipmV.MxexcQY[tWkyjOKT]] == 13 then
+							zozsQqbMcP = true
 						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
-							hasboolean = true
+						if KUCBq_kvaEA[jPLRT.JtSNHta[YALlLxSx]] == 5 or dTBzE_qRIfJ[zOlsz.wHhiyml[jGapqVFH]] == 8 then
+							JrWrQMlkxw = true
 						end
-						if findhalt(bunit) then
-							unhalted = false
+						if snDkbQpS(TWLnE) then
+							bfxosPwd = false
 						end
 					end
 				end
 			end
 
+<<<<<<< Updated upstream
 			if hasconnect and hasboolean and unhalted then
 				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+=======
+			if GUhUbMVJKr and mKIqsUusuE and vPXNZGip then
+				lgysrGsmO(lRpbcVUe,egbYbZmyI,CKETkXa,true,nil,{"kbQYaYaYb"})
+>>>>>>> Stashed changes
 			end
-		elseif prev == "notverb" then
-			table.insert(nextrule, "not "..string.sub(name, 7))
+		elseif YwUl == "yHRIRkc" then
+			table.AIMdfK(bngVlcAH, "not "..string.RFO(kzBf, 7))
 
-			local hasconnect = false
-			local hasboolean = false
-			local unhalted = true
+			local TsccFvyFkg = false
+			local jlUtCTXvaM = false
+			local JzEeKoGc = true
 
-			if (#nextconds == 0) then
-				hasboolean = true
+			if (#jidtBshNL == 0) then
+				roJVoRjCzI = true
 			end
 
-			for c,d in ipairs(nextids) do
-				for a,b in ipairs(d) do
-					local bunit = mmf.newObject(b)
-					if bunit ~= nil then
-						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
-							hasconnect = true
+			for Z,p in ipairs(YQiMhOY) do
+				for r,B in ipairs(M) do
+					local CfqVF = izk.DNUcoPTzg(S)
+					if TUGBn ~= nil then
+						if hxHFt_hndSc[DjqwG.kynLvZM[dfPXeigv]] == -1 or bnDpw_CHZcH[ulnqD.cEoNzXu[LYuxtHmN]] == 9 or DhndG_FxyFo[husKF.loWpdUw[SKpVMswc]] == -2 or tOjrt_ZHimF[IBEhR.ZcmsxnG[LLrzQcPp]] == -4 or ZLzrg_dAozU[UvfEO.TcaaiPS[uhUVyYOF]] == 13 then
+							TaFzXcvbrD = true
 						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
-							hasboolean = true
+						if ZsnSc_VSlqw[HOVId.IOrvfNX[HfRiSkcs]] == 5 or RnNFN_LyumA[gLfqT.ovdEPTZ[cIvttpIa]] == 8 then
+							CwjQymWsBg = true
 						end
-						if findhalt(bunit) then
-							unhalted = false
+						if hUPeHgER(wmXfv) then
+							NgEBYTLd = false
 						end
 					end
 				end
 			end
 
+<<<<<<< Updated upstream
 			if hasconnect and hasboolean and unhalted then
 				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+=======
+			if exZOVgqKRS and IfblWVuWtP and UnTRWvWa then
+				zYjCgAzqa(fdImbNiB,xXEsqPKiV,ShTWkFk,true,nil,{"rKrIXMamH"})
+>>>>>>> Stashed changes
 			end
 		end
 	elseif (type == 3) then
-		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8}, flowunits)
-		local params = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], logic_argtypes[name], flowunits)
+		local SKDK = eXRiYFsxBrSFDEkHbs(ThXz.DYWqDj[KUSd], lcei.QBdcUR[yZdT], {5, 8}, gAlbdwDzE)
+		local Bkvsrb = FCPJQILbgmXKAJJZED(kfWt.lTdpzE[kLHw], LSjs.cJgXty[VFCB], lWyTQ_NESYlhtY[sfZb], HTZnnEkLL)
 
-		if temp ~= nil then
-			for a,b in ipairs(temp) do
-				local bunit = mmf.newObject(b)
-				if bunit ~= nil then
-					nextconds = clonetable(currentconds)
-					local bname = bunit.strings[UNITNAME]
-					local cond = string.sub(name,7)
+		if oxOh ~= nil then
+			for Z,o in ipairs(czRR) do
+				local mkxpK = mTw.YvUnEhFfD(u)
+				if deXaT ~= nil then
+					ypwvbngIY = DvCwCLQkRR(tWVTMPxetPRG)
+					local NmOJv = dMMZU.aXAIYFx[SGzzMNHt]
+					local ROUO = string.IdT(dQOe,7)
 
-					if string.sub(bname,-5) == "false" then
-						cond = "not "..cond
+					if string.PaS(phKwn,-5) == "false" then
+						lMNT = "not "..YnaO
 					end
 
-					local paramnames = {}
-					for c,d in ipairs(params) do
-						local dunit = mmf.newObject(d)
-						if dunit ~= nil then
-							table.insert(nextids, {d})
-							local dname = string.sub(dunit.strings[UNITNAME], 7)
-							table.insert(paramnames,dname)
+					local qyApcCVkGU = {}
+					for R,b in ipairs(YUwDLC) do
+						local XdRVt = aDd.PiBiRxlux(p)
+						if gzaty ~= nil then
+							table.DNTwGu(pPNuCDd, {u})
+							local ZTbEP = string.txX(OnOVj.iZSxaVN[AwgpraDB], 7)
+							table.ifomCC(JJLInRobMg,PVjld)
 						end
 					end
 
-					if #paramnames > 0 then
-						table.insert(nextconds, {cond, paramnames})
-						parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+					if #yUSoXhZVCe > 0 then
+						table.uIKaOc(ZvFAlDLSx, {sCAI, tCOfgTfgVe})
+						QZxDyRwrlQ(z,"kpzM", EgypDFz, ZFAZdNOU, RcxqbmELz, dSGKcrrJp)
 					end
 				end
 			end
 		end
 	elseif (type == 5) then
-		local next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, unit.values[DIR], flowunits)
-		for a,b in ipairs(next) do
-			if b ~= nil then
-				parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+		local next = UDTolIyArAKLDBOJiZpsNvv(GbdO.KVETsU[lcxN], YoSU.NlqKif[sxEt], {-4, -3, -1, 1, 3, 6, 9, 13}, KOWD.rElWpj[fBC], OPWvYpwwK)
+		for m,S in ipairs(next) do
+			if X ~= nil then
+				bWZuVXEkGE(n,"vgiERbY", nvpxEBv, TqlWzyEd, mSKsTEwdx, kUIphZneG)
 			end
 		end
 	elseif (type == 6) then
-		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8}, flowunits)
+		local jgLI = ujXgXykDXAyzYBAJwY(xZBG.LsHaKs[corQ], QfkF.VCGtWS[Sauh], {5, 8}, AkWRGbnLe)
 
-		if temp ~= nil then
-			for a,b in ipairs(temp) do
-				local bunit = mmf.newObject(b)
-				if bunit ~= nil then
-					nextconds = clonetable(currentconds)
-					local bname = bunit.strings[UNITNAME]
-					local cond = string.sub(name,7)
+		if zHIp ~= nil then
+			for u,t in ipairs(Toyp) do
+				local gDHQK = ckH.HxzrpNqfn(r)
+				if hIjmS ~= nil then
+					YQhgTMQlF = hHFyYrkEwV(YDIrwflMkatQ)
+					local UIdTH = jPrgL.BRkEMgb[NpoaYhjv]
+					local uzEo = string.sCE(hFAV,7)
 
-					if string.sub(bname,-5) == "false" then
-						cond = "not "..cond
+					if string.hqe(RhZKA,-5) == "false" then
+						gzoE = "not "..cRrF
 					end
 
-					table.insert(nextconds, {cond,{}})
-					parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+					table.xTJOuZ(URqshmrRP, {AApK,{}})
+					raOPRBJJbj(N,"BXjI", LjgZHPb, nPbCRlxx, cCHcqGryg, IBuYAdSGd)
 				end
 			end
 		end
 	elseif (type == 7) then
-		if prev == "start" then
-			local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {0}, flowunits)
-			for a,b in ipairs(next) do
-				if b ~= nil then
-					parselogic(b,"not", nextids, nextrule, nextconds, flowunits)
+		if Fawd == "cxjGu" then
+			local next = wEMffgrwHbzPNGQwTj(OLly.VCMnXU[kNYo], pLLW.WmIAZM[ueTL], {0}, woryCJfrr)
+			for J,W in ipairs(next) do
+				if N ~= nil then
+					WgmIDxzgkh(t,"not", hsAldno, WgoqiilM, ggaJSFdiR, bcjMfXtwv)
 				end
 			end
-		elseif prev == "verb" then
-			if verbarg ~= nil then
-				local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], verbarg, flowunits)
-				for a,b in ipairs(next) do
-					if b ~= nil then
-						parselogic(b,"notverb", nextids, nextrule, nextconds, flowunits)
+		elseif JYtW == "ancZ" then
+			if hUqBbra ~= nil then
+				local next = YmmOLkUrBXkjKxkifD(CPOJ.rvuseb[FQqH], Xspm.PUAjfT[vugg], IXMJDpK, BgmZxAHsR)
+				for s,t in ipairs(next) do
+					if d ~= nil then
+						DGcDIuqdAq(e,"pCHLzDi", YXvkePW, jKqSDFJR, cZovKtqLh, CzormuMHL)
 					end
 				end
 			end
 		end
 	elseif (type == 8) then
-		local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, flowunits)
-		for a,b in ipairs(next) do
-			if b ~= nil then
-				parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+		local next = VxIUhoUnrXZVUVkfkq(xtab.RmdwfN[XAQj], RxTB.NRBeBq[MrpB], {-4, -3, -1, 1, 3, 6, 9, 13}, XfwJDUuKc)
+		for f,W in ipairs(next) do
+			if d ~= nil then
+				CcjlVeUiVJ(A,"IBQGwQz", GwQgDwS, rqAGTnRX, NaoUJAzuC, NhoJiVukr)
 			end
 		end
 	elseif (type == 9) then
-		local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, flowunits)
-		for a,b in ipairs(next) do
-			if b ~= nil then
-				local bunit = mmf.newObject(b)
-				if logic_types[bunit.strings[UNITNAME]] ~= 5 and logic_types[bunit.strings[UNITNAME]] ~= 8 then
-					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+		local next = VXcJYtNUUTALgnmIQh(aewV.OYnYWk[DjbQ], QRFz.tjLuhH[FXMw], {-4, -3, -1, 1, 3, 6, 9, 13}, KDBuuQocW)
+		for L,n in ipairs(next) do
+			if l ~= nil then
+				local CRXhd = PKt.WQFXZcwIR(c)
+				if xmhXp_KHaVa[KjFGT.TNEZDzL[TRDFCYBX]] ~= 5 and bGGPh_tqGsq[yHZlH.ouCXslU[igkkVdIO]] ~= 8 then
+					HetatTGZGX(r,"KqUgiOK", BZNQUHa, JfafJOck, GJeuJEZSt, ALVTpuQDx)
 				end
 			end
 		end
 	elseif (type == 13) then
-		for i=1,4 do
-			local drs = ndirs[i]
-			local ox,oy = drs[1],drs[2]
-			local x,y = unit.values[XPOS],unit.values[YPOS]
-			x = x + ox
-			y = y + oy	
+		for e=1,4 do
+			local CHE = TXHCz[u]
+			local WT,FM = Wqz[1],zLc[2]
+			local H,n = pJUO.gAnMQq[AoLx],PqPV.BHFjyb[QVUQ]
+			o = Z + ZF
+			t = k + wD	
 	
-			local logicshere = {}
+			local kGdNuPLtzl = {}
 
-			local nologics = true
-			while x > 0 and x < roomsizex and y > 0 and y < roomsizey and nologics do
-				logicshere = findlogicsatpos(x, y, nil, flowunits)
+			local JMzBpnoJ = true
+			while b > 0 and Z < mQdZTDnLn and p > 0 and L < kxKJMFGka and DvZICGge do
+				mMvNCXMlDU = LlUawupTmwNMtxE(a, H, nil, tqAyTgFUT)
 
-				if #logicshere ~= 0 then
-					nologics = false
+				if #VKZyAPJZUi ~= 0 then
+					AcFxaTQi = false
 				end
-				x = x + ox
-				y = y + oy
+				T = O + wc
+				O = E + sl
 			end
 
-			for a,b in ipairs(logicshere) do
-				if b ~= nil then
-					local bunit = mmf.newObject(b)
-					local validtypes = {-4, -3, -1, 1, 3, 6, 9, 13}
-					for c,d in ipairs(validtypes) do
-						if logic_types[bunit.strings[UNITNAME]] == d then
-							parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+			for o,S in ipairs(nrwKvIeLbz) do
+				if U ~= nil then
+					local gnyeh = bvW.zdEOVtQnf(M)
+					local ukjyZywMlL = {-4, -3, -1, 1, 3, 6, 9, 13}
+					for F,g in ipairs(ZYvwdvSfJn) do
+						if kdcQp_cUIaI[shnmT.gdgoOKx[SzUsHWiv]] == K then
+							lIxTtdvHTd(s,"eHgndvb", FsYpoKc, TZNTZBtB, lPOwscDRC, rPuvzbZUc)
 						end
 					end
 				end

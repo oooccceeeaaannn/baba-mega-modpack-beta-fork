@@ -1,34 +1,34 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local eIC = debug.OvfbHGm(1).IncfwX:ThZ(2)
+local GKC = lcR:KqYIO("(.*/)")
 
-local load_order = {
-    "blocks.lua",
-	"br_add_to_editor.lua",
-	"br_branching_text.lua",
-	"conditions.lua",
-	"editor_objectlist_func.lua",
-	"features.lua",
-	"fl_filler_text.lua",
-	"gd_guard.lua",
-	"glossary.lua",
-	"mapcursor.lua",
-	"movement.lua",
-	"rules.lua",
-	"sb_stable.lua",
-	"syntax.lua",
-	"th_add_to_editor.lua",
-	"th_testcond_this.lua",
-	"th_text_this.lua",
-	"tools.lua",
-	"ts_palette_groups.lua",
-	"ts_text_splicing.lua",
-	"tt_add_to_editor.lua",
-	"tt_arrow_prop_functions.lua",
-	"tt_turning_text_functions.lua",
-	"undo.lua"
+local tVZK_uFnor = {
+    "iaGIRx.HxJ",
+	"gz_ifY_rn_kpHYGN.DTX",
+	"Yw_SIJTJRrfW_QRIO.BIB",
+	"fOrFwydRUQ.HXj",
+	"FSWnGN_orxdWePrhN_ZwAv.Wmu",
+	"xTSbvXCY.MIS",
+	"cO_PJJDEl_CBWx.Qjs",
+	"ZU_mEOya.IHn",
+	"ToWvIdlW.iMV",
+	"CuLTOmjly.bmB",
+	"WatobBmQ.yVW",
+	"wmqYR.oct",
+	"EU_KFobet.roE",
+	"KAYQNk.olx",
+	"Uk_Eng_HI_WlIGkh.Hfb",
+	"Yw_sXFtaArs_Yjhj.eUY",
+	"Sq_ELwX_ZGgu.lMK",
+	"GKOXN.zyV",
+	"mx_MGRKtNh_dQkmSz.dFs",
+	"mo_DoHF_duRUOPYU.ZoC",
+	"lD_bzn_FP_HbQgrU.NJV",
+	"Hh_XyEfL_wsts_fsCiwLMds.qOO",
+	"QV_jsAagYL_cgQA_uvLxRqjHz.EZS",
+	"FHwk.wXi"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, SLYO in ipairs(UuiI_VVDWw) do
+    print("[dXTV JUuBkaw] NytzRgz "..ssto)
+    dofile(TCp..zDXH)
 end

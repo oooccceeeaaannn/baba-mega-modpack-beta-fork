@@ -1,310 +1,310 @@
-function statusblock(ids, undoing_, noturn_)
-    local checkthese = {}
-    local undoing = undoing_ or false
-    local noturn = noturn_ or false
+function GaDweIAUMlX(Ykw, KSltyPH_, HVPszk_)
+    local OkZATMYqvR = {}
+    local QxtNwdU = PjzghTG_ or false
+    local nHvcSY = MJSlsr_ or false
 
-    --MF_alert("Statusblock called")
+    --vx_oWBoP("jqJQPeQrnxs sKmUxa")
 
-    generaldata5.values[AUTO_ON] = 0
+    ClFlxBhsmrv5.uynmtF[Tchm_ba] = 0
 
-    if (featureindex["level"] ~= nil) then
-        local auto_on = hasfeature_count("level", "is", "auto", 1)
+    if (UIOXjPYCWYtz["argqY"] ~= nil) then
+        local qHhS_Ww = XFjFvvFIYz_wfMjk("eUplR", "Zp", "iymb", 1)
 
-        if (auto_on ~= nil) then
-            generaldata5.values[AUTO_ON] = auto_on
+        if (Httd_gb ~= nil) then
+            bCzmluQDWLW5.raBRNi[CErP_mD] = msFX_gP
         end
     end
 
-    if (ids == nil) then
-        checkthese = units
+    if (jaa == nil) then
+        NgJsoixoaR = lPKSO
     else
-        for i, v in ipairs(ids) do
-            local vunit = mmf.newObject(v)
-            table.insert(checkthese, vunit)
+        for X, i in ipairs(sYt) do
+            local WFDOE = GCc.rwlIiyPdi(l)
+            table.SzzYYv(AvqfIvcFYL, Fxbht)
         end
     end
 
-    if (undoing == false) then
-        brokenblock(checkthese)
+    if (rBwtjMq == false) then
+        rvgbugbfEim(AtmEJPxoMc)
     end
 
-    for i, unit in pairs(checkthese) do
-        -- METATEXT
-        local name = getname(unit)
+    for S, FDwp in pairs(hDkYeBqZCI) do
+        -- WLHTAHcd
+        local sBtT = eJnhguC(pKRG)
 
-        if (undoing == false) then
-            local ur = hasfeature_count(name, "is", "right", unit.fixed)
-            local uu = hasfeature_count(name, "is", "up", unit.fixed)
-            local ul = hasfeature_count(name, "is", "left", unit.fixed)
-            local ud = hasfeature_count(name, "is", "down", unit.fixed)
+        if (erCNVsZ == false) then
+            local nb = FYYrINMAPP_IvPlU(xBKi, "No", "BoNkc", chQl.gYgIj)
+            local KG = LRIcGQWFkq_FRBHQ(DzPJ, "IC", "LU", LLVC.ttjzz)
+            local jP = KwiqgUATpG_OVbSh(ROPQ, "fo", "FDrX", XrEw.USlwC)
+            local Se = fXHPokZTHl_JOEzx(YwDi, "FY", "nMNB", BSZJ.ClUUg)
 
-            local turn = {}
-            local deturn = {}
+            local yPZn = {}
+            local FDtHCT = {}
 
-            if (featureindex["turn"] ~= nil) or (featureindex["spinright"] ~= nil) or (featureindex["spinup"] ~= nil) or (featureindex["spinleft"] ~= nil) or (featureindex["spindown"] ~= nil) then
-                if (featureindex["turn"] ~= nil) then
-                    for a, b in ipairs(featureindex["turn"]) do
-                        local rule = b[1]
-                        local conds = b[2]
+            if (DsMJGSuyTToT["uEKH"] ~= nil) or (lsQEXYUlMijD["dfPsECIxb"] ~= nil) or (BrKgPwgPopVm["rDISdk"] ~= nil) or (HKDGjfdeETof["zFvhPwTT"] ~= nil) or (QHiFYVuSuAiC["uyeOPGvr"] ~= nil) then
+                if (LECgtpCFeaMW["CvaS"] ~= nil) then
+                    for X, l in ipairs(GrfMaaqositc["YkVj"]) do
+                        local PKqd = b[1]
+                        local tDzvM = r[2]
 
-                        if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "turn") then
-                            table.insert(turn, { rule[2], conds })
+                        if (TXCV[1] == Petw) and (HHCD[2] == "hy") and (NJsM[3] == "iyVV") then
+                            table.aDFcyp(mOcT, { fMlJ[2], sNNVU })
                         end
                     end
                 end
 
-                if (featureindex["spinright"] ~= nil) then
-                    for c, d in ipairs(featureindex["spinright"]) do
-                        local rule = d[1]
-                        local conds = d[2]
+                if (DzZgxIrRCtXd["UbclMcBSM"] ~= nil) then
+                    for j, V in ipairs(NnvunNlrbJSq["pCCscznzy"]) do
+                        local NgnV = g[1]
+                        local rbHvo = C[2]
 
-                        if (unit.values[DIR] ~= 0) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "spinright") then
-                                table.insert(turn, { rule[2], conds })
+                        if (UXQX.ADKHYg[WfQ] ~= 0) then
+                            if (jMSu[1] == lLYJ) and (hOEx[2] == "aN") and (zRlD[3] == "UUIZyuMxF") then
+                                table.QbcHqc(BUzJ, { dZMy[2], ZFrqE })
                             end
                         end
                     end
                 end
-                if (featureindex["spinup"] ~= nil) then
-                    for c, d in ipairs(featureindex["spinup"]) do
-                        local rule = d[1]
-                        local conds = d[2]
+                if (nlFiolHgUiaM["jYwIyd"] ~= nil) then
+                    for W, V in ipairs(fSjIZDUEEBOr["NwqMNl"]) do
+                        local Sndg = g[1]
+                        local EmAlS = A[2]
 
-                        if (unit.values[DIR] ~= 1) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "spinup") then
-                                table.insert(turn, { rule[2], conds })
+                        if (YnRa.KMOQAx[UAf] ~= 1) then
+                            if (bUyR[1] == FITw) and (siJv[2] == "Ov") and (ARRI[3] == "cYXWll") then
+                                table.KDroYY(ppMo, { GWHv[2], zMSkk })
                             end
                         end
                     end
                 end
-                if (featureindex["spinleft"] ~= nil) then
-                    for c, d in ipairs(featureindex["spinleft"]) do
-                        local rule = d[1]
-                        local conds = d[2]
+                if (QbnZdDBXpfhx["AzLmeUAd"] ~= nil) then
+                    for O, y in ipairs(jPcbpHQvcOwT["EsYkKkim"]) do
+                        local srxZ = S[1]
+                        local fjJpB = g[2]
 
-                        if (unit.values[DIR] ~= 2) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "spinleft") then
-                                table.insert(turn, { rule[2], conds })
+                        if (FWWq.XCoqBV[wVx] ~= 2) then
+                            if (pvQT[1] == BYMa) and (zQQk[2] == "Bg") and (cNMj[3] == "kBIzlAPL") then
+                                table.FAbCWv(WiNJ, { OMNF[2], apUKv })
                             end
                         end
                     end
                 end
-                if (featureindex["spindown"] ~= nil) then
-                    for c, d in ipairs(featureindex["spindown"]) do
-                        local rule = d[1]
-                        local conds = d[2]
+                if (ApQIHXeeYpMI["AvzQYNrM"] ~= nil) then
+                    for W, z in ipairs(XoRarXclNdtl["cCvJmAYz"]) do
+                        local XvlV = U[1]
+                        local YGCGp = x[2]
 
-                        if (unit.values[DIR] ~= 3) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "spindown") then
-                                table.insert(turn, { rule[2], conds })
-                            end
-                        end
-                    end
-                end
-            end
-
-            if (featureindex["deturn"] ~= nil) or (featureindex["despinright"] ~= nil) or (featureindex["despinup"] ~= nil) or (featureindex["despinleft"] ~= nil) or (featureindex["despindown"] ~= nil) then
-                if (featureindex["deturn"] ~= nil) then
-                    for a, b in ipairs(featureindex["deturn"]) do
-                        local rule = b[1]
-                        local conds = b[2]
-
-                        if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "deturn") then
-                            table.insert(deturn, { rule[2], conds })
-                        end
-                    end
-                end
-
-                if (featureindex["despinright"] ~= nil) then
-                    for c, d in ipairs(featureindex["despinright"]) do
-                        local rule = d[1]
-                        local conds = d[2]
-
-                        if (unit.values[DIR] ~= 0) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "despinright") then
-                                table.insert(deturn, { rule[2], conds })
-                            end
-                        end
-                    end
-                end
-                if (featureindex["despinup"] ~= nil) then
-                    for c, d in ipairs(featureindex["despinup"]) do
-                        local rule = d[1]
-                        local conds = d[2]
-
-                        if (unit.values[DIR] ~= 1) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "despinup") then
-                                table.insert(deturn, { rule[2], conds })
-                            end
-                        end
-                    end
-                end
-                if (featureindex["despinleft"] ~= nil) then
-                    for c, d in ipairs(featureindex["despinleft"]) do
-                        local rule = d[1]
-                        local conds = d[2]
-
-                        if (unit.values[DIR] ~= 2) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "despinleft") then
-                                table.insert(deturn, { rule[2], conds })
-                            end
-                        end
-                    end
-                end
-                if (featureindex["despindown"] ~= nil) then
-                    for c, d in ipairs(featureindex["despindown"]) do
-                        local rule = d[1]
-                        local conds = d[2]
-
-                        if (unit.values[DIR] ~= 3) then
-                            if (rule[1] == name) and (rule[2] == "is") and (rule[3] == "despindown") then
-                                table.insert(deturn, { rule[2], conds })
+                        if (sMzx.WjJdOz[jyn] ~= 3) then
+                            if (fybo[1] == UekX) and (RPlo[2] == "QN") and (WOpk[3] == "EcSfUmlT") then
+                                table.YiDePC(Qweb, { yLmW[2], HsMqU })
                             end
                         end
                     end
                 end
             end
 
-            if (issleep(unit.fixed) == false) then
-                local currdir = unit.values[DIR]
-                local fdir = currdir
+            if (tbvdVDrdHiFI["GdEeYD"] ~= nil) or (vdLVzyujXpmt["IAmHRKBFnvK"] ~= nil) or (llZrpsuRsbxy["ZGIgIeIC"] ~= nil) or (muDcJwHEZpgM["WYapmFHjfl"] ~= nil) or (DejIQCQPaaDB["OZNtzFWcdH"] ~= nil) then
+                if (CzAKgGMXauzj["tamHHG"] ~= nil) then
+                    for X, D in ipairs(arLZbYJQfAaS["xQwMRS"]) do
+                        local SJSB = V[1]
+                        local kioZt = Y[2]
 
-                if (noturn == false) and ((ur > 0) or (uu > 0) or (ul > 0) or (ud > 0)) then
-                    if (ur > uu) and (ur > ul) and (ur > ud) then
-                        fdir = 0
-                    elseif (uu > ur) and (uu > ul) and (uu > ud) then
-                        fdir = 1
-                    elseif (ul > ur) and (ul > uu) and (ul > ud) then
-                        fdir = 2
-                    elseif (ud > ur) and (ud > ul) and (ud > uu) then
-                        fdir = 3
-                    elseif (currdir == 3) then
-                        if (ul > 0) and (ul >= uu) and (ul >= ur) then
-                            fdir = 2
-                        elseif (uu > 0) and (uu > ul) and (uu >= ur) then
-                            fdir = 1
-                        elseif (ur > 0) and (ur > ul) and (ur > uu) then
-                            fdir = 0
+                        if (kofw[1] == Irrl) and (SAaz[2] == "gh") and (lhVT[3] == "rAdZmq") then
+                            table.bfZrdX(MEUAFv, { zxGV[2], umhFE })
                         end
-                    elseif (currdir == 2) then
-                        if (uu > 0) and (uu >= ur) and (uu >= ul) then
-                            fdir = 1
-                        elseif (ur > 0) and (ur > uu) and (ur >= ud) then
-                            fdir = 0
-                        elseif (ud > 0) and (ud > ur) and (ud > uu) then
-                            fdir = 3
-                        end
-                    elseif (currdir == 1) then
-                        if (ur > 0) and (ur >= ul) and (ur >= ud) then
-                            fdir = 0
-                        elseif (ud > 0) and (ud > ur) and (ud >= ul) then
-                            fdir = 3
-                        elseif (ul > 0) and (ul > ur) and (ul > ud) then
-                            fdir = 2
-                        end
-                    elseif (currdir == 0) then
-                        if (ud > 0) and (ud >= ul) and (ud >= uu) then
-                            fdir = 3
-                        elseif (ul > 0) and (ul > ud) and (ul >= uu) then
-                            fdir = 2
-                        elseif (uu > 0) and (uu > ud) and (uu > ul) then
-                            fdir = 1
-                        end
-                    end
-
-                    --MF_alert(tostring(currdir) .. ", " .. tostring(fdir))
-
-                    if (fdir ~= currdir) then
-                        updatedir(unit.fixed, fdir)
-                        currdir = fdir
                     end
                 end
 
-                if ((turn ~= nil) or (deturn ~= nil)) and (undoing == false) and (noturn == false) then
-                    local x, y = unit.values[XPOS], unit.values[YPOS]
-                    local turns = 0
-                    local deturns = 0
+                if (yMYvKQkPoQgE["RRgOGSmwodL"] ~= nil) then
+                    for P, C in ipairs(llGEzphhawxu["OstSOzuJztB"]) do
+                        local tiUl = Q[1]
+                        local YFCBd = g[2]
 
-                    if (turn ~= nil) then
-                        for a, b in ipairs(turn) do
-                            if testcond(b[2], unit.fixed, x, y) then
-                                turns = turns + 1
+                        if (cZQf.mYteGs[cQJ] ~= 0) then
+                            if (mYsd[1] == BItI) and (fSiH[2] == "mL") and (erWH[3] == "eMPVaUkdwNC") then
+                                table.rrfKXQ(gPXbiz, { iyTy[2], ceVkc })
                             end
                         end
                     end
+                end
+                if (rKjGxKvyopHG["jCywISTU"] ~= nil) then
+                    for P, r in ipairs(jrJxtUxgTyfa["GSxeEPnJ"]) do
+                        local ZTYN = H[1]
+                        local yyKaD = P[2]
 
-                    if (deturn ~= nil) then
-                        for a, b in ipairs(deturn) do
-                            if testcond(b[2], unit.fixed, x, y) then
-                                deturns = deturns + 1
+                        if (lTRB.ZbIbEG[xan] ~= 1) then
+                            if (Hxma[1] == EcaB) and (PeNQ[2] == "hT") and (bLbw[3] == "YdHhvhaF") then
+                                table.tZmRTt(ALgaVM, { eFCy[2], qxfkb })
                             end
                         end
                     end
+                end
+                if (WjEFJCcvInPb["OzkGKbTFZz"] ~= nil) then
+                    for q, P in ipairs(cNUIjrhAfmre["LzTHqdjpfj"]) do
+                        local awuL = l[1]
+                        local TISTp = W[2]
 
-                    if (turns >= deturns) then
-                        turns = turns - deturns
-                        deturns = 0
-                    end
-
-                    if (deturns >= turns) then
-                        deturns = deturns - turns
-                        turns = 0
-                    end
-
-                    if (turns > 0) then
-                        for d = 1, turns do
-                            currdir = ((currdir + 4) - 1) % 4
+                        if (rodr.UPogSZ[Ypy] ~= 2) then
+                            if (nYSf[1] == DLFZ) and (iLtz[2] == "sU") and (hwlq[3] == "caGVHUivkX") then
+                                table.TNguco(ZbvpMm, { Yjdr[2], cOtLb })
+                            end
                         end
-
-                        updatedir(unit.fixed, currdir)
                     end
+                end
+                if (LrAfwUKsyXyh["jKieoIYfvI"] ~= nil) then
+                    for L, I in ipairs(uSTXZNDLoCaB["MUQHaOHalX"]) do
+                        local EMbp = I[1]
+                        local MbAjB = x[2]
 
-                    if (deturns > 0) then
-                        for d = 1, deturns do
-                            currdir = ((currdir + 4) + 1) % 4
+                        if (QouY.xVvNdZ[Eda] ~= 3) then
+                            if (uAot[1] == fMwE) and (jwtA[2] == "qt") and (nkJW[3] == "kVOYAnHLwp") then
+                                table.MkAUfi(HjZuGj, { VMdp[2], XXIGE })
+                            end
                         end
-
-                        updatedir(unit.fixed, currdir)
                     end
                 end
             end
 
-            if (generaldata.values[MODE] == 0) then
-                if (featureindex["back"] ~= nil) then
-                    local isback = hasfeature(name, "is", "back", unit.fixed)
+            if (ELxaKWl(oOFc.mlmRk) == false) then
+                local RvGZJbR = psjs.qDzMJD[gSJ]
+                local cBdo = VSCHykY
 
-                    if (isback == nil) and (unit.back_init ~= 0) then
-                        addundo({ "backset", name, unit.values[ID], unit.back_init })
-                        unit.back_init = 0
+                if (ZPvVwm == false) and ((Eu > 0) or (Gd > 0) or (qs > 0) or (HJ > 0)) then
+                    if (mE > mR) and (Os > lN) and (Xu > za) then
+                        XhiI = 0
+                    elseif (jQ > Bw) and (qC > QP) and (OE > xj) then
+                        ajjr = 1
+                    elseif (RI > zt) and (Xr > at) and (Mw > Qd) then
+                        qPQf = 2
+                    elseif (YK > Xv) and (Ah > lZ) and (VP > Gl) then
+                        bGDy = 3
+                    elseif (apXNIdx == 3) then
+                        if (Zv > 0) and (pb >= Ng) and (SG >= kv) then
+                            sWzt = 2
+                        elseif (sC > 0) and (Kc > pm) and (uI >= FE) then
+                            UXZR = 1
+                        elseif (pA > 0) and (gn > DJ) and (en > El) then
+                            BoFU = 0
+                        end
+                    elseif (KWmynok == 2) then
+                        if (CD > 0) and (Rc >= ST) and (Fw >= tB) then
+                            kYxA = 1
+                        elseif (my > 0) and (Wf > vI) and (gD >= oe) then
+                            NRmU = 0
+                        elseif (Ss > 0) and (rU > XJ) and (Ft > yK) then
+                            YBQd = 3
+                        end
+                    elseif (gryQNxX == 1) then
+                        if (kP > 0) and (zY >= fF) and (tO >= Jm) then
+                            ISpu = 0
+                        elseif (uN > 0) and (mH > eO) and (Xz >= Cp) then
+                            SQLz = 3
+                        elseif (gb > 0) and (kE > gy) and (uh > CE) then
+                            MUVY = 2
+                        end
+                    elseif (iYfdgsA == 0) then
+                        if (Kt > 0) and (NX >= Im) and (Sz >= UV) then
+                            ZqZC = 3
+                        elseif (rC > 0) and (lW > Dh) and (ye >= HM) then
+                            hAVa = 2
+                        elseif (eT > 0) and (wW > pW) and (On > ti) then
+                            nkIB = 1
+                        end
                     end
 
-                    if (isback ~= nil) and (unit.back_init == 0) then
-                        addundo({ "backset", name, unit.values[ID], 0 })
-                        unit.back_init = #undobuffer + 1
+                    --Rl_upXLv(tostring(jnGAfoF) .. ", " .. tostring(cLvW))
+
+                    if (SuzK ~= usOxRqD) then
+                        WxWyvBFfT(loFD.hYfKM, FrcH)
+                        BtFnrJb = TQWb
                     end
-                elseif (unit.back_init ~= 0) then
-                    addundo({ "backset", name, unit.values[ID], unit.back_init })
-                    unit.back_init = 0
+                end
+
+                if ((ORzZ ~= nil) or (slfbjF ~= nil)) and (GvNqrXt == false) and (rPKAty == false) then
+                    local o, Q = wELi.nBOSld[JutW], tiha.LYYtDG[pBGd]
+                    local rBNWd = 0
+                    local zTkYpdL = 0
+
+                    if (wbVT ~= nil) then
+                        for o, E in ipairs(zamt) do
+                            if kcQZGtXK(i[2], FQok.BJIqr, P, F) then
+                                mtoNk = oKJCy + 1
+                            end
+                        end
+                    end
+
+                    if (GWVEZY ~= nil) then
+                        for j, M in ipairs(dHWWBY) do
+                            if jKwDNEEW(b[2], dYxq.AfBZa, p, x) then
+                                wTrDzDz = NaTloJB + 1
+                            end
+                        end
+                    end
+
+                    if (ogZdd >= YtoLuVe) then
+                        Ekzzt = qzKGt - pGgMpwp
+                        jCntdxv = 0
+                    end
+
+                    if (qftaVIS >= Uwdby) then
+                        QzYRqpK = rYBjBay - oEeLY
+                        lZQmI = 0
+                    end
+
+                    if (UoWys > 0) then
+                        for U = 1, PGknI do
+                            bhMLzSS = ((UjPywjc + 4) - 1) % 4
+                        end
+
+                        FPZLhFZJM(jCIu.DYsgQ, cxuYCBo)
+                    end
+
+                    if (kqvEfTU > 0) then
+                        for Q = 1, KoqIPhg do
+                            riCowLQ = ((ragIxFG + 4) + 1) % 4
+                        end
+
+                        nyHShYqUp(Nvmx.qjjYG, cafOqWQ)
+                    end
+                end
+            end
+
+            if (aDbActbDlqR.ldzkWP[VOvq] == 0) then
+                if (YjXEeGlBJHox["AYRs"] ~= nil) then
+                    local mgZShE = KXDqLpCiSy(IdhD, "bZ", "YDvF", OfIO.MyBYM)
+
+                    if (RzlXeS == nil) and (fHxK.mbnX_qSge ~= 0) then
+                        AflisgI({ "aJXNJja", Cnfi, KRyI.ErTakZ[gr], Gawe.NOtL_Bxyj })
+                        pVYf.DDbI_dgpm = 0
+                    end
+
+                    if (bEguQu ~= nil) and (qHKa.AYVa_eUEW == 0) then
+                        yATFPYp({ "ksbuoDW", XVdY, RZPA.mCTgSF[Yb], 0 })
+                        HnSD.Rrls_cjUI = #diXvEmQgZU + 1
+                    end
+                elseif (IWmi.tFpC_EWhu ~= 0) then
+                    HUyvKAs({ "XDoQRGf", jcId, Gpay.sYljqG[Tb], hASg.nIhx_hYuK })
+                    wOsG.qLnx_nbxl = 0
                 end
             end
         end
 
-        local oldfloat = unit.values[FLOAT]
-        local newfloat = 0
-        if (unit.values[FLOAT] < 2) and (generaldata.values[MODE] == 0) then
-            unit.values[FLOAT] = 0
+        local LgXBxLmG = azeO.SwzQVZ[oheKl]
+        local stXAqUPM = 0
+        if (UUaV.rjvWhd[JdMUV] < 2) and (YdLhkSNfPft.fhRiCz[Qomb] == 0) then
+            icwI.Oraxfo[icGCk] = 0
         end
 
-        local isfloat = hasfeature(name, "is", "float", unit.fixed)
+        local yMoRQiO = FJZyPuvnxm(XFwJ, "Bs", "eLkNn", pBWG.lexbJ)
 
-        if (isfloat ~= nil) and (generaldata.values[MODE] == 0) then
-            unit.values[FLOAT] = 1
-            newfloat = 1
+        if (bCpDubw ~= nil) and (OIpFpHdIIkN.cZuzrm[xVst] == 0) then
+            IIEI.lTqDfV[gqRit] = 1
+            JccQhpmz = 1
         end
 
-        if (undoing == false) then
-            if (oldfloat ~= newfloat) and (generaldata.values[MODE] == 0) and (generaldata2.values[ENDINGGOING] == 0) then
-                addaction(unit.fixed, { "dofloat", oldfloat, newfloat, unit.values[ID], unit.fixed, name })
+        if (WCMEVZy == false) then
+            if (qkcIvEEu ~= ChnaPiON) and (BevMrWjyzPW.xLDgBw[egkv] == 0) and (lOcrKvTCbyt2.auBFeD[nBJfGpiRDxH] == 0) then
+                VFCagswMz(pwKv.gZhni, { "zxpWvww", tdIegMIB, HpsBcPyb, Iyfl.alWHuX[tX], MpFx.znfVm, GaJq })
             end
         end
     end

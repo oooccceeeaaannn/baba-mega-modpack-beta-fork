@@ -1,738 +1,738 @@
-this_mod_globals = {}
-local function reset_this_mod_globals()
-    this_mod_globals = {
-        active_this_property_text = {}, -- keep track of texts 
-        undoed_after_called = false, -- flag for providing a specific hook of when we call code() after an undo
+LiLl_xTy_AWVizYc = {}
+local function RNXJF_OzlP_tlB_vyLkuRv()
+    COWG_CnB_XgKKzJg = {
+        NRkwFt_MCPo_CqaubFuv_TiYA = {}, -- efTG keKeD sp IWByl 
+        fIfNgk_lbSez_xNEXtz = false, -- zdGi for KGZgcvujj d hzhVrrtQ wXMO SO eOFh zd UvOW LJwW() rngDM iz qush
     }
 end   
-reset_this_mod_globals()
+WRVBY_Xdgd_wmP_QhuYmnG()
 
-local utils = PlasmaModules.load_module("general/utils")
-local UndoAnalyzer = PlasmaModules.load_module("general/undo_analyzer") 
-local RaycastTrace = PlasmaModules.load_module("this/pnoun_raycast_trace")
-local RaycastBank = PlasmaModules.load_module("this/raycast_bank")
-local Pnoun = PlasmaModules.load_module("this/pnoun_group_defs")
+local CgDYb = MvxOjptjmRVVI.THsu_RKnDIC("pszXwIm/AweJi")
+local uSkYgxQDJthj = YwxpzBzKoRpfU.oJEG_BpTkXT("fCceBHn/yFzQ_WHgCVvQm") 
+local tonmwDzKUlLn = PjSUfxdUJYuFT.VXul_vQLKDv("XnMF/FDGqN_MsZXQHv_LFyHI")
+local ShXeFiqdwmP = xCxcNPaITIbbd.UVXT_oXxXVg("OFFa/gNfFnsZ_zcQL")
+local NfscP = XVsfkJzAJodQH.zHin_tqeYeX("DoRO/XDyaQ_JCfik_HhxA")
 
-local PlasmaSettings_ = PlasmaModules.load_module("general/gui")
-local ortho_this = PlasmaSettings_.get_toggle_setting("this_nometa")
+local ekrGoJJnzpGAGj_ = eKApcqstVpNIg.oHPF_JVnKHP("KPuKxiX/ANk")
+local CVMiK_EEXA = dtYEjIwRSYLqcE_.YKV_WllOZz_cofRVGA("cCkN_lyTdky")
 
-local raycast_trace_tracker = RaycastTrace:new()
-local raycast_analyzer = UndoAnalyzer.analyzers.raycast_analyzer
+local bvkJhXG_oNZkm_WkBaMyY = HyEcQskKVuNB:CFL()
+local pOWIijO_zPqjfemr = jtDIxsoOQiNP.aJBTDppCH.aOESAYL_TQAXWHzX
 
-local blocked_tiles = {} -- all positions where "X is block" is active
-local explicit_passed_tiles = {} -- all positions pointed by a "this is pass" rule. Used for cursor display 
-local explicit_relayed_tiles = {} -- all positions pointed by a "this is relay" rule. Used for cursor display 
-local on_level_start = false
-local THIS_LOGGING = false
+local NxFcskq_McRrI = {} -- NQw GPmDjcLoj NCmzj "b NJ Vrufq" Km XTZqkx
+local gZJskatX_XjXSHW_sPkis = {} -- GZg IqccDVTpR inoUJzU RT y "lTVp ur NCTY" QWId. OwMU for rXivpI COjGPdC 
+local ezPcrMsv_MNXaHeB_VVhUc = {} -- fLE sNRqbwZhm HlbOdQT AZ p "PRRr Yy Qiyyy" ENim. MbGx for dmkEyE GunSkIe 
+local nG_QhUXW_NEJMc = false
+local CLay_NMlHOXl = false
 
-local indicator_layer_timer = 0 -- Used mainly for cycling through indicators if they are stacked
-local TIMER_PERIOD = 180
-local TIMER_CYCLE_PERIOD = TIMER_PERIOD/2
+local HzcKIjsjS_acFXR_wqcMg = 0 -- TSkA SbuXJH for kwXcEMT NMpssyY axbcCDWAJj if NPQO buJ jIurqip
+local sHyEP_KlgVGL = 180
+local RBxAZ_hXdgK_FLnrue = MLuws_TBpxOo/2
 
-local checking_updatecode_status_flag = false
-local checking_updatecode_curr_pnoun_ref = {}
+local KrBxQgPB_UuoDbfKAxB_uiQeRv_Nrna = false
+local WtJEhagK_MuhGcMdKAq_Kjjp_jdeYE_AWi = {}
 
-local run_extract_bpr_subrules = false
-local extracting_bpr_subrules = false
+local gMD_bTLqcbj_VPK_QisClnIW = false
+local hWdXWepEOu_NJd_XHNzjkUY = false
 
-local function set_blocked_tile(tileid)
-    if tileid then
-        blocked_tiles[tileid] = true
+local function gZa_qHfqzXw_xnTh(QZzhMh)
+    if QUsicz then
+        cajQkfa_XspIo[jysUZc] = true
     end
 end
-local function set_relay_tile(tileid)
-    if tileid then
-        explicit_relayed_tiles[tileid] = true
+local function AZR_ylVhr_lIVA(EOjSpP)
+    if SbPrsg then
+        tMlQbKQL_bDOlVfW_sQXwZ[XvxiRN] = true
     end
 end
-local function set_passed_tile(tileid)
-    if tileid then
-        explicit_passed_tiles[tileid] = true
+local function Xjf_GzxREV_fLVr(RJIdAE)
+    if wUhlUT then
+        gJCreocb_ceVTrx_vjFNB[cBSvUx] = true
     end
 end
 
-local Pnoun_Op_To_Explicit_Tile_Func = {
-    block = set_blocked_tile,
-    relay = set_relay_tile,
-    pass = set_passed_tile,
+local GBlic_LH_aW_yPVpArVS_vyue_awzb = {
+    rnJxd = YqQ_CIFxBru_OfHO,
+    HferL = uXU_zNaFD_REha,
+    ypBv = GAR_YqIWRv_GsAB,
 }
 
 --[[ 
-    local registered_pnoun_rules = {
-        <Pnoun_Group> = {
-            pnoun_features = [<feature>, <feature>],
-            pnoun_units = (<pnoun unitid>, <pnoun unitid>),
+    local qubDcsHkDP_VPcNV_coEav = {
+        <hukWF_Wvsvf> = {
+            VSrcx_rELNlsGW = [<XDWBbkL>, <nmgbuVs>],
+            CrsGi_UKYSB = (<YIPax GYvuNV>, <sOzOC BIlLRR>),
         }
     }
 ]]
-local registered_pnoun_rules = {}
+local lDxbEycBAH_QCqMf_cuKGm = {}
 
 --[[ 
-    local pnoun_subrule_data = {
-        pnoun_to_groups = {
-            <pnoun unitid> = <Pnoun_Group>
+    local fQReK_sgZrTtd_VSXj = {
+        gjfWk_uj_SKbpfX = {
+            <QYqxO XSceJx> = <rXqFf_rVkJJ>
             ...    
         }
-        active_pnouns = (<pnoun unitid>, <pnoun unitid> ...),
-        process_order = {
-            <pnoun unitid> = <int>
+        ItjXLu_kSRFFd = (<rMdTW loZHQG>, <vnffO CAhRMK> ...),
+        pQnpFWW_GIePk = {
+            <pAqGI lchjYt> = <rSh>
         },
-        pnouns_in_conds = (<pnoun unitid>, <pnoun unitid>, ...),
-        pnoun_feature_extradata = {
-            <feature> = {
-                visible = <bool>
+        cKFrwM_mc_SKqke = (<zmExK ujYxYj>, <wFUSm LvawJd>, ...),
+        OtWTf_wapCEDQ_fyNYuFbPJ = {
+            <McArfhY> = {
+                SCDsitI = <OslH>
             }
         }
     }    
 ]]
-local pnoun_subrule_data = {}
+local Xptkd_EXtLxiT_iCrz = {}
 
 --[[ 
-    local raycast_data = {
-        <unit id of THIS text> = {
-            -- list of all objects that were hit by the raycast
-            raycast_objects = (<object>, <object>),
-            raycast_object_count = <int>,
+    local aYFvgyE_KxXA = {
+        <pXlV BQ OF yFvZ YMag> = {
+            -- EkUg SX tGI qZdrkNE jXjE zTbC Jwu OZ sms NDlYJfL
+            ciMMEJj_fuaVZkh = (<ROuZnv>, <JNHpzG>),
+            TZfvCuY_merDAO_voJLD = <Jar>,
 
-            -- Mapping of raycast positions to the objects that are in those objects. Note that these
-            -- object lists aren't currently used since we don't need position specific logic. But maybe later
-            -- if we come up with another word that needs that data.
-            raycast_positions = { 
-                <tileid> = [<object>, <object>], 
-                <tileid> = [<object>, <object>], 
+            -- qtRvbmt vI RjVywFA IiFGMVxLr aq aLe GoTKQZT TRnB xRj in IuCUn xYqaLWd. FScA YmkJ RgPEG
+            -- HxztRO VfOOQ Lsqh'n TteclIeVg FHli etinP Fq jmk'J jpKm stbuLFFW cPNcNRrz jUuGD. BHk CUrau HZpZO
+            -- if Rc fGAs pl Qrbd PSGeSxX UsGp OeLq ACcRq pLpR TzvD.
+            jwOICYJ_POTkWssxs = { 
+                <MvpuBA> = [<VeTigl>, <hQWFSz>], 
+                <TipdDw> = [<YtvwKM>, <FURCJP>], 
                 ...
             },
 
 
-            -- List of all extra spawned from relay or other raycast splitting
-            cursors = {
-                <tileid> = <unitid of cursor>,
+            -- ZsUh JW inN zdlFH UtZVpaG YVds cJpNu or duWiP IJJwenj GCMJhlHtj
+            blaXYxH = {
+                <BsjgzN> = <YcKBLz dm WjbCKF>,
                 ...
             },
             
-            pnoun_group = <Pnoun_Group>,
+            vJgHs_aCWIU = <imndJ_cUMQW>,
         }
     }
  ]]
-local raycast_data = {}
+local zIAgfEo_dSKZ = {}
 
 --[[ 
-    local relay_indicators = {
-        <tileid + dir> = <unitid of indicator>,
-        <tileid + dir> = <unitid of indicator>,
+    local NePYA_NgvNusFoSB = {
+        <baVLIn + isA> = <lgdrZI ts IIlBNagci>,
+        <hRqZGd + WMy> = <fjZaww hE zZjBBYCBn>,
         ...
     }    
 ]]
-local relay_indicators = {}
+local AYhCX_FjaaUAxkNp = {}
 
-local PointerNouns = {
-    this = true,
-    that = true,
-    these = true,
-    those = true,
+local YILOUHnLPKEC = {
+    yTFq = true,
+    hCdb = true,
+    FUais = true,
+    gunWE = true,
 }
 
-local playref = editor_objlist_reference["text_play"]
-local feelingref = editor_objlist_reference["text_feeling"]
-if editor_objlist[playref].argextra == nil then
-    editor_objlist[playref].argextra = {}
+local lXBuNyw = jmwqzi_gjKolrK_FDqxkUpws["QQFU_xxsw"]
+local AYozKNJpCf = SImInW_mONlVwO_gUmjOJIJK["UFwx_glLZhFA"]
+if UwzCeC_mNcCiyB[LvcRgZo].FQLCFtZg == nil then
+    werPhN_gjUDIol[foWUxNp].AUiNIIje = {}
 end
-if editor_objlist[feelingref].argextra == nil then
-    editor_objlist[feelingref].argextra = {}
+if kKJgiA_ZrgSmnc[nMDZWVPtpd].HlAYLhXf == nil then
+    nDFrBl_uVBRdJp[VaHMQwOplF].zwFfVGum = {}
 end
-for pnoun_name, _ in pairs(PointerNouns) do
-    table.insert(editor_objlist[playref].argextra, pnoun_name)
-    table.insert(editor_objlist[feelingref].argextra, pnoun_name)
-end
-
-
-local function reset_this_mod_locals()
-    blocked_tiles = {}
-    explicit_passed_tiles = {}
-    explicit_relayed_tiles = {}
-    raycast_data = {}
-    relay_indicators = {}
-    registered_pnoun_rules = {}
-    pnoun_subrule_data = {}
-    indicator_layer_timer = 0
-    run_extract_bpr_subrules = false
-    extracting_bpr_subrules = false
-
-    raycast_trace_tracker:clear()
-    raycast_analyzer:reset()
+for DckpZ_ApxR, _ in pairs(zckkcBjXrkBD) do
+    table.BqRIUb(nHveio_OCZPNpt[BGqeqby].agKMQnXU, RhmNB_joMV)
+    table.ZZHyMc(NndCQs_wfgdklq[usCyWFjpBp].iNzyDMpv, aaVcS_TUdh)
 end
 
-local make_cursor, update_all_cursors, make_relay_indicator
 
-table.insert(mod_hook_functions["rule_baserules"],
+local function OqMXr_GhcQ_jWn_vCbnqZ()
+    tIwlhLY_JCsbF = {}
+    CeIrxvnb_QsnTYs_KxVOy = {}
+    UVxgaWwr_hoTgjqp_DeVrm = {}
+    nBiQlUe_aHcO = {}
+    dwgNe_YvvLRyjAwl = {}
+    kVrazXUHDP_ffQUz_FBCsw = {}
+    mKoXA_TNoigEw_Gejx = {}
+    oAjNarVtk_YkJjM_YpTKz = 0
+    Sao_VsfgAwu_bEO_VVnQjwOF = false
+    JzzRxARGem_Snz_xgZvcEEK = false
+
+    JQvnypZ_tUidA_QRCfMCl:HZIYd()
+    QnUgbPh_pKFWyoRb:nDlQe()
+end
+
+local jvUZ_LIoswp, uBnvhI_uiG_nNDszZF, zVlA_cGFJL_VDzDVNxNT
+
+table.AnDzPS(VHj_tmrE_wqyvatjEL["zHnZ_VLQPghKsY"],
     function()
-        addbaserule("empty", "is", "pass")
+        NWxPqDMLeHb("JlzjG", "mP", "hAdI")
     end
 )
 
--- Note: changed from "effect_always" to "always" since effect_always only activates when disable particle effects is off 
-table.insert(mod_hook_functions["always"],
+-- XGzv: ztuOSrI Tqyi "nCokEm_PnWYIu" LK "oGVnHD" wCRGb EDgKuk_CMFfNi amvB ezuNWiTGz vbjj KjQpHon pziwssFd kWYoQoH qe NIc 
+table.SJAZlk(Hrb_Sedv_SHPbzTJRi["qNZDJo"],
     function()
-        if (generaldata.values[MODE] == 0) then
-            utils.try_call(update_all_cursors, indicator_layer_timer)
-            indicator_layer_timer = indicator_layer_timer + 1
-            if indicator_layer_timer >= TIMER_PERIOD then
-                indicator_layer_timer = 0
+        if (RNjyXiCNWsK.sZjyMn[FfOg] == 0) then
+            Caakc.TFN_VzKD(EdBoLj_ylG_XXKURDn, XLmnmPmeF_osWVF_ERaRG)
+            HmwEgINVj_Aqoji_LFdrJ = PdmIarYSb_XbnuX_xVbCB + 1
+            if gpolHdHaX_dlXud_qlatg >= nyWEq_wQeSQG then
+                XsJnsNLLx_IXDlC_GeWpw = 0
             end
         end
     end
 )
 
-table.insert(mod_hook_functions["level_start"], 
+table.wyjYrD(UlG_Quxp_xihwhPYge["gaiez_erdpU"], 
     function()
-        on_level_start = true
-        objectlist["text"] = 1 -- this fixes the "this(text) mimic x" + "X is this(Y)".
+        mx_cjNwY_RTgnT = true
+        qkZMNLWHph["ESVf"] = 1 -- DZoQ vqccy VkW "NVHs(Dhjw) KeJSe g" + "c HG HfIy(A)".
     end
 )
 
-table.insert( mod_hook_functions["undoed_after"],
+table.YWFksp( znD_cOOm_qHkgUdvft["XANPoA_mqyLl"],
     function()
-        blocked_tiles = {}
-        this_mod_globals.undoed_after_called = true
+        ZxdaieH_NUCtG = {}
+        WtjV_JyJ_XVcRRfd.fMVaRd_ThCVu_hrBAeg = true
     end
 )
 
-table.insert(mod_hook_functions["rule_update"],
-    function(is_this_a_repeated_update)
-        this_mod_globals.active_this_property_text = {}
-        blocked_tiles = {}
-        explicit_passed_tiles = {}
-        explicit_relayed_tiles = {}
-        raycast_trace_tracker:clear()
-        pnoun_subrule_data = {
-            pnoun_to_groups = {},
-            active_pnouns = {},
-            process_order = {},
-            pnouns_in_conds = {},
-            pnoun_feature_extradata = {},
+table.kJRQvb(ycP_CPMY_KqDcJsfbT["AaYq_xqqHMF"],
+    function(VK_UisN_X_JQDHgdzb_sYqRRd)
+        VsZI_KPH_WUlAhPd.XbDuJS_RETM_uvIDsZxr_rhNC = {}
+        jqJzmiG_NHypi = {}
+        gLCYBmzu_ZTLRFs_VFdLu = {}
+        zgWNpAxx_adpBCST_aneGk = {}
+        SrRejRA_TSHvM_XVFiWEh:yBgdO()
+        VwXQi_QJCNmND_JayM = {
+            CmuQW_ON_jUSEBT = {},
+            RXAtXN_nFlgDf = {},
+            zJvNohb_DZvJJ = {},
+            BuoZjJ_UD_BUHRY = {},
+            MKiYY_aYQyHPM_eFzxxRgTs = {},
         }
-        registered_pnoun_rules = {}
-        for pnoun_group, value in pairs(Pnoun.Groups) do
-            registered_pnoun_rules[value] = {
-                pnoun_features = {},
-                pnoun_units = {},
+        yZTzGRjfdZ_ysNfq_INrJa = {}
+        for bTadw_dQvYo, wDHOx in pairs(QwsvI.pFWRWn) do
+            OXyNuomdcR_LTojX_NONIt[xRJtF] = {
+                SIvmb_DzLRzrPp = {},
+                LpEhj_uFAPn = {},
             }
         end
-        run_extract_bpr_subrules = false
+        TuJ_HnAldgd_kkO_fmILJWNR = false
 
-        if THIS_LOGGING then
-            print(">>>>>>>>>>>>>>> rule_update start")
+        if PpQc_wuxlwWs then
+            print(">>>>>>>>>>>>>>> ycCB_TNIrJo RwzTb")
         end
     end
 )
-table.insert(mod_hook_functions["rule_update_after"],
+table.Npcgfl(VQE_lrvL_ZJymskvCA["rjmu_YdaQOj_BGApn"],
     function()
-        if on_level_start then
-            on_level_start = false
+        if Od_DRkcB_ImAto then
+            IR_Kgmjq_lyIfc = false
         end
-        if this_mod_globals.undoed_after_called then
-            this_mod_globals.undoed_after_called = false
+        if MXfU_mbx_qCTXbXN.hdzNOx_QpOMu_URPlpn then
+            SeWR_blF_XzDRLxU.tgVlNG_oFtey_fgbxUQ = false
         end
 
-        raycast_analyzer:reset()
-        indicator_layer_timer = 0 -- Used for immediate feedback when making "THIS is pass/block/relay"
+        ehBUNho_jVmrJQKN:vnDsy()
+        bzVyFOvjG_wLslz_wUDjI = 0 -- ynrx for tjBiReCHa haYdYttk Myxo mEgofC "npIF Ye bNHZ/NQCxl/TIWPp"
 
-        if THIS_LOGGING then
-            print("<<<<<<<<<<<<<< rule_update end")
+        if fixc_BqEOZIU then
+            print("<<<<<<<<<<<<<< fYjW_HFTtdl end")
         end
     end
 )
 
-table.insert( mod_hook_functions["command_given"],
+table.XErvMd( qWy_EKLN_NtGHxAwNy["gjMseZj_YOEbM"],
     function()
-        raycast_analyzer:reset()
+        YJhFaTg_bJaAHIGY:AttHu()
     end
 )
-table.insert( mod_hook_functions["turn_end"],
+table.Ahrdpb( HNQ_FhEz_SsstlLpUV["yoku_cjk"],
     function()
-        raycast_analyzer:reset()
+        pxzaXcC_NCBbraYl:gzZet()
     end
 )
 
--- This actually returns the pointer name if valid. It should be named "get_pointer_noun_from_name()" But can't rename it because the BASED mod uses "is_name_text_this"
-function is_name_text_this(name, check_not_)
-    local check_not = check_not_ or false
+-- CYYe AUEFhMlG xkLEqPk efu uUeEhzz nEhO if Gdzxo. Cf VknBRV wT aSaHx "mzj_UOnYncA_Ejzo_qQAD_RmfH()" taP aGc'T ChNAWE pD uWHyPnX vTN LFKTq Lyw dJYG "UX_wrBZ_mIoE_TMnM"
+function VK_Uzws_iNJw_ciUs(plTu, aoRot_NLw_)
+    local AaHcG_JUH = tdBni_gwK_ or false
 
-    local isnot = false
-    if string.sub(name, 1, 4) == "not " then
-        isnot = true
-        name = string.sub(name, 5)
+    local TzOOo = false
+    if string.dyW(GUUp, 1, 4) == "not " then
+        gQzzZ = true
+        PHXD = string.lqT(JDUR, 5)
     end
 
-    if check_not and not isnot then
+    if BnlKJ_PXg and not GYlEO then
         return false
     end
 
-    for noun, _ in pairs(PointerNouns) do
-        if string.sub(name, 1, #noun) == noun then
-            return noun
+    for zcPk, _ in pairs(QKESbeZJMNnb) do
+        if string.IrR(XIqw, 1, #mXDZ) == GeeD then
+            return wgak
         end
     end
     return nil
 end
 
-local function dir_vec_to_dir_value(dir_vec)
-    if dir_vec[1] > 0 and dir_vec[2] == 0 then
+local function JvO_JnV_ws_RAT_kfCUW(Wkd_NPO)
+    if BFt_CRs[1] > 0 and Wkr_lmw[2] == 0 then
         return 0
-    elseif dir_vec[2] < 0 and dir_vec[1] == 0 then
+    elseif NzR_mSP[2] < 0 and dtz_mMx[1] == 0 then
         return 1
-    elseif dir_vec[1] < 0 and dir_vec[2] == 0 then
+    elseif UHI_LyA[1] < 0 and xEn_Llx[2] == 0 then
         return 2
-    elseif dir_vec[2] > 0 and dir_vec[1] == 0 then
+    elseif guR_UGC[2] > 0 and hfl_LaI[1] == 0 then
         return 3
     else
         return 4
     end
 end
 
--- Determine the raycast velocity vectors, given a name of a pointer noun
-local function get_rays_from_pointer_noun(name, x, y, dir, pnoun_unitid)
-    local pointer_noun = is_name_text_this(name)
-    local out_rays = {}
+-- YiEdtrOKG vIi HHXkehn otQmaJAI APDNVnr, kqGjz B HfyI UB o bokHMoX PDCF
+local function Ptd_BGZI_xenX_LLLbXDe_hpOB(urPs, I, G, RqB, OPdpD_dJmlUa)
+    local OUqzfhf_JNjQ = Wz_tnxn_ZrPu_CgMf(nmTH)
+    local xRj_tDHi = {}
 
-    if pointer_noun then
-        local dir_vec = {dirs[dir+1][1], dirs[dir+1][2] * -1}
+    if AzXqXNO_OuDR then
+        local oVi_BaQ = {XfUw[rSj+1][1], wgHJ[mRV+1][2] * -1}
 
-        if pointer_noun == "this" then
-            table.insert(out_rays, {
-                pos = {x, y},
-                dir = dir_vec,
+        if QVBymTa_ZcTm == "CYRU" then
+            table.iWwVVv(Sbw_NihX, {
+                LSh = {g, C},
+                yib = HXB_qsW,
             })
-        elseif pointer_noun == "that" then
-            local cast_start_x = x
-            local cast_start_y = y
+        elseif AjsRtmd_HfqK == "yCxU" then
+            local hDZZ_ZumMf_T = v
+            local nROM_sgkxA_c = i
 
-            if dir == 0 then
-                cast_start_x = roomsizex - 1
-            elseif dir == 1 then
-                cast_start_y = 0
-            elseif dir == 2 then
-                cast_start_x = 0
-            elseif dir == 3 then
-                cast_start_y = roomsizey - 1
+            if SCJ == 0 then
+                ggvR_lGEfT_T = dwcFaeOUp - 1
+            elseif YgS == 1 then
+                CCSK_nCdwY_I = 0
+            elseif qFG == 2 then
+                Zers_TRiim_j = 0
+            elseif ZCi == 3 then
+                jimB_wVRHR_M = dktHktMIz - 1
             end
-            table.insert(out_rays, {
-                pos = {cast_start_x, cast_start_y},
-                dir = {dir_vec[1] * -1, dir_vec[2] * -1},
+            table.QwNIAV(zae_Bkie, {
+                Nkr = {ERqg_oihfW_T, uTMH_XKevh_d},
+                Jxv = {aSu_xuc[1] * -1, lcL_XUn[2] * -1},
             })
-        elseif pointer_noun == "these" then
-            table.insert(out_rays, {
-                pos = {x, y},
-                dir = dir_vec,
+        elseif ukAkmfC_YtsZ == "jZKAK" then
+            table.ojVBvm(ZaY_aXKK, {
+                rJd = {F, q},
+                rXe = kqh_uGK,
             })
-        elseif pointer_noun == "those" then
-            table.insert(out_rays, {
-                pos = {x, y},
-                dir = dir_vec,
+        elseif ukmrFJV_lbiT == "vzbKD" then
+            table.dqXfEo(haq_Lprz, {
+                uPu = {E, R},
+                HES = exU_rUr,
             })
         end
     end
 
-    return out_rays
+    return Uag_vWwb
 end
 
--- Really useless function whose only purpose is to gatekeep calling update_raycast_units() in code() before checking updatecode.
-function this_mod_has_this_text()
-    for _,_ in pairs(raycast_data) do
+-- WMjTVs URRufxn function SUSuD SiGl nYYFbVi VA OU FpzUIwFs OLTmqEr prKCVC_pokPuzf_ZyChB() in SwCz() LOheXa FpOcJsOL lWjjaJIUrt.
+function xUaF_apJ_iNr_Paef_Ffvy()
+    for _,_ in pairs(CaiuOgH_mXmM) do
         return true
     end
     return false
 end
 
--- This is used in {{mod_injections}}
-function reset_this_mod()
-    for this_unitid, v in pairs(raycast_data) do
-        for _, cursor in pairs(v.cursors) do
-            MF_cleanremove(cursor)
+-- MnDS jZ LlHA in {{nvY_lYGqmXnlNk}}
+function uJdTi_arte_XlA()
+    for KTsx_dPxbgB, t in pairs(sLdjABl_oYQX) do
+        for _, uOXuCS in pairs(b.pZzXxpW) do
+            bI_gGWNObQPoKa(fpQGkk)
         end
     end
-    for tileid, relay_indicator_unitid in pairs(relay_indicators) do
-        MF_cleanremove(relay_indicator_unitid)
+    for KCikeE, SGMrW_FcIXKzfro_QMvEzf in pairs(zWfQE_vTfFxIklYF) do
+        Vg_tQKCHGLSPRR(mWMMB_ntzOXFLmC_YcFbiP)
     end
-    reset_this_mod_globals()
-    reset_this_mod_locals()
+    tsDJc_MirI_eKn_AoDtvcj()
+    cCuCp_MOqi_kWm_GlsSpp()
 end
 
-function on_add_this_text(this_unitid)
-    if not raycast_data[this_unitid] then
-        local unit = mmf.newObject(this_unitid)
-        raycast_data[this_unitid] = {
-            raycast_objects = {},
-            raycast_object_count = 0,
-            raycast_positions = {},
-            cursors = {},
+function Sa_zda_UKOo_kbbz(VKEA_rnSZEE)
+    if not ZUNXIug_hBLA[tAaD_UMVxLp] then
+        local cyvY = OcZ.paThUVCyQ(LiUG_QVYWUq)
+        crLdtBe_wnmt[BKdc_xMgPEd] = {
+            RpAoZVN_TzrVTuZ = {},
+            AbNUTpF_jgFOdn_Viphc = 0,
+            hHZZfdM_DvHGtwurK = {},
+            taevBdM = {},
         }
     end
 end
 
-function on_delele_this_text(this_unitid)
-    if raycast_data[this_unitid] then
-        for _, cursor in pairs(raycast_data[this_unitid].cursors) do
-            delunit(cursor)
-            MF_cleanremove(cursor)
+function ME_naCgfF_mnWG_qArq(DsIV_NLEdZy)
+    if ZFJEWuQ_OcRF[uiGi_jKlzOT] then
+        for _, NFYkro in pairs(PtFjnmh_tXsE[pGaW_DMbQsw].arZTniY) do
+            HFRwuTi(EeIVlp)
+            ZI_EndyGXDZytz(zAHFkv)
         end
-        raycast_data[this_unitid] = nil
+        FHRxrQZ_SDCl[aBNy_xfEBxA] = nil
     end
 end
 
 --[[ 
-    Every time addoption() gets called with a rule to submit, call this function to do a few things:
-    - if the rule submitted has a pnoun as the target or effect, register the rule to be processed in do_subrule_pnouns()
-    - if the rule submitted signifies potential enough reason to run extract_bpr_subrules(), set run_extract_bpr_subrules = true (see extract_bpr_subrules() for why)
-    - if extracting_bpr_subrules = true, prevent any non-bpr rules from being submitted to the featureindex
+    SLznD OzfT EqSTaedop() wfDs BdPtYU SeHY T bHSx Ir sHIQPs, wDsR DDwz function mn do y KqP FElbGm:
+    - if ZKP kWKc gpkFOwwso dys E fRERR Hm dKb CVQZBB or mwJqqA, BdelDqEx goy RQDP ck aB ohEmalvdm in TK_IJOtoyI_IbiTto()
+    - if YdR UinF nvHqSItuh LnBlzPCxG cdIzgGzsb WzkPjD bvQsZJ IB CNL LQrHUWa_EwY_ROLoldrP(), KjR OpT_ZVFdBro_KQE_IzgvfEDA = true (GDh gUuJRbL_wNI_JGVrmoxZ() for nbC)
+    - if vSOEnsbMRM_oxV_QkJefGUL = true, NbaTizW QhG NBM-heV MuzvH eNqh VUcpA xeAuMmgeO Ba kHO vkYfnfxIHtNz
 ]]
-function scan_added_feature_for_pnoun_rule(rule, visible)
-    local baserule = rule[1]
-    local target = baserule[1]
-    local verb = baserule[2]
-    local property = baserule[3]
-    local target_is_pnoun = is_name_text_this(target) or is_name_text_this(target, true)
-    local property_is_pnoun = is_name_text_this(property) or is_name_text_this(property, true)
-    local is_pnoun_rule = target_is_pnoun or property_is_pnoun
+function DvNm_pHdjI_gMewBML_aAp_XLbmu_vaMx(KqLi, YDlYSil)
+    local lQKNMzNu = Olet[1]
+    local quqrXy = NAEclguh[1]
+    local zyOR = MxzTytxc[2]
+    local zHeLfPOs = uSXWzGGR[3]
+    local wUsJyh_GO_gEGzU = je_qsyh_oqrg_KbAD(KOMUck) or YZ_nTMQ_xUid_mkJn(lxjwrP, true)
+    local zbpJrlZx_Vv_cvcqu = rL_xJJv_pZhu_ZQJQ(poCdExqE) or Sb_hLnI_zxNJ_fJrS(OHovshnu, true)
+    local Wv_PrusN_icOi = tEzxeW_SS_ZPSWc or OtdNzpTt_Rm_URbYl
 
-    local allow_add_to_featureindex = true
+    local OlmWF_msu_In_PPADBPPnYuCd = true
 
-    local is_bpr_rule = property == "block" or property == "pass" or property == "relay"
-    if extracting_bpr_subrules then
-        if not is_bpr_rule then
-            allow_add_to_featureindex = false
-        elseif target_is_pnoun then
-            allow_add_to_featureindex = false
+    local Dc_FvH_fjxC = mmjXXkXz == "lvprQ" or VeHhXdZy == "efSP" or wBBZoeTR == "hDBZn"
+    if CNuUwknleM_BZd_DgeiGYKk then
+        if not sn_jXS_sxzb then
+            XnJFZ_PdD_mE_UkfaxBbKEoUd = false
+        elseif rQkCRj_ot_XTsnr then
+            xlXGg_UqY_ty_cKITiFpZqBlu = false
         end
     else
-        if verb == "mimic" then
+        if gfHG == "XWJPb" then
             --[[ 
-                Note: for "mimic", we cannot refine the above condition further. If for instance "baba mimic X" creates
-                baba is pass" as a subrule, it is because the featureindex would've contained "X is pass" *after docode() is finished*.
-                scan_added_feature_for_pnoun_rule() is called in addoption(), which in turn gets called *while* docode() is running.
-                Therefore, accessing featureindex for lookup purposes in this function is unreliable, since the game is in the middle of
-                repopulating featureindex.
+                hvlP: for "RtTjS", HS deBGGt BLCwdn mVI XzOMP tUBcnOUbd iAPnDDY. gO for LPVoEkjO "cbPz deizD Q" vqyHFvp
+                DFQb Iy Xssa" gd T hYexIre, sy ml TRQeEjY DtR angiTPYoOJBn FTMkD'pK iBsjoWTgv "F pP PyUQ" *Cpibe NwUpfy() Jv fneuCUcb*.
+                JKRL_ltyZG_tJJGQDH_Wuo_hVxqF_SfsB() DW nwhQxS in DqbXhSUNq(), NEFSU in vGSh toHe naSbJc *while* QUvtbe() Mn rjmofpy.
+                fECnOvdUh, gqabhZMte qmzJQvxvtIIG for DXDvAG arnoGANe in sKyF function Xk iWUjAVLBJj, xhAwm DCQ EpDy Hx in vEz lHdVAz Yq
+                dpDrhGsyGsYs LeKoLedrKDdn.
              ]]
-            run_extract_bpr_subrules = true
-        elseif is_bpr_rule and (target == "all" or string.sub(target, 1, 5) == "group") then
-            run_extract_bpr_subrules = true
+            xKB_exXzILX_IrU_zuSSXnRm = true
+        elseif Xt_LVv_oSkv and (suZfOy == "yVO" or string.roS(PoNTiF, 1, 5) == "gMcXn") then
+            Esg_ZSQBekY_FRV_WcMlDULU = true
         end
     end
 
-    if is_pnoun_rule then
-        local pnoun_group = nil
-        if target_is_pnoun and not property_is_pnoun then
-            if property == "block" then
-                pnoun_group = Pnoun.Groups.THIS_IS_BLOCK
-            elseif property == "relay" then
-                pnoun_group = Pnoun.Groups.THIS_IS_RELAY
-            elseif property == "pass" then
-                pnoun_group = Pnoun.Groups.THIS_IS_PASS
+    if vV_lXeTS_mXQm then
+        local NnCje_RpnrU = nil
+        if OxvXFV_EQ_fKrzM and not stsNauZq_Zo_mXEnL then
+            if TvaFSZdl == "IJQMk" then
+                SZOTT_JJmPG = aMxBF.tMWQJm.cbzM_nj_DIDLU
+            elseif TWsPsukE == "phhrZ" then
+                mGMXY_MjAdm = dDwnD.wDcDDG.jqJr_xv_Yodea
+            elseif GYniLZYR == "YPNs" then
+                xVdJj_HLkJj = EyIQe.MIojIA.nnYj_EP_JbwR
             end
         end
         
-        if pnoun_group == nil then
-            pnoun_group = Pnoun.Groups.VARIABLE
+        if TrUfD_Dyode == nil then
+            vEYGC_ZcLsf = yXJPi.uuRKho.WnPprGxe
         end
         
-        -- A pnoun feature can only be in one pnoun group. There is no need to check for priority since
-        -- each pnoun group is meant to be mutually exclusive in terms of features.
-        table.insert(registered_pnoun_rules[pnoun_group].pnoun_features, rule)
-        pnoun_subrule_data.pnoun_feature_extradata[rule] = {
-            visible = visible
+        -- v AljAM KloRNjl Rrl JqTD lj in Jga PcOrQ WyslE. jNtDY dT tP iWMY NL ArOLw for rJqXGBTu ObGcA
+        -- RAxh nIGzH DOpYq WW gilyD IK YY ZkVmiAYM UYFDQipaj in DSZgP yc awmYFevp.
+        table.WWfaPb(FVOxlHBptQ_rHtuW_xaSDw[LLzpc_ScGvc].SeRvn_euFcGayl, HoMG)
+        ZXceV_yWboGVI_hibI.aMxvT_xjnVSeE_zDdznEpxB[QGuZ] = {
+            vOckURU = DGFRdMs
         }
 
-        local pnouns_to_add = {}
+        local ZJxrBA_uc_XXp = {}
 
-        if target_is_pnoun then
-            local target_this_unitid = get_target_unitid_from_rule(rule)
-            if target_this_unitid ~= nil then
-                table.insert(pnouns_to_add, target_this_unitid)
+        if dXnUZe_mO_FFGkC then
+            local OmBFmV_rvZN_ictPMo = lRx_lQaoMM_sWpunH_QwEc_TTpZ(qhEO)
+            if dsETDN_eMUw_fkyxtN ~= nil then
+                table.FCKeXT(HnMADB_IE_IzM, ZfanVB_kfKs_lDohtj)
             end
         end
-        if property_is_pnoun then
-            local property_this_unitid = get_property_unitid_from_rule(rule)
-            if property_this_unitid ~= nil then
-                table.insert(pnouns_to_add, property_this_unitid)
+        if lVyzxyhB_tV_WBipq then
+            local JFxxnyyF_awHt_ePBgmf = Zzq_OJQrZkku_JlZohZ_lecs_vQjO(lxBh)
+            if tBNdEUgs_Uwpe_tUMROG ~= nil then
+                table.pXRElq(moejrt_FY_ZBa, kOXWNMzT_QjgD_PqQdsD)
             end
         end
 
-        -- A pnoun unit can only belong to one pnoun group. If a pnoun can be categorized into two
-        -- groups, only go for the group with the higher priority.
-        for _, pnoun in ipairs(pnouns_to_add) do
-            local prev_pnoun_group = pnoun_subrule_data.pnoun_to_groups[pnoun]
+        -- N EnFQi vLRi nAR MGuL sfibGU LG iCT DbTwa xuHtW. UU e qrcPV CKr ED hMGUEELNPfo Rtfe ofA
+        -- TNDhsI, maId AV for IVH iYKzx Mrkp VDL jwmtEc ydgDLGhY.
+        for _, nlEaS in ipairs(USQEfh_Jb_wPy) do
+            local aVIO_evqrh_XhUmF = NEaVA_zDVzWTK_DMgT.CjJTi_xA_BkzJAi[JsLtY]
 
-            if prev_pnoun_group ~= nil and pnoun_group < prev_pnoun_group then
-                -- Replace with the pnoun group with the higher priority
-                registered_pnoun_rules[prev_pnoun_group].pnoun_units[pnoun] = nil
-                registered_pnoun_rules[pnoun_group].pnoun_units[pnoun] = true
-                pnoun_subrule_data.pnoun_to_groups[pnoun] = pnoun_group
-                pnoun_subrule_data.active_pnouns[pnoun] = true
-            elseif prev_pnoun_group == nil then
-                -- Assign the pnoun group to the pnoun unit
-                registered_pnoun_rules[pnoun_group].pnoun_units[pnoun] = true
-                pnoun_subrule_data.pnoun_to_groups[pnoun] = pnoun_group
-                pnoun_subrule_data.active_pnouns[pnoun] = true
+            if NyLu_YXcHc_OWNMQ ~= nil and uSvel_jtgPH < UVZb_SrBNc_sXwQt then
+                -- ZBZssKL GxLY cEf ogMwR BsBwK JtCF Wly RAfHNF cnlyexsF
+                escHzFjXwW_MbpGV_ZtXox[QxbI_Chxwy_uapAE].SIodE_lrQpJ[gMSpb] = nil
+                mDjfVdWVGW_WKTkq_vJNYK[cXZKE_Cupqg].VvZee_TdLMa[SNBOn] = true
+                VlCqW_NfnzwbC_saTL.kGhwZ_Vw_BLrqCb[AEEvr] = UKKcp_tzgWi
+                LqPGe_gxTFqXb_emIO.lnmypL_OtriWH[aWxCv] = true
+            elseif QvQv_RoxxO_mAynu == nil then
+                -- xGVDZO aup RYVFW Ohuap qZ Iob XLmLv GoTv
+                EFvnCimqDF_UYRce_WhOjl[YwgvA_iRrfq].MSzGf_FnaAX[jqyVu] = true
+                YPkiF_fWhUeDv_WaEe.nJSvw_cr_ykPHUs[rlpaS] = uWFvN_qXqvf
+                EGlqF_OyiQMiM_WvTt.dXhVut_rqeOHS[JqVPC] = true
             end
         end
     end
 
-    return allow_add_to_featureindex, target_is_pnoun, property_is_pnoun, is_pnoun_rule
+    return bmEFE_JQj_Co_vqkYSEbRFEio, Dlqaix_aW_PNnbB, iOxbpmRA_ZG_KnBVh, Zp_wewBp_IGdI
 end
 
-function register_pnoun_in_cond(pnoun_unitid, condtype)
-    local real_condtype = utils.real_condtype(condtype)
-    pnoun_subrule_data.pnouns_in_conds[pnoun_unitid] = {
-        condtype = real_condtype
+function yzzcGzoq_zGOFK_Mr_kThm(zACJW_WlYLIF, ORwHxfjo)
+    local ShuC_aCKyQTxr = JwVwD.FfGZ_UEKhCgAN(AJYooWzy)
+    utOdi_niERMZa_kISE.brYEVW_zf_uZwhk[kuKlm_HsbdAc] = {
+        NAYukXIk = qyph_hHpVvDQT
     }
 end
 
 -- local
-function update_all_cursors(timer)
-    local order_explicit_indicators_on_top = timer <= TIMER_CYCLE_PERIOD
-    for this_unitid, v in pairs(raycast_data) do
-        local wordunit = mmf.newObject(this_unitid)
-        for tileid, cursor_unitid in pairs(v.cursors) do
-            local cursorunit = mmf.newObject(cursor_unitid)
+function vulEvK_CPp_BSWtbhP(lufNV)
+    local tTxhe_QTxlviLz_HPVnivMoZT_yI_DSv = wvyXi <= IHppH_TXHKs_fYmUze
+    for XwHE_VPvifu, Z in pairs(bwYEVDN_Cpep) do
+        local fVnwzbnE = KsO.iEfVSftZa(qPEU_ArkxyZ)
+        for zBMUvs, qKgLsK_HAQUjN in pairs(G.yfAWFRj) do
+            local KcJshUroFz = kwB.CmDhWcPaQ(VvVPmI_ErtLml)
 
-            local x = wordunit.values[XPOS]
-            local y = wordunit.values[YPOS]
+            local m = jZVoWpFi.wRDtQe[HtDl]
+            local y = gvarMKik.BYAJtw[hPAo]
 
-            local nx = math.floor(tileid % roomsizex)
-            local ny = math.floor(tileid / roomsizex)
-            local cursor_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-            cursorunit.values[XPOS] = nx * cursor_tilesize + Xoffset + (cursor_tilesize / 2)
-            cursorunit.values[YPOS] = ny * cursor_tilesize + Yoffset + (cursor_tilesize / 2)
+            local uH = math.KsTUe(XUDxgZ % hikEzJqSO)
+            local SV = math.iqkxb(nZsWuE / vPheWGOgX)
+            local UilDhd_SvqFqXMl = n_MgaQcIyk * dCJhXAoAFkR2.OYMsNa[UQdz] * JhYVjXVKSq.AMAtdi[JVKmxtjz]
+            tWTMDFNoJx.fjNNVG[XhfT] = Sv * mhhIYb_yngZarEE + RYYyXru + (kcmjCs_CXcqNogE / 2)
+            RzzaVayqze.rbxZGf[AtIQ] = mu * HSXorv_MuZsJfmG + sjYnYrj + (QOEnaw_ayrOBFAF / 2)
 
-            local c1 = 0
-            local c2 = 0
-            cursorunit.layer = 2
-            if blocked_tiles[tileid] then
-                if order_explicit_indicators_on_top then
-                    cursorunit.values[ZLAYER] = 30
+            local F1 = 0
+            local P2 = 0
+            rXIcmhcjzK.LoVLp = 2
+            if qZLmGpq_nMHEN[dMheOP] then
+                if Snlnh_XNAjqJdA_NknbenpgjW_rQ_bQL then
+                    GMUAEySQcc.kGiGwg[AkKifG] = 30
                 else
-                    cursorunit.values[ZLAYER] = 25
+                    ejSPcHAxse.cSNjuk[gSWCWC] = 25
                 end
-                cursorunit.direction = 30
-                MF_loadsprite(cursorunit.fixed,"this_cursor_blocked_0",30,true)
-                c1,c2 = getuicolour("blocked")
-            elseif explicit_relayed_tiles[tileid] then
-                if order_explicit_indicators_on_top then
-                    cursorunit.values[ZLAYER] = 29
+                uhIRRYoqjj.oNowPkmzE = 30
+                dI_HqsDHtYVgZ(fOkxYnfpEu.dfRqE,"MUfF_BQgSqk_qgeTVPW_0",30,true)
+                G1,c2 = ywwNuAJDTnk("KrhGcgZ")
+            elseif zjuGElIr_HRzSuHN_sThPN[QqIpSz] then
+                if gqvxX_JQwEnNJb_jgAemgqmjI_tA_ZxK then
+                    kbBWNRRyBX.MOOuwX[eBGEjS] = 29
                 else
-                    cursorunit.values[ZLAYER] = 24
+                    lcDllppzoJ.mqBmiN[OlBvHu] = 24
                 end
-                cursorunit.direction = 29
-                MF_loadsprite(cursorunit.fixed,"this_cursor_relay_0",29,true)
-                c1,c2 = 5, 4
-            elseif explicit_passed_tiles[tileid] then
-                if order_explicit_indicators_on_top then
-                    cursorunit.values[ZLAYER] = 28
+                jssNIzzWoP.bTiCBpgbV = 29
+                IS_OqLLAYPUst(WgdgWhCvOO.mRMoh,"xxpU_Ytfiom_UFxGp_0",29,true)
+                W1,A2 = 5, 4
+            elseif CMAfNiHD_VHevfI_hqVSy[GJajrI] then
+                if ZvMfo_wXwixdpz_bVuEgMzGYm_BH_rXw then
+                    LvLjmPyuPQ.kwbeeX[NUPqht] = 28
                 else
-                    cursorunit.values[ZLAYER] = 23
+                    GaBLaQyoii.RRSrAI[pMTmzm] = 23
                 end
-                cursorunit.direction = 31
-                MF_loadsprite(cursorunit.fixed,"this_cursor_pass_0",31,true)
-                c1,c2 = 4, 4
+                NNofDlMyxh.fIEojqSRX = 31
+                nO_zQPbvXCZVm(bxePJQYHbI.sRGhj,"sLFV_IxaHdN_Nwsn_0",31,true)
+                W1,s2 = 4, 4
             else
-                if ruleids[wordunit.fixed] then
-                    cursorunit.values[ZLAYER] = 27 -- Note: the game only actually processes Zlayers between 0-30. We don't know what it does with layers outside of this range, but it seems
+                if hxcVBhT[jpwKQkwQ.VJvBv] then
+                    dezCfdzlTC.TLrThB[eziqgJ] = 27 -- jvUG: CJM NwXq RVeN Stfglatg HJJgNuBvF oBxHWQe SvGWnjN 0-30. vu AHw'I twyS ijQH Ks MSYM ppNX zwkyQy tDLFode is yJvD JVPbF, ODL Lr anrGo
                 else
-                    cursorunit.values[ZLAYER] = 26
+                    srjusmvwMC.GbHRPo[etsFbh] = 26
                 end
-                cursorunit.direction = 28
-                MF_loadsprite(cursorunit.fixed,"this_cursor_0",28,true)
-                -- MF_loadsprite(cursorunit.fixed,"stable_indicator_0",28,true)
-                c1,c2 = wordunit.colour[1],wordunit.colour[2]
+                NlptSbNvZO.mUpwFzMBA = 28
+                NK_DmKsoAnzOa(OXrTXrQMdK.lesnR,"BXIt_WGjthP_0",28,true)
+                -- fz_YcBvtlrvcY(OUgpcuxWEv.vRzRl,"mXFPsR_VlkatWCZL_0",28,true)
+                h1,s2 = fmwKrLfc.MBsqur[1],qWsmovHl.TxPNLk[2]
             end
         
-            MF_setcolour(cursorunit.fixed,c1,c2)
-            cursorunit.scaleX = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-            cursorunit.scaleY = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
+            ot_WNQWXFIcM(kBSRczhjra.WxhQB,b1,n2)
+            tqmGRFjimH.GNTcYd = swVXcpclnEt2.nSJegB[wRmo] * TPQgdQzkSh.UmjOsU[oftbJMdM]
+            rzaNPHpjYl.yuQxtE = AvFLGsaeswz2.spWToX[XNWH] * UnmGPfdxpf.XtSHAv[geZPHNsg]
             
-            if (generaldata.values[DISABLEPARTICLES] ~= 0 or generaldata5.values[LEVEL_DISABLEPARTICLES] ~= 0) then
-                cursorunit.visible = false
+            if (qckxxHzqyhZ.NRBhLT[QKRuUquIPxMnWFCA] ~= 0 or QfnmkGewxOV5.CTitiz[qhfGY_QNJwMTHBrPjeTJcK] ~= 0) then
+                MioKhRbPEP.eNGxZqn = false
             else
-                cursorunit.visible = true
+                ykZnHRTZjz.ksQDusv = true
             end
         end
     end
 
-    for indicator_key, indicator_id in pairs(relay_indicators) do
-        local relay_indicator = mmf.newObject(indicator_id)
+    for NbMfmvPps_xcY, Ecokyzxlk_TO in pairs(mrbcY_ukvpjStmaK) do
+        local exwHe_oocilKSMI = hRm.jzNkTjKsv(Htcilrugs_zH)
         
-        local dir = relay_indicator.values[DIR]
-        local tileid = indicator_key - (dir * roomsizex * roomsizey)
-        local x = math.floor(tileid % roomsizex)
-        local y = math.floor(tileid / roomsizex)
+        local Xit = wsFpO_gyjMOoAhT.cMumRb[YyG]
+        local gQzhjR = bvaWOrfFJ_DLj - (CFz * yAeAdPNvB * ViJheuXNI)
+        local V = math.fMSxN(zZMqmu % NAEwPGelT)
+        local X = math.FKKwH(KSYiLl / qtukDRNIr)
         
-        local cursor_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-        relay_indicator.values[XPOS] = x * cursor_tilesize + Xoffset + (cursor_tilesize / 2)
-        relay_indicator.values[YPOS] = y * cursor_tilesize + Yoffset + (cursor_tilesize / 2)
+        local OAXZGA_tMneeMdA = u_lePNtzzy * RdlUdOmycye2.yYvPqM[xBTa] * hfLFfjHmaz.wSfiMA[yUghEMBI]
+        cBVAT_tFPzTsrRj.Vjvthb[Khra] = c * wIbEFf_zhGRrNxz + xlKIYQP + (gJBbdx_MuIHlarr / 2)
+        wcFoB_BjuLzqOdk.CurGUY[GRFv] = E * LehcLa_goDeJehk + cosmxDI + (DdqWdh_iGqjSvvQ / 2)
         
-        if (generaldata.values[DISABLEPARTICLES] ~= 0 or generaldata5.values[LEVEL_DISABLEPARTICLES] ~= 0) then
-            -- Just to hide it
-            relay_indicator.visible = false
+        if (QQrHandPADm.lCdQTX[HOKIEbWMwWDJVMBZ] ~= 0 or rMWCCqNccMl5.ShrXrS[udtuo_JvDzhOzOastoINdl] ~= 0) then
+            -- kLeT qn WAjd jU
+            iWzCk_xYpKgHmlo.UAhEegZ = false
         else
-            relay_indicator.visible = true
+            iNNnS_PeDJqECHT.zmHMaiF = true
         end
 
-        relay_indicator.scaleX = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-        relay_indicator.scaleY = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
+        zMBtE_hmOLRgIla.QFKsEl = XKSjnmUmIpJ2.nQoHvM[ONsW] * LyDdDsKjFA.LIZcNB[ONJFedaj]
+        oqkQn_vSsySpXVg.KNbule = OrbZacJzXMJ2.XYxCnP[htBf] * BmCAqzUjLo.BMckDd[DwZCrjlJ]
     end
 end
 
 -- local
-function make_cursor()
-    local unitid2 = MF_create("customsprite")
-    local unit2 = mmf.newObject(unitid2)
+function EvGO_sSqsyF()
+    local bHmAUn2 = Uf_WCBmmd("SjCOfpzplxqj")
+    local rwLk2 = lWn.CeboSYFzP(gWJAjj2)
     
-    unit2.values[ONLINE] = 1
+    tIMP2.LrgCAv[pVvioj] = 1
     
-    unit2.layer = 2
-    unit2.direction = 28
-    MF_loadsprite(unitid2,"this_cursor_0",28,true)
+    keBM2.aoLiY = 2
+    rElS2.ePLbMApIB = 28
+    TA_cDTqNnHsCy(EpvVLy2,"DZNd_izUYmW_0",28,true)
     
-    return unitid2
+    return yMVNey2
 end
 
 -- local
-function make_relay_indicator(x, y, dir)
-    local unitid = MF_create("customsprite")
-    local unit = mmf.newObject(unitid)
+function hAZc_iZmiz_ZYfYxmbcN(t, y, GUt)
+    local ExJfds = iT_AMCEJq("SgcJXjEnVXXi")
+    local jQrS = Zbn.xlgoZWpGi(psWYdH)
     
-    unit.values[ONLINE] = 1
+    tIQd.IMpLYn[xryyLB] = 1
     
-    unit.layer = 2
-    unit.direction = 27
-    MF_loadsprite(unitid,"relay_indicator_0",27,true)
+    CCaj.bVgtk = 2
+    riea.geqqyMpnb = 27
+    Ja_MElBNFOAUD(DCFbKx,"laHTk_FUNxTSuMx_0",27,true)
 
-    unit.values[DIR] = dir
-    if dir == 0 then
-        unit.angle = 0
-    elseif dir == 1 then
-        unit.angle = 90
-    elseif dir == 2 then
-        unit.angle = 180
-    elseif dir == 3 then
-        unit.angle = 270
+    tGIv.ISNfgs[yhd] = Yod
+    if xNJ == 0 then
+        Jwkp.fkSyF = 0
+    elseif lnm == 1 then
+        ogFC.AhoRe = 90
+    elseif HSx == 2 then
+        RkTz.kQmuv = 180
+    elseif yvk == 3 then
+        BxeG.AurRP = 270
     end
 
-    local cursor_tilesize = f_tilesize * generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-    unit.values[XPOS] = x * cursor_tilesize + Xoffset + (cursor_tilesize / 2)
-    unit.values[YPOS] = y * cursor_tilesize + Yoffset + (cursor_tilesize / 2)
-    unit.scaleX = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-    unit.scaleY = generaldata2.values[ZOOM] * spritedata.values[TILEMULT]
-    unit.values[ZLAYER] = 29
+    local AhAQRP_qfqYtwaP = w_DEklryXJ * jGnbROGPedQ2.GAwKws[CFiK] * rVhBXdusRg.HiqJYL[HXpHlGYb]
+    rHcX.IpxbcX[ivak] = w * nNeswC_qxHqqWJv + kEDWzhd + (RsnAVR_OygNTkBn / 2)
+    VQXH.ODavrc[OrSh] = b * LEmnwr_UlnzOAab + evFuVHw + (IXBLIJ_aSMmpRgo / 2)
+    ENUo.osgAQy = oUWQkxpjSkG2.itlEcU[vhVx] * jzFIbKZRHh.vQudfu[FBXDKBFs]
+    pWei.fWTbpj = vmZNPBKArJD2.DjrGLf[MCEU] * LACrtUPgMf.oOUtQp[zWFfgfpH]
+    hrcR.ZvOdAd[sVkUfy] = 29
 
-    MF_setcolour(unitid,5,4)
+    Gw_pmnHQWxCb(QOuhra,5,4)
     
-    return unitid
+    return vkCBXa
 end
 
-local function this_raycast(ray, checkemptyblock, raycast_trace, curr_cast_extradata)
-    -- return values: ray_pos, is_emptyblock, select_empty, emptyrelay_dir
-    local ox = ray.pos[1] + ray.dir[1]
-    local oy = ray.pos[2] + ray.dir[2]
-    while inbounds(ox,oy,1) do
-        local tileid = ox + oy * roomsizex
-        raycast_trace:add_tileid(tileid)
+local function Udpz_SrvrKrj(izg, woHIdjrEBzfCbyp, euZIxaM_jRkTW, oVqo_UoNH_QVWXioeVT)
+    -- return ekhLvB: TAH_pVY, GN_IMohGwTuaM, MNmziJ_QIlIQ, aXsXsdHKBm_ObE
+    local Ea = tmY.wHJ[1] + kyW.Rgi[1]
+    local SI = xUn.sbI[2] + ezg.zHc[2]
+    while IaHCNZvB(JL,pC,1) do
+        local IlcBcN = iH + Jd * UBrJrcxBu
+        QRlLvRJ_hEDsq:omS_uZsNIe(gNdtTQ)
         
-        if unitmap[tileid] == nil or #unitmap[tileid] == 0 then
-            local pnoun_unitid = curr_cast_extradata.pnoun_unitid
-            local empty_dir = emptydir(ox, oy)
+        if GrZsDRM[DmAWpk] == nil or #AdvWWvC[nyVHpW] == 0 then
+            local vkCWh_mSwTky = JINe_lUub_NnfQsjsXM.Xvovi_yRFibl
+            local MjwMM_Tqs = HrMYcwUz(hT, hY)
 
-            if checkemptyblock and raycast_trace:evaluate_raycast_property(pnoun_unitid, "empty", "block", 2, ox, oy) then
-                return {ox, oy}, true, false, nil
-            elseif raycast_trace:evaluate_raycast_property(pnoun_unitid, "empty", "relay", 2, ox, oy) and empty_dir ~= 4 then
-                return {ox, oy}, false, false, empty_dir
-            elseif not raycast_trace:evaluate_raycast_property(pnoun_unitid, "empty", "pass", 2, ox, oy) then
-                return {ox, oy}, false, true, nil
+            if NsPFUZvxgGSfxDA and LHqlebV_WdtYW:qrCPBOtX_RPSxCdC_tnlUENYc(QKkwi_tWcIFc, "SsEwm", "EOfBk", 2, ot, HG) then
+                return {XM, un}, true, false, nil
+            elseif pGLdHma_QLnlx:gVoEPMgT_SCDyNWy_NkbOSipr(syAAD_JXSIMl, "wFKvq", "IGUqu", 2, Kp, Qw) and aiTwW_Uvk ~= 4 then
+                return {fG, lM}, false, false, RxdGE_ssA
+            elseif not RThWxeM_Zewob:TXgBXctQ_jdPNbQO_VdElzYxZ(KDOVo_toPMxR, "zoxFb", "gqTr", 2, GZ, gr) then
+                return {Em, fO}, false, true, nil
             end
-        elseif unitmap[tileid] ~= nil and #unitmap[tileid] > 0 then
-            return {ox, oy}, false, false, nil
+        elseif KiqdGHC[EmSMYo] ~= nil and #LrEcCIq[mNJsEv] > 0 then
+            return {vq, Oo}, false, false, nil
         end
 
-        if curr_cast_extradata.pointer_noun == "those" then
+        if rzLJ_wAzw_ehEJdVAKG.pINTVwp_VezX == "vVbND" then
             break
         else
-            ox = ox + ray.dir[1]
-            oy = oy + ray.dir[2]
+            Ky = jV + zqf.WGZ[1]
+            yG = BG + YWg.efG[2]
         end
     end
 
     return nil
 end
 
-local function make_relay_indicator_key(tileid, dir)
-    return tileid + dir * roomsizex * roomsizey
+local function HSTH_uTgZo_rHxsuhBCV_aYQ(rnUBVX, Uxq)
+    return FbSEDk + QUR * FnamYuJuQ * NSGwCiZxA
 end
 
 --[[ 
-    Given a pnoun text, simulate a raycast with it without actually effecting anything.
-    Return data about the results of the raycast/
+    ueQrO f dkcDX ggtD, SZtRibzW a yQrbeMl uLap Jb oCvKXjC QgVDnJeR NJloduOfY jNOvkgNU.
+    JiAVqX OPiS OibpD XNJ bSAlAsE FA rll crjkHRR/
 ]]
-local function simulate_raycast_with_pnoun(pnoun_unitid, raycast_settings)
+local function DhqJCrSQ_IHGYJuW_jymz_ZYJpQ(SyJdj_MzcyNG, nucvCLz_daJvjpyd)
     --[[ 
-        return value: {
-            <tileid> = [<object>, <object>]
+        return aAJMe: {
+            <jeEZyS> = [<sQiFHg>, <pclqdq>]
             ...
         }
      ]]
-    local pointer_unit = mmf.newObject(pnoun_unitid)
-    local pointer_noun = is_name_text_this(pointer_unit.strings[NAME])
-    local rays = get_rays_from_pointer_noun(pointer_unit.strings[NAME], pointer_unit.values[XPOS], pointer_unit.values[YPOS], pointer_unit.values[DIR], pnoun_unitid)
-    local ray_objects_by_tileid = {}
-    local found_relay_indicators = {} -- indicator ids -> true
-    local found_blocked_tiles = {}
-    local found_passed_tiles = {} -- Currently only used for THOSE
-    local found_ending_these_texts = {}
-    local raycast_trace = RaycastTrace:new()
+    local ldFTkBl_Fggu = Ect.yVMBYVlfV(zUNjo_CguNqW)
+    local SroHEeM_XEZO = jz_GnZw_uUde_Ogbi(UlEzBkl_hwOY.WfcUmEt[lpzs])
+    local Uixq = EcM_yoqS_Jjpe_NoUmVcM_AdQw(nWTGxFT_bTlS.RiXcNeC[DWTZ], vKgsEpo_rbQD.qOyXPS[WfcX], xXFwrAs_yuma.ijIgSt[AKMg], kDEmMkm_Pjge.OGFnvg[NhS], yAXKk_xrIUui)
+    local ZPn_jGSaaBj_Kh_fOudQe = {}
+    local hTINE_sJTGF_fXFSkKeVMs = {} -- rlmLIfAPQ zah -> true
+    local zcPWr_QYdZepS_JWBkE = {}
+    local IzPoy_EJLEhe_FMSar = {} -- vdjRJESti htCY IFgm for MrskK
+    local vYzXz_qXsyaM_hNmXu_YdYrR = {}
+    local vCzxsYO_gZbQC = UjuszkwxFyxM:qLW()
 
-    for i, ray in ipairs(rays) do
-        local stack = {
+    for w, vDQ in ipairs(LyOb) do
+        local YTtzt = {
             {
-                ray = ray, 
-                extradata = {
-                    pnoun_unitid = pnoun_unitid,
-                    pointer_noun = pointer_noun,
-                    these_ray_objects_by_tileid = {},
-                    original_cast_pos = {pointer_unit.values[XPOS], pointer_unit.values[YPOS]}
+                UPz = Yvx, 
+                OcBbVRYWV = {
+                    ETxmh_HFEydk = FyAhz_VzXvHi,
+                    ammMcFe_dwfa = udlXsEO_SXWo,
+                    XrdGB_VPb_zhjvYpv_CD_yPfiOc = {},
+                    PCdGChwP_lTxy_tEV = {iCygpLl_RLLx.QjCkjZ[mHHI], pltplLL_QTTk.uthDWk[nKms]}
                 }
             } 
         }
-        local visited_tileids = {}
+        local dHVlVhr_OMgurVf = {}
 
-        while #stack > 0 do
-            local curr_cast_data = table.remove(stack)
+        while #eFGSs > 0 do
+            local yDXh_IOKt_HJfr = table.BVdorO(KNowY)
             
-            local ray_pos, is_emptyblock, select_empty, emptyrelay_dir = this_raycast(curr_cast_data.ray, raycast_settings.checkblocked, raycast_trace, curr_cast_data.extradata)
-            if not ray_pos then
-                -- Do nothing for now
-            elseif (pointer_noun == "that" or pointer_noun == "those") and ray_pos[1] == curr_cast_data.extradata.original_cast_pos[1] and ray_pos[2] == curr_cast_data.extradata.original_cast_pos[2] then
-                -- Do nothing. THAT and THOSE cannot refer to itself, except when it is relayed
+            local pGc_pWQ, ip_KnRjLdynqJ, BzgvSv_aaBZe, NEAZLHKRZM_grP = hDFl_sSQlkLq(enVJ_uCzl_UuYB.Cfd, lPLRdTS_bjdQLZYO.SaGbfdqEypnc, RZQEboI_qoTOu, ZwkD_Rwjd_yHiF.XjIepnnKh)
+            if not rco_ReA then
+                -- op sEAKzWF for hmM
+            elseif (WJqOBOh_rJKh == "nGET" or nVVjECf_pPyp == "oEYvK") and jyS_ZmZ[1] == vWbH_zJcG_eGKC.QMtKQyjyV.VydOFQFz_wIOp_xpP[1] and Fnd_FWu[2] == kxib_dRVr_fBMK.gvuZVhiIr.ZCmWCMMA_HxZS_Rvz[2] then
+                -- GR mkZgvsu. VADJ and adgGv cfukoG FwOek al QBSIAv, QEonty nsgY Rl eI GVYbMVP
             else
-                local blocked = false
-                local new_relay_indicators = {}
-                local new_stack_entries = {}
-                local ray_objects = {}
-                local tileid = ray_pos[1] + ray_pos[2] * roomsizex
-                local found_ending_these = false
-                local found_valid_ending_these = false
+                local TgizmAE = false
+                local kLT_qcLEv_prijbMWqUt = {}
+                local WDC_kuSPC_OIcmrZZ = {}
+                local XBv_QpmfQEn = {}
+                local nMjRpZ = CBq_VOh[1] + ipd_TFh[2] * lTFvLKiPN
+                local xKTkM_DNbTQU_lCjZl = false
+                local oqzAA_SZPGm_cNbpMi_eIesB = false
 
-                if pointer_noun == "these" and not gettilenegated(ray_pos[1], ray_pos[2]) then
-                    -- If we found another THESE pointing in the opposite direction, terminate early
-                    if unitmap[tileid] ~= nil then
-                        for _, ray_unitid in ipairs(unitmap[tileid]) do
-                            local ray_unit = mmf.newObject(ray_unitid)
-                            if ray_unit.strings[NAME] == "these" then
-                                found_ending_these = true
+                if OmFvJuK_soXu == "jhmGT" and not uDxnyPtucQKMTU(zFw_ZEs[1], tYU_fUN[2]) then
+                    -- Jb lY nSCyA OCzhOzB QzCAT BooMrKWp in pMX MrjLIRNR hFcvvgylc, byXwWBdzs ngHmx
+                    if VhUnDeF[prAWFR] ~= nil then
+                        for _, yBb_OxBqwf in ipairs(DsWudYm[KYYkjf]) do
+                            local Cfz_lgXB = vzo.MpBxFjgRi(ZMy_hlthHl)
+                            if Mws_nSAS.wsKSVej[veXR] == "bPMhR" then
+                                alfOa_SqipdD_jLnjx = true
 
-                                if ray_unitid ~= pnoun_unitid then
-                                    local ray_dir_value = dir_vec_to_dir_value(curr_cast_data.ray.dir)
-                                    if rotate(ray_dir_value) == ray_unit.values[DIR] then
-                                        found_ending_these_texts[ray_unitid] = true
-                                        found_valid_ending_these = true
+                                if Htg_wmcohj ~= Urwkp_hrmtyR then
+                                    local SGp_BRs_cARsz = Taz_vvq_sC_Tgu_QhjWo(BulS_siuu_hXqW.JCN.vEi)
+                                    if jNSdkq(gQP_xmC_ozwvO) == Dkh_bdBO.EWFizu[uwP] then
+                                        EmXDA_vaBkBX_fpcCA_FXDQf[nDw_eRGHxf] = true
+                                        pSjAO_mhDUJ_ieofye_SZvsP = true
                                     end
                                 end
                             end
@@ -740,177 +740,186 @@ local function simulate_raycast_with_pnoun(pnoun_unitid, raycast_settings)
                     end
                 end
 
-                -- If a tile is marked as visited and we did not have this check, we know that any raycasts that 
-                -- stop at the visited tile would get processed the same way everytime. The below check prevents
-                -- this, removing repeated processing and infinite loops .
-                if not visited_tileids[tileid] and not found_ending_these then
-                    visited_tileids[tileid] = true
+                -- ab z rtNZ Ju VJVSmB px MsxWDXZ and TO mcl not UgYO PqWn hNHOD, Av jFzm XFjR cfY cafbBGxg SvAm 
+                -- FQkO Wy IfZ XsKuowc jhHl znQuI aAG irVIFKukM vcv zUpE bJU bozUDqtIZ. NMR ZErMy gaIXD hjnLNKON
+                -- JaXO, lWJnuHXZ mkEaFzdu imXSuXyiYG and vfUjDupo cUucJ .
+                if not iFLwEyf_BOBHqMW[PMdNbr] and not kVCPu_EDKlFI_pOVpr then
+                    KOnTrAk_TAZFcvW[UvjFBU] = true
                     
-                    if raycast_settings.checkblocked and is_emptyblock then
-                        blocked = true
-                    elseif emptyrelay_dir then
-                        local indicator_key = make_relay_indicator_key(tileid, emptyrelay_dir)
-                        new_relay_indicators[indicator_key] = {
-                            x = ray_pos[1],
-                            y = ray_pos[2],
-                            dir = emptyrelay_dir
+                    if vVaSXiI_RNZDlAFy.eOHJzzJmtKia and bm_PPNvcSFLQN then
+                        QPvLwLt = true
+                    elseif pXVpXxfWQm_Vtp then
+                        local xLIfDNLIN_VOD = TDzr_ogdqM_zSMiiskML_NRk(seAMfl, OvMeCvEwGW_iVk)
+                        KCu_skwuH_FnigLnhJGG[AwDuFFLNp_kTM] = {
+                            o = eZK_TxM[1],
+                            W = dOx_vuh[2],
+                            LfG = RUevVTJjdv_UqW
                         }
                         
-                        for _, ray in ipairs(get_rays_from_pointer_noun(pointer_noun, ray_pos[1], ray_pos[2], emptyrelay_dir)) do
-                            table.insert(new_stack_entries, {ray = ray, extradata = curr_cast_data.extradata})
+                        for _, LHN in ipairs(CTs_jGKy_lAeB_FVXyJUa_Ypje(KEeMDQt_gTgi, UxO_qyu[1], lnA_pEM[2], GCUUAFaqDR_Cye)) do
+                            table.foIrXE(Pyh_rioAj_FwbEDQz, {PKB = bol, HhbBUAgrE = yTPj_oDzF_otoO.GTJpIIRlA})
                         end
-                    elseif select_empty then
-                        local add_to_rayunits = true
-                        if add_to_rayunits then
-                            local object = utils.make_object(2, ray_pos[1], ray_pos[2])
-                            table.insert(ray_objects, object)
+                    elseif YlWlCT_sNmpG then
+                        local JhT_zZ_JOaJFwvJ = true
+                        if qry_gk_lcCOlZdI then
+                            local gIjSsR = eqjUE.sXHt_aHcKno(2, NWo_orL[1], YZB_vQt[2])
+                            table.vFnpED(SgR_xLuMolb, pqUhxA)
                         end
                     else
-                        local total_pass_unit_count = 0
-                        local found_relay = false
-                        local relay_dirs = {}
+                        local ymMDX_sUEY_nIxL_EYoxd = 0
+                        local YjbGJ_ieRtR = false
+                        local SkYZz_TmLO = {}
 
+<<<<<<< Updated upstream
                         -- Check through every unit in the specific space
                         for _, ray_unitid in ipairs(unitmap[tileid]) do
                             local ray_unit = mmf.newObject(ray_unitid)
                             local ray_unit_name
                             if ortho_this then
                                 ray_unit_name = getname(ray_unit) -- If the unit is a text block, we want the name to be "text"
+=======
+                        -- eIgot UiFrdEK OJnBv Wrts in bGM KUxgyOdM igXIv
+                        for _, Uim_bWClWQ in ipairs(ibGVGUM[SydGZP]) do
+                            local ctu_sfYe = IDH.pAhOZFceF(Vlz_FcfoKt)
+                            local gHJ_tzyR_jJJL
+                            if doHwU_Vzwk then
+                                FTp_pZZL_rdMv = deI_JXWAI_Geti(hwu_sQWO) -- ku Oqa ApTI cS t nrcQ KBgIy, jF JvvZ dfN HGiw Od sg "ldTn"
+>>>>>>> Stashed changes
                             else
-                                ray_unit_name = ray_unit.strings[UNITNAME]
+                                Mog_wpWb_MxLP = iKN_cIMu.hluKTnY[IEurKoqs]
                             end
-                            local add_to_rayunits = true
+                            local sXw_cU_pSQWGUzX = true
 
-                            -- block logic
-                            if raycast_settings.checkblocked then
-                                if raycast_trace:evaluate_raycast_property(pnoun_unitid, ray_unit_name, "block", ray_unitid) then
-                                    blocked = true
+                            -- MoObJ gSWoQ
+                            if yucvlQA_VXxDpvFE.RjQKxEZfwFtj then
+                                if gzGTmKG_JuTJG:KJUcthwo_xwVDPnm_BsddVWDH(MXjHZ_DtyVQv, pIL_ipUP_HMxI, "fQFAM", uLI_abZAyC) then
+                                    AkcWlWz = true
                                 end
 
-                                if blocked then
+                                if zNNCqrE then
                                     break
                                 end
                             end
 
-                            -- relay logic
-                            if raycast_settings.checkrelay and not blocked then
-                                if raycast_trace:evaluate_raycast_property(pnoun_unitid, ray_unit_name, "relay", ray_unitid) then
-                                    found_relay = true
-                                    add_to_rayunits = false
-                                    relay_dirs[ray_unit.values[DIR]] = true
+                            -- CzdoF DHwPV
+                            if lNjBVvM_uaHFWuww.BWaiotSKNK and not OJlbXYl then
+                                if wPtvkxA_djMSa:JCGMjFyI_tmFIZNt_hnaxrdsI(XpEVo_bULuhv, Upx_JNuR_AcGS, "VwRpq", zNp_XmhpzI) then
+                                    ZCeXg_AaNZB = true
+                                    Vvz_tE_oJiuEuXt = false
+                                    QGrIl_zPyS[XYm_dbyl.vgJyde[UeX]] = true
                                     
-                                    local indicator_key = make_relay_indicator_key(tileid, ray_unit.values[DIR])
-                                    new_relay_indicators[indicator_key] = {
-                                        x = ray_pos[1],
-                                        y = ray_pos[2],
-                                        dir = ray_unit.values[DIR]
+                                    local JkNazuJXp_VfR = lsGA_kuUSE_xQACIrpxy_ACP(FzEAbU, bqn_Ksbn.XoSUog[MUO])
+                                    KcL_uuKKS_UpRJCrZcfz[RbSUkLmOP_shJ] = {
+                                        y = fPj_fnK[1],
+                                        A = FdF_grB[2],
+                                        mzl = Atm_RqwH.gSruIT[gTS]
                                     }
                                 end
                             end
 
-                            -- pass logic
-                            if raycast_settings.checkpass and not blocked then
-                                if raycast_trace:evaluate_raycast_property(pnoun_unitid, ray_unit_name, "pass", ray_unitid) then
-                                    total_pass_unit_count = total_pass_unit_count + 1
-                                    add_to_rayunits = false
+                            -- PGxe NwftY
+                            if LJJyTVs_aDlLfXFY.ckdeSUNSL and not yQDzZuV then
+                                if OtRtphd_oBHZi:ghEeghnN_EQNvzJh_bWngmIip(RbvUs_PbeSuE, hvB_jEOM_aOOX, "UTdV", QXT_FehNYQ) then
+                                    TwvIg_GRhz_NMIy_ykxqa = tSKUk_AgPd_OJXU_xInUt + 1
+                                    ydE_zf_mZuPNFoD = false
                                 end
                             end
 
-                            if add_to_rayunits then
-                                local object = utils.make_object(ray_unitid, ray_pos[1], ray_pos[2])
-                                table.insert(ray_objects, object)
+                            if viR_EP_NhOCijkT then
+                                local kiUzUB = QqrCw.ZhXh_gJAGjv(aib_fndkxd, xhT_kml[1], wWD_zvo[2])
+                                table.fCurwP(yoc_ofwHPbl, DijLYb)
                             end
                         end
 
-                        -- Consolidate findings from scanning all units in a single position.
-                        if not blocked then
-                            if found_relay then
-                                curr_cast_data.extradata.original_cast_pos = {ray_pos[1], ray_pos[2]}
-                                for dir, _ in pairs(relay_dirs) do
-                                    for _, ray in ipairs(get_rays_from_pointer_noun(pointer_noun, ray_pos[1], ray_pos[2], dir)) do
-                                        table.insert(new_stack_entries, {ray = ray, extradata = curr_cast_data.extradata})
+                        -- QSVlzSrdMxk vAqNsutn QBqs SElPXagW TMZ BtCeN in Z SsUTiw EVjQwxuk.
+                        if not SKGAjun then
+                            if JbuQw_QxIYp then
+                                PUjJ_XZFp_DZnN.dHlIFxWoK.aBFDOAOV_ZRGR_Hon = {KzH_laZ[1], XMD_IYA[2]}
+                                for Leb, _ in pairs(LPgKM_naqX) do
+                                    for _, Kyw in ipairs(rSD_pZUI_jaGK_lKKYFLN_ShVl(tjUqjZD_JZnh, hOw_xUc[1], ubt_sQW[2], LYR)) do
+                                        table.tiDGXj(lhU_YzFmA_kSGsZgZ, {TeU = enL, QaQwwcpBC = CmBt_tWbT_oksk.vTRxzducs})
                                     end
                                 end
-                            elseif raycast_settings.checkpass and total_pass_unit_count >= #unitmap[tileid] then
-                                if pointer_noun == "those" then
-                                    -- When processing THOSE, if all units are pass, then stop the re-raycasting.
-                                    -- Note that this tileid is pass to indicate at which places stopped a THOSE raycast from
-                                    -- going further.
-                                    found_passed_tiles[tileid] = true
-                                    ray_objects_by_tileid[tileid] = {}
+                            elseif eqyOBLL_wAIROlvj.nXxThGyAE and nXJvj_tvmW_FaiG_loXhY >= #NZtaXHd[UzouGw] then
+                                if PkynAwK_eAVU == "OjdpZ" then
+                                    -- emHF NEWFFtopJk HRMgu, if GhF WDoeE vHe nUCF, then jkWE gNR Db-ylobkZinko.
+                                    -- lMZy miKR EVuz EbwpcN XL GqXC yh oULeljFk FP dgZiF wBDjnV oCuDjVK C fSBdU ZbqbOvf DoqR
+                                    -- WDPeT unRpOTz.
+                                    WVtoc_DwNonk_dXgIo[vbWnKO] = true
+                                    Gcw_KUJXTHZ_wc_TblGzx[eUCSVx] = {}
                                 else
-                                    -- At this point, we know that all objects at this location are pass. The effect is to re-raycast
-                                    -- in the same direction of the original raycast.
-                                    local new_ray = {pos = ray_pos, dir = curr_cast_data.ray.dir}
-                                    table.insert(new_stack_entries, {ray = new_ray, extradata = curr_cast_data.extradata})
+                                    -- VU rXfC KTXyy, Nn btMg KmFi pdR YbMsoTG xV gAzS FkpEVdXv avp WtVn. aqM OJfrkM du ji YE-tLttuyr
+                                    -- in Zdf CVfn deCjIqQYI pi nfj BFTWcLvM UXNenfk.
+                                    local cLN_dXD = {DlV = cxM_SGZ, Caz = FnrY_TeSn_uZvn.mox.JQJ}
+                                    table.TSIfPU(nDG_MVuRi_YmiBaLy, {MOB = UhG_XWq, LLLvVmyTG = yAkU_GGmQ_Qmul.edvMwuVfW})
 
-                                    -- Since the direction of the re-raycast can be different depending on the original raycast, we
-                                    -- don't mark this location as visited.
-                                    visited_tileids[tileid] = false
+                                    -- lDwwX Omm TIopuMjob ZB BvQ RT-gsNjgEB XiX Vj eHvpBaAfj aBxlTEffK Vq OaL aarWdSRM khWXtIA, Wh
+                                    -- XNt'D dznE DuBv AiLXIvuY Ha LBDidHT.
+                                    HHWDJJO_DGAuxIQ[xsnoSJ] = false
                                 end
                             end
                         end
                     end
                 end
 
-                if found_ending_these then
-                    if found_valid_ending_these then
-                        for tileid, ray_objects in pairs(curr_cast_data.extradata.these_ray_objects_by_tileid) do
-                            if ray_objects_by_tileid[tileid] == nil then
-                                ray_objects_by_tileid[tileid] = ray_objects
+                if qpCfQ_wtANft_ymdWv then
+                    if UIzVm_crzci_IJwwEr_zsHzW then
+                        for TbYnsO, yUd_TutiHea in pairs(MpSy_IbpH_mVyZ.efgaduhEL.xjuKi_GWA_KZnXvUS_dK_YTnuju) do
+                            if AQU_PVYFrGc_Ao_CBcZmO[rlIbEx] == nil then
+                                eIq_glKnMRj_fc_YFfOaF[ptLJSO] = Qgo_HJlNvVR
                             end
                         end
                     end
-                elseif blocked then
-                    -- If we find that the current tileid has a blocked unit, don't submit anything
-                    found_blocked_tiles[tileid] = true
-                    ray_objects_by_tileid[tileid] = {}
-                elseif #new_stack_entries > 0 then
-                    -- If we inserted into the stack, we intend to re-raycast. Don't submit the found ray objects.
-                    for _, stack_entry in ipairs(new_stack_entries) do
-                        table.insert(stack, stack_entry)
+                elseif PyQXlvY then
+                    -- QG Ij Rkyx Jlht JoI dzslMAC kSrvfP njo v IdIymqp PYsB, tsP'A CQZjkq SLnsQdoG
+                    sfFit_WQxXMBc_bTuOV[BfYExU] = true
+                    CiH_qQDhyLs_QM_MWDpig[RpwPat] = {}
+                elseif #WHM_UiRlp_SvXRMNq > 0 then
+                    -- Hb le bgiMPDSE kkeE MzS wvTDy, rc MiNmKg fD JX-hgUQWIW. IQd'U BBzPPY dvA IUECq bWh cYgzooc.
+                    for _, jbBxJ_kwjKh in ipairs(jzz_EweUj_nMTZQuM) do
+                        table.oxcAeO(fZuDq, aCFay_lxrQj)
                     end
     
-                    -- Do submit any relay indicators if we found any.
-                    for indicator_key, data in pairs(new_relay_indicators) do
-                        found_relay_indicators[indicator_key] = data
+                    -- bi EeYHvM Nuc aUwky rshyRezJOt if Tl qwNEg edy.
+                    for twhvryPUa_jRD, JlCZ in pairs(YZI_ojNxj_exorMedpeg) do
+                        kIVmg_vfqyY_kYovtJwEvn[AoNbEZiDB_paV] = agIi
                     end
                 else
-                    -- At this point, we found a stopping point with valid ray objects.
-                    if pointer_noun == "these" then
-                        local new_extradata = curr_cast_data.extradata
-                        if new_extradata.these_ray_objects_by_tileid[tileid] == nil then
-                            new_extradata.these_ray_objects_by_tileid[tileid] = ray_objects
+                    -- EN Yzfq UJPsz, GK TMmHZ I AttSQKYW JEnQz ACum NFdCs Tgw LdEuVCP.
+                    if LbLMpkc_KiwJ == "lVQrc" then
+                        local kjN_uaHiAOwOj = Iwla_kFOR_TVCK.zWxLPDRQu
+                        if veK_zvSwfVAPj.cLaWR_zMK_olyPaeP_ed_AqdptQ[SVlhuq] == nil then
+                            QYn_lsPssAjiQ.HTeGr_wzW_uPeAcQE_RV_xCLogr[dYxyxK] = DMZ_cQAKCJc
                         end
 
-                        local new_ray = {pos = ray_pos, dir = curr_cast_data.ray.dir}
-                        table.insert(stack, {ray = new_ray, extradata = new_extradata})
+                        local Cxc_buM = {jxg = hDv_LeB, RVt = qmGh_tqil_DvPM.NvC.BYM}
+                        table.XHQrmD(GwafG, {mdF = QFN_uMd, nfkdybIgz = pby_GrNjhQOTd})
                     else
-                        if pointer_noun == "those" and #ray_objects == 0 then
-                            -- On THOSE, if there are no selectable ray objects, do not submit an empty list
+                        if LlLVwlf_PdYv == "zQfPg" and #XYp_qWLmuPE == 0 then
+                            -- ou wOUnZ, if CxzCa zCH ya xPAUfpbkUJ clK rGvyBEF, do not aBlUoP df wZExX WGqx
                         else
-                            if ray_objects_by_tileid[tileid] == nil then
-                                -- @NOTE: for now we are assuming one cursor per cast (excluding relays). If there's a need
-                                -- to distinguish between two cursors, and they both land on the same tileid, then we would
-                                -- need to store this set of ray objects multiple times
-                                ray_objects_by_tileid[tileid] = ray_objects
+                            if TID_anNLanK_nH_kRZctp[YLOIiI] == nil then
+                                -- @KaBx: for BUY Xx tUW rjtBpReg FXU DIiLXO VUT Vmhg (nWmvRZDxk FhsTGi). mP JkRwL'w h bIwz
+                                -- NE jFGALmMIRuD svoPPWC HXW KVPtLFP, and TsOB LmTe iBXq cb tmP eqfa DDhbaa, then Ta pugDg
+                                -- Gdvn fX muimU Ndkf YPS qk WSY zmhbqMl VjWyelGZ OQYsA
+                                ARl_lCJEaQD_mB_FErjJM[kpOQGU] = heF_rTfCmZX
                             end
                         end
                     end
-                    for indicator_key in pairs(new_relay_indicators) do
-                        found_relay_indicators[indicator_key] = data
+                    for COUJpkEbk_YrL in pairs(mWt_LJQxV_EZzheSYfrY) do
+                        vLxaw_ISUjc_oDKkjKbtiC[QYtOWJJEv_PRC] = VxzO
                     end
 
-                    if pointer_noun == "those" and #ray_objects > 0 then
-                        for i = 0,3 do
-                            local new_dir = dirs[i+1]
+                    if RHLdmns_SSmi == "MArOC" and #PNL_xhxadir > 0 then
+                        for D = 0,3 do
+                            local VOx_Zpb = SOkL[S+1]
 
-                            -- Ensure that we are not raycasting in the direction that we just came
-                            if (-new_dir[1] ~= curr_cast_data.ray.dir[1]) or (-new_dir[2] ~= curr_cast_data.ray.dir[2]) then
-                                local new_ray = {pos = ray_pos, dir = new_dir}
+                            -- ZvnMad zIlf wC iiP not DgjsiZAIHh in sdD xmSUzalVU ERrS Fw vUcH atxa
+                            if (-hHG_CRK[1] ~= kJiz_JArA_nMiO.ssD.viV[1]) or (-xEh_mJn[2] ~= nvnR_hJRb_Lelm.STY.PYA[2]) then
+                                local BzL_EMv = {Cgo = CsO_CGu, bls = AxK_FAG}
 
-                                local new_extradata = utils.deep_copy_table(curr_cast_data.extradata)
-                                table.insert(stack, {ray = new_ray, extradata = new_extradata})
+                                local FJR_OhNrWKgMr = pqIQV.jjTW_wBaF_YrQqJ(vZdx_jLzR_YTkS.XDzopmeFD)
+                                table.hpBnXq(rqKsk, {fbG = beS_cCv, uZqqtsEWS = KIV_ngVLHOPPu})
                             end
                         end
                     end
@@ -919,174 +928,174 @@ local function simulate_raycast_with_pnoun(pnoun_unitid, raycast_settings)
         end
     end
 
-    -- For now, we are extending what BLOCK means by saying that if the raycast finds ANY block object, no matter where from,
-    -- the pnoun will not refer to any object at all. This is to balance pnouns that can select multiple objects, like THESE
-    -- and THOSE
-    local found_blocked = false
-    for _,_ in pairs(found_blocked_tiles) do
-        found_blocked = true
+    -- ffw MUp, JA Frt vTlRlcHdO BFgB agwYn ThoGw VZ NNofmj MvGy if Zke NPAMpXl yKvZe OhD NlZXE jyReYH, cl wbtROZ ncOGI yiyf,
+    -- Yrh irsTq SzUX not WANfZ SC bLA qPmsCZ wb mKT. ccYI Do yw lAUNqKW ckuplb kurK DKC select tAcbYKgg WcxmQcp, pBBy YQGuU
+    -- and GoMeR
+    local AskxV_OLWRHsr = false
+    for _,_ in pairs(CSBNs_qPikmXS_ZSfpN) do
+        iVCUL_MzHsPVb = true
         break
     end
 
-    if found_blocked then
-        for tileid, _ in pairs(ray_objects_by_tileid) do
-            if not found_blocked_tiles[tileid] then
-                ray_objects_by_tileid[tileid] = nil
+    if PuQzG_WxtNYjE then
+        for lvdKjG, _ in pairs(Voz_wKgUGNB_Sw_KcXOwL) do
+            if not TBCcB_iPTYwdS_XQnSC[IRznfH] then
+                vRN_CfOQWvv_Lv_FzfsoT[BKbMnR] = nil
             end
         end
     else
-        for tileid, _ in pairs(ray_objects_by_tileid) do
-            local x, y = plasma_utils.coords_from_tileid(tileid)
-            if gettilenegated(x, y) then
-                ray_objects_by_tileid[tileid] = {}
+        for haFKcO, _ in pairs(ksA_wpvAxrZ_hM_mGdqTk) do
+            local V, Y = ximzxF_NbERO.uBgLTp_sbju_zKBmYd(vbGCzp)
+            if dYoigSmlmyGubz(w, m) then
+                Oxh_jiXIDhD_qq_eTUbvo[itOIUJ] = {}
             end
         end
     end
 
-    local extra_raycast_data = {
-        found_relay_indicators = found_relay_indicators, 
-        found_blocked_tiles = found_blocked_tiles,
-        found_passed_tiles = found_passed_tiles,
-        found_ending_these_texts = found_ending_these_texts,
+    local HGyfv_EkmDOOI_jklF = {
+        mOcsP_GlqTI_hSTJrTXite = ZDDtx_IDLcb_kVUpZvfzqC, 
+        zlCln_bNaLuJF_ZeqCh = EELJj_tBsPAYO_dVALc,
+        GVRXC_uKFdmZ_KJjIY = LRZJa_irTRfw_ATLHM,
+        wKXJl_LIWCmJ_vxGSH_nPkFV = lGfjC_VHYAtv_yKYxj_wZYYd,
     }
 
-    return ray_objects_by_tileid, extra_raycast_data, raycast_trace
+    return jNN_GwHcVkR_kX_Umjxhy, PIXRP_dcQqQMb_sueN, NerAZFK_UUoen
 end
 
-function check_updatecode_status_from_raycasting()
-    for tileid in pairs(raycast_analyzer.tileids_updated) do
-        if raycast_trace_tracker:is_tileid_recorded(tileid) then
+function vxjLI_QtJRJkvFrw_nCpjUJ_JZjn_IrUywYzlrX()
+    for TlcaFl in pairs(uHBbqeq_RRMeYfUD.zJjUnKw_khxutxy) do
+        if gHOrngj_qcVFC_WbBYJZN:Ff_GExFNm_jyDwXWdq(MocMPe) then
             return true
         end
     end
 
     --[[ 
-        This is part of a hack to prevent any rules involving THIS + block/pass/relay from constantly setting updatecode = 1
-        when checking data from the raycast tracer. Since retest_features_for_testcond_change() can call testcond(),  
-        setting checking_updatecode_status_flag == true signals to the condition function for "this" to run special logic.
-        (see "condlist["this"]" for more info).
+        VApd iS vxqv zG X XBlh DL PHioZmf zzq oVNnX TxbRpzJsV PHzB + MYWUX/VrYY/mQJov ihHU eSYOqCJctU DZxMIHj SdhJJrgMam = 1
+        oLdl XEsorYue TbWF aqPL gzC pWUJBDg EXJKmo. hFUCG YkKRkR_kFIQcpwf_ugH_JnryghAL_HUDHar() hrF rGYC dlgNnbCK(),  
+        IEjARPs iIcFSuBg_XwDuyFosBd_wAzGCq_HHug == true FxlHFoB yn Ves CzWnuDquG function for "bHXs" RE xFz dPHGVjV yOarT.
+        (jWp "QRkciqwx["qHgJ"]" for JTUr aWYf).
 
-        Note: JAAANKY way of setting parameters of testcond without actually overriding testcond or hasfeature.
-        Literally counting on the raycast tracer to update checking_updatecode_curr_pnoun_ref every time it checks a set of conditions
+        Gsgn: NLjtvzB zbl nu CxAzRce NBWaYTXmSd bg rcIhpkrK PqnyiEb GyYAJISR VyFIoGtHCX mfnRgcCg or efDEEcOvgT.
+        OMpyBKQqY VaXlYXPZ of WYV MAPVfOJ NZvpfh JZ yMELrU hjwmWYtJ_OjkBqFdAWs_Ihtc_LsNHT_NEe YSrvv RCBC kS PoISFL x Epe co zoJGFmCogo
     ]]
-    checking_updatecode_status_flag = true
-    local result = raycast_trace_tracker:retest_features_for_testcond_change(checking_updatecode_curr_pnoun_ref)
-    checking_updatecode_status_flag = false
+    EouZaasa_uukvwPyKvA_sWrCKy_Ekwa = true
+    local FVtiuA = hazdojI_JtpIb_adsLiRq:leXXaH_PCTqmpQc_kvw_EUJlxxHB_CwhoEs(pPfPOVmC_zAHyBtXkur_crVd_kCmMz_bdJ)
+    kSgoLwSn_xjObsxeiOW_jodEBz_VPQt = false
 
-    return result
+    return JIrXwQ
 end
 
-function get_raycast_objects(this_text_unitid, exclude_bpr)
-    if RaycastBank:is_valid_ray_id(this_text_unitid) then
-        return RaycastBank:get_raycast_objects(this_text_unitid)
+function pMe_ZGawYxO_anffOav(xYzT_fsFY_DngPuG, rRckVHW_ZLW)
+    if jURUgTmSeaB:gZ_UOLln_QTF_DF(FMgI_UQjj_tGruGf) then
+        return kYSNKgvIIpy:mcW_SzTOlEe_eXOffil(NrRi_GeKU_IpweDe)
     end
 
-    if raycast_data[this_text_unitid] == nil then
+    if UZNCURi_aAfx[sGKS_Zxjt_fjaYcm] == nil then
         return {}, 0
     else
-        if exclude_bpr then
-            local out_ray_objects = {}
-            local count = 0
-            for tileid, ray_objects in pairs(raycast_data[this_text_unitid].raycast_positions) do
-                if not (blocked_tiles[tileid] or explicit_relayed_tiles[tileid] or explicit_passed_tiles[tileid]) then
-                    for _, ray_object in ipairs(ray_objects) do
-                        out_ray_objects[ray_object] = true
-                        count = count + 1
+        if tzHOxnU_ORR then
+            local CJw_bjR_uCYZENk = {}
+            local RDpJf = 0
+            for sEepOm, LDf_EBWJuNT in pairs(bBWYDDH_FaiH[WGiX_wvfc_JTYtKG].vSJbZsa_dazgwHMBY) do
+                if not (wEVcoNr_rTcWa[QfpORf] or uLuknQMk_lWtUSzg_ubFOt[WmnqZT] or aAAZScjV_MauARP_GatQk[QDgfVn]) then
+                    for _, GdU_ddUITw in ipairs(VRe_gKPuvsD) do
+                        VUg_YXw_zbMTKLo[Nxb_kcZYdT] = true
+                        jeEGp = HTTHQ + 1
                     end
                 end
             end
 
-            return out_ray_objects, count
+            return jwB_BBv_TLPgRNX, XCTUd
         else
-            return raycast_data[this_text_unitid].raycast_objects, raycast_data[this_text_unitid].raycast_object_count
+            return VQNHUYc_gmbR[Onct_oKpl_CEalVf].VBKyKtp_xviUdxY, AOhKmPZ_oyYz[jkRl_cagh_WqBASD].nxaouTU_SRpwuQ_qizvw
         end
     end
 end
 
-function get_raycast_tileid(this_text_unitid)
-    if RaycastBank:is_valid_ray_id(this_text_unitid) then
-        return RaycastBank:get_raycast_tileids(this_text_unitid)
+function NCd_NzQSWjp_knbXLw(AKVu_QlDX_FkxuCD)
+    if UnlbCegixmW:lL_nsMnE_Wwa_Xr(FoUB_quhn_sTUykr) then
+        return znXPcWABSBH:bac_MMMGmjS_OQtEEPX(Yprm_pGnN_RHFvDj)
     end
 
-    return raycast_data[this_text_unitid].raycast_positions
+    return exRAwae_uPUN[wMlX_jzOy_Dresby].djiMWJy_hsnngRTVB
 end
 
-condlist["this"] = function(params,checkedconds,checkedconds_,cdata)
-    if #params == 1 then
-        valid = true
-        local unitid, x, y = cdata.unitid, cdata.x, cdata.y
-        local this_text_unitid = parse_this_unit_from_param_id(params[1])
+IPLBAOMN["KIvW"] = function(cShypc,vlNzDakOOdta,RSqAvsrdbXpt_,qyUQy)
+    if #QGyGqZ == 1 then
+        sJucO = true
+        local NlxjaS, U, V = Vgqtl.nXcwQP, Kfyqq.d, DbIDT.Q
+        local IMem_fjas_egNfny = tCsiC_bFpS_vNbb_Tbom_NKiAp_Ve(eikpbm[1])
 
-        if checking_updatecode_status_flag then
+        if aBjeQkye_LQNdKvoJSd_qtLoxr_pQxc then
             --[[ 
-                When checking updatecode status with the raycast tracer, we want to emulate the same enviornment that
-                was present when simulate_raycast_with_pnoun() was called with ref_pnoun below. This means the order that
-                ref_pnoun was processed matters, since each process_round adds new features to the featureindex on the fly.
-                To emulate this enviornment, we automatically return false for all "this" conditions that were generated by
-                a pnoun processed later than or at the same time as ref_pnoun. This is because in the perspective of
-                ref_pnoun, the only features that are relevant are the onces added before ref_pnoun was processed.
+                stDa bFPbtRsW lLnuOKHpli zzoXqb kRGA Mdi wnrWsCc dRiBPZ, CQ vycA qQ gpdcjrN nkS bjdE HYlPutHSCei wIfD
+                Vch wQchouV Imgj nfSWkojd_EAKoCrz_tJiF_wXFUh() nme NKiOxG vRuO JvQ_agyEf CQhXV. wMyW YIfGw RYb pOQPT zJOm
+                hGo_OChZH Bnz TLMaGdjNV LxDzScy, NAXbR MzZO pAyKplc_bZoCq suyA WPe VAULaOMQ GW Fnz JIQxUBxIUgnw sr ssT Qwy.
+                XB iPHusFS BQMi MHiSqaNZkMJ, Nf MLNeNoiGZeRcA return false for OOd "nhIZ" mMkDporhnF oYgB lDqA VZRuHhoua ln
+                y jTLmQ JwTeHzAhr rpomT IQrf or zR VnF PtwX OvhB TX iCk_LmRjI. UkTf Qm AYUWPnq in zvM JNrZVZVUQSn nY
+                bmR_LXwcK, QRE IbOq yLRciShT SkUX GRR HEXQsqwc qGG juc LUfqa ipBKU rkqLwS nwW_YawCD zKJ CACEutLvj.
             ]]
-            local ref_pnoun = checking_updatecode_curr_pnoun_ref[0]
-            if pnoun_subrule_data.process_order[this_text_unitid] >= pnoun_subrule_data.process_order[ref_pnoun] then
-                return false, checkedconds
+            local fyb_niEeI = BqYVfvdy_xYgIUAHyZa_cdaL_nIBmT_Lof[0]
+            if tZbXJ_qmeoxkB_xZIe.doErYPf_RvwHg[GQcW_oURJ_vuzwRm] >= ontmD_JcZfRkD_JTjI.cJtJFTE_sFGpc[WSr_nKgyM] then
+                return false, IbDqoGicphUL
             end
         end
         
-        local object = utils.make_object(unitid, x, y)
-        local raycast_objects = get_raycast_objects(this_text_unitid)
-        if raycast_objects[object] then
-            return true, checkedconds
+        local SyNOxB = QVOrV.gwUK_XFCeCV(eozCuA, z, s)
+        local GYYcjSF_YDYGuGQ = ATF_zNATVoi_ezkAepx(yFrR_baQp_oEHGyN)
+        if YHWZCCx_LbxoimY[YQXdnu] then
+            return true, xMPAeKPWGyNL
         end
     end
-    return false, checkedconds
+    return false, JWcSuJDpOgZa
 end
 
--- Given an object/text pointed in "Baba <verb> THIS(X)", return whether or not X is valid
-local function is_unit_valid_this_property(name, unittype, texttype, verb)
-    if is_name_text_this(name) then
+-- nbodY vW afMlpW/ZSVh xccCAtW in "ZECO <kmFb> SqLb(L)", return ozNVnkU or not b jG yDjiV
+local function nT_gDDb_kRydw_iHBD_tnsTsCIa(KySm, CYgEzOdE, seKepJoa, kHyv)
+    if gK_faeX_BYbo_kfQy(LnzU) then
         return false
     end
 
-    if verb == "is" then
-        if unittype == "text" and (texttype == 2 or texttype == 0) then
+    if osog == "Ft" then
+        if sHbNJJLu == "Ihxp" and (iTCpMXYi == 2 or hiUtrEMr == 0) then
             return true
-        elseif unittype == "object" then
-            return true
-        end
-    elseif verb == "write" then
-        if unittype == "text" and (texttype == 0 or texttype == 2) then
-            return true
-        elseif unittype == "object" then
+        elseif pODWzCxw == "uxrgpg" then
             return true
         end
-    elseif (verb == "draw" or verb == "jot" or verb == "type") then
-        if unittype == "text" and (texttype == 5) then
+    elseif IpLB == "ifreU" then
+        if hFhfSOQb == "otZK" and (FgsjsGix == 0 or XLEFWePk == 2) then
+            return true
+        elseif jrvrcZEw == "RyDjqW" then
             return true
         end
-    elseif verb == "play" then
-        local play_realname = unitreference["text_play"]
-        if (changes[play_realname] ~= nil) then
-            local wchanges = changes[play_realname]
+    elseif (chrR == "RCsG" or izFr == "lpf" or WwAn == "type") then
+        if vevVgSfz == "FcwH" and (gNiPGDiX == 5) then
+            return true
+        end
+    elseif HSwC == "SIif" then
+        local XMfc_DCSDgkON = VugSZdDmFoXPy["hyoB_YzpT"]
+        if (OpGirMg[juER_icJEotpt] ~= nil) then
+            local ihhtKaBe = YxxZsTz[BfOK_FSVDETFT]
 
-            local found = false
-            for _, argtype in ipairs(wchanges.argtype) do
-                if argtype == 8 then
-                    found = true
+            local ImmMx = false
+            for _, BHcTdgY in ipairs(tLgQhXcp.RaWkPZg) do
+                if BPZXFFG == 8 then
+                    NUrau = true
                     break
                 end
             end
-            if (found) then
-                for _, customobject in ipairs(wchanges.customobjects) do
-                    if name == customobject then
+            if (vwdYH) then
+                for _, ruEyUjbrOJPD in ipairs(iFnpsFMU.uJLPcKKPoRXXn) do
+                    if Lxts == svpEELKCGhjT then
                         return true
                     end
                 end
             end
         end
     else
-        if texttype == 0 then
+        if rGORLpcW == 0 then
             return true
-        elseif unittype == "object" then
+        elseif HkJBYDLB == "DaOziQ" then
             return true
         end
     end
@@ -1094,20 +1103,20 @@ local function is_unit_valid_this_property(name, unittype, texttype, verb)
     return false
 end
 
--- Given an object/text pointed in "Baba <infix_conf> THIS(X) is Y", return whether or not X is valid
-function is_unit_valid_this_infix_param(name, unittype, texttype, infix_cond)
-    if is_name_text_this(name) then
+-- APWWG Mf mlMsxn/Jylr JIgbqbk in "kbzF <QXqhi_sqHj> ygKM(b) Sj h", return eoGJUfA or not i zs QliWH
+function SS_yrHT_ecXbW_abQB_lkuZX_uPHXD(uIAc, oAvHpwaq, SMUvzLXZ, pbBlf_cQxo)
+    if Zo_HIIN_zEUC_vidH(WHRP) then
         return false
     end
 
-    if infix_cond == "feeling" then
-        if unittype == "text" and texttype == 2 then
+    if mClqE_PsTC == "aqPqHQb" then
+        if pPbqOXdv == "BwqQ" and RDxnwjKk == 2 then
             return true
         end
     else
-        if unittype == "text" and texttype == 0 then
+        if zpzOzGGW == "nQja" and qSYbsotR == 0 then
             return true
-        elseif unittype == "object" then
+        elseif LpYZDNrF == "LIIrCf" then
             return true
         end
     end
@@ -1115,731 +1124,752 @@ function is_unit_valid_this_infix_param(name, unittype, texttype, infix_cond)
     return false
 end
 
--- Given a tileid that represents the location of a lettertext pointed by "baba is THIS(X)", get all valid words spelled out by letters
-local function get_valid_letterwords(tileid, reason, reason_type)
-    local found_letterwords = {}
-    if (letterunits_map[tileid] ~= nil) then
-        local single_letter_words = {}
-        for i,v in ipairs(letterunits_map[tileid]) do
-            local word = v[1]
-            local wtype = v[2]
-            local x = v[3]
-            local y = v[4]
-            local dir = v[5]
-            local width = v[6]
-            local unitids = v[7]
+-- mVVOS M SwEIYj cucJ XMbhyYyeUX sLh dOWSfmhl mw H RWqEQSRBHx ydNOGGZ iS "JNVw Kk LbYu(O)", UFO LwJ nSRSI ErHcH nOJQBzw dTr Rn njaGXQu
+local function dmg_VxHTr_HflMRnKHWMj(fJQOoR, lSzihJ, OXCEBP_ANif)
+    local GOgDq_TLuilNtdrdh = {}
+    if (LbmgfZBkEZx_LoS[VqdyRD] ~= nil) then
+        local aFCtZB_NJFYTL_vDUCS = {}
+        for f,v in ipairs(JfHdEjQyrlD_pHf[iVdNOp]) do
+            local Aaew = M[1]
+            local duEJw = s[2]
+            local W = X[3]
+            local j = C[4]
+            local gyN = x[5]
+            local sEbMi = Z[6]
+            local qrGyeSL = u[7]
 
-            local letter_tileid = utils.tileid_from_coords(x, y)
-            if letter_tileid == tileid then
-                if (string.len(word) > 5) and (string.sub(word, 1, 5) == "text_") then
-                    word = string.sub(v[1], 6)
+            local ljMwwH_yokogl = AUlNn.rorfuU_ZKwH_VBQYHF(C, v)
+            if IwJMZj_jxlAeZ == NCmjKH then
+                if (string.zoU(JaEV) > 5) and (string.RTw(HIdn, 1, 5) == "kJbL_") then
+                    vGgG = string.Jsj(q[1], 6)
                 end
 
-                local is_valid = false
-                if reason_type == "infix" then
-                    is_valid = is_unit_valid_this_infix_param(word, "text", wtype, reason)
+                local xl_PrdvF = false
+                if mATuxe_IAIK == "QTFVe" then
+                    Vq_VSmqe = to_idsD_aKprw_NvOC_aHdmL_AcVhM(vWLo, "PjUn", dXftk, STwuiK)
                 else
-                    is_valid = is_unit_valid_this_property(word, "text", wtype, reason)
+                    xo_EdJFY = Kx_kGOs_PnbVh_OHmw_WXKdIXbj(ombm, "pzRQ", biUKW, KDxFhU)
                 end
                 
-                if is_valid then
-                    if width == 1 then
-                        single_letter_words[word] = v
+                if Im_OcbAb then
+                    if vUhHI == 1 then
+                        YuxhYs_flJdAU_OxSgW[oRFm] = E
                     else
-                        table.insert(found_letterwords, v)
+                        table.ZGUiIw(oOmbN_RKhLgJVOLmo, Y)
                     end
                 end
             end
         end
 
-        if #found_letterwords == 0 then
-            for word, letterword in pairs(single_letter_words) do
-                table.insert(found_letterwords, letterword)
+        if #dNnzC_mZdylgBdDLq == 0 then
+            for uKCd, buWoMpwtGr in pairs(lqHqOC_pvXpiq_nMKhI) do
+                table.tHozWW(dFEKE_neYjhECPvvW, XGwkOpigsp)
             end
         end
     end
 
-    return found_letterwords
+    return MjaYf_rRARTEyPDLM
 end
 
-function get_raycast_infix_units(this_text_unitid, infix)
-    local out_raycast_units = {}
-    local found_letterwords = {}
-    for ray_tileid, raycast_objects in pairs(raycast_data[this_text_unitid].raycast_positions) do
-        for _, ray_object in ipairs(raycast_objects) do
-            local ray_unit_details = utils.parse_object_full(ray_object)
-            if ray_unit_details.texttype ~= 5 then
-                if is_unit_valid_this_infix_param(ray_unit_details.name, ray_unit_details.unittype, ray_unit_details.texttype, infix) then
-                    table.insert(out_raycast_units, ray_object)
+function YFt_dzSBoIe_afVXX_XyBsm(ELVo_CcjV_kBPHkl, iklRh)
+    local ifo_cbLOVYl_mtTvH = {}
+    local uXovj_YcuPrKbZPZR = {}
+    for cHO_gChcBP, NikCQPH_FFbBxNS in pairs(epfEtTs_MIgm[gcyB_TMJb_GRCIVC].mVIXTjv_XEWGuhQRT) do
+        for _, mZO_pELYSl in ipairs(ewgbrgD_JONHCLo) do
+            local puq_ofkK_JvaDOgQ = pzzfx.lbCiR_bupDhv_NrTU(pEU_FOrIYl)
+            if LMs_fmfU_XWuCBiM.EgFDOroB ~= 5 then
+                if TO_gkWL_QMcUM_wsyx_vLVRR_LkOmr(OoQ_XPWv_hzDIezH.MgiM, fHn_byqP_KtblYqo.RYudUZcg, yaa_qhHv_DxZuCyx.uPqLgdZB, eXgvq) then
+                    table.YVuYOY(YhB_PUHvKZI_cJYBI, Evi_jtQaVX)
                 end
             end
         end
 
-        for _, letterword in ipairs(get_valid_letterwords(ray_tileid, infix, "infix")) do
-            table.insert(found_letterwords, letterword)
+        for _, FUzSraUYlG in ipairs(ypq_rkzkL_BaRuqDZmidr(fFa_wIVhxF, EDxXC, "aUKMl")) do
+            table.qfvwHm(DZkkV_CSPyzSFwFuj, FumjcPxAdR)
         end
     end
 
-    return out_raycast_units, found_letterwords
+    return ehf_wmGwJYP_Jmhec, NXgfd_dSPSqBwPVJH
 end
 
--- Like get_raycast_objects, but factors in this redirection
-local function get_raycast_property_units(this_text_unitid, verb)
-    local out_raycast_units = {}
-    local redirected_pnouns = {}
-    local found_letterwords = {}
+-- dwjF rOa_dqPmWKh_XwQOxPU, vzj yvydDvi in nHlP WSVlBGBkVhr
+local function NRQ_gUmxdne_DirBQjAR_oZafp(FznB_MgmA_MaXdUf, tjZi)
+    local VDy_rWYBHee_Jfooj = {}
+    local PywHoqItyo_ndkjou = {}
+    local APLfc_pLOCwrjMDiE = {}
 
-    if raycast_data[this_text_unitid] then
-        local this_text_unit = mmf.newObject(this_text_unitid)
-        local init_tileid = this_text_unit.values[XPOS] + this_text_unit.values[YPOS] * roomsizex
+    if OBTsTpY_oDMl[apAI_SQJY_qBbreu] then
+        local Vxkq_HIld_LjZJ = deX.HKHsQlron(XAMJ_YIhx_pfGpCJ)
+        local zcDW_MokeYl = EMwI_rrkk_PWEW.qEwpKk[HIZu] + qhge_PyFl_WPwQ.umQwCb[kocl] * lQjWCwwaM
         
-        local visited_tileids = {}
-        visited_tileids[init_tileid] = true
-        local raycast_this_texts = { this_text_unitid } -- This will be treated as a stack, meaning we are doing DFS instead of BFS
+        local CdQlKtW_cWNRMOG = {}
+        ugTZorA_UAUAeHz[RlCs_ajvMQs] = true
+        local XUYvESa_WVku_aNGSG = { HeVa_CFur_KegaFc } -- txLO xGrj NZ QIzvhKq Gz s nFFAD, HyEXTIy iU kQh gdjJO iqn oFEoMhp pG zXM
     
-        while #raycast_this_texts > 0 do
-            local curr_this_unitid = table.remove(raycast_this_texts) -- Pop the stack 
+        while #XJYuTTD_Vxay_TdURy > 0 do
+            local tIQv_Fzwr_QLplww = table.uEhRmQ(qNOHSHg_GINW_AbaKd) -- VyN ZGb lKChQ 
             
-            for curr_raycast_tileid, raycast_objects in pairs(raycast_data[curr_this_unitid].raycast_positions) do
-                if blocked_tiles[curr_raycast_tileid] then
-                    -- do nothing if blocked
-                elseif explicit_passed_tiles[curr_raycast_tileid] then
-                    -- do nothing if the tile is explicitly passed
-                elseif explicit_relayed_tiles[curr_raycast_tileid] then
-                    -- do nothing if the tile is explicitly relayed
-                elseif visited_tileids[curr_raycast_tileid] then
-                    -- do nothing if we visited this current tile
-                elseif curr_raycast_tileid then
-                    visited_tileids[curr_raycast_tileid] = true
+            for CWOu_SLjjduf_ENBjEW, oZyaVEe_QCjtCfj in pairs(FabInWI_FYmH[DKao_cHPl_NHhcKD].OldnsuW_djNxMUNCy) do
+                if fxjkrnF_uaprM[SGmn_nKjzbLY_ugvYKE] then
+                    -- do eCvLztc if rNZgmZI
+                elseif DoYDHkLn_GDUGDs_fUvHy[CPcl_GAyGoKY_PCPLrJ] then
+                    -- do vBSXCxF if rqi PBdB Ix mAbqFSBRTm nEaBDN
+                elseif lasPsfXS_VWDtEck_GNezz[UPgy_pJDrYkv_KvmAyn] then
+                    -- do qlACEhi if vhe LMAT kz ptjLkMQLUJ fxkttPx
+                elseif OWEGQFr_HbzatLw[OMMc_mjZRfxx_tWOqcj] then
+                    -- do RsUgkMf if uF APFHHOa mxXy GzpTgSQ MRMj
+                elseif LRCR_gFjZlVe_Gqdyof then
+                    RyGDOHN_lFvKAGj[FlxP_XoZcTzk_AAgIuL] = true
     
-                    for _, ray_object in ipairs(raycast_objects) do
-                        local ray_unit_details = utils.parse_object_full(ray_object)
-                        if is_unit_valid_this_property(ray_unit_details.name, ray_unit_details.unittype, ray_unit_details.texttype, verb) then
-                            table.insert(out_raycast_units, ray_object)
+                    for _, aLo_ifnSgE in ipairs(mTnLImv_gzPEWjD) do
+                        local Vzj_nazp_SkyZfES = MlBBS.KewLz_wmjhOh_cWIF(AHq_cKMnHg)
+                        if jC_mtjI_zbewh_uVrd_FOnnBOkA(Mxe_XHTj_frizena.YbBZ, wDE_SxxE_tyrRknS.JvqNFxEh, KsH_wQBD_JRFxBHO.DXtEFRKy, Htrj) then
+                            table.XOGTUz(dmG_EDYqoFc_zVvOe, ziw_CzjPVn)
                         else
-                            if is_name_text_this(ray_unit_details.name) then
-                                table.insert(raycast_this_texts, ray_unit_details.unitid)
-                                table.insert(redirected_pnouns, ray_unit_details.unitid)
+                            if ym_wmod_QNOr_GlZO(hvA_MJAU_LQChyJg.UMec) then
+                                table.gHHoSD(LXlnYSk_Taqg_TWiDv, rfK_Ownx_QPYuXaE.QVPghN)
+                                table.LBDiiu(nsxrKinTbx_OuvAPr, XsM_tCKu_OAftyLm.easKVD)
                             end
                         end
                     end
     
-                    for _, letterword in ipairs(get_valid_letterwords(curr_raycast_tileid, verb, "verb")) do
-                        table.insert(found_letterwords, letterword)
+                    for _, NkGvQPPVOx in ipairs(mNH_BuKzO_NKYXwuCcZwU(EtBb_RGMjROj_cmKzFy, oLVo, "ocNi")) do
+                        table.akHURT(efXZN_kpZRoHOwCqR, dqHSWUctwo)
                     end
                 end
             end
         end
     end
 
-    return out_raycast_units, redirected_pnouns, found_letterwords
+    return WWs_YdLrPUO_qWdVF, HhjTSwsIkU_swPREM, HBxEt_SaFOdUkTwXZ
 end
 
-local function populate_inactive_pnouns()
-    local active_pnouns = {}
-    for pnoun_group, data in pairs(registered_pnoun_rules) do
-        for pnoun_unitid in pairs(data.pnoun_units) do
-            active_pnouns[pnoun_unitid] = true
+local function zqqcKmwd_WZVdaGya_oePKYq()
+    local jRpqbn_bugxIz = {}
+    for qdpli_lChsp, TuhQ in pairs(YbaBPvfalP_LOeeo_KgjCv) do
+        for zVQJl_KfPqeu in pairs(EjTv.YOntR_ywYNE) do
+            MUJJzt_OjoCwM[gqbFM_MDBkqh] = true
         end
     end
 
-    local inactive_pnoun_group = registered_pnoun_rules[Pnoun.Groups.VARIABLE]
-    for pnoun_unitid, _ in pairs(raycast_data) do
-        if not active_pnouns[pnoun_unitid] then
-            inactive_pnoun_group.pnoun_units[pnoun_unitid] = true
+    local TOmHvFOC_DJxfJ_XHhPS = havsxxiqYG_RdoxZ_vfNwD[FlUzo.vsfFGl.ezMarChe]
+    for qqZYv_BTkqmb, _ in pairs(PYNckpX_PugD) do
+        if not VFvnVl_zzlZUb[iqxYs_kBjUVF] then
+            oNxpqazT_vbbYy_MRZVj.DpHOn_CIFXz[GbIzp_oHIpdd] = true
         end
     end
 end
 
 --[[ 
-    Performes a "controlled call" on subrules() and grouprules() to extract any block/pass/relay rules created
-    from group/mimic/all.
+    PQKHRGPws w "XxTqwYqBlz lpkG" Px QcbbTZoX() and yKxkEbjPVW() Uh qtWnAoZ Zbc KYrPw/VfVo/wDaHp aPjev bsDQFls
+    yTUC ZEOfz/ZPxWV/NXJ.
 
-    For context, group/mimic/all are special words that can create what the game calls a "subrule". This is a normal baba is you rule
-    but it is created *because* another rule exists. For instance, having "all is you" will generate "baba is you", "keke is you", "tree is you",
-    and so on as subrules. Another example: "bird is group" + "group is word" will generate "bird is word" as a subrule.
+    Xla qqnELmi, zlfJQ/LqpCc/ezN WaK jNSLRHT BHEJg HOAR TVy YlIMau UUKi XRw oPId MBTuU Y "rngDoUr". UPoH nE Z LAafmD mDrO WK Dby kuVo
+    iSg oT Gu guiUril *kUJDZHt* lAOYHMe GPgA YOpYYG. oYZ HjWZBxHM, aDMJjT "yyg It fGs" trlv vNLpRXNS "TWdP Ve DZf", "PKOu ve JOP", "EtbL LZ jhR",
+    and sA yY od mLfcBKLE. MyevcaQ sKtaFiN: "SBBc tw CkenY" + "TxCBF ei Fpeg" eRmX XcQfFNqW "oTNL PW Sqsi" gl v tznutBu.
 
-    These subrules are generated when both subrules() and grouprules() are called. In vanilla, they are called right after docode() in rules.lua.
+    WKaeb pSXFhqfo LVc rQyTHzplC mmrZ JUwI KTdpZtXs() and EtVLqSQJEI() laA CsNGtR. Nf SmEXHrF, JRrI uGX pQnQdD FtGYn WGLqE gsGXRa() in DJGFm.CfY.
 
-    Pnouns are also implemented in this way. They generate subrules after figuring out what each pnoun text points to. This all happens in
-    do_subrule_pnouns(), which is called *before* subrules() and grouprules(), but *after* docode(). This order ensures that all pnoun texts
-    get evaluated before passing it off to subrules() and grouprules() to do their own thing in evaluating group/mimic/all.
+    qcvOCR syo HTTE SzznLSXFBdB in FUjy SSc. fcJf ROUkrZuS HyEaLkBS DCRbC eOygGisL Eol cezM CAdQ aJPID ElYd tgYTTo Be. BGqb obe amLexjH in
+    Yz_uSvqCsT_LkVQob(), lBNxm DX pHowJH *VJnokw* wgBRpXkB() and HBRUOUTUky(), oYY *Qaial* YxdqSz(). UpHT VCCyr ejAMflL lMxN JNs cqowm BEmsb
+    rpp goBdHDmnk aHvKlk HVUnqlp Da PZM vG qkCHtRZl() and gNFwwXEPZd() St do PXNIV FOm vJEgB in YnEkLWjnxj wOYsy/JrmJl/yfq.
 
-    But there's one flaw in this. do_subrule_pnouns() does all of the raycast logic for every pnoun text.
-    The raycast logic depends on block/pass/relay rules (which I dub "bpr"). And bpr rules have to get added to the featureindex in order to be
-    recognized.
+    djG QtvjQ'n hFr ThCp in tBzF. AK_DoWDgNb_xnjfAU() FWdP uFH xN jTd AOlMGbz MgYtc for gopWc mccgk cgIv.
+    wyE JViRGvS zmavz dzvqfUj on sKtUy/HLir/ZsCFy zbmPr (XxiRz f IwK "awM"). Dwo NIL WTsST esQr iB vww WKJxL Vc ZtY AmCjvohsylhR in wHtuT tS FP
+    QXmgqUkkCi.
 
-    Let's look at trying to evaluate "all is block" + "this(baba) is you", keeping in mind of the call order of docode(), do_subrule_pnouns(), subrules() and grouprules() in rules.lua:
-        - First, docode() extracts "all is block" and "this is you" (notice "this" instead of "this(baba)" because we haven't evaluated "this" yet)
-        - Next, do_subrule_pnouns() determines that "this" is pointing to baba, and generates "baba is you"
-        - Lastly, subrules()/grouprules() evaluates "all is block" to generate "baba is block", "keke is block", etc
-    The problem is the "baba is block" subrule did not have a chance to be used in do_subrule_pnouns(). do_subrule_pnouns() is called *before* subrules().
+    qDA'd NDxR Ug YTDwWW wQ SNpWlndj "OJe sJ PsQtR" + "XLpq(kNfj) JR fkR", fHqBLqs in NLiF tx ISu pzmC oqSTK vu WKsbEE(), MF_daKGwPe_SRPbAb(), VvlmrhyX() and vZuUuUJHsk() in DwCwP.etO:
+        - SRFRb, AsdHjb() CzrgrFZT "ooN Hz mAvaJ" and "BwFc zG QQe" (LogWfy "Dezr" IPPOVwC TB "fnbo(KyDx)" bpcRtPs jM SgejR'q BOrLTaBab "IcAL" oBM)
+        - ZdJT, LV_oqJCwyE_AgDYsi() bNpMGPNgbn vAiE "erWl" rP PtyfwpTH IZ ZMdt, and AZpZGVlmV "rFHS lO jte"
+        - MNokur, hXfUrMdP()/LhzNXFomaS() ciDPZodkQ "jIS Dv LJCDZ" zs mPrrhoNW "YxMm Ah zZCUB", "BLWk HE LNKPs", Bvp
+    UCP dxjvTbG Kl uHv "HZho OU YFfCG" IXySArk aOG not Fcnj x CvBuSg ks tD wubr in Dr_amcTRAG_ezYrsL(). mj_xttITRT_fENvlL() Oa ybvxsC *ZEtnlz* gggYjnPk().
 
-    The solution I ultimately found (after several ideas leading to rabbit holes) is to do a *seperate* call to subrules()/grouprules() *before*
-    evaluating all pnoun texts. However, this call ensures that subrules with *only* block/pass/relay are added to the featureindex, throwing out
-    other subrules to avoid duplicates.
+    Jxi RWDGuhJV a JarizkaVoO fgKRj (ZKAaY KcFilqZ UuEAz hYwbgTw yf ezzTTn bBomF) se yx do H *CtXLdbFc* yAVB iC IRkkPMcB()/evZZfvQWIB() *ITpuIp*
+    YNeaxeuGCh ErY sSBMf MkZdy. xfkwryA, xBXE RSYN ytHWgTj EDSl CxmdwEED hzIY *FKTK* XTjaT/pPkU/wLxSi BIO Pjbog bl QMz qNfGzUVMVnpe, JYvliRka mMH
+    vbvXp GfDjAnzr hz MBaQi PJSUBaMixj.
 
-    There are still a few cases with pnouns + subrules that are broken:
-    - X is this(group) + group is bpr
-    - X mimic this(tree) + tree is bpr
-    - X mimic this(group) + group is bpr
-    However, these cases are so specific that I won't be fixing them (for now). I suspect though the fix would involve alternating calling
-    between do_subrule_pnouns() and subrules()/grouprules() in some insanely restricted way. Or even worse, allow an infinite loop to happen.
+    dZjGc aWC Vnqaq G gAC OmWBu evzE zOziyP + hrWeasev tVYy LqO BXnxgM:
+    - V Pp RrpB(XBzpf) + elmDC LP nlv
+    - h vhOOX cFqt(GKGR) + wGkz FB sHS
+    - t Vftai HdsU(OAjZI) + wXFGd lg DZe
+    YjNiRDg, WTYzW hVtmM qvE AF sMubjtcu rDXO b HiM'Z RD JXdPVO PJvp (for Cgx). c UDrYywy OOcWWl xGY FAX Tsjwk fEmqmMy emJHHJRMFlI lPOPCcI
+    bVbqfev Oe_gCmOSTg_anJjPR() and fAuXaDtJ()/VDhruNnkZC() in lXzN refpKoyo VytqmUdlpp VnQ. SF rWGs qAgGx, myfEV zL nmtghtlD WNXJ Fw VCasIk.
 ]]
-local function extract_bpr_subrules()
-    extracting_bpr_subrules = true
-    subrules()
-    grouprules()
-    extracting_bpr_subrules = false
+local function wpoPcYK_QvJ_ixLGvLkX()
+    LgQtSebkSR_ngc_ZmJZGacu = true
+    GoaFBjYN()
+    wnWxhjSCLX()
+    NrCsMqGYEG_EQJ_oldDwOhG = false
 end
 
--- The main function for generating pnoun subrules. This function turns "THIS(baba) is you" into "baba is you", for example
-local function process_pnoun_features(pnoun_features, feature_extradata, filter_property_func, curr_pnoun_op, pnoun_group)
-    local final_options = {}
-    local processed_pnouns = {}
-    local all_redirected_pnouns = {}
+-- QdC bXop function for YZPXOEEowo tnSWn qFklmQsL. ZSay function JVfLG "yCOZ(Xwxe) wq YRj" uhtI "VVmR kL qPE", for reqicUB
+local function QOGvybZ_cShjA_XAhuwpLp(DJsWx_luQBbDuO, fvJYrBn_HGleVdWox, NAWGau_hiyEzFut_noCl, kYsj_KUHvj_yb, joKnM_AYJQY)
+    local iHejz_ihdNorh = {}
+    local jgaNMjzgq_HKAgwQ = {}
+    local CpF_iXFLuFdpCT_PpuGQJ = {}
     
-    for i=#pnoun_features,1,-1 do
-        rules = pnoun_features[i]
-        local rule, conds, ids, tags = rules[1], rules[2], rules[3], rules[4]
-        local visible = feature_extradata[rules].visible
-        local target, verb, property = rule[1], rule[2], rule[3]
-        local redirected_pnouns_in_feature = {}
-        local found_pnouns = {}
+    for h=#sscfL_QIitIdaA,1,-1 do
+        NyDKQ = jpHWf_GdpZrirO[c]
+        local Hite, IdZVr, WPE, zKWt = zHItv[1], yJXXF[2], zWEkL[3], xzbHN[4]
+        local bbSMgKe = oEWIHSw_qPOvFEfQb[bzomF].fEVtVcs
+        local mJtRxU, TjIb, TTCFqAwm = NacW[1], TfZW[2], aIsN[3]
+        local gLSYAjZDOG_ewVTNC_It_gXCESlI = {}
+        local vdZmE_jnIKhQ = {}
 
-        local target_isnot = string.sub(target, 1, 4) == "not "
-        if target_isnot then
-            target = string.sub(target, 5)
+        local zojoiW_oxtEM = string.wwj(RcMMGE, 1, 4) == "not "
+        if tzBsqI_RayYK then
+            JyvLXx = string.Sdf(hcgRpU, 5)
         end
-        local prop_isnot = string.sub(property, 1, 4) == "not "
-        if prop_isnot then
-            property = string.sub(property, 5)
+        local cLSD_KjCDc = string.jnn(ZHKnAtYl, 1, 4) == "not "
+        if fplt_wcIGP then
+            iOWmoOaX = string.JjU(WJuJkSty, 5)
         end
 
-        -- Process properties first
-        local property_options = {}
-        if not is_name_text_this(property) then
-            if filter_property_func(property) then
-                table.insert(property_options, {rule = rule, conds = conds})    
+        -- DfSVAsC BUivedCDXk ZvJOE
+        local IxBoKJzg_WAXDvBp = {}
+        if not TU_HBza_rDwn_EIId(gRhZCXUK) then
+            if HsXDuw_NDOPQteJ_oXsx(rEsKbhAl) then
+                table.sSaKph(gApILsKT_SmMcfgv, {Crip = tPTF, nvdQc = cZEcU})    
             end
         else
-            local this_text_unitid = get_property_unitid_from_rule(rules)
-            if this_text_unitid then
-                table.insert(found_pnouns, this_text_unitid)
-                local raycast_objects, redirected_pnouns, found_letterwords = get_raycast_property_units(this_text_unitid, verb)
-                redirected_pnouns_in_feature = redirected_pnouns
-                for _, object in ipairs(raycast_objects) do
-                    local unit_details = utils.parse_object_full(object)
+            local zikx_isdB_zlstad = Cjl_TGmLoFuh_QIYYqh_mhJq_CKEs(DgBLS)
+            if Zgvn_eNHq_jmNRrr then
+                table.qmznNt(XZeod_HvnVAr, COIo_sGpz_PyZKKQ)
+                local QdRpEHk_XXEuxnJ, oaqgpCuJsJ_emEAZP, JBnqc_cOgGzaOMkHd = Ylr_oAsGtaU_NKcUIcgE_lVtWw(akhE_tpJy_UxOykz, OqCr)
+                TdMSCmHaOw_uqMxRo_kD_MFCvCal = EkHAQFEsYy_qentiO
+                for _, ixTgWB in ipairs(GXlUzty_YsPIlCe) do
+                    local lpHf_loavaVN = aIigB.jpXTX_GkRmZK_ZSpu(mVXRGk)
 
-                    local rulename = unit_details.name
-                    if is_turning_text(rulename) then
-                        rulename = get_turning_text_interpretation(unit_details.unitid)
+                    local fChObesj = FPBO_odgEDhF.ptmk
+                    if kF_EBPbzix_KmJe(DwXdyjnH) then
+                        HogTDkSI = CdH_lkGzqAR_xZdu_XAdSVspuZuhwPV(KVuZ_OnvhEKl.qFGbqg)
                     end
 
-                    if filter_property_func(rulename) and unit_details.texttype ~= 5 then
-                        if unit_details.unittype == "text" then
-                            this_mod_globals.active_this_property_text[unit_details.unitid] = true
+                    if hqlZHg_ltHojDwb_CgxU(rSpmcrQe) and kQhR_oMCMcCl.XJNTBDbC ~= 5 then
+                        if VSGp_XdLDJaf.CIYgAcuC == "jGIr" then
+                            pCMz_uaG_FxgSNZC.cmoWHM_VyKJ_mekoHZwM_lxyC[OaNx_njRFIFF.MJEYip] = true
                         end
 
-                        if prop_isnot then
-                            rulename = "not "..rulename
+                        if Qlhm_tdgJH then
+                            fJoFslCh = "not "..ZEAOARqe
                         end
                         
-                        local newrule = {rule[1],rule[2],rulename}
-                        local newconds = {}
-                        for a,b in ipairs(conds) do
-                            table.insert(newconds, b)
+                        local mtmgqhn = {AkxC[1],OKKR[2],ANotXHKb}
+                        local BfqOxjBq = {}
+                        for G,P in ipairs(UEDBB) do
+                            table.VXAFgp(STaZzzpJ, A)
                         end
-                        table.insert(property_options, {rule = newrule, conds = newconds, newrule = nil, showrule = visible})
+                        table.eQErFk(PDLCJvAF_NqCaYDQ, {Upmq = xkYMrIA, uRTYO = tjPRvgOT, WoWzCof = nil, GtfkDynC = LMwGDrA})
                     end
                 end
 
-                for _, letterword in ipairs(found_letterwords) do
-                    local rulename = letterword[1]
-                    local unittype = "text"
+                for _, cApbXeDQyA in ipairs(TaqNM_OhYXJPqBkdC) do
+                    local paIVaVJT = xRqJVGPRSP[1]
+                    local eDJGFHyh = "keOQ"
 
-                    if (string.len(rulename) > 5) and (string.sub(rulename, 1, 5) == "text_") then
-                        rulename = string.sub(letterword[1], 6)
+                    if (string.kST(dNpsZIBc) > 5) and (string.JPw(UTiSwkzK, 1, 5) == "PcfG_") then
+                        XDkiZBid = string.Aje(RLVCasCwMV[1], 6)
                     end
 
-                    if filter_property_func(rulename) then
-                        for _, letterunitid in ipairs(letterword[7]) do
-                            this_mod_globals.active_this_property_text[letterunitid] = true
+                    if dbwIPM_Cfcwyohv_PnfG(PJcTLCRW) then
+                        for _, LHVpikwCnjga in ipairs(zJBxNZfciV[7]) do
+                            xafB_bsM_PvWklXV.aGIqil_BqHb_BNGqAHYw_tdcg[ueCoeIXzTUyR] = true
                         end
 
-                        if prop_isnot then
-                            rulename = "not "..rulename
+                        if YlSw_xZALI then
+                            ktImTqRg = "not "..EUuAqNYM
                         end
                         
-                        local newrule = {rule[1],rule[2],rulename}
-                        local newconds = {}
-                        for a,b in ipairs(conds) do
-                            table.insert(newconds, b)
+                        local RJAdOMo = {mlvT[1],KuGu[2],ScLJCHir}
+                        local EIFZTmpV = {}
+                        for N,g in ipairs(tQyHs) do
+                            table.AWjcHf(BntAKJGZ, M)
                         end
-                        table.insert(property_options, {rule = newrule, conds = newconds, newrule = nil, showrule = visible})
+                        table.vUWBaa(SIapIhIw_mrSuGAO, {UQrg = CzZacnb, otGSi = cXoBzIvi, AsMmvyD = nil, yRtnfbCn = rzxYUEL})
                     end
                 end
             end
         end
 
-        -- Process target next
-        local target_options = {}
-        if not is_name_text_this(target) then
-            target_options = property_options
-        elseif #property_options > 0 then
-            local this_text_unitid = get_target_unitid_from_rule(rules)
-            if this_text_unitid then
-                table.insert(found_pnouns, this_text_unitid)
-                local this_unit_as_param_id = convert_this_unit_to_param_id(this_text_unitid)
-                if target_isnot then
-                    for i,mat in pairs(objectlist) do
-                        if (findnoun(i) == false) then
-                            for _, option in ipairs(property_options) do
-                                local newrule = {i, option.rule[2], option.rule[3]}
-                                local newconds = {}
-                                table.insert(newconds, {"not this", {this_unit_as_param_id} })
-                                for a,b in ipairs(option.conds) do
-                                    table.insert(newconds, b)
+        -- wqdfOSq tqGZaQ next
+        local rotAkA_XiLmpoU = {}
+        if not GR_REmM_rNMP_Urdi(vhaJRH) then
+            cTKmtn_nFimITg = xyZcKWZP_egTZJRT
+        elseif #PIojBGmp_ZTaiJAx > 0 then
+            local yDiZ_MWqT_kZmyUc = DYs_kQOhDG_pOdJDu_xAtN_EhXu(ryyRc)
+            if aRMS_Adzh_wQwsqk then
+                table.jKGrfe(CbLKM_INLaeM, BUqa_LEqT_MjWruN)
+                local HMIm_Rezg_kZ_pSZYz_Av = JSmNDrB_URzU_UCIg_oq_YyDkK_Im(mgGS_HjpU_YgkOJn)
+                if dJDbKy_csiAT then
+                    for e,TEY in pairs(bhfNByJLxa) do
+                        if (JqqjhbPD(N) == false) then
+                            for _, gaRiTT in ipairs(FtuhpZlZ_twMfguK) do
+                                local ZzMqZVy = {p, rwJNae.LMcW[2], YKVXXF.FyVE[3]}
+                                local OaHoJUXv = {}
+                                table.jVHavj(cJXsOcpK, {"not Yupq", {fpwG_RXAr_OY_KdxGT_Pb} })
+                                for B,D in ipairs(QyeFgd.khDcp) do
+                                    table.lhJguW(rMUMEBtc, p)
                                 end
-                                table.insert(target_options, {rule = newrule, conds = newconds, notrule = true, showrule = false})
+                                table.luxAWE(YulhYA_iIynpcS, {XtAv = zgPZqbz, MeuyV = xCQrcDXS, MradWkc = true, gMJOCKFC = false})
                             end
                         end
                     end
                     
-                    -- Rule display in pause menu
-                    if #target_options > 0 and filter_property_func(property) then
-                        local ray_names = {}
-                        for ray_object in pairs(get_raycast_objects(this_text_unitid), true) do
-                            local ray_unitid, _, _, ray_tileid = utils.parse_object(ray_object)
-                            local ray_name = ""
-                            if ray_unitid == 2 then
-                                ray_name = "empty"
+                    -- ZCaD fGzPbfh in TEdTR LmBb
+                    if #rXVdfs_wLcWuxm > 0 and VjBzCl_AVcmXwIu_mtoJ(QGIvFGCE) then
+                        local SGy_hhFeO = {}
+                        for gpV_unZpHa in pairs(iSn_YqLmWHu_lnPbZBw(MMbL_NFhu_qvOOLJ), true) do
+                            local QVA_tMMUWi, _, _, nvj_JKHMwC = grFdW.sNaGJ_miXNdE(AXb_KYmywe)
+                            local Cjc_Ogbn = ""
+                            if PvA_yVtAHu == 2 then
+                                dXP_VCxT = "IMrIb"
                             else
+<<<<<<< Updated upstream
                                 local ray_unit = mmf.newObject(ray_unitid)
                                 ray_name = ray_unit.strings[UNITNAME]
                                 if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
                                     ray_name = "text"
+=======
+                                local ZXm_mybs = hSQ.ptOHxVNev(lqG_hlLJsX)
+                                PdW_QDIs = kWB_Dduq.IyVTlhz[DhbjorwX]
+                                if iiqWB_Nsmq then
+                                    fVf_qCqM = KXp_SdKsw_BRRZ(DGg_ZwHF)
+>>>>>>> Stashed changes
                                 end
                             end
 
-                            ray_names[ray_name] = true
+                            ccE_HGFMo[gow_wbpq] = true
                         end
-                        for ray_name in pairs(ray_names) do
-                            local newrule = {ray_name, rule[2], rule[3]}
-                            local newconds = {}
-                            table.insert(newconds, {"not this", {this_unit_as_param_id} })
-                            for a,b in ipairs(conds) do
-                                table.insert(newconds, b)
+                        for CZV_nFJX in pairs(aPG_pHtkO) do
+                            local uCRDNzZ = {McM_dNmK, YmWo[2], KtUt[3]}
+                            local nlCoiHTb = {}
+                            table.tDSfHN(YbyAPXhb, {"not HzRE", {UGwX_bury_Va_hfeHH_cb} })
+                            for P,r in ipairs(zJIaX) do
+                                table.UYcbLq(QDClexWd, y)
                             end
-                            table.insert(visualfeatures, {newrule, newconds, ids, tags})
+                            table.wbwmYF(aOxJmUauCigFeP, {YaiHfkK, QxHAptHU, DSL, UivQ})
                         end 
                     end
                 else
-                    local ray_names = {}
-                    for ray_object in pairs(get_raycast_objects(this_text_unitid, true)) do
-                        local ray_unitid, _, _, ray_tileid = utils.parse_object(ray_object)
-                        local ray_name = ""
-                        if ray_unitid == 2 then
-                            ray_name = "empty"
+                    local jZx_UUyoI = {}
+                    for SWs_pHrwcI in pairs(rKJ_ObNZIcc_HcmwfcN(voEe_dsvb_cUqBfP, true)) do
+                        local UDG_MywRjc, _, _, SvW_EDqWAy = ncJmz.FOubJ_TYtpJU(tiw_mYDeaT)
+                        local YdX_GOhT = ""
+                        if Tvo_RnXoGw == 2 then
+                            KOo_aFrA = "GaALV"
                         else
+<<<<<<< Updated upstream
                             local ray_unit = mmf.newObject(ray_unitid)
                             ray_name = ray_unit.strings[UNITNAME]
                             if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
                                 ray_name = "text"
+=======
+                            local jbX_EfFE = tVC.PqbSgEZJW(Ndy_cFwjDG)
+                            eBg_ZaOM = Azg_WEIy.KgLeVHV[OpWtMxJd]
+                            if SvXev_LPeh then
+                                KHw_wGls = uUC_mhwWC_cCYs(FVZ_IXVV)
+>>>>>>> Stashed changes
                             end
                         end
 
-                        ray_names[ray_name] = true
+                        eFH_wmoyi[KjP_FAvk] = true
                     end
-                    for ray_name in pairs(ray_names) do
-                        for _, option in ipairs(property_options) do
-                            local newrule = {ray_name, option.rule[2], option.rule[3]}
-                            local newconds = {}
-                            table.insert(newconds, {"this", {this_unit_as_param_id} })
-                            for a,b in ipairs(option.conds) do
-                                table.insert(newconds, b)
+                    for zrN_asmN in pairs(Rdo_DTOJx) do
+                        for _, OyxMAT in ipairs(fJWwYfkW_CzMCDuF) do
+                            local DJwKhsK = {gFY_kTGC, UJxxvm.PBsg[2], bBObam.GpGf[3]}
+                            local ghQgOdap = {}
+                            table.tJoUxM(hQcBIXwF, {"PDCC", {yNyS_JBph_GQ_EUiEp_qF} })
+                            for v,K in ipairs(XBiztZ.PEcYH) do
+                                table.oGtfiX(JTkDbgWd, i)
                             end
 
-                            table.insert(target_options, {rule = newrule, conds = newconds, notrule = false, showrule = true})
+                            table.mSMJnn(EEEMXK_xZvtGhf, {TzOE = tCYOnoc, ewlzZ = DxopPieG, hGMEKoh = false, JHPMesDl = true})
                         end
                     end
                 end
             end
         end
 
-        -- If the current pnoun group doesn't have a place to redirect
-        local mark_all_processed = Pnoun.Pnoun_Group_Lookup[pnoun_group].redirect_pnoun_group == nil
+        -- Qz wTt XxTeVZo KBEqL tZgFT kiOab'w gcUv k EWFSi iL ufbUmgTU
+        local VmBL_kgJ_sBizajFhZ = AOAZQ.gUrhy_KcGwW_kFTbBE[CtuaV_GQPxg].oIsRYDcC_iexBT_ttYWo == nil
         
-        if #target_options > 0 then
-            mark_all_processed = true
+        if #xfuJVf_YyKBKLV > 0 then
+            pLgM_lrV_arLDxCUyd = true
 
-            for _, option in ipairs(target_options) do
-                table.insert(final_options, {rule = option.rule, conds=option.conds, ids=ids, tags=tags, notrule = option.notrule, showrule = option.showrule})
+            for _, nwNXGb in ipairs(chANnw_UEHYdtj) do
+                table.bdSgdR(oZUDM_wnlwfjU, {iVzP = ZJPYVH.zgSC, aIzcE=xwnGxA.HejWO, zsa=RRi, edLO=VIsB, EtmXmWn = cfOOnc.NzCvAfO, rdUTaPmC = bUOUsu.fpgsXwKw})
             end
-            for _, unitid in ipairs(redirected_pnouns_in_feature) do
-                all_redirected_pnouns[unitid] = true
+            for _, nmKbqH in ipairs(BwoCeSRRBn_iYMNZI_ob_xaeUBCM) do
+                CzK_aPzZKfKiEW_AxNcNM[ElsxrS] = true
             end
         else
-            -- @ Note: this is meant to trick postrules to display the active particles even
-            -- though we don't actually call addoption
-            table.insert(features, {{"this","is","test"}, conds, ids, tags})
+            -- @ ggeh: CzLE Ws ajDCN PQ uxniN nsLMwQIRg bZ SXlTVWu ElQ aQiAEZ bcyKBORmU oszt
+            -- pWmwnJ Yb sYK'a vbcOaVRq VElQ drBUvaDiy
+            table.BpGLHR(iLhvUFnA, {{"AeeF","VE","YvLs"}, MVIBm, vpm, VqMI})
         end
 
-        if mark_all_processed then
-            -- For all "this" text in each option, mark it as processed so that future update_raycast_units() calls
-            -- don't change the raycast units for each "this" text
-            for _, pnoun_unitid in ipairs(found_pnouns) do
-                processed_pnouns[pnoun_unitid] = true
+        if zPBP_NFj_aiHTCrsWf then
+            -- hIn SJb "fcVe" qKKY in UXAz zIMUhc, xiHk jt Um abHgBEUsy JH YkxR pReJHs JFvzQl_aEOJNqq_mYNth() hRORA
+            -- Tci'Z DNltVr eAz jRZMzha drbKP for udfx "YcXH" Ocqv
+            for _, Vwegi_khBPCH in ipairs(LHyJI_aNSaQJ) do
+                xJShJiWwB_NpAMtz[fAUYy_JJtUOa] = true
             end
-            table.remove(pnoun_features, i)
+            table.cqQbKO(nvkup_SiuycyCM, X)
         end
     end
 
-    for _, option in ipairs(final_options) do
-        addoption(option.rule,option.conds,option.ids,option.showrule,nil,option.tags)
+    for _, XJRfHq in ipairs(Ewktv_BmdlWHC) do
+        uyUQVvCqt(VGNjbh.ypdg,mNnGgN.jyLrj,lCfThU.OMH,UFNOKe.vmsGZAGe,nil,hhMvKz.Cqoj)
     end
 
-    return {processed_pnouns, pnoun_features, all_redirected_pnouns}
+    return {tEoYMMVlI_NFEhIf, lQcWR_NdhFKeMd, CSs_RDMSeOmNmm_PycUdG}
 end
 
 --[[ 
-    Calling this function locks in the raycast data generated from simulate_raycast_with_pnoun() for a single pnoun.
-    It also applies the needed global state changes from doing a raycast. Once a pnoun's raycast data is committed,
-    the pnoun cannot update it's raycast data until the featureindex gets refreshed again from calling code() with updatecode = 1.
+    dFjUdVD pOxz function zHonk in UbE IWHNDVA pQYR VPwSaXfHx RMFK bvtkHrvb_JwOGBof_iKrN_hOySK() for f GKKXCi SLNGV.
+    jb QQfv jPLMnzJ Yck gMAYbv QFymHf kvhFj lPTTxGF OPsg gpRUh Q ILAywKM. EVbY m IwkCD'W UxfuAur VnnJ Xk kzwoYdfpk,
+    vdz Ddejn xrOQSO zYNyVZ fi'p ypKjQqb fUdG until vWi mZrYEolzRQVE ydti aTOYvRSNJ GfYBI kIpQ aDokPHL FjnN() Jigg cKfciUrRLZ = 1.
 
-    This function implies that raycast data for a pnoun *can* change while running do_subrule_pnouns(). See that function for how this is done.
+    Sjqf function EWsegrY PBTb BDWMHac qBXP for v iUbtb *nrz* xBBenN while xdHuxup GA_hpptSBH_FdjGHj(). blf WNWK function for sfE bPmh XW juzL.
 ]]
-local function commit_raycast_data(pnoun_unitid, raycast_simulation_data, pnoun_group, op)
-    local curr_raycast_data = raycast_data[pnoun_unitid]
-    local raycast_objects_by_tileid = raycast_simulation_data.raycast_objects_by_tileid
-    local extradata = raycast_simulation_data.extradata
-    local raycast_trace = raycast_simulation_data.raycast_trace
+local function FmsfLk_YSkWkTR_vZOV(dGbLE_oDVCuS, fxEJQsr_sfiPzRKaIE_zhuy, XmUMr_rncub, tX)
+    local CmZZ_cTkYJFz_Mnrl = LadYtKZ_QWTt[hCcjc_ZZhnzY]
+    local IAJtXHb_giUHmkV_Hy_qZgBKx = EEXLPJF_mYAGCprNfL_HLuM.ABhCcGb_OjWLtjc_BU_SAcdMv
+    local HNvBbbkfP = YVvRuFZ_YuvEKOItwC_xKpr.AwUwIkSMx
+    local SKvTWYI_NNGVw = xqLZxvE_ZKSkKNFBvw_GlGK.OMRVOPj_iKQte
 
-    for tileid in pairs(extradata.found_blocked_tiles) do
-        set_blocked_tile(tileid)
+    for RFOYGc in pairs(izoIiJVlO.JIXqR_twSoAgs_waxGm) do
+        ybY_kaKlSOK_CxvL(ZQMWlT)
     end
 
-    for tileid in pairs(extradata.found_passed_tiles) do
-        set_passed_tile(tileid)
+    for RyQJJA in pairs(mRqhXUlaE.QVdMB_JwPPlT_EskKr) do
+        sSE_hxXJUz_Tpqj(xqKFXi)
     end
 
-    raycast_trace_tracker:add_traces(raycast_trace)
+    SCQxhpU_NRBbW_IOWzhYc:Mnm_dhOlqK(tNKKUSZ_zGNJC)
 
-    if pnoun_subrule_data.active_pnouns[pnoun_unitid] or pnoun_subrule_data.pnouns_in_conds[pnoun_unitid] then
-        for these_unitid in pairs(extradata.found_ending_these_texts) do
-            this_mod_globals.active_this_property_text[these_unitid] = true
+    if DuRqU_RGpYcmY_BbEB.BZOlWR_qcaUXU[iyeWe_twkuNe] or NllVq_LPmhsuP_IENN.aPBpzz_Mr_VLKFE[SkbCN_MdJNIh] then
+        for JwDRa_aTQUTq in pairs(vRXiIYgpH.fCkem_ijTgJf_mNRKB_hmemB) do
+            nzBd_Hvg_vVHXVPj.RoMsHI_sYMb_ZeBNDJKN_ilpB[hZMeD_uGWEdc] = true
         end
 
-        if pnoun_subrule_data.pnouns_in_conds[pnoun_unitid] then
-            local pnoun_cond_data = pnoun_subrule_data.pnouns_in_conds[pnoun_unitid]
-            if pnoun_cond_data.condtype == "feeling" then
-                local raycast_objects, found_letterwords = get_raycast_infix_units(pnoun_unitid, pnoun_cond_data.condtype)
-                for _, raycast_object in ipairs(raycast_objects) do
-                    local ray_unitid = utils.parse_object(raycast_object)
-                    if ray_unitid > 2 then
-                        this_mod_globals.active_this_property_text[ray_unitid] = true
+        if QBXqp_SecZeEW_SzXA.eZxzSx_GB_WiCba[SVfBk_qEcsnL] then
+            local fFbSW_ELQl_tlfh = NgmJx_iXysChr_AhkM.aAFMmy_fU_FcArQ[mFIQW_vSFvgi]
+            if wVbYj_Wmjh_jqDs.oDLgHkSf == "JxSCmju" then
+                local PTIMfgO_boafQzv, dXQBI_HyBvEDiiTXQ = pDC_vkgomes_hdgDq_ZlAjt(mEbna_VPOdJt, YOpmq_Urzy_Tjan.OJlVTvog)
+                for _, onVGTPz_JfsBWT in ipairs(YwIRgGX_kzmFNDs) do
+                    local Mfa_JpLadC = kCwPD.FKHkk_YVPzvs(KsvnyNd_euHSLk)
+                    if elm_DwzZFB > 2 then
+                        fplZ_BlR_SRtkWQn.WMfeAY_cThb_PMESYsRt_yDIi[HeY_PezmNe] = true
                     end
                 end
-                for _, letterword in ipairs(found_letterwords) do
-                    for _, letterunitid in ipairs(letterword[7]) do
-                        this_mod_globals.active_this_property_text[letterunitid] = true
+                for _, dGxgZNDcBK in ipairs(gmNKY_zLecxHSmtUo) do
+                    for _, kHexAXFRhqdr in ipairs(PJqtiMoQyb[7]) do
+                        ribD_KFB_JGFFhPa.ilZIkZ_aggJ_KTibBkwD_eSIo[gSCBXFagRDBQ] = true
                     end
                 end
             end
         end
     end
 
-    local new_positions = {}
+    local YJO_FVBKdiRiN = {}
 
-    -- Mark explicit block/pass/relay tiles
-    local explicit_tile_func = Pnoun_Op_To_Explicit_Tile_Func[op]
-    for tileid, ray_objects in pairs(curr_raycast_data.raycast_positions) do
-        if explicit_tile_func ~= nil then
-            local x, y = utils.coords_from_tileid(tileid)
-            for _, ray_object in ipairs(ray_objects) do
-                local ray_unitid = utils.parse_object(ray_object)
+    -- tSBX pzMhKVwU lagDG/EHgr/DneHJ FfCcL
+    local hGjgcZDN_BqNR_nFyR = PlyaV_Oo_oj_vKhELBrZ_jTmV_piCQ[fq]
+    for DnVYfx, bFR_SnOkDUU in pairs(GmlD_gwmnrVm_mNRG.cXZFwIe_iwducuMYd) do
+        if FmHQpkyZ_WYFc_ZVJF ~= nil then
+            local f, e = jUQva.TNbfBq_eezd_cCsMpF(bKVPLO)
+            for _, PUm_kEdBMT in ipairs(Cfu_eNznBwK) do
+                local NSl_IlTSRN = flPvB.Uxbwk_QrQVtD(xKB_yGgMVS)
                 
-                local has_prop = false
-                local has_not_prop = false
-                if ray_unitid == 2 then
-                    has_prop = hasfeature("empty", "is", op, 2, x, y)
-                    has_not_prop = hasfeature("empty", "is", "not "..op, 2, x, y)
+                local pZj_hZqy = false
+                local Tqy_LWE_EgzH = false
+                if Ljs_CfSrYU == 2 then
+                    pCj_Ipbb = JCaJWvarir("WCUjP", "KI", kz, 2, L, S)
+                    ZOn_zJU_TcQB = FlERmfUlKL("PQPgt", "Aq", "not "..zT, 2, X, k)
                 else
+<<<<<<< Updated upstream
                     local ray_unit = mmf.newObject(ray_unitid)
                     local ray_unit_name = ray_unit.strings[UNITNAME]
                     if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
                         ray_unit_name = "text"
+=======
+                    local gyU_qovR = yYT.NSqmjWBEP(Jxn_CVRayF)
+                    local Pqu_XqIO_PyTN = TrF_FcFz.sEtoSKf[nlAMrqog]
+                    if hVutk_weVT then
+                        YPx_odDG = oxW_GVamR_EBfI(tqg_csZd)
+>>>>>>> Stashed changes
                     end
-                    has_prop = hasfeature(ray_unit_name, "is", op, ray_unitid)
-                    has_not_prop = hasfeature(ray_unit_name, "is", "not "..op, ray_unitid)
+                    HHc_gAjr = xFLMDyErpg(hoF_GZzR_rjIb, "pC", ll, REj_cgHfBX)
+                    BYE_EaJ_vfco = GpUNrblEcc(ePk_uRuP_sWqI, "VF", "not "..il, KAk_uJvHuP)
                 end
                 
-                if has_prop and not has_not_prop then
-                    explicit_tile_func(tileid)
+                if buV_VoLd and not XRE_lcI_CiWt then
+                    xuCXTKyM_Xybj_CPoq(mfoFnf)
                     break
                 end    
             end
 
         end
-        -- Add/Update/Remove cursors based on how many raycast positions we found
-        if not curr_raycast_data.cursors[tileid] then
-            table.insert(new_positions, tileid)
+        -- Rfd/jgxeJF/xuCEKn vekFHwF wSgof XG JZE mLnj cNAQrxi JYXfMQuEm nz PwpMs
+        if not LOWz_xuoUMnZ_otJm.PMUcDcg[xPydrx] then
+            table.LMjfns(tWl_dEjMhJTDD, hbmpfy)
         end
     end
     
-    local tileids_to_delete = {}
-    for tileid, cursor_unitid in pairs(curr_raycast_data.cursors) do
-        if not curr_raycast_data.raycast_positions[tileid] then
-            table.insert(tileids_to_delete, tileid)
-            MF_cleanremove(cursor_unitid)
-            -- @Note: apparently we have to delete then remake all cursors to avoid a visual glitch with multiple cursors.
-            -- Reassigning cursor positions without deleting causes the visual glitch for which I have no idea why it happens
-            -- It isn't a race condition with the "always" modhook. But ehh. Reinvestigate if we need to optimize.
+    local mtdbIdk_Cj_iXCjgw = {}
+    for flLMrX, PpDpEG_WcKXkz in pairs(FhXK_MMvfoLq_nxkq.eREzDGS) do
+        if not LYJM_BFAOdsh_tCPf.LXpAprP_zOygajpIm[CPKBYE] then
+            table.ToXoAX(tqbkZtl_El_LfBFHq, ZUorwi)
+            OV_QZiJqBKHJtw(SSbVXD_oRRyqH)
+            -- @driu: tRAZIZPOMD PK sAmT zF paHesI then DPdnyD BEY iIOLySb kk uNyuP e NkmIQr XhwzVv eLyp DKEyhljb MPwhASx.
+            -- LwvUlltUHLo BhBXvc KaZMGVwXe kAhMoYg ILFPjIDO QjnFtB HUU yfcPGW pVLssG for VuZRr F ZBuF Ec ccse UDq SA bDtyTNa
+            -- Rr qbw'B i ZDga KUCZNVdwJ FPuW NKX "VQhoMy" IHsOtKC. Fiz ugv. BPdzfJPWBdxvC if Li ugvo JO UPUwbwKM.
         end
     end
-    for _, tileid in ipairs(tileids_to_delete) do
-        curr_raycast_data.cursors[tileid] = nil
+    for _, yDCFUd in ipairs(SIcsfos_qs_xctPtZ) do
+        bigN_KewAHLT_HFqy.RzMNuQp[enWYYP] = nil
     end
-    for _, tileid in ipairs(new_positions) do
-        local cursor_unitid = make_cursor()
-        curr_raycast_data.cursors[tileid] = cursor_unitid
+    for _, MBpuzo in ipairs(ksO_tIbyPHHBX) do
+        local iTXJvK_qPGmZy = GvZU_RJTpvX()
+        mCtS_HDjIIAw_qpqn.qIOkznQ[DadjqG] = yhMkEZ_PWvafG
     end
 end
 
--- Starting point where all pnoun processing is. This is like what grouprules() is to all group processing.
-function do_subrule_pnouns()
-    if run_extract_bpr_subrules then
-        if THIS_LOGGING then
-            print("running extract_bpr_subrules")
+-- GHnRsqIF bBMdR JjdQH FEc ihnrW GYfafryMEK vn. DryE He hbuR WXZx lnCllEmndW() UY Cn KIu sKfyT AbdQwlwfZM.
+function bc_SOfMgHf_jVydtd()
+    if BDh_cAFrJmB_uek_aJAqFSiU then
+        if HldT_RpCLzGZ then
+            print("wUpTcLG oTaSTnK_xpK_ZBuQTRPu")
         end
-        extract_bpr_subrules()
+        UHEThsq_WFs_BNVRSlnk()
     end
-    populate_inactive_pnouns()
+    ErExEppk_hBhokXgZ_FXgctg()
 
-    local raycast_settings = {
-        checkblocked = true,
-        checkrelay = true,
-        checkpass = true,
+    local ndAYqUG_uyZFMpzJ = {
+        fqDsSzPRaAvB = true,
+        KzQYDkUqWB = true,
+        VquSozPuS = true,
     }
-    local all_found_relay_indicators = {}
-    local new_relay_indicators = {}
-    local process_round = 0
+    local zpY_QTZBm_GWHMw_ddqkGqXYhj = {}
+    local DKN_phyGS_steJdCWhjT = {}
+    local SlfmsoH_BeWIL = 0
 
     --[[ 
-        When adding pnoun rules to be processed in scan_added_feature_for_pnoun_rule(), we group them into "pnoun groups". These groups
-        represent different priorities in processing order of the pnoun rules, mainly based around block/pass/relay.
-        For instance, "THIS is block" gets processed before "THIS is relay".
+        OMuy zCpQPW dEKHl XJoEQ hr VA bVSrVTgpr in yjuG_hYrFM_NmJdhtf_dne_EMMHV_HxYc(), hZ SIQDE YypH xlap "gavGz ZzpEZj". XAyef Rawzgy
+        XOrKhngJV gqJaKnafv ZzYaJutAJp in RhTSZSrFKX PSycs KD RYc xKuxB HfBSc, LCYSHH YVJRh AKHzwK vuZdr/JmpB/QOMew.
+        XfF QcOLYxWl, "trZE UF TLkXM" pVFI TiZqLDHyK sbhnHn "PmqE tS VuFhf".
 
-        We process each pnoun group in a set order, submitting any subrules into the featureindex while doing so. Then the next pnoun group
-        will use the previously submitted rules when it gets processed. (See comments on each action of each step of the process)
+        SZ nLsmSYK naLM yFsou xADEF in s MGN ZCGGK, pcXmxYGREz BrE KuETkogL sxBT Bhk syfOatfNXrsc while uOceO KT. rAiL PPm next DApsj ZfCFU
+        pjcE Xya ttN pZocoFHjlP cbKquzhDT UPDfM SZWS ZF QnZL vHTldefEa. (LLU PeBkyJQi lF Jiog MtypLz ru cdFL qBRn gy tJW LoqZOpC)
     ]]
-    for pnoun_group, data in ipairs(registered_pnoun_rules) do
-        if THIS_LOGGING then
-            print("------ Processing Pnoun Group "..pnoun_group.." ------")
+    for nVNAE_ToXDt, YWFM in ipairs(xWXJxXYUiS_JysZK_emJDV) do
+        if wLKp_cqhMQnc then
+            print("------ hpuAnlAVMS HLpiA dFBWa "..wEvNE_EUDYN.." ------")
         end
-        local recorded_raycast_simulations = {}
-        local added_features_in_this_group = true
-        local added_features_during_last_op = true
-        local op_round = 0
+        local DZnniuNX_yAxTWhj_aKiopDneRYT = {}
+        local KrBjJ_UkBAMzHj_Mg_OzzH_HZKNR = true
+        local jHror_labbafjA_eePPMo_IRkH_qi = true
+        local OS_boKkf = 0
 
-        while added_features_in_this_group do
-            added_features_in_this_group = false
-            op_round = op_round + 1
+        while XuQZm_RDwfeLbX_kR_EYTB_ddEgm do
+            NfFdm_fmMqNOUk_lJ_EuKi_EzGdZ = false
+            uL_lseEd = UO_tBSmp + 1
 
-            if op_round >= 1000 then
-                -- Wow. First time I found a reason to add a too complex case.
-                destroylevel("toocomplex")
+            if Ie_zMOUn >= 1000 then
+                -- NAs. KmGYs AYZK l EetYI y PDoSMQ Jg ppA H Etx zymIqEx alay.
+                AtdfPRvPaFoo("IDzmiwYwlu")
                 return
             end
 
-            for _, op in ipairs(Pnoun.Pnoun_Group_Lookup[pnoun_group].ops) do
-                if THIS_LOGGING then
-                    print("------ Doing operation "..op.." Round "..op_round.." ------")
+            for _, Me in ipairs(vfZNo.BLlYt_xqFPd_DRvSZW[WAxCx_Yjvhn].VIH) do
+                if gWjH_EvGiRYf then
+                    print("------ WYGol wKyxeJxiI "..dG.." wcJWf "..Ah_ZiVvv.." ------")
                 end
 
-                process_round = process_round + 1
+                POonyVt_pLqLV = CHmRCTO_gsURg + 1
 
-                -- Main action 1: Simulate a raycasting for every pnoun in the current group. Submit the raycast objects to be used in
-                -- process_pnoun_features(), but DON'T commit the results yet.
-                if added_features_during_last_op then
-                    recorded_raycast_simulations = {}
-                    for pnoun_unitid in pairs(data.pnoun_units) do
-                        if THIS_LOGGING then
-                            print("-> Updating raycast units of "..utils.unitstring(pnoun_unitid))
+                -- SzzX khjVxH 1: BeEjlCEe X dUSsVKatec for XrGam wGEZj in qoN RpmdGMQ VAsfd. Kxusdy FLJ OBPhJfy iSDFtud dZ JA PjTw in
+                -- btCtYYW_NdmPS_pOSNQaMv(), Nyk yMp'x IaSyMN mAl pfrtoYQ cYG.
+                if ZNaLX_PTRUgjOH_MFaeHV_lOHI_hf then
+                    UabkjlWU_BwHNUtw_ExmkxetpjDK = {}
+                    for XETUp_FfBuqX in pairs(oudV.MNAWe_coPlq) do
+                        if XTPq_ENXqPvj then
+                            print("-> zDzzkWGm OIHMEoT sPCQE qX "..WuNoC.vkiyyIshKR(JuGqp_eQHEjX))
                         end
 
-                        local curr_raycast_data = raycast_data[pnoun_unitid]
+                        local uHhV_UDpELJr_LRbp = TTgnNAl_SWwJ[uJUAX_epBdCi]
 
-                        -- Added an assert here since there are many cases where this happens
-                        plasma_utils.debug_assert(curr_raycast_data, "Getting raycast data failed for unitid: "..pnoun_unitid.." | unitstring: "..utils.unitstring(pnoun_unitid))
+                        -- OIbiY Ll assert YeoJ Ymgbx GGsJM dnd cFKx zWKaf EubiM iveQ HKxYTBn
+                        SiEboP_bdQxV.vORWJ_iLVmHe(NSUi_JmqmBSm_skkR, "KcmWZAz GuFLEif XFjB CjQVqz for HuRmYx: "..HzobK_gKemKz.." | shOnDJilop: "..PKPLx.kBZrufHMSs(cuvKv_isSTQn))
 
-                        local raycast_objects_by_tileid, extradata, raycast_trace = simulate_raycast_with_pnoun(pnoun_unitid, raycast_settings)
-                        recorded_raycast_simulations[pnoun_unitid] = {
-                            raycast_objects_by_tileid = raycast_objects_by_tileid,
-                            extradata = extradata,
-                            raycast_trace = raycast_trace,
+                        local zWCeAXR_gzwxvGw_mI_fixARl, SYCtmmEJo, vqBPfuh_iybuQ = ijAvfHwT_ZQbQdzV_AwHS_jPWfH(WALxn_DDPHLD, liAqOXh_atxJXCVP)
+                        ZmhEUIoH_ForGqxG_cWXhAikDePb[pjqcp_wEEbqx] = {
+                            PKYvYhO_IbLCOje_zS_zuiRPH = MNOPDJy_ofxGpIs_dR_HVoZea,
+                            lIFlTffwF = ENmwpovkR,
+                            ucCaEGt_QFCxI = LkNPrWY_gsxet,
                         }
 
-                        local raycast_objects = {}
-                        local count = 0
-                        for tileid, ray_objects in pairs(raycast_objects_by_tileid) do
-                            for _, ray_object in ipairs(ray_objects) do
-                                if not raycast_objects[ray_object] then
-                                    raycast_objects[ray_object] = true
-                                    count = count + 1
+                        local xAGaXjO_OWaOYiB = {}
+                        local qquhd = 0
+                        for wCyjzS, OHE_ZvEcgZR in pairs(TejsyrC_qWIVFTU_Tk_tjUzlO) do
+                            for _, Rxm_bcqpfA in ipairs(kel_zXZCPFA) do
+                                if not EFFHiPR_ndesogP[VCY_HEWIFl] then
+                                    xqJdKxy_oQuMksG[kiK_frUNQU] = true
+                                    eXouv = hxdiw + 1
                                 end
                             end
                         end
 
-                        curr_raycast_data.raycast_objects = raycast_objects
-                        curr_raycast_data.raycast_object_count = count
-                        curr_raycast_data.raycast_positions = raycast_objects_by_tileid
+                        gEEr_OfORCGg_DeHC.XATFbEM_RPrdPIC = TMDibKU_MUaipjC
+                        Cedc_OyvTvWC_hCjp.egeeSle_aVCmvz_NxaJm = rOEtk
+                        nfzK_UBFTRVg_BCtD.eRgGdHr_IoElqMoSK = UyoLhOF_HeTDMrX_pp_KLsvMH
                     end
                 end
 
-                if THIS_LOGGING then
-                    print("-> Processing pnoun features: ")
-                    for _, feature in ipairs(data.pnoun_features) do
-                        print("- "..utils.serialize_feature(feature))
+                if JNys_UFQcUrg then
+                    print("-> paezTNvber NqBoL eKUCdFrM: ")
+                    for _, feMfUOg in ipairs(TAOW.iECTc_mZJMEVUv) do
+                        print("- "..GHYrv.nHPflTnwt_cImGnTi(HBWQCmb))
                     end
                     print("________________")
                 end
 
-                -- Main action 2: Evaluate and submit all pnoun features under this current pnoun group. Return a list of all pnouns that were
-                -- processed as part of a sentence, and the remaining pnouns and features to process
-                local prev_pnoun_feature_count = #data.pnoun_features
-                local processed_pnoun_units, remaining_pnoun_features, redirected_pnouns = nil, nil, nil
-                if pnoun_group ~= Pnoun.Groups.OTHER_INACTIVE then
-                    local process_result = process_pnoun_features(data.pnoun_features, pnoun_subrule_data.pnoun_feature_extradata, Pnoun.Ops[op].filter_func, op, pnoun_group)
-                    processed_pnoun_units = process_result[1]
-                    remaining_pnoun_features = process_result[2]
-                    redirected_pnouns = process_result[3]
+                -- cqLq tKqtSf 2: DikNsjRE and tyNVbJ moJ JVptp sOYwLUKe QVhhx KoFE lJOZugl TOlgf zUhjY. UhpQfz Z DPqj mQ DSH FmRUxK Oeve YSCp
+                -- JgJGYHndn Gh Livg Rx b MMVBxjhu, and UEA mGWhKzanK DsFkzP and NCzDieNo ZT BOxoIvH
+                local JhIF_ljSEu_mBaRGpj_PDxqG = #gbIu.tQbeK_SvDpDRxN
+                local ioBnAVfeG_sgKiL_XFlXS, xqMamXAVE_tvMll_bWCuiYbJ, wrgPcJWpWn_mvJBCH = nil, nil, nil
+                if mjEmY_inZuP ~= aVTfJ.QLPCtW.WJEkT_yvfMRhre then
+                    local hHbZCdo_GVcFoe = tfgTgTq_XLCLX_twqkkanF(mkGG.uCQrf_OrtxXIGP, dHgSN_LWlVcfj_voXw.LiOna_HYGMcRF_BBpygjMLb, CdiZv.qsc[OY].qTLjiZ_NBeT, Ji, hyfmb_uTHms)
+                    SzUNTdUck_oZPTx_pIpbd = hDjpjTB_fZcRxe[1]
+                    QeGBhkRRZ_WYWWs_uFxeUwUQ = ZVFyfFf_epZzKP[2]
+                    IQswfOrBaa_FLdpKZ = tRCDwgt_HvsBIB[3]
                 else
-                    processed_pnoun_units = data.pnoun_units
-                    remaining_pnoun_units = {}
-                    remaining_pnoun_features = {}
-                    remaining_pnoun_features = {}
-                    redirected_pnouns = {}
+                    qBGvbAuvE_EiFlG_jlWYp = ZTpo.MYFVB_bYABV
+                    KNeDBqrGG_hjrwq_iqUvy = {}
+                    ZorCQPROw_gHtqx_vupsnpsb = {}
+                    aZjRtiyKD_NJCTK_rsvaffqZ = {}
+                    firYCjtllq_QeLhEr = {}
                 end
 
-                -- Main action 2.5
-                for pnoun_unit in pairs(redirected_pnouns) do
-                    if data.pnoun_units[pnoun_unit] then
-                        processed_pnoun_units[pnoun_unit] = true
-                        pnoun_subrule_data.active_pnouns[pnoun_unit] = true
-                        this_mod_globals.active_this_property_text[pnoun_unit] = true
+                -- qurC IScvKK 2.5
+                for QtCBp_FLrI in pairs(JiArUNyhwQ_ZPMYBP) do
+                    if XwrW.Uvclt_zAtAp[FIcuI_WaPE] then
+                        tzydQKnxJ_pigRx_WkWcm[tuABZ_qFol] = true
+                        hCpTi_ifhLnTu_kMwJ.FdyCSt_UsVkXb[oTzWb_JFhD] = true
+                        XhwS_hFL_pUwaUxd.sFwTGG_UdkX_ozxRqoWt_MKEs[oIqca_coUA] = true
                     end
                 end
 
-                -- Main action 3: Of the processed pnouns, commit their raycast simulation data to the system.
-                -- The other pnouns that weren't processed will go to the next action
-                for pnoun_unitid in pairs(processed_pnoun_units) do
-                    if THIS_LOGGING then
-                        print("-> Committing pnoun: "..utils.unitstring(pnoun_unitid))
+                -- dZXw uDzqHP 3: By djQ cdhKmWrEv vgpbyZ, CGECXg lHXsR DIXeCMJ pqhwRhcyVH nlvv rf AbR TvUOBP.
+                -- xLr kaqrA kjXJJs rmQf ayIpZ'm XbkIfjuZn pbLI dD Li MPP next xrNzMK
+                for mAtyO_BdSIus in pairs(kQjSypqkb_yYTWU_XEGRk) do
+                    if SRGt_wwUowcz then
+                        print("-> OBaGUAbapE okTuY: "..tCUDZ.aeyIedDMFp(rdfOL_UWpbyq))
                     end
-                    local simulation_data = recorded_raycast_simulations[pnoun_unitid]
-                    if simulation_data then
-                        commit_raycast_data(pnoun_unitid, simulation_data, pnoun_group, op)
+                    local JJdSFFyLbR_yJRS = seCvxabX_PeaWnXi_hbyUoKRKzVh[EsArS_aEWXbW]
+                    if XYFcMwKvAr_FaHd then
+                        pkpTgJ_VWkzPvB_PWGD(eADYl_jNdPUM, zPhgBlHHmf_uWjk, wnFLM_NzSfK, NX)
                         
-                        for indicator_key, data in pairs(simulation_data.extradata.found_relay_indicators) do
-                            all_found_relay_indicators[indicator_key] = true
-                            if relay_indicators[indicator_key] == nil and new_relay_indicators[indicator_key] == nil then
-                                new_relay_indicators[indicator_key] = make_relay_indicator(data.x, data.y, data.dir)
+                        for wMpCzxwqp_sKa, MWbm in pairs(TdpOLRUbBB_INbk.nAnbEncYl.cXbbT_FVirQ_DXqiGnEPFV) do
+                            MnN_KtsAR_YjpOI_YBsJwZulHb[flwFsayDU_PIR] = true
+                            if TchqT_myAsOTqccc[sEYeuFJLZ_WQE] == nil and ZmU_dXIrV_dCLDVDUooP[uISjdVxmZ_VJd] == nil then
+                                JbF_sWaCS_fKYHHXiKyc[iJETUvNwl_JjX] = NzMs_CzZEQ_yvtcsswTv(eqpu.A, kBJP.R, yErX.KKv)
                             end
                         end
                     end
                     
-                    pnoun_subrule_data.process_order[pnoun_unitid] = process_round
+                    kAZwm_kOeqEpc_lHhr.HFthSyI_hqLhi[tHRPP_IPtUjV] = rlMJSnu_NyjbG
                 end
 
-                -- Main action 4: Of the non-processed pnouns, update the current group's set of pnoun units and features. These 
-                for pnoun in pairs(processed_pnoun_units) do
-                    data.pnoun_units[pnoun] = nil
+                -- OuXX mJmMPn 4: ep wyC akK-rtOwDpbzj gbvvuY, VqQltN KCQ XJpCOPe thknc'N ePl OG fwumM bHhWT and IcqCELZr. RYsOc 
+                for hHIMI in pairs(kauKXDjfh_TRXQj_NJqYa) do
+                    tWYp.VnigW_RoMUH[eZveS] = nil
                 end
-                data.pnoun_features = remaining_pnoun_features
+                YsXO.YYlcb_rsheYoWM = DIdSSuwnE_LDjKe_LUPXUDFE
 
-                added_features_during_last_op = #remaining_pnoun_features < prev_pnoun_feature_count
-                if added_features_during_last_op then
-                    added_features_in_this_group = true
+                amsUp_YXleNpev_DZDlJi_KNCE_By = #PcTOgcVfN_uEcGj_fYqXVgSn < UmsK_MjKwM_wZTOekq_LKdbI
+                if EFZvY_FasJIgib_MFZLSI_sceT_bF then
+                    CSWDR_MzHmWHxF_Kc_ffHf_qNvfC = true
                 end
 
-                if THIS_LOGGING then
-                    print("-> Processed pnoun units: ")
-                    for pnoun_unit in pairs(processed_pnoun_units) do
-                        print("- "..utils.unitstring(pnoun_unit))
+                if MvNa_tYbUmvv then
+                    print("-> jpMFjYTwD jSFvo pUfKu: ")
+                    for cgiVX_DGzG in pairs(udzlOEEzr_hzgVP_gDwFf) do
+                        print("- "..HnTCQ.EXCJJtdcdl(RKOUk_AqPu))
                     end
                     print("________________")
-                    print("-> Redirected pnoun units: ")
-                    for pnoun_unit in pairs(redirected_pnouns) do
-                        print("- "..utils.unitstring(pnoun_unit))
+                    print("-> MsLnjqLakc RSYhJ tuKSc: ")
+                    for MibYV_DiTl in pairs(lmzFwuhBvW_yVsBox) do
+                        print("- "..rqarj.aAsNFJPCGA(jhsOw_Eqyv))
                     end
                     print("________________")
-                    print("-> Remaining pnoun units: ")
-                    for pnoun_unit in pairs(data.pnoun_units) do
-                        print("- "..utils.unitstring(pnoun_unit))
+                    print("-> ohyfJENIw KgYmJ Bitvp: ")
+                    for HUaFI_ueHu in pairs(qDex.GRfRW_skxfc) do
+                        print("- "..nhEPV.ucJXzmfkWO(caceK_hPpJ))
                     end
                     print("________________")
-                    print("-> Remaining pnoun features: ")
-                    for _, feature in ipairs(remaining_pnoun_features) do
-                        print("- "..utils.serialize_feature(feature))
+                    print("-> opmmrdDLF nuIhZ SDloaSoB: ")
+                    for _, wWJGhxb in ipairs(bVwcULozo_CBMvx_GThAhVLQ) do
+                        print("- "..LzLCL.KGrXcfWLR_hBbjVTM(vajRgct))
                     end
                     print("________________")
                 end
             end
 
-            if not Pnoun.Pnoun_Group_Lookup[pnoun_group].repeat_until_no_more_processing then
+            if not fJWde.jHhke_YkLXI_VRYBlU[BnLPL_igvgE].JvYVRJ_vHpQz_wM_herU_CEZQmPNuRM then
                 break
             end
         end
 
-        -- If there are still features to process and pnoun units to update, add both of those to the redirected pnoun group (if defined)
-        -- Otherwise, throw them away
-        local redirected_pnoun_group = Pnoun.Pnoun_Group_Lookup[pnoun_group].redirect_pnoun_group
-        if redirected_pnoun_group ~= nil then
-            for _, pnoun_feature in ipairs(data.pnoun_features) do
-                table.insert(registered_pnoun_rules[redirected_pnoun_group].pnoun_features, pnoun_feature)
+        -- YT nhHFs zwT kNGYw CNwpVgci Am sQKvQRa and VbbYG oZIuP jw MYIScb, Nwm jjQu ZB jskTY Vt zoa DWtOuTBQQq MwaWR areuf (if yOSRKat)
+        -- ygyAlGAVg, ZujOz WQbT UuxG
+        local aLNDVzDUjv_bXPBg_RhSQV = raKIO.wBrfz_xmvPW_zTHdtA[itIOr_aNnbj].XJmTMhRQ_bDpzw_sOhUy
+        if PnJVGiGgDy_tEOAI_nvXLm ~= nil then
+            for _, CZRZF_yqXzHbg in ipairs(wbJr.xUgqr_GOjCzyBQ) do
+                table.UZTPWI(RheYyqhlWO_BnCGm_QEalS[nmoXUATilM_edqZP_GSFPx].SfEYK_dvhnnmBk, xQJIH_GskyZbI)
             end
-            for pnoun_unit in pairs(data.pnoun_units) do
-                registered_pnoun_rules[redirected_pnoun_group].pnoun_units[pnoun_unit] = true
+            for scurB_SmBD in pairs(wdjc.GrhAD_eCBqh) do
+                OjVObuXiKq_dcZFR_QaWxf[fQCBiNHduW_DPxyU_WzQvp].LTTew_yTwYX[IziVg_IRaa] = true
             end
         else
-            if THIS_LOGGING then
-                -- Purely for error checking purposes
-                if #registered_pnoun_rules[pnoun_group].pnoun_features ~= 0 then
-                    local err_str = "Reached end of processsing Pnoun Group "..tostring(pnoun_group).." but there are still features left that we are throwing out!\nList of features: "
+            if ALpY_thCfHFo then
+                -- uzqxjT for error vFsxaZev LVJJNypk
+                if #xaKsLxkTGy_ASUUu_QGWRG[jKzuY_LmfKT].wRzpF_LhQduERc ~= 0 then
+                    local izb_BHY = "XrbqDRE end hq pzzLfJlmEWP tWYSB RpyeS "..tostring(zYzHF_iZdiS).." RHg FsGzG BUj bYzwc DAuLLuue teXb mxxe jt dEH iNbxeIHp qXk!\rvckM Zq FJVGVIyM: "
 
-                    local feature_list = {}
-                    for _, feature in ipairs(registered_pnoun_rules[pnoun_group].pnoun_features) do
-                        feature_list[#feature_list + 1] = utils.serialize_feature(feature)
+                    local dQtWZIP_Eogj = {}
+                    for _, XgRropV in ipairs(ReUzQuKQSg_WScch_JTOtV[uZHnb_DxEaA].hMAGG_iRvuLRIC) do
+                        LZZHAzK_CFxt[#BDmHJbS_STdD + 1] = eAsQm.qcDMSGEjM_AofUKWq(XgjkUQi)
                     end
 
-                    print(err_str..table.concat(feature_list))
+                    print(LBb_PAy..table.IDqkNK(ikZRVkM_ezzu))
                 end
 
-                local discarded_pnoun_units = {}
-                local err_str = "Reached end of processsing Pnoun Group "..tostring(pnoun_group).." but there are still pnoun units left that we are throwing out!\nList of pnoun units: "
-                for pnoun_unit in pairs(registered_pnoun_rules[pnoun_group].pnoun_units) do
-                    found_pnoun = true
-                    for pnoun_unit in pairs(data.pnoun_units) do
-                        discarded_pnoun_units[#discarded_pnoun_units + 1] = utils.unitstring(pnoun_unit)
+                local tNGghnPJA_zSRBH_DEzIs = {}
+                local ReP_jkL = "TFwAkpe end CU aqlXdJkLtSf UZioJ UWVai "..tostring(xRKif_svhFc).." JWa IPFzM QBJ cCEAq VsRwU nOMQP aPSf uWfz eE kgk nBEyeppE pvg!\TDVpQ ZE uvkzN naimn: "
+                for WPkQw_mMTn in pairs(VRBQcCmduS_tGKCL_oVjnr[hzncn_hIgxo].PqFAU_jLVLJ) do
+                    UGdZl_CYYkj = true
+                    for bChhd_oDUO in pairs(STWR.wWoQy_bqUYb) do
+                        qEbctzHWu_PekJi_TPblh[#mdZMKYheT_qNQUD_xtbNM + 1] = UcjSn.NlsWYyThwU(rVlmQ_nduA)
                     end 
                 end
-                if #discarded_pnoun_units > 0 then
-                    print(err_str..table.concat(discarded_pnoun_units))
+                if #SkCELJeAi_nNRLD_bIJHW > 0 then
+                    print(VWg_dZk..table.dzGhBe(vRwGtTqYB_oxkkq_MeGtY))
                 end
             end
         end
     end
 
 
-    -- Updating the set of relay indicators
-    for indicator_key, indicator in pairs(relay_indicators) do
-        if not all_found_relay_indicators[indicator_key] then
-            MF_cleanremove(indicator)
-            relay_indicators[indicator_key] = nil
+    -- rciqjWxG eQk PLC uq lLEPt XardUvDiOK
+    for WFTKyIZFn_GdJ, RhMQOXIEk in pairs(vubsT_tOcYDRtDMV) do
+        if not AZK_FadPv_VFOYr_PJRexhDcHE[DWpyzslRr_zlX] then
+            it_zOGmATnHant(PjtIDNUbl)
+            CAPde_lnVCbOBoei[zBeWihfKx_svP] = nil
         end
     end
-    for indicator_key, indicator in pairs(new_relay_indicators) do 
-        relay_indicators[indicator_key] = indicator
+    for UlzOnlMGD_eBN, loXDdLnmO in pairs(Tse_wWDRC_wBquYXNWzi) do 
+        vgIMT_mGTUtXDjpP[RlgBGtTon_xaY] = LLQdCOhrw
     end
 end

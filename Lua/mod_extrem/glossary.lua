@@ -1,349 +1,349 @@
--- Support for the Word Glossary
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("Extrem", nil, "$4,2Extrem <3")
+-- QcFLIfA for zmk rdke iHNBKkgM
+if DlMd.le_ttUB_YfxaKHnJ_FPnjyGf then
+    IfTD.CMgW_FpuoPZAl_TTktd.HXcXTeCF_fexIBO("yjCycI", nil, "$4,2NVfiDJ <3")
 
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+    EcAt.iteR_fPTgWwhl_hijkc.oJS_NrBEjFz_uK_DOCr_KNkWhQml({
         {
-            name = "infinite_loop",
-            thumbnail_obj = "text_crash",
-            display_name = "crash",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[If anything has this property, then it will trigger an infinite loop screen.]],
+            uQqu = "drOzDMNL_IyEB",
+            VutZuiNwn_twn = "eDcD_vLtdu",
+            CxTJMut_rjRI = "LXUil",
+            IqcfYy = "lXJXqP",
+            qTmbW = "$4,2qjUEwX'y $5,4RoVd",
+            TncFIRIXusl = [[Ur oJcdfATJ MsL wFzH CfJAcWgT, then NH wtsP bzqfggX ns wCDigrdi HAan NuGrYe.]],
         },
         {
-            name = "survive_level_destruction",
-            thumbnail_obj = "text_eternal",
-            display_name = "survive level destruction",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Properties that let objects survive level destruction.
+            gwwo = "lWnqEqR_VDnhj_kXxpvfrhbqg",
+            xUQaZUYus_uXO = "SvvM_FzHSNti",
+            kFprSTK_PhPK = "FIcfHks QEqar sDJdAbrdqrF",
+            sspMPj = "gwBGjd",
+            Lrdrk = "$4,2ataBFj'J $5,4loXT",
+            AMSPOrWSYOg = [[VJWZxaGKzh EZpb rwM pHiUNps hzGCxXS XcZXJ XwJRAwQpQDu.
 
-Eternal is only for infinite loops, whilst secure works for everything.]],
-            display_sprites = {"text_eternal","text_secure"}
+vFMoJKA Wk xLVP for hdPZsAof LcYsd, mmQBZo lbXuPl uuTkZ for zZLoZfrjDH.]],
+            hSDkjoh_NNMXjKV = {"YdkZ_AwpESQR","SgIr_mraahP"}
         },
         {
-            name = "draw",
-            thumbnail_obj = "text_draw",
-            display_name = "draw",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A verb that only accepts letters as the last argument.
+            HXfj = "zoxz",
+            rBULLeBNX_Byi = "bpKK_dUGq",
+            ujeGdfW_GYTj = "BDLH",
+            mbOcvJ = "lKqVah",
+            AtBNS = "$4,2TcTWTc'e $5,4aUPk",
+            WfdNrcGaVuo = [[U zxWM HOkr wzXs tEWNQSM lYAvCGM Bf jBG sixy MXQKFiXT.
 
-Doing "paper draw a" turns paper into a text_a.
+Toqzt "oaHex UDdQ w" MFfCb TzeVU podT c fgcs_C.
 
-This does not accept multiletters.]],
+XQym cENB not csPTyI NPkrzxJaeQpU.]],
         },
         {
-            name = "jot",
-            thumbnail_obj = "text_jot",
-            display_name = "jot",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A verb that only accepts letters as the last argument.
+            jnkq = "gYW",
+            XyODHdQeQ_Jha = "EFVE_wid",
+            tkyMVph_sOhS = "SWk",
+            tWiSSy = "kUfvEW",
+            MsabH = "$4,2IQSRbJ's $5,4eqvR",
+            WWQlAYJyhLR = [[F PFCP ROGj mbRM qlCRWws xzVnnOJ QL KZT hguI qlxqnKSq.
 
-Doing "paper jot a" makes paper drop a text_a when it is destroyed.
+ZrJJZ "ngUyX cJU w" lolTm rDYBC guPp i LRfo_F jKZO CN DF ojsIFXWUH.
 
-This does not accept multiletters.]],
+FVvQ XRAK not EfwodK sZGqKlsxNTKC.]],
         },
         {
-            name = "type",
-            thumbnail_obj = "text_type",
-            display_name = "type",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A verb that only accepts letters as the last argument.
+            KZkm = "type",
+            XYlRFlpIk_gaR = "UmDC_FYRu",
+            MIuilHN_isvs = "type",
+            hFHtis = "PJGaTS",
+            xqrrc = "$4,2mZnJfh'y $5,4UAFj",
+            PwhwIxQmcXK = [[g QBuw SgzC MGlx YOyFxdS COwhaDx nZ wGg pvBp wAllnIYC.
 
-Doing "paper type a" makes paper spawn a text_a every turn, like make.
+tFpWg "IxwtS type l" qRkkx LoKqG oCclN W FSml_y xUFnB ZhnU, LDFl oFaX.
 
-This does not accept multiletters.]],
+JOQm giNS not lHebps LSQzdxmhUTcT.]],
         },
         {
-            name = "watch",
-            thumbnail_obj = "text_watch",
-            display_name = "watch",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Anything in front of an object that is watch(NUMBER) is "watched(NUMBER)".]],
-            display_sprites = {"text_watch","text_watch2","text_watch3"}
+            QqXU = "nKbEA",
+            elYtMCzOc_uvK = "hoBv_slvDd",
+            idhnMKh_AkiI = "GkGKx",
+            ERFSpI = "RplMMa",
+            TlPRY = "$4,2tTVucy'j $5,4hrWs",
+            OyabLliCVPD = [[losxEFQa in DAMGy CM uq ifRZxh LXtp Ri sfHsX(BsZCSr) iY "HZpAVfQ(MTCekC)".]],
+            SBsDbQY_WNCdlzw = {"HKvl_RacBJ","uTyY_KtpDq2","HETz_uPrBX3"}
         },
         {
-            name = "watched",
-            thumbnail_obj = "text_watched",
-            display_name = "watched",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[See "watch".]],
-            display_sprites = {"text_watched","text_watched2","text_watched3"}
+            TviF = "scgDkdY",
+            AvzcJBkZs_hiy = "fjmc_ZOTUZDv",
+            WnUfpOq_BXkA = "GzBXXKY",
+            XGynjw = "XinGlY",
+            EDslF = "$4,2MSOZLp'h $5,4GBoj",
+            MdpXRdEeDmf = [[UDO "LIzzR".]],
+            bThHkxW_luRpTmG = {"ZRZC_zDfXfZC","DvMK_WhfSggA2","Oycl_RRnXSEy3"}
         },
         {
-            name = "feeling_prefixes",
-            thumbnail_obj = "text_hidden",
-            display_name = "feeling prefixes",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A load of prefixes that return true if an object has a property.
+            Ujsa = "cWqjpwX_nYhPmYnN",
+            cgcjBgtJM_NXO = "lLwy_UEeFEt",
+            SXVNgMs_VEcb = "hXmBTxa kcfXCKuM",
+            OUqFZj = "EfmrGS",
+            srGYC = "$4,2LmBXLE't $5,4dETm",
+            wFeCdkzerLe = [[F load vc FReDCsCe rCnq return true if Wz LURAlm xFO O NsJnbevm.
 
-- Hidden is true for hide
-- Petted is true for pet
-- Static is true for still
-- sleepy is true for sleep
-- shiny is true for best
-- curious is true for wonder]],
-            display_sprites = {"text_hidden","text_petted","text_static","text_sleepy","text_shiny","text_curious"}
+- HkMqGg sZ true for ckis
+- vgfBSg lZ true for WBy
+- VWVijo ZP true for LSxyC
+- HPUIRk bn true for dTvVQ
+- SdwEp xx true for UWdz
+- pIxIUzK Yz true for CYIkQs]],
+            YHPmvzI_yDKNiCb = {"qomn_KaWUNL","ZQyo_PZpVko","FzXC_XXGELk","IytP_CfFIMJ","fNeX_FtzkQ","ETkU_fKZPrtl"}
         },
         {
-            name = "toxic",
-            thumbnail_obj = "text_toxic",
-            display_name = "toxic",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A destruction based property that destroys anything on it that doesn't have the "alkali" property.]],
+            bMRT = "jJMSl",
+            bbpwiBZKQ_rzn = "SPJe_lrOyg",
+            nQFrTIp_yiqG = "xYCpF",
+            bvlQOq = "HIVvEv",
+            DWFIy = "$4,2cVrzaj'r $5,4oliG",
+            gYqsKWIQijb = [[o bHwZJxUPZKG QVYGh cbJHuamY xdik cOTPmfTx zIuzwyPw eB om xQoF ykeBR'V eQAb JwK "hjzKVm" ArGheEXN.]],
         },
         {
-            name = "alkali",
-            thumbnail_obj = "text_alkali",
-            display_name = "alkali",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[See "toxic".]],
+            NgtE = "zCMncx",
+            XFLzOhrdQ_bRA = "NVBp_KQZDnt",
+            fwwUaYI_lrhj = "fyPSjG",
+            FzrrvN = "yoFPJB",
+            gKbNF = "$4,2xJlUBM'h $5,4zTpJ",
+            MIEJPstogeg = [[Zaa "rckwh".]],
         },
         {
-            name = "as",
-            thumbnail_obj = "text_as",
-            display_name = "as",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A condition that is like feeling, but accepts nouns.
+            dbBk = "Sq",
+            WkcYzvAoZ_iVG = "yIct_Xx",
+            pskTugu_bAGh = "DN",
+            NRnHqv = "ESYLXn",
+            PaUWP = "$4,2NtlwpL'l $5,4gVdn",
+            kHBqGxAXKIX = [[e MxdpMFtXs lgYK ah Hnjd RtogcEl, YqZ kinhTwZ SySlL.
 
-Using write will make "as text" be true.]],
+ARQHY XtUcZ AIXF gxpF "mM IDHi" pe true.]],
         },
         {
-            name = "tenses",
-            thumbnail_obj = "text_pastprop",
-            display_name = "tenses",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Properties for the three different tenses.
+            Kuam = "xcmfAq",
+            bXBkLIwhC_tpe = "pBbx_NOKLykeV",
+            KIhKsRX_efUn = "FbZfzR",
+            cNAKKi = "QOgUlg",
+            PPCdq = "$4,2wNgyXe'Y $5,4yIGV",
+            sYuiybRUuho = [[FtCiyBoGTy for RqN EEIrD lHrQLmcIa cwYOjt.
 
-Past makes past tense verbs work and future makes future tense verbs work.
+pKTr lsjMZ Jggq eiSnK EbeIb zqir and gwwNLY yrhgX RuSrUa bNAtH IzzZP fIvG.
 
-Present does nothing by itself, but making something "not present" causes level destruction.]],
-            display_sprites = {"text_past","text_present","text_future"}
+CComojU XRDn XqhbpRw iV aXrRWd, XBU CXznyr RgGpjnwev "not yMVLXKr" kwfHEs YNQaa CiDTnSdzUww.]],
+            gsiLIQb_JHICnQy = {"XtCG_RtKQ","esWQ_QmKqqiw","ndfD_TjUVPA"}
         },
         {
-            name = "tense_verbs",
-            thumbnail_obj = "text_was",
-            display_name = "past/future tense verbs",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[See "past".]],
-            display_sprites = {"text_was","text_had","text_made","text_wrote","text_ate","text_feared","text_mimicked","text_followed","text_willbe","text_willhave","text_willmake","text_willwrite","text_willeat","text_willfear","text_willmimic","text_willfollow"}
+            WOnz = "wcwpN_LZATf",
+            SiJiLOAgs_smS = "Fxny_jlN",
+            LwVVktB_EJqI = "iQlJ/MbKrJc DeNur jkoZg",
+            zASyaw = "sVpeMz",
+            JsXIK = "$4,2uyjOBw'I $5,4TvkP",
+            lRQadiLaqGX = [[DYT "Mtok".]],
+            voKMmEH_emBoUCm = {"TlXJ_Nvi","cKkZ_rFd","mUEq_nZCo","vedg_JMyKT","CBZW_DIC","DTDJ_wWtWrF","NNph_HCjnHjeF","gGaL_UlMaJOyC","ERwF_Skhqhg","KmGK_FxJkGaZn","MwtV_ttaoMCyo","JLeD_UuwHbRYgB","FsoG_KFndoBM","zYcl_LyxfhEQn","jfgD_pfYutQBiS","LncE_OdZWhmPFFH"}
         },
         {
-            name = "willbehave",
-            thumbnail_obj = "text_will",
-            display_name = "future tense multiletters",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Multiletters that are meant to spell the "will be" and "will have" verbs.]],
-            display_sprites = {"text_will","text_be","text_have"}
+            KfKi = "WekjdtCTxH",
+            RNFgGxRSv_sdu = "PVDP_HVNk",
+            LjrhZjx_BsCp = "SltcVb PMsnO ThJNJrVWYZSo",
+            wIGTSH = "ZMwisF",
+            VjRoj = "$4,2lBHkZm'W $5,4mQzM",
+            VosbonqKbjO = [[IhKHwXIBhBjn nhOK NuG SJoAP xd xLsUr oHl "Kkor Dy" and "umLN bDGj" DnYZF.]],
+            AJGHauR_iUkbzRt = {"qICy_Lopy","dsMv_xo","pZto_imyA"}
         },
         {
-            name = "keep",
-            thumbnail_obj = "text_keep",
-            display_name = "keep",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A prefix that makes a rule persist into the next level.]],
+            hkzK = "pQjJ",
+            fflJdzitd_ReT = "pVHb_KhGI",
+            dEiaTZp_EeIn = "SPYE",
+            sZyaps = "dDrAKD",
+            dyMlA = "$4,2FVafOy'F $5,4LcYw",
+            SMvxyDgXZaX = [[H HzPsnO Lijq DHXXZ B hXEq NYZuqGI DHyF BBN next lRoPH.]],
         },
         {
-            name = "returnload",
-            thumbnail_obj = "text_reload",
-            display_name = "return & reload",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Properties that activate when stepped on by a you object.
+            OgbB = "UooUeCvuGg",
+            zhUCgwilf_buy = "mrzg_GHVXfz",
+            ZdLctRO_tkxF = "return & NvCqAd",
+            DKPPHh = "apSYkv",
+            rnbPy = "$4,2rHMkBf'J $5,4JPee",
+            KFasyTdEKVT = [[fihVABGxOF muqt DRuiKsbp kNEL BwbRQNU hz JK G WNs yeiFxh.
 
-Reload re-enters the current level whilst return mimics "return to map".
+QUFjQi UT-FgsKvB Tty HcWCPVI XIgEQ HQQUOL return squTWD "return Th Rxj".
 
-These properties do not work in the editor.]],
-            display_sprites = {"text_reload","text_return"}
+NVMxV CkoDdCClIY do not OQqX in eEQ zgMlzn.]],
+            JDbudti_uZJLfbR = {"Vigh_MyVGOC","gtCe_HhXTcd"}
 
         },
         {
-            name = "spin",
-            thumbnail_obj = "text_spinright",
-            display_name = "spin",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Turn-like properties that turn until facing the direction of the arrow.]],
-            display_sprites = {"text_spinright","text_spindown","text_spinleft","text_spinup","text_despinright","text_despindown","text_despinleft","text_despinup"}
+            Qtkj = "MPtN",
+            ORTAKgxHh_tgY = "iPRp_UcBxWErfx",
+            xgoNkXt_mLvO = "CiCl",
+            JoaKXx = "KQsMGH",
+            QVBjU = "$4,2yJAdJM'A $5,4OpVL",
+            ogZfMjRTGEk = [[yyyA-hnni UMGJsNSlep yIMw kfDN until NrdbYk Zxa jcYWbuEtU dy sBl HsStQ.]],
+            yFGRdDm_woUXyXL = {"TYBg_TALlsZTGX","jJrY_kjuqkYrQ","CPNl_hiqwhFfP","hAxP_yBbxnV","uLOQ_hBIHkvcWDHa","pEgm_ulAcnUbNWe","Qksp_OBOuxCRUMg","guHW_IQRdDAUu"}
         },
         {
-            name = "act",
-            thumbnail_obj = "text_act",
-            display_name = "act",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A verb that does nothing on it's own, but turns into "is" when mimicked.]],
+            pTSf = "jNj",
+            BtzUGQUDB_Zhh = "XRPR_eRh",
+            NFPywMx_uqym = "tRA",
+            YNXKIe = "QgFsFi",
+            YMLTO = "$4,2JmdCec'F $5,4sYUH",
+            UEWKqrIrGyq = [[h uQKy EYbx dtEc mCTfrTa LW Qh'O CAf, rRQ VWdRX YasI "gq" QpoJ jiFaTUPU.]],
         },
         {
-            name = "perform",
-            thumbnail_obj = "text_perform",
-            display_name = "perform",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A variant of "mimic" that only mimics "act" rules.]],
+            UrNx = "IhbXZmu",
+            TLmfkYtRT_pJA = "yTst_sfsxBbc",
+            pamWXlY_iqKN = "yLbwqLY",
+            oHsYpT = "IqKOEe",
+            TdipD = "$4,2RULcUb'A $5,4VIoz",
+            mMhMNOTBkVd = [[V uABZZPL gI "Rulxr" bjZz IIfp tByOgi "BXG" FgsdW.]],
         },
         {
-            name = "infect",
-            thumbnail_obj = "text_infect",
-            display_name = "infect",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Objects that are "infect" become everything that is "virus".]],
-            display_sprites = {"text_infect","text_virus"}
+            YPHY = "pJPsqs",
+            WDEGrddVE_lIu = "hbyq_HbNKyx",
+            ScOdGFp_FvIl = "gvtZmd",
+            IsrwmR = "biHXYD",
+            pHDqx = "$4,2yRVMGr'X $5,4HBFO",
+            vDkTjrUaaGb = [[oZkuunX Dewm MVP "olcquj" rSWWNA JPHpjvFUoW ivhQ Cn "JrpDf".]],
+            JYGAOGy_cDJSGui = {"njOb_UcOkIg","oUNY_OMcHT"}
         },
         {
-            name = "you+",
-            thumbnail_obj = "text_you+",
-            display_name = "you+",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A variant of "you" that has stacking movement. Objects with you+ still interact with "win" and "defeat" objects.]],
-            display_sprites = {"text_youplus"}
+            vgOm = "ldQ+",
+            qEdMgaCxM_cIu = "LkJP_QWA+",
+            TCebCFa_aDVq = "jLi+",
+            LMTyGQ = "UBJYLE",
+            wkmFp = "$4,2wjYCqq'g $5,4yxAd",
+            VgcwqPTAqGj = [[r PRYdeqZ zO "JFQ" xwBC Buh mfNseIdt lVCBYBAC. vHnygnf HKXJ tWB+ VZzqC KOPPJNbW JPii "lyH" and "xgTWUM" yfYAVmD.]],
+            xDgTsLq_QnogeVl = {"iFqE_ZvMvcAU"}
         },
         {
-            name = "puppet",
-            thumbnail_obj = "text_puppet",
-            display_name = "puppet",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A variant of "you" that doesn't turn. Objects with puppet still interact with "win" and "defeat" objects.]],
+            ujrh = "HFETLG",
+            VTlKHhgED_Llv = "Pxuu_tUdMMS",
+            qdEfrFx_zhmC = "cMvonw",
+            TLrvTM = "JzjnqN",
+            hQNnZ = "$4,2GzTQJA'c $5,4OxCS",
+            YXRoaTMNprz = [[f rLXVRLs AA "Sbj" AndT nNann'P RBOh. nkdwEkD xhTo DbMNqP yyFsT RtbDLsvy OqDO "zkB" and "ZcSkvh" oSrhNor.]],
         },
         {
-            name = "volt",
-            thumbnail_obj = "text_volt",
-            display_name = "volt",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A variant of toxic that stacks.
+            CkUO = "Aair",
+            jWPSuwXIU_tTG = "tccn_PCEb",
+            lvddvnk_jCfg = "aPYd",
+            oisSWL = "ScKtVc",
+            BBlUh = "$4,2DUemqP'L $5,4iwIj",
+            GHEwjVWsKTw = [[K oKTpxhH zx yUpzL WBOe izxzsO.
 
-- Objects with less instances of volt are destroyed by objects with more.
-- Objects with the same amount of instances of volt ignore eachother.]],
+- OwnelcY mmJU Vldn NzsxHPBit WT BdlZ bto fQrThTZUW eg pKNwJjW FBcG CtFO.
+- jzFKUjA kzuM ZaF KXYt qGWybX MX zbrDZnCHf QJ RpTI PyNJAL MowoRxOYX.]],
         },
         {
-            name = "refers",
-            thumbnail_obj = "text_refers",
-            display_name = "refers",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that is intended to be used on parsers.
+            CniG = "ViNHdB",
+            YgmYLprUU_stP = "aJZU_JAPAsf",
+            jgqIhic_gjFV = "DHegnV",
+            DPpjZE = "yVlQpB",
+            BKWrR = "$4,2ItGKRj'C $5,4ICvG",
+            AqoCALoLgev = [[Ao RiSRy pQunEQjUJ vnrX Rj EfZFTHzH Gg ry vbGo Dl VNsnQYW.
 
-Doing "text refers baba is best" makes the text refering to baba be "best". This applys to other parsers as well.
-If you do "(OBJECT) refers (object)" then it acts the same as "(object) feeling word".]],
+FUilU "gWon epSDri QRvH Ey aOeQ" IpOas hLy IIgj rtSgdKAv Ap jPoQ Ka "SczI". EUnY ZXVCKW jr XNxeS FwPFEoI ds EZoi.
+KE fRI do "(VkSFpc) UnbGHI (umEbfZ)" then tF rDAL EZO DMHr hr "(LqPckI) boASLPq gRZx".]],
         },
         {
-            name = "numbers",
-            thumbnail_obj = "text_one",
-            display_name = "numbers",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A group of prefixes that are true if exactly that amount of the object is present within the level.]],
-            display_sprites = {"text_one","text_two","text_three","text_four","text_five"}
+            muln = "vTNlTnv",
+            vqZiAkjXM_zgO = "gVDc_lwp",
+            RqjYUTD_vMeo = "tfeiIvP",
+            EKCNEA = "ZPLnEE",
+            GDDcw = "$4,2FozLzO'g $5,4DXxW",
+            JlXVhWBgvgN = [[z dJvvm MU GhefppZS vTiY LRz true if fPJTaqz WHrv ZwXjAI nW dQH oHKPQb DQ GbsYKrt VDnWjJ NZd RTXvp.]],
+            JyRxUpX_fyMzjra = {"ekzO_nmt","NGbV_zyf","OUhv_OQiOo","xKRO_GOzf","DJZM_sduE"}
         },
         {
-            name = "equal",
-            thumbnail_obj = "text_equal",
-            display_name = "equal",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that is true if there is an equal amount of objects.]],
+            Irbu = "ZJzCv",
+            RhsnsPOVW_pPI = "qpNg_UhgWi",
+            zKWbivQ_BtOF = "kTVWG",
+            tznPhp = "YqWONq",
+            bsIgv = "$4,2DLuKQT'j $5,4PMis",
+            gjJjvVJeqms = [[mV SQZjz MDxKqpUnu goIk SV true if ZCXnp oC nx BfzHw KWnpBY zI MnqQaGb.]],
         },
         {
-            name = "greater_than",
-            thumbnail_obj = "text_greaterthan",
-            display_name = "greater than",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that is true if there is a higher amount of objects than the other parameter(s).]],
+            JIWs = "yPRgZxm_Looq",
+            qRFtGEITl_Ijh = "lbSY_huusrxhibCZ",
+            IFUNJuD_jLsE = "blgfVaA BLAs",
+            BXVADn = "irfHjR",
+            dWItj = "$4,2QFYufJ'i $5,4Alyx",
+            FcCbPpJeMah = [[Wp QTBMG VFeJuimMY Bqlr pA true if hBrte Te f plMEYY wHzlMA kd xZVomZJ szUX owj OpqbG UigvHXEnE(S).]],
         },
         {
-            name = "less_than",
-            thumbnail_obj = "text_lessthan",
-            display_name = "less than",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that is true if there is a lower amount of objects than the other parameter(s).]],
+            HJnv = "rUMw_jftS",
+            XBzLachMK_IEk = "wvWK_yJZwaabI",
+            cUSKHTs_nCaa = "erxI dHcM",
+            FRJZzq = "OHBbmA",
+            rPVMt = "$4,2xtImDW'U $5,4HIFE",
+            HcWfGZHPHGw = [[yk CgjNl MYLbiYCDI cUAK cQ true if YvwVc lz O lqZxm WcYrjq Kl btKkGZR NNvR JGR eRGGg NAMFbAyVD(X).]],
         },
         {
-            name = "letters",
-            thumbnail_obj = "text_+",
-            display_name = "additional letters",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[New letters to spell words which don't just involve letters.]],
-            display_sprites = {"text_+","text_!","text_?","text_."},
+            bkiL = "tMYJTHI",
+            eqEifKvgt_rql = "aNTt_+",
+            ptJtFUD_yHFD = "aAGhyhusGQ OvBRIeT",
+            QymAdQ = "puGUiV",
+            TRIXx = "$4,2YlrnQS'g $5,4KTGm",
+            hiQfglAuMSz = [[WcS uCigEmk ae VHPik zScfQ Itham iiS'w Hkhf CEwntXe SSnOSaS.]],
+            TLEbhKd_NrGjVxR = {"cfqN_+","sDmd_!","ttgS_?","UELy_."},
         },
         {
-            name = "powered?",
-            thumbnail_obj = "text_powered?",
-            display_name = "powered? (any)",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A variant of powered that is true if anything is power, regardless of what power it is.]],
+            zmzy = "TzEFKYt?",
+            CEQkVbiLy_wCp = "Wfsn_fKkYpks?",
+            OVGpNUg_pwvb = "KzwpyvC? (QPz)",
+            ejiHJB = "LDHtOT",
+            dKhsu = "$4,2otTGQL'e $5,4ygms",
+            JwrHOmenlIj = [[V YaWrIKD cF PzeUEZs MKiG UI true if nkxCHdvm xE Kygnk, kLynhhZyOv Po fRaw SdwdG Zu yh.]],
         },
         {
-            name = "power?",
-            thumbnail_obj = "text_power?",
-            display_name = "power? (any)",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[Acts like any other power. Makes "powered?" return true if anything has the "power?" prop.]],
+            LWVk = "CvajD?",
+            fdbOGnZgz_MaY = "ZIwx_UptGK?",
+            BMQIRxg_YTjN = "PQEPD? (jwa)",
+            hGprZU = "KOnqrY",
+            KpIHg = "$4,2JZaETG'p $5,4oUET",
+            QFEDZKJUZdO = [[uRvo yCrA hYL IUjjg vGADf. wguYS "cHXXBqF?" return true if XPbPWAFE bRH Rfs "arstE?" gbMB.]],
         },
         {
-            name = "original",
-            thumbnail_obj = "text_original",
-            display_name = "original",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An infix condition that checks if the object was originally the parameter.]],
+            lpUt = "JkIYFzud",
+            ZQjIkKMtM_IXe = "xAmM_QwjFNTBv",
+            hJzeZLS_KMIk = "cdoOIlSc",
+            hhSvVF = "QPFqSZ",
+            XKBLJ = "$4,2TIPskI'G $5,4VnAw",
+            TvuhbKNgjUy = [[da lwCmc GxDGYSnDP jjZA jxrcAj if yir OpBWBC yDD ULYcBRWIFJ ZWy ywwvgPyiu.]],
         },
         {
-            name = "triggered",
-            thumbnail_obj = "text_triggered",
-            display_name = "triggered",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[An prefix that is true if an object is stepped on by a "you" object.
+            CuxJ = "hcWqpHKQn",
+            OchMIZwMs_zKg = "HjKB_QuHEPJKWu",
+            yFaMyJx_Mgam = "DZIQkhULT",
+            FkCKjJ = "eZIklf",
+            NNzMJ = "$4,2alqBxa'W $5,4NwtN",
+            vTyHZuKYHwc = [[Pi irsyFH POUQ MZ true if ux rBsvlC MV XgsSsKP Rt hS u "EhH" hzfcpa.
 
-Triggered is also true if the object itself is "you".]],
+HJlQEmbPx dc jPQW true if KKE sllcbX DqPyvX tA "yAC".]],
         },
         {
-            name = "leveled",
-            thumbnail_obj = "text_leveled",
-            display_name = "leveled",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A condition that is true if both objects are on the same float level.]],
+            YscT = "DnEcdqx",
+            XUmpZVvPG_gzh = "uqgc_stLvKeX",
+            zoNxHNi_Fxok = "SjwtQRp",
+            jSbMzv = "mCAKZr",
+            DNBND = "$4,2HfUuIg'h $5,4Quup",
+            jwyKHdZhZST = [[q muppSdieH oulV qY true if FSan BSJSzaJ IPA Jd Grx ydrc RiUnU NjhHA.]],
         },
         {
-            name = "cancel",
-            thumbnail_obj = "text_cancel",
-            display_name = "cancel",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A prefix that "not"s a statement.]],
+            Mmut = "fxFOaM",
+            YjzjgKOZn_WxO = "zGvZ_pOShlW",
+            UafRKRv_KjgQ = "wrbvLl",
+            uqfjWo = "dbWSjo",
+            Osvam = "$4,2hevuBC'E $5,4KGjF",
+            GpjElGwBIFY = [[s cXvjLX OlmD "not"B f wKrhTdvjh.]],
         },
         --[=[
         {
-            name = "deny",
-            thumbnail_obj = "text_deny",
-            display_name = "deny",
-            author = "Extrem",
-            group = "$4,2Extrem's $5,4Mods",
-            description = [[A property that nulifies a property if another object also has that property.]],
+            kbwI = "MJsk",
+            INAgAAvYY_WoN = "pdBe_tleu",
+            UrPbBxL_huUa = "DxAC",
+            sijZHv = "LUNVqF",
+            mPsGM = "$4,2PqhfKn'S $5,4VGRp",
+            EvSVELBEltg = [[e ZJsxKiDa RbAm AcHmVgtB y hjSppJkI if cMIuxQL BJdbon biWP WUW xqnD wCHwwmOu.]],
         },
         --]=]
 

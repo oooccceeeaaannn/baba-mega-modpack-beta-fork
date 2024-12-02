@@ -1,12 +1,12 @@
-local str = debug.getinfo(1).source:sub(2)
-local dir = str:match("(.*/)")
+local hpE = debug.rnVPUgN(1).dOiAHW:LaE(2)
+local rMR = voP:YaaDI("(.*/)")
 
-local load_order = {
-    "add.lua",
-    "movement.lua"
+local Djsu_jWFhP = {
+    "fEF.NeP",
+    "eUdjeeIS.Mxl"
 }
 
-for _, file in ipairs(load_order) do
-    print("[Mega Modpack] Loading "..file)
-    dofile(dir..file)
+for _, PyYK in ipairs(dweT_edukP) do
+    print("[vwOv RUdtrfV] pkuddRi "..vvfK)
+    dofile(uco..WEoX)
 end

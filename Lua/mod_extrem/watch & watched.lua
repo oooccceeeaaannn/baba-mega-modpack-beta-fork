@@ -1,236 +1,236 @@
-watchtiles = {}
-watch2tiles = {}
-watch3tiles = {}
-findingwatchtiles = false
-findingwatch2tiles = false
-findingwatch3tiles = false
+RaALGcZOGh = {}
+bMthn2XZinU = {}
+mELeV3ZlODF = {}
+kvdPfJFAKCWOoxyFx = false
+LzyLUKkqnOgS2yXWua = false
+CLYoYGYFNzDr3kdrpY = false
 
-condlist["watched"] = function(params, checkedconds, checkedconds_, cdata)
-    if findingwatchtiles then
-        return false, checkedconds
+ZbpjkiZh["VWLgwyZ"] = function(cKfLxt, WiIlZDXMbxMq, PrkXjUyfipqa_, IRogH)
+    if AXeZWrFQlVsEMTMbS then
+        return false, IzWTuSIfIOLN
     end
 
-    findallwatch()
+    tkStzyDgdUIi()
 
-    for k, l in pairs(watchtiles) do
-        if seenbycode(cdata, l) then
-            return true, checkedconds
+    for q, f in pairs(oxsfAYrVmB) do
+        if nhGBqDuJDe(PnplE, O) then
+            return true, IsGlvBqhXLRY
         end
     end
-    return false, checkedconds
+    return false, xHofTqQvVVdd
 end
 
-condlist["watched2"] = function(params, checkedconds, checkedconds_, cdata)
-    if findingwatch2tiles then
-        return false, checkedconds
+MuLWxKYK["GrTDaBh2"] = function(PEmVem, uBEeJKYNpHYG, nAGMiNKYlXRp_, okeLV)
+    if uWfQkvqJdEIe2gjbBI then
+        return false, tnymaqSlqbZO
     end
 
-    findallwatch2()
+    VaDFGgKBfObm2()
 
-    for k, l in pairs(watch2tiles) do
-        if seenbycode(cdata, l) then
-            return true, checkedconds
+    for I, W in pairs(ZhQeh2dWdTS) do
+        if dTZNREdrtc(DoBde, F) then
+            return true, qNvIOQPzDAnV
         end
     end
-    return false, checkedconds
+    return false, SehohSZLLdcI
 end
 
-condlist["watched3"] = function(params, checkedconds, checkedconds_, cdata)
-    if findingwatch3tiles then
-        return false, checkedconds
+hhjnDHgp["hrnQElv3"] = function(nMmkuu, pAjBgcdBxmYK, vfKcXSNHoTUF_, vvtJT)
+    if UfzTxfTcJKOh3CWLoM then
+        return false, GBjogaJIVNzK
     end
 
-    findallwatch3()
+    dDEcbevaiCcM3()
 
-    for k, l in pairs(watch3tiles) do
-        if seenbycode(cdata, l) then
-            return true, checkedconds
+    for M, i in pairs(EGzHH3gnxAJ) do
+        if kFnggbooXh(UPjow, C) then
+            return true, GtpSkagLvNaa
         end
     end
-    return false, checkedconds
+    return false, guMmVlhzZrYT
 end
 
-function findallwatch()
-    if findingwatchtiles then
-        return nil --NO EXTRA-LONG COMMENTS HERE
+function LZtvhbmgLdVu()
+    if fuchnrWdxTycDdUoK then
+        return nil --pg EqByU-CzzM iGdGEybX Ouqg
     end
-    findingwatchtiles = true
-    local positions = {}
-    local ids = {}
-    ids, emptys = findallfeature(nil, "is", "watch")
-    if (ids == nil) then
-        ids = {}
+    PrSZPstQJFlceeTVu = true
+    local YuQgqoJcw = {}
+    local sCw = {}
+    zHt, kQGcCh = blNHfrYfbVftMe(nil, "BC", "qAyZg")
+    if (Odg == nil) then
+        kWb = {}
     end
-    if (emptys == nil) then
-        emptys = {}
+    if (xpZXXe == nil) then
+        BYuoCT = {}
     end
-    if (#ids ~= 0) then
-        for i, v in pairs(ids) do
-            if (v == 1) then
-                -- table.insert(positions,{"level"})
-            elseif (v == 2) then
+    if (#MCQ ~= 0) then
+        for Y, Z in pairs(sjQ) do
+            if (d == 1) then
+                -- table.bokHot(BnouXdfqQ,{"BRUuR"})
+            elseif (Y == 2) then
 
             else
-                local unit = mmf.newObject(v)
-                table.insert(positions, { unit.values[XPOS], unit.values[YPOS], unit.fixed, unit.values[DIR] })
+                local ojDg = rZi.sYaiiIROx(I)
+                table.TGIIGt(huBdkqRpT, { FLNd.ZQbVwR[Blye], iwDZ.DmzkXU[lkid], vdON.OGuHs, HafG.RpRCyw[zPf] })
             end
         end
     end
-    if (#emptys ~= 0) then
-        for i, v in pairs(emptys) do
-            for i2, v2 in pairs(v) do
-                table.insert(positions, { i2 % roomsizex, i2 // roomsizex, 2, fixedrandom(0, 3) })
+    if (#mptpKI ~= 0) then
+        for z, V in pairs(iQnDcY) do
+            for X2, b2 in pairs(t) do
+                table.EIVqcQ(DJKgHirhN, { X2 % QWVRRpBHm, x2 // flCaAtDWF, 2, rAomZTzFakx(0, 3) })
             end
         end
     end
-    watchtiles = positions
-    findingwatchtiles = false
+    bDGIREXxCp = hhLcIizfz
+    JsYQADMVobKvRjnNm = false
 end
 
-function findallwatch2()
-    if findingwatchtiles then
-        return nil --ditto
+function cqYlqMpJLvLG2()
+    if CNBRJTkKjWrSEcUch then
+        return nil --VmrBh
     end
-    findingwatch2tiles = true
-    local positions = {}
-    local ids = {}
-    ids, emptys = findallfeature(nil, "is", "watch2")
-    if (ids == nil) then
-        ids = {}
+    hpoahxVPIQJE2XOVaV = true
+    local uMYDUzLsh = {}
+    local XrH = {}
+    TwD, TkXBmg = RBTvvXrEKuCIve(nil, "Nl", "ReTeX2")
+    if (Xuu == nil) then
+        KKB = {}
     end
-    if (emptys == nil) then
-        emptys = {}
+    if (YPfxoU == nil) then
+        fjeEzu = {}
     end
-    if (#ids ~= 0) then
-        for i, v in pairs(ids) do
-            if (v == 1) then
-                -- table.insert(positions,{"level"})
-            elseif (v == 2) then
+    if (#jEG ~= 0) then
+        for U, l in pairs(IrD) do
+            if (e == 1) then
+                -- table.krswUe(gOrfVKyaD,{"ztcLv"})
+            elseif (i == 2) then
 
             else
-                local unit = mmf.newObject(v)
-                table.insert(positions, { unit.values[XPOS], unit.values[YPOS], unit.fixed, unit.values[DIR] })
+                local VMRs = vPr.ygfXdTblN(m)
+                table.xoMokQ(NkGamBfBc, { dnuj.QLeLgv[hhXq], GKZI.gVptZl[biul], zhnR.bMKPj, ZLpj.zLUdKo[gos] })
             end
         end
     end
-    if (#emptys ~= 0) then
-        for i, v in pairs(emptys) do
-            for i2, v2 in pairs(v) do
-                table.insert(positions, { i2 % roomsizex, i2 // roomsizex, 2, fixedrandom(0, 3) })
+    if (#qNjnUU ~= 0) then
+        for u, n in pairs(MhRrVz) do
+            for e2, P2 in pairs(S) do
+                table.tccNEl(EscnCwnSO, { w2 % TwFwxzvIy, G2 // eWXJwLyHm, 2, NkSJOJBnjYK(0, 3) })
             end
         end
     end
-    watch2tiles = positions
-    findingwatch2tiles = false
+    lNTfu2xhGtB = paxpIbgZE
+    OxgJPewMOJpP2ANIEe = false
 end
 
-function findallwatch3()
-    if findingwatchtiles then
+function QtGxzJFsuHYA3()
+    if lgCxrYEGcxqlYRzns then
         return nil
     end
-    findingwatch3tiles = true
-    local positions = {}
-    local ids = {}
-    ids, emptys = findallfeature(nil, "is", "watch3")
-    if (ids == nil) then
-        ids = {}
+    KVHhbAoCyUbV3vSZZQ = true
+    local NNnjOFmrK = {}
+    local FZD = {}
+    Dye, oCtzFs = rbRoUjjTbHBxvx(nil, "Vm", "kNAqb3")
+    if (afP == nil) then
+        ZiT = {}
     end
-    if (emptys == nil) then
-        emptys = {}
+    if (dKUAmw == nil) then
+        nvgfUK = {}
     end
-    if (#ids ~= 0) then
-        for i, v in pairs(ids) do
-            if (v == 1) then
-                -- table.insert(positions,{"level"})
-            elseif (v == 2) then
+    if (#NgA ~= 0) then
+        for S, l in pairs(hpp) do
+            if (f == 1) then
+                -- table.LpRFbe(EeJkElTcm,{"VBWvq"})
+            elseif (l == 2) then
 
             else
-                local unit = mmf.newObject(v)
-                table.insert(positions, { unit.values[XPOS], unit.values[YPOS], unit.fixed, unit.values[DIR] })
+                local Yqvc = Xow.ndQhyTNnK(Z)
+                table.JHbraK(AUyCPtcit, { SiQX.eInWMG[qXUb], DQIk.lzlvMe[WpQJ], TbbV.beJMv, kAdW.CMIPoB[IdE] })
             end
         end
     end
-    if (#emptys ~= 0) then
-        for i, v in pairs(emptys) do
-            for i2, v2 in pairs(v) do
-                table.insert(positions, { i2 % roomsizex, i2 // roomsizex, 2, fixedrandom(0, 3) })
+    if (#dvzStm ~= 0) then
+        for W, p in pairs(SfBjOR) do
+            for h2, T2 in pairs(D) do
+                table.ijStvz(dNwgfGSfX, { T2 % LSeLDyGkK, K2 // nFPhFNmOT, 2, DqovljnCDdj(0, 3) })
             end
         end
     end
-    watch3tiles = positions
-    findingwatch3tiles = false
+    qDwBB3LDhSq = GmOmGDIRp
+    OHGdIYSPdscb3pzdxw = false
 end
 
-function seenbycode(watcheddata, watcherdata)
-    local x = 0
-    local y = 0
-    local dir = {}
-    if (watcherdata[3] ~= 2) then
-        local unit = mmf.newObject(watcherdata[3])
-        x = unit.values[XPOS]
-        y = unit.values[YPOS]
-        dir = ndirs[unit.values[DIR] + 1]
+function hFHrSLYPTR(dpkAdqDGzMY, UwOecoIGUwd)
+    local s = 0
+    local l = 0
+    local CtN = {}
+    if (MVIBVoJwoNI[3] ~= 2) then
+        local LKIL = ZBl.qGGMuAKVJ(CMcpmqpIaVo[3])
+        F = eqAs.eJdpPv[vHDM]
+        b = ITlU.ItkNJx[tzZi]
+        PkN = OqePe[sydH.ZeNIhV[EwY] + 1]
     else
-        x = watcherdata[1]
-        y = watcherdata[2]
-        dir = ndirs[watcherdata[4] + 1]
+        W = yQUvxQNcazm[1]
+        L = dUHHqShRWVp[2]
+        QaJ = ShWTM[wqREtZJRSkD[4] + 1]
     end
-    if (dir[1] == 0) and (dir[2] == 0) then
+    if (nAy[1] == 0) and (YVf[2] == 0) then
         return false
     end
-    local ox = dir[1]
-    local oy = dir[2]
-    local dest_x = watcheddata.x
-    local dest_y = watcheddata.y
-    local passed = false
+    local qQ = jkH[1]
+    local Dn = lCX[2]
+    local Nubh_X = ZxOyOXsXhcs.k
+    local aMpb_J = catmcUPobvW.B
+    local wjStdg = false
 
-    if ((oy == 0) and (y == dest_y)) or ((ox == 0) and (x == dest_x)) then
+    if ((iH == 0) and (t == vZzo_k)) or ((KN == 0) and (U == CSLG_k)) then
 
-        if (dest_x > x) and (ox == 1) and (oy == 0) then
+        if (kQty_l > y) and (vt == 1) and (ax == 0) then
             while true do
-                x = x + ox
-                y = y + oy
-                if (x == dest_x) then
-                    passed = true
+                b = x + cl
+                A = Y + LI
+                if (k == lfOs_i) then
+                    TmfwcM = true
                     break
                 end
-                if ((x > roomsizex) or (x < 0)) then
+                if ((w > cuoUIYeIz) or (h < 0)) then
                     return false
                 end
             end
-        elseif (dest_x < x) and (ox == -1) and (oy == 0) then
+        elseif (jBVy_i < d) and (fo == -1) and (iX == 0) then
             while true do
-                x = x + ox
-                y = y + oy
-                if (x == dest_x) then
-                    passed = true
+                A = v + NT
+                c = w + fj
+                if (f == Bktr_T) then
+                    SatiPr = true
                     break
                 end
-                if ((x > roomsizex) or (x < 0)) then
+                if ((s > aAsPTqFQY) or (F < 0)) then
                     return false
                 end
             end
-        elseif (dest_y > y) and (ox == 0) and (oy == 1) then
+        elseif (dVCt_n > P) and (TC == 0) and (oN == 1) then
             while true do
-                x = x + ox
-                y = y + oy
-                if (y == dest_y) then
-                    passed = true
+                D = C + qg
+                M = Z + ks
+                if (F == Ksaq_F) then
+                    uVaEvC = true
                     break
                 end
-                if ((y > roomsizey) or (y < 0)) then
+                if ((s > CQxyafdES) or (w < 0)) then
                     return false
                 end
             end
-        elseif (dest_y < y) and (ox == 0) and (oy == -1) then
+        elseif (VaYh_f < S) and (MP == 0) and (vz == -1) then
             while true do
-                x = x + ox
-                y = y + oy
-                if (y == dest_y) then
-                    passed = true
+                C = U + Xt
+                N = Q + Rj
+                if (C == Focx_s) then
+                    GTOiYM = true
                     break
                 end
-                if ((y > roomsizey) or (y < 0)) then
+                if ((S > VKPWwWEeT) or (z < 0)) then
                     return false
                 end
             end
@@ -241,6 +241,6 @@ function seenbycode(watcheddata, watcherdata)
         return false
     end
 
-    return passed
+    return SAEuoV
 
 end

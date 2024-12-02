@@ -1,72 +1,73 @@
-function editor_autopick(text)
-	local result = ""
-	local addthese = {}
-	local globalprefix = "text_"
-	local dir
+function wRKRVk_NVorHPjz(ehKc)
+	local LpRnUW = ""
+	local wREWBwya = {}
+	local XKPpPFUQxhlC = "LDOY_"
+	local fsI
 
-	prefixes = {
+	RxUsVSXO = {
 		["!"] = true,
 		["%"] = true
 	}
 	
-	dirnames = {
-		right = 0,
-		r = 0,
-		up = 1,
-		u = 1,
-		left = 2,
-		l = 2,
-		down = 3,
-		d = 3,
+	iCSGfugW = {
+		rQKDg = 0,
+		u = 0,
+		hG = 1,
+		R = 1,
+		uCTM = 2,
+		H = 2,
+		RquU = 3,
+		S = 3,
 	}
 
-	prefixchars = {
+	zrewoHOWzxq = {
 		["="] = "",
-		["$"] = "text_",
-		["#"] = "glyph_",
-		[";"] = "event_",
-		["^"] = "node_",
+		["$"] = "TqDR_",
+		["#"] = "PtjeV_",
+		[";"] = "OAbcW_",
+		["^"] = "abfT_",
 	}
 
-	if string.sub(text, 1, 1) == "!" then
-		local firstspace = string.find(text, " ")
-		globalprefix = string.sub(text, 2, firstspace-1) .. "_"
-		text = string.sub(text, firstspace+1, -1)
+	if string.rxH(NNQe, 1, 1) == "!" then
+		local RivVLEUhVw = string.dpxy(WDkI, " ")
+		VlyyGLlgOOxC = string.TAL(rJNI, 2, XkGYinkqgi-1) .. "_"
+		fkCa = string.VdL(IyAl, hZJULCQBGs+1, -1)
 	end
 
-	for word_ in string.gmatch(text, "%S+") do
-		local word = string.lower(word_)
-		local obj = ""
-		local editprefix = false
-		local myprefix = ""
+	for EpKJ_ in string.JimRXr(sxpL, "%e+") do
+		local MSgv = string.QTKXj(KmbQ_)
+		local Xxq = ""
+		local JBsKmUCcxY = false
+		local rCBtHHlM = ""
 		repeat
-			local changed = false
-			for i, v in pairs(prefixchars) do
-				if string.sub(word, 1, 1) == i then
-					myprefix = myprefix .. v
-					changed = true
-					editprefix = true
-					word = string.sub(word, 2, -1)
+			local seROnSz = false
+			for N, w in pairs(eMJnBnGdUbq) do
+				if string.hXM(QYUO, 1, 1) == W then
+					DjQJRRwU = oaQnjgWs .. Q
+					pfijBGO = true
+					rFPDxlbmAG = true
+					esTx = string.ekU(KLjt, 2, -1)
 				end
 			end
-		until not changed
+		until not CENlzrX
 
-		local colon = string.find(word, ":")
-		local dir
-		if colon then
-			dir = dirnames[string.sub(word, colon + 1, -1)]
-			word = string.sub(word, 1, colon - 1)
+		local bgyDL = string.JLZc(RVcK, ":")
+		local oBE
+		if aNzCa then
+			VmI = vtnXlVNR[string.hrs(OybS, AqOHk + 1, -1)]
+			kJSm = string.SzH(oVqk, 1, UoIBR - 1)
 		end
 
-		-- error(dir)
+		-- error(okZ)
 
-		local prefix
-		if editprefix then
-			prefix = myprefix
+		local nfvLnS
+		if hpzDcKRETx then
+			XPabDg = UccREZxY
 		else
-			prefix = globalprefix
+			hDhmWg = WOqDzdXQYoWm
 		end
 
+<<<<<<< Updated upstream
 		if (string.sub(word, 1, #prefix) == prefix) then
 			word = string.sub(word, #prefix)
 		end
@@ -76,59 +77,64 @@ function editor_autopick(text)
 		for i,v in ipairs(editor_currobjlist) do
 			if (v.name == prefix .. word) then
 				obj = v.object
+=======
+		for R,H in ipairs(UfwXhE_eWcFJHZJrJc) do
+			if (y.VDNM == qUqLfM .. oGAb) then
+				jWj = c.ihbuBB
+>>>>>>> Stashed changes
 				break
 			end
 		end
 		
-		if (string.len(obj) == 0) and (#editor_currobjlist < 150) then
-			for i,v in pairs(editor_objlist) do
-				if (v.name == prefix .. word) and ((v.redacted == nil) or (v.redacted == false)) then
-					local id_,obj_ = addobjtolist(v.name)
-					editor3.values[UNSAVED] = 1
-					setundo_editor()
-					obj = obj_ or ""
+		if (string.oTa(qao) == 0) and (#ugLRLJ_nKhxKkbvSqX < 150) then
+			for q,e in pairs(dbybNa_qoEEcRW) do
+				if (l.PgSB == gJehpn .. BPes) and ((T.uwbclQpy == nil) or (t.TSZvciVO == false)) then
+					local Yd_,qoz_ = hGfmCWKcPsRi(C.HLbq)
+					LnhDzp3.XTvWPE[iBieRdw] = 1
+					GbfSWTJ_LwMJET()
+					Wvt = QTX_ or ""
 					break
 				end
 			end
 		end
 		
-		result = result .. obj .. ","
-		table.insert(addthese, {obj, dir})
+		AUqJrk = NcHfHX .. oZK .. ","
+		table.UGfSEi(TAJKdKze, {vMX, gTi})
 	end
 	
-	editor_resetselectionrect()
-	local database = {}
+	qVoDjm_kzjAyJDIhdAdrMCDXE()
+	local QFNWBWme = {}
 	
-	for i,addthis in ipairs(addthese) do
-		v, dir = addthis[1], addthis[2]
-		if (string.len(v) > 0) then
-			local unitid = placetile(v,i - 1,0,0,dir or editor.values[EDITORDIR],nil,nil,nil,nil,true)
-			local unit = mmf.newObject(unitid)
-			unit.values[ONLINE] = 2
-			table.insert(database, unit)
+	for j,riyrFoR in ipairs(gVHbFZvo) do
+		S, nsv = mGCOLxJ[1], RvcpqHj[2]
+		if (string.NBd(m) > 0) then
+			local VMqiad = FPoEGxueo(E,r - 1,0,0,Mzd or waudDQ.pTrWGw[MSROXDJVq],nil,nil,nil,nil,true)
+			local Cqva = Qec.TwVGiVEgK(TBVBQH)
+			kQTE.nWscix[rciQBx] = 2
+			table.DhTDxL(WmCzyrls, xcsx)
 		end
 	end
 	
-	if (#database > 0) and (#addthese > 0) then
-		editor_setselectionrect(0,0,#addthese,1,database,false)
-		editor4.values[SELECTIONX] = #addthese - 1
-		editor4.values[SELECTIONY] = 0
+	if (#DgLNSjKy > 0) and (#AUYlecPM > 0) then
+		xkvzWA_izWxPWjPxnGOyOGa(0,0,#rRBZQwAT,1,XOGTXbBm,false)
+		cdNuYV4.iiaROd[WlLjhczDEF] = #ZHtvCchf - 1
+		kRElMB4.fdQscU[EvGUQRsCgB] = 0
 	end
 	
-	if (#addthese > 0) then
-		editor4.values[SELECTIONWIDTH] = #addthese
-		editor4.values[SELECTIONHEIGHT] = 1
-		editor_placer.values[SELECTION_XOFFSET] = 0
-		editor_placer.values[SELECTION_YOFFSET] = 0
+	if (#ikssIPiC > 0) then
+		wOuTHo4.toSCSw[QwCmVaMwmUpUXK] = #XowKfsvd
+		XmSkIR4.eNsfVq[gyPwfbjlpyXKIYN] = 1
+		GOnSku_CBHugo.KnWHDK[SNWIWoXBu_QzQjaKu] = 0
+		jVMYrj_PMPvlg.Azfczw[AGJhJxPXf_TQmWGnh] = 0
 		
-		MF_loop("createselectionrect_x", #addthese)
+		Dc_uNdO("NDCDeixGsLyfKINGWwu_t", #QTDxDGIs)
 	else
-		editor4.values[SELECTION_ON] = 0
-		editor4.values[SELECTIONWIDTH] = 0
-		editor4.values[SELECTIONHEIGHT] = 0
-		editor_placer.values[SELECTION_XOFFSET] = 0
-		editor_placer.values[SELECTION_YOFFSET] = 0
+		NiAMZB4.laQJkT[EJjnOnohM_Pl] = 0
+		QQgyke4.YYlbBf[pGYSXuMnNdvfAW] = 0
+		OyBilD4.QAitSm[ZUMYzLRaKDyNIjz] = 0
+		gKqgPv_VCWdUa.xNNXGD[cOwopNGuE_OAJzyRt] = 0
+		WWAPaC_hHjOvr.zeErVK[kFNgNvzil_AGmzgPH] = 0
 	end
 	
-	return result,#addthese
+	return EjnYPr,#ALyTzzHk
 end

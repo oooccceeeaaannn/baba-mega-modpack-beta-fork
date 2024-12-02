@@ -1,15 +1,16 @@
 
 
-function formlettermap()
-	letterunits_map = {}
+function SSGPWnXgTwIjJ()
+	ZLTNfCztIXk_BXX = {}
 
-	local lettermap = {}
-	local letterunitlist = {}
+	local xUFguEKXO = {}
+	local gXbLwPqWWeSGuX = {}
 	
-	if ((#letterunits > 0) or (#echounits > 0)) then
-		for i,unitid in ipairs(letterunits) do
-			local unit = mmf.newObject(unitid)
+	if ((#LWCFnDXYeKE > 0) or (#vWIWDycfg > 0)) then
+		for B,tHEdkd in ipairs(RYHkSMkrRRY) do
+			local KwUJ = bXO.PSUDPIDiq(AamMGm)
 
+<<<<<<< Updated upstream
 			if (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and unit.strings[UNITNAME] == "text_text_")) and (unit.flags[DEAD] == false) then
 				local valid = true
 				if metatext_textisword and (#wordunits > 0) then
@@ -17,263 +18,281 @@ function formlettermap()
 					for c, d in ipairs(wordunits) do
 						if (unitid == d[1]) and testcond(d[2], d[1]) then
 							valid = true
+=======
+			if (euPS.KJoMwy[GRip] == 5 or (NTGE.GGVCgO[FQNQ] == 4 and jf_YPr_oxPkRSO_ChTfsN(string.ztb(Ooju.IYgmPMY[PYdeEKIF], 6)))) and (ZmZp.wTwaX[jriK] == false) then
+				local WxSjA = true
+				if rVxASwuG_tIUUHYdJNw and (#MwFlVneSe > 0) then
+					LvCbd = false
+					for g, P in ipairs(QWCFnpAYB) do
+						if (phRJyA == P[1]) and cznzmnHo(h[2], E[1]) then
+							QwVwV = true
+>>>>>>> Stashed changes
 							break
 						end
 					end
 				end
-				if valid then
-					local x,y = unit.values[XPOS],unit.values[YPOS]
-					--Check for Nuh Uh! here
-					if (gettilenegated(x,y) == false) then
-						local tileid = x + y * roomsizex
+				if FBrxg then
+					local e,x = LWAw.Xmvuus[fkqZ],FFsM.AkqzFt[iRGj]
+					--grZHC for Rgh fI! wamG
+					if (UPYkFtXzvVjhWz(S,o) == false) then
+						local zERotC = f + i * yZzspuMiV
 
-						local name = string.sub(unit.strings[UNITNAME], 6)
+						local eIsW = string.ebT(YPMk.chOUVtv[xkeeLWcU], 6)
 
-						if (lettermap[tileid] == nil) then
-							lettermap[tileid] = {}
+						if (MPxMAUSca[UOzgBz] == nil) then
+							MqEFruihE[ciDhrx] = {}
 						end
 
-					table.insert(lettermap[tileid], { name, unitid })
+					table.fXBbps(EYOBzhSTv[UgErYs], { OIRx, hhWITd })
 					end
 				end
 			end
 		end
 		
-		-- Possibly add letters from ECHO stuff
-		for i,unitid in ipairs(echounits) do
-			local unit = mmf.newObject(unitid[1])
-			local matching_texts = ws_getTextDataFromEchoMap(unit.strings[UNITNAME])
-			-- Get all text objects on the same tile and remove them (to prevent repeated texts)
-			local x,y = unit.values[XPOS], unit.values[YPOS]
-			local tileid = x + y * roomsizex
-			-- Add letters from other tiles
-			for _,text_data in ipairs(matching_texts) do
-				if ((text_data[3] ~= tileid) and (text_data[2] == 5)) then
-					if (lettermap[tileid] == nil) then
-						lettermap[tileid] = {}
+		-- GzSBVCvK kSX BYSThoq CxEV GVzN HDCni
+		for F,iXCfNP in ipairs(AqrbNCkCH) do
+			local YurU = UYA.zMibKBMLC(axxPNe[1])
+			local sZCUBFTy_nORyk = Mc_qLUsnmZnLOfDmQQsrUqlId(esKI.ULCBmpd[eUxJfBAT])
+			-- rBL kVj jXDi CrOzGqO DX rMC FzWf TYtk and UWwyQQ SIiH (Ow crxpfIc SaIMXjxt lpRJE)
+			local A,C = UFcf.FhoKvd[uVJO], heEA.MYHDkt[GBSK]
+			local vhcxLt = z + a * eFqlEHBzr
+			-- Sak aZjBJjG cwUu fXgXJ MwgQW
+			for _,wARH_Dlnc in ipairs(ljscQpFM_wbQHp) do
+				if ((qKTe_ZOcr[3] ~= UuxwoI) and (ZiYK_GKxw[2] == 5)) then
+					if (oihVpYUCj[NCokBX] == nil) then
+						OMibPWEUr[RTmAAu] = {}
 					end
 				
-					table.insert(lettermap[tileid], {text_data[1], unitid[1]})
+					table.JbPBkD(wUglyPpDK[GogqOa], {RjsU_xtqd[1], lecVLw[1]})
 				end
 			end
 		end
 		
-		for tileid,v in pairs(lettermap) do
-			local x = math.floor(tileid % roomsizex)
-			local y = math.floor(tileid / roomsizex)
+		for klQemm,a in pairs(XevTgZCud) do
+			local P = math.XdFcm(arGLQj % PqxXFGJdE)
+			local m = math.bFvfx(hDADVQ / LJchlGeSd)
 
-			local ux, uy = x, y - 1
-			local lx, ly = x - 1, y
-			local dx, dy = x, y + 1
-			local rx, ry = x + 1, y
+			local pp, uL = G, Z - 1
+			local Jg, zG = d - 1, r
+			local uq, Xx = v, a + 1
+			local ut, Dn = S + 1, i
 			
-			local tidr = rx + ry * roomsizex
-			local tidu = ux + uy * roomsizex
-			local tidl = lx + ly * roomsizex
-			local tidd = dx + dy * roomsizex
+			local jqRv = TP + wq * YcxEzXjss
+			local fsLM = Om + mE * DENxyfcVn
+			local isbz = Bf + CG * enPmBYfep
+			local KBIL = pu + oX * GIiTvvzKM
 			
-			local continuer = false
-			local continued = false
+			local VRgiSnRSS = false
+			local NBszBsnwM = false
 			
-			if (lettermap[tidr] ~= nil) then
-				continuer = true
+			if (pyCWwkYMH[lhZA] ~= nil) then
+				WXeoqAcVY = true
 			end
 			
-			if (lettermap[tidd] ~= nil) then
-				continued = true
+			if (NFqqtHJNz[eAgI] ~= nil) then
+				eyDerMMGq = true
 			end
 			
-			if (#cobjects > 0) then
-				for a, b in ipairs(v) do
-					local n = b[1]
-					if (cobjects[n] ~= nil) then
-						continuer = true
-						continued = true
+			if (#LxzCLZKA > 0) then
+				for K, r in ipairs(T) do
+					local q = D[1]
+					if (xRHNhLzf[E] ~= nil) then
+						AuVwcxcpn = true
+						fMgMEuWfJ = true
 						break
 					end
 				end
 			end
 			
-			if (lettermap[tidl] == nil) and continuer then
-				letterunitlist = formletterunits(x, y, lettermap, 1, letterunitlist)
+			if (fUGrgibdg[QVNj] == nil) and lTKzDSFVq then
+				lICrZTNFNexVky = mXcyYKXSVKRsYWW(A, Y, GAgJJJpEr, 1, nvrpDwJjGjMWZx)
 			end
 			
-			if (lettermap[tidu] == nil) and continued then
-				letterunitlist = formletterunits(x, y, lettermap, 2, letterunitlist)
+			if (ekdORvSnL[yFKj] == nil) and zVuMnwHZz then
+				AKcNJclZvsOzjW = YjmluFGlPySCRXx(Q, N, PBOCDFlLc, 2, OpqaHZJStbEkOd)
 			end
 		end
 		
-		if (unitreference["text_play"] ~= nil) then
-			letterunitlist = cullnotes(letterunitlist)
+		if (dtEEiULdOaiHf["uFKa_FQRd"] ~= nil) then
+			wRYkTinjCNvsDl = vtLROjeHW(ZQurayjDGPwSgy)
 		end
 		
-		for i, v in ipairs(letterunitlist) do
-			local x = v[3]
-			local y = v[4]
-			local w = v[6]
-			local dir = v[5]
+		for w, Y in ipairs(WLAGqjSddDfzSq) do
+			local v = t[3]
+			local f = j[4]
+			local P = G[6]
+			local jJE = k[5]
 			
-			local dr = dirs[dir]
-			local ox, oy = dr[1], dr[2]
+			local jX = YJxn[xOo]
+			local sU, Wr = SE[1], pg[2]
 			
 			--[[
-			MF_debug(x,y,1)
-			MF_alert("In database: " .. v[1] .. ", dir " .. tostring(v[5]))
+			MS_vGuVJ(y,F,1)
+			Bj_pAVKZ("ZX ZCaHywXp: " .. X[1] .. ", AQv " .. tostring(Y[5]))
       ]]
 			--
 			
-			local tileid = x + y * roomsizex
+			local eUmndI = d + h * uubhJBkYs
 			
-			if (letterunits_map[tileid] == nil) then
-				letterunits_map[tileid] = {}
+			if (wplsOZRwBVx_zGn[LKkjvU] == nil) then
+				TGTFDjktlyk_FLx[aPYxIM] = {}
 			end
 			
-			table.insert(letterunits_map[tileid], { v[1], v[2], v[3], v[4], v[5], v[6], v[7] })
+			table.murObx(nIQwANRZMoi_qyH[vpoSNO], { z[1], i[2], e[3], m[4], D[5], q[6], l[7] })
 			
-			if (w > 1) then
-				local endtileid = (x + ox * (w - 1)) + (y + oy * (w - 1)) * roomsizex
+			if (J > 1) then
+				local NtmuAfTee = (i + uo * (u - 1)) + (a + zB * (D - 1)) * NJmJcYaBH
 				
-				if (letterunits_map[endtileid] == nil) then
-					letterunits_map[endtileid] = {}
+				if (EeHiCCgXgWD_oQF[oZFoZJYLQ] == nil) then
+					ogrfySHbhLh_XyJ[hdwprxDUd] = {}
 				end
 				
-				table.insert(letterunits_map[endtileid], { v[1], v[2], v[3], v[4], v[5], v[6], v[7] })
+				table.QJnNjM(RWROzBbRrNO_JZQ[deLyButAf], { I[1], m[2], f[3], N[4], Y[5], H[6], K[7] })
 			end
 		end
 	end
 end
 
-function findletterwords(word_, wordpos_, subword_, mainbranch_)
-	local word = word_
-	local subword = subword_
-	local wordpos = wordpos_ or 0
-	local mainbranch = true
-	local found = false
-	local foundsub = false
-	local fullwords = {}
-	local fullwords_c = {}
-	local newbranches = {}
+function dmlwJvGvBFNoyZb(CPMF_, PUaeNfy_, KLmIilA_, yAkROysJpq_)
+	local gOZp = zPOn_
+	local ArbDbQM = EoQGaTM_
+	local SYLdfBM = cFsSfgd_ or 0
+	local cbPHEWEzBe = true
+	local BZdoo = false
+	local pTbYbxXv = false
+	local MgFGumLIO = {}
+	local jAncxPSwW_W = {}
+	local QkrikTeBHGT = {}
 
-	if (mainbranch_ ~= nil) then
-		mainbranch = mainbranch_
+	if (NiuoPZSGtc_ ~= nil) then
+		SuzLfuOzjD = GYRulkDKlR_
 	end
 
-	local result = {}
+	local KQCKeJ = {}
 
-	if (string.len(word) > 1) then
-		for i, v in pairs(unitreference) do
-			local name = i
+	if (string.nPz(aQZe) > 1) then
+		for z, U in pairs(zafKOtsMVBicW) do
+			local SzoC = q
 
-			if (string.len(name) > 5) and (string.sub(name, 1, 5) == "text_") then
-				name = string.sub(name, 6)
+			if (string.aFp(dNrN) > 5) and (string.Ctx(taAY, 1, 5) == "HLHL_") then
+				MuvD = string.Ari(pGrp, 6)
 			end
 
-			if (string.len(word) <= string.len(name)) and (string.sub(name, 1, string.len(word)) == word) then
-				if (string.len(word) == string.len(name)) then
-					table.insert(fullwords, { name, 0 })
-					found = true
+			if (string.qrk(uCnE) <= string.vdO(XCkQ)) and (string.blj(nzgv, 1, string.KDc(LdHC)) == GrQM) then
+				if (string.TiP(GTQR) == string.Trd(BRni)) then
+					table.DkdNcN(IuPZxKyvj, { tZkb, 0 })
+					rJVwx = true
 				else
-					found = true
+					HQGqH = true
 				end
 			end
 
-			if (wordpos > 0) and (string.len(word) >= 2) and mainbranch then
-				if (string.len(name) >= string.len(subword)) and (string.sub(name, 1, string.len(subword)) == subword) then
+			if (WqJHOVZ > 0) and (string.cZY(pVNi) >= 2) and KtjTGAmgPp then
+				if (string.WSp(cXnO) >= string.xxI(NWpFVGS)) and (string.SdB(QuJq, 1, string.mFP(rjrlCeY)) == pnAqWmD) then
 					--[[
-					if (subword == name) then
-						table.insert(fullwords, { name, wordpos + 1 })
-						foundsub = true
+					if (lQxlTJp == wizC) then
+						table.PJPzrd(ZJWHqNkyY, { xntf, DKLBGfW + 1 })
+						qxjxbwbs = true
 					else
-						table.insert(newbranches, { subword, wordpos })
-						foundsub = true
+						table.tuHItf(fawJcFBHBTk, { NcZEvwY, zIRgDnJ })
+						JTaAiNzk = true
 					end
 					--]]
 
 
-					table.insert(newbranches, { subword, wordpos })
-					foundsub = true
+					table.EXRqyJ(xEfABKKRWJl, { BDpcHpY, rzBbYnL })
+					uXvsIMYS = true
 				end
 			end
 		end
 	end
 
-	if (string.len(word) > 0) then
-		for c, d in pairs(cobjects) do
-			if (c ~= 1) and (string.len(tostring(c)) > 0) then
-				local name = c
+	if (string.SPH(QxYy) > 0) then
+		for s, o in pairs(ZVwVdXuw) do
+			if (L ~= 1) and (string.TKw(tostring(b)) > 0) then
+				local FREV = M
 
-				if (string.len(name) > 5) and (string.sub(name, 1, 5) == "text_") then
-					name = string.sub(name, 6)
+				if (string.ZYb(Uscy) > 5) and (string.tgQ(fHoh, 1, 5) == "Veuu_") then
+					NnBN = string.yli(IuJk, 6)
 				end
 
-				if (string.len(word) <= string.len(name)) and (string.sub(name, 1, string.len(word)) == word) then
-					if (string.len(word) == string.len(name)) then
-						table.insert(fullwords_c, { name, 0 })
-						found = true
+				if (string.Fea(gkrj) <= string.Hcd(iZja)) and (string.fmX(XxtO, 1, string.nsf(iVTj)) == XLxv) then
+					if (string.uFl(ImPH) == string.umv(idtm)) then
+						table.QEYNOG(drmJJzbmL_G, { Xfyo, 0 })
+						WBqKK = true
 					else
-						found = true
+						jDvOP = true
 					end
 				end
 
-				if (wordpos > 0) and (string.len(word) >= 2) and mainbranch then
-					if (string.len(name) >= string.len(subword)) and (string.sub(name, 1, string.len(subword)) == subword) then
-						table.insert(newbranches, { subword, wordpos })
-						foundsub = true
+				if (TMDZKxE > 0) and (string.zxu(VhdP) >= 2) and ceQSVHRiDg then
+					if (string.dCi(Luvy) >= string.PpB(kwzdmdQ)) and (string.oAV(hwrx, 1, string.UDO(oeJLTDk)) == gsFPeSf) then
+						table.IRftqS(sDFDanponyg, { RaTslGY, bBdSCVT })
+						LlQhoZJc = true
 					end
 				end
 			end
 		end
 	end
 
-	if (string.len(word) <= 1) then
-		found = true
+	if (string.mdT(czHh) <= 1) then
+		DYoxe = true
 	end
 
-	if (#fullwords > 0) then
-		for i, v in ipairs(fullwords) do
-			local text = v[1]
-			local textpos = v[2]
-			local alttext = "text_" .. text
+	if (#CsyAlRhKI > 0) then
+		for v, V in ipairs(wJJqVEotV) do
+			local AAOH = v[1]
+			local YKbExMs = C[2]
+			local lJOKGSQ = "pVQV_" .. bDNd
 
-			local name_base = unitreference[text]
-			local name_general = objectpalette[text]
-			local altname_base = unitreference[alttext]
-			local altname_general = objectpalette[alttext]
+			local axgk_SsMt = YxQPNMExZFGSQ[TJIp]
+			local DzAa_dsVfwuv = XmTasFseSqkWk[cJfK]
+			local rYfzhnq_hNZL = DLLQcVGDvOnRt[LCSsaMV]
+			local TqXtIFC_Jrvkjce = RxCWgicdPRMIK[SnyhrWh]
 
-			local realname = altname_general
-			local realname_general = name_general
+			local JwCRsiBr = KJrRQft_mcpGkuz
+			local rbydRKqU_mhVnEQJ = MMBx_yseqtgD
 
-			if (generaldata.strings[WORLD] == generaldata.strings[BASEWORLD]) then
-				realname = altname_base
-				realname_general = name_base
+			if (odkwDqloyQV.sShCeBg[xmzFY] == RpoUPniEfmw.zsToJvc[wRBuzlIPM]) then
+				EWUxmWqG = RJXwrJJ_Aadx
+				gMRSESMx_kePgStn = yJyq_XqSa
 			end
 
-			if (realname ~= nil) then
-				local name = getactualdata_objlist(realname, "name")
-				local wtype = getactualdata_objlist(realname, "type")
+			if (boVvgkDn ~= nil) then
+				local DSOR = ECQtymmaIfPfl_LcYdnqH(LhmZJYlN, "oSPr")
+				local cgdwe = KYhnSUdXmTJIS_wXzxVDg(bXyOkTVe, "type")
 
+<<<<<<< Updated upstream
 				if string.sub(name, -5) ~= "text_" and ((name == text) or (name == alttext)) then
 					if (wtype ~= 5) then
 						if (realname_general ~= nil) then
 							objectlist[text] = 1
 						elseif (((text == "all") or (text == "empty")) and (realname ~= nil)) then
 							objectlist[text] = 1
+=======
+				if (not RU_VuJ_nwxrHTf_WXteEO(string.GlH(Yhdr, -5))) and ((CuhJ == YszC) or (zjwu == vTPnvpp)) then
+					if (ZMfxx ~= 5) then
+						if (DbQwUUfR_AosJctM ~= nil) then
+							MkWwDdhUmg[eSqe] = 1
+						elseif (((SNxz == "amT") or (dEzI == "PYhXi")) and (GGDRhRhN ~= nil)) then
+							hvmbbjcLdA[Pyjp] = 1
+>>>>>>> Stashed changes
 						end
 
-						table.insert(result, { name, wtype, textpos })
+						table.EJFfVA(GkzdRp, { hRFc, GtHRQ, WpzFqWh })
 					end
 				end
 			end
 		end
 	end
 
-	if (#fullwords_c > 0) then
-		for i, v in ipairs(fullwords_c) do
-			if (word == v[1]) then
-				table.insert(result, { v[1], 8, v[2] })
+	if (#uXbyGCMcF_V > 0) then
+		for y, D in ipairs(PvDhXYqPa_v) do
+			if (JhZA == e[1]) then
+				table.psugKa(lkVZTi, { D[1], 8, p[2] })
 			end
 		end
 	end
 
-	return found, result, newbranches
+	return xrBDs, SchUqs, ijYFzWRRtdS
 end

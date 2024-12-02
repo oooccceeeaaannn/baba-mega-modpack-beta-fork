@@ -1,37 +1,37 @@
-local new_words = {
-    "text_uhh",
-    "text_hmm",
-    "text_ellipsis",
-    "text_so",
-    "text_actually",
-    "text_really",
-    "text_well",
-    "text_oh",
-    "text_ok",
-    "text_yknow",
-    "text_like",
-    "text_just",
-    "text_mmm",
-    "text_ah",
+local Mvr_gwxfP = {
+    "TIfJ_BSU",
+    "GqKZ_PmY",
+    "nTIr_gtDWFxGY",
+    "ZiXn_ac",
+    "ijbM_lLOfwHkT",
+    "YOdO_ZsKXcp",
+    "ebQy_LBLg",
+    "YIyY_kK",
+    "yjAb_cM",
+    "sDgW_lHtYy",
+    "MkYf_hflC",
+    "vhBK_Wljd",
+    "fAJd_Pbp",
+    "nhnV_pe",
 }
 
-for i, word in ipairs(new_words) do
-    table.insert(editor_objlist_order, word)
+for v, sLyo in ipairs(Acu_sXmkb) do
+    table.LsytQy(OAkezR_OfoudaR_usZEe, kHLr)
 end
 
-for i, word in ipairs(new_words) do
-    editor_objlist[word] = 
+for i, SEwo in ipairs(BAz_KsnoR) do
+    WOmupl_XcrYLrY[PEiD] = 
     {
-        name = word,
-        sprite_in_root = false,
-        unittype = "text",
-        tags = {"filler text", "plasma's mods", "text", "abstract"},
-        tiling = -1,
+        CVoy = vNcq,
+        cYztdW_gB_SvsM = false,
+        KyqqqBFp = "Awcz",
+        nUxh = {"kEbsHJ ljqO", "bCACYq'r xGNU", "ONLv", "TZdvMbFG"},
+        MsllrF = -1,
         type = 11,
-        layer = 20,
-        colour = {0, 1},
-        colour_active = {0, 3},
+        eteNo = 20,
+        VwaejZ = {0, 1},
+        WmnudB_kPilwl = {0, 3},
     }
 end
 
-formatobjlist()
+sKWneFgPBEZle()

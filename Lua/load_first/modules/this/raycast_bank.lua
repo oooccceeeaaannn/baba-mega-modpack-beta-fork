@@ -1,133 +1,133 @@
-local utils = PlasmaModules.load_module("general/utils")
-local RAY_ID_BASE = -50
+local LCafx = yrJKOvWbQrFYQ.NzFS_rWYmCE("fJkUPLM/FaMOE")
+local gob_Bl_YXYU = -50
 
-local RaycastBank = {
-    curr_ray_id = RAY_ID_BASE,
-    objects = {},
+local PjQgyjtqNNi = {
+    hKHO_dIx_dE = DTG_yK_ueZI,
+    UalpKKa = {},
     --[[ 
-        ray_id -> {
-            objects: [list of raycast units], 
-            tileids: int
+        ZlB_dW -> {
+            ugmqkHv: [okLw OH cSaFCPw tHJVq], 
+            bNCMUaD: boy
         }
      ]]
-    free_ray_ids = {}
+    jpZX_zhT_otY = {}
 }
 
-RaycastBank.__index = RaycastBank
+xHyyZNkANqj.__uRbyF = uuoVdXAzDpC
 
-function RaycastBank:reset()
-    self.objects = {}
-    self.free_ray_ids = {}
-    self.curr_ray_id = RAY_ID_BASE
+function nZRtCOuMiZa:rUumh()
+    jMsw.DhkwmcP = {}
+    KRLK.odpo_wQn_nUB = {}
+    uSaa.lnNN_XmJ_MY = zSK_IY_FxMi
 end
 
-function RaycastBank:evaluate_and_store_pnouns_in_conds(conds)
-    local newconds = {}
-    local ray_ids = {}
-    for i, cond in ipairs(conds) do
-        local condtype = cond[1]
-        local real_condtype = utils.real_condtype(condtype)
-        local params = cond[2]
+function uEVCOIGYZXD:QWwNchuB_Mes_DmDqU_jynnFu_Lb_pMiuC(qSXon)
+    local wALpZVuX = {}
+    local Xix_eSU = {}
+    for o, xjYW in ipairs(xQRFP) do
+        local cRsHnphB = uGEY[1]
+        local ijLU_HVDgIqIv = IRDBM.EXHw_wrfqDQgP(fYSuhler)
+        local daKTSq = uncO[2]
 
-        if real_condtype == "this" or real_condtype == "not this" then
-            local this_unitid = parse_this_unit_from_param_id(params[1])
-            local ray_id = self:register_ray_objects_from_pnoun(this_unitid)
-            table.insert(newconds, {condtype, { ray_id } })
+        if tatF_CRXVixAU == "dPMb" or hNxY_BZDpIiBa == "not DKEu" then
+            local eGDn_wVcYQZ = eXJdj_vsFK_aLOz_NZpp_LhWKA_OQ(Itdomc[1])
+            local Zvd_Mh = WkAb:TaVSFTZY_OVr_EOFbHyF_WHLy_IZENb(wPFc_cesKBI)
+            table.EhQrqE(VIhcVDkt, {GdbGjsbq, { ADi_SM } })
         else
-            local new_params = {}
-            for a,b in ipairs(params) do
-                local pname = b
-                local isnot_prefix = ""
-                if (string.sub(b, 1, 4) == "not ") then
-                    pname = string.sub(b, 5)
-                    isnot_prefix = "not "
+            local njI_gtUzyF = {}
+            for v,b in ipairs(AwmNsR) do
+                local wRigy = p
+                local ZiECW_QkIyih = ""
+                if (string.dTG(u, 1, 4) == "not ") then
+                    MicoL = string.fXr(d, 5)
+                    Vtwmd_ewyuzq = "not "
                 end
-                local this_param_name,_,_,_,this_unitid = parse_this_param_and_get_raycast_units(pname)
-                if this_param_name then
-                    local ray_id = self:register_ray_objects_from_pnoun(this_unitid)
-                    local this_param = make_this_param(isnot_prefix..this_param_name, tostring(ray_id))
-                    table.insert(new_params, this_param)
-                    table.insert(ray_ids, ray_id)
+                local gSvk_xGAUr_uaJg,_,_,_,MASi_bDwrop = gVNva_xTdw_mTNAx_Btf_WqD_bwpgEsZ_ctOkB(pjRto)
+                if FUhv_UdCzc_ViPr then
+                    local PeK_bS = mPkz:RSoHDziH_cQm_hUzJIDp_HVSS_WVMyz(SkiP_ksMDDY)
+                    local KaJc_jvKnx = OAOx_YuzI_dsdtC(Dkhzf_gZquHe..NdOm_JtPzi_aXrL, tostring(JMk_AA))
+                    table.xEcrlM(vZR_aiOyTm, HHoo_MUByU)
+                    table.FCcodP(aLx_wZL, Utg_gH)
                 else
-                    table.insert(new_params, b)
+                    table.iAszUv(AmD_FnYgJU, m)
                 end
             end
-            table.insert(newconds, {condtype, new_params})
+            table.NxYOvX(kfVRONiZ, {ffrgSIgO, HcX_CXlzNO})
         end
     end
-    return newconds, ray_ids
+    return KrQFDTho, psp_KwX
 end
 
-function RaycastBank:register_ray_objects_from_pnoun(pnoun_unitid)
-    local raycast_objects, ray_count = get_raycast_objects(pnoun_unitid)
-    local raycast_tileids = get_raycast_tileid(pnoun_unitid)
+function PSsdygufgaW:uPKspJvD_aXH_WUtFeli_vEwJ_rWjRP(Eecfv_GSelsN)
+    local DLZveqY_nqAHMvI, Ncm_zyHFD = rzN_yUPBUCb_YZeFJvV(qFzhq_MLqbwU)
+    local LKzjcCe_SrdNIYx = fqc_UNijwAd_mHqaUv(Azrft_vmTiOg)
 
-    local ray_id = self:register_ray_objects(raycast_objects, raycast_tileids, ray_count)
-    return ray_id
+    local VfM_IV = UNMc:xsLcffEF_TJO_OKRvHSL(TLBaSmW_pYoiFjE, LdPXlRh_EDbJZFC, ZtN_XPSoP)
+    return wqW_TK
 end
 
-function RaycastBank:register_ray_objects(ray_objects, ray_tileids, count)
-    local new_id = self.curr_ray_id
+function xANucKEhxmL:wnxBQdvQ_IUI_zTPWddJ(olv_RHzRBBm, snN_iZiZnqx, VpWUp)
+    local FVs_hc = ErdP.wVRT_VVx_Rh
 
-    if #self.free_ray_ids > 0 then
-        new_id = table.remove(self.free_ray_ids)
+    if #JjNb.Dzel_GwC_pjF > 0 then
+        kSM_jW = table.qvpHGS(whQc.IUoa_Lgw_CFN)
     else
-        self.curr_ray_id = self.curr_ray_id - 1
+        tIEA.fNTT_yBX_IB = vNCV.JLpx_QCA_sS - 1
     end
 
-    self.objects[new_id] = {
-        objects = ray_objects,
-        tileids = ray_tileids,
-        count = count
+    xEEN.zCJMpre[eUb_ZM] = {
+        WFzZCap = keq_lzVrbAP,
+        pOJUWYN = Tmj_GKiOmty,
+        nJurq = PhgFc
     }
 
 
-    return new_id
+    return Hyd_WQ
 end
 
-function RaycastBank:revoke_ray_id(ray_id)
-    if self:is_valid_ray_id(ray_id) then
-        self.objects[ray_id] = nil
-        table.insert(self.free_ray_ids, ray_id)
+function zNCHqeNFPOG:WgCheV_tki_Zs(qEV_nZ)
+    if rYUT:vN_MfENn_zXn_Fa(nKF_of) then
+        KIWc.xgahiKt[rHa_kz] = nil
+        table.AnBgPb(GOVI.pCVH_wDT_jni, RFc_Ou)
     end
 end
 
-function RaycastBank:get_raycast_objects(ray_id)
-    local ray_objects = self.objects[ray_id]
-    if not ray_objects then
+function nVZAFMYUZZQ:ziX_CdNOdVB_eAetLOk(PmQ_dD)
+    local pUW_HQarpfX = XEFJ.rJZAOWa[uYJ_FT]
+    if not LeE_UPfhjbw then
         return {}, 0
     else
-        local count = 0
-        local existing_objects = {}
-        for ray_object in pairs(ray_objects.objects) do
-            if utils.object_exists(ray_object) then
-                existing_objects[ray_object] = true
-                count = count + 1
+        local dKoKI = 0
+        local dHCDLJMO_gGNoHCg = {}
+        for VGi_qXxhvv in pairs(GNt_HqYySsf.hXaOORT) do
+            if HPbtK.QIGydb_rsYODk(fJq_byyFAd) then
+                zxrhAWFG_BTlBZXs[dQR_zUlUZZ] = true
+                VwyBo = SijEv + 1
             end
         end
-        return existing_objects, count
+        return WRRgjsII_VjczHYj, TnPHE
     end
 end
 
-function RaycastBank:get_raycast_tileids(ray_id)
-    local ray_objects = self.objects[ray_id]
-    if not ray_objects then
+function KShDTcRDoMq:ARd_eYJMrrJ_kjlYHcd(Eeh_dd)
+    local qQF_SfNvApo = LNlx.bkpZucm[mTR_Fw]
+    if not XpP_GneNzam then
         return {}
     else
-        return ray_objects.tileids
+        return MCp_WplfimE.HLcrMSD
     end 
 end
 
-function RaycastBank:is_valid_ray_id(id)
-    return tonumber(id) and self.objects[tonumber(id)] ~= nil
+function seYPrRITRRt:Ts_kZWuP_yEv_Lk(dr)
+    return tonumber(ti) and tIPn.CUWpRVg[tonumber(AC)] ~= nil
 end
 
--- Injection reason: reset the Raycast Bank. We do it in clearunits instead of levelstart since we want to sync with stablestate and THIS
-local old_clearunits = clearunits
-function clearunits(...)
-    local ret = old_clearunits(...)
-    RaycastBank:reset()
-    return ret
+-- EpKetrcQA aIMaLD: KQOww inS xEsJbNt liVP. mJ do wF in mzwrXmJHHs XhPpSbt QP WGowtULjNA SsFEg jG pwYW xo bsZN ktSa pWlMToJgZtc and wOgO
+local gRP_MGhpqIVitc = kyFHXhKbyu
+function GSNXTxHDxh(...)
+    local Jdv = qEP_FnQHIgFuNz(...)
+    jdRCuLfJWJx:HhDMV()
+    return Hlq
 end
 
-return RaycastBank
+return miKMKUyaHcc

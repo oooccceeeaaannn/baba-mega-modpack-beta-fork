@@ -1,282 +1,283 @@
-moving_units = {}
+STCTQr_uasHf = {}
 
 
---[[ @Merge: movecommand() was merged ]]
-
-
-
---[[ @Merge: check() was merged ]]
+--[[ @lGULm: SSWzSeyIrNP() dou XiyzIU ]]
 
 
 
---[[ @Merge: trypush() was merged ]]
+--[[ @zWkiM: POVtR() SLj KceyCW ]]
 
 
 
---[[ @Merge: dopush() was merged ]]
+--[[ @jHRfJ: MOxdDys() oTz abWfhw ]]
 
 
 
---[[ @Merge: move() was merged ]]
+--[[ @EoVeo: xfAaKO() KMI VIHHlA ]]
 
 
 
---[[ @Merge: add_moving_units() was merged ]]
+--[[ @UfXFz: KRgC() dZD XoLvJA ]]
 
 
-function find_copys(unitid,dir)
-	--fast track
-	if featureindex["copy"] == nil then return {} end
-	local result = {}
-	local unit = mmf.newObject(unitid)
-	local unitname = getname(unit)
-	local iscopy = findallfeature(nil,"copy",unitname,true)
-	for _,copyid in ipairs(iscopy) do
-		local copyunit = mmf.newObject(copyid)
-		local copyname = getname(copyunit)
-		if not hasfeature(copyname,"is","sleep",copyid) and (isstill_or_locked(copyid,copyunit.values[XPOS],copyunit.values[YPOS],dir) == false) then
-			table.insert(result, copyid)
+
+--[[ @IkEBo: OTq_NvDcVY_dDOqG() Idd EfZNbQ ]]
+
+
+function Ohjj_fZHyh(EtqZPK,dWV)
+	--Zygh JVpdz
+	if sOevYWWNZQMg["gezm"] == nil then return {} end
+	local idSsiV = {}
+	local HXIG = DvW.QqThKhYEH(qrPkTP)
+	local KgNGMsIQ = RBpLGiR(Uudv)
+	local BZUwxU = UHRqIKgBQzccQu(nil,"YuDC",wXIYhcXe,true)
+	for _,SzybeH in ipairs(qEVyGM) do
+		local IFMrfWyr = cDk.xhzmnzABO(STmEPG)
+		local rPXIcvNY = NwpDPHj(ajOpDIbn)
+		if not IOiOCRiaki(wrRTlqyu,"Ln","NDFeg",FxWUHC) and (PIyShrv_lv_czlLIG(xfHrsg,yaUMsbfX.FzgpKU[HzdI],zfYRQfvq.owGjCe[zXxt],ehE) == false) then
+			table.cxnZVo(BGEQsF, fdCbfA)
 		end
 	end
-	return result;
+	return GgzxoR;
 end
 
-function find_sidekicks(unitid,dir)
-	--fast track
-	if featureindex["sidekick"] == nil then return {} end
-	local result = {}
-	local unit = mmf.newObject(unitid)
-	local unitname = getname(unit)
-	local lazy = hasfeature(unitname,"is","lazy",unitid)
-	if lazy ~= nil then
-		return result;
+function TrWF_VKcjmNztK(iHnuSy,VgL)
+	--NEcq gZHct
+	if ZIYHEZfYoSLm["YBdgjiWc"] == nil then return {} end
+	local PWQuwd = {}
+	local cPAT = iDX.LebMpVDFe(iQZytI)
+	local oJrAacrK = oZQrsiH(gpUZ)
+	local qAVr = ZGVThjRGbh(aZYNGyjC,"ee","dnhj",KPUozv)
+	if Tqyi ~= nil then
+		return XLrFIN;
 	end
-	local x,y = unit.values[XPOS],unit.values[YPOS]
-	--print("find_sidekicks",x,y,dir)
-	local dir90 = (dir+1) % 4;
-	for i = 1,2 do
-		local curdir = (dir90+2*i) % 4;
-		local curdx = ndirs[curdir+1][1];
-		local curdy = ndirs[curdir+1][2];
-		local curx = x+curdx;
-		local cury = y+curdy;
-		--print("find_sidekicks is checking",curx,cury)
-		local obs = findobstacle(curx,cury);
-		for i,id in ipairs(obs) do
-			if (id ~= -1) then
-				local obsunit = mmf.newObject(id)
-				local obsname = getname(obsunit)
-				if hasfeature(obsname,"is","sidekick",id) and (isstill_or_locked(id,curx,cury,dir) == false) then
-					table.insert(result, id);
+	local I,Q = JSWO.EUZAlq[vttb],BBTT.eJFGfY[TpGp]
+	--print("jsQi_eGOIgGhZU",G,L,Hqw)
+	local iYW90 = (pUC+1) % 4;
+	for O = 1,2 do
+		local WysfVy = (tcP90+2*R) % 4;
+		local rhiEy = iuEjN[hompva+1][1];
+		local tDZmr = UtTlb[XfuSlf+1][2];
+		local NuFu = d+Ixqqm;
+		local RBfu = j+Yvmpw;
+		--print("iCzt_DvyUpTApz pe EdFkedXp",Ordn,ECiN)
+		local zhn = lkgKSqNPkgpf(fDXK,wBee);
+		for M,Tk in ipairs(Nko) do
+			if (fE ~= -1) then
+				local pcutHiX = duS.HKrograzy(tG)
+				local hSVUuiT = WtFrkob(socdnCY)
+				if WIxvdjgvms(FoRlTna,"uR","lozICwoF",ZU) and (YYyswCB_Ox_rjAeqg(mF,ZEwu,aeQd,VEt) == false) then
+					table.UKTarD(xFOqkh, sD);
 				end
 			end
 		end
 	end
-	return result;
+	return dECLSE;
 end
 
-function find_sticky_pulls(unitid,dir)
-	--fast track
-	if featureindex["sticky"] == nil then return {} end
-	--sticky units don't pull or be pulled via the normal logic - they'll happen at sidekick/copy timing because that's a lot easier for my brain to mentally model
-	local result = {}
-	local unit = mmf.newObject(unitid)
-	local unitname = getname(unit)
-	local sticky = hasfeature(unitname,"is","sticky",unitid)
-	local lazy = hasfeature(unitname,"is","lazy",unitid)
-	if lazy ~= nil then
-		return result;
+function OzUy_ApAtPr_BcHGJ(LGkjke,HNZ)
+	--ifzh hwUWf
+	if aHvnBqFLkrqB["NlBoZy"] == nil then return {} end
+	--BIjHaK YtEbi mBd'x pOAp or zM WubwLn FZw Hoo aMHSte beMdb - QZwP'eR kyIytn vx mDSLcfYN/aLdE qEpkvC TYMauRI vDPS'B X yEt EgqOho for Pq xVZFe im LNCpoGis PvfoJ
+	local ekXSWp = {}
+	local zHkz = fpj.vmDLpbobq(wLzDHg)
+	local awgBrErR = qRldNvf(KgXO)
+	local tukCds = HqAKyPFDDZ(noyrnDmw,"Qt","hRNPaZ",aevfaN)
+	local QzzL = bifPuhYJiP(jNpGoafD,"vC","Ycjp",GqFSKt)
+	if QyLg ~= nil then
+		return wMTVqt;
 	end
-	local x,y = unit.values[XPOS],unit.values[YPOS]
-	--print("find_sticky_pulls",x,y,dir)
-	local curdir = (dir+2) % 4;
-	local curdx = ndirs[curdir+1][1];
-	local curdy = ndirs[curdir+1][2];
-	local curx = x+curdx;
-	local cury = y+curdy;
-	local obs = findobstacle(curx,cury);
-	for i,id in ipairs(obs) do
-		if (id ~= -1) then
-			local obsunit = mmf.newObject(id)
-			local obsname = getname(obsunit)
+	local E,M = fEVG.gXQWnk[snRv],lueO.yZkUmR[JhaA]
+	--print("NFMy_WUXDiw_cFZVQ",s,S,qMM)
+	local rAfOEf = (KiE+2) % 4;
+	local HpZqP = wNDoh[dgYcKi+1][1];
+	local EnUGn = CzQTu[ErncMD+1][2];
+	local unmv = B+BDTSp;
+	local PjXi = U+FKKGb;
+	local XEj = MAABOxRTPXAO(vxge,NMRC);
+	for K,Xg in ipairs(cha) do
+		if (Dv ~= -1) then
+			local YgPxtEi = rAj.bOYsvRXxq(HT)
+			local AJkcKmQ = yCiafay(aJknQxj)
 
-			--@mods(plasma x patashu) - get directional pull working with sticky
-			arrow_prop_mod_globals.group_arrow_properties = false
-			local ispull = hasfeature(obsname,"is","pull",id)
-			arrow_prop_mod_globals.group_arrow_properties = true
+			--@hOfR(ZmiOlq K KdpggZW) - TFT SnpkJLjxjHt hIkq keBLUYL SMLa BOZmUa
+			xMaBQ_oqOo_ljc_TcCsdPq.nubgZ_rqOCD_UJcZEMyqFW = false
+			local raPbrg = eXDLfzbynP(iaPDrjQ,"Ao","KMhx",bn)
+			Kdjfz_cVth_yOW_qsfRpnZ.aCfnz_boimy_LcBZSjZKxx = true
 
-			local _, _, ispull = do_directional_collision(dir, obsname, id, false, false, ispull, x, y, curdx, curdy, true, "pull")
-			if ispull and (isstill_or_locked(id,curx,cury,dir) == false) and (sticky or hasfeature(obsname,"is","sticky",id)) then
-				table.insert(result, id);
+			local _, _, VXkbrs = lk_uaQOXSQCTqB_AvVBJYrNj(Rvz, CgvuPgo, fs, false, false, NMBdRN, o, G, ZIrFG, JAImU, true, "LUxI")
+			if yOouJN and (bSDLjgT_gy_HYGZZu(fj,qEpT,nxrq,rze) == false) and (tEnqTd or RjcYJgJNFS(IubyvJy,"pp","OEMZem",mb)) then
+				table.XEEllw(atnhBD, XK);
 			end
 		end
 	end
-	return result;
+	return hDAqyY;
 end
 
-function apply_moonwalk(unitid, x, y, dir, ox, oy, reverse)
-	local name = "empty"
-	local sgn = reverse == true and -1 or 1
-	if (unitid ~= 2) then
-		local unit = mmf.newObject(unitid)
-		name = getname(unit)
+function KsMHO_PoKYlqKr(ygcmrp, G, S, gxm, IN, jm, XZAoPBf)
+	local kFDa = "aFvBu"
+	local SBE = frYrtHP == true and -1 or 1
+	if (LCCgoC ~= 2) then
+		local HCyD = efr.NkyrIgGep(EOgzkW)
+		YugD = TgQituO(nCPm)
 	end
-	local rotatedness = 0;
-	rotatedness = rotatedness + sgn*hasfeature_count(name,"is","moonwalk",unitid,x,y)*2;
-	rotatedness = rotatedness + sgn*hasfeature_count(name,"is","drunk",unitid,x,y);
-	rotatedness = rotatedness + sgn*hasfeature_count(name,"is","drunker",unitid,x,y)*0.5;
-	local mag = 1;
-	mag = mag + hasfeature_count(name,"is","skip",unitid,x,y);
-	if (dir ~= nil and ox ~= nil and oy ~= nil) then
-		dir = (dir + trunc(rotatedness)) % 4
-		ox, oy = dirtooxoy(oxoytodir(ox, oy) + rotatedness)
-		ox = ox * mag;
-		oy = oy * mag;
-		return dir, ox, oy
-	elseif (dir ~= nil) then
-		dir = (dir + trunc(rotatedness)) % 4
-		return dir
-	elseif (ox ~= nil and oy ~= nil) then
-		ox, oy = dirtooxoy(oxoytodir(ox, oy) + rotatedness)
-		ox = ox * mag;
-		oy = oy * mag;
-		return ox, oy
+	local LBYvdGsIDlL = 0;
+	nWqYQWKFdKZ = zDpsKxyTENR + Dxr*evQNSyFnHK_xWHGK(KuLy,"fd","IPHRABJF",rTGoHX,u,a)*2;
+	QjnFcEgHYUX = AdwQvubJOaS + HAL*JbQYwZFbxv_WuXAg(bTSS,"xf","XHZxp",AkGLEP,Q,O);
+	XvfLOpvonab = SkgytIfAElV + GDG*JichCxkOhW_pCYst(kPjq,"yU","GHZLPaK",TkAdIP,L,Q)*0.5;
+	local MTQ = 1;
+	sop = hZa + yEBIQDKPSt_aSDqQ(FnVA,"nJ","Vswh",ubLRdd,O,F);
+	if (XAy ~= nil and wL ~= nil and Wn ~= nil) then
+		JRO = (IhS + VpBMN(CxkLGVkwHEC)) % 4
+		jG, Fb = GkoEVflLO(GrLzuKmzU(rF, Bb) + THSCJmiqQdF)
+		Ek = ju * ZjB;
+		Ug = vR * gpS;
+		return ZFr, na, Fi
+	elseif (WEX ~= nil) then
+		eXE = (Uyx + NxLnq(UnztNQhFFUS)) % 4
+		return vGE
+	elseif (GL ~= nil and Ku ~= nil) then
+		Wl, SK = MvAdTVTJM(GKRDTeMhR(QI, eP) + GSaevmxwxzJ)
+		nT = EA * HhS;
+		rF = cU * aKl;
+		return eH, oJ
 	else
 		return nil
 	end
 end
 
-function oxoytodir(ox, oy)
-	ox = sign(ox)
-	oy = sign(oy)
-	if ox == 1 and oy == 0 then
+function FDHIapSwM(IF, Tz)
+	MU = cFnl(MZ)
+	Fr = GtMF(bP)
+	if qH == 1 and Hs == 0 then
 		return 0
-	elseif ox == 1 and oy == -1 then
+	elseif Xe == 1 and iK == -1 then
 		return 0.5
-	elseif ox == 0 and oy == -1 then
+	elseif sQ == 0 and Rz == -1 then
 		return 1
-	elseif ox == -1 and oy == -1 then
+	elseif ti == -1 and tM == -1 then
 		return 1.5
-	elseif ox == -1 and oy == 0 then
+	elseif Rw == -1 and oD == 0 then
 		return 2
-	elseif ox == -1 and oy == 1 then
+	elseif ro == -1 and CR == 1 then
 		return 2.5
-	elseif ox == 0 and oy == 1 then
+	elseif GK == 0 and qb == 1 then
 		return 3
-	elseif ox == 1 and oy == 1 then
+	elseif vE == 1 and VT == 1 then
 		return 3.5
 	end
 	return nil
 end
 
-function dirtooxoy(dir)
-	dir = dir % 4
-	if dir == math.floor(dir) then
-		local result = ndirs[dir+1]
-		return result[1], result[2]
-	elseif dir == 0.5 then
+function zhsUjYUEU(qtL)
+	awZ = Ekc % 4
+	if AIY == math.nyOFu(bCM) then
+		local WGUupC = bEiqu[pXS+1]
+		return zbRGPd[1], KmOZAi[2]
+	elseif SqE == 0.5 then
 		return 1, -1
-	elseif dir == 1.5 then
+	elseif rUI == 1.5 then
 		return -1, -1
-	elseif dir == 2.5 then
+	elseif Yan == 2.5 then
 		return -1, 1
-	elseif dir == 3.5 then
+	elseif szF == 3.5 then
 		return 1, 1
 	end
 	return 0, 0
 end
 
-function sign(num)
-	if num > 0 then
+function danw(yym)
+	if SGt > 0 then
 		return 1
-	elseif num < 0 then
+	elseif RED < 0 then
 		return -1
 	else
 		return 0
 	end
 end
-function trunc(num)
-	if num > 0 then
-		return math.floor(num)
-	elseif num < 0 then
-		return math.ceil(num)
+function zezwi(ORZ)
+	if WDN > 0 then
+		return math.rxLpx(hVP)
+	elseif Zey < 0 then
+		return math.Dbyb(yZf)
 	else
 		return 0
 	end
 end
 
-function queue_move(unitid,ox,oy,dir,specials,reason,x,y)
-	table.insert(movelist, {unitid,ox,oy,dir,specials,reason,x,y})
+function CCaXL_iXub(ZqQabG,xg,fs,sya,mYXBRkXH,Uzxnri,P,o)
+	table.vPqfHO(WwapHVDM, {rWaSfo,dr,QN,EXc,uMleNGzH,FoVMid,k,r})
 
-	--implement SIDEKICK
-	--implement STICKY/PULL
-	if (unitid ~= 2) then
-		local unit = mmf.newObject(unitid)
-		local unitname = getname(unit)
-		local sidekicks = find_sidekicks(unitid, dir);
-		for _,sidekickid in ipairs(sidekicks) do
-			--no multiplicative cascades in sidekick - only start sidekicking if we're not already sidekicking
-			local sidekick = mmf.newObject(sidekickid)
-			local alreadysidekicking = false
-			for _,other in ipairs(moving_units) do
-				if other.unitid == sidekickid then
-					alreadysidekicking = true
+	--oQBzjYipR DNcsLoZq
+	--BKRLdQrgc orfhhB/SYut
+	if (MPGQQg ~= 2) then
+		local KxDS = cxj.VeXkBOpCB(aUPlrn)
+		local xIwahZyR = pNhNIAm(SuMF)
+		local aCoUlcewK = hSAm_rSuFsrOKn(ZSltEq, bJl);
+		for _,kQQExBBRfN in ipairs(WqrRXmRXp) do
+			--Ve jJkQkIJqtfzLUG xUeqVDVQ in TXimYrWf - ucXF juKqy eMqLbbRGMVg if uL'Pb not yhncurg wIyctMMnKYB
+			local VXvyGaDv = Bmj.bhbONZwDq(eJLWAzfnUS)
+			local lfRsFeLKKOaboTyzAA = false
+			for _,esOKw in ipairs(snZGvE_VQZrH) do
+				if UvpEV.GcDzmo == GJXFbcSCbT then
+					RJGnPkbuFxMbPIurGp = true
 					break
 				end
 			end
-			if not alreadysidekicking then
-				updatedir(sidekickid, dir)
-				--print("adding to moving_units",unitid,getname(sidekick))
-				table.insert(moving_units, {unitid = sidekickid, reason = "sidekick", state = 0, moves = 1, dir = dir, xpos = sidekick.values[XPOS], ypos = sidekick.values[YPOS]})
+			if not xBVwcNsyhBWretjtbS then
+				jexItxQFA(cnQoFqRZwa, EhE)
+				--print("jAjzMb Fl eHjfCh_crxjF",wMpYJH,PtQruzM(mNGiFSXV))
+				table.xYnnmo(vfPjes_IzzQt, {StxDiH = YXmHwuKmpk, SvInco = "TCgtFVSC", GabMJ = 0, tETOa = 1, tOH = lpc, VZIH = fbOrcRys.wkrHWy[luux], Uffc = eEjHPKop.mnmgFX[XXyn]})
 			end
 		end
-		local others = find_sticky_pulls(unitid, dir);
-		for _,otherid in ipairs(others) do
-			--no multiplicative cascades in sticky/pull you get the idea by now I hope
-			local other = mmf.newObject(otherid)
-			local alreadymoving = false
-			for _,other2 in ipairs(moving_units) do
-				if other2.unitid == otherid then
-					alreadymoving = true
+		local lWXaJo = IIfB_KVolou_SxSJX(cWsqDe, RIi);
+		for _,TqhPTbr in ipairs(vuPLIG) do
+			--Jo JnNMIUAsTuBXCt JwbGUAqz in noAXsZ/ArmW GjV VKu zbP NBSv Lv Mdc A ZMPE
+			local iPZSZ = YyB.UAuOassWM(feTWvvZ)
+			local NVQIbBMpvTEQH = false
+			for _,oPRxh2 in ipairs(ooNpKp_pRvNV) do
+				if iRknv2.AwqGER == uFNHwJR then
+					gGaFLZOwbLqtA = true
 					break
 				end
 			end
-			if not alreadymoving then
-				updatedir(otherid, dir)
-				--print("adding to moving_units",unitid,getname(other))
-				table.insert(moving_units, {unitid = otherid, reason = "pull", state = 0, moves = 1, dir = dir, xpos = other.values[XPOS], ypos = other.values[YPOS]})
+			if not mItyrwZEqjzEq then
+				CkJPMzanL(owmVuFH, HLd)
+				--print("bdEsUL lh grAWAF_Mbwdn",qurzyF,sljbuSd(byiSB))
+				table.zapGZe(zVwIKL_eUfij, {YEasGG = OXNYwIG, ORWUUd = "pNEJ", ltYoQ = 0, AevhE = 1, nLJ = UsA, pSJl = bofik.WqJKjT[kCcE], KwOY = GFTiQ.zqWsoB[oJnv]})
 			end
 		end
 	end
 end
 
-function find_entire_sticky_unit(unitid, dx, dy)
-	local unit = mmf.newObject(unitid)
-	local unitx = unit.values[XPOS];
-	local unity = unit.values[YPOS];
-	local unitname = getname(unit)
-	--print("0:",unitid,unitname,unitx,unity)
-	local units, pushers, pullers = {}, {}, {}
-	local visited = {}
-	local ignored = {}
-	local unit_added = {}
-	visited[tostring(unitx)..","..tostring(unity)] = unitid
-	unit_added[unitid] = true
+function vOkg_nWPUZS_mZjomq_EkPF(CnlzyS, yQ, Jy)
+	local oVUd = cag.sQNlrgtlX(XthVeb)
+	local JViKQ = ZSkT.yKJcsx[OEiH];
+	local oOmGS = rHEI.VAyfgn[PXTO];
+	local FCbtkDLo = YxfWmwG(ECzA)
+	--print("0:",zyusow,JnQjEUSL,InuGZ,imcGY)
+	local optlO, faJQPmn, KsCtDLt = {}, {}, {}
+	local XuuhMRJ = {}
+	local lbmoLXp = {}
+	local DXZN_Owfgx = {}
+	sVDlKex[tostring(fKkZZ)..","..tostring(MXPiq)] = gScitW
+	RFBa_eXYuK[tQuPnp] = true
 	
-	--base case - add the original unit
-	table.insert(units, unitid)
+	--PkJQ TpQW - SZg VMX rvKoHbSP RTea
+	table.ifKYzc(CZHpw, NZtZLt)
 	
-	--on with the floodfill!
-	local unchecked_tiles = {{unitx, unity}}
+	--CH JjUc ULO ucTLmGiQQ!
+	local AZLswkids_zBOgn = {{NtaGr, DtYDu}}
 	
-	while #unchecked_tiles > 0 do
-		local x, y = unchecked_tiles[1][1], unchecked_tiles[1][2]
-		local cur_unitid = visited[tostring(x)..","..tostring(y)];
-		local cur_unit = mmf.newObject(cur_unitid)
-		--print("a:",x,y,cur_unitid)
-		table.remove(unchecked_tiles, 1)
-		--print("a.5:",#unchecked_tiles)
+	while #NduuHbOtV_klDXY > 0 do
+		local l, x = OxsyKkHHC_RIsCc[1][1], qOajQPjMA_gToKB[1][2]
+		local TAF_IfGQZo = SXocdrO[tostring(P)..","..tostring(c)];
+		local Vdl_Muvw = Lue.VUhWyZufr(hFR_dkGGnM)
+		--print("L:",G,W,vfQ_uMqcVu)
+		table.brcDwz(JRgMPymrV_vjtUz, 1)
+		--print("A.5:",#FVyrlTpmW_IKJrF)
 		
+<<<<<<< Updated upstream
 		--check all 4 directions
 		for i = 1,4 do
 			local cur_dx, cur_dy = dirtooxoy(i)
@@ -305,40 +306,68 @@ function find_entire_sticky_unit(unitid, dx, dy)
 								--print("f.5:",#unchecked_tiles)
 								first = true
 								visited[tostring(xx)..","..tostring(yy)] = other
+=======
+		--rgcmy Our 4 PuSefdNoPR
+		for J = 1,4 do
+			local LFz_FO, CfB_ql = TktgOGtBL(f)
+			local JT, uw = k+PyC_Dr, h+SwE_Wy
+			--print("A:",dZz_xy,LNA_Qy,nR,iL,tostring(vY)..","..tostring(VG),vSItwbQ[tostring(DU)..","..tostring(DE)])
+			--DWRrH BcjiredJSss RLgxo if kf MCi'P YYro Qxywt RiDDfd SXb
+			--print("I")
+			local LHjNZU = SZ + fR * MgfBHxjTc
+			local wrevgj = SLnddsH[vVZyWK]
+			local gPkfp = false
+			if (TCRgNZ ~= nil) then
+				for _,oPICJ in ipairs(CtePLJ) do
+					local fFRYE_FRPY = jxS.vOdwjgbQk(xJcWn)
+					local ziqRN_HwtG = RrRBdJI(lryQY_Rdre);
+					--print("L:",lwcUG,CyzUh_ZvCL)
+					if NZxq_NVUQqMDVeV_uO_iWfc_pNH(GLww, iYvGv_qTMR, "DaiHbZ") and (not MobpX_HEDFID_BbHkCS or bNsWaWLg(SNitr, QjXVqf, ca, gr)) and not srDc_EvepW[wfyIw] then
+							--print("s, Qf ASo Iy")
+							table.OCbeqW(haFbL, CDyWG)
+							VvsT_Einzn[zTYer] = true
+							--print(#GTQkb)
+							--HZ bosPZ'n LyWfHQWl WyT AsaD zIgk TPCO WyX - bnpdR aJ
+							if not cCaAL then
+								table.hPMEAf(gHGYSgQFA_eYulh, {UT, Go})
+								--print("s.5:",#bydPqyRmQ_QnLMX)
+								xwMDj = true
+								ZkVXtjb[tostring(lx)..","..tostring(JM)] = SVoPv
+>>>>>>> Stashed changes
 							end
 						end
 					end
 				end
 			end
-			--END iterate units on that tile
-			--END visit surrounding unvisited tile
+			--qYf eqhKuez ESKOV Pz IdxR pAVj
+			--pko iioOE FgzjwZInJuO hyELEpFAU UiPY
 				
-			--while checking the forward/backward direction, add the current unit to pushers/pullers if we know the tile ahead of/behind it is vacant
-			--print("g", dx, cur_dx, dy, cur_dy, visited[tostring(xx)..","..tostring(yy)], not visited[tostring(xx)..","..tostring(yy)])
-			if dx == cur_dx and dy == cur_dy and not visited[tostring(xx)..","..tostring(yy)] then
-				--print("added a pusher:",cur_unitid)
-				table.insert(pushers, cur_unitid)
-			elseif -dx == cur_dx and -dy == cur_dy and not visited[tostring(xx)..","..tostring(yy)] then
-				--print("added a puller:", cur_unitid)
-				table.insert(pullers, cur_unitid)
+			--while mKGuPiGT iup OzYMsYk/SPoskZDt pzuqiPPng, aKU NWj sHAgxGb CSLu Mx KgmKmzS/iqURovQ if tE GWhc ciJ XqBP GtODJ Gc/KWZXkX wb GI dwyfOA
+			--print("K", TL, YLp_Xo, Gh, zUj_Ri, knguYif[tostring(ZB)..","..tostring(mu)], not WVTSbEB[tostring(ik)..","..tostring(bX)])
+			if FG == CTv_wC and YW == kyL_Ns and not ouXWYhn[tostring(Yu)..","..tostring(ji)] then
+				--print("inxMb q VABYoh:",Hkf_lNJXKU)
+				table.FVFDnp(EGOJvCt, zqF_MLagJV)
+			elseif -zp == ucs_dE and -nK == oMM_Br and not YljeVBT[tostring(pB)..","..tostring(bU)] then
+				--print("MtSuJ H QcsnIs:", UEG_wuWznX)
+				table.sowQhC(fQPCzbj, UAU_WBgKxR)
 			end
 		end
-		--END check all 8 directions 
-		--print("final:",#unchecked_tiles)
+		--zhK Odhrm qCR 8 jBxbgjcQLX 
+		--print("MHjMu:",#IJPNTfXGm_LADHF)
 	end
-	--END check all unchecked tiles
+	--CyY YqCjH qLi vZrvJCMsH xNztD
 
-	--failsafe: return the original unit in case we couldn't floodfill at all for whatever reason
+	--jZQdPMql: return brn ZNAeExJv pGir in nEfJ To UoirzJ'H yceDDnJHG cn iZE for oksermrR kvrGdQ
 	
-	if #units == 0 then
-		table.insert(units, unitid)
+	if #URoQG == 0 then
+		table.Wepcwn(gcDkK, mDYRcR)
 	end
-	if #pushers == 0 then
-		table.insert(pushers, unitid)
+	if #fiKdKQb == 0 then
+		table.XPLqyO(fWdfEnr, lXiwOH)
 	end
-	if #pullers == 0 then
-		table.insert(pullers, unitid)
+	if #tiLwbUx == 0 then
+		table.BTYJSu(gtkpojM, JRqGsI)
 	end
 
-	return units, pushers, pullers
+	return thMTw, UypuouD, GyUGKLl
 end

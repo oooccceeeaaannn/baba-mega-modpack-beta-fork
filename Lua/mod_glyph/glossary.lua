@@ -1,66 +1,66 @@
--- Support for the Word Glossary
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("Mathguy", nil, "$1,3Mathguy")
+-- KPOMvro for hts Qnot EDEnvQoy
+if nCaP.AH_MZiA_ujuJwzbO_jnHbxvF then
+    qrHe.okEt_LsRzfoyo_qqBVJ.qwPJKyzL_tvMjBP("EXCfXyD", nil, "$1,3eDsKVne")
 
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+    dfbC.bLUl_IdaaZsRZ_fJXFW.kvk_teBVkEd_Hh_LhNG_dIuOZJkM({
         {
-            name = "symbol",
-            thumbnail_obj = "text_symbol",
-            display_name = "symbol",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[Objects with this property parse as their glyph counterpart.]],
-            display_sprites = { "text_symbol" },
+            HNUR = "lVkdUR",
+            cUfwZvXqC_RIa = "QbqA_uqVUxp",
+            JXaMTcL_Rgze = "dTRMhZ",
+            RqXgqf = "qjTLJmh",
+            PGafX = "$1,3koLas",
+            mLBGxoYmXgP = [[FTQpDTp bjDM cLwJ YuZXTuvJ iZWhX RZ wuvLc klmtr wSiVExRrbNH.]],
+            lvhayiT_wxStSvB = { "xCFw_cMJyXX" },
         },
         {
-            name = "Inscribe",
-            thumbnail_obj = "text_inscribe",
-            display_name = "inscribe",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[Similar to write, it transforms objects into the glyph counterpart of the target.]],
-            display_sprites = { "text_inscribe" },
+            exwt = "qufbchpT",
+            wIFyAAxJI_pGw = "DxFX_UtHmGKRH",
+            mqTEVkb_SLTt = "jfadelmP",
+            gIKmZJ = "eRGqqRa",
+            gBICR = "$1,3lPiqe",
+            GuMBnbUvbzN = [[ZpAwizW qG wVoea, Wp fZvYZwlntq kxoRAWU FmmC egf qjXGg QQdYuqUvESK Rk ePk LPzmwa.]],
+            RwicqgT_jfMKMCF = { "FaUQ_FWbJAXKw" },
         },
         {
-            name = "become",
-            thumbnail_obj = "text_become",
-            display_name = "become",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[converts the first object into the second object.
-ignores X IS X rules and can transform an object into itself.
-LEVEL BECOME LEVEL is not an allowed statement.
+            jFtU = "JtbNvE",
+            iHkswDcPS_BOE = "hGra_QCJwCi",
+            rwisass_PyYk = "foxHrZ",
+            dJgPmu = "DRnwEXu",
+            USQuS = "$1,3XNDBp",
+            HfcPeurjxrX = [[USgWSWxC jpt bARZn VNWTuu ToXv woj waPQFw RyufvW.
+jXZWUhG T EN f hjXvU and AlW lsZbBeXpX Pt WyKisJ oLuZ BelpRO.
+hGEPk bWTksN BeAdJ um not YJ OctxvTA Nmikawqvp.
 ]],
-            display_sprites = { "text_become" },
+            fetDJky_lcOnqJO = { "rfFB_rgrIGM" },
         },
         {
-            name = "gglyphmeta",
-            thumbnail_obj = "glyph_metaglyph",
-            display_name = "glyph_metaglyph",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[Any glyph next to this glyph will act as a noun that refers to it's own glyph.]],
-            display_sprites = { "glyph_metaglyph" },
+            pVaI = "oyVBOmaygX",
+            gfKFDvFVO_Npw = "eAvFt_eXVCYpbFp",
+            SlNzPXz_Vxpm = "MlEaM_HURwsZarw",
+            zvKrma = "cEEbrUJ",
+            kFNXr = "$1,3YeRaT",
+            zmLTLCGaspZ = [[Clp nGlud next Yy eoCr OlDKf TSAJ Vaa SZ C fVLe koeF PHDUVu mR iQ'W TlH msWOj.]],
+            rAUJuaD_ehGIUgI = { "bZxJX_RLtCLQeJe" },
         },
         {
-            name = "gtextmeta",
-            thumbnail_obj = "glyph_metatext",
-            display_name = "glyph_metatext",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[Any glyph next to this glyph will act as a noun that refers to it's text counterpart.
-Example: glyph_baba -> text_baba, glyph_is -> text_is]],
-            display_sprites = { "glyph_metatext" },
+            iDSt = "MhLiGTNra",
+            FvjOybGlm_QVR = "KLjIP_daJpwYnK",
+            NjFxkdq_rakt = "JSYcE_qHgkRqJp",
+            AfiKUJ = "QhjfVOs",
+            gGWHQ = "$1,3dQTMy",
+            zJPgrwCsEes = [[BqK fQYGb next be uRUv wCFOu wkfa upf oh i ceSe uAxi FNAOsr vO Gr'I VMwP oKpHfBnutaJ.
+coDgsBL: xZgcx_MbDF -> dnwU_gVto, kDfNz_Yx -> vkWU_qV]],
+            BLrPxTP_knFKATU = { "NKrNa_JuHXifTl" },
         },
         {
-            name = "glyph",
-            thumbnail_obj = "glyph_baba",
-            display_name = "glyph",
-            author = "Mathguy",
-            group = "$1,3Glyph",
-            description = [[Similar to text in that when arranged in certain ways rules are formed.
-Parsing rules regarding glyphs vary form that of text.]],
-            display_sprites = { "glyph_baba", "glyph_you", "glyph_flag", "glyph_win" },
+            XDPp = "RDiIk",
+            kdQqPESEN_qlo = "cEnIN_VQcH",
+            sbDLbzw_ZjrU = "AjOzE",
+            EXuZDv = "mlJLJXE",
+            wiLMS = "$1,3gasXi",
+            mdoQWXMKjZN = [[wgbiZbV Cf VtLj in DPEK oPtr MgoWAgbb in eFoFxnx eGPU tGaOT DIU fGXkcY.
+SWxniBY pWQfy MfthVENOt fmKdDt mSxw pNkH cgyT Ft TFCX.]],
+            YyTnkFQ_OUIChFa = { "ZEiCz_AYjg", "ZhvmJ_JWl", "GxTDH_cwzK", "VcBjU_eGz" },
         },
     })
 end

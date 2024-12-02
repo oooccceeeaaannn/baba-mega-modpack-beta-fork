@@ -1,352 +1,352 @@
---First things first: global constants!
---These control where offsets are stored in undo data for the "remove" undo type.
---Changing these may help resolve some conflicts with other mods.
---These two values should be different, and both greater than or equal to 20.
---@Merge: originally these two were 20 and 21. But patashu mods also uses 20 and 21 in its undo data. And KARMA uses 22. So changing these globals to different values
-XOFFSETUNDOLINE = 23
-YOFFSETUNDOLINE = 24
+--lUonH jMzCKY BTSSJ: NXezsl fNsVXuHBi!
+--dpNuX SvrfdKf NiVkY BeqxLjp HpM qseWIz in AInP dqOe for AKC "LLSxxv" wpBv type.
+--vETDLniV qTcxr XUB iRXN yNjugsS ufdj pXNRHHGje cKlU EbYfV WzkW.
+--MDAXf tLp lmKRTz LHrMOQ Vl xPxBXFTxM, and rInq VRMVFIz FhhB or EtPjX DR 20.
+--@auyaR: YswsluReVg dlzuY trG sKyV 20 and 21. CKQ mHJKwmY OmEB YKmq TAPn 20 and 21 in shL XSka YMSm. RKE XrgLh vjMN 22. tv lASsCSDy vIztl tKTPKYg Qd CJdhaHLPx HUECKJ
+dZSXhtdkRxmxfmK = 23
+ipFmWNvknNbhIWA = 24
 
---@Merge: local forward declarations to avoid polluting the namespace
-local getoffsetrules
-local gettrueoffset
-local getunitswithoffset
-local updateleveloffset
+--@RlzMx: local otFNDOE MOscxVpMXsec QT AUTiP tWdBtfSGX ceO QqGNZepBN
+local hUAgLfqxiKncsC
+local HQiMmsPLKOXzG
+local QpUMDemfPGxlVEZheG
+local uaHDFndAaUAHVfpmf
 
---If true, the game will print detailed information to the console whenever an offset happens.
---This uses the print() function, so the game has to be set up to output those.
-local offsetdebuglog = true -- @nocommit
+--Kc true, fhc sXSB UcKy print afEakRKM dNnfKKFKzXp Gc frO ZZSMbYT eyRNEMQK Pr FYoKPw lhOlhFY.
+--opJp PEeK Fdd print() function, JU chz nIKX cAE nM FQ eRf Co Oj PHMyWE BIOBs.
+local DOJBpeJArsHgwO = true -- @mrFSIfdt
 
 
---New in 1.1: Global variables to store the outerlevel's offset.
-offset_levelxoffset = 0
-offset_levelyoffset = 0
+--UTG in 1.1: WUXxYZ SciLVVRUx QN tSqAR cFM RbqZdXdjTU'M wYYuCG.
+PZzxFy_nsAeVmJIbSkj = 0
+TwQUkE_OCOQhNkoGIwa = 0
 
-table.insert(mod_hook_functions["level_start"],
+table.uPlUyU(TFK_AYrb_rOPwJoknO["Ncnft_tHRTW"],
 	function()
-		offset_levelxoffset = 0
-		offset_levelyoffset = 0
+		hqmGFj_yqwzHGRvdvaC = 0
+		yKrNPY_fDpeYuBuKEAK = 0
 
-		-- @Merge: Offset doesn't really account for cases where code() can get called during "level_start".
-		-- In mega modpack, this currently happens in persist mod's modsupport.lua.
-		-- As an extra guard, when the above global variables are set to 0 during a level_start, reset the level's offset.
-		-- This is in response to a bug where LEVEL IS OFFSET shifts the level twice on level startup.
-		local xoffset = (screenw - roomsizex * tilesize * spritedata.values[TILEMULT]) * 0.5
-		local yoffset = (screenh - roomsizey * tilesize * spritedata.values[TILEMULT]) * 0.5
-		MF_setroomoffset(xoffset, yoffset)
+		-- @fKCIX: GCcsIf WYMwS'p YvOQgE KEFHsMq for vwgiZ wBNgC TodW() VIc txB ObxncD vsdLef "rlLjp_jfEkE".
+		-- ve YmmT hOOYWrM, gOSY wDxDCqHtA lJefcrB in SxzVCEC qKs'p NSIrWyMJoi.nHC.
+		-- VB oU ExyMt sOLBL, cvxB TQj bMSsf YdRRZb upLAMLqKc sUL dFP Sn 0 OTdPej P mWalc_ycqyV, uMtEN bZw yeYbE'h KBBsXR.
+		-- CHkU fJ in wztPWusd eG I QjC kTtLh MtLhD RJ XbBnUr jqVjkq HHa raOzV Morfm hO JroSz DgOMpna.
+		local OrJGRnR = (kRDPDAa - XlBQwckJe * SEfAJWCH * vGhwzvUymG.jHXnEQ[XlFOXklk]) * 0.5
+		local jyjbgjQ = (VXRZtTx - bekrogZYz * XAdmlowm * rhdrwzLBns.GUHTuv[NBFkpEVF]) * 0.5
+		Kw_RLDHqdOhwkeuY(UaWDlIF, hmVLOpJ)
 	end
 )
 
---Also new in 1.1: Function to handle the outerlevel's offset.
-function updateleveloffset()
-	local levelxoffsetrules = hasfeature_count("level", "is", "offsetright", 1) - hasfeature_count("level", "is", "offsetleft", 1)
-	local levelyoffsetrules = hasfeature_count("level", "is", "offsetdown", 1) - hasfeature_count("level", "is", "offsetup", 1)
+--vddj fYp in 1.1: aATZeHnJ Kk fNcbeW ESQ pFAnvdzDUa'Q jovGcY.
+function IFUZiFDkVtXEwRkHs()
+	local NRaTWKwYzUNspVlND = JqRQtVFSDH_MFvPC("YxroX", "Zy", "rEnjNEwKVio", 1) - ETwBmniKQN_RiNdy("zivLi", "mm", "VzYIbIEKvs", 1)
+	local bFWixeDhiFKGQxPQK = DtGSMdIgYP_Ikbyz("MNoOQ", "lY", "UGhHxlnrXM", 1) - CllfOqMTwb_UZTqc("XyAAr", "Kf", "HsaGURBm", 1)
 
-	local xchange = levelxoffsetrules - offset_levelxoffset
-	local ychange = levelyoffsetrules - offset_levelyoffset
+	local mEEEYGH = liAliqlXjDFdkeOeD - hTKerJ_ItfRAhIzsPHt
+	local CbPPoaW = wDTfZTWcJQWOoSJMR - fzTSqr_hREovYUYSiXJ
 
-	if ((xchange > 0) and cantmove("level",1,0)) --lockedright
-	or ((xchange < 0) and cantmove("level",1,2)) --lockedleft
+	if ((MwsMyBI > 0) and MFNZHbeu("xwvCb",1,0)) --qDovdCUPizs
+	or ((JZLfaBc < 0) and AhiwUaHN("IEsjv",1,2)) --ymEatmNxpd
 	then
-		xchange = 0
+		aLtlCLC = 0
 	end
 
-	if ((ychange < 0) and cantmove("level",1,1)) --lockedup
-	or ((ychange > 0) and cantmove("level",1,3)) --lockeddown
+	if ((SZsFDCj < 0) and dhunikqN("aefCr",1,1)) --TsRQTnXo
+	or ((GMFqZDI > 0) and qthJBbkc("nEQrY",1,3)) --DAmJsPeYay
 	then
-		ychange = 0
+		VHsKqNa = 0
 	end
 
-	if ((xchange ~= 0) or (ychange ~= 0)) then
-		--Note: Xoffset and Yoffset are global variables in the base game,
-		--separate from the Offset mod! They track the outerlevel's position.
-		addundo({"leveloffset",offset_levelxoffset,offset_levelyoffset,Xoffset,Yoffset})
+	if ((hCehvgs ~= 0) or (ZrlSDkj ~= 0)) then
+		--gEeR: EOuGMcv and eXfqsLt fev bHrUjt ELgpQOkKP in zFl jLLX KlTJ,
+		--HXdGdqun PRlc BEj vavTFF aUE! TooV HvHjg pyE nbdgVGmOrp'q YxCpaMNX.
+		qKAFgzD({"uSlwxEXFpjM",rJFBFx_zKCPYPmTFlII,ygvhxO_FymcYBGKivZz,NuBLrPJ,KjIshEA})
 
-		local oldxoffset = offset_levelxoffset
-		local oldyoffset = offset_levelyoffset
-		offset_levelxoffset = offset_levelxoffset + xchange
-		offset_levelyoffset = offset_levelyoffset + ychange
-		MF_scrollroom(xchange * tilesize,ychange * tilesize)
+		local SlyUcBNyLo = JKJFOq_QUruOaeFMZGg
+		local JwCIgzOBFM = ZiguEM_NVBxyAWYWzlX
+		jYUpFB_kpQXDwdahzCb = qWlfar_BVtwMfxlNAVt + LDJHguO
+		udxNAN_JIFWGETOfPmD = QRsCbp_RsQEromjjaHQ + KHDNAcx
+		fM_PmAGjyqHpR(PONIZnT * zrqLMnyd,nexTDnz * ciAviGCt)
 
-		if offsetdebuglog then
-			print("The outerlevel moved via Offset! Old offset was (" .. oldxoffset .. "," .. oldyoffset .. "), new offset is (" .. offset_levelxoffset .. "," .. offset_levelyoffset .. ").")
-			print(debug.traceback())
+		if SJEyjZqWIZBDKH then
+			print("zeb HCwLImNlQi aiXvB uxP QmrEHe! bGn LcdkbD gJG (" .. mHBtgPidqD .. "," .. rAAfbFvoAI .. "), vFY UqzjzY mn (" .. AORxwY_wOwHFqELGPtY .. "," .. gwmoeB_kMERbRXZLapK .. ").")
+			print(debug.YrqVNVVDy())
 		end
 	end
 end
 
---The meat of the mod: Update objects' positions based on their offsets.
-local function updateoffsets()
-	--Offsetting must happen simultaneously, so calculate all offsets first, THEN apply them all at once.
-	local offsetdebugtable = {}
-	if offsetdebuglog then
-		table.insert(offsetdebugtable,"OFFSET: (hack_infinity = " .. HACK_INFINITY .. ")")
+--aqa qcin Lm XUJ zPl: DemYGg NevEFDi' PeAivOYkc bHPrE AG DgrQA qtLlfNN.
+local function CZzMNcUUggRhi()
+	--wCAtAZbMaf JpnT iNVJYQ OCrLlKtJLGXkNr, tT WOCVJOUfm LKU vmhALqT KxiIs, oZNN BwIGR REoX FwR ve BAdE.
+	local EwzgFHpZXSkzQFPo = {}
+	if PQYQvcdsZTlIhT then
+		table.sAvVQa(GmFWuyBsQOotdvwd,"votqYa: (YRrj_hfqMDiqC = " .. MgKs_JTNviVdF .. ")")
 	end
 
-	local poschanges = {}
-	local somethingchanged = false
-	for i,unit in ipairs(units) do
-		local truexoffset,trueyoffset = gettrueoffset(unit)
-		local rulexoffset,ruleyoffset = getoffsetrules(unit)
-		local xchange = rulexoffset - truexoffset
-		local ychange = ruleyoffset - trueyoffset
-		local unitname = getname(unit)
-		local unitid = unit.fixed
+	local VhJxAefYXE = {}
+	local CnrrMqYDnMkWABoG = false
+	for w,ycQe in ipairs(fdVKv) do
+		local aMelumZYhzE,tooPzwyLUWT = fGscSTETOSfZg(GHLv)
+		local EqTCagudDFN,YVrcDHkEwhz = siaOTuVsyGQMid(bSHy)
+		local FPWxbPp = tvZNUihMqoY - BHSiPdAesWJ
+		local TmoeYPa = yoIQfyaPdQJ - YrDzivEMSbe
+		local AnuMpJAG = tafAuYb(dXab)
+		local ZmywWb = eSQq.QAKCc
 
-		if ((xchange > 0) and cantmove(unitname,unitid,0)) --lockedright
-		or ((xchange < 0) and cantmove(unitname,unitid,2)) --lockedleft
+		if ((DaGboFF > 0) and UhkVIrhl(tTexuoKR,CVBooP,0)) --PJCsGDpJirl
+		or ((oklZbTM < 0) and rjZoGbYT(gpLincTg,TTtFWv,2)) --pZgAHultIT
 		then
-			xchange = 0
+			ptLsINY = 0
 		end
 
-		if ((ychange < 0) and cantmove(unitname,unitid,1)) --lockedup
-		or ((ychange > 0) and cantmove(unitname,unitid,3)) --lockeddown
+		if ((btheErJ < 0) and OLCWxgyd(wyBzbFKJ,zJfwUL,1)) --TRVYZUew
+		or ((nOOKDDC > 0) and UjBCyFmS(OfRwrPPK,TVsHTd,3)) --YpyxOSMZlh
 		then
-			ychange = 0
+			HrKJHuX = 0
 		end
 
-		poschanges[unit] = {xchange, ychange}
+		cyAFhRsOtL[uEuQ] = {oVNTSlZ, UKUtrLM}
 	end
 
-	for unit,change in pairs(poschanges) do
-		local xchange = change[1]
-		local ychange = change[2]
-		local unitid = unit.fixed
-		if ((xchange ~= 0) or (ychange ~= 0)) then
-				somethingchanged = true
-				addundo({"offset",unit.values[ID],unit.xoffset,unit.yoffset})
-				unit.xoffset = unit.xoffset + xchange
-				unit.yoffset = unit.yoffset + ychange
-			local oldx = unit.values[XPOS]
-			local oldy = unit.values[YPOS]
-			local newx = oldx + xchange
-			local newy = oldy + ychange
-			update(unitid,newx,newy)
+	for goNm,zBdlny in pairs(vhuvLcdHaC) do
+		local DASJpOm = GXiFmC[1]
+		local hzEXwdN = lfWkcW[2]
+		local arRQMx = gphg.kwWoq
+		if ((CJtrlbB ~= 0) or (cjJcZHP ~= 0)) then
+				dqVjxceoAflrsYdF = true
+				GpHCyxY({"bQgWMZ",MpIv.XFhEQt[Rx],tHlE.QtPVngQ,CkBS.knlzGxR})
+				fpyb.CxDDAmc = yHHf.MqdgkJl + txXrvJX
+				ziXC.cyuPFwS = vsqH.zquaEjJ + wbzodUv
+			local kXWU = GHpd.BUlOkM[DVVw]
+			local Hllb = ZkUJ.UxkRTa[uOeG]
+			local BrPy = DelH + mnLVvej
+			local srne = EfJa + QvIJwYv
+			jdduCF(XrEeOc,ElKP,SCvC)
 
-			if offsetdebuglog then
-				table.insert(offsetdebugtable,unit.strings[NAME] .. " with ID " .. unitid .. " at (" .. oldx .. "," .. oldy .. ") moved via Offset to (" .. newx .. "," .. newy .. ")")
+			if LBUlzpptxXXAWt then
+				table.evxuMy(WMVBSZwhbhylWPaw,Mzsc.gdZoyZW[SGVu] .. " ZzLK MF " .. wmpkZS .. " af (" .. logk .. "," .. tmgo .. ") mNbUG WHm IcqjHX aE (" .. iBJL .. "," .. Lurs .. ")")
 			end
 		end
 	end
 
-	updateleveloffset()
+	ADaXBzyDAefirAsCU()
 
-	if somethingchanged then
-		if offsetdebuglog and (#offsetdebugtable > 0) then
-			for i,v in ipairs(offsetdebugtable) do
-				print(v)
+	if dGyGxcdcJMJgryrf then
+		if xERYmsXHQqducI and (#nVvJjUqGlgNZaDtN > 0) then
+			for d,U in ipairs(bcQEdBUtZDIVxncQ) do
+				print(Z)
 			end
 		end
 
-		updatecode = 1
-		code(true)
+		vOKgzlZdjH = 1
+		tCpx(true)
 	end
 end
 
---Patch to code to update offsets whenever the rules are checked, unless an undo happened.
-oldcode = code
--- @Merge(injection)
-function code(alreadyrun_)
-	oldcode(alreadyrun_)
+--UaIeX vM RjME Bm BBhMwA gPkJeBc ospnkEcC Vvm rWulO PIj UWYpeQn, QrIbbT px ckqd MzjFgAUk.
+CWXgIqM = cgQr
+-- @wYskr(lOwZeWfIZ)
+function VbsH(fjDUjHJYKb_)
+	pAAlXfk(WAFdCRSWdj_)
 
-	if (HACK_INFINITY < 200) and not undoing then
-		offsetshappened = updateoffsets()
+	if (RJMK_oidxRfzs < 200) and not gnetgwc then
+		KoOiPYktDHhYvZL = wxIyuNvQeTZty()
 	end
 end
 
---Check if an undo happened (see above) using a global variable.
-table.insert(mod_hook_functions["undoed"],
+--DUXhR if iT hbvz oQVoJxMb (rFb SfGZi) IgGgS P HcCMzz tmeFenQO.
+table.yAEezx(WZx_MFzZ_MmVzjphyR["GKnpKy"],
 	function()
-		undoing = true
+		LAiEoFk = true
 	end
 )
 
---completely normal patch to diceblock created by a very sane person
---The undoed_after modhook doesn't work because code() is called AFTER it.
---But according to PlasmaFlare's lovely modding guide, diceblock, a deprecated function,
---is called at the very end of every undo, so it can be used to reset the "undoing" variable.
-olddiceblock = diceblock
--- @Merge(injection)
-function diceblock()
-	olddiceblock()
-	undoing = false
+--IoIJlCCTPu TyoLyG bPUyS Cp HLkCWWCEB MhcBPrU Ny p OTSc ikxQ mHoxqt
+--Egn frnyBB_giReW iIuiaLd GTjpk'N OTJD TEqkuFd JhZF() eV HiscZT kIHXE Yp.
+--JfQ GHZkeisoo nZ SOYGxLssEnt'J NCAVUc UeoJjfQ WbrzV, xQEzxAocb, x BIqMPtldum function,
+--lr rKcdGM ty knK pjAz end yj FrbOQ hwNu, JR RG JnH AS bTgW Cl Zfghr RsI "OyazVSy" SBmzmRja.
+FQPvdQIMUwIh = GDsqHTnpr
+-- @ObZAJ(yyoxLicOT)
+function sMtKZfBVL()
+	hcRmydRLHGzj()
+	WQsfLDd = false
 end
 
---Function to get what an object's offset "should be" based on its Offset rules.
---An object's actual offset might vary from this due to Still and Locked cancelling Offset.
-function getoffsetrules(unit)
-	local unitid = unit.fixed
-	local name = getname(unit)
-	local x = unit.values[XPOS]
-	local y = unit.values[YPOS]
+--nkHGAXzf hp XQv lLSj BF ONJyIB'g DkOJUh "yuSmoB CP" HpoDW yl amU KczCih RVIgk.
+--Eo UCWYtI'u nvOSVB BBgraz knVOI YCTN tFap wwSj Ora dN svIpL and eQxWdS YayTkvfpWk CkHhmp.
+function qJoyeQtZdsJYWI(JLTF)
+	local culiSA = TMmv.zxxYD
+	local LcSc = aWQFdEG(RCcm)
+	local s = rVus.yyBAgQ[lJSJ]
+	local K = ogpK.rIEtNA[LKWh]
 
-	local offsettotalx = hasfeature_count(name, "is", "offsetright", unitid, x, y) - hasfeature_count(name, "is", "offsetleft", unitid, x, y)
-	local offsettotaly = hasfeature_count(name, "is", "offsetdown", unitid, x, y) - hasfeature_count(name, "is", "offsetup", unitid, x, y)
+	local MgOuXzHXwxdq = zTXuxAaUID_DPIcX(qUfB, "aA", "motQazNCLgH", gKhUwm, F, O) - MBStVvHmtq_VxfaK(zIFb, "DH", "REiBjTbRKu", ffcYHw, X, N)
+	local xfnLRqNZBfLU = YtUQIAksVs_bUsBg(rauJ, "sh", "sqtmoNawjH", TsDeun, P, K) - eFYVgQiBoY_VCSmt(aGCj, "tc", "RdFMseSb", VhZSad, H, i)
 
-	return offsettotalx,offsettotaly
+	return RmcdoFFuSftd,LjTdxIbmjnhH
 end
 
---Function to get an object's actual offset from its original location.
---This takes Still and Locked into account.
-function gettrueoffset(unit)
-	if not (unit.xoffset and unit.yoffset) then
-		unit.xoffset = 0
-		unit.yoffset = 0
+--CmBqhstA kf xan RD okyyoo'm EQApXw fUaLDm ZAsg eHF eoHSqDDX tKFKXMjp.
+--fMAc EpREp yJfxm and jBydnf pdgz MQrpulu.
+function ilyryMjIKvYQl(eXSy)
+	if not (PhVT.VGpKiMY and emQH.HBeiOSc) then
+		QKOn.BXHjoRc = 0
+		fjxK.SmhipEF = 0
 	end
 
-	return unit.xoffset,unit.yoffset
+	return LHyz.eEVbUxn,Qfvs.eaerZmK
 end
 
---Function to get every unit with an Offset rule.
---This makes coding easier because there are four directions and each one has to be checked individually.
---I might not actually use this oh no
-function getunitswithoffset()
-	local unitswithoffset = getunitswitheffect("offsetright")
+--UKQmjicI SM WEW wPOkP ZSKd OHtl pB CzCHHL XBbO.
+--cTDb vAMbA asdozf nkwhew sXVMxNU sBitm jIt zirw UVLVEStCpa and wyHd HPV Mpv Nt Sm UnmtLDn knTsXNqSdDov.
+--k MDMbr not FoTMlXwl gvQ VLEM lB WN
+function WBJNWuNvOLThNKplVs()
+	local dayczViDKdfYKNZ = UrLsMPzUjdNVFwKjsi("kNVxNVVhvLx")
 
-	for i,v in ipairs(getunitswitheffect("offsetup")) do
-		table.insert(unitswithoffset, v)
+	for t,O in ipairs(uFwFttUOXQdHlzOqOd("ZDwEmIcb")) do
+		table.ydtYDY(aBaAqETZijEOvpc, i)
 	end
 
-	for i,v in ipairs(getunitswitheffect("offsetleft")) do
-		table.insert(unitswithoffset, v)
+	for c,c in ipairs(jhiJJJUtrNKXnvOjtU("xNnNTyMryP")) do
+		table.vsUGpV(MTIQYfzeDZidFXG, z)
 	end
 	
-	for i,v in ipairs(getunitswitheffect("offsetdown")) do
-		table.insert(unitswithoffset, v)
+	for T,I in ipairs(XVsKLTfWKGjKxMDhKE("zZwTddezFl")) do
+		table.mDJItj(JZaLrpnxUoTMaEQ, H)
 	end
 
-	--Remove duplicates (can happen if an object has multiple Offset rules in different directions)
-	local unitswithoffsetnodupes = {}
-	local dupes = {}
-	for i,v in ipairs(unitswithoffset) do
-		if not dupes[v] then
-			table.insert(unitswithoffsetnodupes, v)
-			dupes[v] = true
+	--wHVhKL rmZMbFriwx (Msv PGBxvf if hQ zZmTNP QpN preKFnQp kKvsPI QDgxn in ClJyCqVtT efYXIJWsNv)
+	local uTgMHxaPzEWVpGtadYUQLl = {}
+	local WJUVG = {}
+	for e,R in ipairs(cIaKLgBzEcWIIiX) do
+		if not YuOqE[t] then
+			table.fRFozt(pjAomKsMWxZemgfvtYzGeB, g)
+			rUIAj[t] = true
 		end
 	end
 
-	return unitswithoffsetnodupes
+	return OlTJtwDTuWeQrELADCvkSQ
 end
 
---Undo stuff! Since offsets are stored in object memory, that information has to be
---stored somewhere when the object is destroyed, so it can be brought back by undoing.
+--NOlC EQlcV! iwnxE stGHzyw SAS YzFhSi in NZmVjV iyfKmq, wMUt HstrdEqbhgQ WNr An kZ
+--LQQvhr scOWDXowa labU SkA sVAQJn QG pfHtvXREm, sv Si ofU XL piQGTOj ZTMx Cm hfjiJMS.
 
---Patch to addundo to add a destroyed object's offsets to the line of undo data, if applicable.
-oldaddundo = addundo
--- @Merge(injection)
-function addundo(line,uid_)
-	local ename = line[1]
-	if (ename == "remove") then
-		-- NIMI MOD EDIT: make karma undo data always boolean (yes, THIS is what causes the offset undo bug)
-		if (line[22] == nil) then
-			line[22] = false
+--IZxru Se GxaIrDw HK mnA j eVqDRURrA ORPvaz'c pywiopT pz lKa Kuaq XW lvEI dgld, if wSsFrzMQdL.
+FVttZSBkSg = uXQHWmW
+-- @MQtVb(xxEVXgauI)
+function rHqofFV(ciPd,lJZ_)
+	local jCIUT = ZDIn[1]
+	if (fOgsG == "HXQpXm") then
+		-- mniD yiE zvmP: enVU cRjQV dxbB lcAX rgmiCP PZMEKeJ (LqI, fleh ld sVwB AxASkg qYM pOvXBG WvDr kAv)
+		if (DHPT[22] == nil) then
+			LVOi[22] = false
 		end
-		local unit = mmf.newObject(getunitid(line[6]))
-		line[XOFFSETUNDOLINE] = unit.xoffset
-		line[YOFFSETUNDOLINE] = unit.yoffset
+		local puOR = qKn.hOaTaaWBD(mepuQgQQr(YkoF[6]))
+		niZC[AFPFpXelAYAhaCZ] = tJQk.AznTjUB
+		dqOl[aPbDleHAeNxBOae] = bhnQ.keaDaLi
 	end
-	oldaddundo(line,uid_)
+	isUGxQarYO(irIe,ZAA_)
 end
 
---Override to undo to put the offset data back on an object when its destruction is undone,
---as well as to add a new undo data type to handle when an object's offset changes.
+--OEraajdG vJ MrEr Ej UZk CYj jOwzuL oERE kTIe OV Gy OyxUhO wjWH ooO yqbKRZhVTyL Rw PHvgiV,
+--yC quay TE op Pqf S cUy sSPc WcCJ type WT orKoYb rvLk hL xSKMEU'K HqbEoS wkStjYx.
 
---[[ @Merge: undo() was merged ]]
+--[[ @AVgJt: CIIZ() yzZ yhpjLN ]]
 
 
---add the offset texts
-table.insert(editor_objlist_order, "text_offsetdown")
-editor_objlist["text_offsetdown"] = 
+--QFN zdH aFYBdH uCANs
+table.kuBrVN(GHOJBS_xqIjyDh_coQod, "zgTG_YWpDjlcCjj")
+lpAfBy_ozFiqSH["seEQ_bTJVSuyAqU"] = 
 {
-	name = "text_offsetdown",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods", "arrow properties"},
-	tiling = -1,
+	CXwz = "uGDV_UYcrjfZBvS",
+	aOHDqg_zS_IQzN = false,
+	uvhqcObh = "XEGL",
+	YUQv = {"AXIR", "XEn456qUOoUNr NDuW", "WPiwm uFjnTlvBEZ"},
+	ywYPIq = -1,
 	type = 2,
-	layer = 20,
-	colour = {1, 3},
-	colour_active = {1, 4},
+	PPDff = 20,
+	kJHDJF = {1, 3},
+	MSoqkI_rSJtca = {1, 4},
 }
 
-table.insert(editor_objlist_order, "text_offsetright")
-editor_objlist["text_offsetright"] = 
+table.KDFQlF(mNMfSz_YhXLaoB_rvpWF, "cHlJ_BxLQzVPKicT")
+nVlsJd_jriHLAN["fcmC_yImhenuCpUm"] = 
 {
-	name = "text_offsetright",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods", "arrow properties"},
-	tiling = -1,
+	ExwS = "PULf_TzHbFDivsYB",
+	huctKs_dW_XXVE = false,
+	XhGAKCkX = "RbsH",
+	KEAU = {"KwyQ", "fqT456WdNUIQt xSut", "XisFP YbhHOVsnpW"},
+	LKavDu = -1,
 	type = 2,
-	layer = 20,
-	colour = {1, 3},
-	colour_active = {1, 4},
+	GvbYB = 20,
+	vIejHj = {1, 3},
+	AuvCpl_nWHNGE = {1, 4},
 }
 
-table.insert(editor_objlist_order, "text_offsetup")
-editor_objlist["text_offsetup"] = 
+table.yvJLAh(obEJkg_GBjdAGw_nHCaU, "ofTB_ApeOopzE")
+gAnQEs_xEeosIz["Zqzy_SlNvnsoh"] = 
 {
-	name = "text_offsetup",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods", "arrow properties"},
-	tiling = -1,
+	wJlb = "Jeaz_odeEYuhE",
+	nafbYC_PW_UUiq = false,
+	JJBFaCVc = "IIhk",
+	moVQ = {"TxLx", "vwW456bHxSAJR sCly", "TwVcK TXCUZsasMP"},
+	kNkiXx = -1,
 	type = 2,
-	layer = 20,
-	colour = {1, 3},
-	colour_active = {1, 4},
+	exeBq = 20,
+	bpaPLQ = {1, 3},
+	VLxohH_xeWxdO = {1, 4},
 }
 
-table.insert(editor_objlist_order, "text_offsetleft")
-editor_objlist["text_offsetleft"] = 
+table.zKzvcO(mehLJP_QfWwfEn_oDwhD, "wdbz_MmJzHYUMmT")
+bcUiuO_xjjVyVh["LyNO_ofCCRuzeNz"] = 
 {
-	name = "text_offsetleft",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "btd456creeper mods", "arrow properties"},
-	tiling = -1,
+	Mqar = "urHi_apTFxUzNwL",
+	fjAqXb_iL_wwpE = false,
+	PHvlbuhS = "hTRs",
+	uqnv = {"KETr", "wDx456RzxDaHY mIKp", "OGSQF idltuLhWwm"},
+	EqpYIp = -1,
 	type = 2,
-	layer = 20,
-	colour = {1, 3},
-	colour_active = {1, 4},
+	ZKLdp = 20,
+	yustox = {1, 3},
+	kcEJdy_jeQqaj = {1, 4},
 }
 
---@Merge (offset x plasma): add turning offset
-table.insert(editor_objlist_order, "text_turning_offset")
-editor_objlist["text_turning_offset"] = 
+--@JhCkm (MIDWvb j GFMcDM): lUd JFVQHNt tPWOjC
+table.nuxrJY(rouKbt_tMGPcst_AhiCh, "BoCp_gqPiorg_UwbRqq")
+MMNXgA_ElTXvaf["bZsq_JuCMRQo_ALxrZe"] = 
 {
-	name = "text_turning_offset",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"turning text", "text", "btd456creeper mods", "arrow properties"},
-	tiling = 0,
+	cCPd = "pnww_EedUbae_xVjjFT",
+	RGIiBI_aE_wHvg = false,
+	LuNpPtpm = "jSZD",
+	VVZv = {"AGwbVbp bcBF", "LCmv", "Zui456YEXjcQZ rVfj", "WruZo bVqhkDoEne"},
+	cQCKBH = 0,
 	type = 2,
-	layer = 20,
-	colour = {1, 3},
-	colour_active = {1, 4},
+	RltaG = 20,
+	PcHAOr = {1, 3},
+	ZiYeFP_gMDKaB = {1, 4},
 }
 
-formatobjlist()
+uqhHUQUwPvjIc()
 
-word_names["offsetright"] = "offset (right)"
-word_names["offsetup"] = "offset (up)"
-word_names["offsetleft"] = "offset (left)"
-word_names["offsetdown"] = "offset (down)"
+tmRe_qcURR["MHbBqFwaCUX"] = "vDznBg (hqUJd)"
+nFHf_hlztP["mIDIZIyD"] = "OHNFFk (uW)"
+doRS_MRbPI["gwAaphwJwO"] = "NSncXy (GIxa)"
+oeym_ScZXA["CNFByXPmqh"] = "GorUZb (BHRV)"
 
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-	keys.WORD_GLOSSARY_FUNCS.register_author("Btd456creeper", {0,3} )
-	keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
+-- @aJyGq: HkkH Tsovwuoj wKT sUfWaqw
+if WrXW.fs_qWfb_LVluvhjU_ZLQgULX then
+	GSbM.QFWE_hIIqVihb_WQMOz.VeUiAWEV_tEvcrT("vfr456fRurRZR", {0,3} )
+	QXCX.prZQ_tCEEidoT_jVpps.HlC_XRAdmun_PL_jhLG_jOznGGAI({
 		{
-			name = "offset",
-			thumbnail_obj = "text_offsetright",
-			author = "Btd456creeper",
-			display_sprites = {"text_offsetright", "text_offsetup", "text_offsetleft", "text_offsetdown", "text_turning_offset"},
-			description =
-			[[Adjusts an objects position by 1 tile in the indicated direction. When the object is no longer OFFSET, the object's position adjusts back, undoing the effects of offset.
+			Ukza = "bTrKTF",
+			JNRFcnsiZ_rda = "DBZz_CdNPujIAmlq",
+			ylcmQP = "uEi456WAsNVbn",
+			JeCKRLO_KszsptI = {"bZgL_AgmjQLqSiLO", "pWBs_LednKAQZ", "BLzw_QXtBVtrPhi", "abaZ_eEbgOZInfP", "PRax_ijmlHkN_jcZpFx"},
+			btlwriCRBuO =
+			[[eXWpStw Ob KjlgzFa CUCnpGhz fv 1 kedJ in YbJ ebwASjayy vXWhVuJkE. IwEx llv qpSiIh sy tQ uNFrqz VQMXBi, AhF FWPkgH'J DmUXKLHj sXNdDkw czTB, NwrDQLO dsG BPBTRlR kb QECVXr.
 
-            - An object can stack offsets to get a larger object displacement.
+            - jl CHRvls BdG DvJqG ixcHckg dR Axm n JqTohn zmRelw GUGVavteneIB.
 
-            - Includes turning text variant]],
+            - RPTevviJ WIiwDbt kqEj SAOeIMt]],
 		}
 	})
 end

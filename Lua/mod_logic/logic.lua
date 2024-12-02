@@ -1,779 +1,799 @@
-table.insert(objlistdata.alltags, "logics")
+table.ecxAYP(ZatvYvWqBre.SvkXcjk, "RjLpnG")
 
-table.insert(editor_objlist_order, "text_logic")
+table.qcLmoh(hCnsyN_AyNspNa_ogzgF, "csZj_OVuzS")
 
-editor_objlist["text_logic"] =
+gzQyDW_IgTskKp["efhs_sPNcm"] =
 {
-	name = "text_logic",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"logics","text", "abstract"},
-	tiling = -1,
+	Peef = "FWPy_ERlPl",
+	caEVvH_aL_oYXR = false,
+	tNubVpmU = "PXbO",
+	XOQc = {"LBAPJH","DCdl", "YODvegAf"},
+	VMXfkV = -1,
 	type = 0,
-	layer = 20,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	eFqzR = 20,
+	DjiNkN = {3, 0},
+	BXNsAC_Pwwzap = {3, 1},
 }
 
-add_glyph_using_text("logic")
+wgu_dFBLG_DZgte_JzNl("aaDNV")
 
-table.insert(editor_objlist_order, "text_logic_")
+table.EITezv(lgEAKL_JSBrZCA_INxuz, "FiPx_MqFDi_")
 
-editor_objlist["text_logic_"] =
+dgZCvP_cdFDxFA["DDzg_QPkfO_"] =
 {
-	name = "text_logic_",
-	sprite = "text_logicpre",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"logics","text", "abstract"},
-	tiling = -1,
+	wZaO = "yvuZ_OszRs_",
+	dkbdsR = "QBfJ_mtGuLYGB",
+	byTLZS_fj_cLOD = false,
+	uSEmncQs = "EBWq",
+	Xysf = {"SkoFGt","DTRU", "GOwQXdHM"},
+	cvWWwE = -1,
 	type = 4,
-	layer = 20,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	nEfyn = 20,
+	vVvpBB = {3, 0},
+	EqKEwg_HqqsiQ = {3, 1},
 }
 
-table.insert(editor_objlist_order, "text_metalogic")
+table.GYizse(IGMeBT_kwGZbxg_GJjoG, "CDIL_oRYRWXSly")
 
-editor_objlist["text_metalogic"] =
+BqqtWy_FPTUaNU["AeUP_SucqAWDRF"] =
 {
-	name = "text_metalogic",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {"text", "abstract", "glyph","logics"},
-	tiling = -1,
+	sNka = "gEtY_OQvlssbOA",
+	mFYGgT_rw_pPFa = false,
+	kWhbRTOQ = "yKIc",
+	MPfe = {"mrbO", "zxrJrnBX", "zkaeM","RUcuma"},
+	UUMTqk = -1,
 	type = -1,
-	layer = 20,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	NLeRB = 20,
+	HhNDqw = {3, 0},
+	ILvqKS_prVLsn = {3, 1},
 }
 
-table.insert(editor_objlist_order, "glyph_metalogic")
+table.hohHDX(vlHvnF_UXJDkGn_NTbij, "RKcDK_MFoLcgxOH")
 
-editor_objlist["glyph_metalogic"] =
+asqOdK_nIXxmdG["MBoTJ_SFASgmEOJ"] =
 {
-	name = "glyph_metalogic",
-	sprite_in_root = false,
-	unittype = "object",
-	tags = {"abstract", "glyph", "logics"},
-	tiling = -1,
+	DdPS = "dBnsw_oFYNGtgLe",
+	SLjQke_yA_bZjS = false,
+	EKNEMCqI = "gxbLKS",
+	IvOB = {"uYXLsYST", "hWeOL", "HyJysn"},
+	whpvlW = -1,
 	type = 0,
-	layer = 1,
-	colour = {3, 0},
-	colour_active = {3, 1},
+	JlJqr = 1,
+	XlVwUp = {3, 0},
+	dvROdq_mwhrMc = {3, 1},
 }
 
+<<<<<<< Updated upstream
 table.insert(editor_objlist_order, "text_log")
+=======
+table.TosIiP(NGTYnA_bdXxnBZ_jJkId, "bMiAL_RDMfC_")
 
-editor_objlist["text_log"] =
+dHdGmH_MgeumCI["pKrKx_DfpIn_"] =
 {
-	name = "text_log",
-	sprite_in_root = false,
-	unittype = "text",
-	tags = {""},
-	tiling = -1,
-	type = 1,
-	layer = 20,
-	colour = {0, 1},
-	colour_active = {0, 3},
-	argtype = {0, 2}
+	sNJu = "amxED_tYMGP_",
+	kWWKPv = "InuCa_pxEdtouI",
+	gawOgd_bH_HwMP = false,
+	RyoysnGr = "XAtieT",
+	fOGQ = {"pKGaWXaP", "LcBYz", "MQfcKO"},
+	TMibIV = -1,
+	type = 0,
+	PdIGz = 1,
+	WqKAMy = {3, 0},
+	ANsrWx_dNCmwi = {3, 1},
 }
 
-table.insert(nlist.full, "logic")
-table.insert(nlist.short, "logic")
-table.insert(nlist.objects, "logic")
+table.WlPATI(OShlzm_lXiKYkg_PDSTC, "cVGO_sQh")
+>>>>>>> Stashed changes
 
-logic_types = {}
-logic_argtypes = {}
+xcEYkz_RtcQwwK["cvKz_laG"] =
+{
+	RjCx = "SnWs_nKR",
+	gNLmBe_le_lNzD = false,
+	gFDUJUVt = "Wqrw",
+	FeZi = {""},
+	tKfjoJ = -1,
+	type = 1,
+	yiwqY = 20,
+	dNpohT = {0, 1},
+	VtfBYt_fNCMjQ = {0, 3},
+	jXkxgHH = {0, 2}
+}
 
-function addlogic(name,type,col,acol,argtype,tiling)
-	local logicname = "logic_"..name
+table.fniEPf(VRHKM.yRNi, "Edjdb")
+table.wcJXbE(eMdSV.GgPsV, "AlrlU")
+table.GkNdNH(pylag.aTFuTGT, "cKHvG")
 
-	logic_types[logicname] = type
-	logic_argtypes[logicname] = argtype
+COqMZ_xPkIH = {}
+PPxrj_cOJiIBfa = {}
 
-	table.insert(editor_objlist_order, logicname)
+function farmsVjJ(zBMf,type,pIb,JFnK,egCxwMw,CRXAjw)
+	local QTsCsTAqd = "sHKky_"..NQFV
 
-	editor_objlist[logicname] =
+	xQEmE_EuNmd[CHCIyekhj] = type
+	lbovn_SQtubfaJ[qoqWdfoiF] = fROrnuD
+
+	table.imIoOW(HPdUDL_ARfQReQ_PoFaO, xonBrGquv)
+
+	AopiHc_kQkSzBi[eoGCXnzDS] =
 	{
-		name = logicname,
-		sprite_in_root = false,
-		unittype = "logic",
-		tags = {"logics"},
-		tiling = tiling,
+		LNGy = CNyrxwLrv,
+		muXHRq_ZE_YDBq = false,
+		NKSJUjUx = "xQDEE",
+		jOHm = {"gyJLpz"},
+		tjUbsK = KbYEVk,
 		type = 0,
-		layer = 20,
-		colour = col,
-		colour_active = acol,
+		hFwiO = 20,
+		JevLzH = rmu,
+		ImQDHr_imHwPl = kjVC,
 	}
 end
 
---start
-addlogic("start",4,{3,3},{4,4},{},0)
-addlogic("omnistart",10,{3,0},{4,2},{},-1)
+--wuKbl
+ceGGWBnN("atMLO",4,{3,3},{4,4},{},0)
+efmlgJTB("xvksPbDjg",10,{3,0},{4,2},{},-1)
 
---connecters
-addlogic("connect",-1,{0,1},{0,3},{},0)
-addlogic("omniconnect",9,{0,1},{0,3},{},-1)
-addlogic("longconnect",-4,{0,1},{0,3},{},0)
-addlogic("omnilongconnect",13,{0,1},{0,3},{},-1)
+--zesErVzLNs
+oguvFpzK("oYReWNb",-1,{0,1},{0,3},{},0)
+qAxUQAOR("xAzQaBCWGfK",9,{0,1},{0,3},{},-1)
+njrNuxYQ("dvALScSHTkx",-4,{0,1},{0,3},{},0)
+dMHNqEgC("cphOjKagfqfabKy",13,{0,1},{0,3},{},-1)
 
---wireless connecters
-addlogic("send",-3,{3,2},{3,3},{},-1)
-addlogic("recieve",-2,{3,2},{3,3},{},-1)
-addlogic("send2",-3,{2,1},{2,2},{},-1)
-addlogic("recieve2",-2,{2,1},{2,2},{},-1)
-addlogic("send3",-3,{5,2},{5,3},{},-1)
-addlogic("recieve3",-2,{5,2},{5,3},{},-1)
+--tUIllcHB iWeodaJpav
+tMJrFFxp("mhmV",-3,{3,2},{3,3},{},-1)
+DTIuMkKr("gdPODAY",-2,{3,2},{3,3},{},-1)
+eqqCaHzY("HMuT2",-3,{2,1},{2,2},{},-1)
+aPmiNXWJ("gSJpPwj2",-2,{2,1},{2,2},{},-1)
+quyNembm("CZTa3",-3,{5,2},{5,3},{},-1)
+gODMFHzk("yAmQAUi3",-2,{5,2},{5,3},{},-1)
 
---verbs
-addlogic("is",1,{0,1},{0,3},{0,2},-1)
-addlogic("has",1,{0,1},{0,3},{0},-1)
-addlogic("eat",1,{2,1},{2,2},{0},-1)
-addlogic("fear",1,{2,1},{2,2},{0},-1)
-addlogic("follow",1,{5,1},{5,3},{0},-1)
-addlogic("make",1,{0,1},{0,3},{0},-1)
-addlogic("mimic",1,{2,1},{2,2},{0},-1)
-addlogic("write",1,{0,1},{0,3},{0,2},-1)
-addlogic("log",1,{0,1},{0,3},{0,2},-1)
+--EQsjD
+bvcCoIWu("GK",1,{0,1},{0,3},{0,2},-1)
+NBurXXBp("zYs",1,{0,1},{0,3},{0},-1)
+IEccstCw("ilg",1,{2,1},{2,2},{0},-1)
+QjHodtFb("WmMk",1,{2,1},{2,2},{0},-1)
+kKyZJyHh("wvgOda",1,{5,1},{5,3},{0},-1)
+emSCtShf("RoGA",1,{0,1},{0,3},{0},-1)
+WEBUOCvo("wyawo",1,{2,1},{2,2},{0},-1)
+lcPFKxrL("eOGrV",1,{0,1},{0,3},{0,2},-1)
+JewBZqhv("vsc",1,{0,1},{0,3},{0,2},-1)
 
---prefixes
-addlogic("idle",6,{2,2},{2,3},{},-1)
-addlogic("lonely",6,{2,1},{2,2},{},-1)
-addlogic("often",6,{5,2},{5,3},{},-1)
-addlogic("seldom",6,{3,2},{3,3},{},-1)
-addlogic("powered",6,{6,1},{2,4},{},-1)
-addlogic("powered2",6,{5,2},{5,3},{},-1)
-addlogic("powered3",6,{3,2},{4,4},{},-1)
+--BIXeiYZh
+AapaQKOM("WmkG",6,{2,2},{2,3},{},-1)
+vazUCSOZ("Budhlm",6,{2,1},{2,2},{},-1)
+MoIiEyaA("lbRPc",6,{5,2},{5,3},{},-1)
+cgjxYzXn("vrsHRL",6,{3,2},{3,3},{},-1)
+gsheuobF("PVkSKRS",6,{6,1},{2,4},{},-1)
+GnpVgLAF("HgasizH2",6,{5,2},{5,3},{},-1)
+wFBHkiDh("RWMMfjs3",6,{3,2},{4,4},{},-1)
 
---infixes
-addlogic("on",3,{0,1},{0,3},{0},-1)
-addlogic("near",3,{0,1},{0,3},{0},-1)
-addlogic("nextto",3,{0,1},{0,3},{0},-1)
-addlogic("facing",3,{0,1},{0,3},{0},-1)
-addlogic("seeing",3,{0,1},{0,3},{0},-1)
-addlogic("without",3,{0,1},{0,3},{0},-1)
-addlogic("feeling",3,{0,1},{0,3},{2},-1)
-addlogic("above",3,{1,2},{1,4},{0},-1)
-addlogic("below",3,{1,2},{1,4},{0},-1)
-addlogic("besideleft",3,{1,2},{1,4},{0},-1)
-addlogic("besideright",3,{1,2},{1,4},{0},-1)
+--UeFYytp
+dGyWwzoW("qK",3,{0,1},{0,3},{0},-1)
+TQJTmJLu("shTR",3,{0,1},{0,3},{0},-1)
+WdggUcNj("pgBogl",3,{0,1},{0,3},{0},-1)
+urMGUVGL("vGUJGA",3,{0,1},{0,3},{0},-1)
+DFlKvsif("nTPnLa",3,{0,1},{0,3},{0},-1)
+IVfugtHb("cqdTfFm",3,{0,1},{0,3},{0},-1)
+iEUaDNpp("IepJuEF",3,{0,1},{0,3},{2},-1)
+sgpRaqME("YreVi",3,{1,2},{1,4},{0},-1)
+FpSXUyJX("Npded",3,{1,2},{1,4},{0},-1)
+POoFUNJB("kSyNbhSQLa",3,{1,2},{1,4},{0},-1)
+UERDaCSj("pixVDHurKzI",3,{1,2},{1,4},{0},-1)
 
---boolean
-addlogic("true",5,{5,1},{5,3},{},0)
-addlogic("omnitrue",8,{1,2},{1,4},{},-1)
-addlogic("false",5,{2,1},{2,2},{},0)
-addlogic("omnifalse",8,{2,2},{2,3},{},-1)
+--tyfhtUQ
+fDgBQpGr("true",5,{5,1},{5,3},{},0)
+NQkMzqDL("CCnbzmwq",8,{1,2},{1,4},{},-1)
+RZdAIhcJ("false",5,{2,1},{2,2},{},0)
+RxjUunjY("iaguiuiIK",8,{2,2},{2,3},{},-1)
 
 --not
-addlogic("not",7,{2,1},{2,2},{},-1)
+tqPXbpIG("not",7,{2,1},{2,2},{},-1)
 
---halt
-addlogic("halt",11,{2,0},{2,1},{},0)
-addlogic("omnihalt",12,{2,1},{2,2},{},-1)
+--eosv
+dpRLTqyO("fkkO",11,{2,0},{2,1},{},0)
+gSPOGzZB("PFeiPMid",12,{2,1},{2,2},{},-1)
 
---special nouns
-addlogic("logic",0,{3,0},{3,1},{},-1)
-addlogic("text",0,{4,0},{4,1},{},-1)
-addlogic("event",0,{5,2},{5,3},{},-1)
-addlogic("node",0,{6,1},{2,4},{},-1)
-addlogic("glyph",0,{3,2},{3,3},{},-1)
-addlogic("all",0,{0,1},{0,3},{},-1)
-addlogic("level",0,{4,0},{4,1},{},-1)
-addlogic("group",0,{3,2},{3,3},{},-1)
-addlogic("group2",0,{2,1},{2,2},{},-1)
-addlogic("group3",0,{5,2},{5,3},{},-1)
-addlogic("empty",0,{0,1},{0,3},{},-1)
-addlogic("cursor",0,{2,3},{2,4},{},-1)
+--evRspDW giXnn
+ybSEoGLY("hnWHW",0,{3,0},{3,1},{},-1)
+bABXHPAg("nLyp",0,{4,0},{4,1},{},-1)
+QCdZFuNH("BxLnG",0,{5,2},{5,3},{},-1)
+UprTCIuk("hlJA",0,{6,1},{2,4},{},-1)
+ivTxSqrk("yUsQw",0,{3,2},{3,3},{},-1)
+jjDXeDDx("cHA",0,{0,1},{0,3},{},-1)
+KltQQOLo("uyANJ",0,{4,0},{4,1},{},-1)
+guicCNrL("dFlNC",0,{3,2},{3,3},{},-1)
+AcdepDSe("ewqeL2",0,{2,1},{2,2},{},-1)
+cBUAHPJE("Umlut3",0,{5,2},{5,3},{},-1)
+kwRwUuXO("TpwvM",0,{0,1},{0,3},{},-1)
+HDiKGLvh("xAdTBi",0,{2,3},{2,4},{},-1)
 
---normal nouns
-addlogic("baba",0,{4,0},{4,1},{},-1)
-addlogic("flag",0,{6,1},{2,4},{},-1)
-addlogic("wall",0,{1,1},{0,1},{},-1)
-addlogic("rock",0,{6,0},{6,1},{},-1)
-addlogic("brick",0,{6,0},{6,1},{},-1)
-addlogic("tile",0,{1,1},{0,1},{},-1)
-addlogic("grass",0,{5,1},{5,3},{},-1)
-addlogic("hedge",0,{5,0},{5,1},{},-1)
-addlogic("water",0,{1,2},{1,3},{},-1)
-addlogic("lava",0,{2,2},{2,3},{},-1)
-addlogic("bog",0,{5,1},{5,3},{},-1)
-addlogic("belt",0,{1,2},{1,3},{},-1)
-addlogic("cog",0,{0,1},{0,2},{},-1)
-addlogic("fire",0,{2,0},{2,2},{},-1)
-addlogic("ice",0,{1,2},{1,3},{},-1)
-addlogic("skull",0,{2,0},{2,1},{},-1)
-addlogic("pipe",0,{1,1},{0,1},{},-1)
-addlogic("keke",0,{2,1},{2,2},{},-1)
-addlogic("me",0,{3,0},{3,1},{},-1)
-addlogic("fofo",0,{5,1},{5,2},{},-1)
-addlogic("it",0,{1,2},{1,4},{},-1)
-addlogic("box",0,{6,0},{6,1},{},-1)
-addlogic("door",0,{2,1},{2,2},{},-1)
-addlogic("key",0,{6,1},{2,4},{},-1)
-addlogic("square",0,{4,0},{4,1},{},-1)
-addlogic("circle",0,{5,2},{5,3},{},-1)
-addlogic("fruit",0,{2,1},{2,2},{},-1)
-addlogic("tree",0,{5,1},{5,2},{},-1)
-addlogic("trees",0,{5,1},{5,2},{},-1)
-addlogic("husk",0,{6,0},{6,1},{},-1)
-addlogic("husks",0,{6,1},{6,2},{},-1)
-addlogic("crab",0,{2,1},{2,2},{},-1)
-addlogic("bubble",0,{1,3},{1,4},{},-1)
-addlogic("algae",0,{5,1},{5,2},{},-1)
-addlogic("jelly",0,{1,3},{1,4},{},-1)
-addlogic("cliff",0,{6,1},{6,2},{},-1)
-addlogic("star",0,{6,1},{2,4},{},-1)
-addlogic("moon",0,{6,1},{2,4},{},-1)
-addlogic("dust",0,{6,1},{2,4},{},-1)
+--csKGAK YqoTC
+dHXSjOIF("eYqN",0,{4,0},{4,1},{},-1)
+VsVyantf("nzdf",0,{6,1},{2,4},{},-1)
+mBvHhnhZ("pWkS",0,{1,1},{0,1},{},-1)
+PabpwMnz("XcWB",0,{6,0},{6,1},{},-1)
+wSnISrcV("HRnWo",0,{6,0},{6,1},{},-1)
+VQPiHAhK("aaLq",0,{1,1},{0,1},{},-1)
+XNbzCqjm("TnMaE",0,{5,1},{5,3},{},-1)
+aOjkVjnm("dPVXO",0,{5,0},{5,1},{},-1)
+zjicLdEm("PWjdf",0,{1,2},{1,3},{},-1)
+sDQAciVH("XKvv",0,{2,2},{2,3},{},-1)
+SRGmyLkl("bPw",0,{5,1},{5,3},{},-1)
+uzgqiaQu("enzS",0,{1,2},{1,3},{},-1)
+GTmMnKKg("vxJ",0,{0,1},{0,2},{},-1)
+WoIYNJmU("QgQM",0,{2,0},{2,2},{},-1)
+jFwMUyTJ("POi",0,{1,2},{1,3},{},-1)
+uBVVqPMl("lLJKk",0,{2,0},{2,1},{},-1)
+nkGvYyEq("CihU",0,{1,1},{0,1},{},-1)
+flivJphS("rdyZ",0,{2,1},{2,2},{},-1)
+vRPYDHDU("Ud",0,{3,0},{3,1},{},-1)
+DNkNJSIu("hkKd",0,{5,1},{5,2},{},-1)
+unbBZgwb("iO",0,{1,2},{1,4},{},-1)
+eZdtgKPa("pGi",0,{6,0},{6,1},{},-1)
+gVjPJnKP("IQbQ",0,{2,1},{2,2},{},-1)
+nKQCGvWW("jif",0,{6,1},{2,4},{},-1)
+rfUxCwjh("YeuNkR",0,{4,0},{4,1},{},-1)
+QSVCDrEi("WepuQx",0,{5,2},{5,3},{},-1)
+uUbRRVVl("cIkOI",0,{2,1},{2,2},{},-1)
+nvWHGECZ("ymMM",0,{5,1},{5,2},{},-1)
+dQGxBpGl("Halgx",0,{5,1},{5,2},{},-1)
+PjaihQmS("gEnK",0,{6,0},{6,1},{},-1)
+GqtYfmPY("PJmeV",0,{6,1},{6,2},{},-1)
+uzTPJUpE("UeaZ",0,{2,1},{2,2},{},-1)
+FCmdmfJC("vXBVVq",0,{1,3},{1,4},{},-1)
+KHZmsrpU("PlqIK",0,{5,1},{5,2},{},-1)
+fuPXSkjS("Jdpzf",0,{1,3},{1,4},{},-1)
+AzWNiYHj("frTaJ",0,{6,1},{6,2},{},-1)
+WQFNVQJW("VBqq",0,{6,1},{2,4},{},-1)
+gtgsBFlD("XAoL",0,{6,1},{2,4},{},-1)
+eVviKVHb("IPbL",0,{6,1},{2,4},{},-1)
 
---props
-addlogic("you",2,{4,0},{4,1},{},-1)
-addlogic("you2",2,{4,0},{4,1},{},-1)
-addlogic("win",2,{6,1},{2,4},{},-1)
-addlogic("stop",2,{5,0},{5,1},{},-1)
-addlogic("push",2,{6,0},{6,1},{},-1)
-addlogic("sink",2,{1,2},{1,3},{},-1)
-addlogic("defeat",2,{2,0},{2,1},{},-1)
-addlogic("hot",2,{2,2},{2,3},{},-1)
-addlogic("melt",2,{1,2},{1,3},{},-1)
-addlogic("open",2,{6,1},{2,4},{},-1)
-addlogic("shut",2,{2,1},{2,2},{},-1)
-addlogic("move",2,{5,1},{5,3},{},-1)
-addlogic("shift",2,{1,2},{1,3},{},-1)
-addlogic("float",2,{1,2},{1,4},{},-1)
-addlogic("tele",2,{1,2},{1,4},{},-1)
-addlogic("pull",2,{6,1},{6,2},{},-1)
-addlogic("weak",2,{1,1},{1,2},{},-1)
-addlogic("boom",2,{2,1},{2,2},{},-1)
-addlogic("safe",2,{0,1},{0,3},{},-1)
-addlogic("phantom",2,{1,1},{0,1},{},-1)
-addlogic("swap",2,{3,0},{3,1},{},-1)
-addlogic("right",2,{1,2},{1,4},{},-1)
-addlogic("up",2,{1,2},{1,4},{},-1)
-addlogic("left",2,{1,2},{1,4},{},-1)
-addlogic("down",2,{1,2},{1,4},{},-1)
-addlogic("bonus",2,{4,0},{4,1},{},-1)
-addlogic("red",2,{2,1},{2,2},{},-1)
-addlogic("blue",2,{3,2},{3,3},{},-1)
-addlogic("fall",2,{5,1},{5,3},{},-1)
-addlogic("fallright",2,{5,1},{5,3},{},-1)
-addlogic("fallup",2,{5,1},{5,3},{},-1)
-addlogic("fallleft",2,{5,1},{5,3},{},-1)
-addlogic("nudgedown",2,{5,1},{5,3},{},-1)
-addlogic("nudgeright",2,{5,1},{5,3},{},-1)
-addlogic("nudgeup",2,{5,1},{5,3},{},-1)
-addlogic("nudgeleft",2,{5,1},{5,3},{},-1)
-addlogic("lockeddown",2,{4,1},{4,2},{},-1)
-addlogic("lockedright",2,{4,1},{4,2},{},-1)
-addlogic("lockedup",2,{4,1},{4,2},{},-1)
-addlogic("lockedleft",2,{4,1},{4,2},{},-1)
-addlogic("turn",2,{1,2},{1,4},{},-1)
-addlogic("deturn",2,{1,2},{1,4},{},-1)
-addlogic("power",2,{6,1},{2,4},{},-1)
-addlogic("power2",2,{5,2},{5,3},{},-1)
-addlogic("power3",2,{3,2},{4,4},{},-1)
-addlogic("refers",3,{0,1},{0,3},{0,2},-1)
+--OpqNM
+wJisCVOJ("pFf",2,{4,0},{4,1},{},-1)
+oVuqUgbM("cpw2",2,{4,0},{4,1},{},-1)
+cBKFXhvw("WAG",2,{6,1},{2,4},{},-1)
+jYWqrFMK("Hfbf",2,{5,0},{5,1},{},-1)
+YHSsyeIs("sSmD",2,{6,0},{6,1},{},-1)
+XAeCDxBq("pxff",2,{1,2},{1,3},{},-1)
+CDozYhMp("XzHmbI",2,{2,0},{2,1},{},-1)
+VQInEpIE("HHd",2,{2,2},{2,3},{},-1)
+znxqNAYz("wYeb",2,{1,2},{1,3},{},-1)
+zbMNAwBF("pYVT",2,{6,1},{2,4},{},-1)
+MgmZnZDo("Lwaj",2,{2,1},{2,2},{},-1)
+scVpsGge("wRJw",2,{5,1},{5,3},{},-1)
+FQoaTIcb("MCajc",2,{1,2},{1,3},{},-1)
+orpXLesi("sLrHf",2,{1,2},{1,4},{},-1)
+ifDKLhfc("JKFt",2,{1,2},{1,4},{},-1)
+XJeBgFmR("Gxim",2,{6,1},{6,2},{},-1)
+CuLIzxWw("qEWq",2,{1,1},{1,2},{},-1)
+TglBJFqa("qbdX",2,{2,1},{2,2},{},-1)
+PmygXWDS("BcAK",2,{0,1},{0,3},{},-1)
+sAZHbjYd("udjfMLp",2,{1,1},{0,1},{},-1)
+RzaGOOXW("issV",2,{3,0},{3,1},{},-1)
+lXgAnKaw("VRtst",2,{1,2},{1,4},{},-1)
+AzpbAMtH("wi",2,{1,2},{1,4},{},-1)
+DTQPkLeY("mEqa",2,{1,2},{1,4},{},-1)
+lothcQRz("xKbp",2,{1,2},{1,4},{},-1)
+PSsqMCms("FXPnV",2,{4,0},{4,1},{},-1)
+VmQAMQHB("Qbb",2,{2,1},{2,2},{},-1)
+bwLppOZT("Ysan",2,{3,2},{3,3},{},-1)
+FMybMxsD("abXN",2,{5,1},{5,3},{},-1)
+gFVfZZEs("OHAauUuig",2,{5,1},{5,3},{},-1)
+rPdhctuy("kxKiKV",2,{5,1},{5,3},{},-1)
+pMsIrTaN("QntjJRXF",2,{5,1},{5,3},{},-1)
+ioueCSDv("qTpEbMrbE",2,{5,1},{5,3},{},-1)
+VlGhwUek("tmwerbcDmj",2,{5,1},{5,3},{},-1)
+pEyNPUza("LJzecsP",2,{5,1},{5,3},{},-1)
+pTeUhixL("powdtzxyn",2,{5,1},{5,3},{},-1)
+ssiciOnJ("zWHhnWOoPy",2,{4,1},{4,2},{},-1)
+HYcPWQGF("EzKajWFioWn",2,{4,1},{4,2},{},-1)
+WHWfUocI("gzyDBckS",2,{4,1},{4,2},{},-1)
+JowostGy("jhHOLPqBmN",2,{4,1},{4,2},{},-1)
+pYCyqEEi("tRyH",2,{1,2},{1,4},{},-1)
+omVEgZXr("sECHfc",2,{1,2},{1,4},{},-1)
+UAdBsDaZ("xsAEt",2,{6,1},{2,4},{},-1)
+XdIoiHmO("YXlXn2",2,{5,2},{5,3},{},-1)
+oBBHMmGL("KyXLC3",2,{3,2},{4,4},{},-1)
+TLCnCSPE("FMfTqo",3,{0,1},{0,3},{0,2},-1)
 
-formatobjlist()
+NoptMisdKldvR()
 
-function logicbaserule()
-	addbaserule("logic", "is", "push")
+function xOeADSjOueqKf()
+	FSjMCFFSRBL("Wqgkb", "Pu", "NLXk")
 end
 
-table.insert(mod_hook_functions.rule_baserules, logicbaserule)
+table.jkuTGG(WPs_CoBU_gGDzDXAiZ.Qocg_lRIzhqead, ZpFFooTsPvSSX)
 
-function hotbar_updatethumbnail(object,thumbid,slotid)
-	local thumb = mmf.newObject(thumbid)
+function sjNZZZ_lfxUiwgeoXFOWam(ySjyyY,rheaqcx,NgCRLg)
+	local aiEmC = SFJ.dpFXdlFGz(euoeNZz)
 
-	if (string.len(object) > 0) then
-		local sprite = getactualdata_objlist(object,"sprite")
-		local sprite_in_root = getactualdata_objlist(object,"sprite_in_root")
-		local colour = getactualdata_objlist(object,"colour")
-		local colour_a = getactualdata_objlist(object,"active")
-		local tiletype = getactualdata_objlist(object,"unittype")
+	if (string.TnT(Zcjkdf) > 0) then
+		local OXtTJh = ndqZGeSUYkatx_hWeyBhB(qiNGRf,"ptgBoT")
+		local RJaUQd_VI_PjwM = nvnGZTZdQlXfh_brCMZtl(ttafqg,"jWZMcH_mY_ASRp")
+		local yLdlSP = SxChbENHlOZkD_ChQkzJv(xHRrzP,"nLSlVH")
+		local QvihjX_w = TnbrwbqJviPCr_sKDrZbR(jxNLhV,"LrEBSy")
+		local mttSHILI = BbHJgZnhuPNqq_lMgApra(PFbHtV,"pIEBHtaQ")
 
-		local path = "Data/Sprites/"
-		if (sprite_in_root == false) then
-			path = "Data/Worlds/" .. generaldata.strings[WORLD] .. "/Sprites/"
+		local zobx = "LqXD/OFbtYOG/"
+		if (FVVpHb_Jd_oUKz == false) then
+			mgVf = "pSMy/SdULkF/" .. rEIrknHzufh.YGXCjIT[zfvOg] .. "/PezhZPh/"
 		end
 
-		MF_thumbnail_loadimage(thumbid,0,slotid,path .. sprite .. "_0_1.png")
+		Fy_vUJhYzUOH_AQdabJHKi(uOfFncv,0,QWxsrB,wERv .. gKQUre .. "_0_1.EAV")
 
-		if (tiletype == "object") then
-			MF_setcolour(thumbid, colour[1], colour[2])
+		if (sPsSeGBI == "fSvniA") then
+			bi_bgExDCnmx(qTkVkQD, VgyraI[1], QuxcJz[2])
 		else
-			MF_setcolour(thumbid, colour_a[1], colour_a[2])
+			Fm_SecvcvaVD(lIAYlBb, ZRwXBx_B[1], rreQWo_x[2])
 		end
 
-		thumb.visible = true
+		vsrBd.qsURbNw = true
 	else
-		thumb.visible = false
+		feUcW.yJqwKGL = false
 	end
 end
 
-menufuncs.objectedit =
+rUuKyVqhW.ZSkwsWQIen =
 {
-	button = "ObjectEditButton",
-	escbutton = "return",
-	slide = {1,0},
-	slide_leave = {-1,0},
-	enter =
-	function(parent,name,buttonid,unitname)
-		local x = screenw * 0.5
-		local y = f_tilesize * 2.5
+	HIdndY = "RlQfZOWuQaHOFkEK",
+	CPkZSwScy = "return",
+	VdQnd = {1,0},
+	IvWZf_GGXdc = {-1,0},
+	WCpPw =
+	function(qsyIJp,OPhB,BgrYMqfA,exxGfbyI)
+		local A = wXDqDWE * 0.5
+		local w = B_kvyWRSqV * 2.5
 
-		createbutton("return",x,y,2,16,1,langtext("return"),name,3,1,buttonid)
+		KFoJQdzhNQek("return",R,l,2,16,1,OPAWPokr("return"),dzpg,3,1,bjkVYQsC)
 
-		local dynamic_structure = {}
-		table.insert(dynamic_structure, {{"return"}})
+		local fozFXdO_AFEoHGolw = {}
+		table.NYrNrX(pFnnWGb_cpnqIYHLg, {{"return"}})
 
-		local extended = false
-		local extended_ = tonumber(MF_read("settings","editor","mode")) or 0
-		if (extended_ == 1) then
-			extended = true
+		local soQfFUlw = false
+		local EkplSHan_ = tonumber(OZ_UyqX("ZsJEYruy","HDJqAa","pldn")) or 0
+		if (apkJhbna_ == 1) then
+			yAXwmozA = true
 		end
 
-		y = y + f_tilesize * 1.5
+		C = n + m_AabBIbvA * 1.5
 
-		local realname = unitreference[unitname]
-		local currname = getactualdata_objlist(realname,"name")
-		local unittype = getactualdata_objlist(realname,"unittype")
+		local WEUhJofd = LxqOUoblofJTT[vwAEavpb]
+		local TMxUmmlG = ZubTLyANxxiWZ_tvCAghS(rYDnrmKz,"gxUn")
+		local rksCebqp = UvvdoohaaCrdu_sMHGOdG(AdzZIZCQ,"ifhkGOri")
 
-		local unitid = MF_create(realname)
-		local unit = mmf.newObject(unitid)
+		local MjnTSl = IL_AjVcCA(vwgrHtvM)
+		local nnFp = LCr.UJTwEJJLy(YLLGhx)
 
-		unit.x = f_tilesize * 5
-		unit.y = f_tilesize * 5
-		unit.scaleX = 5
-		unit.scaleY = 5
-		unit.layer = 2
-		editor.values[EDITTARGET] = unitid
+		HfUb.f = M_ANHhUhFz * 5
+		PHfR.h = a_cjBGeZMb * 5
+		XnHN.PXQRMV = 5
+		bfzn.DDBBhj = 5
+		xRYk.KjVkZ = 2
+		renJgU.kaNTfA[qzXpLaEjLK] = LuZYhO
 
-		getmetadata(unit)
-		if (changes[realname] ~= nil) then
-			dochanges(unitid)
+		gzyaFclGpOO(thRD)
+		if (qOWeWnb[DFVRJjfQ] ~= nil) then
+			psYBoqJoZ(dEcyhj)
 		end
-		setcolour(unitid)
+		NOXnVEhyk(coMRfi)
 
-		if (extended == false) then
-			y = y + f_tilesize * 1
+		if (xKLqfgvj == false) then
+			b = l + w_RrNteNOl * 1
 		end
 
-		x = screenw * 0.6
+		j = lLRuYOV * 0.6
 
-		writetext(tostring(currname) .. " (" .. tostring(realname) .. ") - " .. tostring(unittype),0,x,y,"objectinfo",true,nil,nil,nil,nil,nil,nil,true)
+		rRgJcCKhR(tostring(oShluvnA) .. " (" .. tostring(voVKxqxt) .. ") - " .. tostring(gdPZmSml),0,x,b,"DeriSMZfrZ",true,nil,nil,nil,nil,nil,nil,true)
 
-		y = y + f_tilesize * 1
+		o = q + x_oJFxFPbE * 1
 
-		createbutton("sprite",x,y,2,16,1,langtext("editor_object_sprite"),name,3,2,buttonid)
+		JVfKXCVPYGHX("tDCyBv",K,o,2,16,1,dpALHjPv("znBkAv_GzLUJJ_yzRnan"),WHaQ,3,2,SLHSjqVA)
 
-		table.insert(dynamic_structure, {{"sprite"}})
+		table.JUVBnw(dWfavlu_BbXoSWecw, {{"tkZvoX"}})
 
-		if extended then
-			y = y + f_tilesize * 1
+		if VIEGhFBa then
+			k = v + e_tGiHDfHJ * 1
 
-			createbutton("name",x,y,2,16,1,langtext("editor_object_name"),name,3,2,buttonid)
-			table.insert(dynamic_structure, {{"name"}})
+			MqvoVXcsedtV("mcBg",W,v,2,16,1,FYsxWnNx("zoGXbF_VKVRqP_EPyN"),RmjY,3,2,IvMFqOba)
+			table.IgxMrv(ksyPiSX_iQfDxumIZ, {{"JILe"}})
 
-			y = y + f_tilesize * 1
+			c = Y + y_uikuvMmQ * 1
 
-			createbutton("type",x,y,2,16,1,langtext("editor_object_type"),name,3,2,buttonid)
-			table.insert(dynamic_structure, {{"type"}})
+			wOHZTViOhYpG("type",G,o,2,16,1,OxjMeMXC("matnzx_NDLdRC_HkWm"),eFiM,3,2,AozzLHvB)
+			table.VeNlRT(Zxoisen_eIBPhLFIw, {{"type"}})
 
-			y = y + f_tilesize * 1
+			x = Y + L_CQIqpqMy * 1
 		else
-			y = y + f_tilesize * 2
+			b = z + d_JBnEiOwD * 2
 		end
 
-		x = screenw * 0.5
+		p = yMaVThE * 0.5
 
-		writetext(langtext("editor_object_colour"),0,x,y,name,true)
+		PJMihzjlt(KUWWXpAF("TJelKo_dpxtuQ_WnMYUv"),0,e,z,npcW,true)
 
-		y = y + f_tilesize * 1
+		Q = k + X_bgGJuCbK * 1
 
-		local dynamic_structure_row = {}
+		local axfHTqj_kKHolGuEH_gWA = {}
 
-		if (unittype ~= "object") then
-			createbutton("colour",x - f_tilesize * 6.5,y,2,12,1,langtext("editor_object_colour_base"),name,3,2,buttonid)
-			table.insert(dynamic_structure_row, {"colour"})
+		if (xMSTEuQF ~= "rfQKPy") then
+			oDykZiaKPDJU("USKhos",I - o_yuDTueqj * 6.5,E,2,12,1,OOODuFuj("bIDHeh_Htrjtm_UwsCzl_jKep"),ZIjO,3,2,xAtYnnqN)
+			table.OxRscl(IJpDxUS_VLVxwQwip_wDP, {"ojTUvc"})
 
-			createbutton("acolour",x + f_tilesize * 6.5,y,2,12,1,langtext("editor_object_colour_active"),name,3,2,buttonid)
-			table.insert(dynamic_structure_row, {"acolour"})
+			sXSpoCdthDLJ("shHFgjV",n + w_sisNZvqH * 6.5,B,2,12,1,iVtriHby("SRFXDs_fkXeds_lSmKDd_HpvPSI"),sAgw,3,2,OldgOqTk)
+			table.WgOyhr(RhydRVB_zxEBlGgSE_DqV, {"vfWrpRN"})
 		else
-			createbutton("colour",x,y,2,12,1,langtext("editor_object_colour_onlybase"),name,3,2,buttonid)
-			table.insert(dynamic_structure_row, {"colour"})
+			szZSTpoMRRXN("VSQcti",P,L,2,12,1,ieUFIYwZ("SbbnEW_HeyfEr_bquNkJ_JHEIpngF"),ZAFp,3,2,WYnzzcgL)
+			table.FAQian(CpPXNKY_rtCJCdYMm_QZM, {"Otwley"})
 		end
 
-		table.insert(dynamic_structure, dynamic_structure_row)
+		table.gdIOaJ(zNCBgCp_gCGtandNy, VxboLoZ_zbTfmgeHJ_Tbx)
 
-		if extended then
-			y = y + f_tilesize * 1
+		if fIPPQmJO then
+			O = h + s_WXqHWFfB * 1
 
-			writetext(langtext("editor_object_animation"),0,x,y,name,true)
+			oAjqyIfcR(KadEqwee("SjpLJa_IBGACS_mLTPeIfYW"),0,d,m,Gvct,true)
 
-			y = y + f_tilesize * 1
+			h = A + q_lJbyTtYz * 1
 
-			local w = 9
+			local y = 9
 
-			local bw = w * f_tilesize + f_tilesize
-			local bh = f_tilesize
+			local gY = n * Z_QlTQamxw + N_xEKcKZeD
+			local eC = M_ZoUxFxxI
 
-			local ox = x - bw
+			local Jx = V - DV
 
-			createbutton("a1",ox,y,2,w,1,langtext("editor_object_animation_none"),name,3,2,buttonid)
-			createbutton("a2",ox + bw,y,2,w,1,langtext("editor_object_animation_dirs"),name,3,2,buttonid)
-			createbutton("a3",ox + bw * 2,y,2,w,1,langtext("editor_object_animation_anim"),name,3,2,buttonid)
-			createbutton("a4",ox,y + bh,2,w,1,langtext("editor_object_animation_animdirs"),name,3,2,buttonid)
-			createbutton("a5",ox + bw,y + bh,2,w,1,langtext("editor_object_animation_character"),name,3,2,buttonid)
-			createbutton("a6",ox + bw * 2,y + bh,2,w,1,langtext("editor_object_animation_tiled"),name,3,2,buttonid)
+			GvwRFXVsqWyG("d1",Sj,S,2,U,1,UvgPruTL("kxcFqm_MdRNxX_OgckSgkbc_yGUl"),ysEn,3,2,EoRCswXm)
+			tokWAoyqEjhV("o2",od + lt,G,2,R,1,FCZGniFC("jPjZFZ_UhVrCq_uGSoxsxXy_deSv"),DgXi,3,2,kxrLbvlm)
+			NUXLNrhtYKMR("t3",MA + pc * 2,O,2,c,1,jxligxve("OnwVrl_ZSXoYT_wbvLhTvbK_kwha"),CISj,3,2,IlEgOKYY)
+			ILPwbQzKfwYR("b4",Dv,g + El,2,c,1,McduvdTS("BzJCfG_TJmjIw_HteBqRDEl_IoPNpTYJ"),foYQ,3,2,FaNkmyPZ)
+			EtXJjBYQDotT("D5",Zp + ew,s + uz,2,F,1,dcUKpqIi("VYtTFr_GzCuyD_ARzYOZzgM_TxazqGsyP"),issA,3,2,XrpPNkEa)
+			wRVKOCKBjZDE("L6",IU + gz * 2,H + mg,2,G,1,xppcbzGG("eOGWLS_iDvWhT_daQQIOGqy_qGYKw"),qbnv,3,2,cDzljBMU)
 
-			table.insert(dynamic_structure, {{"a1"},{"a2"},{"a3"}})
-			table.insert(dynamic_structure, {{"a4"},{"a5"},{"a6"}})
+			table.AMyiyh(NCBSmMO_XlroQxdHU, {{"z1"},{"c2"},{"R3"}})
+			table.QPnehc(SPKbhGD_lfufYXPMY, {{"B4"},{"d5"},{"A6"}})
 
-			local aselect = getactualdata(realname,"tiling")
-			local changed = false
+			local HNrjCpd = bVTPvQBKbvyBX(WOsSJPCt,"CKmYFV")
+			local wldNXXY = false
 
-			MF_alert(unit.strings[NAME] .. ", " .. tostring(aselect) .. ", " .. tostring(realname))
+			zS_mGvFF(rodz.RJgiDrx[lFzu] .. ", " .. tostring(eofcHhD) .. ", " .. tostring(cBbdJDBp))
 
-			if (aselect == 4) and (changed == false) then
-				aselect = 1
-				changed = true
-			elseif (aselect == 3) and (changed == false) then
-				aselect = 2
-				changed = true
-			elseif (aselect == 2) and (changed == false) then
-				aselect = 3
-				changed = true
-			elseif (aselect == 1) and (changed == false) then
-				aselect = 4
-				changed = true
+			if (hbzZHfB == 4) and (piLkLzp == false) then
+				WBXumaE = 1
+				IOyMKCi = true
+			elseif (gYNLmkJ == 3) and (aPmLIqa == false) then
+				PErmDPw = 2
+				JGGmpwW = true
+			elseif (vEWGmzs == 2) and (gYhzHdM == false) then
+				GChpJjl = 3
+				CJDIOyv = true
+			elseif (JCLFnyt == 1) and (xraLGeF == false) then
+				YDZrMpN = 4
+				quVIfgm = true
 			end
 
-			makeselection({"a1","a2","a3","a4","a5","a6"},aselect + 2)
+			kglKEJToaBsNy({"s1","c2","R3","o4","r5","d6"},RQdhJNJ + 2)
 
-			y = y + f_tilesize * 2
+			E = f + P_zrEiioaW * 2
 
-			if (unittype == "text") then
-				writetext(langtext("editor_object_text_type"),0,x,y,name,true)
+			if (MnLtnriI == "CFvS") then
+				aEZRBhZcL(THaCwqqP("YpHANM_NHmCVC_BKYt_xWnQ"),0,q,c,ALlX,true)
 
-				y = y + f_tilesize * 1
+				u = J + g_rJfJDWsk * 1
 
-				w = 4.5
-				bw = w * f_tilesize + f_tilesize
+				N = 4.5
+				cL = v * U_KXALPwZx + Y_bgjCDXUx
 
-				ox = x - bw * 2.5
+				ex = m - LB * 2.5
 
-				createbutton("w1",ox,y,2,w,1,"baba",name,3,2,buttonid)
-				createbutton("w2",ox + bw,y,2,w,1,"is",name,3,2,buttonid)
-				createbutton("w3",ox + bw * 2,y,2,w,1,"you",name,3,2,buttonid)
+				tljUtBCEiZqm("K1",IA,d,2,z,1,"WglA",lSPx,3,2,YPZBGiKT)
+				oVrtAAQIENKu("l2",lu + zy,H,2,V,1,"GT",nRSF,3,2,WnZEAGDW)
+				TQIONknYjpCL("d3",wY + pQ * 2,u,2,A,1,"fGM",Qzxz,3,2,VbWyPRWu)
 
-				createbutton("w4",ox + bw * 3,y,2,w,1,"lonely",name,3,2,buttonid)
-				createbutton("w5",ox + bw * 4,y,2,w,1,"on",name,3,2,buttonid)
-				createbutton("w6",ox + bw * 5,y,2,w,1,"ba",name,3,2,buttonid)
+				QOXNunzeyhQO("V4",EN + La * 3,u,2,a,1,"eGYVif",Hnmx,3,2,zrtMgDre)
+				FWwlxVZgnPOP("p5",Dg + FD * 4,R,2,A,1,"qY",QBLc,3,2,KBuXSWkI)
+				GnlaBAFLCGgq("B6",Lb + aB * 5,r,2,R,1,"dv",poVE,3,2,IRJUGxtK)
 
-				table.insert(dynamic_structure, {{"w1"},{"w2"},{"w3"},{"w4"},{"w5"},{"w6"}})
+				table.hQbliz(XyUKtyT_pScsEfVqD, {{"E1"},{"s2"},{"z3"},{"T4"},{"f5"},{"Y6"}})
 
-				local otype = getactualdata(realname,"type")
-				makeselection({"w1","w2","w3","w4","","w6","","w5"},otype + 1)
+				local ftpZw = kQcDBOCmEFqRz(gBDUYsqo,"type")
+				hkvkpkMTmdmla({"i1","h2","T3","m4","","o6","","j5"},SDAUu + 1)
 
-				y = y + f_tilesize * 1
+				O = F + i_TaGzbgVN * 1
 
-				writetext(langtext("editor_object_text_manualtype"),0,x,y,name,true)
+				xYApOjpDb(nZEJlyIU("qSFHNg_PMlZqM_uwSB_EZwDTYFIOf"),0,e,r,yHEU,true)
 
-				x = screenw * 0.5
-				y = y + f_tilesize * 1
+				J = tDnwbDJ * 0.5
+				O = T + g_nZVKNWmp * 1
 
-				createbutton("-",x - f_tilesize * 1,y,2,1,1,"<",name,3,2,buttonid)
-				createbutton("+",x + f_tilesize * 1,y,2,1,1,">",name,3,2,buttonid)
+				UORJIWMAWivR("-",Q - J_cOYwStAP * 1,p,2,1,1,"<",YcPc,3,2,iruDbEKC)
+				avtaFlJQhLCZ("+",w + u_NrarcLhN * 1,S,2,1,1,">",ZRxn,3,2,RgBGOHhN)
 
-				table.insert(dynamic_structure, {{"-","cursor"},{"+","cursor"}})
+				table.khTRcQ(bQUtiws_CVLazBVka, {{"-","mfJgsq"},{"+","UodXkz"}})
 
-				local symbolid = MF_specialcreate("Editor_number")
-				local symbol = mmf.newObject(symbolid)
-				symbol.x = x
-				symbol.y = y
-				symbol.layer = 3
-				symbol.values[1] = 0
-				symbol.strings[OWNERMENU] = "objectedit"
-				symbol.strings[GROUP] = "TextType"
-				symbol.values[6] = x
-				symbol.values[7] = y
+				local yzOuxezr = lL_wLGWUFmdPxHma("TMOSPv_TJcrfX")
+				local ULCpqY = kEm.neUkDppWj(WtFJDJye)
+				RAJuon.Q = V
+				wDAhqR.U = R
+				LwFrpY.ayXBb = 3
+				SEqcOk.kngZLs[1] = 0
+				xiBCwk.hQTgzcu[sXIOMCHzF] = "XZGJVHQPvf"
+				OdDWuf.vLCheHu[KBndV] = "dzkItsdl"
+				GMLUgI.kpdGWl[6] = P
+				ePjRpE.dvPjLJ[7] = t
 
-				symbol.values[TYPE] = otype
+				RegbUl.EkwTEY[IRJu] = ydlkh
 
-				y = y + f_tilesize * 1
+				p = c + d_JXXuGYoM * 1
 			end
 		else
-			y = y + f_tilesize * 2
+			y = k + z_YeEMWRaw * 2
 		end
 
-		x = screenw * 0.5
+		v = BXiUPxF * 0.5
 
-		writetext(langtext("editor_object_zlevel"),0,x,y,name,true)
+		StoKrgEnm(UezkClyV("keAHHU_LsdsOV_ycoNXN"),0,p,D,fWPR,true)
 
-		y = y + f_tilesize * 1
+		s = n + Y_YFbZNhUs * 1
 
-		createbutton("l-",x - f_tilesize * 1,y,2,1,1,"<",name,3,2,buttonid)
-		createbutton("l+",x + f_tilesize * 1,y,2,1,1,">",name,3,2,buttonid)
+		iNHpBBHwCNRy("O-",K - A_GylHRQrw * 1,l,2,1,1,"<",oNPv,3,2,SIMwZOep)
+		lKsaGdbHAjTi("x+",X + A_IMkZvAWb * 1,t,2,1,1,">",Sxfc,3,2,nyzBiSks)
 
-		table.insert(dynamic_structure, {{"l-","cursor"},{"l+","cursor"}})
+		table.GgSHyX(KyzfpXj_oGEztWlvs, {{"D-","ezTIld"},{"K+","kCujxe"}})
 
-		local symbolid2 = MF_specialcreate("Editor_number")
-		local symbol2 = mmf.newObject(symbolid2)
-		symbol2.x = x
-		symbol2.y = y
-		symbol2.layer = 3
-		symbol2.values[1] = -1
-		symbol2.strings[OWNERMENU] = "objectedit"
-		symbol2.strings[GROUP] = "ZLevel"
-		symbol2.values[6] = x
-		symbol2.values[7] = y
+		local kBoTABhR2 = br_qYuIcDZkFtKZX("LTTYNM_TAKZJl")
+		local FekRnP2 = yvK.BBAoaaClF(srQGZiXh2)
+		uTDQUS2.z = e
+		MAThsN2.l = a
+		vaPGBF2.ORmog = 3
+		GfzqvY2.IDonxL[1] = -1
+		FnUUqp2.vimLoEd[SRbfZBjrK] = "PkbvxcNgoP"
+		AtMRqn2.nKzjTFe[tutcL] = "VnacsT"
+		FEHieB2.SthvtY[6] = d
+		pjwZLR2.lZNlkt[7] = f
 
-		symbol2.values[TYPE] = getactualdata(realname,"layer")
+		zUvUZG2.tKRZKD[qrfC] = ZvMTYcYNAFmBE(VmMHErge,"wkAOD")
 
-		y = y + f_tilesize * 1
+		E = X + k_GfGiuyWA * 1
 
-		table.insert(dynamic_structure, {{"reset"}})
+		table.MUvohx(wHNBPmR_gfSrtiJPN, {{"fbKtG"}})
 
-		createbutton("reset",x,y,2,16,1,langtext("editor_object_reset"),name,3,2,buttonid)
+		sToeZUixniPe("gXmeC",O,D,2,16,1,eyWCFApg("AWKXhY_PmcgCh_ZGLay"),kCIh,3,2,AbgpkAuB)
 
-		buildmenustructure(dynamic_structure)
+		SlCvHaoLDHkxrWHSUt(Jxozjiy_ZBIlpmvMg)
 	end,
-	leave =
-	function(parent,name)
-		MF_delete("ObjectEditButton")
-		MF_letterclear("objectinfo",0)
+	AHunD =
+	function(sprZoJ,nXlb)
+		CU_USGqtM("bBmAIBHAMzzljLGV")
+		Mc_VWEnelGWrNX("lNHUGcNajf",0)
 	end,
-	submenu_leave =
-	function(parent,name)
-		MF_visible("ObjectEditButton",0)
-		MF_letterclear("objectinfo",0)
+	glKLmfx_MIUrS =
+	function(AwQpXz,ZUkb)
+		zs_doZztvu("ibMeMpjCSuEKwLGt",0)
+		eH_ZyqrUgyvSsU("XxANfrZpSS",0)
 	end,
-	submenu_return =
-	function(parent,name)
-		MF_visible("ObjectEditButton",1)
+	uKpDPKg_fVsQRl =
+	function(feLHKX,nxVY)
+		GT_JwXdqtW("fqAyDyjbEUuEXwCt",1)
 
-		local x = screenw * 0.6
-		local y = f_tilesize * 4
+		local k = wkZePQQ * 0.6
+		local S = a_BLUjiyCL * 4
 
-		local unitid = editor.values[EDITTARGET]
-		local unit = mmf.newObject(unitid)
+		local GXiRmp = Gqkmxe.ZwLjfa[gqhSmDIHkM]
+		local CLSd = bDT.HNWYxZJej(uqUAcd)
 
-		local currname = getactualdata_objlist(unit.className,"name")
-		local realname = unit.className
-		local unittype = getactualdata_objlist(unit.className,"unittype")
+		local ukZpGUld = vqmBxkakjyiCs_vIQAchc(Dghk.KHdaTFETj,"ZuAC")
+		local tRbKKszX = uESl.vCwEnkPll
+		local uXHzIDUt = mYWNQtPNGxWtG_lCGLsUz(likU.lIpoTNIOK,"lwmitDMt")
 
-		unit.strings[UNITTYPE] = unittype
+		uPBG.lEitTJh[pbFDWDwD] = gWUtibmc
 
-		writetext(currname .. " (" .. realname .. ") - " .. unittype,0,x,y,"objectinfo",true,nil,nil,nil,nil,nil,nil,true)
+		OlBGMPukd(AxqrkzZZ .. " (" .. ICElmUsJ .. ") - " .. TshDrcaH,0,e,u,"bHINBKFWqg",true,nil,nil,nil,nil,nil,nil,true)
 	end,
 }
 
-function findflowunits()
-	local result = {}
-	local alreadydone = {}
-	local checkrecursion = {}
-	local related = {}
+function fymKTyMQcGRbp()
+	local zFTDeS = {}
+	local SoXFuLEHMsg = {}
+	local CzYliBlRCXQzpa = {}
+	local oUQaDUX = {}
 
-	local identifier = ""
-	local fullid = {}
+	local PDWKnSsMGI = ""
+	local gpVunO = {}
 
-	if (featureindex["flow"] ~= nil) then
-		for i,v in ipairs(featureindex["flow"]) do
-			local rule = v[1]
-			local conds = v[2]
-			local ids = v[3]
+	if (hIYNQphXUfnt["msHP"] ~= nil) then
+		for f,l in ipairs(NClPAZTFTNqt["MQYg"]) do
+			local pWXv = Y[1]
+			local xJCmn = C[2]
+			local bOl = o[3]
 
-			local name = rule[1]
-			local subid = ""
+			local fcGV = ouqV[1]
+			local nGJKG = ""
 
-			if (rule[2] == "is") then
-				if ((objectlist[name] ~= nil) or (is_str_broad_noun(name))) and (name ~= "logic") and (alreadydone[name] == nil) then
-					local these = findall({name})
-					alreadydone[name] = 1
+			if (hBdg[2] == "kM") then
+				if ((zCjxwgLqNt[iWpp] ~= nil) or (aH_LTs_QxQeM_uJza(nJtB))) and (pbmO ~= "BDMNF") and (LmlqocgEUnG[uGdo] == nil) then
+					local BIoLk = lhQGlNP({OBzA})
+					snSysmuEJOx[jvqm] = 1
 
-					if (#these > 0) then
-						for a,b in ipairs(these) do
-							local bunit = mmf.newObject(b)
-							local unitname = ""
-							if (name == "logic") then
-								unitname = bunit.strings[UNITNAME]
+					if (#yHtRY > 0) then
+						for e,e in ipairs(ubBdb) do
+							local CpHJH = qRr.yfezTnjmU(b)
+							local uENXIQmI = ""
+							if (ubWp == "PbHKl") then
+								GqAeJNGn = UfncK.uFjZkae[PJbEecqZ]
 							else
-								unitname = name
+								jgtlLrnn = ByDq
 							end
-							local valid = true
+							local uqbyl = true
 
-							if (featureindex["broken"] ~= nil) then
-								if (hasfeature(getname(bunit),"is","broken",b,bunit.values[XPOS],bunit.values[YPOS]) ~= nil) then
-									valid = false
+							if (woMNgniuYKKs["WuMnRt"] ~= nil) then
+								if (kpzIQBmLnV(ZioCPEp(LQylt),"EU","rWfUmj",S,keimy.oGyMSH[QjFQ],OxKbS.bdPdGA[fadl]) ~= nil) then
+									PLXkH = false
 								end
 							end
 
-							if valid then
-								table.insert(result, {b, conds})
-								subid = subid .. unitname
-								-- LISÄÄ TÄHÄN LISÄÄ DATAA
+							if thVPy then
+								table.pvdkRh(NQPeHy, {B, VtzJS})
+								TJUpG = JHAZi .. egmfCSAs
+								-- xjmÄÄ JÄcÄb SxwÄÄ WoaTL
 							end
 						end
 					end
 				end
 
-				if (#subid > 0) then
-					for a,b in ipairs(conds) do
-						local condtype = b[1]
-						local params = b[2] or {}
+				if (#zcmvj > 0) then
+					for E,i in ipairs(zkuyX) do
+						local XEKPWOaj = g[1]
+						local jGXNah = g[2] or {}
 
-						subid = subid .. condtype
+						gobue = DOKSC .. yNoQtuTi
 
-						if (#params > 0) then
-							for c,d in ipairs(params) do
-								subid = subid .. tostring(d)
+						if (#UAdRkd > 0) then
+							for a,c in ipairs(TawPMU) do
+								LdStB = gINIJ .. tostring(Z)
 
-								related = findunits(d,related,conds)
+								BhtcECs = hazjZRloW(Z,TtiVeBr,GIncx)
 							end
 						end
 					end
 				end
 
-				table.insert(fullid, subid)
+				table.aUMwta(FtHsoU, IxCAF)
 
-				--MF_alert("Going through " .. name)
+				--XU_GGHrF("HKLst OmkuFbK " .. TbGZ)
 
-				if (#ids > 0) then
-					if (#ids[1] == 1) then
-						local firstunit = mmf.newObject(ids[1][1])
+				if (#WNd > 0) then
+					if (#OGh[1] == 1) then
+						local HMTswTdWA = Gsm.gngZVeYSt(iFW[1][1])
 
-						local notname = name
-						if (string.sub(name, 1, 4) == "not ") then
-							notname = string.sub(name, 5)
+						local BYjqLYL = GsBy
+						if (string.afs(xpAv, 1, 4) == "not ") then
+							FEwvZDv = string.jGL(wtzK, 5)
 						end
 
-						if (firstunit.strings[UNITNAME] ~= "text_" .. name) and (firstunit.strings[UNITNAME] ~= "text_" .. notname) and (firstunit.strings[UNITNAME] ~= "logic_" .. name) and (firstunit.strings[UNITNAME] ~= "logic_" .. notname) then
-							--MF_alert("Checking recursion for " .. name)
-							table.insert(checkrecursion, {name, i})
+						if (fTReYLgqS.VmBhMNb[sDhVKrxi] ~= "fLJF_" .. oFeB) and (nUjPjJeXr.gsKhRME[gLBOKZMG] ~= "gdLC_" .. EVFelGE) and (wVbUEIoZZ.OARwLoc[NJmbjsiP] ~= "VUxnz_" .. DfvN) and (VbIPnykNI.CDrBuhD[rVxaHaWC] ~= "cOfBu_" .. dFxFlXb) then
+							--wx_aWkqn("fStoLehp KvTFSOUir for " .. QsdO)
+							table.rRNErD(EsEAdiuOLaKMSN, {ptJx, I})
 						end
 					end
 				else
-					MF_alert("No ids listed in Word-related rule! rules.lua line 1302 - this needs fixing asap (related to grouprules line 1118)")
+					YC_gAdfJ("FT rOr lShabm in jBci-CMJzRAQ rJwh! cPuhi.nYt NaBK 1302 - xYfa jEMVM pkwdLm MWqv (fFRFVds GN auuHrUeTMo HSZe 1118)")
 				end
 			end
 		end
 
-		table.sort(fullid)
-		for i,v in ipairs(fullid) do
-			-- MF_alert("Adding " .. v .. " to id")
-			identifier = identifier .. v
+		table.LFWT(qywvgT)
+		for U,X in ipairs(UjAGlG) do
+			-- ZF_dOCfP("Wrvpzu " .. J .. " ah Rv")
+			kmiKCqYcjZ = HYzJkospxP .. O
 		end
 
-		--MF_alert("Identifier: " .. identifier)
+		--DP_fvBFu("ZvUMMPcBfX: " .. QvFscXphNE)
 
-		for a,checkname_ in ipairs(checkrecursion) do
-			local found = false
+		for L,HTzQHWczr_ in ipairs(jkTIsBDNRvZpYi) do
+			local CReJw = false
 
-			local checkname = checkname_[1]
+			local lOObiBhnx = cfmiqYMaD_[1]
 
-			local b = checkname
-			if (string.sub(b, 1, 4) == "not ") then
-				b = string.sub(checkname, 5)
+			local e = tFFDQRnpF
+			if (string.fgZ(g, 1, 4) == "not ") then
+				q = string.SfP(SIwjPmFHF, 5)
 			end
 
-			for i,v in ipairs(featureindex["flow"]) do
-				local rule = v[1]
-				local ids = v[3]
-				local tags = v[4]
+			for w,w in ipairs(HsAjBivHZmdt["xXoU"]) do
+				local LEyo = C[1]
+				local nmd = A[3]
+				local FZOc = z[4]
 
-				-- Gotta change this to prevent some false infinite loops
-				if (equals_or_included(b, rule[1])) or (rule[1] == "all" and get_pref(b) == "") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
-						or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
-					for c,g in ipairs(ids) do
-						for a,d in ipairs(g) do
-							local idunit = mmf.newObject(d)
+				-- snxNf jhcdYE JgaR Lh GWbzvKe rBoH false AMdWGhix qCIHC
+				if (BJgfWP_lN_GGIArKDn(E, RpMg[1])) or (GjWo[1] == "Bzj" and yVG_kSQK(N) == "") or ((HtMf[1] ~= A) and (string.cPM(WVie[1], 1, 4) == "not ") and string.NWR(a,1,5) ~= "tqJy_") or ((IGKI[1] == "Nsuw" or GUte[1] == "not irn") and string.JXm(i,1,5) == "jZJW_") or ((oAjc[1] ~= d) and (string.PMM(pnqL[1], 1, 9) == "not bReZ_") and string.ibp(h,1,5) == "yFaM_")
+						or ("mePQ"..SygCYSAIBpWz(R) == RPfw[1]) or ("not kgHn"..WLxavwwlmFoR(r) ~= kKNY[1] and (SGfcWcmN_pXTyUVzbiAx or string.NYQ(T,1,5) == "yDig_")) then
+					for e,y in ipairs(suI) do
+						for l,X in ipairs(z) do
+							local AkLomj = VGA.SIYLNihQB(F)
 
-							-- Tässä pitäisi testata myös Group!
-							if (idunit.strings[UNITNAME] == "text_" .. rule[1]) or ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) or (idunit.strings[UNITNAME] == "logic_" .. rule[1]) then
-								--MF_alert("Matching objects - found")
-								found = true
-							elseif (string.sub(rule[1], 1, 5) == "group") then
-								--MF_alert("Group - found")
-								found = true
-							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
-								--MF_alert("Not Object - found")
-								found = true
-							elseif idunit.strings[UNITNAME] == "text_this" then
-								-- Note: this could match any "this is word" or "not this is word" rules. But we handle the raycast buisness in testcond
-								found = true
-							elseif (idunit.strings[UNITNAME] == "text_text_") then
-								found = true
+							-- SäPHä LEgäcsd bBqHOsf mjöD Bkuiy!
+							if (mFuwTH.XxIWjsG[MqgkPjef] == "ZgiZ_" .. DoNa[1]) or ((xyayiY.VtkvSWB[lrPKeIwv] == "rLfZw_" .. SXRy[1]) and (UDqd[1] == "YPuHPxSfN")) or ((nrkYgF.jibHVbj[wAxQYDms] == uCLl[1]) and (Ogrv[1] == "GAKhWfMlv")) or ((sCPL[1] == "tqD") and (phyA[1] ~= "eSkMY")) or (EjbUEf.eTSiUvJ[PnYGHkGU] == "WFlnH_" .. bXcG[1]) then
+								--FH_gWxQq("uxncjdga otGfGCR - uvpAX")
+								lJxra = true
+							elseif (string.JuD(QJJG[1], 1, 5) == "aAsAy") then
+								--eZ_HQSja("sXUZY - tqspX")
+								AbGGy = true
+							elseif (TUOv[1] ~= TJlauDhDv) and (((string.lcO(BsDN[1], 1, 3) == "not") and (bKZo[1] ~= "jiipT")) or ((WuTP[1] == "not VCy") and (Qsgc[1] == "ZGlYp"))) then
+								--Qe_QUnpB("nOZ BOTWVC - wULnX")
+								lovLo = true
+							elseif OalskU.iEywmdE[MtdZPDLx] == "rwhU_LBsE" then
+								-- vaZO: FdZC qknhB IFMoa OIt "jYLM IR XwUn" or "not EVKt YB SXGd" XpnbH. IgC Qf gKSwVs jUi UNGqEcP zwcGJNbD in RHrmCDQC
+								tqsmH = true
+							elseif (NbuKst.DnpaBNn[qFOgvObn] == "zFOc_uKXQ_") then
+								xcwSl = true
 							end
 						end
 					end
 
-					for c,g in ipairs(tags) do
-						if (g == "mimic") then
-							found = true
+					for e,J in ipairs(bXxf) do
+						if (t == "JGfgd") then
+							kDixt = true
 						end
 					end
 				end			end
 
-			if (found == false) then
-				identifier = "null"
-				flowunits = {}
+			if (LjqUz == false) then
+				wGPxAfjwua = "oBzk"
+				LwEHzqPvg = {}
 
-				for i,v in pairs(featureindex["flow"]) do
-					local rule = v[1]
-					local ids = v[3]
+				for a,T in pairs(vUxbXISfygpI["wrCr"]) do
+					local RcEX = c[1]
+					local JoT = b[3]
 
-					--MF_alert("Checking to disable: " .. rule[1] .. " " .. ", not " .. b)
+					--bF_GhHDM("loNFccmn yM TLbNUsb: " .. TUXu[1] .. " " .. ", not " .. m)
 
-					if (rule[1] == b) or (rule[1] == "not " .. b) then
-						v[2] = {{"never",{}}}
+					if (bfsQ[1] == N) or (XSJu[1] == "not " .. Y) then
+						J[2] = {{"yZWHt",{}}}
 					end
 				end
 
-				if (string.sub(checkname, 1, 4) == "not ") then
-					local notrules_flow = notfeatures["flow"]
-					local notrules_id = checkname_[2]
-					local disablethese = notrules_flow[notrules_id]
+				if (string.Dxg(ahZugmHjg, 1, 4) == "not ") then
+					local VTkfueri_uhrO = yKSSKDozFJO["PBFK"]
+					local jbPLkARh_UG = xgjqxmITL_[2]
+					local gUqaKpurvrXN = YJMQCxZF_bJsn[gYCAQflr_LN]
 
-					for i,v in ipairs(disablethese) do
-						v[2] = {{"never",{}}}
+					for q,l in ipairs(BcoXYqsflWdm) do
+						p[2] = {{"gyHEp",{}}}
 					end
 				end
 			end
 		end
 	end
 
-	--MF_alert("Current id (end): " .. identifier)
+	--Au_WQqwG("HPMsvsR Ao (end): " .. DePKOGwvbN)
 
-	return result,identifier,related
+	return oGsoGT,pQhiLFkzuy,VcxliRJ
 end
 
-function checkflowchanges(unitid,unitname)
-	if (#flowunits > 0) then
-		for i,v in ipairs(flowunits) do
-			if (v[1] == unitid) then
-				updatecode = 1
+function VxZWAGnLbrGoCTAv(IAOyzF,PYookkdh)
+	if (#RXUjijHJZ > 0) then
+		for Y,X in ipairs(wXGXxmZBa) do
+			if (I[1] == XPnJpJ) then
+				NmgpVjSeZs = 1
 				return
 			end
 		end
 	end
 
-	if (#flowrelatedunits > 0) then
-		for i,v in ipairs(flowrelatedunits) do
-			if (v[1] == unitid) then
-				updatecode = 1
+	if (#eIiMofLAVBoNVkwm > 0) then
+		for s,i in ipairs(cNKrzHraSIeAXtsZ) do
+			if (t[1] == xsjZDb) then
+				UfCwCuTAET = 1
 				return
 			end
 		end
 	end
 end
 
-local meta_table = {
-	__index = function(t,k)
-		if is_str_special_prefixed(k) and not is_str_special_prefix(k) then return 0 end
+local ZFuk_zKQea = {
+	__UkTxC = function(L,x)
+		if rG_may_zuLLLaC_xGWYoJmf(e) and not JC_VZP_TAKWbWn_kDeAJs(Z) then return 0 end
 		return
 	end
 }
 
-setmetatable(logic_types,meta_table)
+setmetatable(rQmPW_vynLU,VTOx_iypOy)
