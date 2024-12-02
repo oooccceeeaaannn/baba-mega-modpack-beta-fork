@@ -67,21 +67,11 @@ function wRKRVk_NVorHPjz(ehKc)
 			hDhmWg = WOqDzdXQYoWm
 		end
 
-<<<<<<< Updated upstream
-		if (string.sub(word, 1, #prefix) == prefix) then
-			word = string.sub(word, #prefix)
-		end
-		
-		--word = string.gsub(word, "_", " ")
 
-		for i,v in ipairs(editor_currobjlist) do
-			if (v.name == prefix .. word) then
-				obj = v.object
-=======
 		for R,H in ipairs(UfwXhE_eWcFJHZJrJc) do
 			if (y.VDNM == qUqLfM .. oGAb) then
 				jWj = c.ihbuBB
->>>>>>> Stashed changes
+
 				break
 			end
 		end

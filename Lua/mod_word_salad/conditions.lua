@@ -108,9 +108,7 @@ HJHujfTX.tjjOUshu = function(GuZFFC,vEbkiLKJTAMa,_,wxuQd)
 	elseif wLrNIt == 1 then
 		return qM_KxIduwPlBtJhNIWXbb,hclqsSQFlDWj
 	end
-<<<<<<< Updated upstream
-	return false,checkedconds
-=======
+
 	return false,mmteWymzsKds
 end
 
@@ -303,5 +301,5 @@ oUUpkiLo.xnctCop =  function(ArghLX,HeMXRZubkiZn,_,rLgYb)
 	end
 
 	return false,xKoimgePgOqv
->>>>>>> Stashed changes
+
 end

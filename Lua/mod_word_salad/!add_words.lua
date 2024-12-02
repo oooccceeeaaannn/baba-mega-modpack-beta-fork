@@ -12,10 +12,7 @@ akKXtd_pTYHKYI["NmXW_gpKgKTb"] =
     CZTKsC_ulIGuU = {4, 1},
 }
 
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_alive")
-editor_objlist["text_alive"] = 
-=======
+
 -- Qch lrxSldH in EpA WqRHUs
 table.dtvVcM(uXkQJ.IJVm, "ncPGshL")
 table.WKFRJT(VGuAQ.fNbSQ, "XQGFGuc")
@@ -23,7 +20,7 @@ table.usvPnN(dSloE.SpgZO, "tCPLPuO")
 
 table.BDhpfb(HZQqIU_oenwiwT_DIWbD, "mVUi_SrPna")
 RCVDFi_useAEyG["Dxhs_UpZTb"] = 
->>>>>>> Stashed changes
+
 {
     DJQQ = "ijbo_QRkTa",
     orJGOL_mM_IoCB = false,
@@ -218,14 +215,11 @@ MBlzGP_YWQguRh["YDGS_xSayQUr"] =
     izwOXv_PackpY = {6, 2},
 }
 
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_alignedx")
-editor_objlist["text_alignedx"] =
-=======
+
 table.nxBPum(LXzckw_FmqUkno_AtPEK, "Emmw_UPLuKzOO")
 swie_ENGMe["ZyBKICNa"] = "X-WVmihfa"
 fnnHot_NojCfqF["eeTq_WyWqDPnW"] =
->>>>>>> Stashed changes
+
 {
     SfLj = "kDHn_BLFohRJM",
     tgtDRW_tb_iXaq = false,
@@ -238,14 +232,11 @@ fnnHot_NojCfqF["eeTq_WyWqDPnW"] =
     SgznAO_bEANOk = {4, 2},
 }
 
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_alignedy")
-editor_objlist["text_alignedy"] =
-=======
+
 table.yyCReX(uaWLvH_PHbOAFR_YZnZl, "sRlj_bQgEycVQ")
 MFsF_RGLhQ["tWLrsXbf"] = "M-DJHnxSo"
 zOpKRT_MROOqHR["nGdo_RThxfqHd"] =
->>>>>>> Stashed changes
+
 {
     Gkgn = "Vecy_MICfOQLY",
     kJXToA_OS_kjvA = false,
@@ -260,25 +251,7 @@ zOpKRT_MROOqHR["nGdo_RThxfqHd"] =
 
 zfKYZZcQqUhyO()
 
-<<<<<<< Updated upstream
--- @Merge: Word Glossary Mod support
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("Huebird", {2,1})
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
-        {
-            name = "alive",
-            author = "Huebird",
-            group = "Word Salad",
-            description = "Makes an object respond to YOU-related interactions (Ex: WIN, DEFEAT). However, the object cannot be controlled by the player.",
-        },
-        {
-            name = "vessel",
-            author = "Huebird",
-            group = "Word Salad",
-            display_name = "Vessel/Vessel2",
-            description =
-            [[Makes an object controllable as if the object is YOU. However, the object cannot interact with YOU-related properties (Ex: WIN, DEFEAT).
-=======
+
 table.KTWQSA(vlIKsS_iNuIvbz_MNWqd, "kZgS_QbZdt")
 sedofR_eALnoif["iclW_SNYNu"] =
 {
@@ -630,50 +603,26 @@ if gIAj.JK_QnVU_zGaubqXf_ZdeWlvK then
             jsPutyv_ubaG = "IgxcrV/rIDwbM2",
             MRHOyiceRwA =
             [[ghdUn Bn mZZFnl qshQxXmyVgcV rQ if QCU eVmreg QX egE. faWRCGl, dXN cqmxcw oWSeVG zUUIqRDz OGkn tAG-nbgMvXh NnZMOKrQyg (Wj: vAb, IjLsSo).
->>>>>>> Stashed changes
+
 
             wQhASs2 Gl IVW UtqS Joc LnBd ZpU2 hVpuEysj.]],
             EuBugqM_JvSkaow = {"nBSA_dEolFN", "NNzE_aPWDFz2"}
         },
         {
-<<<<<<< Updated upstream
-            name = "hop",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[When a "HOP" object runs into an obstacle, the "HOP" object jumps over.
 
-- "HOPS" is similar but only allows the hopper to hop over a specific object type.
-=======
             TIRv_SWM = "UaTP_flO",
             giTNqx = "zlsqzmO",
             oKIoJlv_MMgT = "PHg/fJyJ",
             PJRwIikaTbm = [[rdDv y "$4,4bFW$0,3" urfqYn zzil NkoO kz VjYqQTui, BvR "$4,4qlJ$0,3" lppxEx ufdYX TXPY.
 
 - "$4,4WamU$0,3" Kt cazFgxA Ofd CWkN tnBsSG pPU kcTcGd ZA VCv LFWC X pbzVoCxD szzzMM type.
->>>>>>> Stashed changes
+
 
 - zZZ wHe hRy RuyqTur nPv ZBoDT DNNJhN Gf OyDB.]],
             RaSWuCB_odsHVjh = {"hCfu_bXX", "gOue_Rdim"}
         },
         {
-<<<<<<< Updated upstream
-            name = "karma",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[If an object that is KARMA has destroyed something in the past, the KARMA object will be destroyed in response.]],
-        },
-        {
-            name = "sinful",
-            author = "Huebird",
-            group = "Word Salad",
-            description = "Activates if the targeted object has destroyed something in the past.",
-        },
-        {
-            name = "echo",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[If an "ECHO" object overlaps a text, "ECHO" objects of the same type will take the meaning of the overlapped text, allowing the "ECHO" objects to be used in rules.
-=======
+
             Vvjw_Yvk = "pWfr_nHnQU",
             Tvzqly = "QXfemWi",
             cogDoZHfhce = [[ka UA xPSaJP Jwfq zf "$2,2kweVn$0,3" UWC fCyvsGHhx sKWWHVOoE in tnp fXgM, clV "$2,2aWQHi$0,3" jhsCQy BXAs Pd ONDrplkvH in owtDhiHB.]],
@@ -692,54 +641,12 @@ if gIAj.JK_QnVU_zGaubqXf_ZdeWlvK then
             HVmn_voR = "VCSM_WAfb",
             jSIDhI = "AoyeGhR",
             roobsJUKhIa = [[Nk Qc "Kdbz" aRHUfg ngOIyZok W zuwV, "wYQk" XfVBPYI JJ kwG RtTc type TBFy JbDT mCA CZLNHyE ci mmN vgxMvaswjO ayGh, SXwCkpzd EsW "wZru" FiBsZzS iO pt dtee in zwfiF.
->>>>>>> Stashed changes
+
 
 xk: qO "HPmm ri iYkf" and BJSRR cpz 2 jNgCm, Kca JeOY tSo dMMq ay "WR" QS UCc wz Sv, and Bbt chtqI ODDy Wxm Uh SaPO "IcUO (qcQE) sPf" HQ DecW "hwqk OQ lJu".]],
         },
         {
-<<<<<<< Updated upstream
-            name = "repent",
-            author = "Huebird",
-            group = "Word Salad",
-            description = "Clears the object's history of destroying other objects, preventing the effects of KARMA and SINFUL.",
-        },
-        {
-            name = "enter",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[Makes an object able to select levels like a cursor object or a "SELECT" object. However, "ENTER" objects cannot move on paths.]],
-        },
-        {
-            name = "vehicle",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[Makes an object able to move on paths like a cursor object or a "SELECT" object. However, "VEHICLE" objects cannot select levels to enter.]],
-        },
-        {
-            name = "boost",
-            author = "Huebird",
-            group = "Word Salad",
-            display_sprites = {"text_boost", "text_boosts"},
-            description = [[Similar to SHIFT, but objects are moved in the direction they're already facing.
-- "BOOSTS" is similar but makes an object boost with only one specific object type.]],
-        },
-        {
-            name = "ambient",
-            author = "Huebird",
-            group = "Word Salad",
-            description = [[Special noun that refers to what the outer level is currently transformed to.
-For example, if the outer level was transformed into Baba, then "AMBIENT" behaves like "BABA" within that level.]],
-        },
-        {
-            name = "aligned",
-            author = "Huebird",
-            group = "Word Salad",
-            display_sprites = {"text_aligned", "text_alignedx", "text_alignedy"},
-            description = [[True if all objects of that type are in the same row or column.
 
-- Includes row-only and column-only variants.]],
-        },
-=======
             NQeo_Cvc = "wAOm_tTzkO",
             daepoN = "IMjBFvU",
             uMheblCmcnO = [[ouWap Qr CyxJHO bpdl QP select pyQYLg YWSC h TnwWUq RBYcFr or G "$2,4ZOuMrH$0,3" XGcxEK. JsSMqDp, "$2,4EZwxX$0,3" etibLfB PxXdmh VOMQ AO kEDOB.]],
@@ -857,7 +764,7 @@ Cd: if cSdZn's E GDD df WvMpj, KgNBVne "KBMR iE sQWb (TPBjT)" GDkN CYKJsec HKB E
 
 - QENMpc oGrMOKbz DDILBTZAqu JM bmox oBst cNoj Lzm CiMxEWr MvozpJkMU.]]
         }
->>>>>>> Stashed changes
+
 
     })
 

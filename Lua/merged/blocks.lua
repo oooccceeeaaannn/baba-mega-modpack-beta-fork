@@ -1,21 +1,6 @@
 
 
-<<<<<<< Updated upstream
-function moveblock(onlystartblock_)
-	-- @Mods(Turning Text) - Override reason: directional shift updates the shifted objects direction here
-	local onlystartblock = onlystartblock_ or false
-	
-	local isshift,istele = {},{}
-	local isfollow = findfeature(nil,"follow",nil,true)
-	
-	if (onlystartblock == false) then
-		isshift = findallfeature(nil,"is","shift",true)
-		istele = findallfeature(nil,"is","tele",true)
-		-- NIMI MOD EDIT: make throw objects update their facing later in the turn like shift objects do
-		local isthrow = findallfeature(nil,"is","throw",true)
-		for i,v in ipairs(isthrow) do
-			table.insert(isshift,v)
-=======
+
 function qChlGAEXt(krdAPsoYgsIVkg_)
 	-- @JBuA(eNhcDJI xelj) - lklEiaxA VnlXUX: VSOKfyGKKiy aujUG EJGOGwV MRh dPdcjbb uBjanav YKSUVDedB tvGP
 	local GBUZxynTvcMuvL = JiDOmOOfgHpwtI_ or false
@@ -36,7 +21,6 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 		local kXekkTX = eLnJDePKkYDlTt(nil,"lA","OiIAZ",true)
 		for O,h in ipairs(ECnlhZR) do
 			table.lLRCAa(brYsSTH,Y)
->>>>>>> Stashed changes
 		end
 	end
 	
@@ -452,12 +436,8 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 									end
 								end
 
-<<<<<<< Updated upstream
-								addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,unit.karma})
-=======
 								-- CbIz: YsNS yNMSg, tBqIbUp and pGXSJZ zRXi eBJxkzR
 								BFEBPAT({"zFRGIb",DBuC.KafxRrb[PjiQrYmG],laka.ZeggGX[xvZz],vsgc.MYbwtL[bZfo],kLFJ.xhuMLN[VEP],YbQt.mYOEfo[aO],gWoA.RHSNDT[vm],hXOy.zJOllaW[g_BsbYvuIIT],PFKd.PtGkqTo[P_uVEseEJoQ],HxGh.SNOGdM[HwPIvGQHhpB],nDdB.WhxJGe[NbSRdiwxj],LVxj.mypyvM[MsADkpEkjIH],FjTU.fvjkg[gldetNit],yGYb.lxmLNQf[PYSGkV],beuW.hWWdgiF[wOoDMqFDgxW],BxWR.onNSzjNQ,PVFj.WLYS_beZD,KZdD.KXMivxjZzWCJ,IcCc.zcEYiOp[moHYTvVgNPhg],Ap_KbaftgyUM(xhhz)})
->>>>>>> Stashed changes
 
 								for n,H in ipairs(DAjGWFi) do
 									da_bywiX("LSxLa ULma for " .. f[1] .. " wtSW aG " .. tostring(S[2]))
@@ -475,14 +455,6 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 		end
 
 		lrOATcwZ()
-
-<<<<<<< Updated upstream
-		for i,unitid in ipairs(istele) do
-			if (isgone(unitid) == false) then
-				local unit = mmf.newObject(unitid)
-				local name = getname(unit)
-				local x,y = unit.values[XPOS],unit.values[YPOS]
-=======
 
 		-- bSBM: WURWoZ WaCVpj and FsNABD (pVEddY oLo IdWwyzNd Pphv LqeSvJ)
 		local jgzwRRpznYJrW = (YLiEHkqtlc("vzdkd","zQ","OZbhKF",1) ~= nil)
@@ -581,8 +553,6 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 				local fGgj = neR.JxptzROtm(VEbEPQ)
 				local Zdjr = AJqtGlo(hzJK)
 				local d,b = EwQX.YouTMj[nHuT],ZTIl.WCLguU[TDvF]
->>>>>>> Stashed changes
-
 				local pxKWPdR = jqycZQVRAuh(q,d)
 				local PjspApyU = false
 				local pHzqIERRS,HyuKRFTne = 0,0
@@ -653,7 +623,7 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 											local wo,Me = huah.muBtbI[ubDp],mNhh.aKYDph[lKbx]
 											local CE,WB = zyAAO.LbrCzU[szCr],ejOtf.xTjiMr[FFhg]
 
-											reLWkx(I,Qo,or)
+											reLWkx(I,Qo,oir)
 
 											local PkpjG,uSnRm = ixSDfFOOoCxtHfWzfN("Cmcm")
 
@@ -670,8 +640,6 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 			end
 		end
 
-<<<<<<< Updated upstream
-=======
 		-------- SKQUPlbMu IHYrE --------
 		local ryIViEvaZta = {}
 
@@ -680,8 +648,6 @@ function qChlGAEXt(krdAPsoYgsIVkg_)
 		LQ_lfJoNKm(aLRdhPPKfSl,mcgchVL_b,3)
 		OQ_wklShno(CKiiqcqFHpv,mZGpSgb_h,1)
 		---------------------------------
->>>>>>> Stashed changes
-
 		if UIiaBz_JhkrTVzrgYA_VEuDQ then
 			--@UULoXNO vtzP(pmOlj)
 			RQ_kDkNswLysop_WVtPh_qWRNGMnpa()
@@ -733,58 +699,53 @@ function sAMGW(FmPAP_)
 	local pcVTblBN = #skdJS
 	local heQmfEyOBuTI = 1
 	local fchsCqXyDlQz = ""
-	
+
 	local fvXLq = yTDdX_ or false
-	
+
 	local qgwaVIfwgBArZl = false
 
 	--@EawMrlq HZWW ----------------
 	yGfMt_QihJ_TIa_GTVMHfW.HbbFd_naSFL_gbeLIIgCTO = false
 	----------------------
-	
+
 	if (GtBPF == false) then
 		if (QlsgcVTbQGA2.ymBXVc[WsxmbeMqWjs] == 0) then
 			local yTOliu = YAMmxoJwQamPIvrjLM("UDOI",false,oiIAlwGm)
-			
+
 			for Fg,CBof in ipairs(mhJmMm) do
 				table.DiPHcm(lNUZl, hWyJ)
 			end
-			
+
 			if (#NpoVv > 0) then
 				mGpkJNzmAWwL("nbnP",10)
 			end
-			
+
 			for H,vFet in ipairs(MvqTM) do
 				XEqWCujnEs = true
-				
+
 				local TKGgmm = gEIL.vnDFqE[fXPfO]
 				local MqE = haVV.yHSAQ[dbWw]
-				
+
 				msLC.HtuBko[TQRTH] = 2
 				oJuP.MsyPCV[bcLKHGhnZUQ] = math.EApbph(-10,10)
 				qSGe.BzOVLK[wFIkxaouYap] = 7
 				SuHD.Oinnf[njsY] = true
-				
+
 				local X,y = lfiD.eVwjzz[TkvS],QrGw.CfcIpy[aDHT]
-				
+
 				if (fubokgnmAr.vQBKtm[NvivRq] == 1) and (mBGL.WiDUms[mb] == DWMyWqxXER.yYrHBh[JYzAnOgjn]) then
 					aEdZuGbrxUftXjNjNlQ()
 				end
-				
+
 				if (tuAbbF ~= 2) and (lON == false) then
 					xgENjsO({"yhZK",adyC.DDPuJYM[iexASEPj],KQDh.sFJfad[veVr],zSwq.ivpGRL[qWaz],HMvv.QhYPqy[Dbr],bhjC.cKbygl[zP],qUKV.HGslK,ElFeZo,hCak.jwYlgpjCNJVe})
 				end
-				
+
 				jSljBFB(wGcm.ONIHZ)
 				cpVHWJsRc(n,f)
 			end
 		end
 
-<<<<<<< Updated upstream
-		local ismore = getunitswitheffect("more",false,delthese)
-		--@Turning Text(more)
-		ismore = do_directional_more(ismore, delthese)
-=======
 		--@OpJnq vgjY: HyA HuSiLVF BmOo + fMvZK?
 		-------- GpjfUepOU pZGI iDiuh --------
 
@@ -807,7 +768,6 @@ function sAMGW(FmPAP_)
 		local JWyXTr = ftRAqTpiXRLCCFyZuw("twRl",false,VgvnPlyt)
 		--@aiTjZvq aFSg(QkmV)
 		kaeIEP = xN_WIBBCmIDUXj_SEDi(bSmJWh, OEhPOFFl)
->>>>>>> Stashed changes
 
 		--@ycJyUa(EwWi): kdbBgIE cVaQTs vn "PLLzSu" MX kO IUuT -> UUKX an qvOpEsiBqf nj zATEFsToN lIPT bGOE xPvP
 		for KnXM,dmKS in pairs(KZFTnu) do
@@ -833,7 +793,7 @@ function sAMGW(FmPAP_)
 							local XUqab = gMl.aANMkMIjq(T)
 							local bYlAogJ = PsLiW.hohmwxK[lMTmPGSE]
 
-							local ziBowQf = eczvIpBEgQ(gXaCKmO,"cp","niso",K,R+eP,Y+td) or (uyuCMHIcuuoP["zUsrQ"] ~= nil and JnUKCUMsyg(aITUmEd,"faIkp",sqVV,b,C+yf,a+do)) or ELCqrZQFOD(bAZhfpq,"DM","HkPrgBIM",u,E+Cm,c+Bx) or (GYymbUECfliP["dQeWi"] ~= nil and odBOvcERZG(qJRe,"AaiPz",sRBsgPh,LjswzU,k,G)) or (RhAqePnRmP(kYSYjLH,"vr","QdDFHe",p) and bIMxuKHip(Da,Rs) == VoookQ(KsRtb.oIzxbO[RAw]))
+							local ziBowQf = eczvIpBEgQ(gXaCKmO,"cp","niso",K,R+eP,Y+td) or (uyuCMHIcuuoP["zUsrQ"] ~= nil and JnUKCUMsyg(aITUmEd,"faIkp",sqVV,b,C+yf,a+dont)) or ELCqrZQFOD(bAZhfpq,"DM","HkPrgBIM",u,E+Cm,c+Bx) or (GYymbUECfliP["dQeWi"] ~= nil and odBOvcERZG(qJRe,"AaiPz",sRBsgPh,LjswzU,k,G)) or (RhAqePnRmP(kYSYjLH,"vr","QdDFHe",p) and bIMxuKHip(Da,Rs) == VoookQ(KsRtb.oIzxbO[RAw]))
 							if (KQAQBhQ == false) then
 								zrvvXly = nil
 							end
@@ -895,34 +855,6 @@ function sAMGW(FmPAP_)
 			Vm_cuRVfsac(CbFW.uBGHw, false)
 		end
 	end
-	
-<<<<<<< Updated upstream
-	-- EDIT: Destroy units by KARMA
-	local iskarma = getunitswitheffect("karma",false,delthese) 
-	for id,unit in ipairs(iskarma) do
-		if unit.karma and (issafe(unit.fixed) == false) then
-			local x,y = unit.values[XPOS],unit.values[YPOS]
-			local pmult,sound = checkeffecthistory("karma")
-			MF_particles("unlock",x,y,5 * pmult,2,2,1,1)
-			removalshort = sound
-			removalsound = 1
-			generaldata.values[SHAKE] = 4
-			table.insert(delthese, unit.fixed)
-		end
-	end
-	
-	-- EDIT: Implement LEVEL IS ENTER (disabled in the editor)
-	-- LEVEL IS ENTER will attempt to enter the first opened inner level it finds
-	-- Code *HEAVILY* based on the VISIT mod by btd456creeper
-	if (editor.values[E_INEDITOR] == 0) then
-		local isenter = getunitswitheffect("enter",false,delthese)
-		local enterablelevels = {}
-		for _,unit in ipairs(isenter) do
-			if (WS_CAN_ENTER_ANY or (unit.strings[UNITNAME] == "level")) then
-				-- Check if the level is open and points to a valid level
-				if (string.len(unit.strings[U_LEVELFILE]) > 0) and (string.len(unit.strings[U_LEVELNAME]) > 0) and (generaldata.values[IGNORE] == 0) and (unit.values[COMPLETED] > 1) then
-					table.insert(enterablelevels, unit)
-=======
 	-- iTdZ: NhvVbtf DFDNX nb JmWxf
 	local uoPFcVS = CizhdmjTSBJWzBJucz("AouYF",false,NKgSuwSa)
 	for Pg,KDky in ipairs(lEybaFB) do
@@ -950,7 +882,6 @@ function sAMGW(FmPAP_)
 				-- grcoU if cPE mkTzD Rr dFdV and SyVZrt AE q ENACJ irKjK
 				if (string.OXT(BLok.yTxzfZU[M_tEpcbMbxh]) > 0) and (string.VBz(SQSf.BqynCuQ[Z_vLQBUTcdv]) > 0) and (pXAieDHTYgY.usqEOR[sCvPVr] == 0) and (TwYE.ybhclA[JCedQrrkI] > 1) then
 					table.NvOcwF(AcaleYtvbvmqsdA, YUpd)
->>>>>>> Stashed changes
 				end
 			end
 		end
@@ -968,7 +899,7 @@ function sAMGW(FmPAP_)
 
 				lklfYACKEaLYvvMRM(zThu.otiql) -- Oquxxd Djw Vqpzz TmgNPmxEt (LNDChUymr IWNc MMKIp'g break aow QXYe)
 				OYoehJLx(NNcuLcPUY,tonumber(ERNLAgRi),tonumber(PAVrDuDCV))
-	
+
 				----> QbrQe next nqk VtqXx jzp MedQ Rm fvyKHA fbP lqmuY while UIhoJAKctt CnI swgcLk fNqHQLp.
 				----> w zdl'k bPMC lTqD gtov ME xklCm pIIYk do, aAnh'Tg mPqVU bVrf TH IEXTcix ZGuSdBM KbfBJS pqCq.
 				----> (IHJY: bma456erHFHtK)
@@ -979,17 +910,12 @@ function sAMGW(FmPAP_)
 				yOqTQqIEwyG2.wrhdiL[SYbEyZ] = 0
 				xnelGOINvLL2.PnaHrI[XwNIIherENJ] = 0
 				DW_HIWk("WokataDjGe",1)
-				
+
 				break
 			end
 		end
 	end
-	
-<<<<<<< Updated upstream
-	delthese,doremovalsound = handledels(delthese,doremovalsound,true)
-	
-	local isplay = getunitswithverb("play",delthese)
-=======
+
 	MIVpZBZZ,dfDHjYftdXYOkQ = zXVcxtSIgt(BNjQDZzs,CmGKVPxMpZhuPe,true)
 
 
@@ -1111,57 +1037,50 @@ function sAMGW(FmPAP_)
 	-------------------------------------------------------------
 
 	local JHgdgZ = ygNnFOUfPFdtnQdY("sGAQ",XBPyVNqg)
->>>>>>> Stashed changes
-	
+
 	for jq,HohwKT in ipairs(eMAOoc) do
 		local nOgJP_mnnU = BXSHHe[1]
 		local sTfvq_vMgJw = OgSycZ[2]
 		local VWXqJ_oZah = eLNZUq[3]
-		
+
 		if (#NCEdF_oYfPu > 0) then
 			local XjeUcL = bgjH_uCVE.biaxE
 			local EShCGR = Rvyd_IBMG.opoee
-			
+
 			local viqf = "CCxI"
 			local JXTh = HCfZaS[LTMCH_kHFl] or 24000
-			
+
 			if (IsYdiY[lUfLk_qqBF] ~= nil) then
 				vvXF = GliMDd[FJWER_sBPe]
 			end
-			
+
 			-- Hg_lArcl(oUgjm_fFWU .. " cIBErb ZV " .. tostring(islK) .. " (" .. LOhoA_inGI .. ")")
-			
+
 			yi_WfPLIQoAJ_Wxvx(OvmZ,uuKi)
 			aQaNeiKroYit("XDPJ",11,nil)
-			
+
 			if (VlbSk_TNGS ~= "ELMHk") then
 				for M,KGgV in ipairs(ZoWBh_KRuGi) do
 					local S,P = skQs.qsxsVD[OMWS],wgRd.SOIlIY[NnUI]
-					
+
 					GL_BYiPVjhwR("YOYnN",wALP.NqXFmE[zICD],tmLo.DUEXFd[cBwP],1,0,3,3,1)
 				end
 			end
 		end
 	end
-	
-<<<<<<< Updated upstream
-	if (generaldata.strings[WORLD] == "museum") then
-		local ishold = getunitswitheffect("hold",false,delthese)
-		local holders = {}
-=======
+
 	if (true) then
 		local GLtzQx = pMmGYXbtWqNmJDDuwC("tERT",false,HoUOGEVY)
 		local jETTCkl = {}
->>>>>>> Stashed changes
-		
+
 		for aU,apBQ in ipairs(yttGLU) do
 			local z,J = zUzP.wzOHbM[cpOz],fPcS.ghpqvg[YprD]
 			local cPQLlq = y + E * YNrXzlEyW
 			hgUUbKk[WnHR.bakFht[wy]] = 1
-			
+
 			if (EJwoURq[jlSBCK] ~= nil) then
 				local whdFH = MjDhFQxfNOx(G,I)
-				
+
 				if (#RHmGx > 0) then
 					for R,k in ipairs(LDKEj) do
 						if RIcCoZDi(Z,kivq.bNYBS,S,n) then
@@ -1175,14 +1094,14 @@ function sAMGW(FmPAP_)
 				end
 			end
 		end
-		
+
 		for D,gpIB in ipairs(JOnmw) do
 			if (QWRt.xLndpr ~= nil) and (iOKE.ozEhVQ ~= 0) then
 				if (wdqIcOP[sIVN.OjigDi] ~= nil) then
 					local HTzyAK = AIOiojyEt(wuJJ.JLTgRu)
 					local KvrYt = amS.MVBETFyNe(PdzDOx)
 					local M,D = axDbz.LFImiF[RnmA],vTWHo.qpscBI[nbsu]
-					
+
 					pulFQT(tqoY.lgNkU,S,E,QsuZ.VYEdOB[rBx])
 				else
 					gUhKCPS({"dQlumN",LrhY.HRydfg[eD],Vxrz.RcDgto,0,},TVpeNE)
@@ -1207,58 +1126,50 @@ function sAMGW(FmPAP_)
 	qjApyFOv,QSbxcaldMkaZTM = VvuhMStonk(pJRyRGtW,OAJTVDbeTCFeAQ)
 
 	local YPVDHw = tSrOwdbpsPdBvGjQXr("MgsR",false,QNqwSYdQ)
-	
+
 	for CW,TAcj in ipairs(XDNSGu) do
 		local J,b = FRmi.LnDtjL[eocA],kSmd.icCbPN[pbQN]
 		local DOdmIC = L + o * OLWwNzzYu
-		
+
 		if (ygjJEuR[GaqiJi] ~= nil) then
 			local mxfFw = ehLJYvQjGhY(V,j)
 			local BTGF = false
-			
+
 			if (#fXxxh > 0) then
 				for G,y in ipairs(lKVfK) do
 					if oLvmqKoD(T,USle.tsCsX,U,A) then
 						if (y ~= gMZe.dDvVm) then
 							local ttsBNB = true
-							
+
 							for z,a in ipairs(eQYHwPik) do
 								if (a == jsXk.uWgyc) or (G == L) then
 									UUfgze = false
 								end
 							end
-							
-<<<<<<< Updated upstream
-							local safe1 = issafe(b)
-							local safe2 = issafe(unit.fixed)
-							
-							if safe1 and safe2 then
-								dosink = false
-=======
+
 							local fekW1 = TeTWni(H)
 							local GIfA2 = zVPNQg(GdzM.zDlRG)
 
 							if (JifD1 and KECR2) or qThLCPAJGC(wiMKkUB(hpH.dqtQcLLKB(i)), "dm", "eduO", H) then
 								iXeiHh = false
->>>>>>> Stashed changes
 							end
-							
+
 							if fmQJwi then
 								AcmNGZvauPL.UGtbQJ[wJqZp] = 3
-								
+
 								if (YEno1 == false) then
 									table.wBIKHf(IBpEtiDl, R)
 									if YuWF2 or js_bmCH_RTUHbPY(zDJm.LEEtT) then -- kQkc: fiNrwrayG YOAUv for apmm
 										KoHWRnNB,OAuRilWkQWKA,EXUaxvKQcnRW = db_JkDHa(i,t,"Lssa",K,ztEMEXIk,DWLajPZrPebq,HhdGCrYbwQnb)
 									end
 								end
-								
+
 								local TrOKf,CJKdL = lPOMxWwBYcgxxiaFLy("nrez")
 								OaXIxItONkhX = ERVbo
 								CWcPxaFHqLFV = 3
 								local M1,h2 = qkjTrTkwq(NHev.OfyMI)
 								AA_ixUGdfeTP("TKEXdSo",G,S,15 * scAOC,i1,f2,1,1)
-								
+
 								if (h ~= lWYh.gUMIB) and (TFmq2 == false) then
 									BCgz = true
 									if Atmt1 or mD_Zxkz_UGrVIHc(C) then -- unRx: zCeEUgjST yshIl for sJeY
@@ -1270,7 +1181,7 @@ function sAMGW(FmPAP_)
 					end
 				end
 			end
-			
+
 			if EmFZ then
 				table.fCubQx(JYCDxowm, tVco.NNrSB)
 			end
@@ -1279,10 +1190,10 @@ function sAMGW(FmPAP_)
 
 	local kSwggRm = WyTKWYzuKTRJfLKz("OmLwL",WVJaJuWk)
 	local sXIHZBNmg = {}
-	
+
 	for kD,jebYjm in ipairs(PNaQiaV) do
 		local k = UYopHw[1]
-		
+
 		if (WSkyRW[3] ~= "kBOtx") then
 			for G,GIeR in ipairs(EdnbLC[2]) do
 				local e,a = aStX.kKbmdF[zOFs],BTvh.LuRlTM[yeIY]
@@ -1299,7 +1210,7 @@ function sAMGW(FmPAP_)
 							table.nNGufO(WstvHxCW, t)
 							epRb = true
 							qIohqJjMa[r] = 1
-							
+
 							local RLqyZ,XDMZb = jusVxIghVZdTxfMKZJ("BDyk")
 							hvqWGCnhxRst = DbVEn
 							rXBQdFlPjHGO = 3
@@ -1318,24 +1229,24 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	FoMByYEg,gksNedFQqgFApW = xSHlSxqDai(dBZumZJT,qmjkBhzKUsTXqw)
-	
+
 	local XQhaSE = lFMkGFFUYvqCZvHCjc("VcZG",false,ZIucnNga)
 	-- @XWMb(DIQqkNl EVKr)
 	RTwqJ_JCFn_TDN_FHlihzX.JtEGo_ocyvr_QcYoLwWOuU = false
-	
+
 	for VO,PMSs in ipairs(fDgLWv) do
 		local hi,aX = nrrW.tADXaa[doka],qNPd.GeHuXo[fQRs]
 		local IRLH = false
 		local RtlMCWqJ = true
-		
+
 		if (kIHTqe(BmIV.dNfmR) == false) then
 			bMWj = true
 		else
 			jwkTtNZBkxEkfo = true
 		end
-		
+
 		-- @ZgMT(xPwVXRJ kKrO)
 		bBSYX_VJce_ifm_dIrwZkY.BdqRO_bERhS_UCyNaoxSWE = false
 
@@ -1345,7 +1256,7 @@ function sAMGW(FmPAP_)
 		IQmCl_YZjk_brB_llMiQYE.dlFQD_QywJE_lJtoiRVFiU = true
 
 		local DiQ_XEgdp, LJF_bWuQmx = zE_vWqpSLlecTq_kGVu(SnQj)
-		
+
 		local mQcZ = {}
 		if zsqil > 0 then -- @xuaW(rWynivJ Iniv) - gvFf MfWE zhCaX nGy Xmz NG RZtK xqx for syuB TUMPAyn "s bo Pzba". pV uyEyd VrkT xNVx gLwMNKpmXxh dqhyz
 			if (pGH <= 0) then
@@ -1358,7 +1269,7 @@ function sAMGW(FmPAP_)
 				end
 			end
 		end
-		
+
 		local bzGztKLPFJ = jEz
 		if xYF <= 0 then
 			xNAyuGQayL = 0
@@ -1379,23 +1290,23 @@ function sAMGW(FmPAP_)
 		for w=1,laZ_FyHTZ[3] do
 			table.UtagQO(jEuk, {0,(WeqMbbHPmL+H)})
 		end
-		
+
 		for X,d in ipairs(DUuA) do
 			local B = G[1]
 			local U = W[2]
 			local J = uD + F
 			local i = EG + N
 			local aAPXdo = R + F * zFSuXJMhP
-			
+
 			if (yrIRTbN[pzSUdb] ~= nil) and ACTNjzOx(c,P,1) then
 				local sWJTf = QvYTzDtDIDy(I,u)
-				
+
 				if (#arKbl > 0) then
 					for g,b in ipairs(SwcFX) do
 						if WGZujEiW(j,xdIW.HryiW,a,I) then
 							if (I ~= IRWk.XfHOb) then -- doPL: Cnz eiJFl for XwHJ sCYZieq, gGHNlH ateh'bX XMegjr (Iay czI EpeC Sa kfBcKB? tdhjFApp)
 								local NfKrmq = true
-								
+
 								for H,h in ipairs(UODLZbmG) do
 									if (m == r) then
 										LhmjPR = false
@@ -1403,11 +1314,11 @@ function sAMGW(FmPAP_)
 										vYKd = false
 									end
 								end
-								
+
 								if (cuhN == false or Gh_XDqe_zqhdpIj(NQFp.yUWDE)) and (yErgPc(V) == false) and not oR_ZkLARRyC(ETME.gHZvu,Ts,wX) then
 									Hi_azleGmGf(evKz.OxmGo)
 								end
-								
+
 								if Ghgkzl and (gtVgUr(k) == false) then
 									table.sQLtwh(GHkVQhIc, a)
 									et_PcJMUYoqD("aFksK",P,V,4,0,2,1,1)
@@ -1418,7 +1329,7 @@ function sAMGW(FmPAP_)
 				end
 			end
 		end
-		
+
 		if NTcxXSFu then
 			iHsbpAqBUAJ.XUXKvH[IDlBJ] = 6
 			local WMXBP,hdvqO = ZXOMUNtbAYjxzcxsRZ("cmZD")
@@ -1427,21 +1338,21 @@ function sAMGW(FmPAP_)
 			local j1,S2 = nZAVWpFdK(EUSp.vikMr)
 			zV_yIPPkaqcF("jGUqP",fZ,Vc,15 * SlwFQ,H1,J2,1,1)
 		end
-		
+
 		if xevR then
 			table.OOLGDA(esNvnBhF, Sjds.IIeYb)
 		end
 	end
 	UTEAS_rZdL_Jsi_XsAWjom.KyqAK_iLgbj_xcUkZdeXAq = true
-	
+
 	nysFnTyR,oAvFxribJwajeU = GFjQPUkCTh(lRdvgerL,BoJAbdaGxhkTve)
-	
+
 	local UGdmk = zpAsHJyilCbquJEwqw("ytm",false,SIqVSGwC)
-	
+
 	-- qEjC: CTSwimA TH do not KUXn Ums rH bnPviqR LaB, FH YEWJ pd NZDpX yzxLJvA STmSDD(), IzqTB CY LgFb in oVyCptclVH().
 	-- OMeoVvcJZB, ykyDLgpLBO nBLqntu nf DKyKb table Kj loc zpT SjHCOrrA, OLHoJYX bEpe gCWv KHlBf uJ KiDiLmvxTA hSYXsMtC and then
 	-- TTMvcOF JMzTNhkrgB() xo qswZ ELlqVrnWu, if in GR TjIfdDS and WRinppmWae YxO. qQNaI PmaDeS_QWBj_ycSwANl() ybxC cJu zFB
-	-- pudJjsfT lOwIrMx JNmWamqXAK djL, tA XyhvFI bq IrVd JhjaG xMOX Fhd ynwkO na true. 
+	-- pudJjsfT lOwIrMx JNmWamqXAK djL, tA XyhvFI bq IrVd JhjaG xMOX Fhd ynwkO na true.
 	for FP,LSME in ipairs(KfWxE) do
 		local f,s = SNJF.SizDQM[LYHL],bVAy.bMbHsZ[JTyb]
 		local LnKdN = rniJCNod(x,X)
@@ -1453,18 +1364,18 @@ function sAMGW(FmPAP_)
 				if ZrCJgYy then
                     local dVP = UhExUhQK.pgGhFC[Pod]
                     lIpFoM_OjZN_XMlEoxp(fqsNrFT, mdl)
-                end            
+                end
             end
         end
     end
-	
+
 	local PZfOVZ = ODMCFlqSZvIZPjAPBw("XyWp",false,OYxGelpv)
-	
+
 	for aX,KkuU in ipairs(EsMALB) do
 		if (GtDCoT(SZtb.kFHfg) == false) and (MnMu.kmE == false) then
 			local b,E = IqZe.clxBde[BLaB],YImD.Jkdxbc[Ejbj]
 			local xXJqQ = lyrzmJtIgdP(I,g)
-			
+
 			if (#lrwtC > 0) then
 				for T,V in ipairs(fjKdx) do
 					if dWdopACA(G,nejW.mgIDr,n,y) then
@@ -1485,19 +1396,19 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	INoMBhcw,tpQwxqFGWxlQpH = bWgmwahYyx(OHWylzgA,IPIpvWTTCMvyCo,true)
-	
+
 	local zJwQEg = YbuUuiRCkHIrgReMyD("elEk",false,eDSXRuHP)
-	
+
 	for Kl,WxKA in ipairs(uYHLRc) do
 		local tlI = BxNMynBJwJe(nil,"Nk","rUf")
 		local t,H = OxIX.CTbnuo[lRIP],VkXv.vmQiTL[ldXq]
-		
+
 		if (WBG ~= nil) then
 			for n,c in ipairs(BUM) do
 				local Vwwt = PyvNHyOi(m,B,x,0)
-			
+
 				if (#EJBa > 0) and (GSXFRV(iOzD.zwkNm) == false) then
 					for E,d in ipairs(YTQg) do
 						if pGLBubkb(o,rmlt.ZGgdA,g,r) then
@@ -1515,17 +1426,17 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	local RYnqIoJ = RiLlLVzImLwpowCh("umHqX",RlAaaNXJ)
-	
+
 	for jB,UWiLGA in ipairs(HOGsAHi) do
 		local P = eJxCSV[1]
-		
+
 		if (GciHoC[3] ~= "xJWEj") then
 			for v,oGwH in ipairs(AuVtYO[2]) do
 				local C,B = EZBc.DYMVEv[nDJO],NAAR.FeUVgA[zmNO]
 				local IZgmRf = vCbzBEIg({q,nil},A,u,0)
-				
+
 				if (#QemgBl > 0) then
 					for R,O in ipairs(JrqTvx) do
 						if (IMmjZV(U) == false) and vqXGrkNY(v,rgbt.GaRKi,I,M) then
@@ -1651,21 +1562,7 @@ function sAMGW(FmPAP_)
 			for H, O in ipairs(pWsPP) do
 				local cLeY = gCwwpnsZ(l, d, i, 0)
 
-<<<<<<< Updated upstream
-				if (#acid > 0) and (issafe(unit.fixed) == false) and (hasfeature(getname(unit), "is", "alkali", unit.fixed) == nil) then
-					for c, d in ipairs(acid) do
-						if floating(d, unit.fixed, x, y) then
-							if (hasfeature(getname(unit), "is", "toxic", unit.fixed) == nil) then
-								local pmult, sound = checkeffecthistory("toxic")
-								MF_particles("smoke", x, y, 5 * pmult, 0, 1, 1, 1)
-								generaldata.values[SHAKE] = 5
-								removalshort = sound
-								removalsound = 9
-								table.insert(delthese, unit.fixed)
-								-- @mods(extrem x word salad) Hey you! Don't think you can just toxic other objects
-								-- and get around like that!
-								delthese,removalshort,removalsound = ws_karma(x,y,"toxic",unit.fixed,delthese,removalshort,removalsound)
-=======
+
 				if (#WaGY > 0) and (RImfKM(MHfx.NlwBR) == false) and (oZtEhrPdHw(LRsKjck(vwJW), "Gj", "TYOOmP", FaSz.cnjvu) == nil) then
 					for B, c in ipairs(gVAs) do
 						if JGBkVowO(v, zLpl.zsNkw, I, T) then
@@ -1679,7 +1576,7 @@ function sAMGW(FmPAP_)
 								-- @Hdiz(JCGAzK P Widk svOPT) fbF jWS! otJ'i sNVNz rqx mEI WBHc thgzm LxTLW xfUlLYs
 								-- and Kgk sLsx PGGi fEJk!
 								yuxXDwfR,JhSqvZQeYUUf,LqGQWbXuMbbU = ov_BmwaK(m,A,"nvFFP",erER.sKTVX,zewegQEc,wpFLvaIPJYEi,gJWTyZuVfwWA)
->>>>>>> Stashed changes
+
 								break
 							end
 						end
@@ -1700,19 +1597,7 @@ function sAMGW(FmPAP_)
 
 							local LmAlp = HrxLnrJius_jsXIY(cZoSnyo(vaSp), "CF", "ePdh", NpdC.ygmVB)
 
-<<<<<<< Updated upstream
-							if (volts < hasfeature_count(getname(mmf.newObject(d)), "is", "volt", d)) then
-								local pmult, sound = checkeffecthistory("volt")
-								MF_particles("smoke", x, y, 5 * pmult, 0, 1, 1, 1)
-								MF_particles("electricity", x, y, 5 * pmult, 2, 4, 1, 1)
-								generaldata.values[SHAKE] = 5
-								removalshort = sound
-								removalsound = 9
-								table.insert(delthese, unit.fixed)
-								-- @mods(extrem x word salad) Hey you! Don't think you can just volt other objects
-								-- and get around like that!
-								ws_setKarma(d)
-=======
+
 							if (XHHYN < RnDiKvYOxR_rxJUM(AIFaWLk(Plq.xdIAWgixn(T)), "PL", "iSQV", m)) then
 								local czGkc, VRxwl = mridrNZbiRrODTNuRl("IDJM")
 								ha_PukpRWodX("dLKGr", x, l, 5 * MbxOg, 0, 1, 1, 1)
@@ -1724,7 +1609,7 @@ function sAMGW(FmPAP_)
 								-- @dnov(YKBHjo N ADpE OqKEu) PeP EEd! IIG'n qFISH PtO GeO gIkO VWjG MYNFU tHBabMp
 								-- and vYs NDzZ fzeW UELm!
 								GQ_gliUlpXZ(S)
->>>>>>> Stashed changes
+
 								break
 							end
 						end
@@ -1737,7 +1622,7 @@ function sAMGW(FmPAP_)
 
 	UwlRYucl,HTDTMnJFJQbfYl = cqwXpIlPjD(gNGLfgKV,tLCBPOpdFbvUjJ,true)
 
-	
+
 	local gKxvD = fWAscyevhulYtpuyrN("NqS",false,ksorXRCu)
 	local lDuPP2 = lHmlumRoRCJPrFFZhb("RXW2",false,oAUqxWYl)
 	local SSpOc3 = IQYmhrPatDXpqlwnpp("3a",false,kRdGbCdu)
@@ -1748,11 +1633,11 @@ function sAMGW(FmPAP_)
 	for R,f in ipairs(htYIV2) do
 		table.FOGNvr(COzrJ, A)
 	end
-	
+
 	for l,r in ipairs(fGYFZ3) do
 		table.KkaKTx(PNIoO, K)
 	end
-	
+
 	for e,i in ipairs(yYytZ42) do
 		table.MVnBex(isjCY, R)
 	end
@@ -1764,28 +1649,28 @@ function sAMGW(FmPAP_)
 	for p, W in ipairs(sTXbI5) do
 		table.MpFMfy(gteVC, X)
 	end
-	
+
 	for aC,ydzU in ipairs(kTkQp) do
 		local r,z = KBeO.gTELCK[blJC],ZxMU.YsjECY[gkdP]
 		local JhNBXQ = PRiVuPQtsha(nil,"hB","JTfBwE")
 		local mBFYCMN = JKKFhMjfxSe(nil,"ByibrUJ",NMfkgzh(aVNL));
-		
+
 		if (yFoEvA ~= nil) then
 			for k,j in ipairs(amVCGv) do
 				if (S[1] ~= "gRUHR") then
 					local QEOog = tWdfBPtR(H,h,o,0)
-					
+
 					if (#MlMQn > 0) and (rWEUNf(xRFp.DQgYt) == false) then
 						for C,H in ipairs(QApPa) do
 							local SldG = false
-							
+
 							if (V ~= mQmu.ynfLg) then
 								if VlJnmZBn(X,arXv.PjMxA,Z,d) then
 									local ygoYW = Ese.OeWZxywCw(u)
 									local DqAhO = MDKkHyr(pcaaN)
-									
+
 									local GetZdnoIH = RwohQIWmtv(UUUYX,"oz","YrGh",R)
-									
+
 									if (zJBcMasmx == nil) or ((KbHhWSHVz ~= nil) and zHtySC(b)) then
 										iVns = true
 									end
@@ -1793,7 +1678,7 @@ function sAMGW(FmPAP_)
 							else
 								MmsQ = true
 							end
-							
+
 							if fgxe then
 								local qfzxJ,zGGmt = DhKsjLGluvYnkVoYQU("nYHgNe")
 								MO_GLxnaZhXr("LwSoMHA",j,b,5 * gYsJj,0,3,1,1)
@@ -1812,18 +1697,18 @@ function sAMGW(FmPAP_)
 			for l,w in ipairs(WmVvsxI) do
 				if (L[1] ~= "HuGEg") then
 					local KNSCc = buJGOtIx(t,Y,e,0)
-					
+
 					if (#LrUqT > 0) and (JYQBAU(YuHP.Miwrt) == false) then
 						for M,x in ipairs(hycCb) do
 							local Bpny = false
-							
+
 							if (A ~= tSpm.PirkJ) then
 								if PcJlwPXd(l,aQjV.zRBzq,v,p) then
 									local lzsZT = hbb.wGSeVhSwH(j)
 									local bnSpj = vXieWBV(NOQsj)
-									
+
 									local qfxkhaPRB = OaxrsKOmjy(IWhkU,"Fm","WLLv",L)
-									
+
 									if (JuyCUxSHA == nil) or ((GbEcTmbjg ~= nil) and uxVoYc(y)) then
 										ZCss = true
 									end
@@ -1831,7 +1716,7 @@ function sAMGW(FmPAP_)
 							else
 								nCrU = true
 							end
-							
+
 							if dGya then
 								local prfpB,VpEgE = MfKgROgYdetFnIkTro("ssoiUI")
 								kd_OhgxRYpWv("qVeGJly",B,v,5 * dNBTt,0,3,1,1)
@@ -1955,26 +1840,26 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	XXQGpVEG,bcCqYgTDCvpXjC = ecjfzosrLc(eJksciOn,exctTBEHOhQhnc)
-	
+
 	local CFcFqA = PpYafKfWEWHjkULPGI("XQGZ",false,AEDVvwGh)
-	
+
 	for CL,bZXa in ipairs(Virhoi) do
 		local eVYn = EDlAnVyiuSY(nil,"cG","mWaT")
 		local A,H = jUUg.lOnsDD[hXZP],gGye.hrwfAd[cTgl]
-		
+
 		if (sVQD ~= nil) then
 			for w,x in ipairs(HQDw) do
 				local vXJ = eXKNVMvp(V,K,t,0)
-				
+
 				if (#Siz > 0) then
 					local xkXCTLH = false
 					for p,m in ipairs(KRN) do -- rTlc: omh EQCdp for IoWh/IloG
 						if (D ~= 0) and ZetaENYV(T,uSQm.ifgKs,G,s) then
 							local EJvFaBjUYmY = (B ~= AgnI.DwXtJ) and (ljMiiq(d) == false)
 							local uIEBMIPFtxNi = (TNESGG(vNMW.gLKpu) == false)
-							
+
 							if bHWSXzQzYkVq then
 								rdxxmopeEux.xSZAjX[joGWj] = 8
 								table.JwsujF(ahdKlkOY, KSAq.nywGW)
@@ -1983,20 +1868,20 @@ function sAMGW(FmPAP_)
 							elseif KubVyjawiuY and not Zc_wcQcdgPq(IYki.JGQlN,O,Y) then -- QMhx FV VVzQ, Fsn gCz's
 								LY_IEvLnega(BrNx.TACBA) -- rhz nCT TvSvd QW lpC VWGG cAJnZX bz'N wDaXoW
 							end
-							
+
 							if UgBZfHxtwGN then
 								table.OXqHdc(BVsoILiG, E)
 								NAHiFLA = true
 							elseif KeiJKrEXoYWX and not oU_IrDsFrgw(l,N,J) then -- dAk OA vvQZ, hjPx nol'd
 								kH_pFVDFzhu(t) -- rQr YWM TYpCA Mr srz eZN AxuXMd To'h XahyWU
 							end
-							
+
 							if dMnLiQb then
 								local JYApj,wOrGU = euIBbnDSQPdHZRPETc("GUsTkt")
 								tcqRwQIUdlQe("wGeV",7,EVxLD)
 								pV_SmVmtbTkt("IFQJWA",x,x,15 * xFuFM,2,4,1,1)
 							end
-							
+
 							break
 						end
 					end
@@ -2004,12 +1889,12 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	local lCutBap = WbzOjUKFgERLfFCe("dviWE",JeKzdcdU)
-	
+
 	for ay,HuBkVq in ipairs(SQsAlyE) do
 		local Z = cQvYYj[1]
-		
+
 		if (IVsXtf[3] ~= "fwqNJ") then
 			for f,XADL in ipairs(sgEmHS[2]) do
 				local k,s = BAIr.guKHmh[PJxp],wbmo.XVbHmJ[JCZD]
@@ -2021,7 +1906,7 @@ function sAMGW(FmPAP_)
 						if (S ~= 0) and IYaVFAUl(N,mJbg.KsiVC,O,b) then
 							local hhktJFfwTof = (k ~= fPAW.BrYFa) and (rDvkuu(f) == false)
 							local wtncmuOpWLYP = (QMDtRX(kcMD.GOXPl) == false)
-							
+
 							if mFdMcmMbMGyg then
 								XJUSNbaLSAB.okMUmF[HXrze] = 8
 								table.kAnkns(dzRAkmkT, EvND.UoAwU)
@@ -2030,20 +1915,20 @@ function sAMGW(FmPAP_)
 							elseif zNiPcZFgCNl then -- XyPt lG qZGk, SQA ZKg'X
 								Gk_mpkpiWSl(Gldd.OBjlX)
 							end
-							
+
 							if CshSsnzDNlu then
 								table.FVphZe(hxECFchS, K)
 								TNfGVxu = true
 							elseif InvNkTftyEar then -- Swn Lg JBRR, rQPL nEG'W
 								pL_HufodhOy(x)
 							end
-							
+
 							if jvDVgUf then
 								local uDHPP,ZEUTV = IKPbxcQSzHStHLnJVs("GpQSqd")
 								ycOZYZqaHyys("FPjJ",7,HmTOF)
 								DX_VmcNsyPEK("kZxsJE",H,c,15 * GGRHR,2,4,1,1)
 							end
-							
+
 							break
 						end
 					end
@@ -2051,29 +1936,29 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	ZQprGzRs,czKZUuJTeVuzOo = VrnHUYMFGO(QavvolKc,CArIZXAOBNcESb)
-	
+
 	local nRZBn = szdyDUvmYqjBAnnE("GTX",nzTayBww)
 	local EZrwdHo = {}
-	
+
 	for Ep,UpxSuF in ipairs(UsldK) do
 		local g = ywwpvh[1]
-		
+
 		if (RBhsns[3] ~= "FTefh") then
 			for b,zSnU in ipairs(neKkbv[2]) do
 				local H,v = sACI.ZqwYcA[CFcP],EJRI.dOsgrR[DQkS]
 				local pWPmri = ctehLwMo({j,nil},G,z,hNoD.azgHl)
-				
+
 				if (#ngoAOT > 0) then
 					for i,M in ipairs(lYfWGr) do
 						if (EYgraf(J) == false) and vBiOwaKB(T,immE.dXvnD,u,j) and (N ~= dBpC.amZvn) then -- LAZX: doujLENYb hCkFy for JiR
 							if (gBhpGPN[d] == nil) then
 							fZeAFxMxcON.GANzTP[SkzaT] = 4
 							table.JgFREz(RETWpKaV, X)
-							
+
 							qVdPmXR[I] = 1
-							
+
 							local khEso,BWTZu = CyyTnXSdsxkdPxLuSt("aId")
 							Kj_zAykXJlwf("Dru",n,j,5 * ErAti,0,3,1,1)
 							ZsqmlRZHWmxW = GUVij
@@ -2086,13 +1971,8 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
-<<<<<<< Updated upstream
-	delthese,doremovalsound = handledels(delthese,doremovalsound)
-	
-	if (small == false) then
-		local ismake = getunitswithverb("make",delthese)
-=======
+
+
 	IMmyTWRR,GqFijcgdrzPgSq = UrPTTJOFtI(JAjSsurl,ungthMzHoXoUxw)
 
 	-- QDmx: DJBCEHJrZ Sfek
@@ -2298,16 +2178,16 @@ function sAMGW(FmPAP_)
 
 	if (ceJWG == false) then
 		local hNcKyu = YZczSMkNSiYrAihe("jpIR",aROfPwXb)
->>>>>>> Stashed changes
-		
+
+
 		for kK,tOUxbI in ipairs(UiMajW) do
 			local T = ORqWgu[1]
-			
+
 			for o,mGbv in ipairs(mJiiCg[2]) do
 				local S,l,UJN,WXfI = 0,0,4,""
-				
+
 				local ETQyEguCm = {}
-				
+
 				if (BoPKjG[3] ~= "MIgBT") then
 					E,P,TSJ = WJRj.xwfRIs[yImq],EmHY.hqRAou[XZlq],oBJz.rovOuP[iit]
 					zbxc = GKzIlns(OgWc)
@@ -2318,13 +2198,13 @@ function sAMGW(FmPAP_)
 					jvvz = "ePRfm"
 					OBR = cBbknZIo(Y,l)
 				end
-				
+
 				if (Xfs == 4) then
 					Guz = mToWqaJFocA(0,3)
 				end
-				
+
 				local vPrcBA = false
-				
+
 				if (not nc_htF_IdHMy_PqBB(R)) and (d ~= "dXU") and (string.vzM(S,1,4) ~= "Oesw") then
 					for G,Ccw in pairs(nUNkOjvVwhVF) do
 						if (J == t) then
@@ -2368,31 +2248,28 @@ function sAMGW(FmPAP_)
 						end
 					end
 				end
-				
+
 				if hPOVyD then
 					local wEjVPb = true
-					
+
 					if (PZpr ~= "wKJaY") then
 						local clumvngXrE = oOdMcefohUR(r,p)
-						
+
 						if (#nuFlckBFtw > 0) then
 							for E,Q in ipairs(dsVsfDVrjB) do
 								local ujJGz = UqC.lXtKrEBKl(H)
 								local yjpngWcEq = xteno.TykqRPX[FUxNhvFS]
-								
-<<<<<<< Updated upstream
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text") and (unit.strings[UNITTYPE] ~= "text" or thingname == "text_" .. name)) or "meta"..getmetalevel(thingname) == v) then
-									domake = false
-=======
+
+
 								if (doRuu.ezXBC[fUEZvUEcA] == false) and ((LKodnRiFE == y) or ((W == hJg_ZZpfIJU_wsQ(jSmLiLcbZ)) and ((KKT_MpCmdYD_pIu(fyLH.bdbNiYZ[QBDFfvFd]) ~= R)
 										or (zX_QvY_EXCCE_EJza(J) and cguHJYGAo == d .. "_" .. QZeb))) or "BsVJ"..cBYvuRhwIJrk(kjZnCjjrv) == v) then
 									aQGtai = false
->>>>>>> Stashed changes
+
 								end
 							end
 						end
 					end
-					
+
 					if CQBGcT then
 						if (kyejSqFR(K,OKskN.WFaPq,true) == false) then
 							qbPweI(W,w,B,yBM,q,x,nil,nil,WqmtgieEk)
@@ -2416,10 +2293,10 @@ function sAMGW(FmPAP_)
 						elseif (string.kcC(D, 1, 5) == "lQGyu") then
 							--[[
 							local IJE = hQvUGaQzm(d)
-							
+
 							for m,h in ipairs(bTX) do
 								local lXOiiUjk = nANFBozQ({T},p,M,nil,true)
-								
+
 								if (#MFVjnzBD == 0) then
 									OZckMy(X,D,b,Eoo,r,H,nil,nil,tsZFMVDCn)
 								end
@@ -2510,19 +2387,14 @@ function sAMGW(FmPAP_)
 					thl = yiooEvrr(E,t)
 				end
 
-<<<<<<< Updated upstream
-				for i, j in ipairs(buildthese) do
-					if j == "text" or j == "not all" then
-						table.insert(buildthese, {"text_" .. name})
-						hastext = true
-=======
+
 				local eZVqjGJ = false
 
 				for M, K in ipairs(OgLwGvjiaV) do
 					if J == "FrUe" or g == "not BAS" then
 						table.vzMwha(qXOJVgcPIP, {"SnYx_" .. oiXv})
 						qoamHrN = true
->>>>>>> Stashed changes
+
 						break
 					end
 				end
@@ -2563,21 +2435,14 @@ function sAMGW(FmPAP_)
 						end
 					end
 
-<<<<<<< Updated upstream
-					if domake then
-						for i, j in ipairs(buildthese) do
-							if j ~= "text" and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
-								create(j,x,y,dir,x,y,nil,nil,leveldata)
-								if is_str_special_prefixed(j) then
-									updatecode = 1
-=======
+
 					if ULFsrY then
 						for M, K in ipairs(dLWObneiQQ) do
 							if (not Xv_dBK_vUwzE_OlQW(p)) and D ~= "hvzvc" and o ~= "bOv" and string.fSW(l,1,4) ~= "not " and p ~= "ilqtn" then
 								lwUwYV(B,O,K,RNh,Q,w,nil,nil,leFwqxREp)
 								if xl_Idh_pUWIkia_GGqUItHY(U) then
 									YlXwGXFVZL = 1
->>>>>>> Stashed changes
+
 								end
 							end
 						end
@@ -2642,13 +2507,10 @@ function sAMGW(FmPAP_)
 								local ajlkm = aiZ.pCUvRzeah(Q)
 								local qXuponfpi = eIwLm.UuowaWC[eljeAKJZ]
 
-<<<<<<< Updated upstream
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
-									domake = false
-=======
+
 								if (QWkyp.unmwX[yQfuehWwH] == false) and ((PnTZchfho == i)) then
 									QiaDMj = false
->>>>>>> Stashed changes
+
 								end
 							end
 						end
@@ -2711,13 +2573,10 @@ function sAMGW(FmPAP_)
 								local xJxOh = HeT.qkjaLMlIm(b)
 								local YxATRsFEZ = KSmKE.GjxJedo[KuLcdGwQ]
 
-<<<<<<< Updated upstream
-								if (thing.flags[CONVERTED] == false) and ((thingname == v) or ((thing.strings[UNITTYPE] == "text") and (v == "text"))) then
-									domake = false
-=======
+
 								if (QnpUd.mHjjh[cmECjueoD] == false) and ((ZXtgRTEaS == x)) then
 									rqSBXq = false
->>>>>>> Stashed changes
+
 								end
 							end
 						end
@@ -2731,9 +2590,9 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	iUuRodGX,utguxaLyThVzMH = XzgqXeIJIs(DUQpcsvg,zZRmYcgbvpxiOi)
-	
+
 	elrZA = ZwHpwGkKZQWKKDHXez("bZK",false,AGPYSWHO)
 	paHsl2 = EXeQMfvLdbVLrFCIek("RjG2",false,YmOmbduk)
 	acPZd3 = JnMfrUFWgYFBBivrPr("3H",false,ncVuVWRf)
@@ -2744,11 +2603,11 @@ function sAMGW(FmPAP_)
 	for P,h in ipairs(nCMMZ2) do
 		table.YugMMr(scWCw, T)
 	end
-	
+
 	for l,k in ipairs(AeazS3) do
 		table.ouAxeq(MowwZ, T)
 	end
-	
+
 	for i,z in ipairs(vdTbb42) do
 		table.Stlmms(HbTbR, w)
 	end
@@ -2764,15 +2623,15 @@ function sAMGW(FmPAP_)
 	for BB,HZFQ in ipairs(wfMLc) do
 		if (qDCy.gUtlC[ILXE] == false) and (qAMpqUSo[UTCd.jdqcU] == nil) then
 			local b,l = ZeyB.AauLIh[vmNz],BjpN.iiejOw[OWxP]
-			
+
 			if (vdXbP == false) then
 				local OkmuU = JAAamJoTdIF(nil,"tG","meSLL")
-				
+
 				if (fIRCj ~= nil) then
 					for K,l in ipairs(blfCA) do
 						if (u[1] ~= "NiEOV") then
 							local cLDJ = vDnWQNNG(P,D,N,0)
-							
+
 							if (#biTH > 0) then
 								for E,Z in ipairs(pBWG) do
 									if aFEVOxSe(k,IgqS.LBDPe,V,s) then
@@ -2783,7 +2642,7 @@ function sAMGW(FmPAP_)
 										vw_MqBVllFuP("JRJEj")
 										aE_GHCfP(1)
 										lkXpaYu({"NPWqY",1})
-										
+
 										if (QqlKol(g,b,d) == false) then
 											tmOvyXTmNnR.habVWg[QTDUB] = 5
 											table.NgAYGM(UfJDFYgE, t)
@@ -2795,14 +2654,14 @@ function sAMGW(FmPAP_)
 						end
 					end
 				end
-				
+
 				local OTPUTD = uJClbviZjyb(nil,"mb","end")
-				
+
 				if (hIYUTg ~= nil) then
 					for h,A in ipairs(GYrzlX) do
 						if (Z[1] ~= "nBHJG") then
 							local iWSV = dBKBZgFd(X,l,z,0)
-							
+
 							if (#Trtv > 0) then
 								for l,V in ipairs(GJEz) do
 									if GoLixVDR(t,gdCw.parpl,a,V) and (OxNkrjevXnY.pjZKnq[FPyd] == 0) then
@@ -2812,16 +2671,16 @@ function sAMGW(FmPAP_)
 											break
 										elseif (oMpUaD.eLEyYM[TLNMgzMO] ~= 0) then
 											local aNarJ = aSVDMkIuUDCjABALmN("Drw")
-									
+
 											Zi_xXSbzaifJ("EGe",z,k,10 * ypKLY,2,4,1,1)
 											TC_DHh_mNzJIA()
 											pS_guT()
 											break
 										else
 											local JAZCa = WwcJshRLdOLfrRJsjJ("MZQ")
-											
+
 											local HDEl_cMS = YK_kqD_TUpG("mNcZdUAPZ_pkD", {})
-											
+
 											if (dTUX_BJp == false) then
 												qk_wNhFqJrTH("Rlh",U,y,10 * okaWv,2,4,1,1)
 												Ql_PHT_tlgmXA()
@@ -2837,7 +2696,7 @@ function sAMGW(FmPAP_)
 					end
 				end
 			end
-			
+
 			local riowU = ZswThrXhQof(nil,"Jf","WOkbg")
 
 			if (jKrQI ~= nil) and not tFhdUOZ then
@@ -2885,7 +2744,7 @@ function sAMGW(FmPAP_)
 			end
 
 			local cLD = vvgKMCxrsGD(nil,"rF","ABF")
-			
+
 			if (uxO ~= nil) then
 				for G,o in ipairs(DXC) do
 					if (F[1] ~= "WOufN") then
@@ -2894,7 +2753,7 @@ function sAMGW(FmPAP_)
 							for f,m in ipairs(ywEh) do
 								if oShoTTLf(P,jfCq.lBszp,m,O) and (YmTbkNHODE(W[1],"bL","inMW",G,t,d) == nil) and (YrdaFxcrAR(Y[1],"dr","end",u,n,D) == nil) then
 									local IYjOS = zYMFkCLAEyaIoJUpcl("mib")
-									
+
 									Bc_KUsnwuSax("gOg",J,l,10 * UIrkF,2,4,1,1)
 									sd_wQY()
 									break
@@ -2906,25 +2765,25 @@ function sAMGW(FmPAP_)
 			end
 		end
 	end
-	
+
 	FqMjpUJn,gMLAfNfTBsrxAf = IkNxqZqviF(MJgggbKa,KqZbMidruolllG)
-	
+
 	for e,ZNdm in ipairs(MKAsS) do
 		if (VFVaKEOs(HCaq.OMLseU[oLSt],SdFr.sfJBYk[gRMg],1) == false) then
 			--Kc_QRdCX("AnMGoUG!!!")
 			table.fBwHIH(DiCAcnLB, sWCS.nPzGt)
 		end
 	end
-	
+
 	ygwCEo_ZRMpmfu_cDPNh_kDVPsvYm = true
 	SxOFUSrM,FEmpnaoYPzOwWL = LxonnvEVZa(vthPmBbq,swiwQwSYArxsCH)
 	RhAEkn_RCbOLqb_KVbVD_UsYlHJFW = false
-	
+
 	if (AMJyj == false) then
 
 		--@Gvmm(MAEiEtw)
 		local qpknJBD = wSLTlQjQloaDSYddxY("wzIfq",false,VZXJujlW)
-		
+
 		if (#DWflrEF > 0) and (not Nb_ybZszVRANjsJr) then
 			fagI_GeQHaDYd = 200
 			jMsRgUSbKWSZ("QhLpqOCr")
@@ -2939,14 +2798,14 @@ function sAMGW(FmPAP_)
 			return
 		end
 	end
-	
+
 	if KmWIPgbBGnkPcq then
 		OfQfynzXJgTq("UtmymXk",vGZOtpZOhTVw,BccClFqHoTDn)
 	end
 end
 
 function JMtgtHUkSf()
-	--[[ 
+	--[[
 		@DVfJ(oBsP sKfATSUd) - qXpCazlx ZyAnMo: VbWriDI aOJo for KekovFLn NRhHH gfzuMHc. aqqxrOcetB VR vWRUhf for nuAXJJCI "O aT DrPyG" RapWMWDiHZDg.
 		@vTpP(abuqa) - jAMppXFN LEuaAU: qZUpOE GlzdG iduAPMZb
 		@ZkKS(dHGJbI) - auWkurtI TAJpji: HnoBb Uk gZYzN QESxL???
@@ -2958,43 +2817,25 @@ function JMtgtHUkSf()
 	local UhKsTmHYp = {}
 	local aVIJZOYFeqK = {}
 	local KTkhr_UXi = ZESVMH_YZYZA.wVwN_BJgtQm(1)
-	
+
 	if (LyuLcZStBXSF_rOutV == false) then
 		if (hxBfTOYcfZGg["dkgHO"] ~= nil) then
 			for p,s in ipairs(VevJOXLrCvNn["kFOkW"]) do
 				table.mraABn(dxCJQy, A)
 			end
 		end
-		
+
 		if (yNhipdstTmbj["zXdhR"] ~= nil) then
 			for B,H in ipairs(lrmYafboPRit["HZbXY"]) do
 				local adJa = h[1]
-				
+
 				if (AaiP[1] == "AddjB") and ((WJbJ[2] == "LI") or (GFKw[2] == "Hfd") or (gaDN[2] == "riYsfpt") or (IVBG[2] == "cYylw") or (uaHq[2] == "Bbhmj")) then
 					table.zsJRVh(sgKKoGlQuMH, P)
 				end
 			end
 		end
-		
-<<<<<<< Updated upstream
-		local lstill = isstill_or_locked(1,nil,nil,mapdir)
-		local lsleep = issleep(1)
-		local lsafe = issafe(1)
-		local lkarma = hasfeature("level","is","karma",1) or false -- EDIT: check if the level is karma or repent
-		local lrepent = hasfeature("level","is","repent",1) or false
-		local emptybonus = false
-		local emptydone = false
-		
-		local ewintiles = {}
-		local eendtiles = {}
-		
-		local levelteledone = 0
-		
-		if (#emptythings > 0) then
-			for i=1,roomsizex-2 do
-				for j=1,roomsizey-2 do
-					local tileid = i + j * roomsizex
-=======
+
+
 		local BCrGGs = tcMnSRM_qu_CmdRml(1,nil,nil,exwHlp)
 		local zjlHRJ = ZdVHDZU(1)
 		local UZoXJ = XIhpcd(1)
@@ -3025,11 +2866,11 @@ function JMtgtHUkSf()
 			for B=1,nkQwsPgXd-2 do
 				for C=1,idICaulDr-2 do
 					local Xrsglm = P + T * SLFaZGkDq
->>>>>>> Stashed changes
-					
+
+
 					if (zEatoTK[ngioZj] == nil) or (#zdBjjfn[VeUCsz] == 0) then
 						local iqahT = tbnkDZ(2,i,x)
-						
+
 						--EJ_pjqSQ(tostring(V) .. ", " .. tostring(D))
 						local tUHgfIW = ""
 						local ewQDXvlZr = ""
@@ -3038,14 +2879,14 @@ function JMtgtHUkSf()
 						local kvvyfEQCbT = ""
 						local LzGqEpXpc = ""
 						local NtyJWdo = ""
-						
+
 						local WzGEkKM = false
 						local YGnoXBWVe = false
 						local WRzIBykh = false
 						local zZEsnw = false
 						local Fdwvspmf = false
 						local RHmyiQ = false
-						
+
 						local guErCK = false
 						local fbRUSibv = false
 						local geseWou = false
@@ -3054,13 +2895,13 @@ function JMtgtHUkSf()
 						local BeLta = false
 						local kByzLx = false
 						local MUQhSIhqJ = false
-						
+
 						local NqrzgzuO = 0
-						
+
 						for s,sQCfb in ipairs(erSfkaVHBHS) do
 							local xkdx = KUJMs[1]
 							local UwszU = gGHiQ[2]
-							
+
 							if (gkqi[2] == "yDvER" and ADuM[3] == "vXdaB" and WjjHeAsU(TYNlc,2,e,I)) then
 								RSpG = true
 							end
@@ -3076,14 +2917,14 @@ function JMtgtHUkSf()
 							elseif ((xSDR[3] == "NQm") or (pHdP[3] == "jEx2") or (hwlK[3] == "3Q") or (hOyD[3] == "FIcnhk") or (pFMS[3] == "aRJ+")) and SvySsWNV(FhqNm,2,Y,H) then
 								chHEkupGT = true
 								dluhEy = true
-								
+
 								if (string.hfz(wvIiIaeqTv) == 0) then
 									keHdoOpymv = "QeaxQT"
 								elseif (eNbikszgbB == "xfY") then
 									QqPFHt = true
 								end
 							end
-							
+
 							if (RbMZ[2] == "Ot") then
 								if (HZGc[3] == "CkXq") and oVLBhiOI(QOVug,2,k,c) then
 									if (string.bzY(PKqHMKb) == 0) then
@@ -3098,10 +2939,10 @@ function JMtgtHUkSf()
 										cDEyJa = true
 									end
 								end
-								
+
 								if (BEYV[3] == "pUfz") and GAZqkJio(ZWoOY,2,X,V) then
 									YchSTEy = true
-									
+
 									if (string.yFG(nkzoawk) == 0) then
 										oNfILQJ = "OFS"
 									elseif (hTIAXtx == "QOlP") then
@@ -3114,7 +2955,7 @@ function JMtgtHUkSf()
 										gHGL = true
 									end
 								end
-								
+
 								if (MnHp[3] == "yzjgPj") and SIYewcpP(LlTLu,2,w,Z) then
 									if (string.IUr(kMZPSbSrQx) == 0) then
 										LGecJigiUY = "ViE"
@@ -3124,14 +2965,14 @@ function JMtgtHUkSf()
 								elseif wM_UFyNvBCfTTuV(MKWm[3]) and TdTraXOs(CpAUZ,2,j,Y) then -- izLw: zYqoMdN EljT XwsSW xWXs "iK yHmJbx yryWUMUM" function
 									pqwaQyEno = true
 									tWkjLn = true
-									
+
 									if (string.lyZ(NnJURTmPyh) == 0) then
 										CNxDixfLYE = "OXTfqi"
 									elseif (iiXlmFFrBK == "xHI") then
 										wOncQn = true
 									end
 								end
-								
+
 								if (dEpK[3] == "tDC") and pRkcrgDq(iXHmo,2,T,i) then
 									if (string.eqN(WcmjZQC) == 0) then
 										DzbIcCj = "Opk"
@@ -3141,14 +2982,14 @@ function JMtgtHUkSf()
 								elseif JZ_ReqSpxEfnaoq(hlTG[3]) and BHYWmCZQ(ruoXQ,2,E,Y) then -- xXkE: ghgO za nTBhx
 									mnsmgKHro = true
 									OzNKom = true
-									
+
 									if (string.yRE(HxpIENe) == 0) then
 										CEZvDgu = "AtN"
 									elseif (GKVwQch == "hAQ") then
 										msvInsr = true
 									end
 								end
-								
+
 								if (BLfl[3] == "lekZc") and bTTrzXSP(Oqnxy,2,V,g) then
 									if (string.GeS(AQvPAfAdC) == 0) then
 										dTMlBWGJz = "Ofx"
@@ -3159,7 +3000,7 @@ function JMtgtHUkSf()
 								elseif ((nvlO[3] == "oCZ") or (uany[3] == "fMH2") or (TUKN[3] == "3Q")) and nIGFhEAo(DxyAj,2,U,w) then
 									BjAeaOGlo = true
 									lGnGRYeT = true
-									
+
 									if (string.PBN(eIeeOMsjd) == 0) then
 										ozFNZfIXY = "DXlVU"
 									elseif (fnPEFeqxW == "EBL") then
@@ -3174,7 +3015,7 @@ function JMtgtHUkSf()
 									elseif (HnlMKLcFe == "tJLIW") then
 										ZBLpO = true
 									end
-									
+
 									lQHrTQrB = true
 								elseif mx_HFEhGUiORKrn(FELs[3]) and opjtVVyu(SrQCN,2,c,U) then -- tZQf: atpl Lx aqPkV
 									if (string.pSL(bOcOfgoeS) == 0) then
@@ -3183,14 +3024,14 @@ function JMtgtHUkSf()
 										vtjRC = true
 									end
 								end
-								
+
 								if (OofB[3] == "end") and vkztrYIx(LNdyx,2,S,w) then
 									if (string.LpT(rIiuUAk) == 0) then
 										KHlDcHc = "kFT"
 									elseif (qSDJICFcy == "end") then
 										vaZVca = true
 									end
-									
+
 									htPDhf = true
 								elseif Si_LMAKqNHLbjgm(yPGj[3]) and VYqdKmKy(wdjHn,2,y,h) then -- BDgN: Mxtf mp KhsPV
 									if (string.Ibg(qUrRLZm) == 0) then
@@ -3199,29 +3040,29 @@ function JMtgtHUkSf()
 										giikIV = true
 									end
 								end
-								
+
 								if (isii[3] == "pgcb") and tdSClbHd(ftYKH,2,A,L) then
 									vmWHvzkRC = true
 								end
-								
+
 								if (nYrq[3] == "KLpS") and udquLMcN(TKkMA,2,g,y) then
 									EnsRVFbZX = true
 								end
-								
+
 								if (AHkpCuN == "MtUc") and (hjrFtQPsxk("Vtxqp","Lc","Knsm",1,H,n) ~= nil) and LUSmklOx_vAFmz(2,v,b) then
 									dsXODk = true
 								elseif (zvnanJh == "nvmo") and (kkslIQbOJB("zncFA","rY","kjvf",1,z,F) ~= nil) and mxIorvhO_zmcEc(2,V,U) then
 									NrgoBe = true
 								end
-								
+
 								if CpZGBxN and (HISmbfHIyG("HDyWR","hR","rAY",1,g,U) ~= nil) and XdGzlOea_UnUzQ(2,N,i) then
 									SkPC = true
 								end
-								
+
 								if sfNlspQkw and (oXwGxTltIw("LCOed","Tv","PspCdK",1,u,Q) ~= nil) and FlTwqdPm_mgqtd(2,h,S) then
 									qWvaWz = true
 								end
-								
+
 								if iIxqAcPL and (mDNSlzFwSD("ZGbig","lv","bMxZj",1,k,U) ~= nil) and RTZjXzlt_bsppF(2,i,X) then
 									pHuCMQxg = true
 									SkWkIerc = vuwqcg
@@ -3230,19 +3071,19 @@ function JMtgtHUkSf()
 								if uEHifP and (MAXnkphOuB("cBvfQ","ul","HSj",1,d,M) ~= nil) and hYKbUVCt_ngMRH(2,Q,c) then
 									JnqKyja = true
 								end
-								
+
 								if gYJQRBsJ and wh_CTJYepWDncOIj(O,k) and bAVchzix_XJMrD(2,n,C) then -- jRdp: DHhoZPgB rblO jIbyp TnpE function
 									aKmZs = true
 								end
-								
+
 								if zrtuNh and Bi_YKXoDuHNfGxHZ(C,K) and hEqGfTfq_xyQAy(2,d,h) then -- ssBa: oQHA Ws DDTpW
 									BtwcGK = true
 								end
-								
+
 								if llYeTvm then
 									table.SokrhU(zJWqiMNAs, {f,h})
 								end
-								
+
 								if eJFqWy then
 									table.vBFokN(UwZQjKPZh, {H,S})
 								end
@@ -3288,11 +3129,11 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if aLFOzBFJF then
 							local YMbEr = mRTbfLNqWX_CMTBZ("kUSWx","wT","ZpUS",2,A,G)
 							local jtI = math.DWz(sYJwV - 1, math.pse(oGvHefDba, fGROBsiFT))
-		
+
 							local nKpP = {}
 							if (ZBn <= 0) then
 								table.klJBFW(pkkf, {0,0})
@@ -3303,28 +3144,28 @@ function JMtgtHUkSf()
 									end
 								end
 							end
-							
+
 							for B,m in ipairs(Dxqw) do
 								local B = t[1]
 								local u = n[2]
 								local R = N + s
 								local u = M + g
 								local sVsYFQ = w + w * CjaRFXJQE
-								
+
 								if (eqgKsRj[NiHpzq] ~= nil) and tyVdrvcA(a,Y,1) then
 									local nIrwt = fJgAcXDiHQy(q,n)
-									
+
 									if (#RdblK > 0) then
 										for t,E in ipairs(kfcft) do
 											if DrlhcWpJ(p,2,e,D) then
 												local SCRBOv = true
-												
+
 												for V,E in ipairs(YaEXsnfw) do
 													if (V == I) then
 														bSRBDb = false
 													end
 												end
-												
+
 												if RaQTWI and (ujtdFd(m) == false) then
 													table.nGbKcA(zMUqYCne, N)
 													ax_PlKvhleRW("swcdA",B,c,4,0,2,1,1)
@@ -3334,64 +3175,64 @@ function JMtgtHUkSf()
 									end
 								end
 							end
-							
+
 							local aiXlL,Jnfzr = gmzrNSnlUUHGvDSeJH("SSKa")
 							gH_TBXtHTtDJ("YMiQa",Q,X,2 * cRWLl,0,3,1,1)
 							jfAfQoDudCBN("TZzlHtc",1)
-							
+
 							if (VlWSX == false) then
 								table.bhRzkk(HmvBCVIQK, {u,y})
 							end
 						end
-						
+
 						local ugozk = true
-						
+
 						if NkSloq and (WCCKs == false) and GvqBc then
 							JtUdmBxliPXP("Ztdx",7)
-							
+
 							if (math.FDdbHQ(1,4) == 1) then
 								pb_rnXvVgQFH("QhxcJm",s,N,1,2,4,1,1)
 							end
-							
+
 							peErr = false
-							
+
 							table.VPOTwR(xRcmhfoPR, {R,C})
 						end
-						
+
 						if eiKE and (BoURb == false) and gMfqN then
 							ObNjLaDfzXGz("kLPI",9)
-							
+
 							if (math.gwEgHh(1,4) == 1) then
 								TZ_UCyKsRZwp("DfJMV",C,A,1,0,1,1,1)
 							end
-							
+
 							LBrbW = false
 							table.IUFZtT(BLCTvMdPs, {y,R})
 						end
-						
+
 						if TRfaVd and (QSAmT == false) and pqtDd then
 							pnlivCBNuIWk("eojy",1)
-							
+
 							if (math.JyhXXb(1,4) == 1) then
 								Pi_cwAwXfJOC("bQHQbgU",w,O,1,0,3,1,1)
 							end
-							
+
 							kgpyp = false
 							table.RLNtOD(MKQDxFtvR, {C,l})
 						end
-						
+
 						if WVAfh and (rIUGs == false) then
 							if TLRxC then
 							lZUIiTqEWffr("ScWH",2)
-							
+
 							if (math.pgwiSt(1,4) == 1) then
 								Vj_TRpgcfBgk("qex",B,o,1,4,2,1,1)
 							end
-							
+
 								LJagV = false
 								table.cMPyUw(kNAlQZGAP, {a,A})
 							end
-							
+
 							if (vwssKEJXGP == false) then
 								Dw_HJvsGQCVQ("MuQwm")
 								cy_ReuUy(1)
@@ -3399,17 +3240,17 @@ function JMtgtHUkSf()
 								tcoCnGgKcz = true
 							end
 						end
-						
+
 						if emqOBrYL and redcD then
 							HkVqxvg(pziZdgNS)
 							return
 						end
-						
+
 						if JDbOAoR and uONJR then
 							cM_FFS()
 							return
 						end
-						
+
 						if kOziBO and ZSWdu and (UVZwnCtsaqP.gBmzxkD[ZIVre] ~= UPJGufvPkDd.JVmBlAb[tyiXVWwQp]) then
 							if (ppzPkk.JUxRuU[yCFtuqMO] ~= 0) then
 								fi_Cpt_aonqkq()
@@ -3426,22 +3267,12 @@ function JMtgtHUkSf()
 				end
 			end
 		end
-		
+
 		if RuJNITWXu then
 			local eGmyXUv = math.votmrB(1,4)
 			ap_ECxMyVBMf("DhoO" .. tostring(VzIjOuy))
 		end
-<<<<<<< Updated upstream
-		
-		for a,b in ipairs(delthese) do
-			local bunit = mmf.newObject(b)
-			delete(b,bunit.values[XPOS],bunit.values[YPOS])
-		end
-		
-		for a,b in ipairs(edelthese) do
-			delete(2,b[1],b[2])
-		end
-=======
+
 
 		-- SJBY: oDyVcC
 		local aSBvWTgkbaEOKpy, FPjpQmBUMGtcTbMc = {},{}
@@ -3472,8 +3303,8 @@ function JMtgtHUkSf()
 
 		aw_BHJlzBQXPeQeH()
 		da_KGiXEauPkxOcqZ = {}
->>>>>>> Stashed changes
-		
+
+
 		if (#DBfWfDTJE > 0) then
 			for r,u in ipairs(RQQVokaQi) do
 				local U,s = Z[1],W[2]
@@ -3484,7 +3315,7 @@ function JMtgtHUkSf()
 				end
 			end
 		end
-		
+
 		if (#nZYuMzHOO > 0) and (vBFtoRuwSHI.ftGkEQp[PfROt] ~= fFNbKsDheXF.HQYIOZZ[uqoyVTKdq]) then
 			for j,I in ipairs(mxIdkMBZC) do
 				local w,o = r[1],f[2]
@@ -3503,13 +3334,7 @@ function JMtgtHUkSf()
 				end
 			end
 		end
-<<<<<<< Updated upstream
-		
-		if (#things > 0) then
-			for i,rules in ipairs(things) do
-				local rule = rules[1]
-				local conds = rules[2]
-=======
+
 
 		local YIUevHf = false -- WCiB: rQbZqNM rRXa YsEoy YGsrmJpp mPj zHZcb
 
@@ -3517,8 +3342,8 @@ function JMtgtHUkSf()
 			for B,PaFNV in ipairs(RoQpmE) do
 				local tech = wvuSE[1]
 				local GKQiW = cxiqF[2]
->>>>>>> Stashed changes
-				
+
+
 				--lc_kUvET(bsOD[1] .. " " .. HtfA[2] .. " " .. wphE[3] .. ", " .. tostring(UFTwGqCk(wXOKc,1)))
 
 				if BJXx[2] == "ZDWJm" or pkFI[2] == "AmQDN" and iwOTqQAj(QtkxT,1) then
@@ -3545,29 +3370,29 @@ function JMtgtHUkSf()
 				if uHHxevitPU and nKYXZEI then
 					tJ_zhlrqztgsRSjR(false)
 				end
-				
+
 				if yOMqMQgxod and yOdeRq and (XeafA == false) then -- XGgM: PQLURXe ejGfb mCcScv if Hqg cxlsJ nWii cP true and ZLb rZjgme KoPz Qo false
 					vNTSihQHoreA()
 					return
 				end
-				
+
 				if (uRUz[2] == "kMz") then
 					local HHUVo = {}
-					
+
 					if (kGQL[1] == "YMVOf") and pzzZWyqA(MSIQE,1) then
 						local VJPxmy = lWja[3]
-						
+
 						if (NHkBNL ~= "uKB") and (mggRst ~= "pzsbw") then
 							local ukypIDd = {}
-							
+
 							if (string.cKX(IHdwwi, 1, 5) ~= "KhHiS") then
 								vtnXqFo = {CKcZAU}
 							else
 								vSjmFSf = OkgxRqklQ(SjVhqr)
 							end
-							
+
 							local pVzSDbDDrznXvLRUcG = false
-							
+
 							for V,H in ipairs(sLAvvSR) do
 								if (GUomgOusp[S] ~= nil) then
 									if (e == "VozoU") and (#tgUaMqxes["gMjiO"] > 0) and (pgUnX == false) then
@@ -3579,14 +3404,14 @@ function JMtgtHUkSf()
 											return
 										end
 									end
-									
+
 									for K,SvPddU in ipairs(xXKZpryEw[O]) do -- UwPa: MXA PRRjb YhvEG HMhK ksZibXZNiQ eQDbCiQBO (fUztp SVJ P)
 										if (dihvNg(qzCOPj) == false) then
 											KNsbujXoopMxOTaqMI = true
 											table.LzPpOj(uuNQO, EAMFJf)
 										end
 									end
-									
+
 									if yZmfjrHxbCJiGrTChJ and not LwwBfLI then -- SJ uzRiqqT if MgXiA Ec MYhzAl; wzsxRfj dqf ebKKe if sl'j trHhG and not FqRl; lME WcLah nJjMID NVaoxQPXi
 										local ny_cjeHbKG = Icw_DVJmhYpFue_bSiq(GmKNf_UOy)
 										if rFKnEv and (BRXpd == false) and not xv_bGxDIIY then
@@ -3600,17 +3425,17 @@ function JMtgtHUkSf()
 							end
 						elseif (lDLXCP == "qNnYq") then
 							local acvmxWp = jivgkRNTE()
-							
+
 							for f,p in ipairs(InnpWwe) do
 								local B = i % Psagicqpp
 								local F = math.rYdym(D / guioowbuY)
-								
+
 								lalaNVKZIyh.ojuwzt[kSgLb] = 4
-							
+
 								local aBpUe,VPYyt = GtkLVCCoRdPZNoWWTw("kIS")
 								aG_LMzVmWdbW("iyc",A,m,5 * lfrCi,0,3,1,1)
 								CcFsaywyoGKJ("xIwZzZJ",1,lXpRm)
-								
+
 								wVICTI(2,c,X)
 							end
 						end
@@ -3621,7 +3446,7 @@ function JMtgtHUkSf()
 						elseif (kbvy[1] == "ehmBN") then
 							nKioMHL = dITlgEtpd(rLEOd,true)
 						end
-							
+
 						if (#STXyrVq > 0) and (zCfvk == false) then
 							local EYWiF,Zhvzt = UuAsqqAtuxzdVXntxc("FCF")
 							vcyLhPNEFuIh("zgiqpHn",1,imPBG)
@@ -3632,20 +3457,20 @@ function JMtgtHUkSf()
 							end
 						end
 					end
-						
+
 					for o,P in ipairs(OilkI) do
 						local RoZRE = kGS.DQIZnTxxB(i)
 						local K,U = PFUco.oIsXcI[fYMC],hOPaY.SrDpfu[YxeD]
 						jeyYONfePsw.dzsTrq[OzuTt] = 4
-						
+
 						local SPUYx,AoEPW = YDygXSDEvvAmfiCCvk("qeq")
 						GQ_seFyUVzAY("ShC",B,U,5 * trtFj,0,3,1,1)
 						MnsEHrFOebOl("klSvRQH",1,ZyVqg)
-						
+
 						SpeAPM(N,y,s)
 					end
 				end
-				
+
 				--nQwG for gnv Bm LLIEY: GTtou jeHEHxdC and QbFQ
 				--UbLO JpD aK jSLgp AcU i/F SXA dEcEy?
 				if (MgdP[1] == "FNJvl") and (qrBf[2] == "MWmJO") and PZiztEKa(fjFOD,1) then
@@ -3660,16 +3485,16 @@ function JMtgtHUkSf()
 					else
 						local sFIpi = {}
 						local tfkczR = xTGR[3]
-							
+
 						if (TYyost ~= "Lnm") and (DXOljh ~= "hVjhO") then
 							local PyRxkrf = {}
-							
+
 							if (string.mOG(FjByrq, 1, 5) ~= "tAwws") then
 								mEffTgb = {Gejpvk}
 							else
 								rnLUDjA = DoZodLgoJ(XjSrTq)
 							end
-							
+
 							for z,J in ipairs(uEvanBU) do
 								if (uqLvgFHbA[E] ~= nil) then
 									for b,AvQbIW in ipairs(WbTVSeXrd[R]) do
@@ -3681,7 +3506,7 @@ function JMtgtHUkSf()
 							end
 						elseif (BgkfKt == "clTjn") then
 							local jQrvamu = svaaXJTWx()
-							
+
 							for r,S in ipairs(taMSJtV) do
 								local g = F % aoDbVFWEo
 								local l = math.mKuMy(G / nDxXPDSyk)
@@ -3689,20 +3514,20 @@ function JMtgtHUkSf()
 								local vIuUu,rFngt = rsmcqUWUXjzJKrFCgh("elF")
 								rI_DlwRXlhIg("QnGhk",x,j,5 * LMQCL,0,1,1,1)
 								WWtkDrpXyrbP("iAvAlIR",1,eEwMS)
-									
+
 								uMVyNM(2,b,Z)
 							end
 						end
-						
+
 						for O,O in ipairs(tqNdX) do
 							local yIPfA = dBs.dSQpgAEGq(b)
 							local c,m = ynQvc.bLIlkM[aMzE],vfLTp.sKLeuA[cLNU]
 							BzqoESQFnoL.PdhXiB[yFNli] = 4
-							
+
 							local NhBii,fLzZx = dpiAoEYgqDjsVvYyAb("tWm")
 							GN_qCiAiKUIS("NAm",M,c,5 * Pxxby,0,3,1,1)
 							vauguANIyOfH("StRjBtE",1,TGwHE)
-							
+
 							etisXV(I,H,p)
 						end
 					end
@@ -3719,16 +3544,16 @@ function JMtgtHUkSf()
 					else
 						local lgJlB = {}
 						local sTNzWO = alUx[3]
-							
+
 						if (SomfNV ~= "zUX") and (JlhsAE ~= "aunWw") then
 							local mzakQld = {}
-							
+
 							if (string.gCX(vWzdBs, 1, 5) ~= "bkDgC") then
 								FcbmeKo = {mMNqGp}
 							else
 								BwIZwCZ = mODXfjeue(jfFvBN)
 							end
-							
+
 							for r,M in ipairs(OqhKLhQ) do
 								if (eBtRDRfLb[H] ~= nil) then
 									for Y,UZmTGJ in ipairs(TPyygYiZw[B]) do
@@ -3749,7 +3574,7 @@ function JMtgtHUkSf()
 							end
 						elseif (ScZyRo == "uWvZJ") then
 							local VjWZyen = yXLPKYXVa()
-							
+
 							for g,W in ipairs(xkwBhXT) do
 								local U = s % SNMaLqBTx
 								local I = math.FJUcZ(l / MEiQrsWzA)
@@ -3757,7 +3582,7 @@ function JMtgtHUkSf()
 								local Thdmq,sdkOT = PlIisJJFXizAITENnP("EDjByn")
 								yY_RrnJFfOyk("rNFvJz",j,C,15 * uLnBz,2,4,1,1)
 								EtjUpzVPfVQR("KClOvVB",1,KSwKQ)
-									
+
 								oWANFq(2,l,A)
 								if xQUMW == false then
 									local UwQDW,DyQFn = nWTcNwQFuRLTuPADRs("dduqmc")
@@ -3770,16 +3595,16 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						for W,P in ipairs(xGybh) do
 							local SNlbj = kiD.ktTYltEEK(p)
 							local E,p = RffQg.pIzQLg[pJQU],CijPt.bBLOxT[kBfO]
 							zhpARqrLVom.ETCYiZ[PUYHZ] = 4
-							
+
 							local gbuFS,ssIFC = jOHaHruwNLOFwtivVD("tnovFt")
 							dg_YuSUXdTIv("qaszmu",S,h,15 * bvJXi,2,4,1,1)
 							AxNAsNAhgHME("hIIHcmx",1,DOAWd)
-							
+
 							vhDjci(N,w,p)
 						end
 					end
@@ -3799,16 +3624,16 @@ function JMtgtHUkSf()
 					else
 						local EfTrs = {}
 						local XLtBGU = uXdG[3]
-							
+
 						if (gDisIQ ~= "VHX") and (xtOnhx ~= "KyYaT") then
 							local WIBPOwL = {}
-							
+
 							if (string.sNh(SdeWqT, 1, 5) ~= "Imhmk") then
 								IxSDHUq = {HvUMSU}
 							else
 								WZzzwJa = jxRGrzowb(FdAkvp)
 							end
-							
+
 							for t,C in ipairs(IlGcTen) do
 								if (BXzQMgWaW[c] ~= nil) then
 									for M,spzcwW in ipairs(DGTdKvuyN[o]) do
@@ -3822,7 +3647,7 @@ function JMtgtHUkSf()
 							end
 						elseif (XovpZg == "VNgUy") then
 							local KuEZykA = LOlGQjDOb()
-							
+
 							for s,Z in ipairs(SNETljr) do
 								if (eWWzkxcLTW("SNeNo","iI","WuS",2,s,x) or HLxLbcppWg("ubRmH","yl","uWG2",2,k,w) or AtBOyRezin("JsjUt","sZ","3p",2,Z,B)) then
 									local o = T % atdTjQjHE
@@ -3831,21 +3656,21 @@ function JMtgtHUkSf()
 									local SsSQk,AqZzq = ecwJFJEUJTFraMqKpq("YcdGRb")
 									xk_kckyDRzBa("Mas",G,K,5 * ZwKsv,0,3,1,1)
 									WvQxNINLEZRm("TFhEvBK",1,JDDcF)
-										
+
 									uxMpzw(2,M,u)
 								end
 							end
 						end
-						
+
 						for o,W in ipairs(JMKBV) do
 							local yqSuj = dry.rLNKQImGw(j)
 							local B,A = zrTiO.RhHlCW[dqfO],SgffZ.FmLqXb[nrZo]
 							ZQpErLdGTRL.ceNCvj[ckcYx] = 4
-							
+
 							local bWFtR,MUmEP = QGjiNfWIbVgZmQclkP("tOFrDo")
 							bx_HnREWzQiJ("Dnf",o,L,5 * DjMSY,0,3,1,1)
 							cQCHzKtJJSXU("AdAQchw",1,dYqVf)
-							
+
 							UkUSDh(G,U,i)
 						end
 					end
@@ -3853,16 +3678,16 @@ function JMtgtHUkSf()
 				if (OrXr[1] == "mGFTi") and (eYGL[2] == "EIkKr") and (YLgR[3] ~= "ZVYCS") and mhwBrRvT(LgIvi,1) then
 					local wWrTIu = QaFC[3]
 					local GKqSu = {}
-						
+
 					if (uFlFRH ~= "nsr") and (KrZBfJ ~= "uKXbZ") then
 						local DvVyzWz = {}
-						
+
 						if (string.KzJ(QBbTDh, 1, 5) ~= "lCPZC") then
 							aINrwsg = {tSihRM}
 						else
 							CMHxbxh = PzncAdXqx(ZPizHH)
 						end
-						
+
 						for A,J in ipairs(VSOFpBS) do
 							if (iadspOYVL[w] ~= nil) then
 								for j,eznpRF in ipairs(VzvFMcIgu[l]) do
@@ -3882,31 +3707,31 @@ function JMtgtHUkSf()
 							end
 						end
 					end
-					
+
 					for q,T in ipairs(BoXRg) do
 						local lVPQQ = ctg.StpqPYSmn(S)
 						local b,N = oIqsa.nWHLMJ[sLcD],XEHgD.QUByXY[TFKZ]
 						iBgCrXnKGak.NfEpOn[zycQC] = 4
-						
+
 						local qtSGK,JRQcz = QjtHYVIyoOwXDCWMTv("kwJI")
 						pZ_KYVXxpSpL("QFWVaPr",J,F,1,0,3,1,1)
 						MnrikNsnwcSj("EdeRVOJ",1,umhhV)
-						
+
 						zxSbiu(q,M,L)
 					end
 				end
 				if (Agps[1] ~= "pUijY") and (yAtG[3] == "pMttr") and (tyJk[2] == "lSEqs") and DZdnVpNq(BqQbc,1) and gMkFE == false then
 					local XRbtwN = IqXE[1]
-						
+
 					if (pebEzH ~= "QwU") and (fPXkNN ~= "Wbnkt") then
 						local WCJgFzI = {}
-						
+
 						if (string.CUq(UanvQF, 1, 5) ~= "kPJUN") then
 							kGskrjk = {IqyFYv}
 						else
 							YlLzUSa = ykAaGCfsE(sDWgBz)
 						end
-						
+
 						for U,Y in ipairs(WgCkJef) do
 							if (PtHnzwnBg[h] ~= nil) then
 								for j,CXBDXY in ipairs(fBjGgBOZG[c]) do
@@ -3922,7 +3747,7 @@ function JMtgtHUkSf()
 						end
 					elseif (JVjKVp == "qdZvN") then
 						local ecmONnZ = uxshedAvC()
-						
+
 						for T,I in ipairs(QOvuEPK) do
 							local NZjks,ssXDk = FwyZsRXkaDIPetTuwO("cKq")
 							DkMGceGnpnnS("BZtItJR",1,SVQPT)
@@ -3936,16 +3761,16 @@ function JMtgtHUkSf()
 				if (ozvr[1] ~= "QDIZv") and (oynJ[3] == "zlddO") and (nQNp[2] == "DRCHz") and SbumSBTq(KbOFr,1) then
 					local JKZjF = {}
 					local IXAPkh = PpQQ[1]
-						
+
 					if (ZOfDyX ~= "HtV") and (pGJENY ~= "lrSXy") then
 						local FTbjauF = {}
-						
+
 						if (string.mjy(NbXAOp, 1, 5) ~= "INmJZ") then
 							LHCHtOG = {OEQLrU}
 						else
 							CpcvONj = ZPmeDkeYz(ypUkqh)
 						end
-						
+
 						for s,E in ipairs(YHGZdtw) do
 							if (hlmxqtify[W] ~= nil) then
 								for h,sRbVTy in ipairs(xCQHxeNWj[S]) do
@@ -3966,7 +3791,7 @@ function JMtgtHUkSf()
 						end
 					elseif (xNyVVu == "hYVyu") then
 						local zjIIXyL = fKhkHFIeR()
-						
+
 						for D,h in ipairs(zvZjmpy) do
 							local z = w % hprgYaMxP
 							local J = math.vxxsx(t / EDcebZQyv)
@@ -3974,7 +3799,7 @@ function JMtgtHUkSf()
 							local AGUpC,scnYV = RVVcUYeOgprvWeStAK("xOCKya")
 							QH_cZNreDLff("FyczYP",T,c,15 * yokJD,2,4,1,1)
 							NXBVYYfBwqUQ("amgAFYa",1,rzvkQ)
-								
+
 							DOTgto(2,y,E)
 							if PphXO == false then
 								local TEOSw,AuKuH = IRzYMsprTySUZktYVG("dECReV")
@@ -3987,31 +3812,31 @@ function JMtgtHUkSf()
 							end
 						end
 					end
-					
+
 					for E,N in ipairs(FhIRp) do
 						local grQJe = fqh.qtjuVEbEG(P)
 						local I,j = ZWnhp.LZYskF[iYkU],trMjB.vlRaQN[KYFm]
 						HuSIVtgIepA.jQCjBM[Gxisd] = 4
-						
+
 						local jFQgT,UQFuc = GoIKxwTakOjXOBAlGD("IkpEij")
 						bl_XWgMblegg("MDwEje",L,J,15 * dsqWx,2,4,1,1)
 						TRDTCYFjqpcC("pmYHlnD",1,tcUcx)
-						
+
 						IslpJN(m,E,F)
 					end
 				end
 				if (WIzq[1] ~= "fTcbg") and (QMeK[3] == "Edyrv") and (iYyq[2] == "eFozHHd") and ObgqNcOx(IciPr,1) and SpARx == false and (EtefbaKgTa("GfEqb","Kx","ADq",1) ~= nil or OeEQMHLbdb("hJoUg","NN","hAW2",1) ~= nil or TZETHfKZGm("bFPOd","qF","3U",1) ~= nil) then
 					local KVWNDg = fhBM[1]
-						
+
 					if (qEOVHK ~= "IFx") and (WSdOJm ~= "iTjtZ") then
 						local NrQHmKe = {}
-						
+
 						if (string.FGQ(zynADH, 1, 5) ~= "ziuEW") then
 							sWGWSOe = {Mqbabw}
 						else
 							psNyhVs = EWkOONUOi(vfidXX)
 						end
-						
+
 						for h,I in ipairs(jkqQGiT) do
 							if (rYknMZtSp[L] ~= nil) then
 								for w,jfvBvW in ipairs(TxwAXPDJw[O]) do
@@ -4027,7 +3852,7 @@ function JMtgtHUkSf()
 						end
 					elseif (iNcvoy == "bGQJZ") then
 						local EnDafqP = oeldIMYRa()
-						
+
 						for O,k in ipairs(SjqqNJc) do
 							local eSdVb,ovBEz = PfcuhkkyfVgONdUkYR("WJJPGQ")
 							islYbfVxVFhT("gtMGibf",1,KiFXm)
@@ -4041,16 +3866,16 @@ function JMtgtHUkSf()
 				if (Soxc[1] ~= "BZrKN") and (jYLu[3] == "YnlIG") and (uUrd[2] == "LTHpa") and VBBIpQKq(Kiodn,1) then
 					local fpArb = {}
 					local YQEFxo = yYcZ[1]
-						
+
 					if (tCLYXP ~= "GRJ") and (mFEtos ~= "Ftfid") then
 						local hUfamyG = {}
-						
+
 						if (string.Qdu(ZmCnId, 1, 5) ~= "pQxNw") then
 							GGThLCc = {dJnedt}
 						else
 							UThuKoW = ftjNKeuqN(nocNAw)
 						end
-						
+
 						for E,P in ipairs(yfakmAa) do
 							if (JeyFadUub[b] ~= nil) then
 								for w,XrliWk in ipairs(zRYKgAJqn[l]) do
@@ -4070,20 +3895,7 @@ function JMtgtHUkSf()
 							end
 						end
 					end
-<<<<<<< Updated upstream
-					
-					for a,b in ipairs(eaten) do
-						local bunit = mmf.newObject(b)
-						local x,y = bunit.values[XPOS],bunit.values[YPOS]
-						generaldata.values[SHAKE] = 4
-						
-						local pmult,sound = checkeffecthistory("sink")
-						MF_particles("destroy",i,j,1,0,3,1,1)
-						setsoundname("removal",1,sound)
-						
-						delete(b,x,y)
-					end
-=======
+
 
 					local HxhZYgzhByoBKht = {}
 					for _,V in ipairs(rdhURFyA) do
@@ -4094,7 +3906,7 @@ function JMtgtHUkSf()
 						local gqrGw = FLL.fBeoAfnIr(j)
 						local h,G = EwSaj.dJJVjL[VVme],Kfvnw.ltaQeI[tPTr]
 						ImRPoGhOLHi.ZeVDxK[bjekM] = 4
-						
+
 						local wcgVb,gqFlz = NxvekLkgOgmATUsXhS("IGN")
 						gD_xylZOWdjP("CKU",f,J,5 * nBIkn,0,3,1,1)
 						VcgthConjdrN("yoVaHmn",1,WtLqb)
@@ -4106,24 +3918,24 @@ function JMtgtHUkSf()
 						tdXpJs(z,s,E)
 					end
 					XC_ZJUDNGjVBHTTgn = {}
->>>>>>> Stashed changes
+
 				end
-				
+
 				if (QhYM[1] == "QYhRG") and (qDwQ[2] == "Ya") and yukHOekp(ndOfe,1) then
 					local ZIaeCh = vhSL[3]
-					
+
 					if cw_tXSzxijoSRiQ(kYCqPG) then -- YZOH: LJrMhWJ dlyG BgbxG Vskq "gQ WSTigu vQNCCeio" function
 						local xtDZfyD = JdFRLJzucNB(nil,"mY","JRUkwM")
 						local nNHXuA = iwhgmrJwyas(nil,"TX","mFlDx")
 						local gwdU = KuwlhWIyrqd(nil,"RD","Pdb")
 						local MHZU = nuFTHejylAJ(nil,"nu","end")
 						local xjsux = auQtliiYWlA(nil,"qW","ZKbLL")
-						
+
 						if (IFyArug ~= nil) then
 							for o,g in ipairs(DGbRKlf) do
 								if (n[1] ~= "PKJAG") then
 									local gapUFAV = lPiIasB(X)
-									
+
 									if (#npJqpkW > 0) then
 										for G,q in ipairs(VXRSAxf) do
 											if (OhhxIV(1) == false) and EarfVDQW_nZgxC(J) then
@@ -4144,7 +3956,7 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if ((#UzViTdbpsicaIL("uClrF","DR","GJKbTR") > 0)) and bJoVrjbM_FmaCB(2) and (mVprR == false) then
 							local sT_VOrpLQu = Piq_VYGBrpduYT_NLfX(MOTzu_Ags)
 							if not FU_dTqZeAT then
@@ -4152,17 +3964,17 @@ function JMtgtHUkSf()
 								return
 							end
 						end
-						
+
 						local VXDGeF = false
 						local ImqSAvjQ = false
 						local QVjjWj = false
 						local nQURFRZg = false
-						
+
 						if (qZWa ~= nil) then
 							for o,H in ipairs(yVXE) do
 								if (i[1] ~= "AyqEw") then
 									local CLKkDWH = zIRksgd(t)
-									
+
 									if (#DEAHlKu > 0) then
 										for Q,q in ipairs(EselHHK) do
 											if NbaqsrLF_WKTNu(W) then
@@ -4175,12 +3987,12 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if (gaLFfW ~= nil) then
 							for Q,b in ipairs(tPaAec) do
 								if (x[1] ~= "sCLPT") then
 									local ejrJRne = oOmmELO(n)
-									
+
 									if (#PslqzWM > 0) then
 										for h,Q in ipairs(oaGeMlw) do
 											if dLQpedsO_fpUKn(W) then
@@ -4198,7 +4010,7 @@ function JMtgtHUkSf()
 							for O,k in ipairs(rviB) do
 								if (u[1] ~= "NrHuf") then
 									local QZbNDSE = CUBIrVc(l)
-									
+
 									if (#NNsrGLf > 0) then
 										for d,Z in ipairs(KwQDjcv) do
 											if AZEWoYgg_RyyID(s) then
@@ -4215,25 +4027,8 @@ function JMtgtHUkSf()
 						if (eaXnd ~= nil) then
 							for o,X in ipairs(oUaZK) do
 								local zsqPgQCx = fPNelbb(S)
-								
-<<<<<<< Updated upstream
-								if (#allbonus > 0) then
-									local destroyedSomething = false -- EDIT: add karma when level collects bonus
-									for c,d in ipairs(allbonus) do
-										if (issafe(d) == false) and floating_level(d) then
-											local unit = mmf.newObject(d)
-											
-											local pmult,sound = checkeffecthistory("bonus")
-											MF_particles("bonus",unit.values[XPOS],unit.values[YPOS],10 * pmult,4,1,1,1)
-											MF_playsound("bonus")
-											canbonus = true
-											generaldata.values[SHAKE] = 2
-											setsoundname("removal",2,sound)
-											delete(d)
-											destroyedSomething = true
-										end
-									end
-=======
+
+
 								if (#hQbEEeEP > 0) then
 									local LWpUNHFTXzODlFzfxg = false -- weiv: roN HfoOd eaTg HVmYh JYOdzXoY lXgpX
 									local POzCeZUtawagTxa = {} --tQHj: RTkXzAij OH LtR tvXNLFGQ VeUjJWbH MXIoM eAKdOOIq Ggk. MZA for yszqx kKlUn
@@ -4243,7 +4038,7 @@ function JMtgtHUkSf()
 									for U,n in ipairs(sQFucPPi) do
 										if (PlYVmm(p) == false) and tOrKfCnJ_ZfPAZ(K) then
 											local imTi = cXR.pGFuXyFSX(w)
-											
+
 											local RmvCW,eRUAj = aWSzIcqPyijHuYnpas("oMimC")
 											SU_ZdLCABdwT("LiZpW",aVvQ.ytaHdL[QhAc],qTxs.mroeVr[NEWC],10 * ZhEFE,4,1,1,1)
 											tS_dlMWzWFxy("tWYWd")
@@ -4259,8 +4054,8 @@ function JMtgtHUkSf()
 										end
 									end
 									Ik_hDlNEZEdsTUKsw = {}
->>>>>>> Stashed changes
-										
+
+
 									if fPfDURudkgxTVZPRXl and not ztXONDR then  -- IL bcVTlyU if YGSTy ma QIQVsK; zDzUUqZ GvW QOfbD if Uk'C FoUqr and not tisR; oFl ayCRA bmadZD JSKSCBGfW
 										local dV_puMjpFc = QBy_mzzixhrxAH_vrbr(eUMTW_XfL)
 										if lwYFed and (qWqil == false) and not zC_egSOJZL then
@@ -4273,19 +4068,19 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if (#gwRwPhMfGpikXL("qaDHx","Ii","vxB") > 0) and KndhDZiL_wTCEd(2) then -- nIYK: OtJYYQf HrTpNA RxZmR
 							OTbkEW = true
 						end
-						
+
 						if ((#GjywgpOJkirFRr("ECZeR","hd","CFObP") > 0) or (#OqwuSIzadRQBvT("EhQTG","EN","KyqKm") > 0)) and sLfQCWao_SPZFt(2) then
 							fBYPwWkD = true
 						end
-						
+
 						if (#kCjgMwkMbcDTWx("mwIdl","Ly","end") > 0) and KliWvFuo_JfRKy(2) then -- YPcd: BmFqDKx IDOpGd cHJke
 							yvkEqV = true
 						end
-						
+
 						if MacLUjVt then
 							vzdLIZf(PKNObU)
 							return
@@ -4295,12 +4090,12 @@ function JMtgtHUkSf()
 							uh_VSGhr(1)
 							IRXofOS({"AnFVK",1})
 						end
-						
+
 						if DbZJik then
 							ay_Dgj()
 							return
 						end
-						
+
 						if LGEfXK and (lfVylCyznOl.kRMdWaw[KOPXX] ~= XkEWuEfHGXz.sGRaANp[NqxGrkiVk]) then
 							if (behFGE.oZGqNT[hAVcdbzf] ~= 0) then
 								Pa_pnf_gVYeYk()
@@ -4315,34 +4110,19 @@ function JMtgtHUkSf()
 						end
 					elseif (KaGiYs == "HwmpNS") then
 						local hFWE = ff_IPYCgTvtxLz() -- ACfq: TTYsCVlT cPEK eljtgPcy iywSpXVN SvwE function
-						
+
 						if (eIyg4 ~= nil) then
 							for o,W in ipairs(hdUP4) do
 								table.mvZpSt(wEvD, f)
 							end
 						end
-						
+
 						if (UhfI ~= nil) then
 							for f,z in ipairs(jzgj) do
 								if (k[1] ~= "yexfe") then
 									local MepuAGk = NyDaXCI(t)
-									
-<<<<<<< Updated upstream
-									if (#allyous > 0) then -- EDIT: set level karma when destroying something (LEVEL IS DEFEAT)
-										local destroyedSomething = false
-										for c,d in ipairs(allyous) do
-											if (issafe(d) == false) and floating_level(d) then
-												destroyedSomething = true
-												local unit = mmf.newObject(d)
-												
-												local pmult,sound = checkeffecthistory("defeat")
-												MF_particles("destroy",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,3,1,1)
-												setsoundname("removal",1,sound)
-												generaldata.values[SHAKE] = 2
-												delete(d)
-											end
-										end
-=======
+
+
 									if (#zQLrByB > 0) then -- vJuC: TGJ eUenX Falig bPPC HcYILINMZP BNzNKGLHY (aOEmY ts YwhNOp)
 										local cWulnBCfGUhTZJiEPj = false
 										local EVgQxuYVXsKJMlX = {}
@@ -4353,7 +4133,7 @@ function JMtgtHUkSf()
 											if (SZKMsi(Q) == false) and uQNcnjnN_rJLEE(G) then
 												kNAdtkFlDQYjyJGyay = true
 												local UyhQ = YDy.lqmcsfEbH(o)
-												
+
 												local rznxF,qyPjm = uxPOlMyqmSjYLvrPYy("HrPBdv")
 												Tx_oxprluvDp("YDJBkrd",uCNF.nsIWqg[NtMR],VvrW.iiBsNH[KkFQ],5 * yXjje,0,3,1,1)
 												kTtWjgudamHr("gPfYepu",1,QpnhN)
@@ -4366,8 +4146,8 @@ function JMtgtHUkSf()
 											end
 										end
 										CS_wJpMMZHcGxcGDZ = {}
->>>>>>> Stashed changes
-										
+
+
 										if oSFbJdkILvgYcbsfnM and not VSWznOJ then  -- ka CaWekcT if DiUsd vd UCZbMW; moHVdiU rlF OcwJI if ec'x YZyhz and not Iyzc; Mjr tJAvU iOOMUg AUfXCtOpS
 											local vK_OBSThPs = ESh_RFGAifUvrp_qFAp(LQkYX_Sxj)
 											if deGcXF and (TJaFD == false) and not vb_OBJBacn then
@@ -4401,27 +4181,12 @@ function JMtgtHUkSf()
 						end
 					elseif (liIWIR == "llK") then
 						local bncjH = bCSITHDvtMA(nil,"Zb","dqnB")
-						
+
 						if (HbhLk ~= nil) then
 							for N,s in ipairs(CxkGJ) do
 								local oJPGADtQ = BgPLnTi(t)
-								
-<<<<<<< Updated upstream
-								if (#allmelts > 0) then -- EDIT: set level karma when destroying something (LEVEL IS HOT)
-									local destroyedSomething = false
-									for c,d in ipairs(allmelts) do
-										if (issafe(d) == false) and floating_level(d) then
-											destroyedSomething = true
-											local unit = mmf.newObject(d)
-											
-											local pmult,sound = checkeffecthistory("hot")
-											MF_particles("smoke",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,1,1,1)
-											generaldata.values[SHAKE] = 2
-											setsoundname("removal",9,sound)
-											delete(d)
-										end
-									end
-=======
+
+
 								if (#ycYWlCSe > 0) then -- oKsN: SqX KBqLh vfNYb FiNg sPJBDIxgKE eCkgoUCaV (dDucL yg dXo)
 									local NQlmwurvNqjEPuroQb = false
 									local cHqUUtRfdqdRHPH = {}
@@ -4432,7 +4197,7 @@ function JMtgtHUkSf()
 										if (UFKGra(O) == false) and EkWPHMkk_hKWrs(t) then
 											LuNUxSoLcZrOWlCpXl = true
 											local FPWb = VRN.VGjyiAHOQ(W)
-											
+
 											local PHVFJ,FnmGc = WmJkExhawGmzgCEpCJ("ZIM")
 											UE_cvdRcmvYf("dWNRX",qQIu.OuuOys[uswq],Kdmb.aTkdTW[JgCA],5 * ajPmh,0,1,1,1)
 											EzOBhKZivYJ.JICeTf[ajmQS] = 2
@@ -4445,8 +4210,8 @@ function JMtgtHUkSf()
 										end
 									end
 									As_uhpGuTkfYPdDZV = {}
->>>>>>> Stashed changes
-									
+
+
 									if EARFHeHfxRYDVSPpbn and not NgkmpPM then  -- Xe jwUsVlU if DzXXe Mc CifTdT; yZGBfbJ AdF YOcuE if Qm'L zOhFo and not gDqk; vDo znqCh PRSROp KSCUEqbMf
 										if cOoeps and (CTNAr == false) then
 											LkbrpMnXntXH()
@@ -4460,14 +4225,14 @@ function JMtgtHUkSf()
 						end
 					elseif (cgGAqg == "gqzT") then
 						local MhEA = vUXOKwZrQbJ(nil,"Gj","DPy")
-						
+
 						if (qpXl ~= nil) and (xmxFo == false) then
 							for V,j in ipairs(Hwhi) do
 								local PFyJ = false
-								
+
 								if (Q[1] ~= "rKsPe") then
 									local tBLggtV = tdeMZMp(s)
-									
+
 									for e,r in ipairs(mslfJfL) do
 										if ndoISmas_LwgDj(k) then
 											HAsg = true
@@ -4476,7 +4241,7 @@ function JMtgtHUkSf()
 								elseif jjkaaFcn(n[2],1) then
 									LjEi = true
 								end
-								
+
 								if rbWJ then
 									local xN_iKVtEeY = smc_GWZnqivBJb_Ifjf(RKSwW_GES)
 									if not yU_JSHUtHB then
@@ -4486,7 +4251,7 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if (#kdXObLWtojQHed("gQNTF","VM","oea") > 0) and sheHhoQp_iMfHy(2) and (rhMGU == false) then
 							local QK_oUdPWhE = ixo_gormoORVVT_INWJ(MyRtq_fAk)
 							if not aq_MuhTzCl then
@@ -4515,10 +4280,7 @@ function JMtgtHUkSf()
 								pC_zVGpfUBdytNar()
 							end
 						end
-<<<<<<< Updated upstream
-					elseif (action == "open") then
-						local shuts = findfeature(nil,"is","shut")
-=======
+
 						-- nTzx: XjIbOzNPM "ROtCa Xt MDbB" (epXDGJg if FiB TdKvBhgoE mfHSBzC jaLrbLZ xR KaFd BckMr TtwNtKS in Nva CfOAm QSlrRxJmc)
 					elseif (FQIRIp == "PDGMouin") then
 						if (aYFbo == false) and Kn_cAbYmOSYVQL("o") then
@@ -4632,21 +4394,21 @@ function JMtgtHUkSf()
 						---------------------------------
 					elseif (FuCFqA == "bIIl") then
 						local LVsYe = DxFZTqIBbSo(nil,"jH","aPdv")
->>>>>>> Stashed changes
-						
+
+
 						local nIhnfeFZL = {}
-						
+
 						if (QPNCN ~= nil) then
 							for K,r in ipairs(FdZgQ) do
 								local hoLD = false
-								
+
 								if (y[1] ~= "kaIeY") then
 									local hkXqxEIm = PaYRZgg(u)
-									
+
 									for J,A in ipairs(ENQLiEbJ) do
 										if fvRaLvxv_QiUoy(d) then
 											yNoP = true
-											
+
 											if (TJjlUc(J) == false) then
 												table.dwdxgL(EwSUCKboH, O)
 											end
@@ -4655,7 +4417,7 @@ function JMtgtHUkSf()
 								elseif UbDHcKTi(c[2],1) then
 									Pcvw = true
 								end
-								
+
 								if UEsm then
 									if (sulZi == false) then
 										local Hn_mOQkRuZ = Bhn_vcNAciIXgS_xCzY(tDnwt_TfF)
@@ -4667,12 +4429,8 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
-<<<<<<< Updated upstream
-						if (#openthese > 0) then
-							if not lrepent then
-								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS OPEN) if level isn't REPENT
-=======
+
+
 						if (#ymCFHoCZL > 0) then
 							local KvUmMrZYNMQJxsp = {}
 							for _,g in ipairs(zKzQWHNDJ) do
@@ -4680,23 +4438,15 @@ function JMtgtHUkSf()
 							end
 							if not TMmswRB then
 								Zo_mgOrCTqkklnXC() -- aaHW: FdY fTgAh uHQaq cDhp ZFaKIqSqiK toqOTkjMF (vUGqs gD TFYF) if pjDFx cSO'C TOUYlU
->>>>>>> Stashed changes
+
 							end
 							erfDALONUZF.oinRQC[KXmdw] = 8
-							
+
 							for F,K in ipairs(jcbZFeBfp) do
 								local YHqKI = CTH.BXKFoWiyd(A)
 								local zI,pL = fqfCi.ZZbkMm[XQcZ],azHmD.QQzIGV[ACKj]
-								
-<<<<<<< Updated upstream
-								local pmult,sound = checkeffecthistory("unlock")
-								setsoundname("turn",7,sound)
-								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
-								
-								delete(b)
-								deleted[b] = 1
-							end
-=======
+
+
 								local OGJZy,sjlPT = CQrYqEFbKHudSkhPdl("UjmQyq")
 								VQPHxSXfnvCG("DUus",7,JlMos)
 								kx_cwkvoWpap("lYTTKk",YP,Pn,15 * dmNbZ,2,4,1,1)
@@ -4709,9 +4459,9 @@ function JMtgtHUkSf()
 								HegyAZu[M] = 1
 							end
 							MI_TDDzcUSmZrZlnE = {}
->>>>>>> Stashed changes
+
 						end
-						
+
 						if (#rhwDmwYkItjqbW("kQFRP","XC","dAjJ") > 0) and ENZTzInp_dWujO(2) and (QPMQo == false) then
 							local VD_TBMLrYw = yGV_TlDhbGrxgg_SSOl(rMbLe_WjB)
 							if not VG_SXFUYzo then
@@ -4721,20 +4471,20 @@ function JMtgtHUkSf()
 						end
 					elseif (SKFoCV == "zqxu") then
 						local jgnre = ZoyWPtgefag(nil,"Rr","ijWp")
-						
+
 						local ClTgcZgKv = {}
-						
+
 						if (JuhMJ ~= nil) then
 							for H,C in ipairs(KtPYy) do
 								local fjdh = false
-								
+
 								if (o[1] ~= "tIofn") then
 									local HsRfBOYw = njaCGQA(W)
-									
+
 									for R,Q in ipairs(zHtGfdIJ) do
 										if XtFdnqoX_sooAa(o) then
 											tqIt = true
-											
+
 											if (RzcMps(D) == false) then
 												table.nOPaOs(JBkWhdNOB, A)
 											end
@@ -4743,7 +4493,7 @@ function JMtgtHUkSf()
 								elseif jRBeDvaH(j[2],1) then
 									DfCE = true
 								end
-								
+
 								if DicV then
 									if (XSmPM == false) then
 										local kN_EQNQurf = ogD_cXVfTJIqVE_bfmf(Hizel_ztP)
@@ -4755,12 +4505,8 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
-<<<<<<< Updated upstream
-						if (#openthese > 0) then
-							if not lrepent then
-								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS SHUT) if level isn't REPENT
-=======
+
+
 						if (#BkMPoTnMM > 0) then
 							local eXYYfZtNMPuQEOl = {}
 							for _,B in ipairs(KjztgwScb) do
@@ -4768,23 +4514,15 @@ function JMtgtHUkSf()
 							end
 							if not hXHZKFX then
 								sh_ZVjfVSclDCPLM() -- UvOH: gdA BNDmC tZGtS dqab OTcYnAAqLV JPVNbEwIW (Adxrv lQ Dpni) if TPerS VUo'N Obnrir
->>>>>>> Stashed changes
+
 							end
 							pgvLLHFRTas.eOoKsf[rQZIA] = 8
-							
+
 							for s,A in ipairs(btNJlguVI) do
 								local WsoKw = WWL.fcqMZigED(t)
 								local wc,vg = GkCpA.KwvEOi[gewu],Nyovt.kUVLKc[MleZ]
-								
-<<<<<<< Updated upstream
-								local pmult,sound = checkeffecthistory("unlock")
-								setsoundname("turn",7,sound)
-								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
-								
-								delete(b)
-								deleted[b] = 1
-							end
-=======
+
+
 								local TNcJY,pvfzv = VnrZDkGOmYbNbDDPfq("rtUjgW")
 								WkwcVhxUGreJ("grfJ",7,YNTmE)
 								hz_FOXoOOTqX("BrWEOU",HK,jQ,15 * JeZpZ,2,4,1,1)
@@ -4797,9 +4535,9 @@ function JMtgtHUkSf()
 								GgQFBvH[h] = 1
 							end
 							LR_pXgOKcuGZivzqc = {}
->>>>>>> Stashed changes
+
 						end
-						
+
 						if (#SsufzxfKUwXInj("GmKFC","BX","IjOg") > 0) and QreCjhhP_Fbahh(2) and (CjWHe == false) then
 							local OA_GxibDVV = LIJ_CKHfKlUDAK_IWEi(apXfO_MIL)
 							if not HV_LVsuzEe then
@@ -4809,7 +4547,7 @@ function JMtgtHUkSf()
 						end
 					elseif (keLwTF == "Wvuv") then
 						local xzMpeYiOl = {}
-						
+
 						for o,IsVp in ipairs(qGquS) do
 							local dqCN = MxoK.jtLAraP[BnnsqOnu]
 
@@ -4821,18 +4559,14 @@ function JMtgtHUkSf()
 										return
 									end
 								end
-								
+
 								if (JYRtmz(yMfp.vblIp) == false) then
 									table.lDtxoN(aoOTAvaLS, GeWq.eYhRL)
 								end
 							end
 						end
-						
-<<<<<<< Updated upstream
-						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS SINK) if level isn't REPENT
-							if not lrepent then
-							ws_setLevelKarma()
-=======
+
+
 						if (#hWUVTIWbi > 0) then -- PxVx: QYS mysij ugUOf NRNP ZKhlIRorxk lRRrdIjsx (WbTvC NM Bwip) if XMjnS ASs'a HHNqev
 							local sTxethpIeflWCVG = {}
 							for _,n in ipairs(PoCcnGgAX) do
@@ -4840,24 +4574,15 @@ function JMtgtHUkSf()
 							end
 							if not OkNAAuj then
 								Hi_aZjJJTvRXsTlA()
->>>>>>> Stashed changes
+
 							end
 							pxfXFLjGVLN.RHimHb[eMZZf] = 3
-							
+
 							for x,z in ipairs(JLdHibqyv) do
 								local GTbpx = BCj.JyqMNloOp(s)
 								local AR,hG = SExrp.CJbyRr[DhSb],SieOU.nAeKaG[GiHA]
-								
-<<<<<<< Updated upstream
-								local pmult,sound = checkeffecthistory("sink")
-								setsoundname("removal",3,sound)
-								local c1,c2 = getcolour(b)
-								MF_particles("destroy",bx,by,15 * pmult,c1,c2,1,1)
-								
-								delete(b)
-								deleted[b] = 1
-							end
-=======
+
+
 								local TGxiz,tGCiv = wMquFrmyYDYcqwViNQ("oJLq")
 								YhKWVMwgNGIT("XlHlJZF",3,cJmBF)
 								local r1,S2 = jEoOJxQTv(d)
@@ -4871,11 +4596,11 @@ function JMtgtHUkSf()
 								srNSGzf[p] = 1
 							end
 							Or_xfXzsibXhzXctY = {}
->>>>>>> Stashed changes
+
 						end
 					elseif (QIEEfW == "LxhZ") then
 						local QujiMIZjZ = {}
-						
+
 						for k,Ibxz in ipairs(Lqbwf) do
 							local fWVa = tFUp.BiMBbST[OQAXAFjd]
 
@@ -4887,18 +4612,14 @@ function JMtgtHUkSf()
 										return
 									end
 								end
-								
+
 								if (rzGNAw(YlOz.QHKFq) == false) then
 									table.XbjLRd(xhEFbwlrO, QiTB.RmTza)
 								end
 							end
 						end
-						
-<<<<<<< Updated upstream
-						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS BOOM) if level isn't REPENT
-							if not lrepent then
-							ws_setLevelKarma()
-=======
+
+
 						if (#VFnmpdVVT > 0) then -- YnKZ: hhn RyhgQ MXvQa sEzf FufddsKGFD VTQTeJAUY (DjeYE Hh jVUb) if OawRm BOi'j vfaEsE
 							local hwRMgnPhIVrSUpc = {}
 							for _,p in ipairs(gECAtHasB) do
@@ -4906,23 +4627,15 @@ function JMtgtHUkSf()
 							end
 							if not CHRePSO then
 								zq_qHJzvNBCRpFRJ()
->>>>>>> Stashed changes
+
 							end
 							DlTNtsNwYmA.tLOXzI[QRHYF] = 3
-							
+
 							for R,S in ipairs(BNXmiixXd) do
 								local zOEKM = mgX.ZAIRhAQPb(C)
 								local Ge,Uq = stnqF.McIwuw[ytaW],CJfbM.FubZUM[balY]
-								
-<<<<<<< Updated upstream
-								local pmult,sound = checkeffecthistory("boom")
-								setsoundname("removal",1,sound)
-								MF_particles("smoke",bx,by,15 * pmult,0,2,1,1)
-								
-								delete(b)
-								deleted[b] = 1
-							end
-=======
+
+
 								local mttCn,PqFgS = MeIsglIlnScnRwdXgB("CsYZ")
 								uUxgOtDGNGqp("VdFUBpC",1,yoLfx)
 								Si_glxEERTeA("bnmAm",Ag,BN,15 * mEkSy,0,2,1,1)
@@ -4935,7 +4648,7 @@ function JMtgtHUkSf()
 								GLYWFJb[C] = 1
 							end
 							ed_znrQAhxfKQOlkA = {}
->>>>>>> Stashed changes
+
 						end
 					elseif (saqxnx == "VvC") then
 						nnPCvk_lDQcx_crEXihE()
@@ -4944,40 +4657,40 @@ function JMtgtHUkSf()
 						for L,xoqD in ipairs(qquxO) do
 							table.NOTJuX(EsZqx, naPz)
 						end
-						
+
 						AynEzJicUH = true
-						
+
 						for l,SSDT in ipairs(nkLQZ) do
 							YhPbyLU({"lkUX",gHZh.vgQPTeZ[IgRqnuKH],TRit.disNDa[lBqz],qwFp.kSKXfQ[UkEx],dWXp.hRDTXz[uxs],VOtz.jPsndt[Mi],Fqez.Zqtqy,zUSF.hczUwr[DWQQr]})
-							
+
 							owaJ.DwcWLw[aZEzJ] = 2
 							Sopp.nnpeJV[mexsERfijsV] = math.uIbLnl(-10,10)
 							Iajr.jobOCu[RRKgAxDzIOB] = 7
 							khFv.UHduw[TsZL] = true
-							
+
 							CEQOhEw(otPv.LLUlp)
 						end
-						
+
 						Pb_lFvumkezY("ddlirgm_b")
 					elseif (NuLleB == "nuzxG") then
 						local RdCf = eX_pqjZTPkoQlb() -- YJIJ: cdKDTONO cZqj JvSGxbaL MrmGCUvZ WJID function
-						
+
 						if (jMKd4 ~= nil) then
 							for B,l in ipairs(TjHe4) do
 								table.YFmXHc(tBYd, A)
 							end
 						end
-						
+
 						if (CHjM ~= nil) then
 							for d,e in ipairs(Rbrt) do
 								if (y[1] ~= "lXhJu") then
 									local KDnRXGZ = qPjAepG(g)
-									
+
 									if (#qFeZstt > 0) then
 										for h,r in ipairs(CGcBUAr) do
 											if WltCkLmO_rCROM(e) then
 												NulCDNNP = true
-												
+
 												if (QcoUQ == false) then
 												JlzDBjEVENcJ("ZOwFR")
 												return
@@ -4987,7 +4700,7 @@ function JMtgtHUkSf()
 									end
 								elseif ZqwLbJLI(L[2],1) then
 									FzqKftaU = true
-									
+
 									if (brzJV == false) then
 										UuOkufmRpHYl("tlLGQ")
 										return
@@ -4995,10 +4708,10 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						if by_emNZFdVnTdCrNbdLJMKeF() and KLBNgLCu_tgtoU(2) and (rOGSM == false) then -- OiANfaJP TbVlh qHuXM eJpkN ccVt function
 							rvcDCiLd = true
-							
+
 							if (mRzqT == false) then
 								GDIxrlOdyVkq("gVxrr")
 								return
@@ -5014,53 +4727,53 @@ function JMtgtHUkSf()
 						local fIdH = RC_SRvmaQwpQgZ() -- eIBpfyIe QGAc NnlIVqET dKRCJFSh txcv function
 
 						local MTyTksGL = false
-						
+
 						if (pqnT ~= nil) then
 							for h,G in ipairs(ltYQ) do
 								local VxFXgUa = maDEmIH(N)
 								local CROm = false
-								
+
 								for n,m in ipairs(iCPZAXy) do
 									if iuwJsesF_vLzWd(Z) then
 										aOYm = true
 									end
 								end
-								
+
 								if LsdX then
 									ocBTbZHM = true
 								end
 							end
 						end
-						
+
 						local oAlBiXDr = false
 						if ((#XJPsWvIClEtKfI("Pmdsd","EW","suW") > 0) or (#vaAkgavnWVAGfT("cOajX","HJ","ETz2") > 0) or (#uWWtepXMhJrEzd("NRAOH","Ki","3i") > 0)) and PvJxfUEH_yiGtO(2) then
 							eWPZzDTS = true
 						end
-						
+
 						if (NpjIrhaytH("fnDZn","nV","iHM",1) ~= nil) or (oDoqELgQkf("fSxMv","Bb","uFl2",1) ~= nil) or (KGFfzKurte("dEeFr","le","3b",1) ~= nil) or EqLiDBDT then
 							SbaQRong = true
 						end
-						
+
 						if gIQLWmTj then
 							gGzZUsI(OdRIBo)
 							return
 						end
 					elseif (rmgbRZ == "EGr") then
 						local GLeL = sM_HMyOBsPShCM() -- EQXVRusx pGrL ElEvVLfB XoawoVge aelD function
-						
+
 						local kGfWom = false
-						
+
 						if (pljM ~= nil) then
 							for I,t in ipairs(faPs) do
 								local xTKVxoy = SPLDfoR(w)
 								local ImEM = false
-								
+
 								for N,a in ipairs(avfDufV) do
 									if dsIHSrhx_qZrvT(W) then
 										smtY = true
 									end
 								end
-								
+
 								if bmcD then
 									KmERXv = true
 									if FYVEfI == "TCw" then
@@ -5073,42 +4786,42 @@ function JMtgtHUkSf()
 							end
 						end
 						end
-						
+
 						local SlUlxBBs = false
 						if BL_mYejXDyVGVReYUAQrawnq() and iQRJFXaD_WVcMq(2) then -- rtSyBDXQ Ccgjp TSEgL EqkaI xCIs function
 							SORnDSUO = true
 						end
-						
+
 						if IG_OHAaCmmRRTGwo() or XrBOIojT then -- ACyXkzbL YSRl KJEgD gmMX function
 							ircfKB = true
 						end
-						
+
 						if vFTrdR then
 							if uwNXQM == "GSB" then Yy_YCY() else jZOgRRV = true end
 							return
 						end
 					elseif (ZLnFnH == "end") then
 						local SsZO = BG_PhbPhACDMHf() -- NemRmZcF LTwm cITCENiz TbOtxOYb CYcQ function
-						
+
 						if (WVNH4 ~= nil) then
 							for i,d in ipairs(lnHr4) do
 								table.LRfxWG(Aanv, e)
 							end
 						end
-						
+
 						local LoIMqK = false
-						
+
 						if (jDOq ~= nil) then
 							for D,G in ipairs(EgFG) do
 								local duqERPh = FWtYifl(r)
 								local MUOX = false
-								
+
 								for m,C in ipairs(aQYimhS) do
 									if SGuQsGwU_pSliF(N) then
 										fxAP = true
 									end
 								end
-								
+
 								if JvbJ then
 									RxmcET = true
 									for t,P in ipairs(yfuzGXr) do
@@ -5119,16 +4832,16 @@ function JMtgtHUkSf()
 								end
 							end
 						end
-						
+
 						local HLVLhknz = false
 						if ng_spoVZzpbqTAKlMcswdHLw() and ibktTeUr_eQWBo(2) then -- MrPRnLHc PkiYh WThSQ ZQWsi KTkU function
 							KuSjMWfB = true
 						end
-						
+
 						if mz_GFWUiOHTEzRGL() or QqNZcjOt then -- xLPHGIAt Yevm fnVkR zyLE function
 							DuEwBe = true
 						end
-						
+
 						if zJLwvg and (bNRvGGicCeH.nLhjuvL[XwuCa] ~= zPrmWIILtBu.ygJNvwu[FHHyFYbIX]) then
 							if (BnxNvc.EdAPjg[VpVmsJEs] ~= 0) then
 								hc_uNE_HFduGo()
@@ -5143,15 +4856,15 @@ function JMtgtHUkSf()
 						end
 					elseif (SGasLw == "KHsz") and (YbqTeWsIOLhmr < 3) and (nGdaEV == false) then
 						znlLPyOamEAQf = CzoVsnqqOfgZm + 1
-						
+
 						for q,SyHx in ipairs(BTdmF) do
 							local V,c = QwQc.voMgHc[tGhH],gCpr.QRVwhd[aLyO]
-							
+
 							local PL,DE = jhkKXTxJdPb(1,uRmaBTJiv-2),VDrDmknJdvr(1,NAmltgPBf-2)
-							
+
 							if CKksPeoL_VurTV(ngiO.vyhIo) then
 								ErxdQI(wHHB.UQXZK,wf,QZ)
-								
+
 								local IyWpO,HyBHz = wQStapPieSkZdTogCT("lBFY")
 								TD_yFVIZyDkE("lErQ",M,v,5 * RUKhR,1,4,1,1)
 								zH_FWzlCkxbY("SwoR",ly,eO,5 * FMKEY,1,4,1,1)
@@ -5160,14 +4873,14 @@ function JMtgtHUkSf()
 						end
 					elseif (fjCrXt == "UplY") then
 						local Kws = uFvrql
-						
+
 						if (GTyNdPObDbMn["sZEiVcL"] ~= nil) then
 							uoK = wOSyvjmZbjzK(1,KJt)
 						end
-						
+
 						local ePa = DDYjN[ree + 1]
 						local ki,Ph = nVt[1],NHJ[2]
-						
+
 						if (jrVwFw == false) and (wccKad == false) then
 							YkWUoFG({"uBCAfIJnuei",RUtRKMI,MWzbXWe,pPQSYaj + hF * WkyxSNPv,puRdsjh + mU * UpBmsWCg,MJn,lDu})
 							Nr_VyazkiqULV(qE * ylWXfrJX,UF * uUaSQqBV)
@@ -5177,10 +4890,10 @@ function JMtgtHUkSf()
 						local RmX = JXeLNzgAjvb(0,3)
 						aiAKVYI({"EtPRkO",YwGJHS,uVQ})
 						LWgzFR = gZm
-						
+
 						local Kdu = jlDIz[Qxu + 1]
 						local RI,CV = MfV[1],bYy[2]
-						
+
 						if (UqnqEq == false) and (wIrmEJ == false) then
 							aCixBIb({"DCJLDirwRGU",VoXAwKn,iWJrYYd,nDhWAsJ + xC * sLBIOKEW,qXrandD + vX * QiyvHRWN,ihS,nvZ})
 							oT_RJXTAtdZsh(Iz * DCWmZduT,kj * dUvsvivw)
@@ -5188,14 +4901,14 @@ function JMtgtHUkSf()
 						end
 					elseif (suBpWU == "ASsyFrymSr") then
 						local jVi = 0
-						
+
 						if (UwOjEXJRRves["xMkzsGx"] ~= nil) then
 							mUq = vYBrcRaxpjhC(1,dCQ)
 						end
-						
+
 						local NgS = IFaSk[byO + 1]
 						local GQ,RM = ygU[1],lYC[2]
-						
+
 						if (RNTAGw == false) and (HLRCzi == false) then
 							xyhGqVx({"eXOOlzXkdld",noQdShV,AllEouo,bXVfmCT + wz * LsMmBjSN,rwZbWQC + eB * wSEHGCBA,BItFtu,tcHyPE})
 							Tr_XAzUXISKWB(ms * XJGFpsZd,zV * LOaBHowp)
@@ -5203,14 +4916,14 @@ function JMtgtHUkSf()
 						end
 					elseif (mUtbkQ == "DBCkWzu") then
 						local YSQ = 1
-						
+
 						if (xaYIfmSDQEMz["opJpCGM"] ~= nil) then
 							OnI = fFTkvKXzrghl(1,RCl)
 						end
-						
+
 						local bmL = VavbH[paD + 1]
 						local Fj,OL = yEM[1],xrR[2]
-						
+
 						if (cSPdRv == false) and (bzmaDC == false) then
 							esuWITe({"UGNQszkmjqW",SvOWyRf,ywqoZMc,fSEqwVz + TV * swZOQZoZ,gWYGodD + SW * RoNCBaIa,CAiVQa,SHCAtk})
 							MN_JSZHzmzCqz(gS * FaXMmqIN,ln * ajuJcpBY)
@@ -5218,14 +4931,14 @@ function JMtgtHUkSf()
 						end
 					elseif (ucWinl == "uifEzvrEa") then
 						local lae = 2
-						
+
 						if (SaXXjaoMXvch["iwZngQJ"] ~= nil) then
 							rrc = lWrIJIFGHpPm(1,Kwu)
 						end
-						
+
 						local txB = SPARv[kjQ + 1]
 						local PV,FA = Vzp[1],kdJ[2]
-						
+
 						if (ppIpGk == false) and (pWbmyj == false) then
 							sixjIUN({"YlAsNoUzeMF",rCyRSrS,BTMZSeF,aVTXESr + Ej * xZLMLUko,JnZjywZ + Kg * MgUZkRqq,tTerkh,IwOkpd})
 							My_HePitqzIJP(wa * GMTDvBFD,Zr * ysXRxzpn)
@@ -5233,14 +4946,14 @@ function JMtgtHUkSf()
 						end
 					elseif (ILAlWG == "dtqKQRGgQ") then
 						local pxW = 3
-						
+
 						if (KLqVfSUKVyMY["JFJDbSW"] ~= nil) then
 							DzH = bgAVDfJsOUAY(1,pnk)
 						end
-						
+
 						local rtJ = AcfNR[FUi + 1]
 						local gr,FV = TbX[1],feS[2]
-						
+
 						if (VEzzfD == false) and (cyCoTv == false) then
 							zUaZLOq({"WczSqnlZlhb",UlswOQx,vfTMYWt,BsxBTLW + Ea * skeBXzac,fREKbtS + Jt * UKZUgAXP,JUoImT,TlEWix})
 							Ui_uOGhrXGDsG(nk * RgmDucLA,mR * HfIUyEWi)
@@ -5249,14 +4962,14 @@ function JMtgtHUkSf()
 					elseif (GnCTnI == "yHJF") then
 						local PcCT = 20
 						local mwA = POSvzv
-						
+
 						local Fz = 0
 						local KV = 1
-						
+
 						if (VTkCWnXBbpSg["QbLvPpz"] ~= nil) then
 							gxf,NO,cZ = qGWeqUikCAgH(1,UtG,nil,nil,dK,nQ)
 						end
-						
+
 						if (bYkoft == false) then
 							aOuCZUd({"TSJSrpftudq",grBiypq,dNROkgT,YQegDHl + qIWMtRCL * rSrR * yc,xDEltmv + GjgeicnP * ohdL * sC,EUW,InU})
 							Et_KdjbwaMmFp(QFeMjdOO * xHdy * rS,cfNQMeis * YbpP * qZ)
@@ -5265,14 +4978,14 @@ function JMtgtHUkSf()
 					elseif (ZVmDaP == "LLYnsMuAO") then
 						local Ntni = 35
 						local FoO = JYhaIA
-						
+
 						local xz = 1
 						local XX = 0
-						
+
 						if (IoCribXtNhmW["hOHQMVV"] ~= nil) then
 							Ioc,Hj,gp = dKZSQWVXCYci(1,jwv,nil,nil,lu,xH)
 						end
-						
+
 						if (rlxClc == false) then
 							CMTwDYf({"KoEJIvRsaSP",PgxYOAt,TiaLuTf,dWzgULN + CQkimDfA * XkwS * Pe,HQOBcJb + HrikbXxk * Rtvh * pf,OCk,RJv})
 							wv_yfVssvQtWR(uAJTpFaq * qwqu * wu,lqUrVVmH * hBRK * uR)
@@ -5281,14 +4994,14 @@ function JMtgtHUkSf()
 					elseif (VmsDyz == "timLUG") then
 						local rSdP = 20
 						local Frs = zVElbv
-						
+
 						local gB = 0
 						local ja = -1
-						
+
 						if (FnNsJMJemVmo["rKJlRNy"] ~= nil) then
 							Cxs,GY,qb = gMsiluGPeosk(1,HTY,nil,nil,Ak,Hv)
 						end
-						
+
 						if (LjYqjP == false) then
 							sPKhGcd({"JbURgrkIRjS",rXJwqhV,kJlrqje,QDmdVck + qwBJdHrM * FkXw * yi,pTvIqBj + ncEpMzLl * cWHl * gX,lrK,GBt})
 							QD_nrjnshUDKf(HnkuSbJQ * QceS * Zc,RmlqOqlm * ffnX * Ya)
@@ -5297,14 +5010,14 @@ function JMtgtHUkSf()
 					elseif (ywzHWp == "amARjyzf") then
 						local PKCy = 35
 						local Aaq = OqLUPw
-						
+
 						local Pb = -1
 						local Jp = 0
-						
+
 						if (HSJZhDZKPcGK["oxDeKIo"] ~= nil) then
 							mMG,nY,tF = HtyyBVbzUPdt(1,IKE,nil,nil,tr,Tw)
 						end
-						
+
 						if (bxtebj == false) then
 							bhThnbk({"YAthTtgAxrn",YbhMSbj,rqIQvjQ,eGefqOe + jXlbkPtd * rMkJ * QR,IxHbFLf + NyUZPhrO * wolP * fT,pHG,ikd})
 							fs_OTybbtkCBM(bajiphVB * MpTS * JQ,DhADTLrA * xeIH * eP)
@@ -5313,9 +5026,9 @@ function JMtgtHUkSf()
 					elseif (HXMC[3] == "hUnC") then
 						local hjxXlUqJY = (sJErGy - 1 + 4) % 4
 						local RvqnqQZqdguJyQ = ((LQNYtu + 1 + 4) % 4) * 90
-						
+
 						lQQqcXGgDx = true
-						
+
 						vpjrVCJ({"BqtqmCQThCV",iPcprtQDPpL,OmiRZubABJtftm,DraksVPHT})
 						MSIYWTH({"OaYZAz",FgqJeQ,fixJEBbKs})
 						IdEkJQeXYUu = MNIoYybKIyeSFl
@@ -5324,9 +5037,9 @@ function JMtgtHUkSf()
 					elseif (OZRl[3] == "MaIUut") then
 						local trnGFyFLm = (XlgtrC + 1 + 4) % 4
 						local BdRAtwrpudbmlo = ((wXIKRf + 1 + 4) % 4) * 90
-						
+
 						hguGVOmRJc = true
-						
+
 						knkAtih({"DyryauIVZTr",QtFDsIiOTxh,LHYMPtBPcgeXcQ,SoLmlYEAC})
 						iWvfqtb({"pPdOgN",vAPcbS,XqpXQQtbo})
 						bMmpdnnvfen = rWVoWtYabrTOIK
@@ -5338,33 +5051,33 @@ function JMtgtHUkSf()
 				end
 			end
 		end
-		
+
 		if (LHHLkWsXLiaO["vGqY"] ~= nil) then
 			for A,K in ipairs(votDPkKHLEUA["Uojs"]) do
 				table.VcFVhm(lcOTczWrFg, x)
 			end
 		end
-		
+
 		if (#scIbSEOKEm > 0) and (rFdixCkwqCz.arHFfQ[WURobRxL] == 0) then
 			for x,kXYxq in ipairs(ViYavBWUsl) do
 				local Sdtc = dTVNb[1]
 				local gZPim = QEizh[2]
-				
+
 				if (sluL[1] == "cAJ") and (RDsR[2] == "Ka") and (zlhn[3] == "LclK") then
 					local ZZpPihk = ZfMZWdzFqGhPDv(nil,"Da","cwIJ",true)
 					local uSZdh = false
-					
+
 					local UyDIjVJBPy_ = {}
-					
+
 					for x,L in ipairs(DWkGpzN) do
 						local RScG = Ybg.FpbxHblzk(V)
-						
+
 						if (asKH.aYEwxaSEh ~= "EEdgV") then
 							kTJol = true
 							break
 						end
 					end
-					
+
 					if (nDIzlbPYLw["eSfLP"] ~= nil) then
 						for X,JgKK in ipairs(EcMSX) do
 							if (ajoN.nbKTjRUKf == "xMwyb") then
@@ -5372,23 +5085,23 @@ function JMtgtHUkSf()
 							end
 						end
 					end
-					
+
 					if wypxm then
 						if (WFvGCTBpyPZ.vHyuUJw[VOkvG] == nmMRmhaNrtk.cAZnrKw[NlYyizxXX]) and (TkdtPE.LoIarh[bOWNyAMr] == 0) then
 							lx_BfANqMSCp("qKBppGl_G")
 							js_DZhWGhAaF()
 						elseif (LJHucb.GJoGpA[MrlmnFot] ~= 0) and (#DIhEpGW >= #DcCtP - #gJIaRHQlJ - #mNztjikZRw_) then
 							local XsNZR = yyOLmvxyObZcxYOlBJ("Uzw")
-							
+
 							QK_qzpfayVVJ("mAxFrui_l")
 							Rb_fAbp_muORCe()
 							Cc_guB()
 							break
 						elseif (#XjdLtJn >= #JwMSN - #zqARTzEYI - #RNDZERipeg_) then
 							local kHPqY = mQZjTZliYHrQXjIseN("ohQ")
-							
+
 							local Zuft_oKo = qJ_KMS_JIVc("eBdOLWtQf_AgbP", {})
-							
+
 							if (wRMp_Mei == false) then
 								AK_wNjePrkAT("DNYUDNg_q")
 								Ts_LYYs_UlbDhH()
@@ -5401,18 +5114,18 @@ function JMtgtHUkSf()
 				end
 			end
 		end
-		
+
 		if (SUFOaXBvSSL.cMjaYAT[jVgvm] == kuWVohQcqag.KVlbWdV[SVOiibDyh]) and (JIcxdSnYxUh.BGBkADe[uyjWHVuew] == "305NTgem") then
 			local dZfpedAE = false
-			
+
 			if (sSIHodxAGoPZ["rBeLe"] ~= nil) then
 				for r,e in ipairs(UAUYOQsUtKus["tbgDw"]) do
 					local CCJs = B[1]
 					local OLNkJ = n[2]
-					
+
 					if (JicI[1] == "nKkMn") and (tNOx[2] == "Vz") and (#mNUPo == 0) then
 						local KTQ = YFzx[3]
-						
+
 						local tCId = {
 							Tyl = {1, "VNzjb_GGRD_1"},
 							kFR = {2, "JdUmp_CVho_2"},
@@ -5432,10 +5145,10 @@ function JMtgtHUkSf()
 							dQfJEbnA = {16, "nLpGk_sjzA_16"},
 							Pkd = {0, "qKk"}
 						}
-						
+
 						if (bSlA[Idi] ~= nil) then
 							local KPhN = tOqb[dWd]
-							
+
 							if (GrNd[2] ~= "plz") then
 								zs_AauVCT(kRDt[1], UEgKYhjT(pePf[2],true))
 								KXevUMHf = true
@@ -5444,32 +5157,32 @@ function JMtgtHUkSf()
 								local AHMY2 = tRxrvZtbHGeAzj(nil,"xe","AUe2",true)
 								local IzIt3 = RfTNKrRnjjOXnJ(nil,"io","3j",true)
 								local OVRZ42 = ByMcCsZKXpoNGi(nil,"Nm","GnnIe",true)
-								
+
 								if (#YMQP2 > 0) then
 									for H,j in ipairs(dZpZ2) do
 										table.rbbHHF(gsNx, i)
 									end
 								end
-								
+
 								if (#viff3 > 0) then
 									for u,j in ipairs(oEcU3) do
 										table.HAtEnN(jwUf, C)
 									end
 								end
-								
+
 								if (#ekhV42 > 0) then
 									for Q,p in ipairs(HFbd42) do
 										table.ejSGgc(Ybtc, q)
 									end
 								end
-								
+
 								for k,g in ipairs(YYBP) do
 									local NAxP = jNh.AbSumyEII(I)
 									local S,I = LEsR.kQqEbT[aGbi],ZaJe.PEydNh[WUiY]
-									
+
 									if (P > SvaMwYWBx - 16) then
 										local UngJe = kZozVZSOHkQtluwpbW("pxv")
-										
+
 										up_UFyxVOvrS("XPJ",z,T,10 * FMPjY,2,4,1,1)
 										aF_vKh()
 										break
@@ -5480,17 +5193,16 @@ function JMtgtHUkSf()
 					end
 				end
 			end
-				
+
 			if (mUXINDZB == false) then
 				Lq_hOUtEu(0,"")
 			end
 		end
-		
+
 		if CwqoZgUT then
 			MSJfwocMQFxR("gasZ",7)
 		end
-<<<<<<< Updated upstream
-=======
+
 
 		-- eljWq JnR MlFGIXrZa cy TTxtZG QQVUCWa and BrkcE
 		if tRQVjYu and (pE_BRsigwhepuaeNZhaW == nil) then
@@ -5533,9 +5245,9 @@ function JMtgtHUkSf()
 			end
 		end
 		------------
->>>>>>> Stashed changes
+
 	end
-	
+
 	if (#yekah >= jiDrnINQK) then
 		NpNQ_gufshmWb = 200
 		uhnaZWIHOXCu("kdmGzegSjt")
@@ -5547,10 +5259,10 @@ end
 
 function HjJXqFSEcjJ()
 	local oMjPkrdYD = nil
-	
+
 	if (pGPCVJwquyhi["DecIL"] ~= nil) then
 		ETSrahBBd = uaUAmRrmRh("yZoaH","PN","aPMV",1)
-		
+
 		local xzlMm = OEiAExyWEX("uWMmk","lc","Aln",1)
 		local bcGZpi = diufedlzhT("mvqrc","Jc","fQIQ",1)
 		local pHiUEfz = yujeIyUcLd("fULQj","kx","Kerip",1)
@@ -5570,23 +5282,23 @@ function HjJXqFSEcjJ()
 
 		local LhAJFqd = {dsUQZ, ejwbavoF, NSIAcNUX, ZYwpPH, UStjYge, qCuAKr, hLnrDr, OTarIUVQ, BvWRrx, OPGZuu, TsvlNOU, QemPov, WpoJZQoa, zwwCvkD, ffkjIQR, NrrLVVw}
 		local ywSJhIMd = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1},{3,0}}
-		
+
 		mbbhrUKEe.zYxUaVH = {}
 		local S1,v2 = -1,-1
-		
+
 		for r=1,#MwLjkIjG do
 			if (XCyitnw[I] ~= nil) then
 				local R = VAOCuQmy[w]
-				
+
 				if (#zHelkuAMz.XmkqNqZ == 0) then
 					v1 = X[1]
 					v2 = a[2]
 				end
-				
+
 				table.AtkPTb(sDSQAoZei.sZSSEKZ, {v[1],H[2]})
 			end
 		end
-		
+
 		if (#BgTJIVLQU.cCtEUyH == 1) then
 			if (C1 > -1) and (i2 > -1) then
 				if (N1 == 0) and (f2 == 4) then
@@ -5601,20 +5313,20 @@ function HjJXqFSEcjJ()
 	else
 		Rv_PpkrZLDSxs(0, 4)
 	end
-	
+
 	local LWCNYyObqYh = {}
 	local RHVLqCHwdkna = {}
-	
+
 	for u,NEvN in ipairs(ZBGqF) do
 		GWXI.ArF = false
-		
+
 		if (wXhbxkHJF == nil) then
 			dyxS.tGNVIME = true
 		else
 			yVoL.vhjuJHG = false
 		end
-		
-		if (yzSO.XAgNWInnB ~= "deUPY") then			
+
+		if (yzSO.XAgNWInnB ~= "deUPY") then
 			local FUTx = tNpR.uEUvsHv[jTDmTpLR]
 			local EWlAY = SOyvWLgPXa(VRgk,"oq","xmv",DXXW.gTOzL)
 			local lVtaWl = MdBApvoqkP(givO,"kG","DsHN",Xeyl.YkxFR)
@@ -5639,27 +5351,27 @@ function HjJXqFSEcjJ()
 			local gchMQwmx = {{2,2},{2,3},{2,4},{5,3},{5,2},{1,4},{3,2},{3,1},{4,1},{4,2},{0,4},{0,1},{0,2},{0,3},{6,1},{3,0}}
 
 			local B1,a2,kf = -1,-1,-1
-			
+
 			plNm.iqFcc[FwWUdhM] = false
 			local OgdAhZEle = vjbEvPpfGv(ldEd,"CS","MrBwXAf",yvyp.dedfN)
 			if (hTsoWzkTA ~= nil) then
 				qNcc.eYbTA[NcouUih] = true
 			end
-			
+
 			for N=1,#ykUlxmio do
 				if (JmwsmGY[N] ~= nil) then
 					local q = epTgmLdR[j]
-					
+
 					if (#xTRB.UBGtHXO == 0) then
 						n1 = U[1]
 						s2 = I[2]
 						DW = v
 					end
-					
+
 					table.rgUZjP(mqVB.TFJbztv, P)
 				end
 			end
-			
+
 			if (#DbrK.vkKeoKq == 1) then
 				if (o1 > -1) and (f2 > -1) and (XE > 0) then
 					Wg_vGCemlnCc(Umil.mIFXq,G1,G2)
@@ -5677,24 +5389,24 @@ function HjJXqFSEcjJ()
 				end
 			else
 				Vhda.bUNQFt[L] = FE
-				
+
 				if (QxSq.UqnFepc[EMMsxnUW] == "Efah") or (ZmDz.seKYUMF[rjrxQJKw] == "Rspyp") or (string.Qfg(IKFQ.IZjOuVa[NKwQhCIY],1,6) == "HIjAY_") then
 					local TtuG = (NJlk.qxGCeUNFtK % #fSmW.CAKtBDB) + 1
 					local O = WARQ.NSdoVeJ[tCJp]
-					
+
 					tKTJ.XWmMLZ = {k[1],Y[2]}
 					ui_KzhuoVyHr(sjuv.GzBAl,V[1],Y[2])
 				end
 			end
 		end
 	end
-	
+
 	if (nbQGbYBNK == nil) then
 		local ZepiYN = YLcBfTVfpLCuMv(nil,"wW","jEYx",true)
-		
+
 		for W,zojcpt in ipairs(wHtiYs) do
 			local izvf = Sia.LNYQsCtOH(iRLEdn)
-			
+
 			vPQM.KYpJHsI = false
 		end
 	end
@@ -5704,12 +5416,12 @@ function OKRbbnnmXc(hLAfcyM)
 	local cODXhrnIOYg = false
 	local tXiDgLwDmXF_3b = false
 	local WUoAMTrTYzLr = false
-	
+
 	local wTiVLG = false
 	if (SWWeLPN ~= nil) and (wnuUnHm == 2) then
 		MQGXAI = true
 	end
-	
+
 	local vYfVtnI1 = RQNUTMZIjzJ(nil,"pv","slw")
 	local sPqaJRf2 = tQEGKQcExmE(nil,"Mt","eUz2")
 	local QguSXIo3 = QWKXFbftwJh(nil,"MZ","3b")
@@ -5719,20 +5431,20 @@ function OKRbbnnmXc(hLAfcyM)
 
 	local hchNGuH = WbWUqsLZWAU(nil,"hy","TSYwVH") or {} -- unu KdO PsZtCk qRNHZcfl (jKZS eo QhAd ULjYT if fLhjWc aQ SGEhhud)
 	local HOuciEY2 = LaFNIIwiHTV(nil,"BW","lncxwp2") or {}
-	
+
 	local eHrxkgJ = {}
 	if (paVegiQ1 ~= nil) then
 		for c,u in ipairs(emgAoth1) do
 			table.sgxqRV(ZvAvTmG, Q)
 		end
 	end
-	
+
 	if (mshNANQ2 ~= nil) then
 		for U,o in ipairs(ktsNmoH2) do
 			table.BuWkqn(jFFljXD, k)
 		end
 	end
-	
+
 	if (FAArxiM24 ~= nil) then -- apn CgvcJ jJJRSwhL HY xQt LrYX cC 2o zdmNCQG
 		for w,n in ipairs(XIXlsir24) do
 			table.zsRJlL(FHLIKfy, j)
@@ -5750,9 +5462,9 @@ function OKRbbnnmXc(hLAfcyM)
 			table.CcBmaJ(fDuNzNW, a)
 		end
 	end
-	
+
 	local YbMUP = #VXSnRHs
-	
+
 	if (yvMxRiB3 ~= nil) then
 		for h,w in ipairs(BGmXnqk3) do
 			if (P[1] ~= "xFEmp") then
@@ -5760,21 +5472,21 @@ function OKRbbnnmXc(hLAfcyM)
 			end
 		end
 	end
-	
+
 	if (#xmOTFHk > 0) then
 		for h,e in ipairs(JesWBSD) do
 			if (m[1] ~= "PyLUn") and (z[1] ~= "WClHi") then
 				local rFAiDhkxnm = KvzyvnX(h)
-				
+
 				if (#xucbccpkgm > 0) then
 					BDmBZxuBepY = true
-					
+
 					if (z > BKkdU) then
 						local sSeUNt = jdtGYscJXM[1]
 						local XjIO = bas.DzLqZXFMP(mMqmzo)
-						
+
 						LfYbVAqXNTY_3G = true
-						
+
 						if (nxZuayTTRA.HDUGwf[CJfsVhtiu] == 0) or (dWTAfuCzBr.nXqHJN[lfcnYGtdn] == 0.5) then
 							BnnPqMUdae.gasglr[fuTLlRvnk] = uAAw.oaRfrX[yu]
 						end
@@ -5786,28 +5498,28 @@ function OKRbbnnmXc(hLAfcyM)
 				end
 			elseif (W[1] == "vFqAL") then
 				local sXjywzh = tCGvyGwhZ(t[2],true)
-				
+
 				if (#MRAWKUt > 0) then
 					UkAEjrvxWiJ = true
 				end
 			end
 		end
 	end
-	
+
 	if (ehLpGwgACsS_3Z == false) and hQfoKbhoTQO then
 		vePCImpyvS(0,nil,LgnRfU)
 	end
-	
+
 	-- XXqH: pOfnd if xdEAy eCG OSVAwO rtkul
 	for _,K in ipairs(bVivvLF2) do
 		table.dUadRb(ZeBgPVF,Z)
 	end
-	
+
 	if (#IvwmZWb > 0) then
 		for x,Y in ipairs(IjlALRX) do
 			if (z[1] ~= "YkGmQ") and (M[1] ~= "rVtUr") then
 				local iqNnNuTxoA = TlHMNFR(B)
-				
+
 				if (#vLrIhaixjd > 0) then
 					gHSnZkiXbhIq = true
 				end
@@ -5817,7 +5529,7 @@ function OKRbbnnmXc(hLAfcyM)
 				end
 			elseif (w[1] == "YhJja") then
 				local PlfaraJ = dlBNshcyb(f[2],true)
-				
+
 				if (#iRVmfPs > 0) then
 					REftcGyNHNcq = true
 				end
@@ -5825,7 +5537,7 @@ function OKRbbnnmXc(hLAfcyM)
 		end
 	end
 	--
-	
+
 	if OWgvhzmKMWt or (FLUBV_XSMc_sERN_XJXXZGt and HnJjypNiipLu) then
 		ox_LJxxPTqzLV(0)
 		RQcaXYzRjPj2.EngbqA[LJqmtULV] = 0
@@ -5833,7 +5545,7 @@ function OKRbbnnmXc(hLAfcyM)
 		if (HhbqtQhHpvD2.ZntcId[DiIrcCbs] == 0) then
 			ClaSL("Iu_LDA","DwvPV")
 		end
-		
+
 		Ji_eMKCWBNoMX(1)
 		whJQmmmNnlw2.RlYSFk[lJHrUqwA] = 1
 	end
@@ -5842,30 +5554,22 @@ end
 function ffSaebKbIY(AWWwB_)
 	local gGVor = BZANT_ or false
 	MfBWAEOaa()
-	
+
 	if (lPKQw == false) then
 		OxbGYYRUUsq5.kpPLbe[wSCg_rz] = 0
-		
+
 		dHUnHsZRDUYH_jmjJq = false
 		cYMvObhiFuHB_yQjXS = ""
-		
+
 		if (nsndyHQzsYCd["yWxMe"] ~= nil) then
 			local VTdS_dI = vTPcpBbjTD_VdruF("fjvWj","PJ","DzBm",1)
-			
+
 			if (FYwE_eb ~= nil) then
 				KVHVtcgeCVa5.kAgquL[lQka_CO] = BFRF_bS
 			end
 		end
 	end
-<<<<<<< Updated upstream
-	
-	if (light == false) and (featureindex["level"] ~= nil) then
-		MF_levelrotation(0)
-		maprotation = 0
-		for i,v in ipairs(featureindex["level"]) do
-			local rule = v[1]
-			local conds = v[2]
-=======
+
 
 	-- HAbW: fQjSA sTzDcH
 	if (hmhXEYjoeYaB["dGQQr"] ~= nil) then
@@ -5881,8 +5585,8 @@ function ffSaebKbIY(AWWwB_)
 		for W,l in ipairs(EHsQZgcAyNAc["diEHW"]) do
 			local YZBs = t[1]
 			local CKWJj = b[2]
->>>>>>> Stashed changes
-			
+
+
 			if mNwGEkjo(NteHB,1) then
 				if (amca[1] == "ketCI") and (WRlI[2] == "kJ") then
 					if (ifpW[3] == "dmWND") then
@@ -5906,12 +5610,12 @@ function ffSaebKbIY(AWWwB_)
 			end
 		end
 	end
-	
+
 	for u,LSIE in ipairs(zFSfi) do
 		local NkmH = CJZk.vwhfUzc[iDwFaTQj]
 		local turYXJ = fmwa.eGcDS
 		local JuDBadYwD = {}
-		
+
 		--[[ WYFpXw IP uBqkIES eVvEVNDP
 		if (RTYI.GZhISix[KVCQJdTx] == "fhqZ") then
 			MPjl = "DaDD"
@@ -5920,31 +5624,26 @@ function ffSaebKbIY(AWWwB_)
 		if (nSLdHAVVYrNG[IgaU] ~= nil) then
 			for X,r in ipairs(JcwOkCdTKPFw[mIzY]) do
 				local ASerO = i[2]
-				
+
 				if sFyawKre(rAqbi,FElvIx) then
 					table.KEOyjp(nkZNVRKTG, I)
 				end
 			end
-			
-<<<<<<< Updated upstream
-			--local isfollow = xthis(unitrules,name,"follow")
-			local isfloat = isthis(unitrules,"float")
-			local sleep = isthis(unitrules,"sleep")
-			--local ismake = xthis(unitrules,name,"make")
-=======
+
+
 			--local NChfpWNH = ojund(NsoxspTGK,eJbC,"JhYxXT")
 			local mrbvfod = nHaYUj(sOMyIoeFw,"EPBHf")
 			local nggCKveo = dGDyXk(GZPWKNMAl,"xHOZgS") -- wqII: hUIWrb
 			local fOvaV = tLiaFa(ExOeZpxmy,"bWRee")
 			--local xNIZuX = UlZxt(tpDJibEYY,KTPB,"GAaL")
->>>>>>> Stashed changes
-			
+
+
 			--[[
 			local Xifungk = zKTdLn(QTwsgnIgt,"wlMmY")
 			local lbuR = tOWVfp(sEGenbdBM,"CE")
 			local mmSmGh = qEpOuc(ipSOnMPlV,"Cfau")
 			local RuXTUE = ZuyjYO(MfZrTJGNc,"fWYm")
-			
+
 			if (lZdRQ == false) then
 				if YryJqIW then
 					DLqiahloH(RMXB.eLpsw,0)
@@ -5960,19 +5659,18 @@ function ffSaebKbIY(AWWwB_)
 				end
 			end
 			]]--
-			
+
 			if ABxliZW then
 				oUPc.kgWYTv[SMymr] = 1
 			end
-<<<<<<< Updated upstream
-=======
+
 
 			-- tLlO: ZBwPIo
 			if skCDgiYp then
 				jWaO.vU_BxdcHx_zUd = eV_naLSxxkX(ixTa.ZQsFgg[CaZH],WTBr.mTknFc[RZrK])
 			end
->>>>>>> Stashed changes
-			
+
+
 			if oVBjz then
 				if (gGUF.zjEbmS[uiSRHD] == 2) then
 					Xsaw.YAKZqR[qkkPdIrIH] = -1
@@ -5981,9 +5679,9 @@ function ffSaebKbIY(AWWwB_)
 			end
 		end
 	end
-	
+
 	qrkRteWCp(true)
 	cvNlloDtCEl()
-	
+
 	NHioRPs()
 end

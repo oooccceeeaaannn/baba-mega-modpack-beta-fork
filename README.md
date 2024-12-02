@@ -1,32 +1,26 @@
-<<<<<<< Updated upstream
-# Baba Is You - The MEGA MODPACK (UNOFFICIAL Beta branch)
-=======
+
 # Baba Is You - The MEGA MODPACK
 
 <sub>~~(Yes I know a totally inspired name. I couldn't think of another name for this abomination)~~<sub>
->>>>>>> Stashed changes
+
 
 This...... is a big one. A **BIG** modpack that merges several (curated) Baba Is You mods from various people into one GIANT (mostly working) MODPACK.
 
 ## But first, a (serious) disclaimer...
-<<<<<<< Updated upstream
-I am not motivated AT ALL to maintain the UNOFFICIAL Beta branch of the Mega Modpack. Therefore, expect it to rarely update. (Like, maybe a 10-year hiatus.)
-=======
+
 The Mega Modpack was done more for experimental reasons compared to [my main modpack](https://github.com/PlasmaFlare/plasma-baba-mods). As such, I am not as motivated to maintain the Mega Modpack when it comes to fixing all bugs and odd behaviors between mods. Therefore, expect there to be many bugs here and there. This is what you get when you try to combine code from different independent authors, without the luxury of coordinating between said authors like in an organized company.
 
 When it comes to deciding which mods to merge, there will be several restrictions to prevent myself from being overwhelmed. Please note that if I didn't include your mod, it's **not** because I hate it. It's because adding more mods to this huge modpack can increase the risk for more bugs and add more tedium when maintaining the code. I have to be careful in choosing interesting mods that don't render the modpack too difficult to manage.
->>>>>>> Stashed changes
+
 
 ## Alright, serious time over! Where are the goods?!
 ### [Download the modpack in the Releases Section!](https://github.com/PlasmaFlare/baba-mega-modpack/releases)
 
 **Compatable Baba version: 478f on PC**
 
-<<<<<<< Updated upstream
-The beta branch currently includes these mods (author handles are from discord):
-=======
+
 The main version currently includes these mods (author handles are from discord):
->>>>>>> Stashed changes
+
 - [Plasma's Modpack](https://github.com/PlasmaFlare/plasma-baba-mods) - By PlasmaFlare (@plasmaflare)
 - [Patashu's Modpack](https://github.com/Patashu/Baba-is-You-Pata-Redux-Mods) - By Patashu (@patashu)
 - Persist (From the levelpack "Persistence") - By Randomizer (@randomizer)
@@ -48,11 +42,9 @@ The main version currently includes these mods (author handles are from discord)
 # Where do I report bugs?
 Feel free to submit an issue to this Github repository to report bugs.
 
-<<<<<<< Updated upstream
-You can also report bugs by dm-ing @someone112358 in discord, which is my personal account. If you are on the [Baba Is You Discord](https://discord.gg/GGbUUse), you can also report bugs in #asset-is-make.
-=======
+
 If you are on the [Baba Is You Discord](https://discord.gg/GGbUUse), you can also report bugs in [#mega-modpack-bugs](https://discord.com/channels/556333985882439680/971375736713773076), which is a thread of #asset-is-make. You can also report bugs in #asset-is-make, but I recommend the first channel just to avoid spamming the other channels.
->>>>>>> Stashed changes
+
 
 
 # Changelog

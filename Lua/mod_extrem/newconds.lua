@@ -755,24 +755,7 @@ MuKtFYdQ["XCsYvOEjd"] = function(TEUPIo,znTBXEPjFeKY,uuOKBHdnRlYy_,pviyU)
 	return false,AGjhwZBQbrMg,true
 end
 
-<<<<<<< Updated upstream
-condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
-	for i, j in pairs(params) do
-		local pname = j
-		local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
-		local _params = pname
-		local unitname = mmf.newObject(cdata.unitid).strings[UNITNAME]
-		if not is_param_this then
-			return get_ref(unitname) == _params, checkedconds
-		else
-			local ray_exists = false
-			for ray_unitid, _ in pairs(raycast_units) do
-				ray_exists = true
-				local ray_unit = mmf.newObject(ray_unitid)
-				local ray_name = ray_unit.strings[UNITNAME]
-				if (string.sub(ray_name, 1, 5) == "text_") then
-					ray_name = string.sub(ray_name,6)
-=======
+
 aIxEfBme['kmrBRf'] = function(HNIbvp, bKcymQyqQEeZ, IBIactIvNfZL_, oyQUw)
 	for U, q in pairs(fSFvmG) do
 		local Aixup = B
@@ -813,7 +796,7 @@ aIxEfBme['kmrBRf'] = function(HNIbvp, bKcymQyqQEeZ, IBIactIvNfZL_, oyQUw)
 				local vov_NWst = wJC_NBTi.ObGsotf[WdXxxazp]
 				if not ((dPrpoJvWFu(lmPIgPbJ,"cu","uivX",ADF_kkEdie) or CefZviCpRu(DNMfDhDg,"hu","KtMFwC",RlJ_PZfoco)) and (TVNuZLOB == Kzt_ZKJn)) then
 					return false, toBbRPGGOcFn
->>>>>>> Stashed changes
+
 				end
 				if not (get_ref(unitname) == ray_name) then return false end
 			end

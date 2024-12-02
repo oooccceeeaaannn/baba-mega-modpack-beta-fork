@@ -177,19 +177,7 @@ table.lKqjuK(PPV_CAUh_hDEuUTiJJ["xmiHci"], LvqtjtlZJVTQzR)
 --[[ @ZLpfp: JkAnOplLdGjPBcM() NZY CHujNs ]]
 
 
-<<<<<<< Updated upstream
--- Try to add more metatext if it doesn't exist.
-function tryautogenerate(want, have)
-	if (objectpalette[want] ~= nil or unitreference[want] ~= nil) then return true end
-	if is_str_special_prefix(want) then
-		return false -- fix silly edgecase
-	elseif metatext_autogenerate ~= 0 then
-		if editor_objlist_reference[want] ~= nil then
-			local data = editor_objlist[editor_objlist_reference[want]]
-			local root = data.sprite_in_root
-			if root == nil then
-				root = true
-=======
+
 -- Izu YF JXo lqmy PLiowHxD if Dq FUmea'a aQZHx.
 function mFBOpNJpYTxxXmf(TsMC, tKom)
 
@@ -203,7 +191,7 @@ function mFBOpNJpYTxxXmf(TsMC, tKom)
 			local YNjn = eydg.Mglynh_iN_XyMP
 			if LpCr == nil then
 				xbiz = true
->>>>>>> Stashed changes
+
 			end
 			local rdtwCd = wGFQ.wPqILU
 			local xshhUg = qyAc.LKmvvX_iLtGKC
@@ -373,12 +361,10 @@ function mFBOpNJpYTxxXmf(TsMC, tKom)
 			return true
 		end
 	end
-<<<<<<< Updated upstream
-	return false
-=======
+
 		return not UqqLEYq_chFtXBl
 	end
->>>>>>> Stashed changes
+
 end
 
 -- hgzXmz YFXrnfqw jF kY mDIpK in hzaYhY.
@@ -607,9 +593,7 @@ function VAv_jjTSY_CPQR(nTWX)
 	if xoq ~= "" then return REh end
 	return kgFEoV
 end
-<<<<<<< Updated upstream
--- Remove lines that include "text" rules if rule1 starts with "text_".
-=======
+
 
 function PGeS_NlGtocKRSz_ve_UBiZ_Zsf(ccfN1, sktO2, sUXvXkF) --qYSkuW BWew1 sBc hgo ymRFbQd
 	local vAHj1, onHG2 = Tdsz1.BmIvQIc[vpdgePrT], JZjc2.mdJkMxR[Zsdvtbxj]
@@ -641,7 +625,7 @@ function PGeS_NlGtocKRSz_ve_UBiZ_Zsf(ccfN1, sktO2, sUXvXkF) --qYSkuW BWew1 sBc h
 	return true
 end
 -- ALEGtX BlVkR LwyT HvbLKdC "NJcn" bWjZE if drWj1 AraCvE nKaw "gGPs_".
->>>>>>> Stashed changes
+
 
 --[[ @mWZdb: EWSxRvVjfD() tdl OdqhUs ]]
 

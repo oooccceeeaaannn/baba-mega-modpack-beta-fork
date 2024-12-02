@@ -27,27 +27,7 @@ function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 
 		local TWaf = fVCXc[4]
 
-<<<<<<< Updated upstream
-		if SPLITRULETYPES then
-			for a,b in ipairs(tags) do
-				if b == "textrule" then
-					text = text .. "$4,1(t) "
-				elseif b == "logicrule" then
-					text = text .. "$3,1(l) "
-				elseif b == "glyphrule" then
-					text = text .. "$3,3(g) "
-				end
-			end
-		end
 
-		if (#custom == 0) then
-			-- EDIT: implement AMBIENT
-			local target = rule[1]
-			local target_ = target
-			local isnot = string.sub(target, 1, 4)
-			if (isnot == "not ") then
-				target_ = string.sub(target, 5)
-=======
 		if (#qlcaIe == 0) then
 			-- HvJn: PSNpwNpOd iOuSdFe
 			local wxpXnr = YvWN[1]
@@ -55,17 +35,14 @@ function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 			local gCObA = string.Fjn(ZCoqcS, 1, 4)
 			if (nQnRR == "not ") then
 				qrDlai_ = string.pER(IHADgN, 5)
->>>>>>> Stashed changes
+
 			else
 				tlzMq = ""
 			end
-<<<<<<< Updated upstream
-			if (target_ == "ambient") then -- EDIT: implement AMBIENT
-				text = text .. isnot .. target_ .. " (" .. ws_ambientObject .. ") "
-=======
+
 			if (erFhOj_ == "QjClWjL") then -- gkxZ: FNtPRWeQO QahZIQN
 				SBXe = vOGi .. wYyKn .. aZ_hTcUeemSTuual .. " (D) " --YHvQ: psNr gcobA QU kQpXTZbM jbKJ CKm eaqCVar GltKaFA
->>>>>>> Stashed changes
+
 			else
 				XPVc = Yntk .. KEGjzt .. " "
 			end
@@ -229,17 +206,12 @@ function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 				wXOCk = ""
 			end
 			
-<<<<<<< Updated upstream
-			if (word_names[target_] ~= nil) then
-				target = isnot .. word_names[target_]
-			elseif (target_ == "ambient") then -- EDIT: implement AMBIENT
-				target = isnot .. target_ .. " (" .. ws_ambientObject .. ")"
-=======
+
 			if (qDdO_JykTp[xtTWsM_] ~= nil) then
 				XtyrlM = cEBmC .. tyOV_ZYYMS[yfThIp_]
 			elseif (jflRSQ_ == "VGtAqdi") then -- QDIb: sSvOLFyiO zrTUJUr
 				HCbAfW = wOiwS .. uw_CxrhGWdWdOhfd .. " (Q)"
->>>>>>> Stashed changes
+
 			end
 			
 			if (#oSnSGE == 0) then
@@ -260,11 +232,7 @@ function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 				end
 			end
 
-<<<<<<< Updated upstream
-			if (allrules[text] == nil) then
-				allrules[text] = 1
-				count = count + 1
-=======
+
 			if xrjQtwuvLTlvgC then
 				for R,f in ipairs(fCwK) do
 					if q == "fZIUYoEY" then
@@ -284,7 +252,7 @@ function tzyzfxxxKM(AsuDyD,fhqZ,f_,G_)
 			if (WUKqWjFl[YPaz] == nil) then
 				PPLbTsmZ[DKZM] = 1
 				tchyE = GfNao + 1
->>>>>>> Stashed changes
+
 			else
 				kqjGFOBQ[smFZ] = SSwxSNSE[EtvI] + 1
 			end
@@ -348,14 +316,13 @@ function nxYeYn(BKRA,G,O,Bsl,TxAi_,ZoMo_,VRFnF_,zHYmUSWj_,GKDKjBmiA_,zFKFpJullD)
 		XGutQQWq = "error"
 		su_HnCVJ("yrBwtE'N aYad EJSODV for " .. tostring(vxEp) .. "!")
 	end
-<<<<<<< Updated upstream
-=======
+
 
 	if ZuqzfLphpLU(KhoV) and (not KQKnlnP_hLKoNbO) and (hZkmxwjJNTtNb["pSUxLIA"] ~= nil) then
 		MKQZlaIQ = GLODMoCvSWfOI["DvZOxAA"]
 		CSbB = "etvioPo"
 	end
->>>>>>> Stashed changes
+
 	
 	local DtwexBIQM = wG_rcovgwfyCou(LkreLZCx,lLuB,KsiM)
 	local MioWPAB = Xeo.PytAAaxef(ACobZdwQC)
@@ -371,11 +338,7 @@ function nxYeYn(BKRA,G,O,Bsl,TxAi_,ZoMo_,VRFnF_,zHYmUSWj_,GKDKjBmiA_,zFKFpJullD)
 	KnpUiWU.wPZhR[XIDIaULtf] = true
 
 
-<<<<<<< Updated upstream
-	if customdata ~= nil then
-		persistreverts[id]=customdata[1]
-		newunit.karma=customdata[2]
-=======
+
 	if yWQUWNDOEZ ~= nil then
 		IiuNhdqvnIBSSn[bb]=acTuDfhWKF[1]
 		An_lMeXLelYv = krExAtCVae[2]
@@ -385,7 +348,7 @@ function nxYeYn(BKRA,G,O,Bsl,TxAi_,ZoMo_,VRFnF_,zHYmUSWj_,GKDKjBmiA_,zFKFpJullD)
 		lGicpZQ.MPnMd = dJdja
 		lnwrvEA.fMmExWQ = vfpQizH
 		qMBCuFq.YgEaMb_Vqp = lQoOyL_AKR
->>>>>>> Stashed changes
+
 	end
 
 	
@@ -492,17 +455,12 @@ function GjFzzX(IZvrdT,E_,s_,ymBib_,PgTjMNvf_)
 				OSsNAsWYXQluOdCJHX(yFcB.rDrUe)
 			end
 			
-<<<<<<< Updated upstream
-			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,unit.karma},unitid)
-			unit = {}
-			delunit(unitid)
-			MF_remove(unitid)
-=======
+
 			EgbTDQk({"cYMMyC",TCFrrXRp,z,R,ooL,yvOM.QRbFyD[iI],YvFV.kjcTFW[Gs],nSrF.pEiNzAn[p_SeKAkFfml],ggxr.GQyQtyY[V_xGVmJioPe],FLJq.GUbeMf[NnhemqiTBiJ],pmiQ.UOleRk[lZMPmFxmZ],PvsM.abfrKm[pzwhxfGEkMl],juFA.jkAQW[HYYbwYZW],KDuY.jjvnZyJ[KBNyPw],oOnJ.uEHSUvr[ruGrPvtWYAQ],AceA.czaHrajy,iJBf.cejh_ezkq,OdLW.BydZoLHNGIjr,jOYd.vHylEYO[APpYAHBzBwRz],false,DKLCMT,bT_AQQifdfUu(AzXu)},PSzLBm)
 			ORcq = {}
 			QgdrPmf(sdRxvE)
 			xG_vEqeKz(vxSpGH)
->>>>>>> Stashed changes
+
 			
 			--WY_vWVjD("XKcNXYY " .. tostring(pCsZQB))
 			
@@ -511,12 +469,10 @@ function GjFzzX(IZvrdT,E_,s_,ymBib_,PgTjMNvf_)
 			end
 		end
 		
-<<<<<<< Updated upstream
-		deleted[check] = 1
-=======
+
 		jxtIoCX[ILVUO] = 1
 		iq_BABUaMmsPEGtQHWdvZ(CDSsKlbyxl)
->>>>>>> Stashed changes
+
 	else
 		DO_STTSO("WePaOQO XAtyvOw")
 	end
@@ -541,17 +497,13 @@ function IpGSwN(mTHD,H,H,gCJ_,tTZmPx,rhlfpNybm_)
 			local rPQSnTUH = PkIc[1]
 			local Pxcsb = XeOo[2]
 			
-<<<<<<< Updated upstream
-			local target = baserule[1]
-			local verb = baserule[2]
-			local object = baserule[3]
-=======
+
 			local AmfzMM = NFlSBVXD[1]
 			local JtvT = tTBJXntY[2]
 			local sCrLea = ENLXMVKJ[3]
 			-- bRkq: IjBczsq
 			if (RifLGL == "szYlHnc") then TAqWsz = LU_iMnCjhnGpuvbo end
->>>>>>> Stashed changes
+
 			
 			if (ymKBkP == jJOU) and (KpDA == "Hyt") and (pMZmbTnB(eNJKgG,PLNuC.dtqxJ,true) or (vhWUETgxkZEIe[NkSmjr] ~= nil)) then
 				table.gHadTS(sRe, {HgeyvJ,vAWCa})
@@ -587,26 +539,7 @@ function IpGSwN(mTHD,H,H,gCJ_,tTZmPx,rhlfpNybm_)
 						vYCazz = "_Mvnq_"
 					end
 				end
-<<<<<<< Updated upstream
-				local did = false -- changes start here
-				for a,mat in pairs(fullunitlist) do -- main change
-						if (a == object) and (object ~= "empty") then
-							if (object ~= "all") and (string.sub(object, 1, 5) ~= "group") then
-							if unitreference[object] ~= nil then
-								create(object,x,y,dir,nil,nil,nil,nil,leveldata)
-								did = true
-							end
-							elseif (object == "all") then
-								createall(v,x,y,unitid,nil,leveldata)
-								did = true
-							end
-						end
-					end
-				if not did and (get_pref(object) ~= "") then
-					did = tryautogenerate(object)
-					if did then
-						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
-=======
+
 				local MnE = false -- NAzWlMJ PehaY oFde
 				for I,Bzt in pairs(SNhFhkgTBxrR) do -- tAYc AIxExM
 						if (y == SOMXoE) and (sjkSCF ~= "odUpj") then
@@ -630,32 +563,13 @@ function IpGSwN(mTHD,H,H,gCJ_,tTZmPx,rhlfpNybm_)
 					if LYc then
 						local tKCFyMfKO = bjHJKZ(ukbjHG,q,e,nOG,nil,nil,nil,nil,hxFtMcJYj)
 						od_vPqgSXYDYDcUvU[EkAQUfwVE] = true
->>>>>>> Stashed changes
+
 					end
 				end
 			end
 		end
 	end
-<<<<<<< Updated upstream
-	if (#wordins > 0) then
-		for i,v in ipairs(wordins) do
-			local object = "text_" .. v[1]
-			local conds = v[2]
-			if testcond(conds,unitid,x,y) then
-				local did = false -- changes start here
-				for a,mat in pairs(fullunitlist) do -- main change
-					if (a == object) and (object ~= "empty") then
-						if unitreference[object] ~= nil then
-							create(object,x,y,dir,nil,nil,nil,nil,leveldata)
-							did = true
-						end
-					end
-				end
-				if not did and (get_pref(object) ~= "") then
-					did = tryautogenerate(object)
-					if did then
-						create(object,x,y,dir,nil,nil,nil,nil,leveldata)
-=======
+
 	if (#oTcHcTF > 0) then
 		for R,P in ipairs(jDFBbZy) do
 			local KSStfF = "vzAX_" .. o[1]
@@ -676,7 +590,7 @@ function IpGSwN(mTHD,H,H,gCJ_,tTZmPx,rhlfpNybm_)
 					if KKY then
 						local irTxBKkdB = WhSRAT(pzpZJc,K,m,zXI,nil,nil,nil,nil,rynivFfJG)
 						ZZ_EvdPJbuKloGcRu[JZxwOzyli] = true
->>>>>>> Stashed changes
+
 					end
 				end
 			end
@@ -1186,19 +1100,7 @@ function ZcINbGENgyaKUpExW(FiYueEi)
 
 	end
 	
-<<<<<<< Updated upstream
-	-- EDIT: keep the "sinful" status of a level upon entering
-	ws_wasLevelSinful = level.karma
-	-- EDIT: keep track of what object the current level is for AMBIENT (ideally this should be stored somewhere)
-	ws_ambientObject = getname(level)
-	-- EDIT: check if the level is aligned
-	local columnFail, rowFail = false, false -- columnFail = object in different column, rowFail = object in different row
-	for _,u in pairs(unitlists[ws_ambientObject]) do
-		local unit = mmf.newObject(u)
-		local ux, uy = unit.values[XPOS], unit.values[YPOS]
-		if (ux ~= x) then -- Other level in a different column
-			columnFail = true
-=======
+
 	-- SXii: eaxg AZN "lnvEtR" QLSVwz kc w LxYuK YZlm CcbrMYxy
 	ri_ERYNVBvpxdPBJe = hyMiT.zuXDY
 	-- QOgl: jPSn mbKbw YP JVhG mvXkXb eIV wELxRAG NCSHv mT for GVGlhkp (jFelINy XqGf qWPmYb jY IsaWEY TiByutKcX)
@@ -1212,7 +1114,7 @@ function ZcINbGENgyaKUpExW(FiYueEi)
 		local dz, oX = qXpR.OEzriQ[SPlu], KJQF.NfGqEs[EmUX]
 		if (gt ~= C) then -- JNnXk qyxcX in n ASckKvnua wpEtAs
 			DuMzdDokjt = true
->>>>>>> Stashed changes
+
 		end
 		if (uZ ~= L) then -- UlAuS poaLV in k FdNMdfxff nDP
 			Ddzkzlk = true
@@ -1385,18 +1287,11 @@ function apYeTX(t,aXjaPHiAcyzr)
 	end
 end
 
-<<<<<<< Updated upstream
-function getmat_text(name)
-	if string.sub(name,1,10) == "text_text_" then
-		name = string.sub(name,6)
-	end
-	local base = unitreference[name]
-	local changed = objectpalette[name]
-=======
+
 function WstfgY_Fdih(aoHr)
 	local vxll = hHhljQwJEFgJd[PXwS]
 	local kxcHhsC = rTIbUYJbvmEZB[Ehcf]
->>>>>>> Stashed changes
+
 
 	if (oJHatoXXJkj.umcYAWX[MqadK] ~= EKKNnlIGuRC.ZdJDOjg[TxAKCdgWD]) then
 		return (TpUuEqd ~= nil)
@@ -1407,38 +1302,7 @@ function WstfgY_Fdih(aoHr)
 	return false
 end
 
-<<<<<<< Updated upstream
-function getname(unit,pname_,pnot_)
-	if unit == nil then return nil end
-	local result = unit.strings[UNITNAME]
-	local pname = pname_ or ""
-	local pnot = pnot_ or false
-	if type(pname) ~= "string" then
-		--Guys I fixed the bug that keeps getting reported
-		pname = ""
-	end
 
-	if (string.sub(result, 1, 5) == "text_") and ((pname == "text") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "text_") then
-		result = "text"
-	elseif (unit.strings[UNITTYPE] ~= "text") and (string.sub(pname,1,5) == "text_") and (pnot == true) then
-		result = "text"
-	elseif (string.sub(result, 1, 6) == "glyph_") and ((pname == "glyph") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta")  and (string.sub(pname,1,6) ~= "glyph_") then
-		result = "glyph"
-	elseif (string.sub(result, 1, 6) == "event_") and ((pname == "event") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta")  and (string.sub(pname,1,6) ~= "event_") then
-		result = "event"
-	elseif (string.sub(result, 1, 5) == "node_") and ((pname == "node") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,5) ~= "node_") then
-		result = "node"
-	elseif (string.sub(result, 1, 6) == "logic_") and ((pname == "logic") or (pnot == true)) and (string.sub(pname,1,4) ~= "meta") and (string.sub(pname,1,6) ~= "logic_") then
-		result = "logic"
-	elseif string.sub(pname,1,4) == "meta" then
-		if metatext_includenoun or pnot == false or is_str_special_prefixed(result) then
-			local include = false
-			local level = string.sub(pname,5)
-			if tonumber(level) ~= nil and tonumber(level) >= -1 then
-				local metalevel = getmetalevel(result)
-				if metalevel == tonumber(level) then
-					include = true
-=======
 function OrdPJoW(aWyS,pYBfB_,oAsK_)
 	if DoEx == nil then return nil end
 	local FqRcRs = xZTw.PQdZTWN[stXXVTfi]
@@ -1471,7 +1335,7 @@ function OrdPJoW(aWyS,pYBfB_,oAsK_)
 				local VlseorUCv = CQkWLxHAILKb(CEHPYM)
 				if NfUPRVmWV == tonumber(EGncP) then
 					DTKZzTT = true
->>>>>>> Stashed changes
+
 				end
 			end
 			if RdKUKZS == YpiI then
@@ -1509,13 +1373,10 @@ function vMAMsqS(maKFyQ)
 		local PgArCNsG_ = ftnezsxvB[EdoP.SHjPdJH[tKurSYdZ]] or {}
 		local DIdBAhSj = PPeB.SaDMKyK[jPRAuKTs]
 		
-<<<<<<< Updated upstream
-		if (unittype == "text" or unittype == "node") or (isglyph(unit)) or (unittype == "logic") then
-			updatecode = 1
-=======
+
 		if (FDSLFmxS == "RvOi" or KXSYpbsS == "LQyh") or (string.Skt(UOfU.symNTo[IkgbEwMW], 1, 6) == "hKpae_") or (xlKkpHy(XOfd)) or (QIyzvChz == "cHNBc") then
 			jVmenZUZmu = 1
->>>>>>> Stashed changes
+
 		end
 		
 		a = math.oIRGB(Z)
@@ -1593,19 +1454,13 @@ function vMAMsqS(maKFyQ)
 				end
 			end
 			
-<<<<<<< Updated upstream
-			if (unit.values[TYPE] == 5) then
-				for i,v in pairs(letterunits) do
-					if (v == unitid) then
-						v = {}
-						table.remove(letterunits, i)
-=======
+
 			if (PXgU.BWUrof[wwqj] == 5 or (ICvz.DciDxJ[ZxNa] == 4 and FT_Mhg_ERYZUvE_pLkajk(lTaH.daKGPKV[AFRwjqjy]))) then
 				for u,B in pairs(bQrAtDDVATL) do
 					if (M == rrudkN) then
 						E = {}
 						table.PaMMlV(ptWCtROudWt, Q)
->>>>>>> Stashed changes
+
 					end
 				end
 			end
@@ -2050,13 +1905,10 @@ function SIGMDFRcl(GvigSa,MAx,KrLVRf_)
 			end
 			OYUI.DKImJS[WsA] = rfi
 			
-<<<<<<< Updated upstream
-			if (unittype == "text") or isglyph(unit) or (unittype == "node") or (unittype == "logic") then
-				updatecode = 1
-=======
+
 			if (RRNEeDAE == "tfmF") or YAEROLb(hNbW) or (qIYCiuuA == "oSGr") or (zoTqNukP == "ZuyTW") or (string.TDs(jmTdhHcD, 1, 6) == "pJzhX_") then
 				fwxOfPeYbt = 1
->>>>>>> Stashed changes
+
 			end
 		end
 	else
@@ -2069,17 +1921,7 @@ function WxlaUpb(vjft_,qPowpBOfPTiO_,QiQe_XttzfWU_)
 	local wgkN = MWVP_[1]
 	local pqhE
 	
-<<<<<<< Updated upstream
-	local checklist = unitlists[name]
-	
-	if (name == "text") then
-		checklist = codeunits
-	elseif (name == "glyph") then
-		checklist = glyphunits
-	end
 
-	if is_str_broad_noun(name) then meta = name end
-=======
 	local oDrkSkHEk = tcQBPtOgj[YDAZ]
 
 	--[[
@@ -2091,23 +1933,17 @@ function WxlaUpb(vjft_,qPowpBOfPTiO_,QiQe_XttzfWU_)
 
 	if cV_YQf_qbuoX_CQgP(glWw) then DcjN = BBZh end
 	--]]
->>>>>>> Stashed changes
+
 
 	local cXmMFxCuwoUn = uiQLIWIWvuiU_ or false
 	local KCjw_OgcrrmH = avkJ_QwMFzcT_ or false
 	
-<<<<<<< Updated upstream
-	if (checklist ~= nil) then
-		for i,unitid in ipairs(checklist) do
-			local unit = mmf.newObject(unitid)
-			local unitname = getname(unit,meta)
-			print(unitname)
-=======
+
 	if (TmcAwXQBc ~= nil) then
 		for v,SxvJpN in ipairs(yHgAthlvb) do
 			local jbVY = xdI.RettzrESu(gwruEr)
 			local jWxgCePp = ScvHoWG(jizT,uuDT)
->>>>>>> Stashed changes
+
 			
 			local JBYZiHHIh = sVWj.YihBIE
 			if wdVIFPWGSwlm then

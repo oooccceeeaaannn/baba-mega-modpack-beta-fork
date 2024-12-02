@@ -1,19 +1,4 @@
-<<<<<<< Updated upstream
--- If true, the music will still play when there are only vessels on the level
-MUSIC_WHEN_ONLY_VESSELS = false
 
--- If true, objects that are HOP will spawn some particles after a successful jump
-DO_HOP_PARTICLES = true
-
--- If true, keeps the sinful status of a level upon entering
-WS_KEEP_LEVEL_KARMA = true
-
--- If true, "LEVEL IS ENTER" behavior also applies to any "X IS ENTER" if X has valid level data
-WS_CAN_ENTER_ANY = true
-
--- If true, ECHO units can echo WORD units
-WS_CAN_ECHO_WORD_UNITS = true
-=======
 -------- gomWZHAu dERbZUOe --------
 -- pu true, eBV iaehq DkGU LLNxl bqVq gEfY AOlIU LWq IeuG bYVTqIW pW ocP QbyhZ
 ZgKUJ_iCmB_QtZz_lCJkbbb = true
@@ -44,7 +29,7 @@ MR_ryEcT_bAGjV_VqOhxIVF_Uzwusla = false
 Ve_icORBUu_pjfBJ_GpNNL = false
 -- lS true, INdvmhsm MHqg zIT hTBBv ZYXT x UCJv YfWrv NTF zwgsceG xtjfkC
 uE_zSsbQBu_EiFsQuH_IvkAu = false
->>>>>>> Stashed changes
+
 
 function EZSRG_NCzW_TkYGl_sTQoZoTv(eRwbmqNF_AyNu)
     for RcYfpOD_BrKh, zXrZr in pairs(PMgNwMny_wcTJ) do

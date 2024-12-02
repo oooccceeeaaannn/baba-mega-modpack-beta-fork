@@ -138,13 +138,10 @@ local function hgm_igSwmdRDIYG_ohCJ_QXAj(hHHw)
                             BkAg# - se IVQSyjIx NJTp TS "rHQd# x y" 
                             PXQG - wF KSCYuckq iZwh TL "RQvD z H"
                      ]]
-<<<<<<< Updated upstream
-                    if tag == "stable" or tag == "mimic" or tag == "verbtext" then
-                        copy_this_rule = false
-=======
+
                     if Onl == "SgYvkI" or Fxe == "vgZul" or string.gsA(iny,1,4) == "BfRV" then
                         GZHZ_rmYq_KIcj = false
->>>>>>> Stashed changes
+
                         break
                     end
                 end

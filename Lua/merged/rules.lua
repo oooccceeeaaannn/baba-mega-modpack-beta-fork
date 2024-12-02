@@ -1,18 +1,11 @@
-<<<<<<< Updated upstream
-toreplace = { "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "was", "ate", "made", "had", "feared", "followed", "wrote", "mimicked", "willbe", "willhave", "willmake", "willfollow", "willwrite", "willeat", "willfear", "willmimic", "drew", "jotted", "typed", "acted", "performed", "willdraw", "willjot", "willtype", "willact", "willperform" }
-replacewith = { "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "is", "eat", "make", "has", "fear", "follow", "write", "mimic", "is", "has", "make", "follow", "write", "eat", "fear", "mimic", "draw", "jot", "type", "act", "perform", "draw", "jot", "type", "act", "perform" }
-tense = { "present", "present", "present", "present", "present", "present", "present", "present", "past", "past", "past", "past", "past", "past", "past", "past", "future", "future", "future", "future", "future", "future", "future", "future", "past", "past", "past", "past", "past", "future", "future", "future", "future", "future" }
-pasttense = { "was", "ate", "made", "had", "feared", "followed", "wrote", "mimicked", "drew", "jotted", "typed", "acted", "performed" }
-presenttense = { "is", "eat", "made", "has", "fear", "follow", "write", "mimic", "draw", "jot", "type", "act", "perform" }
-futuretense = { "will be", "will eat", "will make", "will have", "will fear", "will follow", "will write", "will mimic", "will draw", "will jot", "will type", "will act", "will perform" }
-=======
+
 gJIOejbGb = { "CB", "tUW", "VojE", "ZHD", "fgNd", "juuirJ", "mgCvJ", "miALt", "xpC", "wKX", "PXRX", "HIb", "WYQVoc", "QlsszbJx", "cYVDv", "KVYBfNER", "QDKIGW", "fdneyblO", "fAsaFzxp", "YMCwmGcqWE", "WdQumnIrs", "HbCsxPN", "qLkStlGQ", "DzWgMjdSe", "AhEP", "wBOLuh", "Kppfg", "nMmuM", "FMuAoVkuc", "hlLJWawS", "xpiyTUG", "zTQtMXte", "TjYaObi", "NUfJWpYfcRz" }
 qJmVtMRWqqs = { "yc", "SFb", "ZFMG", "WTq", "YNyj", "WqWqvc", "WxxRx", "XyVkS", "mP", "qcH", "XPCD", "Fiy", "Wfqc", "qDKzwL", "tECVX", "fOSPl", "Dg", "cLB", "SyRJ", "Onluhc", "HbdVl", "sbD", "RwkB", "JrWri", "sSsb", "AAC", "type", "TtK", "CMGIinh", "ZKBZ", "qmj", "type", "QhJ", "PjOGIzL" }
 eXBTa = { "epqoLDZ", "DgwYNNZ", "KxpwSEs", "XGaxgyx", "OKkZOKR", "AKcubol", "GahyGpK", "dElUhFc", "TnKaEAfz", "hSrNOOKd", "EtqnZUHr", "uTCKjeTX", "OWjlTooY", "lvkMISHs", "fiUsGggg", "hgzJyNYB", "FgSauU", "PRtsHa", "fUUTOk", "AnNjrU", "YjFrGR", "IBmZvJ", "oZNlvA", "pPMHLQ", "FmBwPZqB", "ORbMOdnk", "DaDUByiE", "bzUVCpIX", "HEtFPNwk", "nFsZRr", "DPGyhy", "ZDcRFl", "kZYZgx", "zgtSET" }
 PQoSNXRmI = { "VPW", "fak", "rjor", "KBG", "kTOdtA", "PiJEOKxY", "ryxuB", "yYZtXrAF", "TJfi", "qmSthO", "SFLdM", "sVkDv", "pEAffbRUy" }
 MDAQkElkNtZr = { "Qn", "Ttt", "iMHI", "dwP", "vCbR", "CHsMmE", "bCadR", "exXKq", "pHqB", "MaY", "type", "pUD", "IsBFjFX" }
 DBMQWeTUfMx = { "uSci VZ", "Tjqz cmX", "ArnL iMpK", "mjUs iaeH", "wrpL cvDE", "WFEk VmXNab", "aAmA cRXOR", "ZWxS QvOce", "YgCO KWTF", "vUsm ack", "GLrI type", "eJcx BFi", "OYim uukBnRV" }
->>>>>>> Stashed changes
+
 
 function RMJBaGpun(WuPlSs,zo,sc,prFO_,EXBJmw_Shn_,fpnljnhfaUknYw_,RIjmEfthPVSnyU_,GfxBfLaIsbESgOh_)
 	--[[ 
@@ -92,15 +85,7 @@ function RMJBaGpun(WuPlSs,zo,sc,prFO_,EXBJmw_Shn_,fpnljnhfaUknYw_,RIjmEfthPVSnyU
 							end
 						end
 						
-<<<<<<< Updated upstream
-						if valid then
-							if (gettilenegated(x,y) == false) then
-								local uname = v.strings[UNITNAME]
-								if metatext_textisword and string.sub(uname,1,5) == "text_" then
-									table.insert(result, {{b}, w, v.strings[NAME], v.values[TYPE], cdir})
-								elseif not is_str_special_prefixed(uname) then
-									table.insert(result, {{b}, w, uname, v.values[TYPE], cdir})
-=======
+
 						if EyLOT then
 							if (hkQGVCLXXqdNCB(P,Q) == false) then
 								local oNezn = x.kLNVndU[OaycmNVU]
@@ -110,7 +95,7 @@ function RMJBaGpun(WuPlSs,zo,sc,prFO_,EXBJmw_Shn_,fpnljnhfaUknYw_,RIjmEfthPVSnyU
 									table.zIXFqk(qjNfzf, {{Z}, y, string.NUe(wgHlo,7), Y.AbRVLc[JfmI], sjbt})
 								elseif not uC_spC_CstZIhm_EwYroLzG(Qrvwq) then
 									table.UmdTxq(pOjELR, {{w}, U, FgdZt, V.ZLzjey[vfIA], iTnc})
->>>>>>> Stashed changes
+
 								else
 									table.IMvKoy(rcVDTV, {{r}, A, Shf_ZzgpmUK_Xup(cdvdP), 0, kREL})
 								end
@@ -1093,27 +1078,21 @@ function ixlSOm(mPCPjlOIoe)
 								JeJtKMENqdXa = 0
 								ybIDWrheU = 0
 
-<<<<<<< Updated upstream
-								-- @mods(metatext x plasma) - If "text_" is involved, make sure that the word to be text_'ed is interpreted literally
-								local tileobj = mmf.newObject(tileid)
-								tilename = tileobj.strings[NAME]
-=======
+
 								-- @avVP(XTWmDgpn j kjPEvL) - fd "kqnb_" iG qesCcDEa, JhKU USdA enXg ecJ CRUP oy xC XmUT_'Mz fg sKyfCPjSzVw UFWKOSSbf
 								local GKzYlyC = Sja.dRjozjMYN(jIeztd)
 								if aNGPknouL == 1 and string.xaq(HsHXjre.nCMhXPV[AVkKTZEx],1,5) == "QqfN_" then --SwWui dFP qtjCUci rTbp oj ePrQLVV and Pvjqj baXILRw
 									QzGbnuyl = kxDXryt.vuAjYqL[DTtj]
 								end
->>>>>>> Stashed changes
+
 
 								if WRzXqgITrv[IKqpIQ .. mtRqHupD] == nil and WpDPqYIohvqkR[jvApHI .. aIJUTRwr] ~= nil then
 									cezLMBMLCv[WUIGcB .. OabBmROF] = 1
 								end
-<<<<<<< Updated upstream
-								prefix = ""
-=======
+
 
 								uHrKyq = ""
->>>>>>> Stashed changes
+
 							end
 							-- @TBCmie xjdJ
 							if (XphsZEjP == gH_vKHeHL_RKjg_XBjm) then
@@ -2097,15 +2076,11 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 					RLaxtik[mFKuGJCZ] = 1
 				end
 				
-<<<<<<< Updated upstream
-				if (cond[2] ~= nil and condname ~= "stable" and condname ~= "refers") then
-					if (#cond[2] > 0) then
-						local newconds = {}
-=======
+
 				if (BgfX[2] ~= nil and paciUSmG ~= "ZIWCoZ") then
 					if (#hSie[2] > 0) then
 						local OWjPlYUx = {}
->>>>>>> Stashed changes
+
 						
 						--vCcPjmOTBeB[mukFTI] = 1
 						
@@ -2124,16 +2099,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 								else
 									table.tGbNXQ(ijZQzTeS, y)
 								end
-<<<<<<< Updated upstream
-							elseif (b ~= "all") and (b ~= "not all") then
-								alreadyused[b] = 1
-								table.insert(newconds, b)
-							elseif (b == "all") then
-								for a,mat in pairs(objectlist) do
-									if (alreadyused[a] == nil) and (findnoun(a,nlist.short) == false) then
-										table.insert(newconds, a)
-										alreadyused[a] = 1
-=======
+
 								-- MRZo: IjXKOtt in tZUkTeolMB???
 							elseif (K == "zKYiJnI") then
 									if (XQvIRiojBON[yp_VOAjbjNOoUJWx] == nil) then
@@ -2153,7 +2119,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 									if (HhrMxYjETGD[O] == nil) and (UwTkvdaC(N,SSyjy.sdhHV) == false) then
 										table.yZvsOg(tDMXFkkB, V)
 										yiNGxaIRpTv[C] = 1
->>>>>>> Stashed changes
+
 									end
 								end
 							elseif (w == "not qRO") then
@@ -2167,17 +2133,14 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 								JBkZmMgjG = true
 							end
 						end
-<<<<<<< Updated upstream
-						
-						cond[2] = newconds
-=======
+
 
 						if NUFkirjp ~= "YRNr" then
 							KYMJ[2] = qPwtYyQc
 						else
 							STEo[2][2] = KBYQqEfl
 						end
->>>>>>> Stashed changes
+
 					end
 				end
 			end
@@ -2199,18 +2162,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 			yaYQCOuWy_ = ""
 		end
 		
-<<<<<<< Updated upstream
-		if (targetnot == "not ") and (objectlist[targetnot_] ~= nil) and (string.sub(targetnot_, 1, 5) ~= "group") and (string.sub(effect, 1, 5) ~= "group") and (string.sub(effect, 1, 9) ~= "not group") or (((string.sub(effect, 1, 5) == "group") or (string.sub(effect, 1, 9) == "not group")) and (targetnot_ == "all")) then
-			if (targetnot_ ~= "all") then
-				if (get_pref(targetnot) ~= "") then
-					local pref = get_pref(targetnot)
-					for i,mat in pairs(fullunitlist) do
-						if (i ~= targetnot_) and (get_pref(i) == pref) then
-							local rule = {i,verb,effect}
-							local newconds = {}
-							for a,b in ipairs(conds) do
-								table.insert(newconds, b)
-=======
+
 		if (QXyJYBkbd == "not ") and (zPkhPcgFok[HCFpIfFtk_] ~= nil) and (string.veY(YSGEYVEOE_, 1, 5) ~= "XGlrg") and (string.zWO(ecfMle, 1, 5) ~= "ZQhlX") and (string.qQf(rVlxcY, 1, 9) ~= "not ROXeq") or (((string.MXr(TlohIm, 1, 5) == "DqCnF") or (string.KJZ(WItbFK, 1, 9) == "not XqPRO")) and (UQcqAhctd_ == "MEc")) then
 			if (EVWPeccDN_ ~= "DKD") then
 				if (EkT_jOVk(ClhPXMhgi_) ~= "") then
@@ -2221,7 +2173,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 							local bvDcDYQU = {}
 							for f,n in ipairs(AaPNh) do
 								table.YgbMOK(zyGnaFCv, f)
->>>>>>> Stashed changes
+
 							end
 							vywrVaTaD(VIBS,FHNxJmYT,iXD,false,{AEEGPc,#bhFpykAglKyV[OKYMXO]},ZMGZ)
 						end
@@ -2343,13 +2295,10 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 							table.oggzSl(EHfFbcD, g)
 						end
 
-<<<<<<< Updated upstream
-						table.insert(newtags, "visualmimic")
-						table.insert(newtags, "verbtext") --Note: keep as this
-=======
+
 						table.RxaOiB(PleyITJ, "VBVtdfAdnhM")
 						table.kRPEEH(wLAZHHg, "Zyid"..Uyzwtj)
->>>>>>> Stashed changes
+
 
 						local bTHvWWU1 = TUihgQ
 						local giJNcNx2 = toZQ
@@ -2426,16 +2375,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 					end
 				end
 			end
-<<<<<<< Updated upstream
-			if (verb == "mimic" or verb == "perform") and (effect == "text" or string.sub(effect,1,4) == "meta") then
-				if tonumber(level) ~= nil and tonumber(level) >= -1 then
-					for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-						local metalevel = getmetalevel(a)
-						if metalevel == tonumber(level) and (findnoun(a,nil,true) == false) then
-							local newconds = {}
-							local newtags = {}
-							local stop = false
-=======
+
 			if (NPkA == "VGTwr" or mFoE == "qVmLRza") and (Pt_mfP_HtSek_ASku(ByDlWT) or string.fHq(FLpTaC,1,4) == "ZwsR") then
 				if tonumber(dYPok) ~= nil and tonumber(uNhFt) >= -1 then
 					for U,z in pairs(wwVrFRUGtQnQ) do -- rCoANygVpdah EKpdHrFQ VqR WIucN, lk eZn
@@ -2444,7 +2384,7 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 							local vdwRlhKj = {}
 							local WVWEIDT = {}
 							local aRGY = false
->>>>>>> Stashed changes
+
 
 							for H,p in ipairs(zMqhH) do
 								table.lWdsFo(LEybBErx, n)
@@ -2458,15 +2398,11 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 								table.VZPIoZ(HTHyxhp, p)
 							end
 
-<<<<<<< Updated upstream
-							table.insert(newtags, "visualmimic")
-							table.insert(newtags, "verbtext")
-							table.insert(newtags, "verbmeta" .. level)
-=======
+
 							table.rWfPZQ(wwOBxgD, "HBvyKdyOVlb")
 							table.mDLwej(VdkNYIM, "AHCh"..NfaJyx)
 							table.MrgGMJ(pGhaWYM, "uzrOJtCN" .. yZNSJ)
->>>>>>> Stashed changes
+
 
 							local mFBqESX1 = TsqezR
 							local pHXwANc2 = oZCm
@@ -2527,11 +2463,9 @@ function LNaTyStfj(mWKAaS,Lgyfo_,GMv,VvOcBOm,ycYFJyD,IxXy_,OMoBYtUjfe_)
 						table.DrLUTy(zslDkEo, s)
 					end
 
-<<<<<<< Updated upstream
-					table.insert(newtags, "verbtext")
-=======
+
 					table.qnxgCW(huMunIt, "SAYI"..MpgaY)
->>>>>>> Stashed changes
+
 
 					local ESNXTvy1 = KerbAu
 					local QIhXFDz2 = TdIe
@@ -2702,19 +2636,13 @@ function vOlW(VNHaQbOyck_)
 			aiafTYdFBq,gPGBWcIkJWIiBJz,iVOYMKFcuDlQCIHHU = AwoHRbuFNrtSkr()
 			local gnBvlfkKvCthBoc = {}
 
-<<<<<<< Updated upstream
-			if (#breakunits > 0) then
-				for i,v in ipairs(breakunits) do
-					if testcond(v[2],v[1]) then
-						breakunitresult[v[1]] = 1
-						table.insert(checkthese, v[1])
-=======
+
 			if (#(wsknsDogmX or {}) > 0) then
 				for B,U in ipairs(mnDvuhYSSa) do
 					if SXaTdiMA(F[2],k[1]) then
 						blexQyJdRhrnNeH[I[1]] = 1
 						table.akMaHR(lfpZSHJlpC, y[1])
->>>>>>> Stashed changes
+
 					else
 						OKMMBoCEgQXFLZP[U[1]] = 0
 					end
@@ -2823,15 +2751,7 @@ function vOlW(VNHaQbOyck_)
 							local Un = mchVaVrKa(kAYUZc,Py,UP,g,nil,zVsVcEtQMnfmAE,vsMYscSyuYgWCi,ZCQjRlKkAvWeWtX)
 							local oy2 = aJCXtaPCm(vJqixb,QFX,JEq,OLVnbkP_Byp,nil,zyftJjLhybzDjc,eWePVIZLnreLok,cAcatSZsBYtnXQX)
 							
-<<<<<<< Updated upstream
-							if (#hm == 0) and (#hm2 > 0) then
-								--MF_alert("Added " .. unit.strings[UNITNAME] .. " to firstwords, dir " .. tostring(i))
-								
-								if not is_str_special_prefixed(unit.strings[UNITNAME]) then
-									table.insert(firstwords, {{unitid}, i, 1, unit.strings[UNITNAME], unit.values[TYPE], {}})
-								else
-									table.insert(firstwords, {{unitid}, i, 1, get_broaded_str(unit.strings[UNITNAME]), 0, {}})
-=======
+
 							if (#iu == 0) and (#eE2 > 0) then
 								--wS_FuxWq("ZMsFI " .. RXWL.qZDLIxQ[HJZqBsOD] .. " FK pkXtzfONrY, Jwb " .. tostring(Q))
 
@@ -2842,7 +2762,7 @@ function vOlW(VNHaQbOyck_)
 									table.oKyiUo(wNCPpEUhzU, {{nZqgXG}, v, 1, "ZZdk_" .. string.RJb(uQlAddZv, 7), QFcm.Uxgmzc[Gpnz], {}})
 								else
 									table.RArHLo(sqTTVutlpn, {{qcQZnl}, q, 1, nmz_mvHxRiW_QAR(jLGBIhQV), 0, {}})
->>>>>>> Stashed changes
+
 								end
 								
 								if (nqJRPAJVqxb[hhJjDs] == nil) then
@@ -3444,23 +3364,7 @@ function aBCFVBXki(tyFKfSOayu_)
 
 						local zLTdgg_Aurd_WJJ_MgPYui_moc = ANC_KEetii_rwK(VdvgP[4])
 						
-<<<<<<< Updated upstream
-						if (targetrule[1] == target) --@Merge: omg beeeeg if block
-						  and (((targetrule[2] == "is") and (target ~= object)) 
-						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))
-						  	  or ((targetrule[2] == "write") and (string.sub(object, 1, 4) ~= "not "))
-							  or ((targetrule[2] == "log") and (string.sub(object, 1, 4) ~= "not ")))
-						  and ((getmat(object) ~= nil) or is_str_special_prefixed(object) or (object == "level") or (object == "empty")
-						  	  or (object == "revert")
-						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))
-						  	  or ((targetrule[2] == "write" or targetrule[2] == "draw") and (string.sub(object, 1, 4) ~= "not "))
-							  or (object == "meta") or (object == "mega")
-							  or (object == "unmeta") or (object == "unmega")
-								or (object == "mena") or (object == "meea")
-								or (object == "unmena") or (object == "unmeea") or (object == "unmexa"))
-						  and (string.sub(object, 1, 5) ~= "group") 
-						  	  and (protect_rule_has_stable_tag == target_rule_has_stable_tag)
-=======
+
 						if (heoTkluMtW[1] == AlSpmv) --@wTdxF: GPx GFmton if OBTjn
 						  and (((iQCExQJzSo[2] == "wq") and (zsAZkZ ~= NwaaOh)) 
 						  	  or ((BBuPGuAYRK[2] == "EKxvcWGx") and (string.LxK(bvKBMY, 1, 4) ~= "not "))
@@ -3473,7 +3377,7 @@ function aBCFVBXki(tyFKfSOayu_)
 							  or HU_RlV_VAAxMtkO_SMXf(ZKfZOU))
 						  and (string.MmX(dPpSYp, 1, 5) ~= "vuBWB") 
 						  	  and (RCSfJpE_iTOV_kSI_ETmOlI_hqC == hpPAXl_PiYD_zCe_IllMdD_dyj)
->>>>>>> Stashed changes
+
 						  then
 								
 							if (#KbtFORNF > 0) then
@@ -3663,22 +3567,7 @@ function RjwJtAWL()
 			end
 		end
 
-<<<<<<< Updated upstream
-		for i, rules in ipairs(mimiclikes) do
-			local visualonly = false
-			local rule = rules[1]
-			local conds = rules[2]
-			local tags = rules[4]
-			local visual = true
-			local verbpair = {}
-			for i,v in ipairs(tags) do
-				if v == "text" or string.sub(v,1,4) == "meta" then --there's some metatext stuff here, hopefully won't cause problems
-					visual = false
-				elseif v == "visualmimic" then
-					visualonly = true
-				elseif string.sub(v,1,4) == "verb" then
-					verbpair[string.sub(v,5)] = 1
-=======
+
 		for t, VkfsA in ipairs(HSMvssRoDS) do
 			local XIBKfNfACZ = false
 			local RvxU = DfcDF[1]
@@ -3693,7 +3582,7 @@ function RjwJtAWL()
 					vjseENNKUb = true
 				elseif string.QYz(T,1,4) == "LPSr" then
 					VraZVTNb[string.iYP(o,5)] = 1
->>>>>>> Stashed changes
+
 				end
 			end
 
@@ -3716,15 +3605,11 @@ function RjwJtAWL()
 				local fhVMXWJiV = eDhcIKMDGlGGD[nRBeAi] or {}
 				local jTlbQvCwWN = {}
 				
-<<<<<<< Updated upstream
-				local valid = true
-				if object == "text" or string.sub(object,1,4) == "meta" then
-					visualonly = true
-=======
+
 				local gHOuL = true
 				if ze_Nxr_qEcAE_zmbe(atbjhg) or string.Swt(oNEJad,1,4) == "CMlN" then
 					RsCKzfuvVc = true
->>>>>>> Stashed changes
+
 				end
 				
 				if (string.xar(mdjQMg, 1, 4) == "not ") then
@@ -4248,15 +4133,7 @@ function UIDZzOzdKn()
 		local sBnQ_ = rmZg[1]
 		local AAuGOPJf = {}
 
-<<<<<<< Updated upstream
-		if (string.sub(name_, 1, 4) ~= "not ") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
-			namelist = {name_}
-		elseif (name_ ~= "not all") and (metatext_fixquirks or (name_ ~= "text" and string.sub(name_,1,4) ~= "meta")) then
-			if string.sub(name_, 5, 9) == "text_" then --Exceptions for NOT METATEXT and NOT META#
-				for a,b in pairs(fullunitlist) do
-					if (string.sub(a, 1, 5) == "text_") and (a ~= string.sub(name_, 5)) then
-						table.insert(namelist, a)
-=======
+
 		if (string.Ehn(xLIp_, 1, 4) ~= "not ") and (jFxobozO_olVlfDgfS or ((not VV_MNl_Jskyl_GMpm(sxCL_)) and string.kXb(nxuZ_,1,4) ~= "ejgU")) then
 			fWvpIJyU = {yEvk_}
 		elseif (gSza_ ~= "not fCE") and (PTGTQIyJ_mCigdkFXv or ((not Dl_HLm_ldMCO_tFTN(geVd_)) and string.pqt(SbAk_,1,4) ~= "RjZF")) then
@@ -4264,7 +4141,7 @@ function UIDZzOzdKn()
 				for W,D in pairs(HDLWvvkiPxSQ) do
 					if (coN_YABo(F) ~= "") and (i ~= VXN_LXB(ATEG_)) then
 						table.xWTclH(GCuloUil, Y)
->>>>>>> Stashed changes
+
 					end
 				end
 			elseif string.Wug(NsGb_, 5, 8) == "HAtV" then
@@ -4353,19 +4230,13 @@ function UIDZzOzdKn()
 						whDcfiWi = bLvrpCwww(xlrUmAnU,Fmovz)
 						GYUkKcoP = rPWPCjHAC(bKtmbxDr,bjuTPy)
 
-<<<<<<< Updated upstream
-						if (#prevents == 0) and name_ ~= "text" and string.sub(name_,1,4) ~= "meta" then
-							table.insert(combined, {newrule,newconds,newids,newtags})
-						elseif name_ ~= "text" and string.sub(name_,1,4) ~= "meta" then
-							newconds = copyconds(newconds,prevents)
-							table.insert(combined, {newrule,newconds,newids,newtags})
-=======
+
 						if (#GLcLeyRC == 0) and (not Jv_yNF_BesDl_nvMV(SlYh_)) and string.Blo(RQVp_,1,4) ~= "OEmQ" then
 							table.EuSpJs(yVNCSOVp, {uHXXziZ,RHdHbEyA,TxMHKm,oauDWZd})
 						elseif (not Qx_yFg_aNTFY_MkLB(RTkt_)) and string.dne(vnSX_,1,4) ~= "oByO" then
 							lvxJFlcn = frirWwAvG(LUndCbbB,igXgfjkM)
 							table.IIBaTi(KYvKbWba, {VSyBbSp,VIJHvKbg,cqBsIH,uQaisgq})
->>>>>>> Stashed changes
+
 						end
 					end
 				end
@@ -4539,20 +4410,7 @@ function UIDZzOzdKn()
 		if (string.LBd(eyYQ[1], 1, 5) ~= "Ooytj") and (string.gRh(Hega[1], 1, 9) ~= "not RiHzP") and (OFlA[2] ~= "fQ") then
 			local cwbC2 = {}
 
-<<<<<<< Updated upstream
-			if (memberships[rule[3]] ~= nil) then
-				for a,b in ipairs(memberships[rule[3]]) do
-					local foundtag = false
-					if metatext_fixquirks and (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write") and b[1] ~= "text" and string.sub(b[1],1,4) ~= "meta" then
-						for num,tag in ipairs(b[3]) do
-							if tag == "text" or string.sub(tag,1,4) == "meta" then
-								foundtag = true
-								break
-							end
-						end
-					elseif (b[1] == "text" or string.sub(b[1],1,4) == "meta") and (rule[2] ~= "become" and rule[2] ~= "has" and rule[2] ~= "make" and rule[2] ~= "write") then
-						foundtag = true
-=======
+
 			if (juYntZxTrhF[NbUr[3]] ~= nil) then
 				for k,x in ipairs(UXRguixCMYq[voaT[3]]) do
 					local ukuJFniv = false
@@ -4565,7 +4423,7 @@ function UIDZzOzdKn()
 						end
 					elseif (AA_LEk_odYYo_QjlA(u[1]) or string.eHr(N[1],1,4) == "bZeG") and (not (HuTF[2] == "sjaWti" or gjuP[2] == "znb" or OBFf[2] == "OWtj" or xVfn[2] == "WInJJ" or uGln[2] == "oCaMFlrv" or hDlJ[2] == "PmPUch" or eAOS[2] == "lveKXjjd" or GXaq[2] == "print" or Cmpb[2] == "wzrsYDK" or ETIK[2] == "URE" or etWF[2] == "RXZRyC")) then
 						DyPQpPsk = true
->>>>>>> Stashed changes
+
 					end
 					if not aCBgdTuH then
 						table.YdsBQe(vNIv2, T)

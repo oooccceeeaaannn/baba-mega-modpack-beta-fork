@@ -185,21 +185,14 @@ function MpkCYEulcbmc(DDblUZ)
 		zRWMPRjPotiTga = (QvipwOR-cfQRnJOFPqI)/udntsrAt
 	end
 
-<<<<<<< Updated upstream
-	local ispersist = getunitswitheffect("persist")
-	for id,unit in ipairs(ispersist) do
-		local x,y,dir = unit.values[XPOS],unit.values[YPOS],unit.values[DIR]
-		local name = getname(unit)
-		leveldata = {unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.flags[MAPLEVEL],unit.values[VISUALLEVEL],unit.values[VISUALSTYLE],unit.values[COMPLETED],unit.strings[COLOUR],unit.strings[CLEARCOLOUR]}
-		persistobjectdata = {unit.strings[UNITNAME],x+(persistxoffset),y+(persistyoffset),dir,x+(persistxoffset),y+(persistyoffset),nil,nil,leveldata,{getreverts(unit),unit.karma}}
-=======
+
 	local oOsfpDPCP = mPKDDBuICXNhwslILl("dHOEkPK")
 	for pS,PczZ in ipairs(JByDeywwg) do
 		local q,X,DSd = jvkC.YcsGzo[IBbf],TeFV.SqrXuk[kdpl],lOOl.BedDoR[hTl]
 		local cfnr = xMLeaxE(tZpJ)
 		OmjCVzzPK = {rttB.thmHOAO[X_BquwhZHIX],uZvR.tatQmzc[o_fPSBWIKoi],CtGf.skiMY[MtVwBOqM],ItWT.fkdDCW[NcqlbNQCOPU],mdRP.qVKfNG[aulRaDcsMqs],trNZ.sjqCBB[bzrxhWJsC],xTXa.partLYV[TQICqD],yrBs.ucLUEUi[gaNuaroSMRp]}
 		YvtkcXqaLsSiwTatx = {SUhg.QvfGIOQ[aYFCiwin],z+(bqXZdiQzMqcsmg),f+(EQyTLuhqBzNHag),jJk,l+(KKZQyzsguDZxof),k+(VdEyOiPNRSiwJU),nil,nil,VYeJekGwr,{eXGLUkjbbd(QCqm),Mu_VsaOlIITI(igJH)}}
->>>>>>> Stashed changes
+
 
 		local QAAlHzpvwh_QMzIo = tvw_diOFZon_zdjjUQpwLWD_fdyB(PMVe.sSFye)
 		if YwVvyvWjdN_lpxEA then

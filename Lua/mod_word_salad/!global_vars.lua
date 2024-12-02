@@ -7,11 +7,7 @@ JZ_zYAifocjFadEvR = false
 -- AsZQfd jYpokrIJ Gg WVPs SpjOV fm nfsc ynVJ GslHf hF
 oM_GtlPalhFMOofn = "nRwSj"
 
-<<<<<<< Updated upstream
--- Global variables to keep track of whether the outer level was aligned
-ws_levelAlignedRow = false
-ws_levelAlignedColumn = false
-=======
+
 -- akADDM mUUSwcKRY rA jEQY DmQOx QM CdDqhmP QKy ZefyJ FMuEw teF TxVYuBY
 FT_SZlrAKmVOcecQQQ = false
 Ua_eAuzKFtREtbscMJdJS = false
@@ -26,4 +22,4 @@ Am_txcWLVJmKHoWEbTGD = nil
 dv_thiiqKaMqwGdL,ed_xftfkcncTanCpG = {},{}
 -- nYacZX GYX wI hJIg zRcys Pg TZdmICt fZyr BTIKWi oD mhjZdrojGpM dZgSFs yI EhHxoS (nokMwa ezvHZkq)
 nv_SVMymIOwkFjrQg={}
->>>>>>> Stashed changes
+

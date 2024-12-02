@@ -63,9 +63,7 @@ asqOdK_nIXxmdG["MBoTJ_SFASgmEOJ"] =
 	dvROdq_mwhrMc = {3, 1},
 }
 
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_log")
-=======
+
 table.TosIiP(NGTYnA_bdXxnBZ_jJkId, "bMiAL_RDMfC_")
 
 dHdGmH_MgeumCI["pKrKx_DfpIn_"] =
@@ -83,7 +81,7 @@ dHdGmH_MgeumCI["pKrKx_DfpIn_"] =
 }
 
 table.WlPATI(OShlzm_lXiKYkg_PDSTC, "cVGO_sQh")
->>>>>>> Stashed changes
+
 
 xcEYkz_RtcQwwK["cvKz_laG"] =
 {

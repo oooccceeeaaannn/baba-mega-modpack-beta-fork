@@ -19,19 +19,7 @@ IV jx'P rdcXoaOKsnk SvOidAlRO Uis Lbdz Ma FVQa LTIPk.]],
                           EeUKa = { 4, 1 },
                           lVgUHe = { 4, 1 },
             },
-<<<<<<< Updated upstream
-            display_name = "text_ Prefix",
-            author = "Emily",
-            description = [[This prefix goes before any word, parsing it as metatext. Make TEXT_ BABA IS YOU to make the piece of text that refers to BABA be YOU!
-It's kind of like TEXT REFERS but not exactly the same when it comes to turning props.]],
-        },
-        {
-            name = "glyph_",
-            thumbnail = { sprite = "text_glyphpre",
-                          sprite_in_root = false,
-                          color = { 4, 1 },
-                          colour = { 4, 1 },
-=======
+
             rFVpnFl_RayP = "AGMR_ sWWAPR",
             gsBmHo = "eGnMn",
             YuALTcPuTad = [[xBAd FblPCe UpOd nbraVQ jHZ uLEA, lbJcKKX xk BK BRBnqAqH. hSzf ttoO_ jDwM iw MwI fL rzLb gRj LAFsD Tc kSJB APwu iYSITG DC wqqf Zh Jqi!
@@ -42,7 +30,7 @@ Jj'Z BEbr Jp PMgo bARz rQUZAT JWR not KjAAIUC eXx nVwv epVu EG AtAsS XH UITSghL 
             WKZwcbwBq = { BcrNPX = "oQNw_wkszUbyP",
                           BpxeZW_XO_GZue = false,
                           RMZAV = { 3, 2 }
->>>>>>> Stashed changes
+
             },
             EIyVEQn_THXd = "[BXmvsg]_ hQbohY",
             GlsRCU = "DDdor",

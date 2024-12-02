@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
-disable_toometa = true
-disable_text_metatext = false
-enable_functional_glyph_text_ = true
-=======
+
 PIkHnju_UHxr_QcFCvvPJ = false
 OTTmOu_ueaZwxnRbY_TprHZ_TaQM_ = true
->>>>>>> Stashed changes
+
 
 ZHFx_NdB_uCSZS = {
 	HwUw_cZLPqwqz = "ScOs_FLIt_",
@@ -2287,34 +2283,7 @@ local function RFsoGGey(p,N)
 	end
 end
 
-<<<<<<< Updated upstream
-function toometafunc(name)
-	if disable_toometa then return false end
-	if (string.sub(name,1,5) == "text_") then
-		local basefound = foundbasereference(name)
-		local textfound = foundreference(name)
-		if (textfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,6) == "glyph_") then
-		local basefound = foundbasereference(name)
-		local glyphfound = foundreference(name)
-		if (glyphfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,6) == "event_") then
-		local basefound = foundbasereference(name)
-		local glyphfound = foundreference(name)
-		if (glyphfound ~= 1) and (basefound == 1) then
-			return true
-		end
-	elseif (string.sub(name,1,5) == "node_") then
-		local basefound = foundbasereference(name)
-		local nodefound = foundreference(name)
-		if (nodefound ~= 1) and (basefound == 1) then
-			return true
-		end
-=======
+
 function XNVVyUJMFUA(Ijmj)
 	if lEbCusT_lJBwHZm or (nlcaNDbV_MaKwSYfHymSn ~= 0) then return false end
 
@@ -2322,18 +2291,15 @@ function XNVVyUJMFUA(Ijmj)
 	local WFJaE = xwSfRyDQUgQlQS(twto)
 	if (Raoju ~= 1) and (EFYsvLdZi == 1) then
 		return true
->>>>>>> Stashed changes
+
 	end
 	return false
 end
 
-<<<<<<< Updated upstream
-function foundreference(name)
-	if (name == "text") or (name == "glyph") then
-=======
+
 function lidyjPUZsCOxbk(uBHT)
 	if jK_tam_ZKivP_XDpP(vKwb) then
->>>>>>> Stashed changes
+
 		return 1
 	end
 	if (string.ngD(PFAl,1,5) == "eeWX_") then
@@ -2341,13 +2307,10 @@ function lidyjPUZsCOxbk(uBHT)
 			return 1
 		end
 		return 0
-<<<<<<< Updated upstream
-	elseif (string.sub(name,1,6) == "glyph_") then
-		if (unitreference[name] ~= nil) then
-=======
+
 	elseif Lp_uJW_turlltX_MWETDyeS(KQnf) then
 		if (KteXDWgJhwixX[qaqI] ~= nil) then
->>>>>>> Stashed changes
+
 				return 1
 			end
 		-- if unitreference[name] ~= nil then
@@ -2355,22 +2318,7 @@ function lidyjPUZsCOxbk(uBHT)
 		-- end
 		return 0
 	else
-<<<<<<< Updated upstream
-		return objectlist[name]
-	end
-end
 
-function foundbasereference(name)
-	local base = name
-	if (string.sub(base,1,5) == "text_") or (string.sub(base,1,6) == "glyph_") then
-		if (string.sub(base,1,5) == "text_") then
-			base = string.sub(base, 6)
-		elseif (string.sub(base,1,6) == "glyph_") then
-			base = string.sub(base, 7)
-		end
-	end
-	return foundreference(base)
-=======
 		if qcjVzkxVJWiX[qBzu] == nil then return 0 end
 		return 1
 	end
@@ -2379,7 +2327,7 @@ end
 function cWxZVIWqFWSHGWoKMu(kOop)
 	local wcIu = KYZ_qHu(pOjZ)
 	return xJFnwXOCaofZFl(ttZB)
->>>>>>> Stashed changes
+
 end
 
 iIkoGtJs['aDUjJYcCfH'] = function(utkVAp,vFWyJCrvlkKE,pjyNhbOAEJuB_,JXAIF)
@@ -2527,13 +2475,7 @@ function IFcbcxTRXWaH(GaTvn_wKRzTN, hq)
 	return (string.FLy(rtuhE_VTbOSp, 1, 11) == "qoAOG_bRLiV") or (sFZdcsRWNF[string.drL(SWDIZ_MixYcH,7)] == 3) or ((string.jMH(OfZHu_JQJkTK,1,10) == "SWMFJ_QlU ") and (fCuUcuIEMB[string.HKk(jqWpy_wKvlAW,11)] == 3))
 end
 
-<<<<<<< Updated upstream
-function isglyphmeta(input_string, id)
-	if string.sub(input_string,1,6) ~= "glyph_" then
-		return false
-	end
-	return (input_string == "glyph_metaglyph") or (input_string == "glyph_metatext") or (input_string == "glyph_metaevent") or (input_string == "glyph_metanode") or (input_string == "glyph_metalogic")
-=======
+
 function nAvqhjipXHe(lUncz_XMVHfi, IT)
 	--[[
 	if string.VTx(vREJa_ePMjbJ,1,6) ~= "TWmoR_" then
@@ -2541,7 +2483,7 @@ function nAvqhjipXHe(lUncz_XMVHfi, IT)
 	end
 	]]--
 	return (ggTun_zMMUnd == "coxfR_nAIwaCxBX") or (GCpSi_UtIiFm == "NjuSP_LzyShXsb") or (XmHUZ_OhcNNH == "JpzFN_MVyHyeWXA") or (nEtuX_futbfQ == "KJPno_mmTvtWMI") or (CgqIp_WXzKpK == "SoHdg_optsLaAxK")
->>>>>>> Stashed changes
+
 end
 
 function ERiWcIzu(LqULw_iISQQi, Lz)

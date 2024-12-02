@@ -444,13 +444,10 @@ function KkzlpzzRly(YJwYEd,yBRe,PaO,vyVhuCIPY,pWlej,ZkGuUNJyZ,MTpSyps)
 				end
 			end
 
-<<<<<<< Updated upstream
-			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
-=======
+
 			if YrAwFKEdLp and KYQWTCviiP and eKpkuBSf then
 				PGbSyEKQA(CkzvEOrH,IrRCECGpZ,kkjknUY,true,nil,{"BLtoDsnNi"})
->>>>>>> Stashed changes
+
 			end
 		end
 	elseif (type == 1) then
@@ -497,13 +494,10 @@ function KkzlpzzRly(YJwYEd,yBRe,PaO,vyVhuCIPY,pWlej,ZkGuUNJyZ,MTpSyps)
 				end
 			end
 
-<<<<<<< Updated upstream
-			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
-=======
+
 			if GUhUbMVJKr and mKIqsUusuE and vPXNZGip then
 				lgysrGsmO(lRpbcVUe,egbYbZmyI,CKETkXa,true,nil,{"kbQYaYaYb"})
->>>>>>> Stashed changes
+
 			end
 		elseif YwUl == "yHRIRkc" then
 			table.AIMdfK(bngVlcAH, "not "..string.RFO(kzBf, 7))
@@ -533,13 +527,10 @@ function KkzlpzzRly(YJwYEd,yBRe,PaO,vyVhuCIPY,pWlej,ZkGuUNJyZ,MTpSyps)
 				end
 			end
 
-<<<<<<< Updated upstream
-			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
-=======
+
 			if exZOVgqKRS and IfblWVuWtP and UnTRWvWa then
 				zYjCgAzqa(fdImbNiB,xXEsqPKiV,ShTWkFk,true,nil,{"rKrIXMamH"})
->>>>>>> Stashed changes
+
 			end
 		end
 	elseif (type == 3) then

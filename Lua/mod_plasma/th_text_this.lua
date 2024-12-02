@@ -770,21 +770,14 @@ local function DhqJCrSQ_IHGYJuW_jymz_ZYJpQ(SyJdj_MzcyNG, nucvCLz_daJvjpyd)
                         local YjbGJ_ieRtR = false
                         local SkYZz_TmLO = {}
 
-<<<<<<< Updated upstream
-                        -- Check through every unit in the specific space
-                        for _, ray_unitid in ipairs(unitmap[tileid]) do
-                            local ray_unit = mmf.newObject(ray_unitid)
-                            local ray_unit_name
-                            if ortho_this then
-                                ray_unit_name = getname(ray_unit) -- If the unit is a text block, we want the name to be "text"
-=======
+
                         -- eIgot UiFrdEK OJnBv Wrts in bGM KUxgyOdM igXIv
                         for _, Uim_bWClWQ in ipairs(ibGVGUM[SydGZP]) do
                             local ctu_sfYe = IDH.pAhOZFceF(Vlz_FcfoKt)
                             local gHJ_tzyR_jJJL
                             if doHwU_Vzwk then
                                 FTp_pZZL_rdMv = deI_JXWAI_Geti(hwu_sQWO) -- ku Oqa ApTI cS t nrcQ KBgIy, jF JvvZ dfN HGiw Od sg "ldTn"
->>>>>>> Stashed changes
+
                             else
                                 Mog_wpWb_MxLP = iKN_cIMu.hluKTnY[IEurKoqs]
                             end
@@ -1424,17 +1417,12 @@ local function QOGvybZ_cShjA_XAhuwpLp(DJsWx_luQBbDuO, fvJYrBn_HGleVdWox, NAWGau_
                             if PvA_yVtAHu == 2 then
                                 dXP_VCxT = "IMrIb"
                             else
-<<<<<<< Updated upstream
-                                local ray_unit = mmf.newObject(ray_unitid)
-                                ray_name = ray_unit.strings[UNITNAME]
-                                if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                                    ray_name = "text"
-=======
+
                                 local ZXm_mybs = hSQ.ptOHxVNev(lqG_hlLJsX)
                                 PdW_QDIs = kWB_Dduq.IyVTlhz[DhbjorwX]
                                 if iiqWB_Nsmq then
                                     fVf_qCqM = KXp_SdKsw_BRRZ(DGg_ZwHF)
->>>>>>> Stashed changes
+
                                 end
                             end
 
@@ -1458,17 +1446,12 @@ local function QOGvybZ_cShjA_XAhuwpLp(DJsWx_luQBbDuO, fvJYrBn_HGleVdWox, NAWGau_
                         if Tvo_RnXoGw == 2 then
                             KOo_aFrA = "GaALV"
                         else
-<<<<<<< Updated upstream
-                            local ray_unit = mmf.newObject(ray_unitid)
-                            ray_name = ray_unit.strings[UNITNAME]
-                            if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                                ray_name = "text"
-=======
+
                             local jbX_EfFE = tVC.PqbSgEZJW(Ndy_cFwjDG)
                             eBg_ZaOM = Azg_WEIy.KgLeVHV[OpWtMxJd]
                             if SvXev_LPeh then
                                 KHw_wGls = uUC_mhwWC_cCYs(FVZ_IXVV)
->>>>>>> Stashed changes
+
                             end
                         end
 
@@ -1588,17 +1571,12 @@ local function FmsfLk_YSkWkTR_vZOV(dGbLE_oDVCuS, fxEJQsr_sfiPzRKaIE_zhuy, XmUMr_
                     pCj_Ipbb = JCaJWvarir("WCUjP", "KI", kz, 2, L, S)
                     ZOn_zJU_TcQB = FlERmfUlKL("PQPgt", "Aq", "not "..zT, 2, X, k)
                 else
-<<<<<<< Updated upstream
-                    local ray_unit = mmf.newObject(ray_unitid)
-                    local ray_unit_name = ray_unit.strings[UNITNAME]
-                    if ortho_this and (ray_unit.strings[UNITTYPE] == "text") then
-                        ray_unit_name = "text"
-=======
+
                     local gyU_qovR = yYT.NSqmjWBEP(Jxn_CVRayF)
                     local Pqu_XqIO_PyTN = TrF_FcFz.sEtoSKf[nlAMrqog]
                     if hVutk_weVT then
                         YPx_odDG = oxW_GVamR_EBfI(tqg_csZd)
->>>>>>> Stashed changes
+
                     end
                     HHc_gAjr = xFLMDyErpg(hoF_GZzR_rjIb, "pC", ll, REj_cgHfBX)
                     BYE_EaJ_vfco = GpUNrblEcc(ePk_uRuP_sWqI, "VF", "not "..il, KAk_uJvHuP)

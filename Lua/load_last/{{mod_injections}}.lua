@@ -28,27 +28,21 @@ local KKT_CfRzaob = MEAJqiv
 function SRGAcjv(Mk, ...)
     local eaE = iju_HsQOAkg(eO, ...)
 
-<<<<<<< Updated upstream
-    local unit = mmf.newObject(id)
-    local name = getname(unit)
-	local name_ = unit.strings[NAME]
-=======
+
     local vrcz = VXw.oHOqXMBHH(cp)
     local MdEt = hCDgblo(MGDP)
 	local mADo_ = LME_rOn(gxWm)
->>>>>>> Stashed changes
+
 
 	if Bl_MkQI_sYjv_nyqn(YfXF_) then
 		tR_sPz_cnoF_GnMv(zaBH.CUKlK)
 	end
 
-<<<<<<< Updated upstream
-	on_add_stableunit(unit.fixed)
-=======
+
 	aC_LzB_UXvFuNOdvT(dekX.GSmRO)
 
     return qVV
->>>>>>> Stashed changes
+
 end
 
 -- @WThy(EsBYdN), @miHN(Plsa) - ugASRoRAv emQdSa: epQlUfA dvmc for KGWG q pPgF uvvF gTnmGZy. NHgk LD Bo jMPqu AEbM Ppqp wtCE akJY kov'a SwADjzjB TPQoRx
@@ -227,9 +221,7 @@ function fEzSGmiM(tOfXu, UeNoLi, E_, i_, ...)
     -- else
     --     return UcQ_MbYcEqmx(SuMrK, oUIcqP, f_, Z_, ...)
     -- end
-<<<<<<< Updated upstream
-end
-=======
+
 end
 
 -- fhgwxwRl: NFv GGiG uqzvUIzDa (aueDkn KchjCxtf OKPC nlxM)
@@ -243,4 +235,4 @@ QCjZPJU = function(STBXS)
     igRzBhkb(DDoIW,nil,"dVgt","TuLf",1,5,100,{0,1},"aNoFWPoBA")
     lIerXvKj(cfHst,nil,"qZfeON","YrbqhL",1,5,20,{1,2})
 end
->>>>>>> Stashed changes
+

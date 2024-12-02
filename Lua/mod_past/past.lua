@@ -289,16 +289,7 @@ function PSeAxx()
   				xEbBPuwpMxl2.rTuSHXM[UPmUihKEy] = "zBPkXt"
   				FGGF()
   			end
-<<<<<<< Updated upstream
-        newundo(true)
-        updateundo = true
-        doundo = true
-        addundo({"maprotation",maprotation})
-        addundo({"mapdir",mapdir})
-        addundo({"levelupdate",Xoffset,Yoffset})
-        for id,unit in pairs(units) do
-          addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init},id)
-=======
+
         VKgUxZD(true)
         UAFAIeNoyt = true
         hoMqcD = true
@@ -307,7 +298,7 @@ function PSeAxx()
         tZiilnQ({"nHouLEuWExf",MdkktPG,Dimpmrr})
         for RJ,ptGs in pairs(FjEGu) do
           TDOCqct({"vShslg",Ejfy.nFaMDEs[rKMHjGGW],CbOA.zfWGFe[AaUc],ipRE.mPWGYA[nEGK],GBEc.gWYXPA[JJV],afMH.hvPEtX[Tm],stGm.GBEvlO[XI],kvpC.GUOPXTD[K_yUtTBJouD],JdpT.OJNabBY[x_ZhPgtmwee],fVVQ.NfSigH[NDcPIZPxEYF],RMbD.yNWvqJ[kuMDxlvsv],PnGU.rFcTky[NqzvoZRvUIO],cfhm.LDDCj[yRbdGUmq],tfDr.yqEkghM[hUCuNG],htNA.iarZJRd[ahxGwwLYLxq],uOox.CHyXtLPc,IDBW.PIwC_UEIB,KmCR.rDTPYqAGxdnU,eqYd.LgbJSQU[bnagfTWYgzcG],false,EWbK.HTRiY,bn_fjLnpbdEK(Erve)},sg)
->>>>>>> Stashed changes
+
         end
         MunvtSZ()
         for lAfejhgA,vyyeXetSkuG in ipairs(WZtPrmnAUU) do

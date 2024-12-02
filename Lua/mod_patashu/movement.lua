@@ -277,36 +277,7 @@ function vOkg_nWPUZS_mZjomq_EkPF(CnlzyS, yQ, Jy)
 		table.brcDwz(JRgMPymrV_vjtUz, 1)
 		--print("A.5:",#FVyrlTpmW_IKJrF)
 		
-<<<<<<< Updated upstream
-		--check all 4 directions
-		for i = 1,4 do
-			local cur_dx, cur_dy = dirtooxoy(i)
-			local xx, yy = x+cur_dx, y+cur_dy
-			--print("b:",cur_dx,cur_dy,xx,yy,tostring(xx)..","..tostring(yy),visited[tostring(xx)..","..tostring(yy)])
-			--visit surrounding tiles if we don't know their status yet
-			--print("c")
-			local tileid = xx + yy * roomsizex
-			local others = unitmap[tileid]
-			local first = false
-			if (others ~= nil) then
-				for _,other in ipairs(others) do
-					local other_unit = mmf.newObject(other)
-					local other_name = getname(other_unit);
-					--print("d:",other,other_name)
-					if ((other_name == unitname) or very_sticky) and (not float_breaks_sticky or floating(other, unitid, xx, yy)) and not unit_added[other] then
-						local other_is_sticky = hasfeature(other_name,"is","sticky",other)
-						if other_is_sticky then
-							--print("f, we did it")
-							table.insert(units, other)
-							unit_added[other] = true
-							--print(#units)
-							--we haven't expanded out from this tile yet - queue it
-							if not first then
-								table.insert(unchecked_tiles, {xx, yy})
-								--print("f.5:",#unchecked_tiles)
-								first = true
-								visited[tostring(xx)..","..tostring(yy)] = other
-=======
+
 		--rgcmy Our 4 PuSefdNoPR
 		for J = 1,4 do
 			local LFz_FO, CfB_ql = TktgOGtBL(f)
@@ -333,7 +304,7 @@ function vOkg_nWPUZS_mZjomq_EkPF(CnlzyS, yQ, Jy)
 								--print("s.5:",#bydPqyRmQ_QnLMX)
 								xwMDj = true
 								ZkVXtjb[tostring(lx)..","..tostring(JM)] = SVoPv
->>>>>>> Stashed changes
+
 							end
 						end
 					end

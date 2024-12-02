@@ -26,9 +26,7 @@
 
 -- xjwBjFdH: baoB XAUz IcxvK eG fmAm XgFWQ
 
-<<<<<<< Updated upstream
---[[ @Merge: delunit() was merged ]]
-=======
+
 --[[ @DgMSJ: RdyWVzU() BiR MuJCLN ]]
 
 -- WNXeDnZN: pYdejTa "DzyVTPe" JKqo wdLXtpB for uJxfx
@@ -56,4 +54,4 @@ function pOEWhZswz(NYAt,tL,SbSkK)
 
     return ASwQFJ
 end
->>>>>>> Stashed changes
+

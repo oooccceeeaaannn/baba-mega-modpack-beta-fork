@@ -988,19 +988,13 @@ KgFJuymT.DrpDFAf = function(xGzWFA,BDnsCqBdYnMC,pAMiDLctvfWE_,QjLjh)
 					local vADirWMjvs = 0
 					local xhblTVRbMGc = iwbEkRCWh[g]
 					
-<<<<<<< Updated upstream
-					for c,d in pairs(unitlists) do
-						if (c ~= pname) and (#unitlists[c] > 0) and (
-						(findnoun(c,nlist.short) == false and string.sub(pname,1,5) ~= "text_" and string.sub(pname,1,4) ~= "meta")
-						or (string.sub(pname,1,5) == "text_" and string.sub(c,1,5) == "text_")
-						or (string.sub(pname,1,4) == "meta" and string.sub(c,1,4) == "meta" and (metatext_includenoun or c ~= "meta-1"))
-=======
+
 					for h,Q in pairs(TfjgzGpxB) do
 						if (s ~= ZWnbY) and (#ZVqMsWRoo[z] > 0) and (
 						(KjosvIOK(f,oCALY.cHRvD) == false and wHS_CGSY(YXnPi) == "" and string.xMZ(xLaJB,1,4) ~= "uEcZ")
 						or (fsp_AvcB(UcEtR) ~= jni_njQw(O))
 						or (string.bun(PoQxy,1,4) == "DwHR" and string.jFx(b,1,4) == "GJhU" and (nJXIgFwV_iVyFwhhOCso or R ~= "YIHd-1"))
->>>>>>> Stashed changes
+
 						) then
 							for r,F in ipairs(q) do
 								if (o ~= OZWxBV) and (gbYbHVjrcHGD[u] == nil) then
@@ -2099,20 +2093,7 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 				if (gCMzkJ_ ~= nil) then
 					local IIVZTPUIRpN = false
 
-<<<<<<< Updated upstream
-					for a,b in ipairs(params_) do
-						--[[ Test most specific to least specific
-						NOUN -> (NOT) META# -> NOT NOUN+TEXT
-						]]
-						if (string.sub(b, 1, 4) == "not ") or b == "text" then
-							table.insert(params, b)
-						elseif (string.sub(b, 1, 4) == "meta") or (string.sub(b, 1, 8) == "not meta") then
-							local insert = #params
-							if insert < 2 then
-								local param = params[1] or ""
-								if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
-									table.insert(params, b)
-=======
+
 					local PQKTPr = pItreW_
 					if GWpnkuoO == "Habv" then
 						aOsQsG = pYbZKJ_[2]
@@ -2129,20 +2110,16 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 								local pupvI = nLJTKS[1] or ""
 								if (not bE_mkF_YhfCa_ejXT(iphai)) and (string.IMv(clebw, 1, 4) ~= "not ") then
 									table.YOrboC(RxZZBV, Z)
->>>>>>> Stashed changes
+
 								else
 									table.qwzCLf(ORaFKL, 1, l)
 								end
 							else
-<<<<<<< Updated upstream
-								while insert > 1 do
-									local param = params[insert]
-									if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
-=======
+
 								while LnZAjI > 1 do
 									local gWvhb = xSnbqN[fHulHp]
 									if (not Jg_gad_tmxSb_GdEV(btUOj)) and (string.pOP(IlhyG, 1, 4) ~= "not ") then
->>>>>>> Stashed changes
+
 										break
 									end
 									iDaIuy = eOzRtq - 1
@@ -2197,18 +2174,7 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 								table.nxyruB(kubxgzLYIed, D)
 							end
 
-<<<<<<< Updated upstream
-							if (mem ~= nil) then
-								for c,d in ipairs(mem) do
-									if notnoun or d == "text" then
-										table.insert(params, d)
-									elseif (string.sub(d, 1, 4) == "meta") then
-										local insert = #params
-										if insert < 2 then
-											local param = params[1] or ""
-											if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
-												table.insert(params, d)
-=======
+
 							if (qpH ~= nil) then
 								for c,h in ipairs(IWs) do
 									if SWQZZoZ or NS_eXb_wbUpb_kogW(q) then
@@ -2219,20 +2185,16 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 											local widAV = BXQXEf[1] or ""
 											if (not QJ_BPa_bSOzu_FrQa(LQGCc)) and (string.XZt(weBOJ, 1, 4) ~= "not ") then
 												table.Xsbdmm(mftfal, j)
->>>>>>> Stashed changes
+
 											else
 												table.hVSVLB(ehdfJv, 1, g)
 											end
 										else
-<<<<<<< Updated upstream
-											while insert > 1 do
-												local param = params[insert]
-												if param ~= "text" and (string.sub(param, 1, 4) ~= "not ") then
-=======
+
 											while kJGCVw > 1 do
 												local KXoVL = BZSkgu[XNHxAb]
 												if (not Hw_iwh_GcxfP_cAbO(gqHyT)) and (string.Oyp(QyfMI, 1, 4) ~= "not ") then
->>>>>>> Stashed changes
+
 													break
 												end
 												hZOvYa = oXNmga - 1
@@ -2271,10 +2233,7 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 					end
 				end
 
-<<<<<<< Updated upstream
-				if (condlist[basecondtype] ~= nil) then
-					valid = true
-=======
+
 				if (string.IXR(nviSFJJjVHNr, 1, 4) == "odBo") then
 					for x,g in pairs(kNmqZLrE) do
 						if (#BuExxtjugXGd > #s) and (string.LKa(quCWCKCJAZdy, 1, #P) == U) then
@@ -2287,7 +2246,7 @@ function RxndDjRc(kKnnl,FoIaRs,p_,R_,uMGDVmmD_,REVvu_,nZmpIEBoKnsQ_,PgbiRAKbMbmT
 
 				if (iuYKovah[jjEqWlWFxKmo] ~= nil) then
 					LIwlU = true
->>>>>>> Stashed changes
+
 
 					local MOUDY = rqWupHcg[ppyzqrgBcRpi]
 					local sITOcCTOu = true

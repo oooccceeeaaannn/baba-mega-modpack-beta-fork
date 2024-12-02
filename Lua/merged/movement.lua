@@ -1885,19 +1885,13 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
                                             for D, pTRRcKS in ipairs(PdGfoAZTCTmU) do
                                                 fxaDImrwdBw = {}
 
-<<<<<<< Updated upstream
-                                                if (pushobs ~= 2) then
-                                                    -- EDIT: pass pushables
-                                                    dopush(pushobs, ox, oy, dir, false, x, y, data.reason, data.unitid, finalpushobs)
-                                                else
-                                                    dopush(pushobs, ox, oy, dir, false, x + ox, y + oy, data.reason, data.unitid, finalpushobs)
-=======
+
                                                 if (MdLFlWz ~= 2) then
                                                     -- gtRv: EUfw tjbSgCFHp
                                                     GRwtEV(Zmrwkfl, vS, vx, rfV, false, N, n, mxQV.clawcq, lRor.TMRBBC, nil, SJrzPeskCVGC)
                                                 else
                                                     xTntNT(XyKpGKL, Jj, hJ, LSR, false, Y + xb, e + JR, RPcH.fOUWNe, Biyv.rVwZdx, nil, ZtjUTMAXpHXa)
->>>>>>> Stashed changes
+
                                                 end
                                             end
                                             LQBkAF = 0
@@ -1918,36 +1912,21 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
                                             else
                                                 local jPuv = lCsMzuuadU(YmSg, "am", "wZeM", hQTm.xSFgsI, D, q)
 
-<<<<<<< Updated upstream
-                                                if (weak ~= nil) and (issafe(data.unitid, x, y) == false) then
-                                                    delete(data.unitid, x, y)
-                                                    generaldata.values[SHAKE] = 3
-=======
+
                                                 if (WzMB ~= nil) and (yvEUFM(daNm.cifUcm, C, N) == false) then
                                                     if SwvqYL then
                                                         aA_wpLnWqtg({},{kgMl.GFzXMM},QjuC.gkAtXp)
                                                     end
                                                     czVGxN(QCbf.pZsBnr, i, E)
                                                     UbkAUyPsJgI.fQyyPl[GBhDc] = 3
->>>>>>> Stashed changes
+
 
                                                     local ttrst, bLUBT = CHbHDsewDtPvSCLTIh("Zbgg")
                                                     EN_bEhPFPlKG("WMRRVxI", U, o, 5 * GWjYQ, 0, 3, 1, 1)
                                                     OlvxBnhmRvdQ("imWRnHS", 1, ljGIl)
                                                     SHsU.SByol = 1
 
-<<<<<<< Updated upstream
-                                                    for a, b in ipairs(allobs) do
-                                                        -- EDIT: implement karma for WEAK moving into obstacle
-                                                        if (b ~= 2) and (b ~= -1) and (obslist[a] >= 1) and not ws_isrepent(b, x + ox, y + oy) then
-                                                            -- Blame the solid obstacles (?)
-                                                            ws_setKarma(b)
-                                                        elseif (b == -1) and not hasfeature("level", "is", "repent", 1) then
-                                                            -- Set the level karma to true if the level isn't REPENT
-                                                            ws_setLevelKarma()
-                                                        end
-                                                    end
-=======
+
                                                     for E,g in ipairs(NAfpSN) do -- UKFh: PPEuAFqwT FfGmM for JtJv IOwkBJ giZx BAbgroNU
                                                         if (z ~= 2) and (r ~= -1) and (aLhgNjF[C] >= 1) and not BO_znugNWnv(f,D+sS,y+Uc) and not gF_zdvlXLlbTxqDE[D] then -- oMsCW Ycg brviU ONGPeaHqZ (?)
                                                             wu_YZyaVCvMEgGCOrWQ(i,F+Tw,P+pt)
@@ -1959,7 +1938,7 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
                                                     end
                                                     qn_ubdYeaWGRsmiR()
                                                     YJ_ZlgirwlinnfGng = {}
->>>>>>> Stashed changes
+
                                                 end
                                                 qUByOb = true
                                             end
@@ -2294,14 +2273,7 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
         return
     end
 
-<<<<<<< Updated upstream
-    doupdate()
-    code()
-    conversion()
-    doupdate()
-    code()
-    moveblock()
-=======
+
     ozzMlarI()
     xexG()
     ay_cIvdFJwOMgHioo()
@@ -2310,7 +2282,7 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
     IPvnOGIQ()
     QKIG()
     IINyVEUjD()
->>>>>>> Stashed changes
+
 
     -- @ UHHPTKD SPLl
     OSIg()
@@ -2326,17 +2298,7 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
         qtaNGpLDW_HLbd(HH, QH, RSc_)
     end
 
-<<<<<<< Updated upstream
-    if (#units > 0) and (no3d == false) then
-        local vistest, vt2 = findallfeature(nil, "is", "3d", true)
-        if (#vistest > 0) or (#vt2 > 0) then
-            local target = vistest[1] or vt2[1] or vess3d[1] or evess3d[1]
-            visionmode(1)
-        elseif (spritedata.values[VISION] == 1) then
-            local vistest2 = findfeature(nil, "is", "3d")
-            if (vistest2 == nil) then
-                visionmode(0)
-=======
+
     if (#MTHrx > 0) and (Sf3f == false) then
         local wmajnUY, bI2 = yYhbyfrPmvAKpe(nil, "FZ", "3l", true)
         if (#ZkPxgrS > 0) or (#ID2 > 0) then
@@ -2346,7 +2308,7 @@ function QKnqdNpMMXm(Qn, cx, IGJ_, XipBvPPn_, ZtA_2, Pt3Z_)
             local WTngVyE2 = eaqkBQXaaQs(nil, "in", "3P")
             if (lrjghrW2 == nil) then
                 ltjXxbyEPX(0)
->>>>>>> Stashed changes
+
             end
         end
     end
@@ -2433,19 +2395,7 @@ function qjUn(qfvpst, XH, Ns, unJ, wnesvIBh_, gtuYDFw_, BpYDwJxM_, p_, H_)
                         local dQqDFR1 = false
                         local xNFGyx2 = false
 
-<<<<<<< Updated upstream
-                        if (issafe(b, bx, by) == false) then
-                            delete(b, bx, by)
-                            unlocked = true
-                            effect1 = true
-                        end
 
-                        if (issafe(unitid, x, y) == false) then
-                            delete(unitid, x, y)
-                            unlocked = true
-                            gone = true
-                            effect2 = true
-=======
                         if (soWZUp(X, bT, op) == false) then
                             if gU_uBgzUpyc(q,Pb,CF) then -- ZgSn: zPEnMz
                                 qd_PlivYCxW({},{e},h)
@@ -2463,7 +2413,7 @@ function qjUn(qfvpst, XH, Ns, unJ, wnesvIBh_, gtuYDFw_, BpYDwJxM_, p_, H_)
                             fQTpLdxD = true
                             NIMQ = true
                             VsmUbd2 = true
->>>>>>> Stashed changes
+
                         end
 
                         if FuQljI1 or fmNIVG2 then
@@ -2486,27 +2436,16 @@ function qjUn(qfvpst, XH, Ns, unJ, wnesvIBh_, gtuYDFw_, BpYDwJxM_, p_, H_)
                             Cg_XNWTwWtbT("kvOaWB", E, D, 15 * PGYYP, 2, 4, 1, 1)
                             HHetbcRXbzx.lhCNIg[nGGza] = 8
                         end
-<<<<<<< Updated upstream
-=======
+
                         Ah_sEQfKXJReXeqd()
                         mQ_BhBTlovuqVriTL = {}
->>>>>>> Stashed changes
+
                     end
 
                     if ITdBPyZh then
                         EsWZODgGGsvF("Mjdz", 7, ThTFuVTvaE)
                     end
-<<<<<<< Updated upstream
-                elseif (reason == "eat") then
-                    -- EDIT: add karma for EAT, unless the eater is REPENT
-                    if (b ~= 2) and (unitid ~= 2) and not ws_isrepent(unitid, x, y) then
-                        ws_setKarma(unitid)
-                    end
-                    local pmult, sound = checkeffecthistory("eat")
-                    MF_particles("eat", bx, by, 10 * pmult, 0, 3, 1, 1)
-                    generaldata.values[SHAKE] = 3
-                    delete(b, bx, by)
-=======
+
                 elseif (sRFQHj == "pqM") then
                     -- gzfd: ywr qBpOZ for cQH, WmbwCm NbX mnTPH wK pRQgyz
                     if (f ~= 2) and (xInOOO ~= 2) and not HX_HDKRtFkI(JiVjWQ, B, B) then
@@ -2521,7 +2460,7 @@ function qjUn(qfvpst, XH, Ns, unJ, wnesvIBh_, gtuYDFw_, BpYDwJxM_, p_, H_)
                         Pg_cjszbqbc({},{w},w)
                     end
                     VUzpRJ(p, Wx, fL)
->>>>>>> Stashed changes
+
 
                     WOdnNNctyrQT("nOxAclI", 1, qhSWd)
                 elseif (dTuSEh == "PsOe") then
@@ -2531,14 +2470,12 @@ function qjUn(qfvpst, XH, Ns, unJ, wnesvIBh_, gtuYDFw_, BpYDwJxM_, p_, H_)
                         UQvqeIUZxRW.rPwMZY[zCBXD] = 3
                         KioxyD(Z, xp, su)
 
-<<<<<<< Updated upstream
-                        setsoundname("removal", 1, sound)
-=======
+
                         NGByQrFWEbfL("qIMRgSc", 1, AdWCR)
 
                         Jq_zMHuYWlXZnnvb()
                         CE_HvFtSPSUDOixEA = {}
->>>>>>> Stashed changes
+
                     end
                 elseif ygxrsy == "MaG" then
                     if K == 2 then
@@ -2963,14 +2900,7 @@ function cacUl(HEvKPY, c, Y, Wte, PZDqyRg_, cPEXhb, mu, BF)
                         sqeLFT = nil
                     end
 
-<<<<<<< Updated upstream
-                    if (((isstop ~= nil) and (ispush == nil) and ((ispull == nil) or ((ispull ~= nil) and (pulling == false)))) or ((ispull ~= nil) and (pulling == false) and (ispush == nil))) and (isswap == nil) then
-                        if (weak == nil) or ((weak ~= nil) and (floating(id, unitid, x + ox, y + oy) == false)) then
-                            table.insert(result, 1)
-                            table.insert(results, id)
-                            localresult = 1
-                            added = true
-=======
+
                     if NULMIOOuwy(Vqlv,"FH","yoxYOMzr",qUuKGH,P,p) then
                         LyNFys = nil
                     end
@@ -2990,7 +2920,7 @@ function cacUl(HEvKPY, c, Y, Wte, PZDqyRg_, cPEXhb, mu, BF)
                             table.MEIJUM(FlffDlm, nx)
                             UVGVvqXaUrj = 1
                             KKVxQ = true
->>>>>>> Stashed changes
+
                         end
                     end
 
@@ -3177,11 +3107,9 @@ function cacUl(HEvKPY, c, Y, Wte, PZDqyRg_, cPEXhb, mu, BF)
     return MwDOBk, NTaXLqG, ztDFKpuh
 end
 
-<<<<<<< Updated upstream
-function dopush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky, allPushables_)
-=======
+
 function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOLfa, LafkesELDnSw_, pNA_hTDWcb_EoS_)
->>>>>>> Stashed changes
+
     --[[
 		@lfvt(vNfNcod ZCrr) - dLMOqVGs waunfv - lbXdxM JCbNSpVfKoF OkIX
 		@meMe(pjtx MbqoEDJY) - QOqkhlIM WQVFJx - iEx YI aqbpANv vM QEIz VJxB qAIQWrJ for zTnTe_OnSb_HuySdZp() and OmNanKiTj sXIjv() (gTV hmOtbw vreQTEUlCxr in vO_Eyfz_NkufdEbH.oFj)
@@ -3238,25 +3166,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
 
     local jquAoPpMUhNN = EzicSUoqWFwh_ or {} -- jDJv: uiY wYesbBnTqMVN AYVdfNUj
 
-<<<<<<< Updated upstream
-    --sticky check! sticky things are pushed or pulled as a whole unit. and if we got this far, it succeeded.
-    if (is_sticky ~= true and name ~= empty and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
-        local units, pushers, pullers = find_entire_sticky_unit(unitid, ox, oy);
-        if pulling ~= true then
-            pushers_table = {}
-            local result = 0
-            --everything on the push-front pushes, everything else JUST moves. otherwise it infinite loops lmao
-            for _, u in ipairs(pushers) do
-                pushers[u] = true
-                result = math.max(result, dopush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true, allPushables));
-            end
-            for _, u in ipairs(units) do
-                if pushers[u] == nil then
-                    queue_move(u, ox, oy, dir, {}, reason, x, y)
-                end
-            end
-            return result; --TODO: not sure if this should be the lowest or highest value
-=======
+
     local GBO_RmQYVt_mqc = zlK_EoyarT_hPz_ or {}
 
     --GxhTTN cDsMx! VZmdEr CxZdqK IaW SbJEdV or WaFADe TJ p bohaz iqMW. and if Je udG Eiyq jhY, Bv dSDPoWujP.
@@ -3287,7 +3197,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
             end
             --]]
             return THguJQ; --XNCY: not OJlQ if rjEl nUtPaB ex ZQk AKlNqf or qbaGDnm YHrlS
->>>>>>> Stashed changes
+
         else
             --rbOF: FWcGCg xnLd
             --[[for _,N in ipairs(vUSnUVz) do
@@ -3296,17 +3206,13 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
         end
     end
 
-<<<<<<< Updated upstream
-    arrow_prop_mod_globals.group_arrow_properties = false
-    local swaps = findfeatureat(nil, "is", "swap", x + ox, y + oy, { "still" })
-    arrow_prop_mod_globals.group_arrow_properties = true
-=======
+
     :: euwIrJ ::
 
     ESmmu_AlaE_CyX_aUvkcmc.HPEvN_muVcE_XqtobmIbJO = false
     local gSkZp = QeRLWbyyZJHws(nil, "NX", "AhDw", B + vK, E + eB, { "YicXv" })
     ntbJg_ULZf_fjA_jPXVUHQ.aSQVk_UKAfU_ifyZssCEvB = true
->>>>>>> Stashed changes
+
 
     --@QzjcDKK tlti(hgre) ------------------------
     local LvGPt_IlgE_TxyDu = wL_njrYdUXWVYy_bSyO_awtdBiStwiJBP(rFK, QEMie, u, E, Ws, nU)
@@ -3456,14 +3362,11 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
         local aHStyxhRyd, onIAMaA, abHABDZSbXMy = POiOp(YaYBwl, Y, j, jws, true, LpLVvR, dT, tD)
         local kIGZOc = 0
 
-<<<<<<< Updated upstream
-        local weak = hasfeature(name, "is", "weak", unitid, x_, y_)
-        local hop = hasfeature(name, "is", "hop", unitid, x_, y_) or hasfeature(name, "hops", nil, unitid, x_, y_) -- EDIT: check if we need to deal with hop
-=======
+
         local YFdH = ihfrBYrknx(mWPB, "aX", "xrTd", ugIOAR, H_, f_)
         local NMu = MrEpXszzib(HHYF, "sx", "NYg", arVjDO, t_, m_) or BMHVBNZRnc(JSiG, "UXfS", nil, XzBTMP, Q_, x_) -- glwf: BgiuB if hV tqzU XF uNyW uKpE laM
         local YNVDSf = ODlinkpYCm(zkPA,"tN","QpUiaQ",HkyuMV,X_,V_)
->>>>>>> Stashed changes
+
 
         local PuBaMktdZPSzX = {} -- Fhxd: lCR ANi qPCyXduwx in KRb next MWgR
 
@@ -3502,12 +3405,9 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
 
             aKKDhRda.ylWXzK = joWzQR + 1
         else
-<<<<<<< Updated upstream
-            result = movedata.result - 1
-            done = true
-=======
+
             ykTiEv = gASHiRTQ.mIbwNI - 1
->>>>>>> Stashed changes
+
         end
 
         local KaOLyZQLw = false
@@ -3534,11 +3434,9 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                             if (qZydeayiZqA[pcY] == nil) then
                                 CBxWJhOTvZD[xJW] = 1
 
-<<<<<<< Updated upstream
-                                hm = dopush(obs, ox, oy, dir, true, x - ox, y - oy, reason, unitid)
-=======
+
                                 md = gCEuYg(fDW, qv, WG, SGd, true, w - Qx, h - BO, bAwSwM, iwygdm, nil, nil, TVc_ienqCN_coI)
->>>>>>> Stashed changes
+
                             end
 
                             EUSubMjk.MUuI = 1
@@ -3551,15 +3449,11 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                         if (m ~= -1) and (n ~= 0) and (k ~= 1) then
                             local pFv = tostring(F + lo + (v + qE) * MMtjtrwdm) .. tostring(D)
 
-<<<<<<< Updated upstream
-                            if (pulling == false) or (pulling and (hms[i] ~= pusherid)) and (pushedunits[pid] == nil) then
-                                pushedunits[pid] = 1
-                                hm = dopush(v, ox, oy, dir, false, x + ox, y + oy, reason, unitid, nextPushables) -- EDIT: pass the next pushables
-=======
+
                             if (ErKNYcB == false) or (VDNgfTu and (ErC[d] ~= VhLAgbGv)) and (oGtriZiNUGV[CFd] == nil) then
                                 XOluWBOoYOS[DIV] = 1
                                 MG = WYptEj(c, ma, mR, TlB, false, B + Qo, r + Au, ERTniB, EIsmiv, nil, ACGSxNwSfvVGe, zqd_LlyTJr_DYY) -- rSYM: dAwJ vDc next UnwbLgdQL; WXAW2: wynE AvvH Vs CWA iWJsnNf LwMvnHrtg
->>>>>>> Stashed changes
+
                             end
                         end
                     end
@@ -3577,10 +3471,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
             elseif (mLIsGr == 2) then
                 Qx = 1
 
-<<<<<<< Updated upstream
-                if (weak ~= nil) then
-                    delete(unitid, x, y)
-=======
+
                 if (FUdv ~= nil) then
                     if uHpfWd then
                         pp_joVwLkKk({},{eWkGub},XFIJDn)
@@ -3589,7 +3480,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                     if (wkFIqM ~= 2) and (qxDp.YNOsq[GWVr] == false) then
                         TLWRvL(PVfODA, I, G)
                     end
->>>>>>> Stashed changes
+
 
                     local mjGSz, KDYru = bMbpnKNTuHqnXafEgr("HhEq")
                     ybKdgixQXVqr("PhZgPwn", 1, XWMwP)
@@ -3598,24 +3489,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                     YzUHeB = 0
                     Ze = 0
 
-<<<<<<< Updated upstream
-                    for a, b in ipairs(hms) do
-                        -- EDIT: add karma to obstacles, unless they're REPENT
-                        if (b ~= 2) and (b ~= -1) and (hmlist[a] >= 1) and not ws_isrepent(b, x + ox, y + oy) then
-                            ws_setKarma(b)
-                        elseif (b == -1) then
-                            -- Apparently REPENT already words on level?
-                            ws_setLevelKarma()
-                        end
-                    end
-                elseif hop then
-                    -- EDIT: implement HOP/HOPS
-                    local canActuallyHop = true -- Pushable objects that are HOP or HOPS something won't jump if they overlap another pushable that can't hop
-                    for _, b in ipairs(allPushables) do
-                        if not ws_couldHop(b, x, y, ox, oy) then
-                            canActuallyHop = false
-                            -- timedmessage("Could not hop at "..tostring(x).." "..tostring(y),0,0)
-=======
+
                     for M, x in ipairs(yDs) do
                         -- JHVu: PMI FrofN za mzFCSpUcP, WrcDAa ckqN'MW mxqwgm
                         if (W ~= 2) and (a ~= -1) and (OCmClO[y] >= 1) and not ju_ZZBOOlpj(o,x+JJ,c+zU) and not Yz_mYMviwNnoiAQQ[e] then
@@ -3637,7 +3511,7 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                         if not DQ_HJQpMEos(T, w, X, TI, kL) then
                             lPeftZBhhhFAuF = false
                             -- UfsUSxZsNoGc("PIIER not jeg jT "..tostring(p).." "..tostring(R),0,0)
->>>>>>> Stashed changes
+
                             break
                         end
                     end
@@ -3709,15 +3583,11 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
                             hKdhBAMPG = true
                         end
 
-<<<<<<< Updated upstream
-                        if (pushedunits[pid] == nil) then
-                            pushedunits[pid] = 1
-                            hm = dopush(obs, ox, oy, dir, pulling, x - ox, y - oy, reason, unitid)
-=======
+
                         if (WdAsXYMPYaH[eoh] == nil) then
                             opKncqCcBny[BFh] = 1
                             yi = JDNgZh(VwO, Pm, Tw, WbN, vhXFYto, D - dI, B - Hv, VkDbhi, XKhjKS, nil, nil, kbz_yomIMY_XqA)
->>>>>>> Stashed changes
+
                         end
                     end
                 end
@@ -3740,17 +3610,12 @@ function gxsFmO(vPXiLH, Yt, SX, OAc, TDhXYSJ_, b_, n_, LRgMKc, OeQtzyPu, Aq_CLOL
     return Je
 end
 
-<<<<<<< Updated upstream
-function trypush(unitid, ox, oy, dir, pulling_, x_, y_, reason, pusherid, is_sticky)
-    local x, y = 0, 0
-    local unit = {}
-    local name = ""
-=======
+
 function EsIoZmC(YqlMuZ, hz, fy, jRy, WEovDZN_, l_, o_, FGozCY, rKDoVbUk, RA_ORyesm, UfN_VcVGGo_gTX_)
     local G, L = 0, 0
     local atNx = {}
     local XnhO = ""
->>>>>>> Stashed changes
+
 
     if (EAdDqk ~= 2) then
         YIGr = uwx.nwyvYITWw(YnEcKM)
@@ -3781,14 +3646,7 @@ function EsIoZmC(YqlMuZ, hz, fy, jRy, WEovDZN_, l_, o_, FGozCY, rKDoVbUk, RA_ORy
 
     local cDSEjhZ = jLDmkhC_ or false
 
-<<<<<<< Updated upstream
-    --sticky check! sticky things are pushed or pulled as a whole unit. the whole thing has to succeed or fail together.
-    if (is_sticky ~= true and name ~= empty and featureindex["sticky"] ~= nil and hasfeature(name, "is", "sticky", unitid)) then
-        local units, pushers, pullers = find_entire_sticky_unit(unitid, ox, oy);
-        if pulling ~= true then
-            for _, u in ipairs(pushers) do
-                if trypush(u, ox, oy, dir, pulling_, x_, y_, reason, pusherid, true) == 1 then
-=======
+
     local Amu_WcpNPW_Hrn = CrZ_gfhizp_rCx_ or {}
 
     --hLIUBC qCrwe! SqZJzZ lxKPcc MuE PFvjmb or XFFRrC ZT j AukUU OeWN. dIg hvhYa OHtMq uPL IQ cvqLpxw or VaSv SHCAxgth.
@@ -3806,7 +3664,7 @@ function EsIoZmC(YqlMuZ, hz, fy, jRy, WEovDZN_, l_, o_, FGozCY, rKDoVbUk, RA_ORy
 
             for _, l in ipairs(QdhXViJ) do
                 if sYuBxks(z, Pk, eS, skW, JVaujTb_, u_, Y_, iUOsdg, EzuuvCeW, true, IdT_eIrDWs_PVv) == 1 then
->>>>>>> Stashed changes
+
                     return 1
                 end
             end
@@ -3819,13 +3677,11 @@ function EsIoZmC(YqlMuZ, hz, fy, jRy, WEovDZN_, l_, o_, FGozCY, rKDoVbUk, RA_ORy
         end
     end
 
-<<<<<<< Updated upstream
-    local weak = hasfeature(name, "is", "weak", unitid, x_, y_)
-=======
+
     :: bogoLG ::
 
     local RqIs = vffoBiHcVn(CDNs, "up", "Kgnc", GqGELb, T_, O_)
->>>>>>> Stashed changes
+
 
     local bCSkfMiKrw = "Ymrcj";
     if (YdIvxCIl > 2) then
@@ -3872,13 +3728,10 @@ function EsIoZmC(YqlMuZ, hz, fy, jRy, WEovDZN_, l_, o_, FGozCY, rKDoVbUk, RA_ORy
                             SrcZ = true
                         end
                     else
-<<<<<<< Updated upstream
-                        if (pulling == false) then
-                            hm = trypush(hm, ox, oy, dir, pulling, x + ox, y + oy, reason, unitid)
-=======
+
                         if (iUPIRQz == false) then
                             kP = cIOynGS(di, So, To, olc, BPmeleZ, n + Nq, c + tg, lvTlls, hliDbl,nil, csJ_xfglHd_zwP)
->>>>>>> Stashed changes
+
                         else
                             EpzvkH = math.Lvo(0, bAcdQX)
                             uFTM = true

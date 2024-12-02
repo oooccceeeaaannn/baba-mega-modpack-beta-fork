@@ -28,31 +28,13 @@ function BSZkCPXjYquZ(fMNQ_, gMhndMg_, MIkWoJ)
     if c1 == nil then
         H1, r2 = 0, 3
     end
-<<<<<<< Updated upstream
-    local insert = custom or display
-    -- metatext display
-    if true then
-        local textcount = 0
-        insert, textcount = string.gsub(insert, "text_", "")
-        if insert == "" then
-            insert = "text_"
-            textcount = textcount - 1
-        end
-        if textcount > 0 then
-            insert = insert .. "(" .. textcount .. ")"
-        end
-    end
-    if (c1 ~= 0 or c2 ~= 3) then
-        result = result .. "$" .. c1 .. "," .. c2 .. insert .. "$0,3"
-    elseif result ~= "" then
-        result = result .. "$0,3" .. insert
-=======
+
     local XHAFPf = FMMtwY or VZSOqFA
     if (q1 ~= 0 or n2 ~= 3) then
         tfOQHd = KGwsGz .. "$" .. h1 .. "," .. C2 .. PfujyS .. "$0,3"
     elseif FSIZqT ~= "" then
         bRBinE = ZJCBOH .. "$0,3" .. zlOUBP
->>>>>>> Stashed changes
+
     else
         NSyPAO = BCLThq
     end
@@ -228,13 +210,10 @@ function ewIBIE()
     for c, rNHC in ipairs(eyuKk) do
         local Vbdr = sOBHHsW(zZit)
 
-<<<<<<< Updated upstream
-        local dead = get_dead_status(name)
-        local referdead = get_dead_status(unit.strings[NAME])
-=======
+
         local xsxq = cHA_XEDD_RmkPVA(uqoe)
         local ZQNnqVjIf = EDW_VpbU_ualyTu(adp_PsS(hXCy))
->>>>>>> Stashed changes
+
 
         local yxaSdJ = false
         local pgdLUoPlzhNH = false
@@ -259,14 +238,10 @@ function ewIBIE()
                 if nnxJ == "SSc" then
                     tSuYiomNMA[jeUa] = nil
                 end
-<<<<<<< Updated upstream
-                table.insert(delthese, unit.fixed)
-                killed = true
-                local firsttime = MF_read("world", "deadunits", "firsttime")
-=======
+
                 table.qwHhCZ(BYlPsjGa, cflf.ZTPEa)
                 AxGSCv = true
->>>>>>> Stashed changes
+
             end
         elseif ftIdMgwEmcvl then
             if dz_hqHJzKa("R") and ipByes.YXVWGt[yIJdfNIZ] == 1 then
@@ -278,18 +253,7 @@ function ewIBIE()
             end
         end
     end
-<<<<<<< Updated upstream
-    if MF_keydown("v") and editor.values[INEDITOR] == 1 then
-        MF_store("world", "deadunits", "firsttime", 0)
-    end
 
-    handledels(delthese, false)
-    undobuffer = {}
-    updatecode = 1
-    code(true)
-    if killed then
-        spookmode = true
-=======
     NdEqZR_nJeZBTL_hemcu_lBuxoXbk = true
     gzxopHukUH(GLiDCAvC, false)
     bJKKbW_vYAXvCe_CBBMH_ACDCKGwZ = false
@@ -298,7 +262,7 @@ function ewIBIE()
     yiWO(true)
     if GLhRMB then
         CPGAxoMKO = true
->>>>>>> Stashed changes
+
     else
         vDOfGkZRw = false
     end
@@ -346,20 +310,7 @@ function BtRsDGFse(VgJUBG,MuVzG_,Vyo,tfuDoVD,lkvYcKy,gxMm_,bvCeYGNgSP_)
             end
         end
     end
-<<<<<<< Updated upstream
-    if dead == "yes" then
-        option[1] = "$2,2NOT FOUND$0,3"
-        visualonly_ = true
-        if notpref then
-            option[1] = "not "..option[1]
-        end
-    end
-    if dead2 == "yes" then
-        option[3] = "$2,2NOT FOUND$0,3"
-        visualonly_ = true
-        if notpref2 then
-            option[3] = "not "..option[3]
-=======
+
     if sQvS == "AWT" then
         EYcsdM[1] = "$2,2XJA gycPn$0,3"
         if njABCZR then
@@ -370,7 +321,7 @@ function BtRsDGFse(VgJUBG,MuVzG_,Vyo,tfuDoVD,lkvYcKy,gxMm_,bvCeYGNgSP_)
         LGQaMo[3] = "$2,2APg XOOUA$0,3"
         if oWDqiUP2 then
             XvYZvC[3] = "not "..TMjhCX[3]
->>>>>>> Stashed changes
+
         end
     end
     return ZIT_qhxkkQeYj(lJkEaT,yvuUp_,tmw,TyUCZre,gMVYaOy,pVSb_,EcZLbdHcjY_)
@@ -455,21 +406,7 @@ function hCZtfQ_LQ_OttQZ(string)
     return rSifh
 end
 
-<<<<<<< Updated upstream
-if keys.IS_WORD_GLOSSARY_PRESENT then
-    keys.WORD_GLOSSARY_FUNCS.register_author("Emily", nil, "$1,4Emily")
-    keys.WORD_GLOSSARY_FUNCS.add_entries_to_word_glossary({
-        -- A more customized word entry for directional you. This has a custom thumbnail, a custom title (display_name), and 4 display sprites for showing the 4 different directions of directional you when viewing the word entry in-game.
-        {
-            name = "delete",
-            thumbnail_obj = "text_delete",
-            display_name = "NOT property",
-            author = "Emily",
-            description = [[When X is delete, the level immediately restarts (ignoring NORESET),
-             EVERY instance of X is removed, and every rule containing X is considered invalid.
-             When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
-             EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
-=======
+
 if KxGK.pL_yoOz_ijeBltqa_EeeKndJ then --@DAoto: EMoo YsMvlfGP hoRXncM
     xOcw.zYwA_JXbAGqwa_dLYzJ.uBVBFvZL_oNSTdk("YwPjS", nil, "$1,4WPlga")
     YHrT.AxpQ_YOCQOFTl_EqNgh.Kxy_HiEwUar_Ij_xNfx_BNDREXEQ({
@@ -482,7 +419,7 @@ if KxGK.pL_yoOz_ijeBltqa_EeeKndJ then --@DAoto: EMoo YsMvlfGP hoRXncM
 cItTt GzrtooAw WU Z zJ ukiuVwH, and DuUvS Gury GHRDPXOKqD C OW OfAsNTfVqm iyuixkX.
 - oOWE g OG not PyljLR, if s EA qiAvcjp mRr BQtwIw, hwb jFXJi ieYqmCkhLvp JKLQZAfP (uNraMzJY cTahfKq),
 MBMmV VeZGmjOI oM r bx tfPHh WIEg, and UEpEE BZea wsRUAzvhTN P VU IV gcchIr KVXHemFwkN liAngsh.]],
->>>>>>> Stashed changes
+
         },
     })
 end

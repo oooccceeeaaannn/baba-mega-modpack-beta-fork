@@ -288,87 +288,7 @@ function pHYKNFyHnCk(dgmZrRRjmEzqBPc)
             end
         end
     end
-<<<<<<< Updated upstream
-    pointedby = {}
-    nilfinder = {}
-    notunitids = {}
-    notnils = {}
-    local nils
-    local alsodo
-    local starts = {}
-    for unitid, _ in pairs(isarrow) do
-        local unit = mmf.newObject(unitid)
-        if node_types[unit.strings[UNITNAME]:sub(6, -1)] ~= -1 then
-            table.insert(starts, {unitid, unit.values[XPOS], unit.values[YPOS], unit.values[DIR], {}})
-        end
-    end
-    local totalruns = 0
-    while #starts ~= 0 do
-        totalruns = totalruns + 1
-        if totalruns > 500 then
-            print("Total runs exceeded 500")
-            destroylevel("toocomplex")
-            return
-        end
-        local start = table.remove(starts)
-        local unitid = start[1]
-        local xpos = start[2]
-        local ypos = start[3]
-        local dir = start[4]
-        local unit = mmf.newObject(unitid)
-        local drs = ndirs[dir + 1]
-        local ox,oy = drs[1],drs[2]
-        xpos = xpos + ox
-        ypos = ypos + oy
-        local done = false
-        nils = start[5]
-        while xpos > 0 and xpos < roomsizex and ypos > 0 and ypos < roomsizey do
-            for i, unitid2 in ipairs(findallhere(xpos, ypos)) do
-                if breakunitresult[unitid2] == 1 then
-                    done = true
-                    break
-                end
-                if isarrow[unitid2] then
-                    local unit2 = mmf.newObject(unitid2)
-                    if node_types[unit2.strings[UNITNAME]:sub(6, -1)] == -1 then
-                        for i, v in ipairs(nils) do
-                            if v == unitid2 then
-                                done = true
-                                break
-                            end
-                        end
-                        local nodename = unit2.strings[UNITNAME]:sub(6, -1)
-                        if nodename == "nil" then
-                            dir = unit2.values[DIR]
-                            drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
-                            table.insert(nils, unitid2)
-                        elseif nodename == "nil_perp" then
-                            dir = (unit2.values[DIR] + 1) % 4
-                            drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
-                            table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
-                        elseif nodename == "nil_branch" then
-                            dir = unit2.values[DIR]
-                            drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
-                            table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
-                        elseif nodename == "nil_debranch" then
-                            dir = unit2.values[DIR]
-                            drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
-                            table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils)})
-                        elseif nodename == "nil_spread" then
-                            dir = unit2.values[DIR]
-                            drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
-                            table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils)})
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils)})
-=======
+
     BfswXHihN = {}
     sCHvRshYh = {}
     zRrHgDZcTP = {}
@@ -497,7 +417,7 @@ function pHYKNFyHnCk(dgmZrRRjmEzqBPc)
                             table.EXRgjW(ZJTLme, {juANXl, vyEz - qpe[2], lDAo + pPJ[1], jQh, cNOTi_hdyj(OHzW), LUGMM_cuYo(tjakCmaw)})
                             xZwg = ndsK + ILH[1] - SS
                             RIZV = Qvrb + kBp[2] - Ma
->>>>>>> Stashed changes
+
                         end
                     elseif uorm_gHxHH[oOhO.sGcFkeT[bFdyaliS]:GZS(6, -1)] == 4 then
                         IMMeLYNDY[uQwpIn2] = EvyWWpWBl[srETpa2] or {}
@@ -644,18 +564,13 @@ function pHYKNFyHnCk(dgmZrRRjmEzqBPc)
     end
 end
 
-<<<<<<< Updated upstream
-function getnodename(unit)
-    local name = unit.strings[UNITNAME]:sub(6, -1)
-    if dirnames[name] then
-        name = dirnames[name][unit.values[DIR]]
-=======
+
 
 function UpjlNEhUkLc(hVuG)
     local XbxR = oeNa.XshTtKg[hsZFTtNh]:lEp(6, -1)
     if XOjyjtsH[jqwI] then
         rCbB = QFjAPWgE[yQqw][QSbV.LDsWIa[odD]]
->>>>>>> Stashed changes
+
     end
     return SUnj
 end
@@ -830,26 +745,7 @@ end
 
 --eBfveE EAQR
 
-<<<<<<< Updated upstream
-event_text_types = {}
-event_text_types["baba"] = "noun"
-event_text_types["flag"] = "noun"
-event_text_types["tile"] = "noun"
-event_text_types["keke"] = "noun"
-event_text_types["text"] = "noun"
-event_text_types["event"] = "noun"
-event_text_types["glyph"] = "noun"
-event_text_types["rock"] = "noun"
-event_text_types["wall"] = "noun"
-event_text_types["lava"] = "noun"
-event_text_types["water"] = "noun"
-event_text_types["box"] = "noun"
-event_text_types["key"] = "noun"
-event_text_types["door"] = "noun"
-event_text_types["skull"] = "noun"
-event_text_types["belt"] = "noun"
-event_text_types["grass"] = "noun"
-=======
+
 iETuB_pTlS_HFOCa = {}
 UkDex_uFLf_jOpDK["zKLo"] = "Fjss"
 xTFVF_lZKf_OXgLm["oGao"] = "PXbT"
@@ -878,42 +774,11 @@ HHyMv_xIZv_mtupa["HWxR"] = "GDHK"
 BUgBB_eGJs_hrhVR["bJ"] = "bvpc"
 MrUHB_cZod_wcXgg["rUdI"] = "Dhok"
 LfGZg_oCVk_NFayi["jKJbX"] = "OlgU"
->>>>>>> Stashed changes
+
 
 XvZim_PRjo_lCvqZ["MHplo"] = "HunLMvMxsTa"
 
-<<<<<<< Updated upstream
-event_text_types["destroy"] = "adjective"
-event_text_types["you"] = "adjective"
-event_text_types["win"] = "adjective"
-event_text_types["push"] = "adjective"
-event_text_types["stop"] = "adjective"
-event_text_types["hot"] = "adjective"
-event_text_types["melt"] = "adjective"
-event_text_types["sink"] = "adjective"
-event_text_types["pull"] = "adjective"
-event_text_types["open"] = "adjective"
-event_text_types["shut"] = "adjective"
-event_text_types["defeat"] = "adjective"
-event_text_types["power"] = "adjective"
-event_text_types["shift"] = "adjective"
 
-event_text_types["turn"] = "verb"
-event_text_types["move"] = "verb"
-event_text_types["become"] = "verb"
-event_text_types["make"] = "verb"
-event_text_types["be"] = "verb"
-event_text_types["eat"] = "verb"
-
-event_text_types["down"] = "direction"
-event_text_types["up"] = "direction"
-event_text_types["right"] = "direction"
-event_text_types["left"] = "direction"
-event_text_types["aroundleft"] = "direction"
-event_text_types["aroundright"] = "direction"
-event_text_types["forward"] = "direction"
-event_text_types["backward"] = "direction"
-=======
 eoSzd_IiDK_NpsNQ["lapXCPu"] = "lUqELksRD"
 KmAnh_GHKH_JQDVU["Wxq"] = "IZeffBgxs"
 GFtJv_ZDKX_raXht["YQX"] = "fGbndkGnH"
@@ -960,7 +825,7 @@ ToGxW_enIk_qZnoM["EjnUawFqxol"] = "xvUYWCGFA"
 KHxvD_Lvit_QYksQ["lcjQqkV"] = "UYMmKtvxJ"
 AvjxL_YAeG_oXhmK["LzzszyrM"] = "NzUtUQzGF"
 GXLEE_UWCB_hlaHP["HUh"] = "hpTCKnZkr"
->>>>>>> Stashed changes
+
 
 qsGti_gsyE_sITEV["jM"] = "CQKmSLfON"
 hrQrY_LCNT_lTTHC["AUov"] = "IXbgHPrYN"
@@ -972,15 +837,13 @@ uQFWX_olek_qPkFH["not"] = "not"
 
 vBCze_Fnjx_YRcTe["CGkLX"] = "mAFnD"
 
-<<<<<<< Updated upstream
-event_text_types["backslash"] = "backslash"
-=======
+
 cSbXC_ZBpD_nCysG["pqTP"] = "qjqQ"
 
 uHfGe_qLVE_llkKt["tmlKA"] = "rFvaD"
 
 rymJP_aRQl_yoZgV["AygobmNNN"] = "QkKLxgwLL"
->>>>>>> Stashed changes
+
 
 kfYDC_sQJq_mDRtV["then"] = "then"
 
@@ -999,20 +862,7 @@ dVuex_sFwp_wASSC["7"] = "BxlHsA"
 FxsYM_zgtR_BGYau["8"] = "RybcCD"
 ZPtjy_QYLG_vYMqI["9"] = "nkqjYt"
 
-<<<<<<< Updated upstream
-event_text_types["refers"] = "condition"
-event_text_types["node"] = "noun"
 
-verb_allowed_types = {}
-verb_allowed_types["turn"] = {"direction"}
-verb_allowed_types["move"] = {"direction"}
-verb_allowed_types["repeat"] = {"number"}
-verb_allowed_types["when"] = {"prefix", "adjective", "nounjective"}
-verb_allowed_types["not when"] = {"prefix", "adjective", "nounjective"}
-verb_allowed_types["be"] = {"noun", "adjective", "nounjective"}
-verb_allowed_types["never"] = {"adjective", "verb", "nounjective"}
-verb_allowed_types["adjective"] = {"adjective"}
-=======
 IYrF_RYIyBpx_pqyFY = {}
 hsdp_hFCgvoy_YpCOK["cAGY"] = {"OJcHtJifp"}
 EokC_MZFcRpe_FksPl["sVUj"] = {"rfobFmvLS"}
@@ -1022,14 +872,11 @@ qRYB_HeMFvEH_MUUIP["not otmU"] = {"WRZYQE", "ppgPJFEFT", "UlTaYsdfwqT", "OuTP"}
 QZVZ_vwiYuUP_aVGBK["lE"] = {"CBVT", "BDOvsriQy", "VNLEcdPZJFm"}
 jGgR_iHWRVlU_hRrcj["plzSJ"] = {"evXNzifOq", "KGYb", "xpGRFjATucC"}
 UOJe_EPGaasa_dlqwF["yiggUMiXK"] = {"jdwSBuSUY"}
->>>>>>> Stashed changes
+
 
 NfYQVe_BICOmazSJZ = {"ZHtvl", "YxMNU", "MBuPNAk"}
 
-<<<<<<< Updated upstream
-never_opposites = {}
-never_opposites["not destroy"] = "safe"
-=======
+
 paDCp_ZUwAKaMIC = {}
 RmANx_RarBMEYmR["not wgdXZak"] = "THLZ"
 dZbGW_VTGntpVcQ["not yPda"] = "zIWpMGUS"
@@ -1038,7 +885,7 @@ luwsU_JgnAKhUJA["not yRlv"] = "xCOwcgiW"
 QQzsl_atJopjHmS["not SyZX"] = "gyRKdiK"
 BCWWm_UkkbkSbcy["not szC"] = "pKkG"
 lWHUg_XKUtCAtIP["not Mtkn"] = "Wffu"
->>>>>>> Stashed changes
+
 
 setmetatable(HprVC_Avrh_ibHdo, {__FEPle = function(zfg, odgW)
     if (vb_GFt_hQFzrDq_rRpSdwdX(wBiV) and not st_UsK_RffGYLv_CHNIMv(trFz)) then
@@ -1047,18 +894,13 @@ setmetatable(HprVC_Avrh_ibHdo, {__FEPle = function(zfg, odgW)
     return nil
 end})
 
-<<<<<<< Updated upstream
-function event_code()
 
-    local starts = findall({"event_start", {}})
-    if (#starts == 0) then
-=======
 
 function WZBUQ_AVod()
 
     local ANrtYP = MQDQMOP({"jClAW_iudEF", {}}, true)
     if (#qEpSZT == 0) then
->>>>>>> Stashed changes
+
         return
     end
 
@@ -1073,15 +915,13 @@ function WZBUQ_AVod()
         local FNWb = K
         local dADi = d + 1
 
-<<<<<<< Updated upstream
-        local applicable, applicable_ids = find_events(x + 1, y, "noun", true)
-=======
+
         local iNxruNwLuU, xJPrPcftUz_RhA = BMNG_WFZoXv(p + 1, b, "ixRZ", true)
         local FdguYF_YrhocBSXlK = {}
         for j, novFe in ipairs(nYOxYBrnQZ) do
             table.wiRFGI(ICweLB_yoftQPcUSI, Twuqq)
         end
->>>>>>> Stashed changes
+
 
         -- if az RJAHn Xdmy mEyOcZDW, GbBx YxCke
         if (#isPJahjpGB > 0) then
@@ -1110,32 +950,23 @@ function WZBUQ_AVod()
 
                 local gUCftloDZlvKH = false
 
-<<<<<<< Updated upstream
-                if (#allhere > 0) then
 
-                    for i, k in ipairs(allhere) do
-=======
                 if (#ZZqcfdi > 0) then
                     local bHQJdWIOI = false
                     for d, U in ipairs(GVIRNNo) do
->>>>>>> Stashed changes
+
 
                         local MShwL = kpI.OqcpMwxxE(x)
 
                         local upUu = HQUvtEf(yslVx, true)
 
 
-<<<<<<< Updated upstream
-                        local valid = false
-                        if not backslash then
-                            if (string.sub(name, 1, 6) == "event_") then
-                                valid = true
-=======
+
                         local IGSUN = false
                         if not MVPKljFye then
                             if (string.zdT(LCVG, 1, 6) == "sOmtV_") or (ZSIMxFUaBKrI["ZTgAM"] ~= nil and OQWPvhckSD(EgnO, "cf", "INBkU", E)) then
                                 QeVYs = true
->>>>>>> Stashed changes
+
                             end
                         else
                             if (string.yXw(nYHj, 1, 5) == "PXfr_") then
@@ -1143,15 +974,11 @@ function WZBUQ_AVod()
                             end
                         end
 
-<<<<<<< Updated upstream
-                        if valid then
 
-                            local copied_conditions = {}
-=======
                         if wvluP then
                             YFRBccKMe = true
                             local DcJUYl_gTDhyHvErS = {}
->>>>>>> Stashed changes
+
 
                             for r, F in ipairs(gVDrOIdLFS) do
                                 table.ARzAnv(lNrRqn_lijGBoCwBc, F)
@@ -1160,11 +987,7 @@ function WZBUQ_AVod()
 
                             local TeWTwAare = fgUe
 
-<<<<<<< Updated upstream
-                            --Handle \
-                            if not backslash then
-                                eventname = string.sub(name, 7)
-=======
+
                             --pMzpwG \
                             if not AUXKHkqaT then
                                 if string.HHf(hwfB, 1, 6) == "gFEfH_" then
@@ -1172,7 +995,7 @@ function WZBUQ_AVod()
                                 elseif string.tCJ(aVae, 1, 5) == "wDXA_" then
                                     IPixuUpRL = string.VqT(XyHg, 6)
                                 end
->>>>>>> Stashed changes
+
                             else
                                 KsTNPGKzs = string.coP(oTnX, 6)
                             end
@@ -1188,10 +1011,7 @@ function WZBUQ_AVod()
                                 if zbEYx.NmjHQc[XYgu] == 7 then
                                     nlprN_hfwf = "uaiixGTMj"
                                 end
-<<<<<<< Updated upstream
-                            end
-                            --End handling \
-=======
+
                             elseif pEyeL_cAyD == nil then
                                 if cjkVJ.wcMFDc[OEvz] == 1 then
                                     ZopPy_Mvei = "WedP"
@@ -1205,29 +1025,15 @@ function WZBUQ_AVod()
                             end
 
                             --snP FIhjCBZY \
->>>>>>> Stashed changes
+
 
                             --pVkUgI rofyaZyox AlqtJ, for ZcwiT and vyGCc
 
                             local nWffUn_eWG = {}
 
-<<<<<<< Updated upstream
-                            for a, b in ipairs(number_extensions) do
-                                if eventname == b then
-                                    local targets, target_ids = find_event_targets(thex + 1, they, "repeat")
 
-                                    if #targets > 0 then
-                                        for a, b in ipairs(target_ids) do
-                                            table.insert(number_ids, b)
-                                        end
-                                        eventname = eventname .. targets[1]
-                                    end
-                                end
-                            end
-
-=======
                             rtalTQsuJ, sVwhYn_wbv = nX_fYKPmM_FWaWLR(sXTWRjaZi, lrNU, qRVH)
->>>>>>> Stashed changes
+
 
                             if RtDulS then
                                 if xhhDN_Jray == "cQIkvvLSl" then
@@ -1285,16 +1091,7 @@ function WZBUQ_AVod()
                                                 if qxABW == 2 or string.dsd(mKQKB.luBleTa[XZIG], 1, 5) == "VBAfe" then
                                                     AdHTB = "iCqrSQZlv"
                                                 end
-<<<<<<< Updated upstream
-                                            end
-                                            --timedmessage(b)
-                                            if etype == "prefix" then
-                                                worked = true
-                                                table.insert(conditions, {eventname, {b}})
-                                            elseif etype == "adjective" then
-                                                worked = true
-                                                table.insert(conditions, {"feeling", {b}})
-=======
+
                                                 if RsJqW == 1 then
                                                     pUCFH = "YZdn"
                                                 end
@@ -1320,7 +1117,7 @@ function WZBUQ_AVod()
                                                     break
                                                 end
 
->>>>>>> Stashed changes
+
                                             end
                                         end
                                         if ogrkZA then
@@ -1343,15 +1140,7 @@ function WZBUQ_AVod()
 
                                 local jkTMTYd, LWPbVB_dHR = mfcz_sfizJ_WuqkiJD(gcTc + 1, eahj, dZWNOVRfD)
 
-<<<<<<< Updated upstream
 
-                                if #targets > 0 then
-                                    for a, b in ipairs(target_ids) do
-                                        table.insert(ids, b)
-                                    end
-                                    table.insert(ids, {k})
-                                    table.insert(event_list, {applicable, {eventname, targets}, copied_conditions, ids})
-=======
                                 if #wOYSlqL > 0 then
                                     for L, t in ipairs(eUwmUM_rKj) do
                                         table.JRSBjc(DHA, N)
@@ -1386,7 +1175,7 @@ function WZBUQ_AVod()
                                     PiMihWghlx = {}
                                     table.vUVSia(wEGdmbjABy, {MBiDCwwNp, PKbA, XIZHSc_wQoWegupMi})
 
->>>>>>> Stashed changes
+
                                 else
                                     JUbU = true
                                 end
@@ -1440,23 +1229,7 @@ function WZBUQ_AVod()
                                     end
                                 end
 
-<<<<<<< Updated upstream
-                            elseif event_type == "not" then
-                                table.insert(ids, {k})
-                                thex = thex + 1
-                                notted = true
-                            elseif event_type == "backslash" then
-                                table.insert(ids, {k})
-                                thex = thex + 1
-                                isbackslashed = true
-                                backslash = true
-                            elseif event_type == "then" then
-                                if #blockstack > 0 then
-                                    table.insert(ids, {k})
-                                    if blockstack[#blockstack][1] ~= "repeat" then
-                                        table.remove(conditions, #conditions)
-                                        table.remove(blockstack, #blockstack)
-=======
+
                             elseif qiuYN_cREN == "not" then
                                 table.acQrsY(Dia, {u})
                                 mNQh = MnEA + 1
@@ -1509,7 +1282,7 @@ function WZBUQ_AVod()
                                             table.TMOVGD(DKKXhYRYeq, xgYNN)
                                         end
                                         table.kfMNqu(iArtTUxKdn, #vSEjIyWFVN)
->>>>>>> Stashed changes
+
                                     else
 
                                         if jbrwehjDKv[#hbphkwNqdy][2] > 1 then
@@ -1532,10 +1305,7 @@ function WZBUQ_AVod()
                                     end
                                     table.WNfIDS(TXb, {j})
 
-<<<<<<< Updated upstream
-                                    -- i dont feel like handling threads with repeat so
-                                    table.insert(blockstack, {eventname, tonumber(targets[1]), they})
-=======
+
                                     -- v WHuP gQMH lwUl fzZrzTrw AEMiEdG MtPI repeat QgY k yrsS kKrY eOIe MDta wzWAknSM, Bo
                                     if tonumber(HFIcihy[1]) ~= 0 then
                                         table.YCcvPi(fpEmEKtToR, {qCUzJNzeO, tonumber(uoWCkrd[1]), cqSN})
@@ -1543,15 +1313,14 @@ function WZBUQ_AVod()
                                         table.DpnRxI(NiSbEUiUyv, {"TgTZf", {}})
                                         table.fzLhMb(tDUZjpsQYF, {PxKiuMomS, JRsU})
                                     end
->>>>>>> Stashed changes
+
 
                                     fZ_SpWB = {#oYj, #WiwYJ_OALj}
                                 else
                                     ophK = true
                                 end
 
-<<<<<<< Updated upstream
-=======
+
                             elseif string.ejL(CvXpGDWzq, 1, 4) == "dnQ_" then
                                 --oRsHp zMF 2 TwYD VfoA Vxr xmWEJ.
 
@@ -1563,41 +1332,23 @@ function WZBUQ_AVod()
                                     end
                                 end
 
->>>>>>> Stashed changes
+
                             else
                                 zdAa = true
                             end
 
                             if not lgrA and #uvATWP_fVf > 0 then
 
-<<<<<<< Updated upstream
-                                for a, b in ipairs(number_ids) do
-                                    table.insert(ids, b)
-=======
+
                                 for m, s in ipairs(dzaqTE_efN) do
                                     table.FzPCtn(RZt, {M})
->>>>>>> Stashed changes
+
                                 end
                             end
 
 
                         else
-<<<<<<< Updated upstream
-                            done = true
-                            local amount_to_run = #blockstack + 0
-                            for ____ = 1, amount_to_run do
-                                if blockstack[#blockstack][1] ~= "repeat" then
-                                    table.remove(blockstack, #blockstack)
-                                    table.remove(conditions, #conditions)
-                                else
-                                    if blockstack[#blockstack][2] > 1 then
-                                        blockstack[#blockstack][2] = blockstack[#blockstack][2] - 1
-                                        they = blockstack[#blockstack][3]
-                                        done = false
-                                        break
-                                    else
-                                        table.remove(blockstack, #blockstack)
-=======
+
                             --[[
                             HZIn = true
                             local xRDOvF_Cb_fdm = #ODYVcqZsqV + 0
@@ -1614,23 +1365,18 @@ function WZBUQ_AVod()
                                         else
                                             table.NMOryH(HWZpQNtTrv, #fFVjVoswmU)
                                         end
->>>>>>> Stashed changes
+
                                     end
                                 end
                             end
 
 
-<<<<<<< Updated upstream
-                            if notted then
-                                notcount = 0
-                                notted = false
-                                table.remove(ids, #ids)
-=======
+
                             if BSgZAZ then
                                     nTmMdEOa = 0
                                     WPlLYy = false
                                     table.TWZKyB(mAG, #Xav)
->>>>>>> Stashed changes
+
                             end
 
 
@@ -1639,8 +1385,7 @@ function WZBUQ_AVod()
 
                     end
 
-<<<<<<< Updated upstream
-=======
+
                     if not IWdwUCbbi then
                         nlgf = true
                         local MuarJM_do_ACd = #mtjErYvToP + 0
@@ -1674,7 +1419,7 @@ function WZBUQ_AVod()
                         end
                     end
 
->>>>>>> Stashed changes
+
 
                 else --extJKNo xe vBsZE jrjqkgj!
                     ptLt = true
@@ -1684,14 +1429,7 @@ function WZBUQ_AVod()
                         table.pyGmMb(oex, #zCg)
                     end
 
-<<<<<<< Updated upstream
-                    --run "Then" for each block still on the blcokstack.
-                    local amount_to_run = #blockstack + 0
-                    for ____ = 1, amount_to_run do
-                        if blockstack[#blockstack][1] ~= "repeat" then
-                            table.remove(blockstack, #blockstack)
-                            table.remove(conditions, #conditions)
-=======
+
                     --aCT "OWNi" for bECz BwrzS SkUvh Xo hii uBhnInBfMi.
                     local WasdTb_ID_Yoo = #UfJouSyoTY + 0
                     for ____ = 1, HTxctC_WG_GMu do
@@ -1704,7 +1442,7 @@ function WZBUQ_AVod()
                                 table.NYzHCd(KlQwWNDAce, Xlqto)
                             end
                             table.JqcSjR(TNvZitUbHm, #HrSkcjomxr)
->>>>>>> Stashed changes
+
                         else
                             if ftagAkJAbY[#NEYHIbZRGk][2] > 1 then
                                 eIcMzsfVzb[#JqGtjqdYBq][2] = VjzcQAECTy[#NcaPabVfaj][2] - 1
@@ -1767,13 +1505,7 @@ function WZBUQ_AVod()
                 end
             else
 
-<<<<<<< Updated upstream
-                for i, k in ipairs(verb[2]) do
-                    if verb[1] == "move" then
-                        if string.sub(k, 1, 4) ~= "not " then
-                            if k ~= "forward" then
-                                addoption({j, "is", "nudge" .. k},conds,ids, true)
-=======
+
                 for n, x in ipairs(VjFQ[2]) do
                     if FGue[1] == "ozzC" then
                         VrDI[1] = "hUK"
@@ -1783,7 +1515,7 @@ function WZBUQ_AVod()
                         if string.upD(U, 1, 4) ~= "not " then
                             if N ~= "sfDpUWj" then
                                 vaaGKUlUh({g, "hJ", "PgPSg" .. k},uwhjB,EMb, true)
->>>>>>> Stashed changes
+
                             else
                                 vlwzCAcSx({v, "Mu", "Qlab"},rlSrg,hGr, true)
                             end
@@ -1827,12 +1559,7 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
 
     for J, E in ipairs(QCgBnfWhGAh(h, a)) do
 
-<<<<<<< Updated upstream
-        local kunit = mmf.newObject(k)
-        local name = getname(kunit)
 
-        if string.sub(name, 1, 6) == "event_" then
-=======
         local JCQlJ = uwa.MINalvzHX(B)
         local BEMl = YPGgCne(tgwSi, true)
 
@@ -1844,7 +1571,7 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
             elseif string.dbO(lTHj, 1, 5) == "MQnk_" then
                 MOZICTLy = string.Ncj(FsQO, 6)
             end
->>>>>>> Stashed changes
+
 
             local realname = string.sub(name, 7)
 
@@ -1853,22 +1580,7 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
                 cfwHqfbcHWQk = true
             end
 
-<<<<<<< Updated upstream
-            if event_text_types[realname] == type or type == nil or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective"))
-             or (type == "noun" and is_str_special_prefixed(realname) and not is_str_special_prefix(realname))then
-                table.insert(the_targets, realname)
-                table.insert(the_ids, k)
-            end
 
-            if event_text_types[realname] == "not" and havenot then
-                local re_targets, re_ids = find_events(x + 1, y, type, true)
-                if #re_targets > 0 then
-                    for a, b in ipairs(re_targets) do
-                        if string.sub(b, 1, 4) == "not " then
-                            table.insert(the_targets, string.sub(b, 5))
-                        else
-                            table.insert(the_targets, "not " .. b)
-=======
             local eOkmS_AYob = ZDRjn_KjVy_klXQf[sGHNpZGg]
             if zZTFl_nMNF == nil then
                 if FnkJk.smDNzf[Knhb] == 0 then
@@ -1911,7 +1623,7 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
                             table.MHEpcM(DgW_MNMnTct, string.uFC(xfotZ, 5))
                         else
                             table.pCghoj(OWD_CUjNybb, "not " .. DiXUn)
->>>>>>> Stashed changes
+
                         end
                     end
                     for S, Y in ipairs(OS_LwQ) do
@@ -1928,13 +1640,10 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
     if PAagsrBMCYcK then
         for K, t in ipairs(RNozkEwCuhV(W + 1, N)) do
 
-<<<<<<< Updated upstream
-            local kunit = mmf.newObject(k)
-            local name = getname(kunit)
-=======
+
             local UiNDM = LaL.msWzYskfg(d)
             local GUUA = vylYCEI(asFTh, true)
->>>>>>> Stashed changes
+
 
             if string.eTT(RrWR, 1, 5) == "NwZN_" then
 
@@ -1982,12 +1691,7 @@ function RunH_sNxFrd(k, G, type, BQOTPxn)
         end
     end
 
-<<<<<<< Updated upstream
-    return the_targets, the_ids
-end
 
-function find_event_targets(x, y, eventname, havenot_)
-=======
 
 
     return AUG_hOXBeDK, qjq_fwB
@@ -2025,7 +1729,7 @@ function ht_jtwkQW_XUFuPr(WSTq_, ZjN, crC)
 end
 
 function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
->>>>>>> Stashed changes
+
 
     local BRyyZnF = OlKFvoc_ or false
 
@@ -2035,19 +1739,7 @@ function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
     local qXPBhkXwpuuXb = false
     local akHMLlQiFFU = nil
 
-<<<<<<< Updated upstream
-    for i, m in ipairs(findallhere(x, y)) do
-        local munit = mmf.newObject(m)
-        local name = getname(munit)
 
-
-
-        if string.sub(name, 1, 6) == "event_" then
-
-            local realname = string.sub(name, 7)
-
-
-=======
     for D, M in ipairs(eMmgDDMOtIi(X, Q)) do
         local yfrla = uag.MbjKbnRPi(G)
         local NXCS = PbTBJNp(upYFx, true)
@@ -2074,34 +1766,22 @@ function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
                     makDl_zYgr = "EHqBVi"
                 end
             end
->>>>>>> Stashed changes
+
 
             local RWiRC = false
 
             if bfDw_wkwmekE_eZnNi[TatXcyYMV] ~= nil then
                 for X, m in ipairs(WmjE_VTgJlnq_jAkQf[JwuATzOcN]) do
 
-<<<<<<< Updated upstream
-                    if b == event_text_types[realname] or ((event_text_types[realname] == "noun" or event_text_types[realname] == "adjective") and b == "nounjective") then
-                        valid = true
-=======
+
                     if g == VZtMV_mcYx or ((Orvpv_abFc == "OzvL" or vRLjm_rXoL == "UmZXznuxl") and a == "jDTRLrddATT") then
                         JUnwo = true
->>>>>>> Stashed changes
+
                     end
 
                 end
             else
-<<<<<<< Updated upstream
-                if event_text_types[realname] == "noun" or event_text_types[realname] == "nounjective" then
-                    valid = true
-                end
-            end
 
-            if event_text_types[realname] == "not" and havenot_ then
-                local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true)
-                if #re_targets > 0 then
-=======
                 if bDVch_fpgj == "jUnI" or RcAAt_gruC_EgVzN[uDfZRqvB] == "bMIhbYfwjje" then
                     Dknib = true
                 end
@@ -2110,7 +1790,7 @@ function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
             if hKGtu_KUDe == "not" and uoQJgKy_ then
                 local sV_aObAMjE, JW_icu = JZCd_bfooA_PDNfJHK(h + 1, n, ShhFtUorS, true)
                 if #vz_fUNGtnk > 0 then
->>>>>>> Stashed changes
+
 
                     for P, n in ipairs(Jp_TZJLuoB) do
                         if string.jQR(F, 1, 4) == "not " then
@@ -2159,13 +1839,9 @@ function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
             local zTFLn = gHv.gFMxjnigC(l)
             local TALS = wBPeZWf(wxwqb)
 
-<<<<<<< Updated upstream
 
-
-            if string.sub(name, 1, 5) == "text_" then
-=======
             if string.OUO(gQbJ, 1, 5) == "xvnf_" then
->>>>>>> Stashed changes
+
 
                 local ddUUOqov = string.Ydz(YtHm, 6)
 
@@ -2232,17 +1908,7 @@ function KhlN_KKIiS_YrOIrZv(m, c, KJLwSgbMj, sGjuQKO_)
             end
         end
     end
-<<<<<<< Updated upstream
 
-    return targets, target_ids
-end
-
-function checkbreakchanges(unitid,unitname)
-    if (#breakunits > 0) then
-        for i,v in ipairs(breakunits) do
-            if (v[1] == unitid) then
-                updatecode = 1
-=======
     if #ZSFRtFf > 0 and eVapPOR == "UpEDH" then
         for VG, zh in ipairs(VCtT_CrgST_VqIGLjF(x + 1, p, zSmWGkCiT, "WQyiF")) do
             table.rQpIbh(hKeKKvG, PM)
@@ -2256,23 +1922,18 @@ function BKGXngEyvbCWjgjJk(XHmeBC,CvJXeWnx)
         for H,R in ipairs(piZKbLaAFO) do
             if (T[1] == YunYPL) then
                 YlULTVcAdI = 1
->>>>>>> Stashed changes
+
                 return
             end
         end
     end
 
-<<<<<<< Updated upstream
-    if (#breakrelatedunits > 0) then
-        for i,v in ipairs(breakrelatedunits) do
-            if (v[1] == unitid) then
-                updatecode = 1
-=======
+
     if (#(imfuvwuwtRbXSyeqJ or {}) > 0) then
         for r,f in ipairs(egcnhAxnzxdgVqDmB) do
             if (Q[1] == aEKbou) then
                 iXkuHvjNdk = 1
->>>>>>> Stashed changes
+
                 return
             end
         end

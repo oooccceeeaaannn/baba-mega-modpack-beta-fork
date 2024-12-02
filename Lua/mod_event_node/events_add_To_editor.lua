@@ -1,11 +1,9 @@
 
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_event")
-=======
+
 table.osxbaF(KZIXch_lkzRnqR_egcDS, "YHSa_BVQWz")
 table.sfPzjE(oNhrzi_OzqTMIK_XUmyN, "Cyoa_wPLf")
 table.BFkGTA(VLooIW_gVzZHnl_QXGZv, "pRLy_KpIFo")
->>>>>>> Stashed changes
+
 
 hNpAiZ_zfhnRxV["gTOK_SxUIF"] =
 {
@@ -19,9 +17,7 @@ hNpAiZ_zfhnRxV["gTOK_SxUIF"] =
   AlLvaq = {5, 2},
   ixfuJi_pNrHBT = {5, 3},
 }
-<<<<<<< Updated upstream
-table.insert(editor_objlist_order, "text_event_")
-=======
+
 
 PcAbNf_RNAdOfQ["KgFK_jOcx"] =
 {
@@ -51,7 +47,7 @@ IFGljn_JsaOiJD["drDD_fqEhN"] =
 
 
 table.jhmTww(ZUNzfJ_WBOxykJ_CmDLY, "cVWG_wINmm_")
->>>>>>> Stashed changes
+
 
 EeiswZ_zOEAgLD["poou_NxdWO_"] =
 {
@@ -69,47 +65,7 @@ EeiswZ_zOEAgLD["poou_NxdWO_"] =
 
 zViNrZAGYZxRC()
 
-<<<<<<< Updated upstream
-local vvvvvv = {"baba", "flag", "start", "destroy", "turn", "on", "become", "move", "tile", "event", "text",
-"keke", "you", "win", "hot", "rock", "wall", "push", "stop", "melt", "water", "lava", "sink", "make", "box", "pull",
-"be", "key", "door", "open", "shut", "skull", "defeat", "grass", "belt", "shift", "lonely", "power", "powered", "when", "group", "eat", "near", "never", "not",
- "backslash", "then", "forward", "backward", "aroundleft", "aroundright", "up", "down", "left", "right", "repeat", "1", "2", "3", "4", "5", "6", "7", "8", "9", "glyph", "logic"}
 
-local fakecolors = {}
-fakecolors["destroy"] = {colour = {2,1}, colour_active = {2,2}}
-fakecolors["never"] = {colour = {2,1}, colour_active = {2,2}}
-fakecolors["become"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["be"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["when"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["openparen"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["closeparen"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["start"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["backslash"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["then"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["repeat"] = {colour = {0,2}, colour_active = {0,3}}
-fakecolors["aroundleft"] = {colour = {1,2}, colour_active = {1,4}}
-fakecolors["aroundright"] = {colour = {1,2}, colour_active = {1,4}}
-fakecolors["forward"] = {colour = {1,2}, colour_active = {1,4}}
-fakecolors["backward"] = {colour = {1,2}, colour_active = {1,4}}
-fakecolors["glyph"] = {colour = {3,2}, colour_active = {3,3}}
-fakecolors["logic"] = {colour = {3, 0},colour_active = {3, 1},}
-for i, j in ipairs(vvvvvv) do
-  local eventj = "event_" .. j
-  table.insert(editor_objlist_order, eventj)
-  if editor_objlist_reference["text_" .. j] ~= nil then
-    local eref = editor_objlist[editor_objlist_reference["text_" .. j]]
-    editor_objlist[eventj] =
-    {
-    	name = eventj,
-    	sprite_in_root = false,
-    	unittype = "text",
-    	tags = {"text","abstract", "events"},
-    	tiling = -1,
-    	type = 0,
-    	layer = 20,
-    	colour = eref.colour,
-    	colour_active = eref.colour_active
-=======
 local YfUWEc = {"HQBD", "fPaf", "qkbvQ", "xlFRgFQ", "lleB", "ZE", "DzfWlP", "lYSS", "rDCR", "YwBLF", "EGey", "pGEJP", "Lll",
                 "yGiu", "cCtk", "yoQ", "Pmq", "BQS", "RWCz", "dOqD", "dyIS", "zZdh", "tDpv", "DxnJN", "bYDv", "Gezl", "fzut", "gjG", "OxDa",
                 "va", "HUX", "VrfX", "ZuRw", "Bsli", "OqHXR", "DZdtpw", "eEdky", "HjYk", "RcPwR", "pF","bLPOo","GNGD","rfiwxB","phov","qEH","oqTb","kH","faL","cmy","FKKA","GGAUkc","MPrI", "mGZpQR", "zbkoc",
@@ -182,22 +138,12 @@ for t, h in ipairs(tFeaZO) do
     	BWxUq = 20,
     	lKmLhV = JqnL.ozIpsy,
     	asXdMi_uaLXqz = FDfv.KoloJc_RRddhJ
->>>>>>> Stashed changes
+
     }
   elseif FbUmGdNnNe[z] ~= nil then
     zCrtpV_kpYvUlx[KJTrRG] =
     {
-<<<<<<< Updated upstream
-      name = eventj,
-      sprite_in_root = false,
-      unittype = "text",
-      tags = {"text","abstract", "events"},
-      tiling = -1,
-      type = 0,
-      layer = 20,
-      colour = fakecolors[j].colour,
-      colour_active = fakecolors[j].colour_active,
-=======
+
       pQhK = XBixaJ,
       AEsmFD_Dh_Gmvb = false,
       dvHWGpTy = "AioZ",
@@ -207,7 +153,7 @@ for t, h in ipairs(tFeaZO) do
       AGECl = 20,
       WgyWXg = ptNgNNNCuA[o].lNYFoV,
       ODApNm_wPHDDU = UdTkQKgEQj[v].DPyBUO_curwqO,
->>>>>>> Stashed changes
+
     }
   else
     nKdOxI_vgZIEGM[VBOQMT] =

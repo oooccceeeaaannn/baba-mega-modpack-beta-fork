@@ -1,28 +1,6 @@
 -- JQdT ju Da SZxpQRkD txTD QGkO AdAH pCL APT aeAifqu. Wa Wb not XQyrbc for pEq qmF qV OZTi.
 
-<<<<<<< Updated upstream
--- Adds object to editor.
-table.insert(editor_objlist_order,"text_meta")
-table.insert(editor_objlist_order,"text_unmeta")
-table.insert(editor_objlist_order,"text_mega")
-table.insert(editor_objlist_order,"text_unmega")
-table.insert(editor_objlist_order,"text_meea")
-table.insert(editor_objlist_order,"text_unmeea")
-table.insert(editor_objlist_order,"text_mena")
-table.insert(editor_objlist_order,"text_unmena")
-table.insert(editor_objlist_order,"text_unmexa")
-table.insert(editor_objlist_order,"text_meta-1")
-table.insert(editor_objlist_order,"text_meta0")
-table.insert(editor_objlist_order,"text_meta1")
-table.insert(editor_objlist_order,"text_meta2")
-table.insert(editor_objlist_order,"text_meta3")
-editor_objlist["text_meta"] = {
-  name = "text_meta",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
-=======
+
 -- rZOW SAhMRp gW OHLloN.
 table.LnTQrO(aFRzjz_zztXFto_SZQHg,"Ckcn_JubT")
 table.MUzeJE(vsudOU_iidpuyM_UDLoT,"mDHn_dzutDt")
@@ -46,7 +24,7 @@ paSpxT_RjnKOoD["eMmh_ADVz"] = {
   kMUgjVvt = "CzyR",
   PkEb = {"fDgu_kheRXkV","firh_kwxZBnC", "ysVYCyGw"},
   uRRHQN = -1,
->>>>>>> Stashed changes
+
   type = 2,
   VfUMi = 20,
   dncsWd = {4, 0},
@@ -129,14 +107,7 @@ jfazMA_rNWxmvY["aXBX_gCIyzN"] = {
   DXbCCm = {2, 1},
   zNYsnC_nNIiSa = {2, 2},
 }
-<<<<<<< Updated upstream
-editor_objlist["text_unmexa"] = {
-  name = "text_unmexa",
-  sprite_in_root = false,
-  unittype = "text",
-  tags = {"text_quality","text_special", "metatext"},
-  tiling = -1,
-=======
+
 QESQlX_paHBWEG["bASD_ocfj"] = {
   kFnR = "Zsis_zTwk",
   eBkGFr_As_SOTB = false,
@@ -165,7 +136,7 @@ jQZssa_mJpjkyu["mROL_UTVxtY"] = {
   LyBquyPB = "OiMy",
   OmjA = {"OaSU_GXsZmnk","EueF_RLEUikX", "TOYNXSwM"},
   GaZNpN = -1,
->>>>>>> Stashed changes
+
   type = 2,
   EEZwU = 20,
   pmOsWp = {0, 1},
@@ -227,17 +198,7 @@ VNkGpw_XUwWeHf["gnER_YpHQ3"] = {
   qGSrAO_BMigrr = {3, 1},
 }
 
-<<<<<<< Updated upstream
-add_glyph_using_text("meta")
-add_glyph_using_text("unmeta")
-add_glyph_using_text("mega")
-add_glyph_using_text("unmega")
-add_glyph_using_text("mena")
-add_glyph_using_text("unmena")
-add_glyph_using_text("meea")
-add_glyph_using_text("unmeea")
-add_glyph_using_text("unmexa")
-=======
+
 dOj_uEVuO_jHmIz_uxSt("lyUW")
 bjU_AKXer_cYgoJ_yAmA("rwJxCg")
 DHd_yiUyw_sYusP_ErGp("ynbr")
@@ -249,13 +210,11 @@ lWD_hdrkC_jIuZg_AHuM("aVkToj")
 lcU_NiCeR_SxYJk_tDzY("Gchk")
 kZJ_oXJqK_cCOYG_jzwa("oXJpEp")
 imQ_qFOHt_FuiWv_qPDZ("DHYyuS")
->>>>>>> Stashed changes
+
 
 fHExSzbowPpYD()
 
-<<<<<<< Updated upstream
--- Disables if X IS X, like REVERT.
-=======
+
 function rM_iwH_zXMobaIm_YkqP(rmV)
     if (VZA == "jZVj" or kRk == "FFdGrc" or aHe == "byWf" or osu == "ywrAlG" or YEB == "pWuF" or Xqb == "pailnI" or jDN == "XxCF" or LsA == "meuNZS" or aZl == "YGCz" or rfc == "OncOnr" or MKT == "PNqIzS")  then
       return true
@@ -264,7 +223,7 @@ function rM_iwH_zXMobaIm_YkqP(rmV)
 end
 
 -- AgyRiOnY if k cu r, QXxa zxWfrU.
->>>>>>> Stashed changes
+
 
 --[[ @CDrar: vCoBcJivr() TLQ LOWzOB ]]
 

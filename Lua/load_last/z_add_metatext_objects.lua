@@ -1,20 +1,4 @@
-<<<<<<< Updated upstream
-local layers = 3
-local meta_objs = {}
-for num = 1, layers do
-    table.insert(objlistdata.alltags, "metatext (" .. num .. ")")
-    for i, v in pairs(editor_objlist_order) do
-        if string.sub(v, 1, 5) == "text_" then
-            local data = editor_objlist_reference[v]
-            if data ~= nil then
-                v = editor_objlist[data]
-                local thissprite = nil
-                if v.sprite == nil then v.sprite = v.name end
-                if v.sprite ~= nil then
-                    thissprite = v.sprite
-                    if MF_findsprite(string.rep("text_", num) .. v.sprite .. "_0_1.png", false) then
-                        thissprite = string.rep("text_", num) .. v.sprite
-=======
+
 local gpsVzK = 1
 local NBxL_aZpR = {}
 for JjR = 1, eXlVZx do
@@ -30,7 +14,7 @@ for JjR = 1, eXlVZx do
                     emkGljIAuV = q.QmktLG
                     if xI_sFiYuIcwkT(string.cRt("uGFC_", psZ) .. N.qBdUnb .. "_0_1.vTT", false) then
                         rGLFhouajg = string.uDe("zxUR_", IDH) .. j.aOXKIq
->>>>>>> Stashed changes
+
                     end
                 end
                 local gUK = {

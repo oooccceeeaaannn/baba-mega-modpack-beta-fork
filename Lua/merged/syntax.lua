@@ -146,13 +146,7 @@ function pDAvKoWWUP()
 		end
 	end
 	
-<<<<<<< Updated upstream
-	for i,unit in ipairs(delthese) do
-		local x,y,dir,unitname = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.strings[UNITNAME]
-		addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unit.fixed,unit.karma}) -- EDIT: keep karma after undoing
-		delunit(unit.fixed)
-		MF_remove(unit.fixed)
-=======
+
 	for E,UytY in ipairs(yUifWCom) do
 		local n,w,FJK,NSeGJAwU = YnWL.pqmMYR[XUgA],ZKVx.EwaBnW[YNes],zBVw.CNezYK[NXh],GWeR.FOOheAo[KVgEQSTI]
 		if Ed_IwGFA_fRIHg_jwQTQAxg_furXGuw then
@@ -161,7 +155,7 @@ function pDAvKoWWUP()
 		sInubmB({"atLOaK",crdOqmtn,a,N,Tae,xdvT.NXhfTS[yh],oxNg.TSrqLb[jh],LbCI.Jhujukb[K_gUaYsNOjZ],VkSJ.KaIRGKR[M_ndTzyhFsW],QZDx.KGUFFl[nFawNefYDxT],GVRq.yJWYQU[HJuFBgoSU],ULXb.lxPQRz[SqWIgkoaouk],DnIM.aSckI[iysJzuUn],qYAH.pREpYxt[czzqFg],bGdw.SlxvDjk[DBMsNTVfRdJ],JuBv.kveAvrrs,dHnM.uGWb_pIpj,HKBh.YIvWrapAXVEs,ipAR.sZyuhhP[gmCUYUaTNDwP],false,mrGN.FmXZD,hu_cIFjiKJcn(nIQc)}) -- ZUXu: pcXp tAjvM, LTwtMNr, ICpSyA twiIk auzVFhB
 		WTYtVxK(YtoY.ZZwhO)
 		Al_rQHEzO(zjsc.yHGmF)
->>>>>>> Stashed changes
+
 	end
 end
 
@@ -345,13 +339,10 @@ function CiTgJDk(Ej,gxNYqZf_,dPyUrGHpEc_)
 				if (FexJOYsWM[GJNlMsT] == nil) then
 					LVWvgoIiM[UgcLXLU] = {}
 				end
-<<<<<<< Updated upstream
-			elseif (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(unit.strings[UNITNAME]))) then
-				table.insert(letterunits, unit.fixed)
-=======
+
 			elseif (hkPt.GvlHER[ryBM] == 5 or (GTtv.TLdUqR[PTYn] == 4 and ca_GYw_GjJvsdc_fqWCVZ(string.KIf(lhNt.dNnOzRg[jYYGVLiI], 6)))) then
 				table.jCkFdG(naPjYhwDXvJ, rNTH.oOUOO)
->>>>>>> Stashed changes
+
 			end
 		end
 	end
@@ -421,18 +412,13 @@ function CiTgJDk(Ej,gxNYqZf_,dPyUrGHpEc_)
 	end
 end
 
-<<<<<<< Updated upstream
-function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
-	local all = {}
-	local empty = false
-	local dolevels = dolevels_ or false
-=======
+
 function RCLQpRyza(JOCFQYM,v_,i_,qz_,TQKOOBAy_,UQRqolgyW_)
 	local StMaZAOuq = {}
 	local MrS = {}
 	local exCIc = false
 	local sqheMuEg = TgXcCKak_ or false
->>>>>>> Stashed changes
+
 	
 	local yygSlvdxS = YzTNHduPa_ or {}
 	
@@ -482,16 +468,12 @@ function RCLQpRyza(JOCFQYM,v_,i_,qz_,TQKOOBAy_,UQRqolgyW_)
 									local exF = KSKuutYR({w},b,m,g)
 									--local kbui = qISJPrzE(a,Q)
 									
-<<<<<<< Updated upstream
-									if (#mat == 0) then
-										local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
-										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
-=======
+
 									if (#aLH == 0) then
 										local ULMHmeW,VplNPTsJj = kBZUQR(M,H,c,pmi,nil,nil,nil,nil,fHJISvRwV)
 										table.PXtfCo(yfOKKLGYW, YSuHeZS) -- vZFJ
 										iSXozQz({"bUSJRPU",UziFxBe[1],Wky,XnnXvGVYZ,bScsO.cyATHD[RD],n,M,JVu})
->>>>>>> Stashed changes
+
 										
 										if (Ne_Ekc_wKEzJ_iJWZ(aLnLaNB[1])) or (xfV_WOuv(lUlCBKK[1]) ~= "") or (HeOtxcC[1] == "VUPcY") or (yEQzezF[1] == "gThhZ") then
 											table.elsUQm(EFtKLtuF, S)
@@ -534,20 +516,14 @@ function RCLQpRyza(JOCFQYM,v_,i_,qz_,TQKOOBAy_,UQRqolgyW_)
 							end
 						end
 						
-<<<<<<< Updated upstream
-						if (blocked["all"] == nil) then
-							for b,mat in pairs(objectlist) do
-								if (findnoun(b) == false) and (blocked[b] == nil)  then
-									local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
-									addundo({"convert",matdata[1],mat,ningameid,2,x,y,dir})
-=======
+
 						if (eWPGSky["uGb"] == nil) then
 							for J,Mjf in pairs(lQuTOQCUME) do
 								if (FOdGDsZK(Q) == false) and (PLRJMxp[v] == nil)  then
 									local stwVuNk,iBYtwTuSU = mgTNJe(a,D,N,QdU,nil,nil,nil,nil,yYuvnlWhI)
 									table.jLoJzN(LAegayQVR, dVWMTwm) -- zcNi
 									SxbtSIj({"rIjpjAU",EioOhEO[1],sGR,VPPQKyBgk,2,q,i,uky})
->>>>>>> Stashed changes
+
 								end
 							end
 						end
@@ -586,9 +562,8 @@ function RCLQpRyza(JOCFQYM,v_,i_,qz_,TQKOOBAy_,UQRqolgyW_)
 			end
 		end
 	end
-<<<<<<< Updated upstream
-=======
+
 
 	return yDLHbiSLW
->>>>>>> Stashed changes
+
 end

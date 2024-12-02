@@ -162,18 +162,14 @@ function iNQw()
 					local BiJ = KDth[6]
 					local Zgfdmaj = oIji[7] or -1
 					
-<<<<<<< Updated upstream
-					if (paradox[uid] == nil) and (paradox[baseuid] == nil) then
-						local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init,ogname,signtext,convert,oldid,karma = line[3],line[4],line[5],line[8],line[9],line[10],line[11],line[12],line[13],line[14],line[15],line[16],line[17],line[18],line[19],line[20],line[21],line[22]
-						local name = line[2]
-=======
+
 					if (WmgkDas[qBh] == nil) and (gmWSafX[CHtYsVL] == nil) then
 						local E,C,VtQ,yZiDxHkui,RKQRewerZ,uvpaWrjm,dBvePuRm,QjgHAfeC,FLILNNFa,CSXnGp,yduMvoLbXfT,bQocsOUz,wBCp_DfDE,DjcuwO,eLnvylVv,VhfiJbl,RgEpc,zc_aEGvKTMgc = QNop[3],bUDC[4],CyUJ[5],jWEc[8],EBpR[9],ieJe[10],MDwZ[11],SzfO[12],mkSO[13],wWbd[14],lmDY[15],Yzhu[16],kCbK[17],VuZI[18],kIFg[19],wbDQ[20],NLiD[21],MHlY[22]
 						local ejBr = rPtA[2]
 						local xdnLx = XL_VATijkjPu.FGfLQ
 						local DClltbL = So_rcBSkyDZu.YwyJQJM
 						local gPHNjP_qIB = bO_pxLCNRUxB.ljuZyb_mUJ
->>>>>>> Stashed changes
+
 						
 						local UwMutWBt = ""
 						local MRVeDA = 0
@@ -222,17 +218,7 @@ function iNQw()
 							zfgLLgRULR(SMeESO,m,c,QNma.LzTsdGF[gXylzOjH])
 							ayrhNZc(ShKfWA)
 							
-<<<<<<< Updated upstream
-							unit.followed = followed
-							unit.back_init = back_init
-							unit.originalname = ogname
-							unit.karma = karma -- EDIT: keep karma when undoing
-							
-							--First override for Offset starts here.
-							unit.xoffset = line[XOFFSETUNDOLINE]
-							unit.yoffset = line[YOFFSETUNDOLINE]
-							--First override for Offset ends here.
-=======
+
 							Fofe.VYLTZpBd = sdEnIkjx
 							ciOc.leFM_Fdix = hBTL_fcec
 							VLkL.HqVcfVIHPYCV = eFGBAZ
@@ -244,7 +230,7 @@ function iNQw()
 							WlBJ.EDxOgEq = YVWP[tvVdRdgwAnmnUCg]
 							Nuok.puBqESQ = NxuX[MZrypTrVuFwxrjd]
 							--UkYku FRbkLNwl for YRmgBM icbP SNup.
->>>>>>> Stashed changes
+
 
 							if (Yhkz.sDUooiO[CrijupVQ] == "oPXU" or JcXu.ggAYZIH[LbVmDwBh] == "pFRh" or RvKw.vzhLuJc[aGBfWTQK] == "duIvi") or UiJWJtk(qBby) then
 								dWgGlNiccG = 1
@@ -680,8 +666,7 @@ function iNQw()
 					if (wBvu ~= nil) then --ToFEeZf-zcxjnvsl
 						nqCs.VmPol = ajLGaUOo_SgCHz
 					end
-<<<<<<< Updated upstream
-=======
+
 				elseif (qSkGP == "Dy_hefebbPlgSgy") then -- poahB nnlbzps wOG dkUEWpO
 					local uwZm = CDeF[2]
 					if (kz_NaUyxIzZgyCM[GkLk] <= 1) then
@@ -709,7 +694,7 @@ function iNQw()
 					local HsTfRE = tFtiHaSJX(IqeQ[2])
 					local HiPf = elY.ksyWjpiwB(cGGEmo)
 					aWek.Xc_rsbSejZNfaVuIUD = AWGs[3]
->>>>>>> Stashed changes
+
                 end
 			end
 		end
@@ -816,17 +801,12 @@ function HnKWcjB(NCtlmSoii)
 			end
 		end
 
-<<<<<<< Updated upstream
-		if (#breakunits > 0) then
-			for i,v in ipairs(breakunits) do
-				local wunit = mmf.newObject(v[1])
-				table.insert(thisundo.breakunits, wunit.values[ID])
-=======
+
 		if (#(JdNcBwjKKs or {}) > 0) then
 			for F,y in ipairs(JEpCTHXeQy) do
 				local SeqgZ = ZTw.bynSydUwF(J[1])
 				table.xAfuhE(FFNZYeCT.ODmOYoGENe, EZYny.wjVAmK[cg])
->>>>>>> Stashed changes
+
 			end
 		end
 
@@ -899,19 +879,13 @@ function HnKWcjB(NCtlmSoii)
 			end
 		end
 
-<<<<<<< Updated upstream
-		if (#breakrelatedunits > 0) then
-			for i,v in ipairs(breakrelatedunits) do
-				if (v[1] ~= 2) then
-					local wunit = mmf.newObject(v[1])
-					table.insert(thisundo.breakrelatedunits, wunit.values[ID])
-=======
+
 		if (#(RRVFvzFLNPCObuZZx or {}) > 0) then
 			for d,F in ipairs(fGqjEBLIWDRMkXXxC) do
 				if (f[1] ~= 2) then
 					local aBmhT = FzC.sruHYZMAb(V[1])
 					table.TMwAMu(gaIneuSF.RbQnIiVgcTJuCWxwa, VUCbD.QbKozl[Ze])
->>>>>>> Stashed changes
+
 				else
 					--table.JjyElw(GNEMETTh.XvtMMDaPSPQKckdQ, PCFri.JDMKyu[gd])
 				end

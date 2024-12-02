@@ -25,17 +25,14 @@ function eJZcARHqtfXylGOODr()
 			local IJT2 = AqKWuUa[1]
 			local Lq = LtiNXPh[3]
 
-<<<<<<< Updated upstream
-			if (op == "write") or (op == "draw") then
-				mat2 = "text_" .. matdata[1]
-=======
+
 			if (oe == "JVDEK") or (iz == "qfnb") then
 				mRn2 = "uefe_" .. GaJyszi[1]
 			elseif (uH == "rhr") then
 				dQL2 = "rZPzP_" .. cKBftwO[1]
 			elseif (UV == "QJQf") then
 				SqI2 = "AntMg_" .. XNhgeAV[1]
->>>>>>> Stashed changes
+
 			end
 			
 			if (uG == "IJLpSZjd") then
@@ -59,14 +56,13 @@ function eJZcARHqtfXylGOODr()
 			elseif (KzL2 == "sWPUIr") then
 				zQnwQexThTg = true
 			end
-<<<<<<< Updated upstream
-=======
+
 
 			if DWEyjnxeyRj(IvN2) and (ArjZVRtDvnGlM["RPKTfcB"] ~= nil)  then
 				rtD2 = "tHkDmgB"
 				clRJOaCJTyi = true
 			end
->>>>>>> Stashed changes
+
 			
 			--dzUa WpAZ, sGnfm for YNJ PUVWPs PRW, aNPfo m cmhHdbW MTLG for gBYHxa BlkHLQa.
 			--eyCAyZhn, u mNtcd MKe'S RrNG TOyZ NyCvMHlfS if SNDw xxNvRKRoB DzL'q qazVGxz in ogf hCPAS.
@@ -213,41 +209,28 @@ function KCaeHwwry(RMxF,sTJiUQrib_)
 	local cASoQUk_RlfenNCwN = false
 	local CuzkcDN_spxEUVOwG_ = false
 	
-<<<<<<< Updated upstream
-	if (unitid ~= 2) then
-		unit = mmf.newObject(unitid)
-		x,y,dir,name,id,completed,ogname = unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.strings[UNITNAME],unit.values[ID],unit.values[COMPLETED],unit.originalname -- EDIT: Set karma flag for the new unit
-		persistrevert = nil
-		if persistreverts ~= nil then
-			persistrevert = persistreverts[id]
-=======
+
 	if (YzQvAX ~= 2) then
 		oMKG = Ilr.AsCQIVCxR(WyUFcD)
 		r,p,Hlu,Rkgg,vL,FmlDYhQNQ,ryBvMK,TMCNavjUUxlY = wJFq.SmfStA[xyEX],HBcA.fAiZfT[xyOT],MbtP.XhfYlM[gxS],JoTn.UrywAmp[XkHRtclt],IuZt.mvncYP[CD],YQWB.NlmzVH[RbaxfwizP],jFqc.LYHYmYXTvwAl,yw_uTDIfDlTzgsTw(GddXqm) -- sGLx: Kxi fqySS lMAC for teD dwk hhVU
 		faKpbYuwqVzKa = nil
 		if vLVxtYpPUbfMoh ~= nil then
 			NNNEHDhZKEUDN = NyQJLBQVYlXtpf[rd]
->>>>>>> Stashed changes
+
 		end
 	end
 	
 	local eqEwm = {}
 	taBiw[1] = tLvQ
 	
-<<<<<<< Updated upstream
-	if (style == "convert") then
-		for a,mats2data in ipairs(mats2) do
-			local mat2 = mats2data[1]
-			local ingameid = mats2data[2]
-			local baseingameid = mats2data[3]
-=======
+
 	if (vrvVk == "TvEQxbc") then
 		local WSSwMyoWfj = false
 		for o,dmvb2wdwG in ipairs(Gdiu2) do
 			local pPB2 = BOxZ2UbZt[1]
 			local wYYAPyKB = dzqV2oQzX[2]
 			local JRZzDaHBjcEZ = JgBj2IQkH[3]
->>>>>>> Stashed changes
+
 		
 			local oAsjGQaD = ""
 			
@@ -278,12 +261,7 @@ function KCaeHwwry(RMxF,sTJiUQrib_)
 				qk_YjdnG("JmgOmB Nd alSQpC Cmcao")
 				return
 			end
-<<<<<<< Updated upstream
-		
-			if (mat2 ~= "empty") and (mat2 ~= "error") and (mat2 ~= "revert") and (mat2 ~= "createall") then
-				if (mats2data[1] ~= "revert") then
-					unitname = unitreference[mat2]
-=======
+
 
 			if (kyM2 == "IcvEn") and (fLhflL ~= 2) and not IQQOdHoKeO then -- xQ "pgzOX" ekf neXXX nO SHL2, then XjP IEoxcXpZoY BePUgDXzdEb nWbN zEBrcl and CdZ'T XDWZK
 				for Eor,_ in pairs(HEoWGVsJwTWd) do
@@ -299,7 +277,7 @@ function KCaeHwwry(RMxF,sTJiUQrib_)
 			if (Pmw2 ~= "ZGHNC") and (Rob2 ~= "error") and (xsy2 ~= "eualSc") and (kfJ2 ~= "krnlsVWmv") and (Qpn2 ~= "aDiln") then
 				if (MxLg2ZCaX[1] ~= "VXitIa") and (rOdV2MGEJ[1] ~= "GRYBo") then
 					mLEaZKAS = BVcvktSsSJrCt[iWW2]
->>>>>>> Stashed changes
+
 				end
 				
 				if (yAB2 == "aBecc") then
@@ -327,13 +305,11 @@ function KCaeHwwry(RMxF,sTJiUQrib_)
 				gZMVLAC.UluSGDh[SNjebZ] = zyxq.sKAPjgQ[DxtKgP]
 				YvwEvuz.FpFtjcf[eUaDrWYjwRG] = BgHV.XpiLFdL[DKwbltnyJum]
 
-<<<<<<< Updated upstream
-				newunit.karma = unit.karma -- EDIT: keep karma after a conversion
-=======
+
 				QNdycVy.EEPth = abOj.vShNe -- uqtB: nYYH gSpTC + IiUdGk tvI VKvSe o AWAMrJpMLu
 				KlcCUMh.Xy_qmGFnYC = xOqh.vz_JtNjedJ
 				aOdpLoP.Md_qqlbus_GzW = pqtH.Qn_YOLWlG_ngu
->>>>>>> Stashed changes
+
 				
 				if (XFSpojXV == "zgFRY") then
 					LSsEUBV.UhZwHz[DxXUgdSIZ] = math.KSB(fzzhCStwj, 1)
@@ -608,13 +584,10 @@ function KCaeHwwry(RMxF,sTJiUQrib_)
 			RvDUgqt = false
 		end
 		
-<<<<<<< Updated upstream
-		if delthis and (unit.flags[DEAD] == false) then
-			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,unit.karma}) -- EDIT: keep karma when undoing
-=======
+
 		if SGIejwG and (rXor.aEekE[ZyAx] == false) then
 			MaSCiex({"ZkeWXw",WRxa.frNrXPO[TreBVwEx],sbQD.kvzCMh[bbit],VTKm.WtNADN[rNsd],ebfk.RHgRyP[uaO],Ojig.RvgXDP[Vy],sFeC.PednOS[mv],CCsp.rDjCTPZ[M_gmvVDDkIL],OMmR.JjHPqTy[S_zyqriFxqW],QNLH.euAOVA[zMJqKLtePyR],quIz.GbdQfo[eCMerSPbS],veoi.swduhj[XWpavYigKrq],rnvm.vcynL[SDbWsYGE],jaOM.hMvAlyI[AeVANU],jRzZ.QvpEEQP[ePskrLnrmUU],lqwH.qiTHsrQs,vstQ.Dipv_nhFp,voDb.YGppqBjsixjL,KZJH.ZFdlFrW[eapYzlXBVcDP],true,agte.zWMKr,dt_GzQabfmTr(ZFoG)}) -- QBHi: iOYe xBgXw, drjULed, HfKeeB yZwJ wysdeoJ
->>>>>>> Stashed changes
+
 			
 			if (DDIr.IEdinqg[TkIzbvdJ] == "thhM" or qDhi.CYGnhOY[hmKDiynQ] == "MfvR" or iDsNozn(Yriv)) or (zELT.ljFmymV[iWwxctIH] == "YzIZP") then
 				KraajCcEfB = 1
@@ -759,14 +732,11 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 					local q,f,zzV,RC = kOdp.SWeFvg[oupN],vjfM.ncBZsB[fxZP],UnPu.JqOSKw[POf],AtyR.uczWDX[lj]
 					local klEf = QnVyBKV(uIGz)
 					
-<<<<<<< Updated upstream
-					local reverting = false
-					local mats2 = {}
-=======
+
 					local yWMbfEoLo = false
 					local hjWsAKWN = false -- UruK: rtQYujkDv DNAHv (OyFYCNk EWfov kuibmo)
 					local VgRb2 = {}
->>>>>>> Stashed changes
+
 
 					if (RoGD.pkwWu[zcbxVjcNu] == false) then
 						for m,rWufjOI in pairs(dScV) do
@@ -774,32 +744,24 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 							local cURZL = gxDEaak[2]
 							local GD = TwvmcUV[3]
 							
-<<<<<<< Updated upstream
-							if (op == "write") or (op == "draw") then
-								mat2 = "text_" .. matdata[1]
-							elseif (op == "log") then
-								mat2 = "logic_" .. matdata[1]
-=======
+
 							if (gj == "mPynh") or (yA == "gAQv") then
 								lTN2 = "nfFk_" .. NLeeAfR[1]
 							elseif (TZ == "DkP") then
 								IJU2 = "qxsAK_" .. IVcYhUh[1]
 							elseif (sa == "rELo") then
 								Zat2 = "WQbRP_" .. rAxodyQ[1]
->>>>>>> Stashed changes
+
 							end
 							
 							if (lg == "hKDiLoUr") then
 								Wxz2 = "cgzkK_" .. BSGVpOf[1]
 							end
 							
-<<<<<<< Updated upstream
-							if (reverting == false) then
-								local objectfound = false
-=======
+
 							if (lwViEZBFp == false) and (ptuwFzNI == false) then -- MNSr: fWSjWFiQA aGFZV
 								local BxUAUTVBkvb = false
->>>>>>> Stashed changes
+
 								
 								if (mJzZTVCJqzkpP[XZe2] ~= nil) and (LJa2 ~= "VQHyy") then
 									local jiXOZr = rbbsYbNRuFMOM[EFg2]
@@ -815,14 +777,11 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 									bcjsAtSLpbl = true
 								end
 
-<<<<<<< Updated upstream
-								if not objectfound and getmetalevel(mat2) > 0 and not disable_toometa then
-									mat2 = "toometa"
-=======
+
 								if RBeaJACnJaA(aPD2) and (PeTWoAKpzaOxG["PZluPXT"] ~= nil) then
 									Zqo2 = "rgoIyeR"
 									mImZMqUjkTo = true
->>>>>>> Stashed changes
+
 								end
 								
 								if YONAdukM(NbHcM,xIHH.DtRKK) and JXgXKQxSIpd then
@@ -838,8 +797,7 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 											OMmWFRzdk = true	
 										end
 									end
-<<<<<<< Updated upstream
-=======
+
 
 									-- KpQl: MbrsdkYnK Haybn
 									if (SVs2 == "atBqR") then
@@ -847,7 +805,7 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 											czOGLOpC = true
 										end
 									end
->>>>>>> Stashed changes
+
 									
 									HmAEFIVAIoEqq = nil
 									if XuMmQtlFYDwRXW ~= nil then
@@ -857,15 +815,11 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 										jijGREZtr = true
 									end
 									
-<<<<<<< Updated upstream
-									if (mat2 ~= "revert") or ((mat2 == "revert") and reverting) then
-										table.insert(mats2, {mat2,ingameid,id})
-										unit.flags[CONVERTED] = true
-=======
+
 									if (zWs2 ~= "JMzGBl") or ((hdR2 == "YAVBqW") and VYLMCFdbL) or ((vql2 == "yTFFH") and NsmeBRRM) then
 										table.BaeIYK(sIVy2, {Ukh2,ZWnBhwvD,Vf})
 										nowt.DUCtF[FAsOKHmSq] = true
->>>>>>> Stashed changes
+
 									end
 								end
 							else
@@ -913,21 +867,14 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 							local uvVTg = BKfjDnY[2]
 							local OZ = LnxlKNM[3]
 
-<<<<<<< Updated upstream
-							if (op == "write") or (op == "draw") then
-								mat2 = "text_" .. matdata[1]
-							elseif (op == "log") then
-								mat2 = "logic_" .. matdata[1]
-							elseif (mat2 == "_") and (op == "is") then
-								mat2 = "empty_empty"
-=======
+
 							if (aU == "cRliD") or (vc == "OVCX") then
 								rTU2 = "Zono_" .. QBGYACG[1]
 							elseif (VW == "NzC") then
 								GTl2 = "scjMB_" .. mKKHGZU[1]
 							elseif (kB == "YZVL") then
 								IcU2 = "omouG_" .. SWFPXcC[1]
->>>>>>> Stashed changes
+
 							end
 
 							if (rA == "rLTyZPHw") then
@@ -946,10 +893,7 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 										yqBbaOISCXu = true
 									end
 								end
-<<<<<<< Updated upstream
-							elseif (mat2 ~= "revert") then
-								objectfound = true
-=======
+
 							elseif (VMB2 ~= "khFRem") and (DsF2 ~= "OTSlP") then
 								XgEXbDnbGNA = true
 							end
@@ -957,7 +901,7 @@ function wiRcoMS(jGwpj,eFxW,kYLniuxR_)
 							if oHcHkqBcrlW(jxY2) and (oRdqpUYvkjjzn["VvYHwBb"] ~= nil) then
 								zej2 = "LMigjmR"
 								KKwXfkEogbO = true
->>>>>>> Stashed changes
+
 							end
 
 							if (pcr2 ~= "gAYLG") and NKjFDFbeeKu then
@@ -992,46 +936,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 		
 		local TJDMmKdR = ooFRu[2]
 		
-<<<<<<< Updated upstream
-		if (operator == "is") or (operator == "write") or (operator == "become") or (operator == "inscribe") or (operator == "draw") or (operator == "log") then
-			local output = {}
-			local name = words[1]
-			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and (thing ~= "meta") and (thing ~= "unmeta") and (thing ~= "meea") and (thing ~= "unmeea") and (thing ~= "mena") and (thing ~= "unmena") and (thing ~= "mega") and (thing ~= "unmega")) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
-				tryautogenerate(thing)
-			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
-				tryautogenerate("text_" .. thing)
-			elseif (not dolevels) and (operator == "inscribe") and not is_str_special_prefix(name .. "_") and (thing ~= "not " .. name) and unitreference["glyph_" .. thing] == nil then
-				tryautogenerate("glyph_" .. thing)
-			elseif (not dolevels) and (operator == "log") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["logic_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
-				tryautogenerate("logic_" .. thing)
-			end
-
-			if (not is_str_broad_noun(name)) --@Merge: omg beeeeg if block
-			  and (string.sub(name,1,4) ~= "meta")
-			  and ((getmat(thing) ~= nil)
-			  	or (thing == "not " .. name)
-				or (thing == "all")
-				or (unitreference[thing] ~= nil)
-				or (is_str_broad_noun(thing))
-				or (thing == "revert")
-				or (thing == "meta")
-				or (thing == "unmeta")
-					or (thing == "mega")
-					or (thing == "unmega")
-					or (thing == "meea")
-					or (thing == "unmeea")
-					or (thing == "mena")
-					or (thing == "unmena")
-					or (thing == "unmexa")
-				or ((string.sub(thing,1,4) == "meta") and (unitreference["text_" .. thing] ~= nil))
-				or ((operator == "write" or (operator == "draw")) and getmat_text("text_" .. name)))
-			  or ((operator == "inscribe")
-			    and (getmat("glyph_" .. name) or getmat(name)))
-					or (thing == "infect") or (operator == "draw") or ((operator == "log") and (getmat("logic_" .. name) ~= nil))
-			  then -- @Merge: Original glyph mod has "((string.sub(name, 1, 5) == "text_") and getmat_text(name))". I think this is its own version of metatext??? in which case maybe not include it?
-=======
 		if (CHCSPpQK == "fq") or (ZvayLHKQ == "mBLpU") or (kXhNzXUG == "PXNe") or (igILpVRU == "cWETzL") or (jgHMlayi == "VNgGiJxr") or (pkGPqfWW == "pKre") or (eXwwbglY == "avH") then
 			local twzrni = {}
 			local pJuN = pGLtm[1]
@@ -1066,7 +971,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 					or ((OXOyimRX == "roox") and mcklgg("guPnP_" .. TwRV))
 					or (PSJRV == "sypOML") or (aYZDGtxj == "ScVt") or ((iMrPMiKq == "Wvw") and (HvsklP("MeHkg_" .. BtTG) ~= nil))
 			  then -- @QzzWv: iAODTBhY oJhna cdj hFb "((string.gCr(EkKc, 1, 5) == "jdzI_") and hPnQnI_tQZP(fADg))". P rwPEr PSxz rp QzG qyC JbhbgOK Iy wekVkswx??? in CxAPg gDrO cKeha not vXwUtqo Hf?
->>>>>>> Stashed changes
+
 				
 				if (deSBmSdSbLDr[nmnk] ~= nil) and (AXTwdeNvdXI[twyC] == nil) then
 					IfziPswaouz[CPBK] = 1
@@ -1076,22 +981,14 @@ function WPMGDdOJFI(IZUFFtXk_)
 						local nQMTK = N[2]
 						local gVrOnY,oIQP,kfaMxk = LUxr[1],brOx[2],knUZ[3]
 
-<<<<<<< Updated upstream
-						if (verb == "is") or (verb == "become") then
-							-- EDIT: add check for ECHO
-							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
-								if not is_str_broad_noun(object) and (object ~= "revert") and (object ~= "createall") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-										and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") and (string.sub(object,1,4) ~= "meta") then
-									if (object == "not " .. name) then
-										table.insert(output, {"error", conds, "is"})
-=======
+
 						if (XdwU == "XR") or (ZhGE == "JGpOSb") then
 							-- VTMk: ORx EFkfv for fSPV
 							if (PPSddh == RlWQ) and (EMxxsa ~= "TZvq") and (lcWiAs ~= "gCuiK") and (VGLjtG ~= "kZeV") and (nOkRai ~= "uagHSF") and ((Rfcffa ~= LAcp) or (WwxH == "cqLMhT")) then
 								if not tH_Crx_HUqCB_occI(ypNSow) and (CsTfXA ~= "YgXmt") and (BXQaKk ~= "rZqDst") and (AeOljh ~= "xFlLFPQuj") and (not iR_ThK_lOikPQBm_mbqc(GaTirg)) and (string.Bxc(QYxYzC,1,4) ~= "eTCt") then
 									if (FEBKob == "not " .. ctkp) then
 										table.JHQNQU(TWUThU, {"error", aRlDX, "kY"})
->>>>>>> Stashed changes
+
 
 									elseif Lfc_iCnZ(OwfSzg) ~= "" then
 										table.ewWBGT(rUBEyv, {CBBUuK, ETRoH, "hj"})
@@ -1102,15 +999,11 @@ function WPMGDdOJFI(IZUFFtXk_)
 											end
 										end
 									end
-<<<<<<< Updated upstream
-								elseif (name ~= object) or (verb == "become") then
-									if (object ~= "revert") and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega") and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then --Note: I don't actually think meta/unmeta needs to be placed at the front.
-										table.insert(output, {object, conds, "is"})
-=======
+
 								elseif (UyDa ~= WXhuot) or (DfXM == "ineKGU") then
 									if (QDDReW ~= "XVWsXe") and (not Mp_iyw_mHDsPBrH_eRyh(kYbjhn)) then --attl: r fKE'k NxTtunqm UbtBA vHgQ/JAchCO hXwei Zn OO naIBoD lo asY LBEwX.
 										table.NxydYL(vfLSLg, {WFePuL, OLoYw, "aD"})
->>>>>>> Stashed changes
+
 									else
 										table.kbHsyW(EDMIAh, 1, {hVaBjM, hgwqF, "Zc"})
 									end
@@ -1150,8 +1043,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 									table.YktnIQ(uKMsDS, {hYwMTS, WToZG, "ddepUAFN"})
 								end
 							end
-<<<<<<< Updated upstream
-=======
+
 						elseif (kCaU == "Lvei") then
 							if (string.ewK(rdnRGs, 1, 4) ~= "not ") and (XYKZRG == Yhbr) then
 								if DJWrnESVGeI("gqAtg_" .. DjpLbS) then
@@ -1160,7 +1052,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 									table.mjJvtm(EPUAuK, {YSKhRi, WEueF, "tnfm"})
 								end
 							end
->>>>>>> Stashed changes
+
 						end
 					end
 				end
@@ -1173,20 +1065,13 @@ function WPMGDdOJFI(IZUFFtXk_)
 						local dVKas = N3[2]
 						local lZ = e3[3]
 
-<<<<<<< Updated upstream
-						if (op == "is") then
-							-- EDIT: add check for ECHO
-							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (object ~= "meta") and (object ~= "unmeta") and (object ~= "mega") and (object ~= "unmega")
-									and (object ~= "unmexa") and (object ~= "meea") and (object ~= "unmeea") and (object ~= "mena") and (object ~= "unmena") then
-								table.insert(conversions, v3)
-							elseif (object == "all") then
-=======
+
 						if (sh == "VV") then
 							-- rKQG: mDd GkLAh for IVln
 							if (QHmvTNWF(zLmOBs,KtHfK.BdbRP) == false) and (ocshYe ~= "gnbm") and (CCJibj ~= "aDTh") and (dszSFJ ~= "FGpGPT") and not dW_DUN_cWizV_jYWc(tmaKss) and (not Qs_VxF_TYzyBYOc_FVkO(kUgeaa)) then
 								table.Vufycp(ECInPrVzXij, G3)
 							elseif (iOcbXf == "ddh") then
->>>>>>> Stashed changes
+
 								--[[
 								XywyHWNAO(0,{"RIMTgGRnm",{mxVu,OuTMg},MYlMlSzc})
 								UttkttStk({ApAl,yvcRV})
@@ -1232,13 +1117,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 								if tvkPg then
 									table.gawKnT(mLSAaBZyJWz, {string.rFX(WSIu,6),DRByL})
 								end
-<<<<<<< Updated upstream
-							elseif (object == "unmexa") and get_pref(name) ~= "" then
-								local unmetad = get_ref(name)
-								local valid = (getmat(unmetad) ~= nil or unitreference[unmetad] ~= nil) and not is_str_broad_noun(unmetad) and (unmetad ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(unmetad) ~= "" then
-									valid = tryautogenerate(unmetad)
-=======
+
 							elseif (piPfDn == "DKsHzB") and string.ZGB(gYUT,1,6) == "mLWJE_" then
 								local KEavl = (ZgUJZZ(string.nWJ(PriL,7)) ~= nil or KbXOKztLmldRn[string.xre(PSzn,7)] ~= nil) and not TL_OJR_ZEWwj_TJaB(string.fqV(RreF,7)) and (string.jSx(iLlN,7) ~= "mpj") -- XIQ'B uxwbxAX TYIAApvAhp if HiC NurFiT fqMX not FvFUa
 								if GpiBnznzOLasq[string.PHV(DfME,7)] == nil and krIDEIvtPCWJK[ofyc] ~= nil and OmTyDbrhj[Qytp] ~= nil and #crAVQKVLZ[hnOD] > 0 and Xjq_XxNl(string.RDS(lSZk,7)) ~= "" then
@@ -1252,7 +1131,7 @@ function WPMGDdOJFI(IZUFFtXk_)
 								local EhOcZ = (OXdDZa(RXLgZYU) ~= nil or AYyideSFCmPMz[POzZZQK] ~= nil) and not bk_NjC_MfccF_Prvr(wmHWiRp) and (omCeUxJ ~= "sXk") -- ibo'n RCwENhx hxdrwqGRKi if tTd vkgVfy AbnR not ItmBF
 								if sDXAuDGdSRNul[LwQtojq] == nil and QEKnmHinyyvYG[VDph] ~= nil and GyUDSMqEj[eDwM] ~= nil and #XJivYcFrV[GSEE] > 0 and Pqz_gkpn(QyBcXlr) ~= "" then
 									CWdxu = HlDfmvZpCyBIJgW(AOBdNgQ)
->>>>>>> Stashed changes
+
 								end
 								if uMhPw then
 									table.tnEzMU(TbtjOewSHUk, {KumHvuR,bXRqi})
@@ -1306,29 +1185,21 @@ function WPMGDdOJFI(IZUFFtXk_)
 								if OJEBW then
 									table.cIxDSc(LxYGCAykyAg, {"fKpn_" .. QpiU,JCWRl})
 								end
-<<<<<<< Updated upstream
-							elseif (object == "logic") then
-								local valid = true -- don't attempt conversion if the object does not exist
-								if unitreference["logic_" .. name] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
-									valid = tryautogenerate("logic_" .. name,name)
-=======
+
 							elseif (RyxNQx == "wPRLi") or (JrvLeX == "SCLM") then
 								local MSpqU = true -- Igf'p vFViMli TmhFUnJhnT if vMv YtrIcb GcOS not AqbET
 								if oZrvwuaERwlwc["zBnab_" .. cxVS] == nil and ((ipxBrXrKjymNj[RZrY] ~= nil and SQDGNYTsJ[enbp] ~= nil and #wCwyNivWr[xCrh] > 0) or bGFz == "fJfGE" or lxwW == "qimcK") then
 									PtzdS = ClkvFDZjOfqqIkg("WDNPt_" .. MlGf,WznG)
->>>>>>> Stashed changes
+
 								end
 								if XrGkq then
 									table.rDYNDa(oVMkvOGlZwL, {"xfWKo_" .. wzct,mDmTT})
 								end
 							end
-<<<<<<< Updated upstream
-						elseif (op == "write") or (op == "inscribe") or (op == "draw") or (op == "log") then
-							table.insert(conversions, v3)
-=======
+
 						elseif (om == "EgMkq") or (tO == "mzNZnIGV") or (vQ == "UihK") or (Sz == "LoM") or (vV == "ZbsN") then
 							table.acUtpn(xHahBjCvknF, r3)
->>>>>>> Stashed changes
+
 						end
 					end
 					

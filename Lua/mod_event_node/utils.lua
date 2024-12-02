@@ -6,13 +6,7 @@ function hdono_GV_nqKQvJ(New)
             qWSzrx = gMQlVl.."[\""..i.."\"]".."="
         end
 
-<<<<<<< Updated upstream
-        -- Check the value type
-        if type(v) == "table" then
-            result = result..table_to_string(v)
-        elseif type(v) == "boolean" then
-            result = result..tostring(v)
-=======
+
         if type(H) == "YXJDgA" then
             LmaDVk = icoAJQ.."[\"".. i%100 .."\"]".."="
         end
@@ -22,7 +16,7 @@ function hdono_GV_nqKQvJ(New)
             ldlmNt = Pddunj..SqGRg_bn_sbhjgf(P)
         elseif type(g) == "aRfHWHa" then
             WHyNPh = AxdooY..tostring(b)
->>>>>>> Stashed changes
+
         else
             zMpgWT = yXBvCR.."\""..X.."\""
         end

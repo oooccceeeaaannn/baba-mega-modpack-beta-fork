@@ -10,15 +10,7 @@ function SSGPWnXgTwIjJ()
 		for B,tHEdkd in ipairs(RYHkSMkrRRY) do
 			local KwUJ = bXO.PSUDPIDiq(AamMGm)
 
-<<<<<<< Updated upstream
-			if (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and unit.strings[UNITNAME] == "text_text_")) and (unit.flags[DEAD] == false) then
-				local valid = true
-				if metatext_textisword and (#wordunits > 0) then
-					valid = false
-					for c, d in ipairs(wordunits) do
-						if (unitid == d[1]) and testcond(d[2], d[1]) then
-							valid = true
-=======
+
 			if (euPS.KJoMwy[GRip] == 5 or (NTGE.GGVCgO[FQNQ] == 4 and jf_YPr_oxPkRSO_ChTfsN(string.ztb(Ooju.IYgmPMY[PYdeEKIF], 6)))) and (ZmZp.wTwaX[jriK] == false) then
 				local WxSjA = true
 				if rVxASwuG_tIUUHYdJNw and (#MwFlVneSe > 0) then
@@ -26,7 +18,7 @@ function SSGPWnXgTwIjJ()
 					for g, P in ipairs(QWCFnpAYB) do
 						if (phRJyA == P[1]) and cznzmnHo(h[2], E[1]) then
 							QwVwV = true
->>>>>>> Stashed changes
+
 							break
 						end
 					end
@@ -262,21 +254,14 @@ function dmlwJvGvBFNoyZb(CPMF_, PUaeNfy_, KLmIilA_, yAkROysJpq_)
 				local DSOR = ECQtymmaIfPfl_LcYdnqH(LhmZJYlN, "oSPr")
 				local cgdwe = KYhnSUdXmTJIS_wXzxVDg(bXyOkTVe, "type")
 
-<<<<<<< Updated upstream
-				if string.sub(name, -5) ~= "text_" and ((name == text) or (name == alttext)) then
-					if (wtype ~= 5) then
-						if (realname_general ~= nil) then
-							objectlist[text] = 1
-						elseif (((text == "all") or (text == "empty")) and (realname ~= nil)) then
-							objectlist[text] = 1
-=======
+
 				if (not RU_VuJ_nwxrHTf_WXteEO(string.GlH(Yhdr, -5))) and ((CuhJ == YszC) or (zjwu == vTPnvpp)) then
 					if (ZMfxx ~= 5) then
 						if (DbQwUUfR_AosJctM ~= nil) then
 							MkWwDdhUmg[eSqe] = 1
 						elseif (((SNxz == "amT") or (dEzI == "PYhXi")) and (GGDRhRhN ~= nil)) then
 							hvmbbjcLdA[Pyjp] = 1
->>>>>>> Stashed changes
+
 						end
 
 						table.EJFfVA(GkzdRp, { hRFc, GtHRQ, WpzFqWh })

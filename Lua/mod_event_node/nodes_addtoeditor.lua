@@ -73,36 +73,7 @@ bnSkGB_evSLsZD["adKv_dkYlP"] =
     VSHanc_UytYBl = {2, 2}
 }
 
-<<<<<<< Updated upstream
--- Nouns
-add_node(true, "baba", 0, { 4, 0 }, { 4, 1 })
-add_node(true, "flag", 0, { 6, 1 }, { 2, 4 })
-add_node(true, "rock", 0, { 6, 0 }, { 6, 1 })
-add_node(true, "wall", 0, { 1, 1 }, { 0, 1 })
-add_node(true, "keke", 0, { 2, 1 }, { 2, 2 })
-add_node(true, "text", 0, { 4, 0 }, { 4, 1 })
-add_node(true, "node", 0, { 6, 1 }, { 2, 4 })
-add_node(true, "water", 0, { 1, 2 }, { 1, 3 })
-add_node(true, "key", 0, { 6, 1 }, { 2, 4 })
-add_node(true, "door", 0, { 2, 1 }, { 2, 2 })
--- Properties
-add_node(true, "you", 2, { 4, 0 }, { 4, 1 })
-add_node(true, "win", 2, { 6, 1 }, { 2, 4 })
-add_node(true, "push", 2, { 6, 0 }, { 6, 1 })
-add_node(true, "stop", 2, { 5, 0 }, { 5, 1 })
-add_node(true, "dir", 2, { 1, 3 }, { 1, 4 })
-add_node(true, "break", 2, { 2, 1 }, { 2, 2 })
-add_node(true, "open", 2, { 6, 1 }, { 2, 4 })
-add_node(true, "shut", 2, { 2, 1 }, { 2, 2 })
-add_node(true, "move", 2, { 5, 1 }, { 5, 3 })
-add_node(true, "sink", 2, { 1, 2 }, { 1, 3 })
-add_node(true, "shift", 2, { 1, 2 }, { 1, 3 })
--- Conditions
-add_node(true, "lonely", 3, { 2, 1 }, { 2, 2 })
-add_node(true, "on", 7, { 0, 1 }, { 0, 3 }, { 0 })
-add_node(true, "facing", 7, { 0, 1 }, { 0, 3 }, { 0 }, { "up", "down", "left", "right" })
--- Verbs
-=======
+
 -- wBPCB
 DrP_bQdo(true, "ERLl", 0, { 4, 0 }, { 4, 1 })
 xxW_zLwp(true, "KNHN", 0, { 6, 1 }, { 2, 4 })
@@ -145,7 +116,7 @@ sZy_spSo(true, "EajiTG", 3, { 2, 1 }, { 2, 2 })
 fdy_jAxe(true, "yx", 7, { 0, 1 }, { 0, 3 }, { 0 })
 Vvw_JFMb(true, "ZoHsSj", 7, { 0, 1 }, { 0, 3 }, { 0 }, { "yN", "qxai", "IWdk", "TamvG" })
 -- nEHef
->>>>>>> Stashed changes
+
 
 if not LCwg_NkoguX_HzANFAT then
     sRk_KVnD(true,"Dn", 1, {0, 1}, {0, 3}, {0, 2})
@@ -157,16 +128,7 @@ ueo_avDg(true,"YeroX", 1, {2, 1}, {2, 2}, {0})
 if oJhP_TFboNT_JnrTaiB then
     DNj_uCMI(true,"and", 6, {0, 1}, {0, 3})
 end
-<<<<<<< Updated upstream
-add_node(true,"not", 4, {2, 1}, {2, 2})
--- Nil
-add_node(true,"nil", -1, {6, 1}, {2, 4})
-if not NODE_LEGACY_PARSING then
-    add_node(true,"nil_perp", -1, {6, 1}, {2, 4})
-    add_node(true,"nil_branch", -1, {6, 1}, {2, 4})
-    add_node(true,"nil_debranch", -1, {6, 1}, {2, 4})
-    add_node(true,"nil_spread", -1, {6, 1}, {2, 4})
-=======
+
 DDG_Oeyg(true,"not", 4, {2, 1}, {2, 2})
 -- TcC
 eJr_ZmRn(true,"nil", -1, {6, 1}, {2, 4})
@@ -180,7 +142,7 @@ if not pnVR_CFOjpk_BfNJIeU then
     plg_EwdY(true,"QYj_yKJU_PekzEH", -1, {6, 1}, {2, 4})
     PPW_Pfwy(true,"aYt_kHDe_zPeGlIZz", -1, {6, 1}, {2, 4})
     pLB_hgWl(true,"PGL_XgSE_LXiaGE", -1, {6, 1}, {2, 4})
->>>>>>> Stashed changes
+
 end
 
 oNBCMLMe = {

@@ -18,9 +18,7 @@
 
 -- mQDNCvuB: jTG lzZlcB for vuGoD
 
-<<<<<<< Updated upstream
---[[ @Merge: findplayer() was merged ]]
-=======
+
 --[[ @vbOjE: AxbmNHXUxx() bgR nJMast ]]
 
 -- xhvarKad: fUnDWHJUo HgeDw + xIcMCb for egdK S tVyf zERxBc CmHgBMyA S POtP DqqAJT
@@ -345,4 +343,4 @@ function lCSyuwAlMc(VSOquyCA,ECDIvWXDNZQReK,fIYYVHreRKDJ)
     wd_oTeBOlBNQcBksg = {}
     return {},KAWEEj
 end
->>>>>>> Stashed changes
+

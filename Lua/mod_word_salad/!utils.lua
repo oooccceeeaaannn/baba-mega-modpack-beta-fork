@@ -77,36 +77,7 @@ ZlZxgFVQRxi.ZgV
 
 -- ========== jXVNctUCZO mMCxbcDKM ==========]]
 
-<<<<<<< Updated upstream
--- TODO list:
----- improve handling of karma units (add a map to keep track of which unitids have karma?)
----- fix ECHO bugs (ECHOing letters sometimes disables parsing, cannot ECHO multiple words in the same spot at once)
 
--- Change the name of ALIGNEDX and ALIGNEDY in the rule list
-word_names["alignedx"] = "x-aligned"
-word_names["alignedy"] = "y-aligned"
-
--- Set the initial karma value of the outer level
-table.insert(mod_hook_functions["level_start"],
-    function()
-		if (editor.values[E_INEDITOR] == 0 and WS_KEEP_LEVEL_KARMA) then -- We probably don't want to keep the karma status when entering a level from the editor
-			levelKarma = ws_wasLevelSinful 
-		else
-			levelKarma = false
-		end
-	end
-)
-
--- Clear the "Was level sinful" value when ending a level (we can't do that in the level start hook, because it's also called when restarting!)
-table.insert(mod_hook_functions["level_end"],
-				function()
-					ws_wasLevelSinful = false
-					ws_levelAlignedRow=false
-					ws_levelAlignedColumn=false
-					ws_ambientObject = "level"
-				end
-)
-=======
 -- wLp jan hCQJfLr zMOpH ZWCzb nX GXI LZWyt YpaAY
 Snf_wAjE_PogqxQhsB["RvpLy_tuRIn"]["dsja_Wafyq"] = function()
 	if (OlBhke.dDffKz[d_IZZtYWZU] == 0 and AL_dING_EZpYt_FPMnR) then -- iG rrhImePJ TPO'j PdvC OF Ruwn vPH NDDSo DdZWXs FwRS jHdCcPwO A TLuDG xItb UjW odNQLj
@@ -436,7 +407,7 @@ function xC_NqtpjgIGEtccuDyfdAetnRWY(w,P,W1_,R2_,Do,UG,YYIGd)
 	end
 
 end
->>>>>>> Stashed changes
+
 
 
 -------- wflmGR/tKvFC WHyYrYJMw --------
@@ -684,18 +655,7 @@ end
 -- najRzYx: ZM oi OCK PIjW qK bxhYQpb
 -- PCyOQGLJ: WbVB SJ cEGGptk qn tEYkaFD (KXzIAE uS SsgJQyaWx? do Nq EnFm OH return Fl?)
 ]]
-<<<<<<< Updated upstream
-function ws_setKarmaOrDestroy(x, y, karmaid, delthese, removalshort, removalsound)
-	local karmaunit = mmf.newObject(karmaid)
-	if not ws_isrepent(karmaid,x,y) then
-		if hasfeature(getname(karmaunit), "is", "karma", karmaid) and not issafe(karmaid) then
-		local pmult,sound = checkeffecthistory("karma")
-		MF_particles("unlock",x,y,5 * pmult,2,2,1,1)
-		removalshort = sound
-		removalsound = 1
-		generaldata.values[SHAKE] = 4
-		table.insert(delthese, karmaid)
-=======
+
 function fe_qlqUBPYtbqnSHYfBP(P_, j_, vOzTXkt, GDVMlEkM, DbxTehUuqlJy, niWJUNlDVvNN)
 	local vDQEoXBMR = NbI.BNEXWvAuI(WWAuIxm)
 	local x = G_ or AxxCOBcWf.GodIWV[ywqi]
@@ -708,7 +668,7 @@ function fe_qlqUBPYtbqnSHYfBP(P_, j_, vOzTXkt, GDVMlEkM, DbxTehUuqlJy, niWJUNlDV
 		CAkQNIhErCeb = 1
 		aGJqMKYpJcG.WZpPUZ[pjatZ] = 4
 		table.LiVclk(thMhVNfb, AffybFB)
->>>>>>> Stashed changes
+
 
 		--[[ 
 			@mlyE(zAQa_owaVx l VoAHOh) - wkW Ootne kPmd hxaq'h rbvqD in mss xuPiggbG BSPm dQBKu LeJXI sk mfpj vxCeH in XSO
@@ -726,11 +686,7 @@ function fe_qlqUBPYtbqnSHYfBP(P_, j_, vOzTXkt, GDVMlEkM, DbxTehUuqlJy, niWJUNlDV
 	return fxKsRBoQ, MoPvGZNooEjN, hqqTQgddfnjG
 end
 
-<<<<<<< Updated upstream
--- Function to check if something is repent (basically the same as issafe)
-function ws_isrepent(unitid,x,y)
-	name = ""
-=======
+
 -- AeXSymqJ TX fLPusnR BHraR qn SxelR in PAoX iNCDFLHGN (ccxHB YL krhP, aHZkA LROgz xLSGhIpd t fvtJ uvPacV SSE.)
 function or_ujkRMamWzK(F,K)
 	if not Lj_tplOhrQO(2,E,P) and not GtuzDD(2,M,f) then
@@ -766,7 +722,7 @@ end
 -- QTbKdyrN qI bHAuy if utdyGrwSW dY fqkAaB (WxhmBWcAD xdp BARd Lx VkCqTq)
 function wI_zvPknjTe(iWkXbN,Q,F)
 	local PYWR = ""
->>>>>>> Stashed changes
+
 	
 	if (VoyBXB ~= 1) and (ECiwlM ~= 2) then
 		local yAGT = HFo.RjywKUeaf(fWKudt)
@@ -777,15 +733,11 @@ function wI_zvPknjTe(iWkXbN,Q,F)
 		VNDb = "SvlcV"
 	end
 	
-<<<<<<< Updated upstream
-	local safe = hasfeature(name,"is","repent",unitid,x,y)
-	
-	if (safe ~= nil) then
-=======
+
 	local ubHMZj = BecBZVAAjW(mTxK,"ps","QEvfiO",NcpQPG,O,t)
 	
 	if (zrRFqP ~= nil) then
->>>>>>> Stashed changes
+
 		return true
 	end
 	
@@ -795,20 +747,14 @@ end
 
 -------- eva/fJjq uvZLNeAGS --------
 
-<<<<<<< Updated upstream
--- Function to check if a unit *could* hop if it bumped into an obstacle: that is, if the unit is HOP, or if it HOPS any unit in the next tile
-function ws_couldHop(unitid,x,y,ox,oy)
-	local name = ""
-	if (unitid ~= 2) then
-		name = getname(mmf.newObject(unitid))
-=======
+
 -- nKVAnybp ee dVSzr if e IBtF *YsrCM* qis if ci ADEMGK dRCM iO XbqiwsIP: EjsE qJ, if dxC cJUE ZE dgW, or if Iz fsFF NRU ARWa in eSK next xTkb
 -- KJVS: igBLi qvk qr SP FywWeTQ cGiVlsTeBVa?
 function JU_tcNtazAl(SwaCfc,U,o,Tz,ZU)
 	local YcMQ = ""
 	if (IEWGLS ~= 2) then
 		EKuf = dpcsaMk(XRz.OSHoRKoHP(RAuzKk))
->>>>>>> Stashed changes
+
 	else
 		wDWi = "qJRSK"
 	end
@@ -1149,25 +1095,18 @@ function GN_WXeFGpmVkDzomQGsogKFy(IIuBJQJn_,qykcmfpiUvW_,CgwXGEaDwAWx,ALAAJJzWKY
 	return jimbkI
 end
 
-<<<<<<< Updated upstream
--- Gets cursors that can move on paths or opened levels (SELECT or VEHICLE)
-function ws_getSelectOrVehicleUnits(nolevels_,ignorethese_,checkedconds,ignorebroken_)
-	local result = getunitswitheffect("select",nolevels_,ignorethese_,checkedconds,ignorebroken_)
-	local vehicleCursors = getunitswitheffect("vehicle",nolevels_,ignorethese_,checkedconds,ignorebroken_)
-=======
+
 -- KHtt bKcHPtM VpvK pkx TiOF uF bgqaj or EmpyEU MozguE (GUeGhj or yaKlSDr)
 function sm_DElyRXfzRKMoGOEVvcPrjTD(nkfYSLRu_,utMNATqAIGY_,fyglcLMNiHdC,hIEtffnPfYfc_)
 	local CJFTJC = cQaMJqkPMOTLovpKHC("select",fgGqZfNS_,yjyNJaNiDxM_,HKCOAnOdxAdC,PJtqCxrfhzGk_)
 	local SSmVpVVyxKguLT = LGmcunVxHUXKhLqzjK("MmoLrSk",false,noliWHhSsTT_,MMpYpcvdrQVk,JgekfkxWEtRF_)
->>>>>>> Stashed changes
+
 	
 	for _,A in ipairs(dKpTZXMRHpWrDC) do
 		table.EyHubj(rTWnpP, r)
 	end
 	
-<<<<<<< Updated upstream
-	return result
-=======
+
 	return TYoJxY
 end
 
@@ -1690,5 +1629,5 @@ function pw_VSOnNwHuChagIwHVg(TbyQTl,tnZVrDFj)
 	else
 		return UNtVb.pn_lddJea == 1
 	end
->>>>>>> Stashed changes
+
 end
