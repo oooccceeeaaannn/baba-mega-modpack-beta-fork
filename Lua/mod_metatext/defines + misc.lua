@@ -166,15 +166,10 @@ end
 
 table.insert(mod_hook_functions["always"], writemetalevel)
 
--- Allows TEXT_ to also act as a letter, and enables TEXT IS WORD behavior with letters if enabled
+-- Enables TEXT IS WORD behavior with letters if enabled
 
 --[[ @Merge: formlettermap() was merged ]]
 
-
--- Fix a bug where TEXT_ spells itself, causing rule duplication
--- unfortunately, that means TEXT_ cannot be spelled with letters
-
---[[ @Merge: findletterwords() was merged ]]
 
 
 -- Try to add more metatext if it doesn't exist.

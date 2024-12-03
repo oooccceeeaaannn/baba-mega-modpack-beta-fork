@@ -1,4 +1,4 @@
--- This is an optional file that adds a new object. It is not needed for the mod to work.
+-- This file adds the TEXT_ prefix and handles parsing.
 
 -- Adds object to editor.
 table.insert(editor_objlist_order,"text_text_")

@@ -10,7 +10,7 @@ function formlettermap()
 		for i,unitid in ipairs(letterunits) do
 			local unit = mmf.newObject(unitid)
 
-			if (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4 and is_str_special_prefix(string.sub(unit.strings[UNITNAME], 6)))) and (unit.flags[DEAD] == false) then
+			if (unit.values[TYPE] == 5 or (unit.values[TYPE] == 4)) and (unit.flags[DEAD] == false) then
 				local valid = true
 				if metatext_textisword and (#wordunits > 0) then
 					valid = false
@@ -252,7 +252,7 @@ function findletterwords(word_, wordpos_, subword_, mainbranch_)
 				local name = getactualdata_objlist(realname, "name")
 				local wtype = getactualdata_objlist(realname, "type")
 
-				if (not is_str_special_prefix(string.sub(name, -5))) and ((name == text) or (name == alttext)) then
+				if ((name == text) or (name == alttext)) then
 					if (wtype ~= 5) then
 						if (realname_general ~= nil) then
 							objectlist[text] = 1
