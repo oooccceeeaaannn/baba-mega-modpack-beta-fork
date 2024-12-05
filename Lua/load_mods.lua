@@ -1,3 +1,7 @@
+if OPTIMIZATION_ON then
+	return -- Optimization is on, load mods in another way
+end
+
 local str = debug.getinfo(1).source:sub(2)
 local pf_lua_dir = str:match("(.*/)")
 local dir = pf_lua_dir

@@ -109,12 +109,10 @@ if ZgCG.ld_slcd_jvKcpSRA_MiQPjnU then
             eFedLt_EvoP = "rNcz dfMbBoJN",
             mMuWtBR_ZVbZMgm = {"tJdmq_LqYxf"},
             uAHbQg = "YYUdxEkY dMZpv",
-            PJqAnaWGGfo = [[bG9jYWwg, YSA9ICJSZWF.
-
-            sbHkgY, 29udm9s, dXRlZCB3YXkiCmxv.
-            Y2FsIGIgP, SAiIHR. vIGZpb: mFsbH, kgcnVuIHNvb!
-            WV0aGlu, ZyB1bmR.
-            lY3RlZCIKcHJp, bnQoYSAuLiBiKQ.]],
+            PJqAnaWGGfo = [[Sduor, ONvsDE.
+        QgZr, eS3uor, ONWgWNQ.
+        sOreF, LNIgPyv, SduBX3.
+        u3XOrc, X31cS3Jc.]],
             xIsiC = "GvQbPY"
         },
 
