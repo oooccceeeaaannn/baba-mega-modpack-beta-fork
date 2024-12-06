@@ -98,6 +98,15 @@ local CRASHING_MESSAGES = { -- [lua pattern] = [message]
         ["^node_"] = "TOO HARD TO PARSE!",
         ["^event_"] = "TOO HARD TO PARSE!",
         ["^logic_"] = "TOO HARD TO PARSE!",
+        ["^text_text_$"] = "TOO META!",
+        ["^text_glyph_$"] = "TOO META!",
+        ["^text_node_$"] = "TOO META!",
+        ["^text_event_$"] = "TOO META!",
+        ["^text_logic_$"] = "TOO META!",
+
+        --nuhuh mod
+        ["^text_nuhuh"] = "TOO NEGATIVE!",
+        ["^text_turning_nuhuh$"] = "TOO NEGATIVE!",
     },
 
     on_parsing = {
@@ -119,12 +128,28 @@ local CRASHING_MESSAGES = { -- [lua pattern] = [message]
         ["^event$"] = "TOO HARD TO PARSE!",
         ["^logic$"] = "TOO HARD TO PARSE!",
 
-        ["^text_text_"] = "TOO META!",
-        ["^text_glyph_"] = "TOO META!",
-        ["^text_node_"] = "TOO META!",
-        ["^text_event_"] = "TOO META!",
-        ["^text_logic_"] = "TOO META!",
+        ["^symbol$"] = "TOO HARD TO PARSE!",
+        ["^log$"] = "TOO HARD TO PARSE!",
+        ["^imprint$"] = "TOO HARD TO PARSE!",
+        ["^scribble$"] = "TOO HARD TO PARSE!",
+        ["^log$"] = "TOO HARD TO PARSE!",
+
+        ["^text_"] = "TOO META!",
+        ["^glyph_"] = "TOO META!",
+        ["^node_"] = "TOO META!",
+        ["^event_"] = "TOO META!",
+        ["^logic_"] = "TOO META!",
         ["^meta"] = "TOO META!",
+        ["^unmeta$"] = "TOO UNMETA!",
+        ["^mega$"] = "TOO META!",
+        ["^meea$"] = "TOO META!",
+        ["^mena$"] = "TOO META!",
+        ["^mela$"] = "TOO META!",
+        ["^unmega$"] = "TOO UNMETA!",
+        ["^unmeea$"] = "TOO UNMETA!",
+        ["^unmena$"] = "TOO UNMETA!",
+        ["^unmela$"] = "TOO UNMETA!",
+
 
         ["^this$"] = "TOO HARD TO IMPLEMENT!",
         ["^that$"] = "TOO HARD TO IMPLEMENT!",
@@ -201,8 +226,6 @@ local CRASHING_MESSAGES = { -- [lua pattern] = [message]
         ["^drunker$"] = "TOO ILLEGAL!",
 
         ["^print$"] = "TOO MUCH TEXT!",
-        ["^imprint$"] = "TOO MUCH TEXT!",
-        ["^scribble$"] = "TOO MUCH TEXT!",
         ["^scrawl$"] = "TOO MUCH TEXT!",
 
         ["^noundo$"] = "TOO MUCH UNDO JANK!",
@@ -290,10 +313,65 @@ local CRASHING_MESSAGES = { -- [lua pattern] = [message]
         ["^shiny$"] = "TOO SPECIFIED FEELING!",
         ["^curious$"] = "TOO SPECIFIED FEELING!",
 
+        --cardinaility
+        ["^north$"] = "TOO MUCH CARDINALS!",
+        ["^south$"] = "TOO MUCH CARDINALS!",
+        ["^east$"] = "TOO MUCH CARDINALS!",
+        ["^west$"] = "TOO MUCH CARDINALS!",
+
+        --delete prop
+        ["^delete$"] = "TOO DESTRUCTIVE!",
+
+        --glitch mod
+        ["^glitch$"] = "TOO GLICHY!",
+
+        --local mod
+        ["^local"] = "TOO MUCH NEIGHBOURHOOD!",
+        ["^router"] = "TOO MUCH INTERNET!",
+        ["^channel"] = "TOO MUCH INTERNET!",
+        --offline is pardoned for having to pair with router
+
+        --offset
+        ["^offset"] = "TOO OFF!",
+
+        --shruggy
+        ["^throw$"] = "TOO MUCH FORCE!",
+        ["^unstack$"] = "TOO LITTLE HEIGHT!",
+
+        --visit
+        ["^visit$"] = "TOO PUBLICLY VISITED!",
+
+        --word salad
+
+        ["^ambient$"] = "TOO MANY BOXES!",
+        ["^alive$"] = 'TOO PARALYZED!',
+        ["^vessel"] = "TOO SOULLESS!",
+        ["^hop$"] = "TOO MUCH HOPPING!",
+        ["^hops$"] = "TOO MUCH HOPPING!",
+        ["^karma$"] = "TOO MUCH SIN!",
+        ["^sinful$"] = "TOO MUCH COS * TAN!",
+        ["^repent$"] = "TOO UNFAIR!",
+        ["^echo$"] = "TOO MUCH PARSING JANK!",
+        ["^enter$"] = "TOO MANY NEW LINES!",
+        ["^vehicle$"] = "TOO MANY CARS!",
+        ["^boost$"] = "TOO MUCH BOOST!",
+        ["^boosts$"] = "TOO MUCH BOOST!",
+        ["^aligned"] = "TOO MUCH ALIGNMENT!",
+        ["^morph$"] = "TOO MUCH TRANSFORMATION!",
+        ["^trap$"] = "TOO ILLEGAL!",
+        ["^traps$"] = "TOO ILLEGAL!",
+        ["^else$"] = "TOO LUA-KEYWORDED!",
+        ["^perfect$"] = "TOO IMPOSSIBLE!",
+        ["^missing$"] = "TOO UNFOUND!",
+        ["^bungee$"] = "TOO DANGEROUS!",
+        ["^rescue$"] = "TOO UNBOUNDED!",
+        ["^bang$"] = "TOO EXPLOSIVE!",
+        ["^domino$"] = "TOO INDUCTIVE!",
+        ["^fill"] = "TOO OVERFLOWING!",
+        ["^fold"] = "TOO COMPACT!",
+        ["^align"] = "TOO MUCH ALIGNMENT!"
     },
 }
-
-
 
 function check_and_crash(name,mode)
     if mode == nil then

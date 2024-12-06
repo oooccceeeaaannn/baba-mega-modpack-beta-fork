@@ -3001,4 +3001,3523 @@ addtext("leveled",7,{1,3},{1,4})
 
 addtext("cancel",3,{2,1},{2,2})
 
+table.insert(editor_objlist_order, "text_north")
+editor_objlist["text_north"] = {
+    name = "text_north",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"cardinal"},
+    tiling = -1,
+    type = 7,
+    layer = 20,
+    colour = {5, 3},
+    colour_active = {5, 4},
+}
+
+table.insert(editor_objlist_order, "text_south")
+editor_objlist["text_south"] = {
+    name = "text_south",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"cardinal"},
+    tiling = -1,
+    type = 7,
+    layer = 20,
+    colour = {5, 3},
+    colour_active = {5, 4},
+}
+
+table.insert(editor_objlist_order, "text_east")
+editor_objlist["text_east"] = {
+    name = "text_east",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"cardinal"},
+    tiling = -1,
+    type = 7,
+    layer = 20,
+    colour = {5, 3},
+    colour_active = {5, 4},
+}
+
+table.insert(editor_objlist_order, "text_west")
+editor_objlist["text_west"] = {
+    name = "text_west",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"cardinal"},
+    tiling = -1,
+    type = 7,
+    layer = 20,
+    colour = {5, 3},
+    colour_active = {5, 4},
+}
+
+table.insert(editor_objlist_order, "text_delete")
+word_names["delete"] = "$2,2Not"
+editor_objlist["text_delete"] = {
+    name = "text_delete",
+    unittype = "text",
+    sprite_in_root = false,
+    sprite = "text_not_prop",
+    tags = { "text", "text_quality" },
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = { 2, 1 },
+    colour_active = { 2, 2 },
+}
+
+
+table.insert(editor_objlist_order, "text_event")
+table.insert(editor_objlist_order, "text_code")
+table.insert(editor_objlist_order, "text_token")
+
+editor_objlist["text_event"] =
+{
+    name = "text_event",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+editor_objlist["text_code"] =
+{
+    name = "text_code",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract"},
+    tiling = -1,
+    type = 1,
+    layer = 20,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["text_token"] =
+{
+    name = "text_token",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+
+table.insert(editor_objlist_order, "text_event_")
+
+editor_objlist["text_event_"] =
+{
+    name = "text_event_",
+    sprite = "text_eventpre",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract"},
+    tiling = -1,
+    type = 4,
+    layer = 20,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+local vvvvvv = {"baba", "flag", "start", "destroy", "turn", "on", "become", "move", "tile", "event", "text", "level", "all",
+                "code", "keke", "you", "win", "hot", "rock", "wall", "push", "stop", "melt", "water", "lava", "sink", "make", "box", "pull",
+                "be", "key", "door", "open", "shut", "skull", "defeat", "grass", "belt", "shift", "as","brick","fire","flower","have","ice","leaf","me","orb","red","blue","yellow","tree", "fungus", "fungi",
+                "hedge", "still", "nop", "fofo", "jiji", "it", "more", "statue", "pillar", "fence", "square", "star",
+                "lonely", "power", "powered", "when", "halt",
+                "group", "eat", "near", "never", "not",
+                "backslash", "then", "forward", "backward", "aroundleft", "aroundright", "up", "down", "left", "right", "repeat", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+
+local fakecolors = {}
+fakecolors["destroy"] = {colour = {2,1}, colour_active = {2,2}}
+fakecolors["halt"] = {colour = {2,1}, colour_active = {2,2}}
+fakecolors["never"] = {colour = {2,1}, colour_active = {2,2}}
+fakecolors["become"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["be"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["as"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["when"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["openparen"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["closeparen"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["start"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["have"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["backslash"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["then"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["repeat"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["goto"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["tab"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["if"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["press"] = {colour = {0,2}, colour_active = {0,3}}
+fakecolors["nop"] = {colour = {0,1}, colour_active = {0,2}}
+fakecolors["aroundleft"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["aroundright"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["forward"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["backward"] = {colour = {1,2}, colour_active = {1,4}}
+
+
+fakecolors["func"] = {colour = {2,1}, colour_active = {2,2}}
+fakecolors["func2"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["func3"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["def"] = {colour = {0,1}, colour_active = {0,3}}
+fakecolors["break"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["tab"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["else"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["var_x"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["var_y"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["var_z"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["equals"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["plus"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["minus"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["times"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["over"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["percent"] = {colour = {0,1}, colour_active = {0,3}}
+fakecolors["way"] = {colour = {1,2}, colour_active = {1,4}}
+fakecolors["parse"] = {colour = {1,2}, colour_active = {1,4}}
+for i, j in ipairs(vvvvvv) do
+    local eventj = "event_" .. j
+    table.insert(editor_objlist_order, eventj)
+    if editor_objlist_reference["text_" .. j] ~= nil then
+        local eref = editor_objlist[editor_objlist_reference["text_" .. j]]
+        local tags = {"events"}
+        for _,v in ipairs(eref.tags) do
+            table.insert(tags, v)
+        end
+        editor_objlist[eventj] =
+        {
+            name = eventj,
+            sprite_in_root = false,
+            unittype = "text",
+            tags = tags,
+            tiling = -1,
+            type = eref.type,
+            layer = 20,
+            colour = eref.colour,
+            colour_active = eref.colour_active
+        }
+    elseif fakecolors[j] ~= nil then
+        editor_objlist[eventj] =
+        {
+            name = eventj,
+            sprite_in_root = false,
+            unittype = "text",
+            tags = {"text","abstract", "events"},
+            tiling = -1,
+            type = 9,
+            layer = 20,
+            colour = fakecolors[j].colour,
+            colour_active = fakecolors[j].colour_active,
+        }
+    else
+        editor_objlist[eventj] =
+        {
+            name = eventj,
+            sprite_in_root = false,
+            unittype = "text",
+            tags = {"text","abstract", "events"},
+            tiling = -1,
+            type = 0,
+            layer = 1,
+            colour = {0,1},
+            colour_active = {0,2},
+        }
+    end
+end
+
+NODE_LEGACY_PARSING = false
+
+table.insert(editor_objlist_order, "text_node")
+table.insert(editor_objlist_order, "text_node_")
+table.insert(editor_objlist_order, "text_break")
+
+node_types = {}
+node_argtypes = {}
+node_argextras = {}
+
+function add_node(insert, name, type_, colour, colour_active, argtype, argextras)
+    node_types[name] = type_
+    node_argtypes[name] = argtype
+    node_argextras[name] = argextras
+    name = "node_" .. name
+    if insert then
+        table.insert(editor_objlist_order, name)
+    end
+    editor_objlist[name] =
+    {
+        name = name,
+        sprite_in_root = false,
+        unittype = "node",
+        tags = {"nodes"},
+        tiling = 0,
+        type = 0,
+        layer = 20,
+        colour = colour,
+        colour_active = colour_active,
+    }
+end
+
+table.insert(nlist.full, "node")
+table.insert(nlist.short, "node")
+table.insert(nlist.objects, "node")
+--table.insert(nlist.brief, "node")
+
+editor_objlist["text_node"] =
+{
+    name = "text_node",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {6, 1},
+    colour_active = {2, 4}
+}
+
+editor_objlist["text_node_"] =
+{
+    name = "text_node_",
+    sprite = "text_nodepre",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text"},
+    tiling = -1,
+    type = 4,
+    layer = 20,
+    colour = {6, 1},
+    colour_active = {2, 4}
+}
+
+editor_objlist["text_break"] =
+{
+    name = "text_break",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {2, 1},
+    colour_active = {2, 2}
+}
+
+-- Nouns
+add_node(true, "baba", 0, { 4, 0 }, { 4, 1 })
+add_node(true, "flag", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "rock", 0, { 6, 0 }, { 6, 1 })
+add_node(true, "wall", 0, { 1, 1 }, { 0, 1 })
+add_node(true, "keke", 0, { 2, 1 }, { 2, 2 })
+add_node(true, "text", 0, { 4, 0 }, { 4, 1 })
+add_node(true, "node", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "water", 0, { 1, 2 }, { 1, 3 })
+add_node(true, "key", 0, { 6, 1 }, { 2, 4 })
+add_node(true, "door", 0, { 2, 1 }, { 2, 2 })
+if not NODE_LEGACY_PARSING then
+    add_node(true,"ice", 0, {1, 2}, {1, 3})
+    add_node(true,"tile", 0, {1, 1}, {0, 1})
+    add_node(true,"box", 0, {6, 0}, {6, 1})
+    add_node(true,"hedge", 0, {5, 0}, {5, 1})
+    add_node(true,"level", 0, {4, 0}, {4, 1})
+    add_node(true,"all", 0, {0, 1}, {0, 3})
+end
+-- Properties
+add_node(true, "you", 2, { 4, 0 }, { 4, 1 })
+add_node(true, "win", 2, { 6, 1 }, { 2, 4 })
+add_node(true, "push", 2, { 6, 0 }, { 6, 1 })
+add_node(true, "stop", 2, { 5, 0 }, { 5, 1 })
+add_node(true, "dir", 2, { 1, 3 }, { 1, 4 })
+add_node(true, "break", 2, { 2, 1 }, { 2, 2 })
+add_node(true, "open", 2, { 6, 1 }, { 2, 4 })
+add_node(true, "shut", 2, { 2, 1 }, { 2, 2 })
+add_node(true, "move", 2, { 5, 1 }, { 5, 3 })
+add_node(true, "sink", 2, { 1, 2 }, { 1, 3 })
+add_node(true, "shift", 2, { 1, 2 }, { 1, 3 })
+if not NODE_LEGACY_PARSING then
+    --add_node("shift", 2, {1, 2}, {1, 3})
+    add_node(true,"melt", 2, {1, 2}, {1, 3})
+    add_node(true,"hot", 2, {2, 2}, {2, 3})
+    add_node(true,"bonus", 2, {4, 0}, {4, 1})
+end
+-- Conditions
+add_node(true, "lonely", 3, { 2, 1 }, { 2, 2 })
+add_node(true, "on", 7, { 0, 1 }, { 0, 3 }, { 0 })
+add_node(true, "facing", 7, { 0, 1 }, { 0, 3 }, { 0 }, { "up", "down", "left", "right" })
+-- Verbs
+
+if not NODE_LEGACY_PARSING then
+    add_node(true,"is", 1, {0, 1}, {0, 3}, {0, 2})
+end
+add_node(true,"has", 1, {0, 1}, {0, 3}, {0})
+add_node(true,"eat", 1, {2, 1}, {2, 2}, {0})
+add_node(true,"mimic", 1, {2, 1}, {2, 2}, {0})
+-- Miscellaneous
+if NODE_LEGACY_PARSING then
+    add_node(true,"and", 6, {0, 1}, {0, 3})
+end
+add_node(true,"not", 4, {2, 1}, {2, 2})
+-- Nil
+add_node(true,"nil", -1, {6, 1}, {2, 4})
+if not NODE_LEGACY_PARSING then
+    add_node(true,"nil_perp", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_branch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_debranch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_spread", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_perp", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_branch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_debranch", -1, {6, 1}, {2, 4})
+    add_node(true,"nil_bump_spread", -1, {6, 1}, {2, 4})
+end
+
+dirnames.dir = {"right", "up", "left", "down"} --use insertation method to avoid overwriting
+
+table.insert(nlist.full, "event")
+table.insert(nlist.short, "event")
+table.insert(nlist.objects, "event")
+
+
+table.insert(editor_objlist_order, "glyph_event")
+table.insert(editor_objlist_order, "glyph_metaevent")
+table.insert(editor_objlist_order, "glyph_event_")
+table.insert(editor_objlist_order, "text_metaevent")
+table.insert(editor_objlist_order, "node_event")
+table.insert(editor_objlist_order, "glyph_node")
+table.insert(editor_objlist_order, "glyph_metanode")
+table.insert(editor_objlist_order, "glyph_node_")
+table.insert(editor_objlist_order, "text_metanode")
+table.insert(editor_objlist_order, "event_node")
+table.insert(editor_objlist_order, "node_glyph")
+table.insert(editor_objlist_order, "node_logic")
+table.insert(editor_objlist_order, "text_metanot")
+table.insert(editor_objlist_order, "glyph_metanot")
+--table.insert(editor_objlist_order, "text_refers")
+table.insert(editor_objlist_order, "glyph_refers")
+table.insert(editor_objlist_order, "event_refers")
+table.insert(editor_objlist_order, "node_refers")
+table.insert(editor_objlist_order, "text__NONE_")
+table.insert(objlistdata.alltags, "glyph")
+table.insert(objlistdata.alltags, "events")
+table.insert(objlistdata.alltags, "nodes")
+
+table.insert(editor_objlist_order, "text_class")
+editor_objlist["text_class"] = {
+    name = "text_class",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"abstract","text"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {0, 2},
+    colour_active = {0, 3}
+}
+
+editor_objlist["glyph_event"] =
+{
+    name = "glyph_event",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_event_"] =
+{
+    name = "glyph_event_",
+    sprite = "glyph_eventpre",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 3},
+    colour_active = {5, 3},
+}
+
+
+
+editor_objlist["glyph_metaevent"] =
+{
+    name = "glyph_metaevent",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 3},
+    colour_active = {5, 4},
+}
+editor_objlist["glyph_metanot"] =
+{
+    name = "glyph_metanot",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["text_metanot"] =
+{
+    name = "text_metanot",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+
+editor_objlist["text_metanode"] =
+{
+    name = "text_metanode",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_metanode"] =
+{
+    name = "glyph_metanode",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 4},
+    colour_active = {0, 3},
+}
+
+editor_objlist["text_metaevent"] =
+{
+    name = "text_metaevent",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+editor_objlist["event_node"] =
+{
+    name = "event_node",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "events"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_node"] =
+{
+    name = "glyph_node",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_node_"] =
+{
+    name = "glyph_node_",
+    sprite = "glyph_nodepre",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 4},
+    colour_active = {2, 4},
+}
+
+editor_objlist["text_refers"] =
+{
+    name = "text_refers",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract"},
+    tiling = -1,
+    type = 7,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+    argtype = {0,2,-1}
+}
+
+editor_objlist["glyph_refers"] =
+{
+    name = "glyph_refers",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["event_refers"] =
+{
+    name = "event_refers",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "events"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["text__NONE_"] =
+{
+    name = "text__NONE_",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+add_node(false, "glyph", 0, {3, 2}, {3, 3})
+add_node(false, "event", 0, {5, 2}, {5, 3})
+add_node(false, "logic", 0, {3, 0}, {3, 1})
+add_node(false, "refers", 7, {1, 2}, {1, 4}, {0, 2})
+
+table.insert(editor_objlist_order, "glitch")
+editor_objlist["glitch"] =
+{
+    name = "glitch",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"special", "btd456creeper mods"},
+    tiling = 1,
+    type = 0,
+    layer = 30,
+    colour = {0, 3},
+}
+
+
+table.insert(editor_objlist_order, "text_glyph")
+table.insert(editor_objlist_order, "text_inscribe")
+table.insert(editor_objlist_order, "text_symbol")
+table.insert(editor_objlist_order, "text_metaglyph")
+table.insert(editor_objlist_order, "text_metatext")
+table.insert(editor_objlist_order, "text_become")
+table.insert(editor_objlist_order, "glyph_glyph")
+table.insert(editor_objlist_order, "glyph_baba")
+table.insert(editor_objlist_order, "glyph_flag")
+table.insert(editor_objlist_order, "glyph_keke")
+table.insert(editor_objlist_order, "glyph_it")
+table.insert(editor_objlist_order, "glyph_text")
+table.insert(editor_objlist_order, "glyph_all")
+table.insert(editor_objlist_order, "glyph_wall")
+table.insert(editor_objlist_order, "glyph_skull")
+table.insert(editor_objlist_order, "glyph_empty")
+table.insert(editor_objlist_order, "glyph_level")
+table.insert(editor_objlist_order, "glyph_me")
+table.insert(editor_objlist_order, "glyph_fofo")
+table.insert(editor_objlist_order, "glyph_water")
+table.insert(editor_objlist_order, "glyph_badbad")
+table.insert(editor_objlist_order, "glyph_jiji")
+table.insert(editor_objlist_order, "glyph_box")
+table.insert(editor_objlist_order, "glyph_lava")
+table.insert(editor_objlist_order, "glyph_bog")
+table.insert(editor_objlist_order, "glyph_door")
+table.insert(editor_objlist_order, "glyph_key")
+table.insert(editor_objlist_order, "glyph_hedge")
+table.insert(editor_objlist_order, "glyph_belt")
+table.insert(editor_objlist_order, "glyph_rock")
+table.insert(editor_objlist_order, "glyph_boat")
+table.insert(editor_objlist_order, "glyph_toometa")
+table.insert(editor_objlist_order, "glyph_line")
+table.insert(editor_objlist_order, "glyph_arrow")
+table.insert(editor_objlist_order, "glyph_cursor")
+table.insert(editor_objlist_order, "glyph_sign")
+table.insert(editor_objlist_order, "glyph_tile")
+table.insert(editor_objlist_order, "glyph_grass")
+table.insert(editor_objlist_order, "glyph_robot")
+table.insert(editor_objlist_order, "glyph_monster")
+table.insert(editor_objlist_order, "glyph_eye")
+table.insert(editor_objlist_order, "glyph_jelly")
+table.insert(editor_objlist_order, "glyph_cliff")
+table.insert(editor_objlist_order, "glyph_love")
+table.insert(editor_objlist_order, "glyph_cheese")
+table.insert(editor_objlist_order, "glyph_orb")
+table.insert(editor_objlist_order, "glyph_ghost")
+table.insert(editor_objlist_order, "glyph_arm")
+table.insert(editor_objlist_order, "glyph_hand")
+table.insert(editor_objlist_order, "glyph_circle")
+table.insert(editor_objlist_order, "glyph_square")
+table.insert(editor_objlist_order, "glyph_donut")
+table.insert(editor_objlist_order, "glyph_cake")
+table.insert(editor_objlist_order, "glyph_gem")
+table.insert(editor_objlist_order, "glyph_pipe")
+table.insert(editor_objlist_order, "glyph_triangle")
+table.insert(editor_objlist_order, "glyph_burger")
+table.insert(editor_objlist_order, "glyph_foot")
+table.insert(editor_objlist_order, "glyph_sun")
+table.insert(editor_objlist_order, "glyph_spike")
+table.insert(editor_objlist_order, "glyph_star")
+table.insert(editor_objlist_order, "glyph_moon")
+table.insert(editor_objlist_order, "glyph_win")
+table.insert(editor_objlist_order, "glyph_not")
+table.insert(editor_objlist_order, "glyph_you")
+table.insert(editor_objlist_order, "glyph_bonus")
+table.insert(editor_objlist_order, "glyph_defeat")
+table.insert(editor_objlist_order, "glyph_stop")
+table.insert(editor_objlist_order, "glyph_sink")
+table.insert(editor_objlist_order, "glyph_float")
+table.insert(editor_objlist_order, "glyph_push")
+table.insert(editor_objlist_order, "glyph_still")
+table.insert(editor_objlist_order, "glyph_you2")
+table.insert(editor_objlist_order, "glyph_tele")
+table.insert(editor_objlist_order, "glyph_shut")
+table.insert(editor_objlist_order, "glyph_open")
+table.insert(editor_objlist_order, "glyph_pull")
+table.insert(editor_objlist_order, "glyph_3d")
+table.insert(editor_objlist_order, "glyph_melt")
+table.insert(editor_objlist_order, "glyph_hot")
+table.insert(editor_objlist_order, "glyph_turn")
+table.insert(editor_objlist_order, "glyph_deturn")
+table.insert(editor_objlist_order, "glyph_shift")
+table.insert(editor_objlist_order, "glyph_move")
+table.insert(editor_objlist_order, "glyph_weak")
+table.insert(editor_objlist_order, "glyph_word")
+table.insert(editor_objlist_order, "glyph_swap")
+table.insert(editor_objlist_order, "glyph_hide")
+table.insert(editor_objlist_order, "glyph_symbol")
+table.insert(editor_objlist_order, "glyph_red")
+table.insert(editor_objlist_order, "glyph_select")
+table.insert(editor_objlist_order, "glyph_more")
+table.insert(editor_objlist_order, "glyph_chill")
+table.insert(editor_objlist_order, "glyph_revert")
+table.insert(editor_objlist_order, "glyph_createall")
+table.insert(editor_objlist_order, "glyph_end")
+table.insert(editor_objlist_order, "glyph_up")
+table.insert(editor_objlist_order, "glyph_down")
+table.insert(editor_objlist_order, "glyph_left")
+table.insert(editor_objlist_order, "glyph_right")
+table.insert(editor_objlist_order, "glyph_best")
+table.insert(editor_objlist_order, "glyph_fallright")
+table.insert(editor_objlist_order, "glyph_fallleft")
+table.insert(editor_objlist_order, "glyph_fallup")
+table.insert(editor_objlist_order, "glyph_falldown")
+table.insert(editor_objlist_order, "glyph_power")
+table.insert(editor_objlist_order, "glyph_auto")
+table.insert(editor_objlist_order, "glyph_blue")
+table.insert(editor_objlist_order, "glyph_safe")
+table.insert(editor_objlist_order, "glyph_crash")
+table.insert(editor_objlist_order, "glyph_lockedup")
+table.insert(editor_objlist_order, "glyph_lockeddown")
+table.insert(editor_objlist_order, "glyph_lockedleft")
+table.insert(editor_objlist_order, "glyph_lockedright")
+table.insert(editor_objlist_order, "glyph_sleep")
+table.insert(editor_objlist_order, "glyph_lonely")
+table.insert(editor_objlist_order, "glyph_powered")
+table.insert(editor_objlist_order, "glyph_seldom")
+table.insert(editor_objlist_order, "glyph_near")
+table.insert(editor_objlist_order, "glyph_on")
+table.insert(editor_objlist_order, "glyph_nextto")
+table.insert(editor_objlist_order, "glyph_feeling")
+table.insert(editor_objlist_order, "glyph_become")
+table.insert(editor_objlist_order, "glyph_has")
+table.insert(editor_objlist_order, "glyph_write")
+table.insert(editor_objlist_order, "glyph_is")
+table.insert(editor_objlist_order, "glyph_inscribe")
+table.insert(editor_objlist_order, "glyph_eat")
+table.insert(editor_objlist_order, "glyph_make")
+table.insert(editor_objlist_order, "glyph_and")
+table.insert(editor_objlist_order, "glyph_metaglyph")
+table.insert(editor_objlist_order, "glyph_metatext")
+table.insert(editor_objlist_order, "glyph_group")
+table.insert(editor_objlist_order, "glyph_group2")
+table.insert(editor_objlist_order, "glyph__NONE_")
+table.insert(editor_objlist_order, "glyph_group3")
+table.insert(editor_objlist_order, "toometa")
+table.insert(editor_objlist_order, "text_toometa")
+table.insert(editor_objlist_order, "text_glyph_")
+table.insert(editor_objlist_order, "glyph_text_")
+table.insert(editor_objlist_order, "glyph_glyph_")
+
+editor_objlist["text_glyph"] =
+{
+    name = "text_glyph",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["text_glyph_"] =
+{
+    name = "text_glyph_",
+    sprite = "text_glyphpre",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "glyph"},
+    tiling = -1,
+    type = 4,
+    layer = 20,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_text_"] =
+{
+    name = "glyph_text_",
+    sprite = "glyph_textpre",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_glyph_"] =
+{
+    name = "glyph_glyph_",
+    sprite = "glyph_glyphpre",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"text","abstract", "glyph"},
+    tiling = -1,
+    type = 4,
+    layer = 1,
+    colour = {3, 3},
+    colour_active = {3, 3},
+}
+
+editor_objlist["text_symbol"] =
+{
+    name = "text_symbol",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "glyph"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 1},
+    colour_active = {4, 3},
+}
+
+editor_objlist["glyph_glyph"] =
+{
+    name = "glyph_glyph",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+editor_objlist["glyph_it"] =
+{
+    name = "glyph_it",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+
+editor_objlist["glyph_baba"] =
+{
+    name = "glyph_baba",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_not"] =
+{
+    name = "glyph_not",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 2,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_you"] =
+{
+    name = "glyph_you",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_bonus"] =
+{
+    name = "glyph_bonus",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_win"] =
+{
+    name = "glyph_win",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+
+editor_objlist["glyph_flag"] =
+{
+    name = "glyph_flag",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_text"] =
+{
+    name = "glyph_text",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_keke"] =
+{
+    name = "glyph_keke",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_all"] =
+{
+    name = "glyph_all",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_become"] =
+{
+    name = "glyph_become",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_write"] =
+{
+    name = "glyph_write",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_defeat"] =
+{
+    name = "glyph_defeat",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+
+editor_objlist["glyph_stop"] =
+{
+    name = "glyph_stop",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+
+editor_objlist["glyph_wall"] =
+{
+    name = "glyph_wall",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {0, 1},
+}
+
+
+editor_objlist["glyph_sink"] =
+{
+    name = "glyph_sink",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+
+editor_objlist["glyph_float"] =
+{
+    name = "glyph_float",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_push"] =
+{
+    name = "glyph_push",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 0},
+    colour_active = {6, 1},
+}
+
+editor_objlist["glyph_skull"] =
+{
+    name = "glyph_skull",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 0},
+    colour_active = {2, 1},
+    sprite = "glyph_skull"
+}
+editor_objlist["glyph_and"] =
+{
+    name = "glyph_and",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 2},
+    colour_active = {0, 3},
+}
+editor_objlist["glyph_empty"] =
+{
+    name = "glyph_empty",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+editor_objlist["glyph_level"] =
+{
+    name = "glyph_level",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+editor_objlist["glyph_still"] =
+{
+    name = "glyph_still",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+editor_objlist["glyph_you2"] =
+{
+    name = "glyph_you2",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+editor_objlist["glyph_metaglyph"] =
+{
+    name = "glyph_metaglyph",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 3},
+    colour_active = {4, 4},
+}
+editor_objlist["glyph_metatext"] =
+{
+    name = "glyph_metatext",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+editor_objlist["glyph_me"] =
+{
+    name = "glyph_me",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["glyph_fofo"] =
+{
+    name = "glyph_fofo",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 2},
+}
+
+editor_objlist["glyph_water"] =
+{
+    name = "glyph_water",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+
+editor_objlist["glyph_badbad"] =
+{
+    name = "glyph_badbad",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_group"] =
+{
+    name = "glyph_group",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_tele"] =
+{
+    name = "glyph_tele",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_jiji"] =
+{
+    name = "glyph_jiji",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 2},
+    colour_active = {2, 3},
+}
+
+editor_objlist["glyph_box"] =
+{
+    name = "glyph_box",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 0},
+    colour_active = {6, 1},
+}
+
+editor_objlist["glyph_shut"] =
+{
+    name = "glyph_shut",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_open"] =
+{
+    name = "glyph_open",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_lava"] =
+{
+    name = "glyph_lava",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 2},
+    colour_active = {2, 3},
+}
+
+editor_objlist["glyph_bog"] =
+{
+    name = "glyph_bog",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+
+editor_objlist["glyph_pull"] =
+{
+    name = "glyph_pull",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {6, 2},
+}
+
+editor_objlist["glyph_3d"] =
+{
+    name = "glyph_3d",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_melt"] =
+{
+    name = "glyph_melt",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+
+editor_objlist["glyph_hot"] =
+{
+    name = "glyph_hot",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 2},
+    colour_active = {2, 3},
+}
+
+editor_objlist["glyph_key"] =
+{
+    name = "glyph_key",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+    sprite = "glyph_key"
+}
+
+editor_objlist["glyph_door"] =
+{
+    name = "glyph_door",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_hedge"] =
+{
+    name = "glyph_hedge",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 0},
+    colour_active = {5, 1},
+}
+
+editor_objlist["glyph_lonely"] =
+{
+    name = "glyph_lonely",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_near"] =
+{
+    name = "glyph_near",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_turn"] =
+{
+    name = "glyph_turn",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_deturn"] =
+{
+    name = "glyph_deturn",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_shift"] =
+{
+    name = "glyph_shift",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+
+editor_objlist["glyph_move"] =
+{
+    name = "glyph_move",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_weak"] =
+{
+    name = "glyph_weak",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {1, 2},
+}
+
+editor_objlist["glyph_belt"] =
+{
+    name = "glyph_belt",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+
+-- write
+
+editor_objlist["glyph_rock"] =
+{
+    name = "glyph_rock",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 0},
+    colour_active = {6, 1},
+}
+
+editor_objlist["glyph_has"] =
+{
+    name = "glyph_has",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {6, 0},
+    colour_active = {6, 1},
+}
+
+editor_objlist["glyph_word"] =
+{
+    name = "glyph_word",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_group2"] =
+{
+    name = "glyph_group2",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_boat"] =
+{
+    name = "glyph_boat",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {6, 2},
+}
+
+editor_objlist["toometa"] =
+{
+    name = "toometa",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 3},
+}
+
+editor_objlist["text_toometa"] =
+{
+    name = "text_toometa",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_toometa"] =
+{
+    name = "glyph_toometa",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_line"] =
+{
+    name = "glyph_line",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_arrow"] =
+{
+    name = "glyph_arrow",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 2},
+}
+
+editor_objlist["glyph_cursor"] =
+{
+    name = "glyph_cursor",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_sign"] =
+{
+    name = "glyph_sign",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {6, 2},
+}
+
+editor_objlist["glyph_tile"] =
+{
+    name = "glyph_tile",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {0, 1},
+}
+
+editor_objlist["glyph_grass"] =
+{
+    name = "glyph_grass",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_robot"] =
+{
+    name = "glyph_robot",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {0, 1},
+}
+
+editor_objlist["glyph_monster"] =
+{
+    name = "glyph_monster",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_eye"] =
+{
+    name = "glyph_eye",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_jelly"] =
+{
+    name = "glyph_jelly",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_cliff"] =
+{
+    name = "glyph_cliff",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 0},
+    colour_active = {6, 2},
+}
+
+editor_objlist["glyph_swap"] =
+{
+    name = "glyph_swap",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+editor_objlist["glyph_hide"] =
+{
+    name = "glyph_hide",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_is"] =
+{
+    name = "glyph_is",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+editor_objlist["glyph_symbol"] =
+{
+    name = "glyph_symbol",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {4, 3},
+}
+
+editor_objlist["text_inscribe"] =
+{
+    name = "text_inscribe",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","abstract", "glyph"},
+    tiling = -1,
+    type = 1,
+    layer = 20,
+    argtype = {0,2},
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_red"] =
+{
+    name = "glyph_red",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+
+editor_objlist["glyph_on"] =
+{
+    name = "glyph_on",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_nextto"] =
+{
+    name = "glyph_nextto",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_select"] =
+{
+    name = "glyph_select",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_love"] =
+{
+    name = "glyph_love",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_more"] =
+{
+    name = "glyph_more",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_inscribe"] =
+{
+    name = "glyph_inscribe",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 2},
+}
+
+editor_objlist["text_metaglyph"] =
+{
+    name = "text_metaglyph",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract", "glyph"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["text_metatext"] =
+{
+    name = "text_metatext",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract", "glyph"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["text_become"] =
+{
+    name = "text_become",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract", "glyph"},
+    tiling = -1,
+    type = 1,
+    layer = 20,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_feeling"] =
+{
+    name = "glyph_feeling",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_cheese"] =
+{
+    name = "glyph_cheese",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_eat"] =
+{
+    name = "glyph_eat",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 0},
+    colour_active = {0, 1},
+}
+
+editor_objlist["glyph_orb"] =
+{
+    name = "glyph_orb",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_chill"] =
+{
+    name = "glyph_chill",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_revert"] =
+{
+    name = "glyph_revert",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 2},
+    colour_active = {2, 3},
+}
+
+editor_objlist["glyph_createall"] =
+{
+    name = "glyph_createall",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 3},
+    sprite = "glyph_all"
+}
+
+editor_objlist["glyph__NONE_"] =
+{
+    name = "glyph__NONE_",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_end"] =
+{
+    name = "glyph_end",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_ghost"] =
+{
+    name = "glyph_ghost",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_up"] =
+{
+    name = "glyph_up",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_down"] =
+{
+    name = "glyph_down",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_right"] =
+{
+    name = "glyph_right",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_left"] =
+{
+    name = "glyph_left",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+editor_objlist["glyph_best"] =
+{
+    name = "glyph_best",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_fallright"] =
+{
+    name = "glyph_fallright",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_fallleft"] =
+{
+    name = "glyph_fallleft",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_fallup"] =
+{
+    name = "glyph_fallup",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_falldown"] =
+{
+    name = "glyph_falldown",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_make"] =
+{
+    name = "glyph_make",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = 0,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 2},
+}
+
+editor_objlist["glyph_power"] =
+{
+    name = "glyph_power",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_powered"] =
+{
+    name = "glyph_powered",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_arm"] =
+{
+    name = "glyph_arm",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+editor_objlist["glyph_hand"] =
+{
+    name = "glyph_hand",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+editor_objlist["glyph_circle"] =
+{
+    name = "glyph_circle",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 1},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_square"] =
+{
+    name = "glyph_square",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_donut"] =
+{
+    name = "glyph_donut",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_cake"] =
+{
+    name = "glyph_cake",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_group3"] =
+{
+    name = "glyph_group3",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+
+editor_objlist["glyph_gem"] =
+{
+    name = "glyph_gem",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_pipe"] =
+{
+    name = "glyph_pipe",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {0, 1},
+}
+
+editor_objlist["glyph_auto"] =
+{
+    name = "glyph_auto",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_triangle"] =
+{
+    name = "glyph_triangle",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_blue"] =
+{
+    name = "glyph_blue",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+    sprite = "glyph_red",
+}
+
+editor_objlist["glyph_safe"] =
+{
+    name = "glyph_safe",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+
+editor_objlist["glyph_burger"] =
+{
+    name = "glyph_burger",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 3},
+}
+
+editor_objlist["glyph_foot"] =
+{
+    name = "glyph_foot",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+editor_objlist["glyph_crash"] =
+{
+    name = "glyph_crash",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+editor_objlist["glyph_sun"] =
+{
+    name = "glyph_sun",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_spike"] =
+{
+    name = "glyph_spike",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {1, 1},
+    colour_active = {0, 1},
+}
+
+editor_objlist["glyph_star"] =
+{
+    name = "glyph_star",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_moon"] =
+{
+    name = "glyph_moon",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+
+editor_objlist["glyph_lockedright"] =
+{
+    name = "glyph_lockedright",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockedleft"] =
+{
+    name = "glyph_lockedleft",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockedup"] =
+{
+    name = "glyph_lockedup",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_lockeddown"] =
+{
+    name = "glyph_lockeddown",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+
+editor_objlist["glyph_seldom"] =
+{
+    name = "glyph_seldom",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+
+editor_objlist["glyph_sleep"] =
+{
+    name = "glyph_sleep",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {4, 3},
+    colour_active = {3, 2},
+}
+
+table.insert(editor_objlist_order, "text_offline")
+table.insert(editor_objlist_order, "text_router")
+table.insert(editor_objlist_order, "text_local")
+table.insert(editor_objlist_order, "text_channel1")
+table.insert(editor_objlist_order, "text_channel2")
+table.insert(editor_objlist_order, "text_channel3")
+table.insert(editor_objlist_order, "text_offline1")
+table.insert(editor_objlist_order, "text_offline2")
+table.insert(editor_objlist_order, "text_offline3")
+table.insert(editor_objlist_order, "text_local1")
+table.insert(editor_objlist_order, "text_local2")
+table.insert(editor_objlist_order, "text_local3")
+
+editor_objlist["text_channel1"] =
+{
+    name = "text_channel1",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+editor_objlist["text_offline1"] =
+{
+    name = "text_offline1",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+editor_objlist["text_offline2"] =
+{
+    name = "text_offline2",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+editor_objlist["text_channel2"] =
+{
+    name = "text_channel2",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+editor_objlist["text_channel3"] =
+{
+    name = "text_channel3",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {4, 3},
+    colour_active = {4, 4},
+}
+editor_objlist["text_offline3"] =
+{
+    name = "text_offline3",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {4, 3},
+    colour_active = {4, 4},
+}
+editor_objlist["text_router"] =
+{
+    name = "text_router",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+editor_objlist["text_offline"] =
+{
+    name = "text_offline",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_quality", "local mod"},
+    tiling = -1,
+    type = 2,
+    layer = 19,
+    colour = {6, 1},
+    colour_active = {2, 3},
+}
+
+editor_objlist["text_local"] =
+{
+    name = "text_local",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_condition", "local mod", "text_prefix"},
+    tiling = -1,
+    type = 3,
+    layer = 19,
+    colour = {0, 2},
+    colour_active = {1, 3},
+}
+editor_objlist["text_local1"] =
+{
+    name = "text_local1",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_condition", "local mod", "text_prefix"},
+    tiling = -1,
+    type = 3,
+    layer = 19,
+    colour = {2, 0},
+    colour_active = {2, 1},
+}
+editor_objlist["text_local2"] =
+{
+    name = "text_local2",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_condition", "local mod", "text_prefix"},
+    tiling = -1,
+    type = 3,
+    layer = 19,
+    colour = {2, 3},
+    colour_active = {2, 4},
+}
+editor_objlist["text_local3"] =
+{
+    name = "text_local3",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text","text_condition", "local mod", "text_prefix"},
+    tiling = -1,
+    type = 3,
+    layer = 19,
+    colour = {4, 3},
+    colour_active = {4, 4},
+}
+
+add_glyph_using_text("offline")
+add_glyph_using_text("router")
+add_glyph_using_text("local")
+add_glyph_using_text("channel1")
+add_glyph_using_text("channel2")
+add_glyph_using_text("channel3")
+add_glyph_using_text("offline1")
+add_glyph_using_text("offline2")
+add_glyph_using_text("offline3")
+add_glyph_using_text("local1")
+add_glyph_using_text("local2")
+add_glyph_using_text("local3")
+
+table.insert(objlistdata.alltags, "logics")
+
+table.insert(editor_objlist_order, "text_logic")
+
+editor_objlist["text_logic"] =
+{
+    name = "text_logic",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"logics","text", "abstract"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+add_glyph_using_text("logic")
+
+table.insert(editor_objlist_order, "text_logic_")
+
+editor_objlist["text_logic_"] =
+{
+    name = "text_logic_",
+    sprite = "text_logicpre",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"logics","text", "abstract"},
+    tiling = -1,
+    type = 4,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "text_metalogic")
+
+editor_objlist["text_metalogic"] =
+{
+    name = "text_metalogic",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "abstract", "glyph","logics"},
+    tiling = -1,
+    type = -1,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "glyph_metalogic")
+
+editor_objlist["glyph_metalogic"] =
+{
+    name = "glyph_metalogic",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph", "logics"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "glyph_logic_")
+
+editor_objlist["glyph_logic_"] =
+{
+    name = "glyph_logic_",
+    sprite = "glyph_logicpre",
+    sprite_in_root = false,
+    unittype = "object",
+    tags = {"abstract", "glyph", "logics"},
+    tiling = -1,
+    type = 0,
+    layer = 1,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "text_log")
+
+editor_objlist["text_log"] =
+{
+    name = "text_log",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {""},
+    tiling = -1,
+    type = 1,
+    layer = 20,
+    colour = {0, 1},
+    colour_active = {0, 3},
+    argtype = {0, 2}
+}
+
+table.insert(nlist.full, "logic")
+table.insert(nlist.short, "logic")
+table.insert(nlist.objects, "logic")
+
+logic_types = {}
+logic_argtypes = {}
+
+function addlogic(name,type,col,acol,argtype,tiling)
+    local logicname = "logic_"..name
+
+    logic_types[logicname] = type
+    logic_argtypes[logicname] = argtype
+
+    table.insert(editor_objlist_order, logicname)
+
+    editor_objlist[logicname] =
+    {
+        name = logicname,
+        sprite_in_root = false,
+        unittype = "logic",
+        tags = {"logics"},
+        tiling = tiling,
+        type = 0,
+        layer = 20,
+        colour = col,
+        colour_active = acol,
+    }
+end
+
+--start
+addlogic("start",4,{3,3},{4,4},{},0)
+addlogic("omnistart",10,{3,0},{4,2},{},-1)
+
+--connecters
+addlogic("connect",-1,{0,1},{0,3},{},0)
+addlogic("omniconnect",9,{0,1},{0,3},{},-1)
+addlogic("longconnect",-4,{0,1},{0,3},{},0)
+addlogic("omnilongconnect",13,{0,1},{0,3},{},-1)
+
+--wireless connecters
+addlogic("send",-3,{3,2},{3,3},{},-1)
+addlogic("recieve",-2,{3,2},{3,3},{},-1)
+addlogic("send2",-3,{2,1},{2,2},{},-1)
+addlogic("recieve2",-2,{2,1},{2,2},{},-1)
+addlogic("send3",-3,{5,2},{5,3},{},-1)
+addlogic("recieve3",-2,{5,2},{5,3},{},-1)
+
+--verbs
+addlogic("is",1,{0,1},{0,3},{0,2},-1)
+addlogic("has",1,{0,1},{0,3},{0},-1)
+addlogic("eat",1,{2,1},{2,2},{0},-1)
+addlogic("fear",1,{2,1},{2,2},{0},-1)
+addlogic("follow",1,{5,1},{5,3},{0},-1)
+addlogic("make",1,{0,1},{0,3},{0},-1)
+addlogic("mimic",1,{2,1},{2,2},{0},-1)
+addlogic("write",1,{0,1},{0,3},{0,2},-1)
+addlogic("log",1,{0,1},{0,3},{0,2},-1)
+
+--prefixes
+addlogic("idle",6,{2,2},{2,3},{},-1)
+addlogic("lonely",6,{2,1},{2,2},{},-1)
+addlogic("often",6,{5,2},{5,3},{},-1)
+addlogic("seldom",6,{3,2},{3,3},{},-1)
+addlogic("powered",6,{6,1},{2,4},{},-1)
+addlogic("powered2",6,{5,2},{5,3},{},-1)
+addlogic("powered3",6,{3,2},{4,4},{},-1)
+
+--infixes
+addlogic("on",3,{0,1},{0,3},{0},-1)
+addlogic("near",3,{0,1},{0,3},{0},-1)
+addlogic("nextto",3,{0,1},{0,3},{0},-1)
+addlogic("facing",3,{0,1},{0,3},{0},-1)
+addlogic("seeing",3,{0,1},{0,3},{0},-1)
+addlogic("without",3,{0,1},{0,3},{0},-1)
+addlogic("feeling",3,{0,1},{0,3},{2},-1)
+addlogic("above",3,{1,2},{1,4},{0},-1)
+addlogic("below",3,{1,2},{1,4},{0},-1)
+addlogic("besideleft",3,{1,2},{1,4},{0},-1)
+addlogic("besideright",3,{1,2},{1,4},{0},-1)
+
+--boolean
+addlogic("true",5,{5,1},{5,3},{},0)
+addlogic("omnitrue",8,{1,2},{1,4},{},-1)
+addlogic("false",5,{2,1},{2,2},{},0)
+addlogic("omnifalse",8,{2,2},{2,3},{},-1)
+
+--not
+addlogic("not",7,{2,1},{2,2},{},-1)
+
+--halt
+addlogic("halt",11,{2,0},{2,1},{},0)
+addlogic("omnihalt",12,{2,1},{2,2},{},-1)
+
+--special nouns
+addlogic("logic",0,{3,0},{3,1},{},-1)
+addlogic("text",0,{4,0},{4,1},{},-1)
+addlogic("event",0,{5,2},{5,3},{},-1)
+addlogic("node",0,{6,1},{2,4},{},-1)
+addlogic("glyph",0,{3,2},{3,3},{},-1)
+addlogic("all",0,{0,1},{0,3},{},-1)
+addlogic("level",0,{4,0},{4,1},{},-1)
+addlogic("group",0,{3,2},{3,3},{},-1)
+addlogic("group2",0,{2,1},{2,2},{},-1)
+addlogic("group3",0,{5,2},{5,3},{},-1)
+addlogic("empty",0,{0,1},{0,3},{},-1)
+addlogic("cursor",0,{2,3},{2,4},{},-1)
+
+--normal nouns
+addlogic("baba",0,{4,0},{4,1},{},-1)
+addlogic("flag",0,{6,1},{2,4},{},-1)
+addlogic("wall",0,{1,1},{0,1},{},-1)
+addlogic("rock",0,{6,0},{6,1},{},-1)
+addlogic("brick",0,{6,0},{6,1},{},-1)
+addlogic("tile",0,{1,1},{0,1},{},-1)
+addlogic("grass",0,{5,1},{5,3},{},-1)
+addlogic("hedge",0,{5,0},{5,1},{},-1)
+addlogic("water",0,{1,2},{1,3},{},-1)
+addlogic("lava",0,{2,2},{2,3},{},-1)
+addlogic("bog",0,{5,1},{5,3},{},-1)
+addlogic("belt",0,{1,2},{1,3},{},-1)
+addlogic("cog",0,{0,1},{0,2},{},-1)
+addlogic("fire",0,{2,0},{2,2},{},-1)
+addlogic("ice",0,{1,2},{1,3},{},-1)
+addlogic("skull",0,{2,0},{2,1},{},-1)
+addlogic("pipe",0,{1,1},{0,1},{},-1)
+addlogic("keke",0,{2,1},{2,2},{},-1)
+addlogic("me",0,{3,0},{3,1},{},-1)
+addlogic("fofo",0,{5,1},{5,2},{},-1)
+addlogic("it",0,{1,2},{1,4},{},-1)
+addlogic("box",0,{6,0},{6,1},{},-1)
+addlogic("door",0,{2,1},{2,2},{},-1)
+addlogic("key",0,{6,1},{2,4},{},-1)
+addlogic("square",0,{4,0},{4,1},{},-1)
+addlogic("circle",0,{5,2},{5,3},{},-1)
+addlogic("fruit",0,{2,1},{2,2},{},-1)
+addlogic("tree",0,{5,1},{5,2},{},-1)
+addlogic("trees",0,{5,1},{5,2},{},-1)
+addlogic("husk",0,{6,0},{6,1},{},-1)
+addlogic("husks",0,{6,1},{6,2},{},-1)
+addlogic("crab",0,{2,1},{2,2},{},-1)
+addlogic("bubble",0,{1,3},{1,4},{},-1)
+addlogic("algae",0,{5,1},{5,2},{},-1)
+addlogic("jelly",0,{1,3},{1,4},{},-1)
+addlogic("cliff",0,{6,1},{6,2},{},-1)
+addlogic("star",0,{6,1},{2,4},{},-1)
+addlogic("moon",0,{6,1},{2,4},{},-1)
+addlogic("dust",0,{6,1},{2,4},{},-1)
+
+--props
+addlogic("you",2,{4,0},{4,1},{},-1)
+addlogic("you2",2,{4,0},{4,1},{},-1)
+addlogic("win",2,{6,1},{2,4},{},-1)
+addlogic("stop",2,{5,0},{5,1},{},-1)
+addlogic("push",2,{6,0},{6,1},{},-1)
+addlogic("sink",2,{1,2},{1,3},{},-1)
+addlogic("defeat",2,{2,0},{2,1},{},-1)
+addlogic("hot",2,{2,2},{2,3},{},-1)
+addlogic("melt",2,{1,2},{1,3},{},-1)
+addlogic("open",2,{6,1},{2,4},{},-1)
+addlogic("shut",2,{2,1},{2,2},{},-1)
+addlogic("move",2,{5,1},{5,3},{},-1)
+addlogic("shift",2,{1,2},{1,3},{},-1)
+addlogic("float",2,{1,2},{1,4},{},-1)
+addlogic("tele",2,{1,2},{1,4},{},-1)
+addlogic("pull",2,{6,1},{6,2},{},-1)
+addlogic("weak",2,{1,1},{1,2},{},-1)
+addlogic("boom",2,{2,1},{2,2},{},-1)
+addlogic("safe",2,{0,1},{0,3},{},-1)
+addlogic("phantom",2,{1,1},{0,1},{},-1)
+addlogic("swap",2,{3,0},{3,1},{},-1)
+addlogic("right",2,{1,2},{1,4},{},-1)
+addlogic("up",2,{1,2},{1,4},{},-1)
+addlogic("left",2,{1,2},{1,4},{},-1)
+addlogic("down",2,{1,2},{1,4},{},-1)
+addlogic("bonus",2,{4,0},{4,1},{},-1)
+addlogic("red",2,{2,1},{2,2},{},-1)
+addlogic("blue",2,{3,2},{3,3},{},-1)
+addlogic("fall",2,{5,1},{5,3},{},-1)
+addlogic("fallright",2,{5,1},{5,3},{},-1)
+addlogic("fallup",2,{5,1},{5,3},{},-1)
+addlogic("fallleft",2,{5,1},{5,3},{},-1)
+addlogic("nudgedown",2,{5,1},{5,3},{},-1)
+addlogic("nudgeright",2,{5,1},{5,3},{},-1)
+addlogic("nudgeup",2,{5,1},{5,3},{},-1)
+addlogic("nudgeleft",2,{5,1},{5,3},{},-1)
+addlogic("lockeddown",2,{4,1},{4,2},{},-1)
+addlogic("lockedright",2,{4,1},{4,2},{},-1)
+addlogic("lockedup",2,{4,1},{4,2},{},-1)
+addlogic("lockedleft",2,{4,1},{4,2},{},-1)
+addlogic("turn",2,{1,2},{1,4},{},-1)
+addlogic("deturn",2,{1,2},{1,4},{},-1)
+addlogic("power",2,{6,1},{2,4},{},-1)
+addlogic("power2",2,{5,2},{5,3},{},-1)
+addlogic("power3",2,{3,2},{4,4},{},-1)
+addlogic("refers",3,{0,1},{0,3},{0,2},-1)
+
+table.insert(editor_objlist_order,"text_meta")
+table.insert(editor_objlist_order,"text_unmeta")
+table.insert(editor_objlist_order,"text_mega")
+table.insert(editor_objlist_order,"text_unmega")
+table.insert(editor_objlist_order,"text_meea")
+table.insert(editor_objlist_order,"text_unmeea")
+table.insert(editor_objlist_order,"text_mena")
+table.insert(editor_objlist_order,"text_unmena")
+table.insert(editor_objlist_order,"text_mela")
+table.insert(editor_objlist_order,"text_unmela")
+table.insert(editor_objlist_order,"text_unmexa")
+table.insert(editor_objlist_order,"text_meta-1")
+table.insert(editor_objlist_order,"text_meta0")
+table.insert(editor_objlist_order,"text_meta1")
+table.insert(editor_objlist_order,"text_meta2")
+table.insert(editor_objlist_order,"text_meta3")
+editor_objlist["text_meta"] = {
+    name = "text_meta",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+editor_objlist["text_unmeta"] = {
+    name = "text_unmeta",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["text_mega"] = {
+    name = "text_mega",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {3, 2},
+    colour_active = {3, 3},
+}
+editor_objlist["text_unmega"] = {
+    name = "text_unmega",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+editor_objlist["text_meea"] = {
+    name = "text_meea",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {5, 2},
+    colour_active = {5, 3},
+}
+editor_objlist["text_unmeea"] = {
+    name = "text_unmeea",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {5, 1},
+    colour_active = {5, 2},
+}
+editor_objlist["text_mena"] = {
+    name = "text_mena",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {6, 1},
+    colour_active = {2, 4},
+}
+editor_objlist["text_unmena"] = {
+    name = "text_unmena",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {2, 1},
+    colour_active = {2, 2},
+}
+editor_objlist["text_mela"] = {
+    name = "text_mela",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["text_unmela"] = {
+    name = "text_unmela",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 2},
+    colour_active = {1, 3},
+}
+editor_objlist["text_unmexa"] = {
+    name = "text_unmexa",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_quality","text_special", "metatext"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {0, 1},
+    colour_active = {0, 3},
+}
+editor_objlist["text_meta-1"] = {
+    name = "text_meta-1",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {4, 1},
+    colour_active = {4, 2},
+}
+editor_objlist["text_meta0"] = {
+    name = "text_meta0",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["text_meta1"] = {
+    name = "text_meta1",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["text_meta2"] = {
+    name = "text_meta2",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+editor_objlist["text_meta3"] = {
+    name = "text_meta3",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 0,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+add_glyph_using_text("meta")
+add_glyph_using_text("unmeta")
+add_glyph_using_text("mega")
+add_glyph_using_text("unmega")
+add_glyph_using_text("mena")
+add_glyph_using_text("unmena")
+add_glyph_using_text("meea")
+add_glyph_using_text("unmeea")
+add_glyph_using_text("mela")
+add_glyph_using_text("unmela")
+add_glyph_using_text("unmexa")
+
+table.insert(editor_objlist_order,"text_text_")
+editor_objlist["text_text_"] = {
+    name = "text_text_",
+    sprite_in_root = false,
+    sprite = "text_textpre",
+    unittype = "text",
+    tags = {"text_special","abstract", "metatext"},
+    tiling = -1,
+    type = 4,
+    layer = 20,
+    colour = {4, 0},
+    colour_active = {4, 1},
+}
+
+table.insert(editor_objlist_order, "text_nuhuhright")
+table.insert(editor_objlist_order, "text_nuhuhup")
+table.insert(editor_objlist_order, "text_nuhuhleft")
+table.insert(editor_objlist_order, "text_nuhuhdown")
+
+editor_objlist["text_nuhuhright"] =
+{
+    name = "text_nuhuhright",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods"},
+    tiling = -1,
+    type = 8,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 2},
+}
+editor_objlist["text_nuhuhup"] =
+{
+    name = "text_nuhuhup",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods"},
+    tiling = -1,
+    type = 8,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 2},
+}
+editor_objlist["text_nuhuhleft"] =
+{
+    name = "text_nuhuhleft",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods"},
+    tiling = -1,
+    type = 8,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 2},
+}
+editor_objlist["text_nuhuhdown"] =
+{
+    name = "text_nuhuhdown",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods"},
+    tiling = -1,
+    type = 8,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 2},
+}
+
+--@Merge(nuhuh x plasma) add support for turning nuhuh
+table.insert(editor_objlist_order, "text_turning_nuhuh")
+editor_objlist["text_turning_nuhuh"] =
+{
+    name = "text_turning_nuhuh",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods", "turning text"},
+    tiling = 0,
+    type = 8,
+    layer = 20,
+    colour = {2, 2},
+    colour_active = {2, 2},
+}
+
+table.insert(editor_objlist_order, "text_offsetdown")
+editor_objlist["text_offsetdown"] =
+{
+    name = "text_offsetdown",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods", "arrow properties"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+table.insert(editor_objlist_order, "text_offsetright")
+editor_objlist["text_offsetright"] =
+{
+    name = "text_offsetright",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods", "arrow properties"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+table.insert(editor_objlist_order, "text_offsetup")
+editor_objlist["text_offsetup"] =
+{
+    name = "text_offsetup",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods", "arrow properties"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+table.insert(editor_objlist_order, "text_offsetleft")
+editor_objlist["text_offsetleft"] =
+{
+    name = "text_offsetleft",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods", "arrow properties"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+--@Merge (offset x plasma): add turning offset
+table.insert(editor_objlist_order, "text_turning_offset")
+editor_objlist["text_turning_offset"] =
+{
+    name = "text_turning_offset",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"turning text", "text", "btd456creeper mods", "arrow properties"},
+    tiling = 0,
+    type = 2,
+    layer = 20,
+    colour = {1, 3},
+    colour_active = {1, 4},
+}
+
+
+table.insert(editor_objlist_order, "text_throw")
+editor_objlist["text_throw"] = {
+    name = "text_throw",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "text_quality", "movement", "shrugsimontiger"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "text_unstack")
+editor_objlist["text_unstack"] = {
+    name = "text_unstack",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "text_quality", "movement", "shrugsimontiger"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {3, 0},
+    colour_active = {3, 1},
+}
+
+table.insert(editor_objlist_order, "text_visit")
+
+editor_objlist["text_visit"] =
+{
+    name = "text_visit",
+    sprite_in_root = false,
+    unittype = "text",
+    tags = {"text", "btd456creeper mods"},
+    tiling = -1,
+    type = 2,
+    layer = 20,
+    colour = {0, 2},
+    colour_active = {0, 3},
+}
+
+local layers = 1
+local meta_objs = {}
+for num = 1, layers do
+    table.insert(objlistdata.alltags, "metatext (" .. num .. ")")
+    for i, v in pairs(editor_objlist_order) do
+        if string.sub(v, 1, 5) == "text_" then
+            local data = editor_objlist_reference[v]
+            if data ~= nil then
+                v = editor_objlist[data]
+                local thissprite = nil
+                if v.sprite == nil then v.sprite = v.name end
+                if v.sprite ~= nil then
+                    thissprite = v.sprite
+                    if MF_findsprite(string.rep("text_", num) .. v.sprite .. "_0_1.png", false) then
+                        thissprite = string.rep("text_", num) .. v.sprite
+                    end
+                end
+                local new = {
+                    name = string.rep("text_", num) .. v.name,
+                    sprite = thissprite,
+                    sprite_in_root = false,
+                    unittype = "text",
+                    tags = { "text", "abstract", "metatext (" .. num .. ")" },
+                    tiling = v.tiling,
+                    type = 0,
+                    layer = v.layer,
+                    colour = v.colour,
+                    colour_active = v.colour_active,
+                }
+                table.insert(meta_objs, new)
+            end
+        end
+    end
+end
+
+for i, v in ipairs(meta_objs) do
+    table.insert(editor_objlist_order, v.name)
+    editor_objlist[v.name] = v
+end
+
 formatobjlist()
