@@ -2581,6 +2581,9 @@ function metaprefix(x, y)
 				elseif (name == "glyph_metaevent") then
 					is_event = true
 					break
+				elseif (name == "glyph_metalogic") then
+					is_logic = true
+					break
 				elseif (name == "glyph_metanode") then
 					is_node = true
 					break
