@@ -177,7 +177,7 @@ function findpersists(reason)
 	levelpersist = {}
 	persist_stablerules = {}
 	if hasfeature("level","is","persist",1) then
-		levelpersist = {Xoffset-Xoffsetorig,Yoffset,mapdir,maprotation}
+		levelpersist = {Xoffset-Xoffsetorig,Yoffset-Yoffsetorig,mapdir,maprotation}
 		persistxoffset = 0
 		persistyoffset = 0
 	else

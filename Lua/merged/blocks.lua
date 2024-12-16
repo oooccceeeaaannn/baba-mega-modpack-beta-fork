@@ -3902,19 +3902,21 @@ function levelblock()
 				
 				if (rule[1] == "level") and (rule[2] == "is") and testcond(conds,1) then
 					local action = rule[3]
-					
+
 					if ws_isPlayerProp(action) then -- EDIT: Replace long check with "Is player property" function
 						local defeats = findfeature(nil,"is","defeat")
 						local visits = findfeature(nil,"is","visit")
 						local wins = findfeature(nil,"is","win")
 						local ends = findfeature(nil,"is","end")
 						local bonus = findfeature(nil,"is","bonus")
-						
+						local reload = findfeature(nil,"is","reload")
+						local returns = findfeature(nil,"is","return")
+
 						if (defeats ~= nil) then
 							for a,b in ipairs(defeats) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then
 										for c,d in ipairs(allyous) do
 											if (issafe(1) == false) and floating_level(d) then
@@ -3935,7 +3937,7 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if ((#findallfeature("empty","is","defeat") > 0)) and floating_level(2) and (lsafe == false) then
 							local is_guarded = ack_endangered_unit(level_obj)
 							if not is_guarded then
@@ -3943,17 +3945,19 @@ function levelblock()
 								return
 							end
 						end
-						
+
 						local canwin = false
 						local canvisit = false
 						local canend = false
 						local canbonus = false
-						
+						local canreload = false
+						local canreturn = false
+
 						if (wins ~= nil) then
 							for a,b in ipairs(wins) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then
 										for c,d in ipairs(allyous) do
 											if floating_level(d) then
@@ -3966,12 +3970,12 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if (visits ~= nil) then
 							for a,b in ipairs(visits) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then
 										for c,d in ipairs(allyous) do
 											if floating_level(d) then
@@ -3989,7 +3993,7 @@ function levelblock()
 							for a,b in ipairs(ends) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then
 										for c,d in ipairs(allyous) do
 											if floating_level(d) then
@@ -4006,7 +4010,7 @@ function levelblock()
 						if (bonus ~= nil) then
 							for a,b in ipairs(bonus) do
 								local allbonus = findall(b)
-								
+
 								if (#allbonus > 0) then
 									local destroyedSomething = false -- EDIT: add karma when level collects bonus
 									local dontDominoThese = {} --TODO: nodonimo is set repeatly whenever level destroys sth. add for other words
@@ -4016,7 +4020,7 @@ function levelblock()
 									for c,d in ipairs(allbonus) do
 										if (issafe(d) == false) and floating_level(d) then
 											local unit = mmf.newObject(d)
-											
+
 											local pmult,sound = checkeffecthistory("bonus")
 											MF_particles("bonus",unit.values[XPOS],unit.values[YPOS],10 * pmult,4,1,1,1)
 											MF_playsound("bonus")
@@ -4032,7 +4036,7 @@ function levelblock()
 										end
 									end
 									ws_immuneToDomino = {}
-										
+
 									if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 										local is_guarded = ack_endangered_unit(level_obj)
 										if lkarma and (lsafe == false) and not is_guarded then
@@ -4045,19 +4049,59 @@ function levelblock()
 								end
 							end
 						end
-						
-						if (#findallfeature("empty","is","win") > 0) and floating_level(2) then -- EDIT: Removed double check
+
+						if editor.values[INEDITOR] == 0 then
+							if (reload ~= nil) then
+								for a, b in ipairs(reload) do
+									if (b[1] ~= "level") then
+										local allyous = findall(b)
+
+										if (#allyous > 0) then
+											for c, d in ipairs(allyous) do
+												if floating_level(d) then
+													canreload = true
+												end
+											end
+										end
+									elseif testcond(b[2], 1) then
+										canreload = true
+									end
+								end
+							end
+
+							if (returns ~= nil) then
+								for a, b in ipairs(returns) do
+									if (b[1] ~= "level") then
+										local allyous = findall(b)
+
+										if (#allyous > 0) then
+											for c, d in ipairs(allyous) do
+												if floating_level(d) then
+													canreturn = true
+												end
+											end
+										end
+									elseif testcond(b[2], 1) then
+										canreturn = true
+									end
+								end
+							end
+						end
+
+						if (#findallfeature("empty", "is", "win") > 0) and floating_level(2) then
+							-- EDIT: Removed double check
 							canwin = true
 						end
-						
-						if ((#findallfeature("empty","is","visit") > 0) or (#findallfeature("empty","is","visit") > 0)) and floating_level(2) then
+
+						if ((#findallfeature("empty", "is", "visit") > 0) or (#findallfeature("empty", "is", "visit") > 0)) and floating_level(2) then
 							canvisit = true
 						end
-						
-						if (#findallfeature("empty","is","end") > 0) and floating_level(2) then -- EDIT: Removed double check
+
+						if (#findallfeature("empty", "is", "end") > 0) and floating_level(2) then
+							-- EDIT: Removed double check
 							canend = true
 						end
-						
+
 						if canvisit then
 							dovisit(mapdir)
 							return
@@ -4065,14 +4109,14 @@ function levelblock()
 
 						if canbonus then
 							MF_bonus(1)
-							addundo({"bonus",1})
+							addundo({ "bonus", 1 })
 						end
-						
+
 						if canwin then
 							MF_win()
 							return
 						end
-						
+
 						if canend and (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) then
 							if (editor.values[INEDITOR] ~= 0) then
 								MF_end_single()
@@ -4085,20 +4129,41 @@ function levelblock()
 								return
 							end
 						end
+
+						if canreload then
+							local entering = {{nil, generaldata.strings[LEVELNAME], generaldata.strings[CURRLEVEL]}}
+
+							findpersists() --@Merge(Persist x Extrem)
+
+							generaldata.values[TRANSITIONREASON] = 9
+							generaldata.values[IGNORE] = 1
+							generaldata3.values[STOPTRANSITION] = 1
+							generaldata2.values[UNLOCK] = 0
+							generaldata2.values[UNLOCKTIMER] = 0
+							MF_loop("transition",1)
+						end
+
+						if canreturn then
+							local newlevelfile = uplevel()
+							local entering = {{nil, get_level_name_from_ld(newlevelfile), newlevelfile}}
+
+							findpersists()
+
+							generaldata.values[TRANSITIONREASON] = 9
+							generaldata.values[IGNORE] = 1
+							generaldata3.values[STOPTRANSITION] = 1
+							generaldata2.values[UNLOCK] = 0
+							generaldata2.values[UNLOCKTIMER] = 0
+							MF_loop("transition",1)
+						end
 					elseif (action == "defeat") then
 						local yous = ws_findPlayers() -- EDIT: Replaced long repeated sequence with function
-						
-						if (yous4 ~= nil) then
-							for i,v in ipairs(yous4) do
-								table.insert(yous, v)
-							end
-						end
-						
+
 						if (yous ~= nil) then
 							for a,b in ipairs(yous) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then -- EDIT: set level karma when destroying something (LEVEL IS DEFEAT)
 										local destroyedSomething = false
 										local dontDominoThese = {}
@@ -4109,7 +4174,7 @@ function levelblock()
 											if (issafe(d) == false) and floating_level(d) then
 												destroyedSomething = true
 												local unit = mmf.newObject(d)
-												
+
 												local pmult,sound = checkeffecthistory("defeat")
 												MF_particles("destroy",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,3,1,1)
 												setsoundname("removal",1,sound)
@@ -4122,7 +4187,7 @@ function levelblock()
 											end
 										end
 										ws_immuneToDomino = {}
-										
+
 										if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 											local is_guarded = ack_endangered_unit(level_obj)
 											if lkarma and (lsafe == false) and not is_guarded then
@@ -4156,11 +4221,11 @@ function levelblock()
 						end
 					elseif (action == "hot") then
 						local melts = findfeature(nil,"is","melt")
-						
+
 						if (melts ~= nil) then
 							for a,b in ipairs(melts) do
 								local allmelts = findall(b)
-								
+
 								if (#allmelts > 0) then -- EDIT: set level karma when destroying something (LEVEL IS HOT)
 									local destroyedSomething = false
 									local dontDominoThese = {}
@@ -4171,7 +4236,7 @@ function levelblock()
 										if (issafe(d) == false) and floating_level(d) then
 											destroyedSomething = true
 											local unit = mmf.newObject(d)
-											
+
 											local pmult,sound = checkeffecthistory("hot")
 											MF_particles("smoke",unit.values[XPOS],unit.values[YPOS],5 * pmult,0,1,1,1)
 											generaldata.values[SHAKE] = 2
@@ -4184,7 +4249,7 @@ function levelblock()
 										end
 									end
 									ws_immuneToDomino = {}
-									
+
 									if destroyedSomething and not lrepent then  -- Do nothing if level is REPENT; destroy the level if it's KARMA and not SAFE; set karma status otherwise
 										if lkarma and (lsafe == false) then
 											destroylevel()
@@ -4198,14 +4263,14 @@ function levelblock()
 						end
 					elseif (action == "melt") then
 						local hots = findfeature(nil,"is","hot")
-						
+
 						if (hots ~= nil) and (lsafe == false) then
 							for a,b in ipairs(hots) do
 								local doit = false
-								
+
 								if (b[1] ~= "level") then
 									local allhots = findall(b)
-									
+
 									for c,d in ipairs(allhots) do
 										if floating_level(d) then
 											doit = true
@@ -4214,7 +4279,7 @@ function levelblock()
 								elseif testcond(b[2],1) then
 									doit = true
 								end
-								
+
 								if doit then
 									local is_guarded = ack_endangered_unit(level_obj)
 									if not is_guarded then
@@ -4224,7 +4289,7 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if (#findallfeature("empty","is","hot") > 0) and floating_level(2) and (lsafe == false) then
 							local is_guarded = ack_endangered_unit(level_obj)
 							if not is_guarded then
@@ -4366,20 +4431,20 @@ function levelblock()
 						---------------------------------
 					elseif (action == "open") then
 						local shuts = findfeature(nil,"is","shut")
-						
+
 						local openthese = {}
-						
+
 						if (shuts ~= nil) then
 							for a,b in ipairs(shuts) do
 								local doit = false
-								
+
 								if (b[1] ~= "level") then
 									local allshuts = findall(b)
-									
+
 									for c,d in ipairs(allshuts) do
 										if floating_level(d) then
 											doit = true
-											
+
 											if (issafe(d) == false) then
 												table.insert(openthese, d)
 											end
@@ -4388,7 +4453,7 @@ function levelblock()
 								elseif testcond(b[2],1) then
 									doit = true
 								end
-								
+
 								if doit then
 									if (lsafe == false) then
 										local is_guarded = ack_endangered_unit(level_obj)
@@ -4400,7 +4465,7 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if (#openthese > 0) then
 							local dontDominoThese = {}
 							for _,d in ipairs(openthese) do
@@ -4410,11 +4475,11 @@ function levelblock()
 								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS OPEN) if level isn't REPENT
 							end
 							generaldata.values[SHAKE] = 8
-							
+
 							for a,b in ipairs(openthese) do
 								local bunit = mmf.newObject(b)
 								local bx,by = bunit.values[XPOS],bunit.values[YPOS]
-								
+
 								local pmult,sound = checkeffecthistory("unlock")
 								setsoundname("turn",7,sound)
 								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
@@ -4428,7 +4493,7 @@ function levelblock()
 							end
 							ws_immuneToDomino = {}
 						end
-						
+
 						if (#findallfeature("empty","is","shut") > 0) and floating_level(2) and (lsafe == false) then
 							local is_guarded = ack_endangered_unit(level_obj)
 							if not is_guarded then
@@ -4438,20 +4503,20 @@ function levelblock()
 						end
 					elseif (action == "shut") then
 						local opens = findfeature(nil,"is","open")
-						
+
 						local openthese = {}
-						
+
 						if (opens ~= nil) then
 							for a,b in ipairs(opens) do
 								local doit = false
-								
+
 								if (b[1] ~= "level") then
 									local allopens = findall(b)
-									
+
 									for c,d in ipairs(allopens) do
 										if floating_level(d) then
 											doit = true
-											
+
 											if (issafe(d) == false) then
 												table.insert(openthese, d)
 											end
@@ -4460,7 +4525,7 @@ function levelblock()
 								elseif testcond(b[2],1) then
 									doit = true
 								end
-								
+
 								if doit then
 									if (lsafe == false) then
 										local is_guarded = ack_endangered_unit(level_obj)
@@ -4472,7 +4537,7 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if (#openthese > 0) then
 							local dontDominoThese = {}
 							for _,d in ipairs(openthese) do
@@ -4482,11 +4547,11 @@ function levelblock()
 								ws_setLevelKarma() -- EDIT: set level karma when destroying something (LEVEL IS SHUT) if level isn't REPENT
 							end
 							generaldata.values[SHAKE] = 8
-							
+
 							for a,b in ipairs(openthese) do
 								local bunit = mmf.newObject(b)
 								local bx,by = bunit.values[XPOS],bunit.values[YPOS]
-								
+
 								local pmult,sound = checkeffecthistory("unlock")
 								setsoundname("turn",7,sound)
 								MF_particles("unlock",bx,by,15 * pmult,2,4,1,1)
@@ -4500,7 +4565,7 @@ function levelblock()
 							end
 							ws_immuneToDomino = {}
 						end
-						
+
 						if (#findallfeature("empty","is","open") > 0) and floating_level(2) and (lsafe == false) then
 							local is_guarded = ack_endangered_unit(level_obj)
 							if not is_guarded then
@@ -4510,7 +4575,7 @@ function levelblock()
 						end
 					elseif (action == "sink") then
 						local openthese = {}
-						
+
 						for a,unit in ipairs(units) do
 							local name = unit.strings[UNITNAME]
 
@@ -4522,13 +4587,13 @@ function levelblock()
 										return
 									end
 								end
-								
+
 								if (issafe(unit.fixed) == false) then
 									table.insert(openthese, unit.fixed)
 								end
 							end
 						end
-						
+
 						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS SINK) if level isn't REPENT
 							local dontDominoThese = {}
 							for _,d in ipairs(openthese) do
@@ -4538,11 +4603,11 @@ function levelblock()
 								ws_setLevelKarma()
 							end
 							generaldata.values[SHAKE] = 3
-							
+
 							for a,b in ipairs(openthese) do
 								local bunit = mmf.newObject(b)
 								local bx,by = bunit.values[XPOS],bunit.values[YPOS]
-								
+
 								local pmult,sound = checkeffecthistory("sink")
 								setsoundname("removal",3,sound)
 								local c1,c2 = getcolour(b)
@@ -4559,7 +4624,7 @@ function levelblock()
 						end
 					elseif (action == "boom") then
 						local openthese = {}
-						
+
 						for a,unit in ipairs(units) do
 							local name = unit.strings[UNITNAME]
 
@@ -4571,13 +4636,13 @@ function levelblock()
 										return
 									end
 								end
-								
+
 								if (issafe(unit.fixed) == false) then
 									table.insert(openthese, unit.fixed)
 								end
 							end
 						end
-						
+
 						if (#openthese > 0) then -- EDIT: set level karma when destroying something (LEVEL IS BOOM) if level isn't REPENT
 							local dontDominoThese = {}
 							for _,d in ipairs(openthese) do
@@ -4587,11 +4652,11 @@ function levelblock()
 								ws_setLevelKarma()
 							end
 							generaldata.values[SHAKE] = 3
-							
+
 							for a,b in ipairs(openthese) do
 								local bunit = mmf.newObject(b)
 								local bx,by = bunit.values[XPOS],bunit.values[YPOS]
-								
+
 								local pmult,sound = checkeffecthistory("boom")
 								setsoundname("removal",1,sound)
 								MF_particles("smoke",bx,by,15 * pmult,0,2,1,1)
@@ -4612,40 +4677,40 @@ function levelblock()
 						for a,unit in ipairs(units) do
 							table.insert(doned, unit)
 						end
-						
+
 						updateundo = true
-						
+
 						for a,unit in ipairs(doned) do
 							addundo({"done",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.fixed,unit.values[FLOAT]})
-							
+
 							unit.values[FLOAT] = 2
 							unit.values[EFFECTCOUNT] = math.random(-10,10)
 							unit.values[POSITIONING] = 7
 							unit.flags[DEAD] = true
-							
+
 							delunit(unit.fixed)
 						end
-						
+
 						MF_playsound("doneall_c")
 					elseif (action == "bonus") then
 						local yous = ws_findPlayers() -- EDIT: Replaced long repeated sequence with function
-						
+
 						if (yous4 ~= nil) then
 							for i,v in ipairs(yous4) do
 								table.insert(yous, v)
 							end
 						end
-						
+
 						if (yous ~= nil) then
 							for a,b in ipairs(yous) do
 								if (b[1] ~= "level") then
 									local allyous = findall(b)
-									
+
 									if (#allyous > 0) then
 										for c,d in ipairs(allyous) do
 											if floating_level(d) then
 												bonusget = true
-												
+
 												if (lsafe == false) then
 												destroylevel("bonus")
 												return
@@ -4655,7 +4720,7 @@ function levelblock()
 									end
 								elseif testcond(b[2],1) then
 									bonusget = true
-									
+
 									if (lsafe == false) then
 										destroylevel("bonus")
 										return
@@ -4663,10 +4728,10 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						if ws_areTherePlayerEmpties() and floating_level(2) and (lsafe == false) then -- Replaced alive empty check with function
 							bonusget = true
-							
+
 							if (lsafe == false) then
 								destroylevel("bonus")
 								return
@@ -4682,53 +4747,53 @@ function levelblock()
 						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
 
 						local canvisit = false
-						
+
 						if (yous ~= nil) then
 							for a,b in ipairs(yous) do
 								local allyous = findall(b)
 								local doit = false
-								
+
 								for c,d in ipairs(allyous) do
 									if floating_level(d) then
 										doit = true
 									end
 								end
-								
+
 								if doit then
 									canvisit = true
 								end
 							end
 						end
-						
+
 						local emptyyou = false
 						if ((#findallfeature("empty","is","you") > 0) or (#findallfeature("empty","is","you2") > 0) or (#findallfeature("empty","is","3d") > 0)) and floating_level(2) then
 							emptyyou = true
 						end
-						
+
 						if (hasfeature("level","is","you",1) ~= nil) or (hasfeature("level","is","you2",1) ~= nil) or (hasfeature("level","is","3d",1) ~= nil) or emptyyou then
 							canvisit = true
 						end
-						
+
 						if canvisit then
 							dovisit(mapdir)
 							return
 						end
 					elseif (action == "win") then
 						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
-						
+
 						local canwin = false
-						
+
 						if (yous ~= nil) then
 							for a,b in ipairs(yous) do
 								local allyous = findall(b)
 								local doit = false
-								
+
 								for c,d in ipairs(allyous) do
 									if floating_level(d) then
 										doit = true
 									end
 								end
-								
+
 								if doit then
 									canwin = true
 									if action == "win" then
@@ -4741,42 +4806,35 @@ function levelblock()
 							end
 						end
 						end
-						
+
 						local emptyyou = false
 						if ws_areTherePlayerEmpties() and floating_level(2) then -- Replaced alive empty check with function
 							emptyyou = true
 						end
-						
+
 						if ws_isLevelPlayer() or emptyyou then -- Replaced long check with function
 							canwin = true
 						end
-						
+
 						if canwin then
-							if action == "win" then MF_win() else doreset = true end
-							return
+							MF_win()
 						end
 					elseif (action == "end") then
 						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
-						
-						if (yous4 ~= nil) then
-							for i,v in ipairs(yous4) do
-								table.insert(yous, v)
-							end
-						end
-						
+
 						local canend = false
-						
+
 						if (yous ~= nil) then
 							for a,b in ipairs(yous) do
 								local allyous = findall(b)
 								local doit = false
-								
+
 								for c,d in ipairs(allyous) do
 									if floating_level(d) then
 										doit = true
 									end
 								end
-								
+
 								if doit then
 									canend = true
 									for c,d in ipairs(allyous) do
@@ -4787,16 +4845,16 @@ function levelblock()
 								end
 							end
 						end
-						
+
 						local emptyyou = false
 						if ws_areTherePlayerEmpties() and floating_level(2) then -- Replaced alive empty check with function
 							emptyyou = true
 						end
-						
+
 						if ws_isLevelPlayer() or emptyyou then -- Replaced long check with function
 							canend = true
 						end
-						
+
 						if canend and (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) then
 							if (editor.values[INEDITOR] ~= 0) then
 								MF_end_single()
@@ -4809,17 +4867,115 @@ function levelblock()
 								break
 							end
 						end
+					elseif (action == "reload") and (editor.values[INEDITOR] == 0) then
+						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
+
+						local canreload = false
+
+						if (yous ~= nil) then
+							for a,b in ipairs(yous) do
+								local allyous = findall(b)
+								local doit = false
+
+								for c,d in ipairs(allyous) do
+									if floating_level(d) then
+										doit = true
+									end
+								end
+
+								if doit then
+									canreload = true
+									for c,d in ipairs(allyous) do
+										local unit = mmf.newObject(d)
+										local pmult,sound = checkeffecthistory("reload")
+										MF_particles("error",unit.values[XPOS],unit.values[YPOS],10 * pmult,2,4,1,1)
+									end
+								end
+							end
+						end
+
+						local emptyyou = false
+						if ws_areTherePlayerEmpties() and floating_level(2) then -- Replaced alive empty check with function
+							emptyyou = true
+						end
+
+						if ws_isLevelPlayer() or emptyyou then -- Replaced long check with function
+							canreload = true
+						end
+
+						if canreload then
+							local entering = {{nil, generaldata.strings[LEVELNAME], generaldata.strings[CURRLEVEL]}}
+
+							findpersists() --@Merge(Persist x Extrem)
+
+							generaldata.values[TRANSITIONREASON] = 9
+							generaldata.values[IGNORE] = 1
+							generaldata3.values[STOPTRANSITION] = 1
+							generaldata2.values[UNLOCK] = 0
+							generaldata2.values[UNLOCKTIMER] = 0
+							MF_loop("transition",1)
+						end
+					elseif (action == "return") and (editor.values[INEDITOR] == 0) then
+						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
+
+						local canreturn = false
+
+						if (yous ~= nil) then
+							for a,b in ipairs(yous) do
+								local allyous = findall(b)
+								local doit = false
+
+								for c,d in ipairs(allyous) do
+									if floating_level(d) then
+										doit = true
+									end
+								end
+
+								if doit then
+									canreturn = true
+
+									for c,d in ipairs(allyous) do
+										local unit = mmf.newObject(d)
+										local pmult,sound = checkeffecthistory("return")
+										MF_particles("error",unit.values[XPOS],unit.values[YPOS],10 * pmult,2,4,1,1)
+									end
+								end
+							end
+						end
+
+						local emptyyou = false
+						if ws_areTherePlayerEmpties() and floating_level(2) then -- Replaced alive empty check with function
+							emptyyou = true
+						end
+
+						if ws_isLevelPlayer() or emptyyou then -- Replaced long check with function
+							canreturn = true
+						end
+
+						if canreturn then
+							local newlevelfile = uplevel()
+							local entering = {{nil, get_level_name_from_ld(newlevelfile), newlevelfile}}
+
+							findpersists()
+
+							generaldata.values[TRANSITIONREASON] = 9
+							generaldata.values[IGNORE] = 1
+							generaldata3.values[STOPTRANSITION] = 1
+							generaldata2.values[UNLOCK] = 0
+							generaldata2.values[UNLOCKTIMER] = 0
+							MF_loop("transition",1)
+						end
 					elseif (action == "tele") and (levelteledone < 3) and (lstill == false) then
 						levelteledone = levelteledone + 1
-						
+
 						for a,unit in ipairs(units) do
 							local x,y = unit.values[XPOS],unit.values[YPOS]
-							
+
 							local tx,ty = fixedrandom(1,roomsizex-2),fixedrandom(1,roomsizey-2)
-							
+
 							if floating_level(unit.fixed) then
 								update(unit.fixed,tx,ty)
-								
+
 								local pmult,sound = checkeffecthistory("tele")
 								MF_particles("glow",x,y,5 * pmult,1,4,1,1)
 								MF_particles("glow",tx,ty,5 * pmult,1,4,1,1)
@@ -4828,14 +4984,14 @@ function levelblock()
 						end
 					elseif (action == "move") then
 						local dir = mapdir
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir = reversecheck(1,dir)
 						end
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,dir,dir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4845,10 +5001,10 @@ function levelblock()
 						local dir = fixedrandom(0,3)
 						addundo({"mapdir",mapdir,dir})
 						mapdir = dir
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,dir,dir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4856,14 +5012,14 @@ function levelblock()
 						end
 					elseif (action == "nudgeright") then
 						local dir = 0
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir = reversecheck(1,dir)
 						end
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,mapdir,mapdir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4871,14 +5027,14 @@ function levelblock()
 						end
 					elseif (action == "nudgeup") then
 						local dir = 1
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir = reversecheck(1,dir)
 						end
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,mapdir,mapdir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4886,14 +5042,14 @@ function levelblock()
 						end
 					elseif (action == "nudgeleft") then
 						local dir = 2
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir = reversecheck(1,dir)
 						end
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,mapdir,mapdir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4901,14 +5057,14 @@ function levelblock()
 						end
 					elseif (action == "nudgedown") then
 						local dir = 3
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir = reversecheck(1,dir)
 						end
-						
+
 						local drs = ndirs[dir + 1]
 						local ox,oy = drs[1],drs[2]
-						
+
 						if (lstill == false) and (lsleep == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + ox * tilesize,Yoffset + oy * tilesize,mapdir,mapdir})
 							MF_scrollroom(ox * tilesize,oy * tilesize)
@@ -4917,14 +5073,14 @@ function levelblock()
 					elseif (action == "fall") then
 						local drop = 20
 						local dir = mapdir
-						
+
 						local ox = 0
 						local oy = 1
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir,ox,oy = reversecheck(1,dir,nil,nil,ox,oy)
 						end
-						
+
 						if (lstill == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + tilesize * drop * ox,Yoffset + tilesize * drop * oy,dir,dir})
 							MF_scrollroom(tilesize * drop * ox,tilesize * drop * oy)
@@ -4933,14 +5089,14 @@ function levelblock()
 					elseif (action == "fallright") then
 						local drop = 35
 						local dir = mapdir
-						
+
 						local ox = 1
 						local oy = 0
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir,ox,oy = reversecheck(1,dir,nil,nil,ox,oy)
 						end
-						
+
 						if (lstill == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + tilesize * drop * ox,Yoffset + tilesize * drop * oy,dir,dir})
 							MF_scrollroom(tilesize * drop * ox,tilesize * drop * oy)
@@ -4949,14 +5105,14 @@ function levelblock()
 					elseif (action == "fallup") then
 						local drop = 20
 						local dir = mapdir
-						
+
 						local ox = 0
 						local oy = -1
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir,ox,oy = reversecheck(1,dir,nil,nil,ox,oy)
 						end
-						
+
 						if (lstill == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + tilesize * drop * ox,Yoffset + tilesize * drop * oy,dir,dir})
 							MF_scrollroom(tilesize * drop * ox,tilesize * drop * oy)
@@ -4965,14 +5121,14 @@ function levelblock()
 					elseif (action == "fallleft") then
 						local drop = 35
 						local dir = mapdir
-						
+
 						local ox = -1
 						local oy = 0
-						
+
 						if (featureindex["reverse"] ~= nil) then
 							dir,ox,oy = reversecheck(1,dir,nil,nil,ox,oy)
 						end
-						
+
 						if (lstill == false) then
 							addundo({"levelupdate",Xoffset,Yoffset,Xoffset + tilesize * drop * ox,Yoffset + tilesize * drop * oy,dir,dir})
 							MF_scrollroom(tilesize * drop * ox,tilesize * drop * oy)
@@ -4981,9 +5137,9 @@ function levelblock()
 					elseif (rule[3] == "turn") then
 						local newmapdir = (mapdir - 1 + 4) % 4
 						local newmaprotation = ((mapdir + 1 + 4) % 4) * 90
-						
+
 						updateundo = true
-						
+
 						addundo({"maprotation",maprotation,newmaprotation,newmapdir})
 						addundo({"mapdir",mapdir,newmapdir})
 						maprotation = newmaprotation
@@ -4992,9 +5148,9 @@ function levelblock()
 					elseif (rule[3] == "deturn") then
 						local newmapdir = (mapdir + 1 + 4) % 4
 						local newmaprotation = ((mapdir + 1 + 4) % 4) * 90
-						
+
 						updateundo = true
-						
+
 						addundo({"maprotation",maprotation,newmaprotation,newmapdir})
 						addundo({"mapdir",mapdir,newmapdir})
 						maprotation = newmaprotation
