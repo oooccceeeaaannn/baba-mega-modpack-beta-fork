@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.11"
+local mega_modpack_version = "1.12"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -18,6 +18,20 @@ local mod_list = {
     {name = "Nimi's Mods",          author = "Shrugsimontiger",         color={4,2}},
     {name = "Parsers Merge",        author = "DizzyAndy",               color={3,3}},
 }
+
+function apply_misc_settings(settings_dict)
+    for setting_name, value in pairs(settings_dict) do
+        if setting_name == "enable_toometa" then
+            if value == 1 then
+                disable_toometa = false
+            else
+                disable_toometa = true
+            end
+        elseif setting_name == "enable_colored_rules" then
+            SPLITRULETYPES = value
+        end
+    end
+end
 
 local mod_setting_data = {
     persist = {
@@ -132,6 +146,15 @@ local mod_setting_data = {
                 buttonfunc = "ws_infloopLevelGlitch",
                 tooltip = "Infinite loop-ed levels transform into glitch objects. Only works if glitch object is in the world's pallete (like with normal transforms)"
             },
+            --[[ -- It turns out this feature is hard to implement for me, so I'm disabling it for now.
+            disable_visit_stacking = {
+                name = "disable_visit_stacking",
+                display = "Disable visit stacking",
+                default = 0,
+                buttonfunc = "ws_disableVisitStacking",
+                tooltip = "If true, disables the feature to visit across levels by stacking visit objects.",
+            },
+            --]]
         },
         settings_order = {"infloop_level_glitch"}
     },
@@ -153,9 +176,35 @@ local mod_setting_data = {
             }
         },
         settings_order = {"throw_push"}
+    },
+
+    misc = {
+        key = "misc_settings",
+        button_label = "Misc Settings",
+        page_title = "$0,3Misc Settings",
+        cfg_section = "misc_settings",
+        color = {0,3},
+        settings_apply_func = apply_misc_settings,
+        settings = {
+            enable_toometa = {
+                name = "enable_toometa",
+                display = "Enable toometa feature",
+                default = 0,
+                buttonfunc = "misc_toometa",
+                tooltip = "Enables the toometa feature from glyph mod when true. Enable when you don't need metatext.",
+            },
+            enable_colored_rules = {
+                name = "enable_colored_rules",
+                display = "Enable parser-based rule coloring",
+                default = 0,
+                buttonfunc = "misc_colored_rules",
+                tooltip = "When set to \"true\", rules made by different parsers will be marked with different prefixes in the rules list, and will the coloured accordingly.",
+            },
+        },
+        settings_order = {"enable_toometa","enable_colored_rules"}
     }
 }
-local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper", "shrugsimontiger"}
+local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper", "shrugsimontiger", "misc"}
 
 local function setfenv(fn, env)
     local i = 1

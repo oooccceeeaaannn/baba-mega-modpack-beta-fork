@@ -471,10 +471,43 @@ function ws_findPlayers()
 end
 
 
+-- Returns all units with any player property.
+function ws_findPlayerUnits()
+	local isyou = getunitswitheffect("you",false,delthese)
+	local isyou2 = getunitswitheffect("you2",false,delthese)
+	local isyou3 = getunitswitheffect("3d",false,delthese)
+	local isyou42 = getunitswitheffect("alive",false,delthese) -- EDIT: add ALIVE units
+	local isyou4 = getunitswitheffect("puppet", false, delthese)
+	local isyou5 = getunitswitheffect("you+", false, delthese)
+
+	for i,v in ipairs(isyou2) do
+		table.insert(isyou, v)
+	end
+
+	for i,v in ipairs(isyou3) do
+		table.insert(isyou, v)
+	end
+
+	for i,v in ipairs(isyou42) do
+		table.insert(isyou, v)
+	end
+
+	for i, v in ipairs(isyou4) do
+		table.insert(isyou, v)
+	end
+
+	for i, v in ipairs(isyou5) do
+		table.insert(isyou, v)
+	end
+
+	return isyou
+end
+
+
 -- Checks if empty should be considered a player
 function ws_areTherePlayerEmpties()
 	return ((#findallfeature("empty","is","you") > 0) or (#findallfeature("empty","is","you2") > 0) or (#findallfeature("empty","is","you+") > 0) or (#findallfeature("empty","is","3d") > 0) or (#findallfeature("empty","is","alive") > 0)or (#findallfeature("empty", "is", "puppet") > 0))
-	end
+end
 
 
 -- Returns all the features of the type "level is you-id" or "level is vessel-id"

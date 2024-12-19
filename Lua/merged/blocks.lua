@@ -2702,34 +2702,6 @@ function block(small_)
 				end
 			end
 
-			--Roughly copied from the Win code, this handles when a You object touches a Visit object, triggering a visit.
-			local shoulddovisit = false
-			local dovisitdir
-			local visit = findfeature(nil,"is","visit")
-			if (visit ~= nil) then
-				for a,b in ipairs(visit) do
-					if (b[1] ~= "empty") then
-						local flag = findtype(b,x,y,0)
-						if (#flag > 0) then
-							for c,d in ipairs(flag) do
-								if floating(d,unit.fixed,x,y) and (hasfeature(b[1],"is","done",d,x,y) == nil) and (hasfeature(b[1],"is","end",d,x,y) == nil) then
-									shoulddovisit = true
-									dovisitdir = (mmf.newObject(d).values[DIR])
-									break
-								end
-							end
-						end
-					end
-					if shoulddovisit then
-						break
-					end
-				end
-			end
-			if shoulddovisit then
-				dovisit(dovisitdir)
-				break
-			end
-
 			local win = findfeature(nil,"is","win")
 			
 			if (win ~= nil) then
@@ -2858,7 +2830,6 @@ function levelblock()
 						
 						--MF_alert(tostring(i) .. ", " .. tostring(j))
 						local keypair = ""
-						local visitpair = ""
 						local winpair = ""
 						local hotpair = ""
 						local defeatpair = ""
@@ -2867,21 +2838,17 @@ function levelblock()
 						
 						local canmelt = false
 						local candefeat = false
-						local canvisit = false
 						local canwin = false
 						local canbonus = false
 						local canend = false
 						
 						local unlock = false
-						local visiting = false
 						local victory = false
 						local melt = false
 						local defeat = false
 						local bonus = false
 						local ending = false
 						local emptyboom = false
-						
-						local visitdir = 0
 						
 						for a,rules in ipairs(emptythings) do
 							local rule = rules[1]
@@ -2899,7 +2866,7 @@ function levelblock()
 								elseif (defeatpair == "defeat") then
 									defeat = true
 								end
-							elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d") or (rule[3] == "puppet") or (rule[3] == "you+")) and testcond(conds,2,i,j) then
+							elseif ws_isPlayerProp(rule[3]) and testcond(conds,2,i,j) then
 								candefeat = true
 								canwin = true
 								
@@ -2974,25 +2941,6 @@ function levelblock()
 										victory = true
 									end
 								end
-								
-								if (rule[3] == "visit") and testcond(conds,2,i,j) then
-									if (string.len(visitpair) == 0) then
-										visitpair = "you"
-									elseif (visitpair == "visit") then
-										visiting = true
-										visitdir = emptydir(i,j,true)
-									end
-								elseif ((rule[3] == "you") or (rule[3] == "you2") or (rule[3] == "3d")) and testcond(conds,2,i,j) then
-									candefeat = true
-									canvisit = true
-									
-									if (string.len(visitpair) == 0) then
-										visitpair = "visit"
-									elseif (visitpair == "you") then
-										visiting = true
-										visitdir = emptydir(i,j,true)
-									end
-								end
 
 								if (rule[3] == "bonus") and testcond(conds,2,i,j) then
 									if (string.len(bonuspair) == 0) then
@@ -3046,11 +2994,6 @@ function levelblock()
 								
 								if candefeat and (hasfeature("level","is","defeat",1,i,j) ~= nil) and floating_level(2,i,j) then
 									defeat = true
-								end
-								
-								if canvisit and (hasfeature("level","is","visit",1,i,j) ~= nil) and floating_level(2,i,j) then
-									visiting = true
-									visitdir = mapdir
 								end
 
 								if canwin and (hasfeature("level","is","win",1,i,j) ~= nil) and floating_level(2,i,j) then
@@ -3224,11 +3167,6 @@ function levelblock()
 								addundo({"bonus",1})
 								emptybonus = true
 							end
-						end
-						
-						if visiting and alive then
-							dovisit(visitdir)
-							return
 						end
 						
 						if victory and alive then
@@ -3905,7 +3843,6 @@ function levelblock()
 
 					if ws_isPlayerProp(action) then -- EDIT: Replace long check with "Is player property" function
 						local defeats = findfeature(nil,"is","defeat")
-						local visits = findfeature(nil,"is","visit")
 						local wins = findfeature(nil,"is","win")
 						local ends = findfeature(nil,"is","end")
 						local bonus = findfeature(nil,"is","bonus")
@@ -3947,7 +3884,6 @@ function levelblock()
 						end
 
 						local canwin = false
-						local canvisit = false
 						local canend = false
 						local canbonus = false
 						local canreload = false
@@ -3967,24 +3903,6 @@ function levelblock()
 									end
 								elseif testcond(b[2],1) then
 									canwin = true
-								end
-							end
-						end
-
-						if (visits ~= nil) then
-							for a,b in ipairs(visits) do
-								if (b[1] ~= "level") then
-									local allyous = findall(b)
-
-									if (#allyous > 0) then
-										for c,d in ipairs(allyous) do
-											if floating_level(d) then
-												canvisit = true
-											end
-										end
-									end
-								elseif testcond(b[2],1) then
-									canvisit = true
 								end
 							end
 						end
@@ -4093,18 +4011,9 @@ function levelblock()
 							canwin = true
 						end
 
-						if ((#findallfeature("empty", "is", "visit") > 0) or (#findallfeature("empty", "is", "visit") > 0)) and floating_level(2) then
-							canvisit = true
-						end
-
 						if (#findallfeature("empty", "is", "end") > 0) and floating_level(2) then
 							-- EDIT: Removed double check
 							canend = true
-						end
-
-						if canvisit then
-							dovisit(mapdir)
-							return
 						end
 
 						if canbonus then
@@ -4742,41 +4651,6 @@ function levelblock()
 							MF_playsound("bonus")
 							MF_bonus(1)
 							addundo({"bonus",1})
-						end
-					elseif (action == "visit") then
-						local yous = ws_findPlayers() -- Replaced long repeated sequence with function
-
-						local canvisit = false
-
-						if (yous ~= nil) then
-							for a,b in ipairs(yous) do
-								local allyous = findall(b)
-								local doit = false
-
-								for c,d in ipairs(allyous) do
-									if floating_level(d) then
-										doit = true
-									end
-								end
-
-								if doit then
-									canvisit = true
-								end
-							end
-						end
-
-						local emptyyou = false
-						if ((#findallfeature("empty","is","you") > 0) or (#findallfeature("empty","is","you2") > 0) or (#findallfeature("empty","is","3d") > 0)) and floating_level(2) then
-							emptyyou = true
-						end
-
-						if (hasfeature("level","is","you",1) ~= nil) or (hasfeature("level","is","you2",1) ~= nil) or (hasfeature("level","is","3d",1) ~= nil) or emptyyou then
-							canvisit = true
-						end
-
-						if canvisit then
-							dovisit(mapdir)
-							return
 						end
 					elseif (action == "win") then
 						local yous = ws_findPlayers() -- Replaced long repeated sequence with function

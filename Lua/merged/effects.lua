@@ -27,10 +27,6 @@ function effects(timer)
 	local rnd = math.random(2,4)
 	doeffect(timer,nil,"end","unlock",1,1,10,{1,rnd},"inwards")
 
-	doeffect(timer,nil,"visit","unlock",1,2,8,{0,3},"visitrule")
-
-	doeffect(timer,nil,"visit","unlock",1,2,8,{0,3},"visitrule")
-
 	rnd = math.random(0, 2)
 	doeffect(timer, nil, "alkali", "hot", 10, 50, 8, { 4, rnd }, "inwards")
 	rnd = math.random(3, 4)
@@ -123,31 +119,6 @@ function doeffect(timer,word2_,word3,particle,count,chance,timing,colour,special
 										part.values[XVEL] = math.cos(dir) * (dist * 0.2)
 										part.values[YVEL] = 0 - math.sin(dir) * (dist * 0.2)
 									end
-
-									if (partid ~= nil) and (specialrule == "visitrule") and (partid ~= 0) then
-										local part = mmf.newObject(partid)
-										
-										part.values[ONLINE] = 2
-										local midx = math.floor(roomsizex * 0.5)
-										local midy = math.floor(roomsizey * 0.5)
-										local mx = x + 0.5 - midx
-										local my = y + 0.5 - midy
-										
-										local dir = 0 - math.atan2(my, mx)
-										local dist = math.sqrt(my ^ 2 + mx ^ 2)
-										local roomrad = math.rad(generaldata2.values[ROOMROTATION])
-										
-										mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-										my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-										
-										part.x = mx + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-										part.y = my + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-										part.values[XPOS] = part.x
-										part.values[YPOS] = part.y
-										
-										part.values[XVEL] = math.cos(udir) * 10
-										part.values[YVEL] = math.sin(udir) * -10
-									end
 								end
 							end
 						end
@@ -202,38 +173,6 @@ function doeffect(timer,word2_,word3,particle,count,chance,timing,colour,special
 												if (math.random(chance) == 1) then
 													if (specialrule ~= "nojitter") then
 														partid = MF_particle(particle,i,j,c1,c2,layer)
-
-														if (partid ~= nil) and (specialrule == "visitrule") and (partid ~= 0) then
-															local udir
-															if cause == "level" then
-																udir = mapdir * math.pi / 2
-															elseif cause == "empty" then
-																udir = math.random(0,3) * math.pi / 2
-															end
-															
-															local part = mmf.newObject(partid)
-															
-															part.values[ONLINE] = 2
-															local midx = math.floor(roomsizex * 0.5)
-															local midy = math.floor(roomsizey * 0.5)
-															local mx = i + 0.5 - midx
-															local my = j + 0.5 - midy
-															
-															local dir = 0 - math.atan2(my, mx)
-															local dist = math.sqrt(my ^ 2 + mx ^ 2)
-															local roomrad = math.rad(generaldata2.values[ROOMROTATION])
-															
-															mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-															my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-															
-															part.x = mx + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-															part.y = my + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-															part.values[XPOS] = part.x
-															part.values[YPOS] = part.y
-															
-															part.values[XVEL] = math.cos(udir) * 10
-															part.values[YVEL] = math.sin(udir) * -10
-														end
 													else
 														partid = MF_staticparticle(particle,i,j,c1,c2,layer)
 													end
@@ -241,38 +180,6 @@ function doeffect(timer,word2_,word3,particle,count,chance,timing,colour,special
 											else
 												if (specialrule ~= "nojitter") then
 													partid = MF_particle(particle,i,j,c1,c2,layer)
-													
-													if (partid ~= nil) and (specialrule == "visitrule") and (partid ~= 0) then
-														local udir
-														if cause == "level" then
-															udir = mapdir * math.pi / 2
-														elseif cause == "empty" then
-															udir = math.random(0,3) * math.pi / 2
-														end
-														
-														local part = mmf.newObject(partid)
-														
-														part.values[ONLINE] = 2
-														local midx = math.floor(roomsizex * 0.5)
-														local midy = math.floor(roomsizey * 0.5)
-														local mx = i + 0.5 - midx
-														local my = j + 0.5 - midy
-														
-														local dir = 0 - math.atan2(my, mx)
-														local dist = math.sqrt(my ^ 2 + mx ^ 2)
-														local roomrad = math.rad(generaldata2.values[ROOMROTATION])
-														
-														mx = Xoffset + (midx + math.cos(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-														my = Yoffset + (midy - math.sin(dir + roomrad) * dist * zoom) * tilesize * spritedata.values[TILEMULT]
-														
-														part.x = mx + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-														part.y = my + math.random(0 - tilesize * 0.5 * zoom,tilesize * 0.5 * zoom)
-														part.values[XPOS] = part.x
-														part.values[YPOS] = part.y
-														
-														part.values[XVEL] = math.cos(udir) * 10
-														part.values[YVEL] = math.sin(udir) * -10
-													end
 												else
 													partid = MF_staticparticle(particle,i,j,c1,c2,layer)
 												end

@@ -3,12 +3,15 @@
 --This also makes cursors not get destroyed by glitch objects.
 --Change the "true" to "false" if you want to disable this behavior.
 INFLOOP_LEVEL_GLITCH = true
+DISABLE_VISIT_STACKING = false
 
 function apply_btdcreeper_glitch_mod_settings(settings_dict)
 	for setting_name, value in pairs(settings_dict) do
 		if setting_name == "infloop_level_glitch" then
 			INFLOOP_LEVEL_GLITCH = value
-		end
+		elseif setting_name == "disable_visit_stacking" then
+			DISABLE_VISIT_STACKING = value
+ 		end
 	end
 end
 

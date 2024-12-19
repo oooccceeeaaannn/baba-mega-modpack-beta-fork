@@ -1,43 +1,89 @@
---Visit Mod - by Btd456Creeper
+--Global table to store all levels that could potentially be visited to
+--Each entry in the table is a 2D array of levels for that layer of the leveltree
+--Each entry in that array is a table of at least one level (multiple if multiple levels on the same tile)
+--Each level is stored as a table containing num, style, file, and surrounds
+visit_visitlevels = {}
 
---Full levelsurrounds format:
---Divided into multiple level entries. Also, every term is followed by a comma.
---Each entry starts with "levelseparator", then the ID of the level tile on the map,
---then that tile's target level file, level number and visual type (number, letter, or dots), and direction.
---Then for each direction (including diagonals and no direction): The direction name (in one or two letters),
---followed by every object in that direction (or a hyphen if there's nothing there).
---Special case: if an object has level data, put its tile ID right before its object name.
+--Second global table to store where the player is in the array of levels, for each layer of the leveltree
+--Each entry in this table is a table containing x and y coordinates
+visit_mappositions = {}
 
---As of v1.2.1, at the start of the levelsurrounds is the parent level.
---This is used to prevent a bug caused by the fact that entering the level you're currently in doesn't update the leveltree.
+--Third global table to store the position the player entered a level on the world map
+--Used to carry data from getlevelsurrounds (which has access to this) to sublevel (which doesn't)
+visit_tempmappos = {
+	x = 0,
+	y = 0
+}
 
---Example: 1level,levelseparator,2.59410404,2level,1,0,0,r,baba,u,skull,house,l,-,d,2.74583175,level,dr,-,ur,-,ul,-,dl,-,o,-,levelseparator,2.74583175,3level,2,1,0,r,-,u,2.59410404,level,l,-,d,-,dr,-,ur,baba,ul,-,dl,-,o,-,
+--Global boolean to disable input for a bit after visiting to multiple levels at once.
+--This prevents players from accidentally selecting a level with the same input they used to idle in another level.
+visit_inputdisabled = false
 
-
---A new global string is needed to store the tile ID of the current level on the map.
---visit_innerlevelid is used to track where to visit from.
-visit_innerlevelid = ""
-
---Another global string is needed to store the full levelsurrounds (separate from the surrounds for a single level).
---visit_fullsurrounds is used for this.
-visit_fullsurrounds = ""
-
---editor stuff
+--Add the Visit text (and directional variants) to the editor
 table.insert(editor_objlist_order, "text_visit")
-
-editor_objlist["text_visit"] = 
-{
+editor_objlist["text_visit"] = {
 	name = "text_visit",
 	sprite_in_root = false,
 	unittype = "text",
-	tags = {"text", "btd456creeper mods"},
+	tags = {"text"},
 	tiling = -1,
 	type = 2,
 	layer = 20,
-	colour = {0, 2},
-	colour_active = {0, 3},
+	colour = {0, 1},
+	colour_active = {0, 3}
 }
 
+table.insert(editor_objlist_order, "text_visitdown")
+editor_objlist["text_visitdown"] = {
+	name = "text_visitdown",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 1},
+	colour_active = {0, 3}
+}
+
+table.insert(editor_objlist_order, "text_visitright")
+editor_objlist["text_visitright"] = {
+	name = "text_visitright",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 1},
+	colour_active = {0, 3}
+}
+
+table.insert(editor_objlist_order, "text_visitup")
+editor_objlist["text_visitup"] = {
+	name = "text_visitup",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 1},
+	colour_active = {0, 3}
+}
+
+table.insert(editor_objlist_order, "text_visitleft")
+editor_objlist["text_visitleft"] = {
+	name = "text_visitleft",
+	sprite_in_root = false,
+	unittype = "text",
+	tags = {"text"},
+	tiling = -1,
+	type = 2,
+	layer = 20,
+	colour = {0, 1},
+	colour_active = {0, 3}
+}
 formatobjlist()
 
 -- @Merge: Word Glossary Mod support
@@ -50,256 +96,539 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
 			description =
 			[[Changes the current level to the level directly adjacent to it in the parent level of the current level.
 
-            - This effect applies when a you object moves onto a visit object.
+- This effect applies when a you object moves onto a visit object.
 
-            - The direction of the visit object determines which direction to look for an adjacent level. If there isn't an adjacent level, the current level gets destroyed instead.]],
+- The direction of the visit object determines which direction to look for an adjacent level. If there isn't an adjacent level, the current level gets destroyed instead.
+
+- When multiple visits are triggered simultaneously, the player will be sent to the level on the vector sum of all visits.]],
 		}
 	})
 end
 
+--Make the directional Visit variants display properly in the rules menu
+word_names["visitdown"] = "visit (down)"
+word_names["visitright"] = "visit (right)"
+word_names["visitup"] = "visit (up)"
+word_names["visitleft"] = "visit (left)"
 
+--Patch getlevelsurrounds to also store the position of the entered level on the world map
+--The sublevel function alone doesn't work for this because it doesn't have access to the level tile's unitid
+local oldgetlevelsurrounds = getlevelsurrounds
+function getlevelsurrounds(levelunitid)
+	oldgetlevelsurrounds(levelunitid)
 
---The code that actually performs a visit, based on levelsurrounds and the direction of the Visit object.
-function dovisit(visitdir)
-	if visitdir == 4 then
-		visitdir = math.random(0,3)
+	local levelunit = mmf.newObject(levelunitid)
+	local cx, cy = levelunit.values[XPOS], levelunit.values[YPOS]
+	visit_tempmappos = {
+		x = cx,
+		y = cy
+	}
+end
+
+--Patch sublevel to store the positions of all levels on the map so they can be visited to
+local oldsublevel = sublevel
+function sublevel(name, lnum, ltype)
+	resolveleveltree()
+
+	local oldleveltreelength = #leveltree
+
+	oldsublevel(name, lnum, ltype)
+
+	local levelarray, levelsfound = createlevelarray()
+	if levelsfound then --Filter out the sublevel() calls made when loading a levelpack
+		table.insert(visit_visitlevels, levelarray)
+		table.insert(visit_mappositions, visit_tempmappos)
+
+		--Get rid of any unnecessary visit data entries from removed parts of the leveltree
+		--The original sublevel() removes parts of the leveltree in certain situations (see notes on resolveleveltree() below)
+		local removedentries = oldleveltreelength - #leveltree + 1
+		if (removedentries > 0) then
+			for i = 1, removedentries, 1 do
+				table.remove(visit_visitlevels)
+				table.remove(visit_mappositions)
+			end
+		end
 	end
-	if visitdir == 0 then
-		visitdir = "r"
+end
+
+--Function to check for repeat entries in the leveltree
+--If the last entry is a repeat of a previous entry then remove everything after the first copy of the entry
+--This prevents issues with infinite level depth when entering levels recursively:
+--In Baba Is You, if you start in level A and enter level A again then you can't return to map from A back to A
+--This is because something similar to this function happens in sublevel() when entering A the second time
+--However, with the Visit mod, if you start in A, enter B, then visit from B to A (specifically using Visit), you CAN return to map from A back to A
+--This is okay, but to prevent certain issues, entering another level from that situation must be coded to remove the duplicate A entries in the leveltree
+function resolveleveltree()
+	local lastentry = leveltree[#leveltree]
+	local dodeletes = false
+	local delstart
+	for i,v in ipairs(leveltree) do
+		if (i < #leveltree) and (v == lastentry) then
+			dodeletes = true
+			delstart = i + 1
+		end
 	end
-	if visitdir == 1 then
-		visitdir = "u"
+
+	if dodeletes then
+		for i = #leveltree, delstart, -1 do
+			table.remove(leveltree, i)
+			table.remove(leveltree_id, i)
+			table.remove(visit_visitlevels)
+			table.remove(visit_mappositions)
+		end
 	end
-	if visitdir == 2 then
-		visitdir = "l"
-	end
-	if visitdir == 3 then
-		visitdir = "d"
-	end
-	
-	--Get the level to go to from fullsurrounds (janky code warning).
-	--A table can't be made from fullsurrounds as it would get too big for the game to handle (apparently).
-	local stage = 0
-	local levelfound
-	local v = ""
-	
-	for i = 1,#visit_fullsurrounds,1 do
-		local char = string.sub(visit_fullsurrounds,i,i)
-		if char == "," then
-			--Find "levelseparator"...
-			if v == "levelseparator" then
-				stage = 1
-				--...and make sure it's followed by the current level's tile ID on the map...
-			elseif stage == 1 then
-				if v == visit_innerlevelid then
-					stage = 2
-				else
-					stage = 0
-				end
-				--...then skip ahead two spots...
-			elseif stage == 2 then
-				stage = 3
-			elseif stage == 3 then
-				stage = 4
-				--...then wait to get to the direction in the surrounds that matches the visit direction...
-			elseif stage == 4 and v == visitdir then
-				stage = 5
-				--...and finally, keep going until a number (which should be a level ID) is found. Or until the code hits a
-				--different direction in the surrounds, meaning everything has been checked and no level was found.
-			elseif stage == 5 then
-				if v == "u" or v == "l" or v == "d" or v == "dr" then
-					break
-				elseif tonumber(v) ~= nil then
-					levelfound = v
-					break
+end
+
+--Function to map out the levels on the world map, and record the position where the first visit should start from
+function createlevelarray()
+	local levelarray = {}
+	local levelsfound = false
+
+	--Note: roomsizex and roomsizey are global variables storing the size of the current levels, in tiles
+	for x = 0, roomsizex - 1 do
+		for y = 0, roomsizey - 1 do
+			for i,potentiallevelunitid in ipairs(findallhere(x, y)) do
+				local potentiallevelunit = mmf.newObject(potentiallevelunitid)
+				if (potentiallevelunit.strings[U_LEVELFILE] and potentiallevelunit.values[COMPLETED] > 1) then
+					levelarray = addlevelarraylevel(levelarray, potentiallevelunitid, x, y)
+					levelsfound = true
 				end
 			end
-			v = ""
-		else
-			v = v .. char
 		end
-		i = i + 1
 	end
-	
-	--Visiting is disabled in the editor because making it work in the editor is hard.
-	if levelfound and editor.values[E_INEDITOR] == 0 then
-		--Now just find the level to go to in fullsurrounds to display the correct information in the transition screen.
-		stage = 0
-		local v = ""
-		local levelfile
-		local levelnum
-		local leveltype
-		local notfirst = false
-		local parentlevel
-		
-		for i = 1,#visit_fullsurrounds,1 do
-			local char = string.sub(visit_fullsurrounds,i,i)
-			if char == "," then
-				if notfirst == false then
-					parentlevel = v
-					notfirst = true
-				elseif v == "levelseparator" then
-					stage = 1
-				elseif stage == 1 then
-					if v == levelfound then
-						stage = 2
-					else
-						stage = 0
-					end
-				elseif stage == 2 then
-					levelfile = v
-					stage = 3
-				elseif stage == 3 then
-					levelnum = v
-					stage = 4
-				elseif stage == 4 then
-					leveltype = v
-					
-					findpersists() -- @Merge(Visit x Persist): support for persisting objects via visit
 
-					if parentlevel ~= generaldata.strings[CURRLEVEL] then
-						uplevelkeepsurrounds()
+	return levelarray, levelsfound
+end
+
+--Function to add a given level to the array at a given position, creating any tables necessary to do so
+function addlevelarraylevel(levelarray, levelunitid, x, y)
+	local levelunit = mmf.newObject(levelunitid)
+
+	if (levelarray[x] == nil) then
+		levelarray[x] = {}
+	end
+
+	if (levelarray[x][y] == nil) then
+		levelarray[x][y] = {}
+	end
+
+	table.insert(levelarray[x][y], {
+		num = levelunit.values[VISUALLEVEL],
+		style = levelunit.values[VISUALSTYLE],
+		file = levelunit.strings[U_LEVELFILE],
+		surrounds = altgetlevelsurrounds(levelunitid)
+	})
+
+	return levelarray
+end
+
+--Copy of the original getlevelsurrounds function found in base game
+--Returns the value instead of storing it in generaldata, and does not store levels to visit to
+function altgetlevelsurrounds(levelid)
+	local level = mmf.newObject(levelid)
+
+	local dirids = {"r","u","l","d","dr","ur","ul","dl","o"}
+	local x,y,dir = level.values[XPOS],level.values[YPOS],level.values[DIR]
+
+	local result = tostring(dir) .. ","
+
+	for i,v in ipairs(dirs_diagonals) do
+		result = result .. dirids[i] .. ","
+
+		local ox,oy = v[1],v[2]
+
+		local tileid = (x + ox) + (y + oy) * roomsizex
+
+		if (unitmap[tileid] ~= nil) then
+			if (#unitmap[tileid] > 0) then
+				for a,b in ipairs(unitmap[tileid]) do
+					if (b ~= levelid) then
+						local unit = mmf.newObject(b)
+						local name = getname(unit)
+
+						result = result .. name .. ","
 					end
-					sublevel(levelfile,tonumber(levelnum),tonumber(leveltype))
-					
-					--These next six lines are just to switch the level while displaying the proper effects.
-					--I don't know what most of these lines do, they're taken from an example Hempuli posted once.
-					generaldata.values[TRANSITIONREASON] = 9
-					generaldata.values[IGNORE] = 1
-					generaldata3.values[STOPTRANSITION] = 1
-					generaldata2.values[UNLOCK] = 0
-					generaldata2.values[UNLOCKTIMER] = 0
-					MF_loop("transition",1)
-					
-					visit_innerlevelid = levelfound
-					
-					break
 				end
-				v = ""
 			else
-				v = v .. char
+				result = result .. "-" .. ","
 			end
+		else
+			result = result .. "-" .. ","
 		end
-	else
-		--If there's nowhere to visit to, destroy the current level instead (like Level Is Weak).
-		destroylevel()
-		destroylevel_do()
 	end
+
+	return result
 end
 
---getlevelsurrounds function override (called when entering a level on the map)
---Takes the tile ID of the level tile you're entering.
+--At the end of each turn, check for any Visit interactions
+--Done at the end of block instead of the turn_end modhook, because doing things after turn end requires messing with undos and sound effects
+local oldblock = block
+function block(small_)
+	oldblock(small_)
 
---[[ @Merge: getlevelsurrounds() was merged ]]
+	checkvisit()
+end
 
+--Function to check for You objects touching Visit objects, and perform a visit if so
+function checkvisit()
+	if (generaldata.values[WINTIMER] == 0) then --Don't visit if the player just won the level
+		--Get every object that is You/You2/3D
+		local isyou = ws_findPlayerUnits()
 
---Whenever a level is started, turn the full surrounds into regular surrounds that parsesurrounds can handle.
-table.insert(mod_hook_functions["level_start"],
-	function()
-		local result = ""
-	local stage = 0
-	local v = ""
+		--Each object should only trigger Visit once, so remove duplicate Yous
+		--(This handles cases where Baba Is You And You, as well as when two You objects touch the same Visit object)
+		local isyounodupes = {}
+		local storedyous = {}
+		for i,v in ipairs(isyou) do
+			if (storedyous[v] == nil) then
+				table.insert(isyounodupes, v)
+				storedyous[v] = true
+			end
+		end
 
-	--Can't use parsestring as the resulting table might end up too big.
-	for i = 1,#visit_fullsurrounds,1 do
-		local char = string.sub(visit_fullsurrounds,i,i)
-		if char == "," then
-			if v == "levelseparator" then
-				stage = 1
-			elseif stage == 1 and v == visit_innerlevelid then
-				stage = 2
-			elseif stage == 1 then
-				stage = 0
-			elseif stage == 2 then
-				stage = 3
-			elseif stage == 3 then
-				stage = 4
-			elseif stage == 4 then
-				stage = 5
-			elseif stage == 5 then
-				if v == "levelseparator" then
-					break
-				else
-					result = result .. v .. ","
+		local visiting = false
+		local visitdirs = {
+			right = 0,
+			up = 0,
+			left = 0,
+			down = 0
+		}
+		--For each You object, check if it's on a Visit object
+		for i,youunit in ipairs(isyounodupes) do
+			local youunitid = youunit.fixed
+			local youtargets = findallhere(youunit.values[XPOS], youunit.values[YPOS])
+			for j,visitunitid in ipairs(youtargets) do
+				if floating(youunitid, visitunitid) then
+					local unitvisitdirs, isvisit = getunitvisitdirs(visitunitid)
+					if isvisit then
+						visiting = true
+						visitdirs = addvisitdirs(visitdirs, unitvisitdirs)
+					end
+				end
+
+				--Check for Level Is Visit here
+				local levelvisitdirs, islevelvisit = getunitvisitdirs(1)
+				if islevelvisit and (floating_level(youunitid)) then
+					visiting = true
+					visitdirs = addvisitdirs(visitdirs, levelvisitdirs)
 				end
 			end
-			v = ""
-		else
-			v = v .. char
 		end
 
-		i = i + 1
-	end
+		--Do the same thing, but for empty tiles
+		--Empties can't overlap any normal objects, but can still be You And Visit, or You while the outerlevel is Visit
+		--Both of these cases should trigger Visit
+		local isyouempty = {}
+		for i,emptytile in ipairs(getemptytiles()) do
+			local x, y = emptytile[1], emptytile[2]
+			if (hasfeature("empty", "is", "you", 2, x, y)
+					or hasfeature("empty", "is", "you2", 2, x, y)
+					or hasfeature("empty", "is", "3d", 2, x, y)
+					or hasfeature("empty", "is", "alive", 2, x, y)
+					or hasfeature("empty", "is", "you+", 2, x, y)
+					or hasfeature("empty", "is", "puppet", 2, x, y)) then
+				table.insert(isyouempty, {x, y})
+			end
+		end
 
-	generaldata2.strings[LEVELSURROUNDS] = result
-	end
-)
+		for i,emptytile in ipairs(isyouempty) do
+			local x, y = emptytile[1], emptytile[2]
+			local emptyvisitdirs, isemptyvisit = getunitvisitdirs(2, x, y)
+			if (isemptyvisit) then
+				visiting = true
+				visitdirs = addvisitdirs(visitdirs, emptyvisitdirs)
+			end
 
---Override for uplevel to clear fullsurrounds (but not normal surrounds, as is base game behavior) on level exit.
---(There's no modhook for this.)
+			local levelvisitdirs, islevelvisit = getunitvisitdirs(1)
+			if islevelvisit and (floating_level(2, x, y)) then
+				visiting = true
+				visitdirs = addvisitdirs(visitdirs, levelvisitdirs)
+			end
+		end
 
---[[ @Merge: uplevel() was merged ]]
+		--If Level Is You, trigger a visit from every object and empty that is Visit
+		if ws_isLevelPlayer() then
+			for i,visitunit in ipairs(units) do
+				local visitunitid = visitunit.fixed
+				if floating_level(visitunitid) then
+					local unitvisitdirs, isvisit = getunitvisitdirs(visitunitid)
+					if isvisit then
+						visiting = true
+						visitdirs = addvisitdirs(visitdirs, unitvisitdirs)
+					end
+				end
+			end
 
+			for i,emptytile in ipairs(getemptytiles()) do
+				local x, y = emptytile[1], emptytile[2]
+				local emptyvisitdirs, isemptyvisit = getunitvisitdirs(2, x, y)
+				if isemptyvisit and floating_level(2, x, y) then
+					visiting = true
+					visitdirs = addvisitdirs(visitdirs, emptyvisitdirs)
+				end
+			end
+		end
 
---New function that is literally just a copy of the normal uplevel() function.
---This version doesn't clear visit_fullsurrounds.
-function uplevelkeepsurrounds()
-	local id = #leveltree
-	local parentid = #leveltree - 1
-	
-	local oldlevel = generaldata.strings[CURRLEVEL]
-	generaldata2.strings[PREVIOUSLEVEL] = oldlevel
-	MF_store("save",generaldata.strings[WORLD],"Previous",oldlevel)
-	latestleveldetails = {lnum = -1, ltype = -1}
-	
-	if (id == 0) then
-		MF_alert("Already at map root")
-		
-		if (generaldata.strings[WORLD] ~= generaldata.strings[BASEWORLD]) and (editor.values[INEDITOR] == 0) then
-			MF_end_single()
-			MF_credits(1)
+		--With all the visits collected, decide where the destination level is
+		if visiting then
+			local mappos = visit_mappositions[#visit_mappositions]
+			local visitoffx = visitdirs.right - visitdirs.left
+			local visitoffy = visitdirs.down - visitdirs.up
+
+			local visitdestx = mappos.x + visitoffx
+			local visitdesty = mappos.y + visitoffy
+
+			local destination = {}
+			local visitleveldepth = #visit_visitlevels
+			if (visit_visitlevels[visitleveldepth][visitdestx] ~= nil and visit_visitlevels[visitleveldepth][visitdestx][visitdesty] ~= nil) then
+				destination = visit_visitlevels[visitleveldepth][visitdestx][visitdesty]
+			end
+
+			if (#destination == 1) then
+				visit_mappositions[visitleveldepth] = {
+					x = visitdestx,
+					y = visitdesty
+				}
+				dovisit(destination[1])
+			elseif (#destination == 0) then
+				destroylevel()
+			else
+				visit_mappositions[visitleveldepth] = {
+					x = visitdestx,
+					y = visitdesty
+				}
+				visit_inputdisabled = true
+				generaldata.values[IGNORE] = 1
+				submenu("visit_multilevelmenu",destination)
+			end
 		end
 	end
-	
-	if (parentid > 1) then
-		generaldata.strings[PARENT] = leveltree[parentid - 1]
-	else
-		generaldata.strings[PARENT] = ""
-	end
-	
-	if (id > 1) then
-		generaldata.strings[CURRLEVEL] = leveltree[parentid]
-	else
-		generaldata.strings[CURRLEVEL] = ""
-	end
-	
-	table.remove(leveltree, id)
-	table.remove(leveltree_id, id)
-
-	return oldlevel
 end
 
---Override to changemenu to clear some strings when returning to the main menu. 
+--Re-enable input after disabling it for a frame to prevent inputs falling through to the level selection menu
+mod_hook_functions["always"]["visitmod"] = function()
+	if visit_inputdisabled then
+		visit_inputdisabled = false
+		generaldata.values[IGNORE] = 0
+	end
+end
 
---[[ @Merge: changemenu() was merged ]]
+--Set up the "visiting to stacked levels" menu
+--Derived from the enterlevel_multiple menu, found in editor_menudata.lua in the base game Editor folder
+menufuncs.visit_multilevelmenu = {
+	button = "VisitMultiLevel",
+	enter = function(parent,name,buttonid,extra)
+		MF_menubackground(true)
 
+		local x = screenw * 0.5
+		local y = f_tilesize * 6.5
 
---Override for the block function to add Visit.
+		writetext(langtext("enterlevel_multiple"),0,x,y,name,true,2)
 
---[[ @Merge: block() was merged ]]
+		y = y + f_tilesize * 1
 
+		editor2.values[MENU_YDIM] = #extra
 
---Override to levelblock to handle how Visit works with empties and the outerlevel.
---No documentation here because I already forgot how this part works.
+		local dynamic_structure = {}
 
---[[ @Merge: levelblock() was merged ]]
+		for i,v in ipairs(extra) do
+			y = y + f_tilesize * 1
 
+			local levelfile = v.file
 
---Override to effects to add the visit effect.
+			MF_setfile("level","Data/Worlds/" .. generaldata.strings[WORLD] .. "/" .. levelfile .. ".ld")
+			local levelname = MF_read("level", "general", "name")
 
---[[ @Merge: effects() was merged ]]
+			local blen,toobig = getdynamicbuttonwidth(levelname,16)
 
+			local buttonname = tostring(i) .. ",visit_multilevelmenu"
+			createbutton(buttonname,x,y,2,blen,1,levelname,name,3,2,buttonid,false,first)
+			table.insert(dynamic_structure, {{buttonname}})
+			buttonclick_list[buttonname] = function(buttonid)
+				dovisit(v)
+				closemenu()
+				MF_menubackground(false)
+				MF_cursorvisible(0)
+				for j,entry in pairs(buttonclick_list) do
+					if (string.sub(j, -21) == ",visit_multilevelmenu") then
+						buttonclick_list[j] = nil
+					end
+				end
+			end
+		end
 
---Override to doeffects to add a special rule for the visit effect (namely, basing it on the object's direction).
+		--Dynamic structure is necessary to make the menu keyboard friendly
+		--Without it, the selection icon baba won't appear in the menu
+		buildmenustructure(dynamic_structure)
+	end
+}
 
---[[ @Merge: doeffect() was merged ]]
+--Given a unitid, return a table containing how many times it is Visit in each direction.
+--Also returns true if it had any Visit property, or false if not.
+--x and y parameters are for empties and can be left out if the unit isn't Empty.
+function getunitvisitdirs(visitunitid, x_, y_)
+	local visitunitname
+	local dir
+	local x, y = x_, y_
+	if (visitunitid == 1) then
+		dir = mapdir --Note: mapdir is a base game global variable that stores the outerlevel's direction
+		visitunitname = "level"
+	elseif (visitunitid == 2) then
+		dir = emptydir(x, y)
+		if dir == 4 then
+			dir = math.random(0, 3)
+		end
+		visitunitname = "empty"
+	else
+		local visitunit = mmf.newObject(visitunitid)
+		dir = visitunit.values[DIR]
+		visitunitname = getname(visitunit)
+	end
+
+	local visitdirs = {
+		right = hasfeature_count(visitunitname, "is", "visitright", visitunitid, x, y),
+		up = hasfeature_count(visitunitname, "is", "visitup", visitunitid, x, y),
+		left =  hasfeature_count(visitunitname, "is", "visitleft", visitunitid, x, y),
+		down =  hasfeature_count(visitunitname, "is", "visitdown", visitunitid, x, y)
+	}
+
+	local visitdirlesscount = hasfeature_count(visitunitname, "is", "visit", visitunitid, x, y)
+	if (visitdirlesscount > 0) then
+		if (dir == 0) then
+			visitdirs.right = visitdirs.right + visitdirlesscount
+		elseif (dir == 1) then
+			visitdirs.up = visitdirs.up + visitdirlesscount
+		elseif (dir == 2) then
+			visitdirs.left = visitdirs.left + visitdirlesscount
+		elseif (dir == 3) then
+			visitdirs.down = visitdirs.down + visitdirlesscount
+		else
+			timedmessage("Visit: Warning, a Visit object's direction was " .. dir .. ". Report this to Btd456Creeper!")
+		end
+	end
+
+	if (visitdirs.right == 0) and (visitdirs.up == 0) and (visitdirs.left == 0) and (visitdirs.down == 0) then
+		return visitdirs, false
+	else
+		return visitdirs, true
+	end
+end
+
+--Function to add two visitdir tables (summing the values for each direction) and return the result
+function addvisitdirs(visitdirs1, visitdirs2)
+	local visitdirsout = {
+		right = 0,
+		up = 0,
+		left = 0,
+		down = 0
+	}
+
+	visitdirsout.right = visitdirs1.right + visitdirs2.right
+	visitdirsout.up = visitdirs1.up + visitdirs2.up
+	visitdirsout.left = visitdirs1.left + visitdirs2.left
+	visitdirsout.down = visitdirs1.down + visitdirs2.down
+
+	return visitdirsout
+end
+
+--Function to perform a visit, given a table containing level information
+function dovisit(target)
+	levelconversions = {} --Note: levelconversions is a global table storing what the level is going to turn into
+
+	changelevel(target.file, target.num, target.style)
+	generaldata.strings[LEVELNUMBER_NAME] = getlevelnumber()
+	generaldata2.strings[LEVELSURROUNDS] = target.surrounds
+
+	--Code provided by Hempuli - not sure what each of these lines do, but together they start a new level
+	generaldata.values[TRANSITIONREASON] = 9
+	generaldata.values[IGNORE] = 1
+	generaldata3.values[STOPTRANSITION] = 1
+	generaldata2.values[UNLOCK] = 0
+	generaldata2.values[UNLOCKTIMER] = 0
+	MF_loop("transition",1)
+end
+
+--Whenever a level is won, transformed, or otherwise exited, remove the Visit entries for one layer of the leveltree
+local olduplevel = uplevel
+function uplevel()
+	local out = olduplevel()
+
+	if (#visit_visitlevels > 0) then
+		table.remove(visit_visitlevels)
+	end
+	if (#visit_mappositions > 0) then
+		table.remove(visit_mappositions)
+	end
+
+	return out
+end
+
+--Add the Visit particle effect
+mod_hook_functions["effect_always"]["visitmod"] = function()
+	for i, visitunit in ipairs(units) do
+		if (math.random(5) == 1) then
+			local visitdirs, isvisit = getunitvisitdirs(visitunit.fixed)
+			if isvisit then
+				visitparticle(visitunit.values[XPOS], visitunit.values[YPOS], visitdirs)
+			end
+		end
+	end
+
+	local levelvisitdirs, islevelvisit = getunitvisitdirs(1)
+
+	for i, emptytile in ipairs(getemptytiles()) do
+		if (math.random(20) == 1) then
+			local x, y = emptytile[1], emptytile[2]
+			local emptyvisitdirs, isemptyvisit = getunitvisitdirs(2, x, y)
+			if isemptyvisit then
+				visitparticle(x, y, emptyvisitdirs)
+			end
+		end
+
+		if islevelvisit and (math.random(20) == 1) then
+			visitparticle(x, y, emptyvisitdirs)
+		end
+	end
+end
+
+--Function to spawn a single Visit particle with the given directions.
+function visitparticle(x, y, visitdirs)
+	local vx = visitdirs.right - visitdirs.left
+	local vy = visitdirs.down - visitdirs.up
+
+	local particleid = MF_particle("unlock", x, y, 0, 3, 1)
+	local particle = mmf.newObject(particleid)
+	local px, py = particle.x, particle.y
+
+	particle.values[ONLINE] = 2
+
+	--These four lines look somewhat unnecessary, but seems to be required after changing the particle's ONLINE value to 2.
+	particle.x = px
+	particle.values[XPOS] = px
+	particle.y = py
+	particle.values[YPOS] = py
+
+	particle.values[XVEL] = (math.random() * 4 - 2) + 7 * vx
+	particle.values[YVEL] = (math.random() * 4 - 2) + 7 * vy
+end
+
+--When exiting a levelpack, re-initialise the game to prevent Visit data from persisting outside of the levelpack
+local oldchangemenu = changemenu
+function changemenu(menuitem, extra)
+	oldchangemenu(menuitem, extra)
+
+	if menuitem == "main" then
+		visit_visitlevels = nil
+		visit_mappositions = nil
+		visit_tempmappos = nil
+		visit_inputdisabled = nil
+		mod_hook_functions["always"]["visitmod"] = nil
+		mod_hook_functions["effect_always"]["visitmod"] = nil
+		getlevelsurrounds = oldgetlevelsurrounds
+		sublevel = oldsublevel
+		block = oldblock
+		uplevel = olduplevel
+		changemenu = oldchangemenu
+		menufuncs.visit_multilevelmenu = nil
+	end
+end
