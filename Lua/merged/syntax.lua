@@ -425,6 +425,8 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 		end
 	end
 	local test = {}
+
+	local x,y
 	
 	if (x_ ~= nil) and (y_ ~= nil) and (id_ ~= nil) then
 		local check = findtype(matdata,x_,y_,id_)
@@ -436,6 +438,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 				end
 			end
 		end
+		x,y = x_,y_
 	end
 	
 	if (#all > 0) then
@@ -467,7 +470,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 										table.insert(resultIds, nunitid) -- EDIT
 										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
 										
-										if (is_str_broad_noun(matdata[1])) or (get_pref(matdata[1]) ~= "") or (matdata[1] == "level") or (matdata[1] == "glyph") then
+										if (is_str_broad_noun(matdata[1])) or (get_pref(matdata[1]) ~= "") or (matdata[1] == "level") then
 											table.insert(delthese, v)
 										end
 									end
@@ -546,7 +549,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 		
 		if (blocked["all"] == nil) and ((matdata[2] == nil) or testcond(matdata[2],1)) then
 			for b,unit in pairs(objectlist) do
-				if (findnoun(b,nlist.brief) == false) and (b ~= "empty") and (b ~= "level") and (blocked[target] == nil) then
+				if (findnoun(b) == false) and (b ~= "empty") and (b ~= "level") and (blocked[b] == nil) then
 					table.insert(levelconversions, {b, {}})
 				end
 			end

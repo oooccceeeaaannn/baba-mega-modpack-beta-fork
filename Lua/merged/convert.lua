@@ -892,7 +892,11 @@ function convert(stuff,mats,dolevels_)
 	
 	if (mat1 == "level") and dolevels then
 		for i,v in ipairs(mats) do
-			table.insert(levelconversions, v)
+			if (v[1] ~= "createall") or ((v[3] ~= nil) and (v[3] ~= "is")) then
+				table.insert(levelconversions, v)
+			else
+				createall({"level", v[2]},nil,nil,1,true)
+			end
 		end
 	end
 end

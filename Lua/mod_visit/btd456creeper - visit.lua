@@ -375,13 +375,17 @@ function checkvisit()
 			local visitoffx = visitdirs.right - visitdirs.left
 			local visitoffy = visitdirs.down - visitdirs.up
 
-			local visitdestx = mappos.x + visitoffx
-			local visitdesty = mappos.y + visitoffy
-
 			local destination = {}
-			local visitleveldepth = #visit_visitlevels
-			if (visit_visitlevels[visitleveldepth][visitdestx] ~= nil and visit_visitlevels[visitleveldepth][visitdestx][visitdesty] ~= nil) then
-				destination = visit_visitlevels[visitleveldepth][visitdestx][visitdesty]
+
+			if mappos ~= nil then
+				local visitdestx = mappos.x + visitoffx
+				local visitdesty = mappos.y + visitoffy
+
+
+				local visitleveldepth = #visit_visitlevels
+				if (visit_visitlevels[visitleveldepth][visitdestx] ~= nil and visit_visitlevels[visitleveldepth][visitdestx][visitdesty] ~= nil) then
+					destination = visit_visitlevels[visitleveldepth][visitdestx][visitdesty]
+				end
 			end
 
 			if (#destination == 1) then

@@ -16,43 +16,43 @@ function createall_single(unitid,conds,x_,y_,id_,dolevels_,leveldata_)
 	
 	local vunit
 	local x,y,dir,name,id = x_,y_,4,"",id_
-	
-	if (unitid ~= 2) then
+
+	if (unitid ~= 2) and (unitid ~= 1) then
 		vunit = mmf.newObject(unitid)
 		x,y,dir,id = vunit.values[XPOS],vunit.values[YPOS],vunit.values[DIR],vunit.values[ID]
-		name = getname(vunit, "text")
-		if string.sub(name,1,6) == "glyph_" then
-			name = "glyph"
-		end
-	else
+		name = get_broad_name(vunit)
+	elseif (unitid == 2) then
 		name = "empty"
 		dir = emptydir(x,y)
 		if (dir == 4) then
 			dir = fixedrandom(0,3)
 		end
+	else
+		name = "level"
+		dir = mapdir
 	end
-	
+
 	for b,unit in pairs(objectlist) do
 		if (findnoun(b) == false) and (b ~= name) then
 			local protect = hasfeature(name,"is","not " .. b,unitid,x,y)
-			
+
 			if (protect == nil) then
 				local mat = findtype({b},x,y,unitid)
 				--local tmat = findtext(x,y)
-				
+
 				if (#mat == 0) then
 					local nunitid,ningameid = create(b,x,y,dir,nil,nil,nil,nil,leveldata)
 					addundo({"convert",name,mat,ningameid,id,x,y,dir})
-					
+
 					local nunit = mmf.newObject(nunitid)
-					
+
 					if (unitid ~= 2) then
 						nunit.originalname = vunit.originalname
 					else
 						nunit.originalname = "empty"
 					end
-					
-					if (name == "text") or (name == "level") or (name =="glyph") then
+
+					if is_str_broad_noun(name) or (name == "level") then
 						delthis = true
 					end
 				end

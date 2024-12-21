@@ -456,7 +456,7 @@ olddoconvert = doconvert
 -- @Merge(injection)
 function doconvert(data, extrarule_)
 	local unitid = data[1]
-	if unitid ~= 2 then
+	if (unitid ~= 2) and (unitid ~= 1) then
 		local unit = mmf.newObject(unitid)
 		if unit.strings[UNITNAME] == "" then
 			return
