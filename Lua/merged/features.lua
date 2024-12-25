@@ -647,7 +647,7 @@ function getunitswithverb(rule2, ignorethese_, checkedconds)
 		end
 
 		for i, v in pairs(group) do
-			if (string.sub(i, 1, 4) ~= "not ") and i ~= "text" and string.sub(i, 1, 4) ~= "meta" then -- changed line
+			if (string.sub(i, 1, 4) ~= "not ") and not is_str_broad_noun(i) and string.sub(i, 1, 4) ~= "meta" then -- changed line
 				if (i ~= "empty") then
 					local name = i
 					local fgroupmembers = unitlists[name]

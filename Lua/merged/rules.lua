@@ -2187,16 +2187,16 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						end
 					end
 				else
-				for i,mat in pairs(objectlist) do
-					if (i ~= targetnot_) and (findnoun(i) == false) then
-						local rule = {i,verb,effect}
-						local newconds = {}
-						for a,b in ipairs(conds) do
-							table.insert(newconds, b)
+					for i,mat in pairs(objectlist) do
+						if (i ~= targetnot_) and (findnoun(i) == false) then
+							local rule = {i,verb,effect}
+							local newconds = {}
+							for a,b in ipairs(conds) do
+								table.insert(newconds, b)
+							end
+							addoption(rule,newconds,ids,false,{effect,#featureindex[effect]},tags)
 						end
-						addoption(rule,newconds,ids,false,{effect,#featureindex[effect]},tags)
 					end
-				end
 				end
 			else
 				local mats = {"empty","text","glyph","node","event","logic"}

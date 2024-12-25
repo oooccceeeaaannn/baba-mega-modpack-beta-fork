@@ -1215,6 +1215,11 @@ function findtype(typedata,x,y,unitid_,just_testing_,group_text_together_)
 	 ]]
 	local group_text_together = group_text_together_ or false
 
+	local meta = ""
+	if group_text_together then
+		meta = name
+	end
+
 	if (unitid_ ~= nil) then
 		unitid = unitid_
 	end
@@ -1224,7 +1229,7 @@ function findtype(typedata,x,y,unitid_,just_testing_,group_text_together_)
 			if (v ~= unitid) then
 				local unit = mmf.newObject(v)
 
-				if getname(unit,name) == name then
+				if getname(unit,meta) == name then
 					if testcond(conds,v) then
 						table.insert(result, v)
 
