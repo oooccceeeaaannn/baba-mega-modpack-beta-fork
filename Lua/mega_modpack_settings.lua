@@ -7,7 +7,7 @@ local mod_list = {
     {name = "Patashu's Modpack",    author = "Patashu",                 color={3,1}},
     {name = "Persist",              author = "Randomizer",              color={0,3}},
     {name = "Past, Metatext, Delete",author = "EmilyEmmi",              color={3,1}},
-    {name = "Stringwords, TRASH, Events",author = "Wrecking Games",      color={3,4}},
+    {name = "Stringwords, TRASH, Events",author = "Wrecking Games",     color={3,4}},
     {name = "Cardinality Mod",      author = "JustImagineYT",           color={3,4}},
     {name = "Word Salad",           author = "Huebird",                 color={2,1}},
     {name = "Visit, Glitch",        author = "Btd456Creeper",           color={0,3}},
@@ -29,6 +29,8 @@ function apply_misc_settings(settings_dict)
             end
         elseif setting_name == "enable_colored_rules" then
             SPLITRULETYPES = value
+        elseif setting_name == "old_node" then
+            NODE_LEGACY_PARSING = value
         end
     end
 end
@@ -200,8 +202,15 @@ local mod_setting_data = {
                 buttonfunc = "misc_colored_rules",
                 tooltip = "When set to \"true\", rules made by different parsers will be marked with different prefixes in the rules list, and will the coloured accordingly.",
             },
+            old_node = {
+                name = "old_node",
+                display = "Enable legacy Node parsing",
+                default = 0,
+                buttonfunc = "misc_old_node",
+                tooltip = "Enables the legacy Node parsing that parses in chains instead of trees.",
+            },
         },
-        settings_order = {"enable_toometa","enable_colored_rules"}
+        settings_order = {"enable_toometa","enable_colored_rules", "old_node",}
     }
 }
 local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper", "shrugsimontiger", "misc"}

@@ -1,6 +1,7 @@
 PF_MEGA_MODPACK_INITIALIZED = true
 disable_toometa = true
 SPLITRULETYPES = false
+NODE_LEGACY_PARSING = false
 
 -- These are initialized in the respective modpacks
 -- table.insert(objlistdata.alltags, "plasma's mods")
