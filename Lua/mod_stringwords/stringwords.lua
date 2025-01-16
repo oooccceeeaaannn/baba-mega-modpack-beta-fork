@@ -53,11 +53,11 @@ local function get_match_times(str, subs)
 end
 
 local function bool_xor(a, b)
-	if a then return not b end
-	return b
+	return a ~= b
 end
 
-letters_for_stringwords = {"text_","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","ba","ab","sharp","flat"}
+letters_for_stringwords = {"text_","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","ba","ab","sharp","flat",
+	"will","be","have","?","!",".","+"}
 --Add entries to this table if you want other 2-letter words with text type 5 to appear in starts
 
 table.insert(editor_objlist_order, "text_starts")
