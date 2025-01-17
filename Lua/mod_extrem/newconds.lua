@@ -773,8 +773,13 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 				local ray_exists = false
 				for ray_unitid, _ in pairs(raycast_units) do
 					ray_exists = true
-					local ray_unit = mmf.newObject(ray_unitid)
-					local ray_name = ray_unit.strings[UNITNAME]
+					local ray_name
+					if ray_unitid == 2 then
+						ray_name = "empty"
+					else
+						local ray_unit = mmf.newObject(ray_unitid)
+						ray_name = ray_unit.strings[UNITNAME]
+					end
 					if not (get_ref(unitname) == ray_name) then return false end
 				end
 				return ray_exists, checkedconds
@@ -791,8 +796,13 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 			local ray_exists = false
 			for ray_unitid, _ in pairs(raycast_units) do
 				ray_exists = true
-				local ray_unit = mmf.newObject(ray_unitid)
-				local ray_name = ray_unit.strings[UNITNAME]
+                local ray_name
+                if ray_unitid == 2 then
+                    ray_name = "empty"
+                else
+                    local ray_unit = mmf.newObject(ray_unitid)
+                    ray_name = ray_unit.strings[UNITNAME]
+                end
 				if not ((hasfeature(unitname,"is","word",ray_unitid) or hasfeature(unitname,"is","symbol",ray_unitid)) and (unitname == ray_name)) then
 					return false, checkedconds
 				end
