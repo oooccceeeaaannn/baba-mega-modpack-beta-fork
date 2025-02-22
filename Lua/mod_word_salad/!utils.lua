@@ -871,7 +871,7 @@ function ws_findechounits()
 			if (rule[2] == "is") then	-- Only rules of the type "x IS echo" are valid
 				if (objectlist[name] ~= nil) and (name ~= "text") and (alreadydone[name] == nil) then -- TEXT can't be ECHO
 					local these = findall({name,{}}) -- Find all unit ids with the given name and no conditions
-					alreadydone[name] = 1 -- This specific name is already checked (prevents checking for ECHO KEKEs twice for example)
+					--alreadydone[name] = 1 -- This specific name is already checked (prevents checking for ECHO KEKEs twice for example). This breaks if there are 2 echo rules w/ different conds.
 					
 					if (#these > 0) then -- If there are objects
 						for _,b in ipairs(these) do

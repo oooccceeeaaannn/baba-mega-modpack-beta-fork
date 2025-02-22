@@ -1,4 +1,8 @@
+LOGICRULECOUNT = 0
+LOGICPARSES = 0
+
 --[[LOGIC TYPE GUIDE:
+-5 = Letter
 -4 = Distance Connect
 -3 = Send
 -2 = Recieve
@@ -17,10 +21,13 @@
 11 = Halt
 12 = Omni Halt
 13 = Distance Omni Connecter
-]]
+14 = Duel Output
+15 = And]]
 
 
 function dologic(flowunits)
+	LOGICRULECOUNT = 0
+    LOGICPARSES = 0
 	for a,b in ipairs(units) do
 		local bunitid = b.fixed
 		local bname = b.strings[UNITNAME]
@@ -41,10 +48,10 @@ function dologic(flowunits)
 		
 		if string.sub(bname, 1, 6) == "logic_" then
 			if logic_types[bname] == 4 or logic_types[bname] == 10 then
-				local next = findadjacentlogicsindir(b.values[XPOS], b.values[YPOS], {0, 7}, b.values[DIR])
+				local next = findadjacentlogicsindir(b.values[XPOS], b.values[YPOS], {-5, 0, 7}, b.values[DIR])
 
 				if logic_types[bname] == 10 then
-					next = findadjacentlogics(b.values[XPOS], b.values[YPOS], {0, 7})
+					next = findadjacentlogics(b.values[XPOS], b.values[YPOS], {-5, 0, 7})
 				end
 
 				if (next ~= nil) then
@@ -246,13 +253,28 @@ end
 
 function clonetable(t)
 	local t2 = {}
-		for k,v in pairs(t) do
-			t2[k] = v
-    		end
+
+	for k,v in pairs(t) do
+		t2[k] = v
+    end
+	
 	return t2
 end
 
-function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
+function parselogic(unitid,prev,ids,basicrule,conds,flowunits,extra,extrab)
+	LOGICPARSES = LOGICPARSES + 1
+
+	if LOGICPARSES > 1000 then
+		destroylevel("toocomplex")
+
+		for a,b in ipairs(features) do
+			if b[4][1] == "logic" then
+				table.remove(features,a)
+			end
+		end
+		return
+	end
+
 	local currentids = ids
 
 	if currentids == nil then
@@ -414,7 +436,12 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				LOGICRULECOUNT = LOGICRULECOUNT + 1
+
+				if LOGICRULECOUNT > 200 then
+					destroylevel("toocomplex")
+				end
 			end
 		elseif prev == "notverb" then
 			table.insert(nextrule, "not "..string.sub(name, 7))
@@ -445,7 +472,13 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				LOGICRULECOUNT = LOGICRULECOUNT + 1
+
+
+				if LOGICRULECOUNT > 200 then
+					destroylevel("toocomplex")
+				end
 			end
 		end
 	elseif (type == 1) then
@@ -459,7 +492,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 				local bunit = mmf.newObject(b)
 
 				if bunit ~= nil then
-					parselogic(b, "verb", nextids, nextrule, nextconds, flowunits, logic_argtypes[name])
+					parselogic(b, "verb", nextids, nextrule, nextconds, flowunits, arg)
 				end
 			end
 		end
@@ -482,7 +515,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
 							hasconnect = true
 						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
+						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 or logic_types[bunit.strings[UNITNAME]] == 14 then
 							hasboolean = true
 						end
 						if findhalt(bunit) then
@@ -493,7 +526,12 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				LOGICRULECOUNT = LOGICRULECOUNT + 1
+
+				if LOGICRULECOUNT > 200 then
+					destroylevel("toocomplex")
+				end
 			end
 		elseif prev == "notverb" then
 			table.insert(nextrule, "not "..string.sub(name, 7))
@@ -513,7 +551,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 						if logic_types[bunit.strings[UNITNAME]] == -1 or logic_types[bunit.strings[UNITNAME]] == 9 or logic_types[bunit.strings[UNITNAME]] == -2 or logic_types[bunit.strings[UNITNAME]] == -4 or logic_types[bunit.strings[UNITNAME]] == 13 then
 							hasconnect = true
 						end
-						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 then
+						if logic_types[bunit.strings[UNITNAME]] == 5 or logic_types[bunit.strings[UNITNAME]] == 8 or logic_types[bunit.strings[UNITNAME]] == 14 then
 							hasboolean = true
 						end
 						if findhalt(bunit) then
@@ -524,11 +562,16 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				LOGICRULECOUNT = LOGICRULECOUNT + 1
+
+				if LOGICRULECOUNT > 200 then
+					destroylevel("toocomplex")
+				end
 			end
 		end
 	elseif (type == 3) then
-		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8}, flowunits)
+		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8, 14}, flowunits)
 		local params = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], logic_argtypes[name], flowunits)
 
 		if temp ~= nil then
@@ -540,7 +583,9 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 					local cond = string.sub(name,7)
 
 					if string.sub(bname,-5) == "false" then
-						cond = "not "..cond
+						if logic_types[bname] ~= 14 then
+							cond = "not "..cond
+						end
 					end
 
 					local paramnames = {}
@@ -554,8 +599,14 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 					end
 
 					if #paramnames > 0 then
-						table.insert(nextconds, {cond, paramnames})
-						parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+						if logic_types[bname] ~= 14 then
+							if string.sub(bname,-4) ~= "null" then
+								table.insert(nextconds, {cond, paramnames})
+							end
+							parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+						else
+							parselogic(b,"cond", nextids, nextrule, nextconds, flowunits, {cond, paramnames}, {"not "..cond, paramnames})
+						end
 					end
 				end
 			end
@@ -568,7 +619,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 			end
 		end
 	elseif (type == 6) then
-		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8}, flowunits)
+		local temp = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {5, 8, 14}, flowunits)
 
 		if temp ~= nil then
 			for a,b in ipairs(temp) do
@@ -579,28 +630,52 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 					local cond = string.sub(name,7)
 
 					if string.sub(bname,-5) == "false" then
-						cond = "not "..cond
+						if logic_types[bname] ~= 14 then
+							cond = "not "..cond
+						end
 					end
 
-					table.insert(nextconds, {cond,{}})
-					parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+					if logic_types[bname] ~= 14 then
+						if string.sub(bname,-4) ~= "null" then
+							table.insert(nextconds, {cond,{}})
+						end
+						parselogic(b,"cond", nextids, nextrule, nextconds, flowunits)
+					else
+						parselogic(b,"cond", nextids, nextrule, nextconds, flowunits, {cond, {}}, {"not "..cond, {}})
+					end
 				end
 			end
 		end
 	elseif (type == 7) then
 		if prev == "start" then
-			local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {0}, flowunits)
+			local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {0,7}, flowunits)
 			for a,b in ipairs(next) do
 				if b ~= nil then
 					parselogic(b,"not", nextids, nextrule, nextconds, flowunits)
 				end
 			end
+		elseif prev == "not" then
+			local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], {0,7}, flowunits)
+			for a,b in ipairs(next) do
+				if b ~= nil then
+					parselogic(b,"start", nextids, nextrule, nextconds, flowunits)
+				end
+			end
 		elseif prev == "verb" then
-			if verbarg ~= nil then
-				local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], verbarg, flowunits)
+			if extra ~= nil then
+				local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], extra, flowunits)
 				for a,b in ipairs(next) do
 					if b ~= nil then
-						parselogic(b,"notverb", nextids, nextrule, nextconds, flowunits)
+						parselogic(b,"notverb", nextids, nextrule, nextconds, flowunits, extra)
+					end
+				end
+			end
+		elseif prev == "notverb" then
+			if extra ~= nil then
+				local next = findadjacentlogics(unit.values[XPOS], unit.values[YPOS], extra, flowunits)
+				for a,b in ipairs(next) do
+					if b ~= nil then
+						parselogic(b,"verb", nextids, nextrule, nextconds, flowunits, extra)
 					end
 				end
 			end
@@ -652,6 +727,68 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,verbarg)
 							parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
 						end
 					end
+				end
+			end
+		end
+	elseif (type == 14) then
+		if unit.strings[UNITNAME] == "logic_truefalse" then
+			local next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, unit.values[DIR], flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extra)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				end
+			end
+
+			next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, (unit.values[DIR] + 2) % 4, flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extrab)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				end
+			end
+		else
+			local next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, unit.values[DIR], flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extra)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				end
+			end
+
+			next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, (unit.values[DIR] + 2) % 4, flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extra)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				end
+			end
+
+			next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, (unit.values[DIR] + 1) % 4, flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extrab)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
+				end
+			end
+
+			next = findadjacentlogicsindir(unit.values[XPOS], unit.values[YPOS], {-4, -3, -1, 1, 3, 6, 9, 13}, (unit.values[DIR] + 3) % 4, flowunits)
+
+			for a,b in ipairs(next) do
+				nextconds = clonetable(currentconds)
+				if b ~= nil then
+					table.insert(nextconds, extrab)
+					parselogic(b,"connect", nextids, nextrule, nextconds, flowunits)
 				end
 			end
 		end

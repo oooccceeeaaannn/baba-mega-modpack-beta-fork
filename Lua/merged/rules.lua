@@ -2904,7 +2904,6 @@ function findwordunits()
 		@mods(stable) - Override reason: change findall() call to convey "I just want to get all wordunits"
 	 ]]
 	local result = {}
-	local alreadydone = {}
 	local checkrecursion = {}
 	local related = {}
 	
@@ -2921,10 +2920,9 @@ function findwordunits()
 			local subid = ""
 			
 			if (rule[2] == "is") then
-				if ((fullunitlist[name] ~= nil) or (is_str_broad_noun(name))) and (name ~= "text") and (metatext_textisword or string.sub(name,1,5) ~= "text_") and (alreadydone[name] == nil) then
+				if ((fullunitlist[name] ~= nil) or (is_str_broad_noun(name))) and (name ~= "text") and (metatext_textisword or string.sub(name,1,5) ~= "text_") then
 					-- @mods(stable) originally it was "findall({name, {}})". But we are assuming that passing nil conds = don't test conditions.
 					local these = findall({name})
-					alreadydone[name] = 1
 					
 					if (#these > 0) then
 						for a,b in ipairs(these) do

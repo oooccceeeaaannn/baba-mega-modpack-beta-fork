@@ -153,6 +153,9 @@ addlogic("mimic",1,{2,1},{2,2},{0},-1)
 addlogic("write",1,{0,1},{0,3},{0,2},-1)
 addlogic("log",1,{0,1},{0,3},{0,2},-1)
 
+--and
+addlogic("and", 15, { 0, 1 }, { 0, 3 }, { 0, 2 }, -1)
+
 --prefixes
 addlogic("idle",6,{2,2},{2,3},{},-1)
 addlogic("lonely",6,{2,1},{2,2},{},-1)
@@ -180,6 +183,10 @@ addlogic("true",5,{5,1},{5,3},{},0)
 addlogic("omnitrue",8,{1,2},{1,4},{},-1)
 addlogic("false",5,{2,1},{2,2},{},0)
 addlogic("omnifalse",8,{2,2},{2,3},{},-1)
+addlogic("null", 5, { 0, 1 }, { 0, 2 }, {}, 0)
+addlogic("omninull", 8, { 0, 2 }, { 0, 3 }, {}, -1)
+addlogic("truefalse", 14, { 3, 0 }, { 3, 1 }, {}, 0)
+addlogic("opposite", 14, { 3, 0 }, { 3, 1 }, {}, 0)
 
 --not
 addlogic("not",7,{2,1},{2,2},{},-1)
@@ -229,6 +236,8 @@ addlogic("door",0,{2,1},{2,2},{},-1)
 addlogic("key",0,{6,1},{2,4},{},-1)
 addlogic("square",0,{4,0},{4,1},{},-1)
 addlogic("circle",0,{5,2},{5,3},{},-1)
+addlogic("triangle", 0, { 3, 2 }, { 3, 3 }, {}, -1)
+addlogic("love", 0, { 4, 1 }, { 4, 2 }, {}, -1)
 addlogic("fruit",0,{2,1},{2,2},{},-1)
 addlogic("tree",0,{5,1},{5,2},{},-1)
 addlogic("trees",0,{5,1},{5,2},{},-1)
@@ -242,6 +251,10 @@ addlogic("cliff",0,{6,1},{6,2},{},-1)
 addlogic("star",0,{6,1},{2,4},{},-1)
 addlogic("moon",0,{6,1},{2,4},{},-1)
 addlogic("dust",0,{6,1},{2,4},{},-1)
+addlogic("flower", 0, { 3, 2 }, { 3, 3 }, {}, -1)
+addlogic("leaf", 0, { 6, 1 }, { 2, 4 }, {}, -1)
+addlogic("reed", 0, { 6, 1 }, { 6, 2 }, {}, -1)
+addlogic("fence", 0, { 6, 1 }, { 6, 2 }, {}, -1)
 
 --props
 addlogic("you",2,{4,0},{4,1},{},-1)
@@ -290,6 +303,8 @@ addlogic("power",2,{6,1},{2,4},{},-1)
 addlogic("power2",2,{5,2},{5,3},{},-1)
 addlogic("power3",2,{3,2},{4,4},{},-1)
 addlogic("refers",3,{0,1},{0,3},{0,2},-1)
+addlogic("done", 2, { 0, 1 }, { 0, 3 }, {}, -1)
+--addlogic("word",2,{0,1},{0,3},{},-1)
 
 formatobjlist()
 
@@ -783,6 +798,112 @@ function checkflowchanges(unitid,unitname)
 			end
 		end
 	end
+end
+
+function editor_objects_build(search_, tags_)
+    editor_objects = {}
+
+    if (search_ ~= nil) then
+        if (editor2.values[OBJLISTTYPE] == 1) then
+            objlistdata.search_currobjlist = search_
+            editor4.strings[SEARCHSTRING_CURROBJLIST] = search_
+        else
+            objlistdata.search = search_
+            editor2.strings[SEARCHSTRING] = search_
+        end
+    end
+
+    local database = editor_objlist
+
+    if (editor2.values[OBJLISTTYPE] == 1) then
+        database = editor_currobjlist
+    end
+
+    if (tags_ ~= nil) then
+        if (editor2.values[OBJLISTTYPE] == 1) then
+            objlistdata.tags_currobjlist = tags_
+        else
+            objlistdata.tags = tags_
+        end
+    end
+
+    local tags = {}
+    local search = objlistdata.search
+
+    if (editor2.values[OBJLISTTYPE] == 1) then
+        tags = objlistdata.tags_currobjlist
+        search = objlistdata.search_currobjlist
+    else
+        tags = objlistdata.tags
+    end
+
+    if (#tags == 0) then
+        editor4.strings[CURRENTTAGS] = ""
+    end
+
+    local objectreference = objlistdata.objectreference
+
+    local j = 0
+    for i, vv in pairs(database) do
+        local v = vv
+        local i_ = tonumber(i) or i
+        j = j + 1
+
+        if (editor2.values[OBJLISTTYPE] == 1) then
+            local objid = tonumber(vv.id) or vv.id
+            v = editor_objlist[objid]
+            i_ = objid
+        else
+            local current = editor_objlist_order[j]
+            local objlist_target = editor_objlist_reference[current]
+            local objid = tonumber(objlist_target) or objlist_target
+            i_ = objid
+            v = editor_objlist[objid]
+        end
+
+        local n = v.name
+        local t = v.tags
+        local s = v.special or false
+        local adv = v.advanced or false
+        local redact = v.redacted or false
+
+        if (redact == false) then
+            if ((editor2.values[OBJLISTTYPE] == 1) or ((s == false) or (editor2.values[EXTENDEDMODE] == 1)) and ((adv == false) or (editor2.values[ADVANCEDWORDS] == 1))) then
+                local valid = true
+
+                if (string.len(search) > 0) then
+                    local n_ = get_ref(n)
+
+                    if (string.find(n_, search) == nil) then
+                        valid = false
+                    end
+                end
+
+                if valid then
+                    if (#tags > 0) then
+                        for a, b in ipairs(tags) do
+                            local found = false
+
+                            for c, d in ipairs(t) do
+                                if (d == b) then
+                                    found = true
+                                end
+                            end
+
+                            if (found == false) then
+                                valid = false
+                                break
+                            end
+                        end
+                    end
+
+                    if valid then
+                        table.insert(editor_objects, { objlistid = i_, databaseid = i })
+                    end
+                end
+            end
+        end
+    end
 end
 
 local meta_table = {
