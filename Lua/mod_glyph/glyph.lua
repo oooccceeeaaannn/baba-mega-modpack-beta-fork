@@ -1,4 +1,3 @@
-disable_text_metatext = false
 enable_functional_glyph_text_ = true
 
 text_and_glyph = {

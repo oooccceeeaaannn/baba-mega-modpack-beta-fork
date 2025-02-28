@@ -1,4 +1,4 @@
-local mega_modpack_version = "1.12"
+local mega_modpack_version = "1.15"
 local mega_modpack_name = string.format("Mega Modpack V%s - by Plasmaflare and Ocean", mega_modpack_version)
 local mega_modpack_name_with_color = string.format("Mega Modpack V%s - by $1,4Plasma$3,4flare$0,3 and Ocean", mega_modpack_version)
 
@@ -22,11 +22,9 @@ local mod_list = {
 function apply_misc_settings(settings_dict)
     for setting_name, value in pairs(settings_dict) do
         if setting_name == "enable_toometa" then
-            if value == 1 then
-                disable_toometa = false
-            else
-                disable_toometa = true
-            end
+            disable_toometa = not value
+        elseif setting_name == "no_text_metatext" then
+            disable_text_metatext = value
         elseif setting_name == "enable_colored_rules" then
             SPLITRULETYPES = value
         elseif setting_name == "old_node" then
@@ -195,6 +193,13 @@ local mod_setting_data = {
                 buttonfunc = "misc_toometa",
                 tooltip = "Enables the toometa feature from glyph mod when true. Enable when you don't need metatext.",
             },
+            no_text_metatext = {
+                name = "no_text_metatext",
+                display = "Disable text_metatext",
+                default = 0,
+                buttonfunc = "misc_no_text_metatext",
+                tooltip = "When on, replaces glyph_text_ with glyph_metatext, and text_metatext with the text_ prefix.",
+            },
             enable_colored_rules = {
                 name = "enable_colored_rules",
                 display = "Enable parser-based rule coloring",
@@ -210,7 +215,7 @@ local mod_setting_data = {
                 tooltip = "Enables the legacy Node parsing that parses in chains instead of trees.",
             },
         },
-        settings_order = {"enable_toometa","enable_colored_rules", "old_node",}
+        settings_order = {"enable_toometa","no_text_metatext","enable_colored_rules", "old_node",}
     }
 }
 local mod_setting_order = {"patashu", "word_salad", "persist", "btd456creeper", "shrugsimontiger", "misc"}
