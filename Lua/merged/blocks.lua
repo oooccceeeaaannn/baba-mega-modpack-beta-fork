@@ -2430,7 +2430,7 @@ function block(small_)
 
 					if domake then
 						for i, j in ipairs(buildthese) do
-							if (not is_str_broad_noun(j)) and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "level" then
+							if (not is_str_broad_noun(j)) and j ~= "empty" and j ~= "all" and string.sub(j,1,4) ~= "not " and j ~= "glitch" then
 								create(j,x,y,dir,x,y,nil,nil,leveldata)
 								if is_str_special_prefixed(j) then
 									updatecode = 1

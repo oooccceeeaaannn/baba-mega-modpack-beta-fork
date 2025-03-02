@@ -149,7 +149,7 @@ function findclassunits()
         if (found == false) then
             --MF_alert("Wordunit status for " .. b .. " is unstable!")
             identifier = "null"
-            wordunits = {}
+            classunits = {}
 
             for i,v in pairs(featureindex["class"]) do
                 local rule = v[1]

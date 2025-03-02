@@ -2150,7 +2150,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		
 		if (targetnot == "not ") and (objectlist[targetnot_] ~= nil) and (string.sub(targetnot_, 1, 5) ~= "group") and (string.sub(effect, 1, 5) ~= "group") and (string.sub(effect, 1, 9) ~= "not group") or (((string.sub(effect, 1, 5) == "group") or (string.sub(effect, 1, 9) == "not group")) and (targetnot_ == "all")) then
 			if (targetnot_ ~= "all") then
-				if (get_pref(targetnot_) ~= "") then
+				if (is_str_special_prefixed(targetnot_)) then
 					local pref = get_pref(targetnot_)
 					for i,mat in pairs(fullunitlist) do
 						if (i ~= targetnot_) and (get_pref(i) == pref) then
@@ -2553,7 +2553,7 @@ function code(alreadyrun_)
 	end
     -- print("running code() with updatecode = ", updatecode)
 
-	local event_rules = event_code()
+	local event_rules = event_code({})
 	if (updatecode == 1) or event_rules then
 		HACK_INFINITY = HACK_INFINITY + 1
 		--MF_alert("code being updated!")
@@ -2576,15 +2576,19 @@ function code(alreadyrun_)
 			local wordidentifier = ""
 			local echoidentifier = ""
 			local classid = ""
+			local symbolidentifier = ""
 			local flowidentifier = ""
+			local tokenidentifier = ""
 			wordunits,wordidentifier,wordrelatedunits = findwordunits()
 			flowunits,flowidentifier,flowrelatedunits = findflowunits()
 			echounits,echoidentifier,echorelatedunits = ws_findechounits()
 			symbolunits,symbolidentifier,symbolrelatedunits = findsymbolunits()
 			classunits,classid,classrelatedunits = findclassunits()
+			tokenunits,tokenidentifier,tokenrelatedunits = findtokenunits()
 			local wordunitresult = {}
 			local echounitresult = {}
 			local classunitresult = {}
+			local tokenunitresult = {}
 			
 			if (#wordunits > 0) then
 				for i,v in ipairs(wordunits) do
@@ -2604,6 +2608,14 @@ function code(alreadyrun_)
 						table.insert(checkthese, v[1])
 					else
 						classunitresult[v[1]] = 0
+					end
+				end
+			end
+
+			if (#tokenunits > 0) then
+				for i,v in ipairs(tokenunits) do
+					if testcond(v[2],v[1]) then
+						tokenunitresult[v[1]] = 1
 					end
 				end
 			end
@@ -2791,7 +2803,7 @@ function code(alreadyrun_)
 				end
 
 				local check = doglyphs(symbolunits)
-				event_code()
+				event_code(tokenunitresult)
 				if NODE_LEGACY_PARSING then
 					parselegacyarrows(breakunitresult)
 				else
@@ -2821,11 +2833,17 @@ function code(alreadyrun_)
 				local newbreakunits,newbreakidentifier,breakrelatedunits = findbreakunits()
 				local newclassunits, newclassid, newclassrel = findclassunits()
 				local newflowunits,newflowidentifier,flowrelatedunits = findflowunits()
+				local newtokenunits,newtokenidentifier,newtokenrelatedunits = findtokenunits()
 
 				--MF_alert("ID comparison: " .. newwordidentifier .. " - " .. wordidentifier)
 				
 				--@mods(stable) - handles the case where this run of code() caused the stablestate to update. In this case, rerun code()
-				if (newwordidentifier ~= wordidentifier) or (newechoidentifier ~= echoidentifier) or (stable_state_updated) or (newbreakidentifier ~= breakidentifier) or (classid ~= newclassid) then
+				if (newwordidentifier ~= wordidentifier)
+					 or (newechoidentifier ~= echoidentifier) 
+					 or (stable_state_updated)
+					 or (newbreakidentifier ~= breakidentifier) 
+					 or (classid ~= newclassid) 
+					 or (tokenidentifier ~= newtokenidentifier) then
 					updatecode = 1
 					code(true)
 				elseif (newsymbolidentifier ~= symbolidentifier) then
@@ -2879,7 +2897,15 @@ function code(alreadyrun_)
 			for _,v in ipairs(flowrelatedunits) do
 				table.insert(wordrelatedunits,v)
 			end
-		end
+
+            for _, v in ipairs(tokenunits) do
+                table.insert(wordunits, v) --@Merge(Event) Add the tokenunits to the wordunits, to trigger "updatecode = 1."
+            end
+
+            for _, v in ipairs(tokenrelatedunits) do
+                table.insert(wordrelatedunits, v)
+            end
+        end
 
 		do_mod_hook("rule_update_after",{alreadyrun})
 	end
@@ -2893,7 +2919,7 @@ function code(alreadyrun_)
 			local rulename = "rule" .. tostring(math.random(1,5)) .. rulesoundshort
 			MF_playsound(rulename)
 		end
-	end
+    end
 
 	guard_checkpoint("code")
 end
@@ -2915,6 +2941,7 @@ function findwordunits()
 			local rule = v[1]
 			local conds = v[2]
 			local ids = v[3]
+			local tags = v[4]
 			
 			local name = rule[1]
 			local subid = ""
@@ -2979,11 +3006,17 @@ function findwordunits()
 						if (string.sub(name, 1, 4) == "not ") then
 							notname = string.sub(name, 5)
 						end
-						
-						if (firstunit.strings[UNITNAME] ~= "text_" .. name) and (firstunit.strings[UNITNAME] ~= "text_" .. notname) then
-							--MF_alert("Checking recursion for " .. name)
-							table.insert(checkrecursion, {name, i})
+
+						for _,v in ipairs(tags) do
+							if v == "textrule" then
+                                if (firstunit.strings[UNITNAME] ~= "text_" .. name) and (firstunit.strings[UNITNAME] ~= "text_" .. notname) then
+                                    --MF_alert("Checking recursion for " .. name)
+                                    table.insert(checkrecursion, { name, i })
+                                end
+                                break
+                            end
 						end
+						
 					end
 				else
 					MF_alert("No ids listed in Word-related rule! rules.lua line 1302 - this needs fixing asap (related to grouprules line 1118)")
@@ -3015,8 +3048,7 @@ function findwordunits()
 				local tags = v[4]
 				
 				-- Gotta change this to prevent some false infinite loops
-				if (equals_or_included(b, rule[1])) or (rule[1] == "all" and get_pref(b) == "") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
-				or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
+				if can_refer(rule[1],b) then
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
 							local idunit = mmf.newObject(d)
@@ -3028,7 +3060,7 @@ function findwordunits()
 							elseif (string.sub(rule[1], 1, 5) == "group") then
 								--MF_alert("Group - found")
 								found = true
-							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 3) == "not") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
+							elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 4) == "not ") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
 								--MF_alert("Not Object - found")
 								found = true
 							elseif idunit.strings[UNITNAME] == "text_this" then

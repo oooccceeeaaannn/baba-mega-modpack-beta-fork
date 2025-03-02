@@ -3608,11 +3608,16 @@ function findsymbolunits()
 							notname = string.sub(name, 5)
 						end
 						
-						if (firstunit.strings[UNITNAME] ~= "text_" .. name) and (firstunit.strings[UNITNAME] ~= "text_" .. notname) and (firstunit.strings[UNITNAME] ~= "glyph_" .. name) and (firstunit.strings[UNITNAME] ~= "glyph_" .. notname) then
-							--MF_alert("Checking recursion for " .. name)
-							table.insert(checkrecursion, {name, i})
-						end
-					end
+                        for _, v in ipairs(tags) do
+                            if v == "glyphrule" then
+                                if (firstunit.strings[UNITNAME] ~= "glyph_" .. name) and (firstunit.strings[UNITNAME] ~= "glyph_" .. notname) then
+                                    --MF_alert("Checking recursion for " .. name)
+                                    table.insert(checkrecursion, { name, i })
+                                end
+                                break
+                            end
+                        end
+                    end
 				else
 					MF_alert("No ids listed in Word-related rule! rules.lua line 1302 - this needs fixing asap (related to grouprules line 1118)")
 				end
@@ -3643,8 +3648,7 @@ function findsymbolunits()
 				local tags = v[4]
 
 				-- Gotta change this to prevent some false infinite loops
-				if (rule[1] == b) or ((rule[1] == "glyph") and (string.sub(b, 1, 6) == "glyph_")) or (rule[1] == "all" and string.sub(b,1,5) ~= "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 4) == "not ") and string.sub(b,1,5) ~= "text_") or ((rule[1] == "text" or rule[1] == "not all") and string.sub(b,1,5) == "text_") or ((rule[1] ~= b) and (string.sub(rule[1], 1, 9) == "not text_") and string.sub(b,1,5) == "text_")
-						or ("meta"..getmetalevel(b) == rule[1]) or ("not meta"..getmetalevel(b) ~= rule[1] and (metatext_includenoun or string.sub(b,1,5) == "text_")) then
+				if can_refer(rule[1],b) then
 					for c,g in ipairs(ids) do
 						for a,d in ipairs(g) do
 							local idunit = mmf.newObject(d)

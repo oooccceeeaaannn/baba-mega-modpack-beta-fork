@@ -573,6 +573,29 @@ function equals_or_included(a,b)
 	return false
 end
 
+function can_refer(noun,target)
+    if noun == "ambient" then noun = ws_ambientObject end
+    if disable_text_metatext then noun = trueidentity(noun) end
+	local isnot = false
+	if string.sub(noun,1,4) == "not " then
+		noun = string.sub(noun,5)
+		isnot = true
+	end
+	if isnot then
+		if (string.sub(noun,1,4) == "meta") then 
+			if (string.sub(noun,5) ~= tostring(getmetalevel(target))) and (metatext_includenoun or is_str_special_prefixed(target)) then return true end
+		elseif (noun == "all") then
+			if is_str_special_prefixed(target) or target == "empty" then return true end
+		elseif (get_pref(noun) == get_pref(target)) and (target ~= noun) and (is_str_special_prefixed(noun) or (findnoun(target) == false)) then return true end
+	else
+        if equals_or_included(target, noun) then return true end
+		if (noun == "all") and (findnoun(target) == false) then return true end
+    end
+
+	return false
+
+end
+
 function diff_or_excluded(a,b)
 	if a ~= b then
 		if get_pref(a) == get_pref(b) then return true end

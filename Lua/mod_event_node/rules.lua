@@ -708,7 +708,7 @@ function findbreakunits()
             if (found == false) then
                 --MF_alert("Wordunit status for " .. b .. " is unstable!")
                 identifier = "null"
-                wordunits = {}
+                breakunits = {}
 
                 for i,v in pairs(featureindex["break"]) do
                     local rule = v[1]
@@ -877,11 +877,11 @@ setmetatable(event_text_types, {__index = function(tab, name)
     if (is_str_special_prefixed(name) and not is_str_special_prefix(name)) then
         return "noun"
     end
-    return nil
+
 end})
 
 
-function event_code()
+function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS TOKEN
 
     local starts = findall({"event_start", {}}, true)
     if (#starts == 0) then
@@ -899,7 +899,7 @@ function event_code()
         local thex = x
         local they = y + 1
 
-        local applicable, applicable_ids = find_events(x + 1, y, "noun", true)
+        local applicable, applicable_ids = find_events(x + 1, y, "noun", true, tokenunitresult)
         local backup_applicable = {}
         for i, zzzzz in ipairs(applicable) do
             table.insert(backup_applicable, zzzzz)
@@ -943,7 +943,7 @@ function event_code()
 
                         local valid = false
                         if not backslash then
-                            if (string.sub(name, 1, 6) == "event_") or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", k)) then
+                            if (string.sub(name, 1, 6) == "event_") or (tokenunitresult[k]) then
                                 valid = true
                             end
                         else
@@ -1169,7 +1169,7 @@ function event_code()
                                                 done = true
                                             end
                                         elseif event_text_types[target] == "adjective" then
-                                            local target2s, target2_ids = find_events(thex + 1, they, "adjective")
+                                            local target2s, target2_ids = find_events(thex + 1, they, "adjective",tokenunitresult)
 
                                             if #target2s > 0 then
                                                 never_succeed = true
@@ -1445,12 +1445,12 @@ function event_code()
             --WE DID IT
             if verb[2] == "" then
                 if string.sub(verb[1], 1, 4) ~= "not " then
-                    addoption({j, "is", verb[1]},conds,ids, true)
+                    addoption({j, "is", verb[1]},conds,ids, true,nil,{"eventrule"})
                 else
                     if never_opposites[verb[1]] ~= nil then
-                        addoption({j, "is", never_opposites[verb[1]]},conds,ids, true)
+                        addoption({ j, "is", never_opposites[verb[1]] }, conds, ids, true,nil, { "eventrule" })
                     else
-                        addoption({j, "is", verb[1]},conds,ids, true)
+                        addoption({ j, "is", verb[1] }, conds, ids, true,nil, { "eventrule" })
                     end
                 end
             else
@@ -1463,28 +1463,28 @@ function event_code()
                     if verb[1] == "move" then
                         if string.sub(k, 1, 4) ~= "not " then
                             if k ~= "forward" then
-                                addoption({j, "is", "nudge" .. k},conds,ids, true)
+                                addoption({ j, "is", "nudge" .. k }, conds, ids, true, nil, { "eventrule" })
                             else
-                                addoption({j, "is", "auto"},conds,ids, true)
+                                addoption({ j, "is", "auto" }, conds, ids, true, nil, { "eventrule" })
                             end
                         else
-                            addoption({j, "is", "locked" .. string.sub(k, 5)},conds,ids, true)
+                            addoption({ j, "is", "locked" .. string.sub(k, 5) }, conds, ids, true, nil, { "eventrule" })
                         end
                     elseif verb[1] == "turn" then
                         if k ~= "aroundleft" and k ~= "aroundright" then
-                            addoption({j, "is", k},conds,ids, true)
+                            addoption({ j, "is", k }, conds, ids, true, nil, { "eventrule" })
                         else
                             if k == "aroundleft" then
-                                addoption({j, "is", "turn"},conds,ids, true)
+                                addoption({ j, "is", "turn" }, conds, ids, true, nil, { "eventrule" })
                             else
-                                addoption({j, "is", "deturn"},conds,ids, true)
+                                addoption({ j, "is", "deturn" }, conds, ids, true, nil, { "eventrule" })
                             end
                         end
                     elseif verb[1] == "be" then
-                        addoption({j, "is", k},conds,ids, true)
+                        addoption({ j, "is", k }, conds, ids, true, nil, { "eventrule" })
                     else
                         if string.sub(k, 1, 4) ~= "not " then
-                            addoption({j, verb[1], k},conds,ids, true)
+                            addoption({ j, verb[1], k }, conds, ids, true, nil, { "eventrule" })
                         end
                     end
                 end
@@ -1498,7 +1498,7 @@ function event_code()
 
 end
 
-function find_events(x, y, type, havenot)
+function find_events(x, y, type, havenot, tokenunitresult)
 
     local the_ids, the_targets = {}, {}
 
@@ -1510,14 +1510,8 @@ function find_events(x, y, type, havenot)
         local kunit = mmf.newObject(k)
         local name = getname(kunit, true)
 
-        if string.sub(name, 1, 6) == "event_" or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", k)) then
-            local realname = name
-
-            if string.sub(name, 1, 6) == "event_" then
-                realname = string.sub(name, 7)
-            elseif string.sub(name, 1, 5) == "text_" then
-                realname = string.sub(name, 6)
-            end
+        if string.sub(name, 1, 6) == "event_" or (tokenunitresult[k]) then
+            local realname = get_ref(name)
 
 
             if realname == "backslash" then
@@ -1550,7 +1544,7 @@ function find_events(x, y, type, havenot)
             end
 
             if event_type == "not" and havenot then
-                local re_targets, re_ids = find_events(x + 1, y, type, true)
+                local re_targets, re_ids = find_events(x + 1, y, type, true, tokenunitresult)
                 if #re_targets > 0 then
 
                     for a, b in ipairs(re_targets) do
@@ -1610,7 +1604,7 @@ function find_events(x, y, type, havenot)
                 end
 
                 if event_type == "not" and havenot then
-                    local re_targets, re_ids = find_events(x + 2, y, type, true)
+                    local re_targets, re_ids = find_events(x + 2, y, type, true, tokenunitresult)
                     if #re_targets > 0 then
                         for a, b in ipairs(re_targets) do
                             if string.sub(b, 1, 4) == "not " then
@@ -1683,11 +1677,8 @@ function find_event_targets(x, y, eventname, havenot_)
         local name = getname(munit, true)
 
 
-        if string.sub(name, 1, 6) == "event_" or (featureindex["token"] ~= nil and hasfeature(name, "is", "token", m)) then
-            local realname = name
-            if string.sub(name, 1, 6) == "event_" then
-                realname = string.sub(name, 7)
-            end
+        if string.sub(name, 1, 6) == "event_" or (tokenunitresult[m]) then
+            local realname = get_ref(name)
 
             local event_type = event_text_types[realname]
             if event_type == nil then
@@ -1865,4 +1856,180 @@ function checkbreakchanges(unitid,unitname)
             end
         end
     end
+end
+
+function findtokenunits()
+    local result = {}
+    local checkrecursion = {}
+    local related = {}
+
+    local identifier = ""
+    local fullid = {}
+
+    if (featureindex["token"] ~= nil) then
+        for i, v in ipairs(featureindex["token"]) do
+            local rule = v[1]
+            local conds = v[2]
+            local ids = v[3]
+            local tags = v[4]
+
+            local name = rule[1]
+            local subid = ""
+
+            if (rule[2] == "is") then
+                if (fullunitlist[name] ~= nil) and (name ~= "event") and (string.sub(name, 1, 6) ~= "event_") then
+                    local these = findall({ name })
+
+                    if (#these > 0) then
+                        for a, b in ipairs(these) do
+                            local bunit = mmf.newObject(b)
+                            local unitname = ""
+
+                            local valid = true
+
+                            if (featureindex["broken"] ~= nil) then
+                                if (hasfeature(getname(bunit), "is", "broken", b, bunit.values[XPOS], bunit.values[YPOS]) ~= nil) then
+                                    valid = false
+                                end
+                            end
+
+                            if valid then
+                                table.insert(result, { b, conds })
+                                subid = subid .. unitname
+                                -- LISÄÄ TÄHÄN LISÄÄ DATAA
+                            end
+                        end
+                    end
+                end
+
+                if (#subid > 0) then
+                    for a, b in ipairs(conds) do
+                        local condtype = b[1]
+                        local params = b[2] or {}
+
+                        subid = subid .. condtype
+
+                        if (#params > 0) then
+                            for c, d in ipairs(params) do
+                                subid = subid .. tostring(d)
+
+                                related = findunits(d, related, conds)
+                            end
+                        end
+                    end
+                end
+
+                table.insert(fullid, subid)
+
+                --MF_alert("Going through " .. name)
+
+                if (#ids > 0) then
+                    if (#ids[1] == 1) then
+                        local firstunit = mmf.newObject(ids[1][1])
+
+                        local notname = name
+                        if (string.sub(name, 1, 4) == "not ") then
+                            notname = string.sub(name, 5)
+                        end
+
+                        for _, v in ipairs(tags) do
+                            if v == "eventrule" then
+                                if (firstunit.strings[UNITNAME] ~= "event_" .. name) and (firstunit.strings[UNITNAME] ~= "event_" .. notname) then
+                                    --MF_alert("Checking recursion for " .. name)
+                                    table.insert(checkrecursion, { name, i })
+                                end
+                                break
+                            end
+                        end
+                    end
+                else
+                    MF_alert(
+                    "No ids listed in Word-related rule! rules.lua line 1302 - this needs fixing asap (related to grouprules line 1118)")
+                end
+            end
+        end
+
+        table.sort(fullid)
+        for i, v in ipairs(fullid) do
+            -- MF_alert("Adding " .. v .. " to id")
+            identifier = identifier .. v
+        end
+
+        --MF_alert("Identifier: " .. identifier)
+
+        for a, checkname_ in ipairs(checkrecursion) do
+            local found = false
+
+            local checkname = checkname_[1]
+
+            local b = checkname
+            if (string.sub(b, 1, 4) == "not ") then
+                b = string.sub(checkname, 5)
+            end
+
+            for i, v in ipairs(featureindex["token"]) do
+                local rule = v[1]
+                local ids = v[3]
+                local tags = v[4]
+
+                -- Gotta change this to prevent some false infinite loops
+                if can_refer(rule[1], b) then
+                    for c, g in ipairs(ids) do
+                        for a, d in ipairs(g) do
+                            local idunit = mmf.newObject(d)
+
+                            -- Tässä pitäisi testata myös Group!
+                            if (idunit.strings[UNITNAME] == "evnet_" .. rule[1]) or ((idunit.strings[UNITNAME] == "glyph_" .. rule[1]) and (tags[1] == "glyphrule")) or ((idunit.strings[UNITNAME] == rule[1]) and (tags[1] == "glyphrule")) or ((rule[1] == "all") and (rule[1] ~= "glyph")) then
+                                --MF_alert("Matching objects - found")
+                                found = true
+                            elseif (string.sub(rule[1], 1, 5) == "group") then
+                                --MF_alert("Group - found")
+                                found = true
+                            elseif (rule[1] ~= checkname) and (((string.sub(rule[1], 1, 4) == "not ") and (rule[1] ~= "glyph")) or ((rule[1] == "not all") and (rule[1] == "glyph"))) then
+                                --MF_alert("Not Object - found")
+                                found = true
+                            end
+                        end
+                    end
+
+                    for c, g in ipairs(tags) do
+                        if (g == "mimic") then
+                            found = true
+                        end
+                    end
+                end
+            end
+
+            if (found == false) then
+                --MF_alert("Wordunit status for " .. b .. " is unstable!")
+                identifier = "null"
+                tokenunits = {}
+
+                for i, v in pairs(featureindex["token"]) do
+                    local rule = v[1]
+                    local ids = v[3]
+
+                    --MF_alert("Checking to disable: " .. rule[1] .. " " .. ", not " .. b)
+
+                    if (rule[1] == b) or (rule[1] == "not " .. b) then
+                        v[2] = { { "never", {} } }
+                    end
+                end
+
+                if (string.sub(checkname, 1, 4) == "not ") then
+                    local notrules_word = notfeatures["token"]
+                    local notrules_id = checkname_[2]
+                    local disablethese = notrules_word[notrules_id]
+
+                    for i, v in ipairs(disablethese) do
+                        v[2] = { { "never", {} } }
+                    end
+                end
+            end
+        end
+    end
+
+    --MF_alert("Current id (end): " .. identifier)
+
+    return result, identifier, related
 end
