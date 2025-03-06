@@ -376,13 +376,11 @@ function checkvisit()
 			local visitoffy = visitdirs.down - visitdirs.up
 
 			local destination = {}
+			local visitleveldepth = #visit_visitlevels
+            local visitdestx = mappos.x + visitoffx
+            local visitdesty = mappos.y + visitoffy
 
 			if mappos ~= nil then
-				local visitdestx = mappos.x + visitoffx
-				local visitdesty = mappos.y + visitoffy
-
-
-				local visitleveldepth = #visit_visitlevels
 				if (visit_visitlevels[visitleveldepth][visitdestx] ~= nil and visit_visitlevels[visitleveldepth][visitdestx][visitdesty] ~= nil) then
 					destination = visit_visitlevels[visitleveldepth][visitdestx][visitdesty]
 				end
@@ -538,6 +536,7 @@ end
 --Function to perform a visit, given a table containing level information
 function dovisit(target)
 	levelconversions = {} --Note: levelconversions is a global table storing what the level is going to turn into
+    findpersists("levelentry")
 
 	changelevel(target.file, target.num, target.style)
 	generaldata.strings[LEVELNUMBER_NAME] = getlevelnumber()
