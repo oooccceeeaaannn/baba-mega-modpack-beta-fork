@@ -376,13 +376,11 @@ function checkvisit()
 			local visitoffy = visitdirs.down - visitdirs.up
 
 			local destination = {}
+			local visitleveldepth = #visit_visitlevels
+            local visitdestx = mappos.x + visitoffx
+            local visitdesty = mappos.y + visitoffy
 
 			if mappos ~= nil then
-				local visitdestx = mappos.x + visitoffx
-				local visitdesty = mappos.y + visitoffy
-
-
-				local visitleveldepth = #visit_visitlevels
 				if (visit_visitlevels[visitleveldepth][visitdestx] ~= nil and visit_visitlevels[visitleveldepth][visitdestx][visitdesty] ~= nil) then
 					destination = visit_visitlevels[visitleveldepth][visitdestx][visitdesty]
 				end
@@ -538,6 +536,7 @@ end
 --Function to perform a visit, given a table containing level information
 function dovisit(target)
 	levelconversions = {} --Note: levelconversions is a global table storing what the level is going to turn into
+    findpersists("levelentry")
 
 	changelevel(target.file, target.num, target.style)
 	generaldata.strings[LEVELNUMBER_NAME] = getlevelnumber()
@@ -581,8 +580,9 @@ mod_hook_functions["effect_always"]["visitmod"] = function()
 	local levelvisitdirs, islevelvisit = getunitvisitdirs(1)
 
 	for i, emptytile in ipairs(getemptytiles()) do
-		if (math.random(20) == 1) then
-			local x, y = emptytile[1], emptytile[2]
+        local x, y = emptytile[1], emptytile[2]
+		
+        if (math.random(20) == 1) then
 			local emptyvisitdirs, isemptyvisit = getunitvisitdirs(2, x, y)
 			if isemptyvisit then
 				visitparticle(x, y, emptyvisitdirs)
@@ -590,8 +590,8 @@ mod_hook_functions["effect_always"]["visitmod"] = function()
 		end
 
 		if islevelvisit and (math.random(20) == 1) then
-			visitparticle(x, y, emptyvisitdirs)
-		end
+            visitparticle(x, y, levelvisitdirs)
+        end
 	end
 end
 
@@ -602,6 +602,9 @@ function visitparticle(x, y, visitdirs)
 
 	local particleid = MF_particle("unlock", x, y, 0, 3, 1)
 	local particle = mmf.newObject(particleid)
+	if particle == nil then
+		return
+	end
 	local px, py = particle.x, particle.y
 
 	particle.values[ONLINE] = 2
