@@ -598,10 +598,13 @@ end
 
 function diff_or_excluded(a,b)
 	if a ~= b then
-		if get_pref(a) == get_pref(b) then return true end
-		if ("meta"..getmetalevel(a) ~= b) and (metatext_includenoun or getmetalevel(a) >= 0) then
-			if get_pref(a) ~= b .. "_" then return true end
-		end
+		if string.sub(b, 1, 4) == "meta" then
+            if ("meta" .. tostring(getmetalevel(a)) ~= b) and (metatext_includenoun or getmetalevel(a) >= 0) then
+                return true
+            end
+        else
+            if get_pref(a) == get_pref(b) then return true end
+        end
 	end
 	return false
 end

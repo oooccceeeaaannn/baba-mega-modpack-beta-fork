@@ -154,7 +154,7 @@ condlist.on = function(params,checkedconds,checkedconds_,cdata)
 						end
 					end
 					
-					if (b ~= "text") and (ulist == false) then
+					if (ulist == false) then
 						if (surrounds["o"] ~= nil) then
 							for c,d in ipairs(surrounds["o"]) do
 								if (pnot == false) then
@@ -172,7 +172,7 @@ condlist.on = function(params,checkedconds,checkedconds_,cdata)
 						end
 					end
 					
-					if ulist or (b == "text") then
+					if ulist  then
 						alreadyfound[bcode] = 1
 						allfound = allfound + 1
 					end
@@ -368,7 +368,7 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					for e,f in pairs(surrounds) do
 						if (e ~= "dir") then
 							for c,d in ipairs(f) do
@@ -388,7 +388,7 @@ condlist.near = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end
@@ -575,7 +575,7 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					for e,f in pairs(surrounds) do
 						if (e ~= "dir") and (e ~= "o") then
 							for c,d in ipairs(f) do
@@ -595,7 +595,7 @@ condlist.nextto = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end
@@ -1205,7 +1205,7 @@ condlist.above = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					if (surrounds.d ~= nil) then
 						for c,d in ipairs(surrounds.d) do
 							if (pnot == false) then
@@ -1223,7 +1223,7 @@ condlist.above = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end
@@ -1395,7 +1395,7 @@ condlist.below = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					if (surrounds.u ~= nil) then
 						for c,d in ipairs(surrounds.u) do
 							if (pnot == false) then
@@ -1413,7 +1413,7 @@ condlist.below = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end
@@ -1585,7 +1585,7 @@ condlist.besideright = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					if (surrounds.l ~= nil) then
 						for c,d in ipairs(surrounds.l) do
 							if (pnot == false) then
@@ -1603,7 +1603,7 @@ condlist.besideright = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end
@@ -1775,7 +1775,7 @@ condlist.besideleft = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if (b ~= "text") and (ulist == false) then
+				if (ulist == false) then
 					if (surrounds.r ~= nil) then
 						for c,d in ipairs(surrounds.r) do
 							if (pnot == false) then
@@ -1793,7 +1793,7 @@ condlist.besideleft = function(params,checkedconds,checkedconds_,cdata)
 					end
 				end
 				
-				if ulist or (b == "text") then
+				if ulist  then
 					alreadyfound[bcode] = 1
 					allfound = allfound + 1
 				end

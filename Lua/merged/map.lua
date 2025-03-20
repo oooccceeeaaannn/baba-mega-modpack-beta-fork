@@ -74,9 +74,7 @@ function uplevel()
 	
 	table.remove(leveltree, id)
 	table.remove(leveltree_id, id)
-	
-	--this is the only line i added to this function for visit
-	visit_fullsurrounds = ""
+
 
 	return oldlevel
 end
