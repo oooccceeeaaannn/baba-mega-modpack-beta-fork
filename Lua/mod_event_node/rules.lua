@@ -938,7 +938,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
 
                         local kunit = mmf.newObject(k)
 
-                        local name = getname(kunit, true)
+                        local name = getname(kunit)
 
 
                         local valid = false
@@ -960,16 +960,11 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
                                 table.insert(copied_conditions, q)
                             end
 
-
-                            local eventname = name
+                            local eventname
 
                             --Handle \
                             if not backslash then
-                                if string.sub(name, 1, 6) == "event_" then
-                                    eventname = string.sub(name, 7)
-                                elseif string.sub(name, 1, 5) == "text_" then
-                                    eventname = string.sub(name, 6)
-                                end
+                                eventname = get_ref(name)
                             else
                                 eventname = string.sub(name, 6)
                             end
@@ -1030,7 +1025,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
 
                             elseif event_type == "condition" then
 
-                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, true)
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, true, tokenunitresult)
 
                                 if #targets > 0 then
                                     if eventname ~= "when" and eventname ~= "not when" then
@@ -1073,7 +1068,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
                                                 worked = true
                                                 table.insert(conditions, {"feeling", {b}})
                                             elseif etype == "verb" then
-                                                local targets2, target2_ids = find_event_targets(thex + 2, they, eventname)
+                                                local targets2, target2_ids = find_event_targets(thex + 2, they, eventname, false, tokenunitresult)
 
                                                 if #targets > 0 then
                                                     for a, b in ipairs(target2_ids) do
@@ -1106,7 +1101,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
                                 end
                             elseif event_type == "verb" then
 
-                                local targets, target_ids = find_event_targets(thex + 1, they, eventname)
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, false, tokenunitresult)
 
                                 if #targets > 0 then
                                     for a, b in ipairs(target_ids) do
@@ -1122,7 +1117,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
 
                             elseif event_type == "as" then
 
-                                local targets, target_ids = find_event_targets(thex + 1, they, eventname)
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, false, tokenunitresult)
 
                                 if #targets > 0 then
                                     for a, b in ipairs(target_ids) do
@@ -1150,12 +1145,12 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
                                 --Handle never. This will take forever
 
                                 --Step 1: move forward
-                                local targets, target_ids = find_event_targets(thex + 1, they, eventname)
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, false, tokenunitresult)
                                 local never_succeed = false
                                 if #targets > 0 then
                                     for a, target in ipairs(targets) do
                                         if event_text_types[target] == "verb" then
-                                            local target2s, target2_ids = find_event_targets(thex + 2, they, target)
+                                            local target2s, target2_ids = find_event_targets(thex + 2, they, target, false, tokenunitresult)
 
                                             if #target2s > 0 then
                                                 never_succeed = true
@@ -1261,7 +1256,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
                                     done = true
                                 end
                             elseif event_type == "loop" then
-                                local targets, target_ids = find_event_targets(thex + 1, they, eventname)
+                                local targets, target_ids = find_event_targets(thex + 1, they, eventname, false, tokenunitresult)
 
                                 if #targets > 0 then
                                     for a, b in ipairs(target_ids) do
@@ -1631,7 +1626,7 @@ function find_events(x, y, type, havenot, tokenunitresult)
     return the_targets, the_ids
 end
 
-function do_number_suffix(name_, thx, thy)
+function do_number_suffix(name_, thx, thy, tokenunitresult)
     local bname = name_
     local _ids = {}
     for za, zb in ipairs(number_extensions) do
@@ -1641,7 +1636,7 @@ function do_number_suffix(name_, thx, thy)
 
             while lim > 0 do
                 fx = fx + 1
-                local target2s, target2_ids = find_event_targets(fx, thy, "repeat")
+                local target2s, target2_ids = find_event_targets(fx, thy, "repeat", false, tokenunitresult)
 
                 if #target2s > 0 then
                     for ya, yb in ipairs(target2_ids) do
@@ -1662,7 +1657,7 @@ function do_number_suffix(name_, thx, thy)
     return bname, _ids
 end
 
-function find_event_targets(x, y, eventname, havenot_)
+function find_event_targets(x, y, eventname, havenot_, tokenunitresult)
 
     local havenot = havenot_ or false
 
@@ -1713,7 +1708,7 @@ function find_event_targets(x, y, eventname, havenot_)
             end
 
             if event_type == "not" and havenot_ then
-                local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true)
+                local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true, tokenunitresult)
                 if #re_targets > 0 then
 
                     for a, b in ipairs(re_targets) do
@@ -1741,7 +1736,7 @@ function find_event_targets(x, y, eventname, havenot_)
             if valid then
                 for a, b in ipairs(number_extensions) do
                     if realname == b then
-                        local target2s, target2_ids = find_event_targets(x + 1, y, "repeat")
+                        local target2s, target2_ids = find_event_targets(x + 1, y, "repeat", false, tokenunitresult)
                         if #target2s > 0 then
                             for a, b in ipairs(target2_ids) do
                                 table.insert(target_ids, b)
@@ -1801,7 +1796,7 @@ function find_event_targets(x, y, eventname, havenot_)
                 end
 
                 if event_text_types[realname] == "not" then
-                    local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true)
+                    local re_targets, re_ids = find_event_targets(x + 1, y, eventname, true, tokenunitresult)
                     if #re_targets > 0 then
 
                         for a, b in ipairs(re_targets) do
@@ -1831,7 +1826,7 @@ function find_event_targets(x, y, eventname, havenot_)
         end
     end
     if #targets > 0 and havenot == "anded" then
-        for zx, zy in ipairs(find_event_targets(x + 1, y, eventname, "anded")) do
+        for zx, zy in ipairs(find_event_targets(x + 1, y, eventname, "anded", tokenunitresult)) do
             table.insert(targets, zy)
         end
     end

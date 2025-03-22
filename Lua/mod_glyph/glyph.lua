@@ -3543,6 +3543,7 @@ function findsymbolunits()
 			local rule = v[1]
 			local conds = v[2]
 			local ids = v[3]
+            local tags = v[4]
 			
 			local name = rule[1]
 			local subid = ""
