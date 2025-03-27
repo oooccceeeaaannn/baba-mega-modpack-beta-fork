@@ -998,7 +998,7 @@ function event_code(tokenunitresult) --@TODO: Add generic support for GLYPH IS T
 
                             local number_ids = {}
 
-                            eventname, number_ids = do_number_suffix(eventname, thex, they)
+                            eventname, number_ids = do_number_suffix(eventname, thex, they, tokenunitresult)
 
                             if notted then
                                 if event_type == "condition" then
@@ -1529,7 +1529,7 @@ function find_events(x, y, type, havenot, tokenunitresult)
 
             if event_type == type or type == nil or (type == "noun" and (string.sub(realname, 1, 6) == "event_" or string.sub(realname, 1, 5) == "text_")) or (event_text_types[realname] == "nounjective" and (type == "noun" or type == "adjective")) then
 
-                local realername, num_ids = do_number_suffix(realname, x, y)
+                local realername, num_ids = do_number_suffix(realname, x, y, tokenunitresult)
                 for ya, yb in ipairs(num_ids) do
                     table.insert(the_ids, yb)
                 end
@@ -1545,7 +1545,7 @@ function find_events(x, y, type, havenot, tokenunitresult)
                     for a, b in ipairs(re_targets) do
 
 
-                        local bname, num_ids = do_number_suffix(b, x, y)
+                        local bname, num_ids = do_number_suffix(b, x, y, tokenunitresult)
                         for ya, yb in ipairs(num_ids) do
                             table.insert(the_ids, yb)
                         end

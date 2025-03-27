@@ -73,6 +73,34 @@ function checkiftextrule(rule1, rule2, rule3, unitid, findtextrule_, findtag_)
 	return (not findtextrule)
 end
 
+function checkifmetatextrule(rule1, rule2, rule3, unitid)
+	local bnoun = get_broaded_str(rule1)
+	local metaxnoun = "meta" .. tostring(getmetalevel(rule1))
+    if (featureindex[rule3] ~= nil) and (rule2 ~= nil) and (rule1 ~= nil) then
+        for i, rules in ipairs(featureindex[rule3]) do
+            local rule = rules[1]
+            local conds = rules[2]
+            local tags = rules[4]
+            local foundtag = false
+            for num, tag in pairs(tags) do
+                if (tag == bnoun) or (tag == metaxnoun) then
+                    foundtag = true
+                    break
+                end
+            end
+
+            if (conds[1] ~= "never") and (not foundtag) then
+                if (rule[1] == rule1) and (rule[2] == rule2) and (rule[3] == rule3) then
+                    if testcond(conds, unitid) then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    return false
+end
+
 -- New function that writes the meta level of an object in the top right corner, if enabled.
 function writemetalevel()
 	if metatext_overlaystyle ~= 0 and not (generaldata.values[MODE] == 5) then

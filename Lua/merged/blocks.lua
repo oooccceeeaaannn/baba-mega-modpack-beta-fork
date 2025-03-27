@@ -579,11 +579,11 @@ function moveblock(onlystartblock_)
 							if (odata.tele == nil) then
 								if ((targetname ~= name) or ((metatext_fixquirks and
 										(getname(vunit,"text") == "text" and getname(unit,"text") == "text" and checkiftextrule(name,"is","tele",unitid)))
-										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,true,"glyph"))
-										or (getname(vunit,"event") == "event" and getname(unit,"event") == "event" and checkiftextrule(name,"is","tele",unitid,true,"event"))
-										or (getname(vunit,"node") == "node" and getname(unit,"node") == "node" and checkiftextrule(name,"is","tele",unitid,true,"node"))
-										or (getname(vunit,"logic") == "logic" and getname(unit,"logic") == "logic" and checkiftextrule(name,"is","tele",unitid,true,"logic"))
-										or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name,"is","tele",nil,"meta"..getmetalevel(name)))))
+										or (getname(vunit,"glyph") == "glyph" and getname(unit,"glyph") == "glyph" and checkiftextrule(name,"is","tele",unitid,nil,"glyph"))
+                                        or (getname(vunit, "event") == "event" and getname(unit, "event") == "event" and checkiftextrule(name, "is", "tele", unitid, nil, "event"))
+                                        or (getname(vunit, "node") == "node" and getname(unit, "node") == "node" and checkiftextrule(name, "is", "tele", unitid, nil, "node"))
+                                        or (getname(vunit, "logic") == "logic" and getname(unit, "logic") == "logic" and checkiftextrule(name, "is", "tele", unitid, nil, "logic"))
+                                        or (getmetalevel(targetname) == getmetalevel(name) and checkiftextrule(name, "is", "tele", unitid, nil, "meta" .. getmetalevel(name)))))
 										and (v ~= unitid) then
 									local teles = istele
 

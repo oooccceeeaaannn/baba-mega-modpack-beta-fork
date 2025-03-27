@@ -1569,12 +1569,14 @@ function ws_findOuterCoords(name)
 	return result
 end
 
+local alignTypes = {"alignleft","alignright","alignup","aligndown"}
 
 -- TODO: simplify, also: add metatext support
 function ws_doAlign(outerCoords,units,i)
 	local vertical = (i > 2)
 	local lessThan = (i % 2 == 0)
-	local pOffset = 1
+    local alignType = alignTypes[i]
+    local pOffset = 1
 	if lessThan then
 		pOffset = -1
 	end
@@ -1583,6 +1585,14 @@ function ws_doAlign(outerCoords,units,i)
 		if (unitid ~= 2) and (unitid ~= 1) then
 			local unit = mmf.newObject(unitid)
 			local x,y,name = unit.values[XPOS],unit.values[YPOS],getname(unit)
+
+            if not (checkifmetatextrule(name, "is", alignType, unitid)) then
+                if checkiftextrule(name, "is", alignType, unitid, true, get_broaded_str(name)) then
+                    name = get_broaded_str(name)
+                elseif checkiftextrule(name, "is", alignType, unitid, true, "meta" .. tostring(getmetalevel(name))) then
+                    name = "meta" .. tostring(getmetalevel(name))
+                end
+            end
 
 			if (outerCoords[name] == nil) then
 				outerCoords[name] = ws_findOuterCoords(name)
