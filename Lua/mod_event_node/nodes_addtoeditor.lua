@@ -180,7 +180,7 @@ if not NODE_LEGACY_PARSING then
     end
 end
 
-dirnames = {
+node_dirnames = {
     dir = {"right", "up", "left", "down"},
     fall = {"fallright", "fallup", "fallleft", "fall"},
     nudge = {"nudgeright", "nudgeup", "nudgeleft", "nudgedown"},

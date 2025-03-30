@@ -102,8 +102,8 @@ function parselegacyarrows(breakunitresult)
             unit = mmf.newObject(unitid)
             local name = string.sub(unit.strings[UNITNAME], 6, -1)
             local texttype = node_types[name]
-            if dirnames[name] ~= nil then
-                name = dirnames[name][unit.values[DIR] + 1]
+            if node_dirnames[name] ~= nil then
+                name = node_dirnames[name][unit.values[DIR] + 1]
             end
             if texttype == -1 then
                 table.insert(nils, unitid)
@@ -565,8 +565,8 @@ end
 
 function getnodename(unit)
     local name = unit.strings[UNITNAME]:sub(6, -1)
-    if dirnames[name] then
-        name = dirnames[name][unit.values[DIR]]
+    if node_dirnames[name] then
+        name = node_dirnames[name][unit.values[DIR] + 1]
     end
     return name
 end
