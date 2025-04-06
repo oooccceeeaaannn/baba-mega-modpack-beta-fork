@@ -603,9 +603,9 @@ condlist["golden"] = function(params,checkedconds,checkedconds_,cdata)
 	return (allfound == #params),checkedconds,true
 end
 
-condlist["feelspast"] = function(params,checkedconds,checkedconds_,cdata)
+condlist["feelspastprop"] = function(params,checkedconds,checkedconds_,cdata)
 
-	local params = {"past"}
+	local params = {"pastprop"}
 	   local allfound = 0
 	local alreadyfound = {}
 	local name,unitid,x,y,limit = cdata.name,cdata.unitid,cdata.x,cdata.y,cdata.limit
