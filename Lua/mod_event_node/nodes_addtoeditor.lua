@@ -175,6 +175,12 @@ if not NODE_LEGACY_PARSING then
     add_node(true,"nil_bump_branch", -1, {6, 1}, {2, 4})
     add_node(true,"nil_bump_debranch", -1, {6, 1}, {2, 4})
     add_node(true,"nil_bump_spread", -1, {6, 1}, {2, 4})
+    -- Meta
+    add_node(true, "metatext", -2, { 4, 0 }, { 4, 1 })
+    add_node(true, "metaglyph", -2, { 3, 2 }, { 3, 3 })
+    add_node(true, "metanode", -2, { 6, 1 }, { 2, 4 })
+    add_node(true, "metaevent", -2, { 5, 2 }, { 5, 3 })
+    add_node(true, "metalogic", -2, { 3, 0 }, { 3, 1 })
     if NODE_SORT_BY_TYPE then
         sort_added_nodes()
     end

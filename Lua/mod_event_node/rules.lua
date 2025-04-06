@@ -147,7 +147,7 @@ function parselegacyarrows(breakunitresult)
                             break
                         end
                         for i, v in ipairs(effects) do
-                            table.insert(rulestoapply, {{target, v[1], v[2]}, copyqwe(conds), {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}, {"noderule"}})
+                            table.insert(rulestoapply, {{target, v[1], v[2]}, table_copy(conds), {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}, {"noderule"}})
                         end
                         effects = {}
                         conds = {}
@@ -257,7 +257,7 @@ function parselegacyarrows(breakunitresult)
         end
         -- condunitids[#condunitids] = nil
         for i, v in ipairs(effects) do
-            table.insert(rulestoapply, {{target, v[1], v[2]}, copyqwe(conds), {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}})
+            table.insert(rulestoapply, {{target, v[1], v[2]}, table_copy(conds), {targetunitid, effectunitids[i][1], effectunitids[i][2], table.unpack(condunitids)}})
         end
     end
     for i, v in ipairs(rulestoapply) do
@@ -275,7 +275,6 @@ end
 function parsearrows(breakunitresult)
     isarrow = {}
     firstarrows = {}
-    hoverhints = {}
     for name, list in pairs(unitlists) do
         if (string.sub(name, 1, 5) == "node_") then
             for i, unitid in ipairs(list) do
@@ -283,7 +282,7 @@ function parsearrows(breakunitresult)
                 local unit = mmf.newObject(unitid)
                 isarrow[unitid] = true
                 if node_types[string.sub(unit.strings[UNITNAME], 6, -1)] == 0 then
-                    table.insert(firstarrows, unitid)
+                    firstarrows[unitid] = true
                 end
             end
         end
@@ -292,13 +291,16 @@ function parsearrows(breakunitresult)
     nilfinder = {}
     notunitids = {}
     notnils = {}
+    metafinder = {}
     local nils
+    local metas
     local alsodo
     local starts = {}
     for unitid, _ in pairs(isarrow) do
         local unit = mmf.newObject(unitid)
         if node_types[unit.strings[UNITNAME]:sub(6, -1)] ~= -1 then
-            table.insert(starts, {unitid, unit.values[XPOS], unit.values[YPOS], unit.values[DIR], {}, {[0] = {}, [1] = {}, [2] = {}, [3] = {}}})
+            table.insert(starts,
+                { unitid, unit.values[XPOS], unit.values[YPOS], unit.values[DIR], {}, { [0] = {}, [1] = {}, [2] = {}, [3] = {} }, {} })
         end
     end
     local totalruns = 0
@@ -317,12 +319,13 @@ function parsearrows(breakunitresult)
         local dir = start[4]
         local unit = mmf.newObject(unitid)
         local drs = ndirs[dir + 1]
-        local ox,oy = drs[1],drs[2]
+        local ox, oy = drs[1], drs[2]
         xpos = xpos + ox
         ypos = ypos + oy
         local done = false
         nils = start[5]
         local nilcheck = start[6]
+        metas = start[7]
         while xpos > 0 and xpos < roomsizex and ypos > 0 and ypos < roomsizey do
             for i, unitid2 in ipairs(findallhere(xpos, ypos)) do
                 if breakunitresult[unitid2] == 1 then
@@ -341,41 +344,47 @@ function parsearrows(breakunitresult)
                             nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
+                            ox, oy = drs[1], drs[2]
                             table.insert(nils, unitid2)
-                            nilcheck[dir][unitid2] = true
                         elseif nodename == "nil_perp" then
                             nilcheck[dir][unitid2] = true
                             dir = (unit2.values[DIR] + 1) % 4
                             drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
+                            ox, oy = drs[1], drs[2]
                             table.insert(nils, unitid2)
-                            nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                         elseif nodename == "nil_branch" then
                             nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
+                            ox, oy = drs[1], drs[2]
                             table.insert(nils, unitid2)
-                            nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                         elseif nodename == "nil_debranch" then
                             nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
+                            ox, oy = drs[1], drs[2]
                             table.insert(nils, unitid2)
-                            nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                         elseif nodename == "nil_spread" then
                             nilcheck[dir][unitid2] = true
                             dir = unit2.values[DIR]
                             drs = ndirs[dir + 1]
-                            ox,oy = drs[1],drs[2]
+                            ox, oy = drs[1], drs[2]
                             table.insert(nils, unitid2)
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck)})
-                            table.insert(starts, {unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos, ypos, (unit2.values[DIR] + 1) % 4, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
+                            table.insert(starts,
+                                { unitid, xpos, ypos, (unit2.values[DIR] + 3) % 4, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                         elseif nodename == "nil_bump" then
                             bumpdir = unit2.values[DIR]
                             drs = ndirs[bumpdir + 1]
@@ -388,7 +397,9 @@ function parsearrows(breakunitresult)
                             drs = ndirs[bumpdir + 1]
                             table.insert(nils, unitid2)
                             nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos - drs[1], ypos - drs[2], dir, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos - drs[1], ypos - drs[2], dir, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                             xpos = xpos + drs[1] - ox
                             ypos = ypos + drs[2] - oy
                         elseif nodename == "nil_bump_branch" then
@@ -396,7 +407,9 @@ function parsearrows(breakunitresult)
                             drs = ndirs[bumpdir + 1]
                             table.insert(nils, unitid2)
                             nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                             xpos = xpos + drs[1] - ox
                             ypos = ypos + drs[2] - oy
                         elseif nodename == "nil_bump_debranch" then
@@ -404,7 +417,9 @@ function parsearrows(breakunitresult)
                             drs = ndirs[bumpdir + 1]
                             table.insert(nils, unitid2)
                             nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                             xpos = xpos + drs[1] - ox
                             ypos = ypos + drs[2] - oy
                         elseif nodename == "nil_bump_spread" then
@@ -412,21 +427,52 @@ function parsearrows(breakunitresult)
                             drs = ndirs[bumpdir + 1]
                             table.insert(nils, unitid2)
                             nilcheck[dir][unitid2] = true
-                            table.insert(starts, {unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck)})
-                            table.insert(starts, {unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck)})
+                            table.insert(starts,
+                                { unitid, xpos + drs[2], ypos - drs[1], dir, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
+                            table.insert(starts,
+                                { unitid, xpos - drs[2], ypos + drs[1], dir, table_copy(nils), table_copy(nilcheck),
+                                    table_copy(metas) })
                             xpos = xpos + drs[1] - ox
                             ypos = ypos + drs[2] - oy
                         end
+                    elseif node_types[unit2.strings[UNITNAME]:sub(6, -1)] == -2 then
+                        if nilcheck[dir][unitid2] then
+                            done = true
+                            break
+                        end
+                        if #metas == 0 then
+                            if node_types[unit.strings[UNITNAME]:sub(6, -1)] == 4 then
+                                pointedby[unitid2] = pointedby[unitid2] or {}
+                                table.insert(pointedby[unitid2], unitid)
+                                nilfinder[unitid2] = nilfinder[unitid2] or {}
+                                table.insert(nilfinder[unitid2], table_copy(nils))
+                                notunitids[unitid2] = notunitids[unitid2] or {}
+                                table.insert(notunitids[unitid2], unitid)
+                                notnils[unitid2] = notnils[unitid2] or {}
+                                for _, nilunitid in ipairs(nils) do
+                                    table.insert(notnils[unitid2], nilunitid)
+                                end
+                            end
+                        end
+                        nilcheck[dir][unitid2] = true
+                        dir = unit2.values[DIR]
+                        drs = ndirs[dir + 1]
+                        ox, oy = drs[1], drs[2]
+                        table.insert(metas, unitid2)
+                        table.insert(nils, unitid2)
                     elseif node_types[unit.strings[UNITNAME]:sub(6, -1)] == 4 then
-                        pointedby[unitid2] = pointedby[unitid2] or {}
-                        table.insert(pointedby[unitid2], unitid)
-                        nilfinder[unitid2] = nilfinder[unitid2] or {}
-                        table.insert(nilfinder[unitid2], table_copy(nils))
-                        notunitids[unitid2] = notunitids[unitid2] or {}
-                        table.insert(notunitids[unitid2], unitid)
-                        notnils[unitid2] = notnils[unitid2] or {}
-                        for _, nilunitid in ipairs(nils) do
-                            table.insert(notnils[unitid2], nilunitid)
+                        if #metas == 0 then
+                            pointedby[unitid2] = pointedby[unitid2] or {}
+                            table.insert(pointedby[unitid2], unitid)
+                            nilfinder[unitid2] = nilfinder[unitid2] or {}
+                            table.insert(nilfinder[unitid2], table_copy(nils))
+                            notunitids[unitid2] = notunitids[unitid2] or {}
+                            table.insert(notunitids[unitid2], unitid)
+                            notnils[unitid2] = notnils[unitid2] or {}
+                            for _, nilunitid in ipairs(nils) do
+                                table.insert(notnils[unitid2], nilunitid)
+                            end
                         end
                         nils = {}
                         done = true
@@ -435,8 +481,12 @@ function parsearrows(breakunitresult)
                         table.insert(pointedby[unitid2], unitid)
                         nilfinder[unitid2] = nilfinder[unitid2] or {}
                         table.insert(nilfinder[unitid2], table_copy(nils))
+                        metafinder[unitid2] = metafinder[unitid2] or {}
+                        table.insert(metafinder[unitid2], table_copy(metas))
                         done = true
+                        if #metas > 0 then firstarrows[unitid2] = true end
                         nils = {}
+                        metas = {}
                     end
                 end
             end
@@ -448,18 +498,39 @@ function parsearrows(breakunitresult)
         end
     end
 
-    for i, unitid in ipairs(firstarrows) do
+    for unitid, _ in pairs(firstarrows) do
         local unit = mmf.newObject(unitid)
-        local targetname = unit.strings[UNITNAME]:sub(6, -1)
-        local nots = notunitids[unitid] or {}
-        if (#nots % 2) == 1 then
-            targetname = "not " .. targetname
-        end
-        local extraunitids = table_copy(nots)
-        for _, nilunitid in ipairs(notnils[unitid] or {}) do
-            table.insert(extraunitids, nilunitid)
-        end
+        local origtargetname = unit.strings[UNITNAME]:sub(6, -1)
+        local extraunitids = {}
         for j, verbunitid in ipairs(pointedby[unitid] or {}) do
+            local metas = (metafinder[unitid] or {})[j] or {}
+            targetname = origtargetname
+            prefix = ""
+            for k, meta in ipairs(metas) do
+                local metaunit = mmf.newObject(meta)
+                local metaname = metaunit.strings[UNITNAME]
+                local metatype = metaname:sub(10, -1)
+                prefix = prefix .. metatype .. "_"
+            end
+            targetname = prefix .. targetname
+            local nots
+            if #metas > 0 then
+                nots = notunitids[metas[1]] or {}
+                for _, nilunitid in ipairs(notnils[metas[1]] or {}) do
+                    table.insert(extraunitids, nilunitid)
+                end
+            else
+                nots = notunitids[unitid] or {}
+                for _, nilunitid in ipairs(notnils[unitid] or {}) do
+                    table.insert(extraunitids, nilunitid)
+                end
+            end
+            for k, notunitid in ipairs(nots) do
+                table.insert(extraunitids, notunitid)
+            end
+            if (#nots % 2) == 1 then
+                targetname = "not " .. targetname
+            end
             local verbunit = mmf.newObject(verbunitid)
             local verbnils = nilfinder[unitid][j]
             if node_types[verbunit.strings[UNITNAME]:sub(6, -1)] == 1 then
@@ -470,12 +541,29 @@ function parsearrows(breakunitresult)
                 local condunitids = {}
                 for k, childunitid in ipairs(pointedby[verbunitid] or {}) do
                     local childunit = mmf.newObject(childunitid)
-                    local childtype = node_types[childunit.strings[UNITNAME]:sub(6, -1)]
-                    local childnils = nilfinder[verbunitid][k]
-                    local childnots = notunitids[childunitid] or {}
-                    local childnotnils = notnils[childunitid]
                     local childname = getnodename(childunit)
-                    local nextup = {childunitid}
+                    local childtype = node_types[childunit.strings[UNITNAME]:sub(6, -1)]
+                    local childmetas = metafinder[verbunitid][k] or {}
+                    local childnameprefix = ""
+                    for _, childmeta in ipairs(childmetas) do
+                        local childmetaunit = mmf.newObject(childmeta)
+                        local childmetaname = childmetaunit.strings[UNITNAME]
+                        local childmetatype = childmetaname:sub(10, -1)
+                        childnameprefix = childmetatype .. "_" .. childnameprefix
+                    end
+                    childname = childnameprefix .. childname
+                    local childnils = nilfinder[verbunitid][k]
+                    local childnots
+                    local childnotnils
+                    if #childmetas > 0 then
+                        childnots = notunitids[childmetas[#childmetas]] or {}
+                        childnotnils = notnils[childmetas[#childmetas]]
+                        childtype = 0
+                    else
+                        childnots = notunitids[childunitid] or {}
+                        childnotnils = notnils[childunitid]
+                    end
+                    local nextup = { childunitid }
                     for _, v in ipairs(childnils or {}) do
                         table.insert(nextup, v)
                     end
@@ -507,21 +595,37 @@ function parsearrows(breakunitresult)
                             table.insert(actionunitids, nextup)
                         end
                     elseif childtype == 3 then
-                        table.insert(condunitids, {childunitid})
-                        table.insert(conditions, {childname, {}})
+                        table.insert(condunitids, { childunitid })
+                        table.insert(conditions, { childname, {} })
                     elseif childtype == 7 then
                         local args = {}
                         for l, argunitid in ipairs(pointedby[childunitid] or {}) do
                             local argunit = mmf.newObject(argunitid)
                             local arg_type = node_types[argunit.strings[UNITNAME]:sub(6, -1)]
                             local argname = getnodename(argunit)
-                            local argnots = notunitids[argunitid] or {}
+                            local argmetas = metafinder[childunitid][l] or {}
+                            for _, argmeta in ipairs(argmetas) do
+                                local argmetaunit = mmf.newObject(argmeta)
+                                local argmetatype = argmetaunit.strings[UNITNAME]:sub(10, -1)
+                                argname = argmetatype .. "_" .. argname
+                            end
+                            local argnots
+                            local extraargunitids
+                            if #argmetas > 0 then
+                                argnots = notunitids[argmetas[#argmetas]] or {}
+                                extraargunitids = table_copy(argnots)
+                                for _, nilunitid in ipairs(notnils[#argmetas] or {}) do
+                                    table.insert(extraargunitids, nilunitid)
+                                end
+                            else
+                                argnots = notunitids[argunitid] or {}
+                                extraargunitids = table_copy(argnots)
+                                for _, nilunitid in ipairs(notnils[argunitid] or {}) do
+                                    table.insert(extraargunitids, nilunitid)
+                                end
+                            end
                             if (#argnots % 2) == 1 then
                                 argname = "not " .. argname
-                            end
-                            local extraargunitids = table_copy(argnots)
-                            for _, nilunitid in ipairs(notnils[argunitid] or {}) do
-                                table.insert(extraargunitids, nilunitid)
                             end
                             for _, nilunitid in ipairs(nilfinder[childunitid][l] or {}) do
                                 table.insert(extraargunitids, nilunitid)
@@ -541,27 +645,27 @@ function parsearrows(breakunitresult)
                             end
                             if legal then
                                 table.insert(args, argname)
-                                table.insert(condunitids, {argunitid, table.unpack(extraargunitids)})
+                                table.insert(condunitids, { argunitid, table.unpack(extraargunitids) })
                             end
                         end
                         if #args > 0 then
-                            table.insert(conditions, {childname, args})
+                            table.insert(conditions, { childname, args })
                             table.insert(condunitids, nextup)
                         end
                     end
                 end
                 for l, action in ipairs(actions) do
-                    local ids = {{unitid}, extraunitids, {verbunitid}, verbnils, table.unpack(actionunitids)}
+                    local ids = { { unitid }, extraunitids, { verbunitid }, verbnils, table.unpack(actionunitids) }
                     for _, toadd in ipairs(condunitids) do
                         table.insert(ids, toadd)
                     end
-                    addoption({targetname, verbunit.strings[UNITNAME]:sub(6, -1), action}, table_copy(conditions), table_copy(ids), nil, nil, {"noderule"})
+                    addoption({ targetname, verbunit.strings[UNITNAME]:sub(6, -1), action }, table_copy(conditions),
+                        table_copy(ids), nil, nil, { "noderule" })
                 end
             end
         end
     end
 end
-
 
 function getnodename(unit)
     local name = unit.strings[UNITNAME]:sub(6, -1)

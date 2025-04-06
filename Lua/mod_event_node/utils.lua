@@ -27,13 +27,6 @@ function table_to_string(tbl)
     return result.."}"
 end
 
-function copyqwe(obj)
-    if type(obj) ~= 'table' then return obj end
-    local res = {}
-    for k, v in pairs(obj) do res[copyqwe(k)] = copyqwe(v) end
-    return res
-end
-
 function table_copy(obj)
     if type(obj) ~= 'table' then return obj end
     local res = {}
