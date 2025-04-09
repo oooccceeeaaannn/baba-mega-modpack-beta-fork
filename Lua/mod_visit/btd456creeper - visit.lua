@@ -113,43 +113,10 @@ word_names["visitleft"] = "visit (left)"
 
 --Patch getlevelsurrounds to also store the position of the entered level on the world map
 --The sublevel function alone doesn't work for this because it doesn't have access to the level tile's unitid
-local oldgetlevelsurrounds = getlevelsurrounds
-function getlevelsurrounds(levelunitid)
-	oldgetlevelsurrounds(levelunitid)
-
-	local levelunit = mmf.newObject(levelunitid)
-	local cx, cy = levelunit.values[XPOS], levelunit.values[YPOS]
-	visit_tempmappos = {
-		x = cx,
-		y = cy
-	}
-end
+--[[ @Merge: Now in {{mod_injections}}.lua]]
 
 --Patch sublevel to store the positions of all levels on the map so they can be visited to
-local oldsublevel = sublevel
-function sublevel(name, lnum, ltype)
-	resolveleveltree()
-
-	local oldleveltreelength = #leveltree
-
-	oldsublevel(name, lnum, ltype)
-
-	local levelarray, levelsfound = createlevelarray()
-	if levelsfound then --Filter out the sublevel() calls made when loading a levelpack
-		table.insert(visit_visitlevels, levelarray)
-		table.insert(visit_mappositions, visit_tempmappos)
-
-		--Get rid of any unnecessary visit data entries from removed parts of the leveltree
-		--The original sublevel() removes parts of the leveltree in certain situations (see notes on resolveleveltree() below)
-		local removedentries = oldleveltreelength - #leveltree + 1
-		if (removedentries > 0) then
-			for i = 1, removedentries, 1 do
-				table.remove(visit_visitlevels)
-				table.remove(visit_mappositions)
-			end
-		end
-	end
-end
+--[[ @Merge: Now in {{mod_injections}}.lua]]
 
 --Function to check for repeat entries in the leveltree
 --If the last entry is a repeat of a previous entry then remove everything after the first copy of the entry

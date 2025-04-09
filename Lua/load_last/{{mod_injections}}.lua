@@ -230,3 +230,46 @@ effects = function(timer)
     doeffect(timer,nil,"echo","glow",1,5,100,{0,1},"leveledge")
     doeffect(timer,nil,"rescue","wonder",1,5,20,{1,2})
 end
+
+--[[
+    @mods(visit)
+]]
+--The sublevel function alone doesn't work for this because it doesn't have access to the level tile's unitid
+local oldgetlevelsurrounds = getlevelsurrounds
+function getlevelsurrounds(levelunitid)
+    oldgetlevelsurrounds(levelunitid)
+
+    local levelunit = mmf.newObject(levelunitid)
+    local cx, cy = levelunit.values[XPOS], levelunit.values[YPOS]
+    visit_tempmappos = {
+        x = cx,
+        y = cy
+    }
+end
+
+
+--Patch sublevel to store the positions of all levels on the map so they can be visited to
+local oldsublevel = sublevel
+function sublevel(name, lnum, ltype)
+    resolveleveltree()
+
+    local oldleveltreelength = #leveltree
+
+    oldsublevel(name, lnum, ltype)
+
+    local levelarray, levelsfound = createlevelarray()
+    if levelsfound then --Filter out the sublevel() calls made when loading a levelpack
+        table.insert(visit_visitlevels, levelarray)
+        table.insert(visit_mappositions, visit_tempmappos)
+
+        --Get rid of any unnecessary visit data entries from removed parts of the leveltree
+        --The original sublevel() removes parts of the leveltree in certain situations (see notes on resolveleveltree() below)
+        local removedentries = oldleveltreelength - #leveltree + 1
+        if (removedentries > 0) then
+            for i = 1, removedentries, 1 do
+                table.remove(visit_visitlevels)
+                table.remove(visit_mappositions)
+            end
+        end
+    end
+end
