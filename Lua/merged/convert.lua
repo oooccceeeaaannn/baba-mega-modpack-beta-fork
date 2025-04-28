@@ -871,6 +871,10 @@ function convert(stuff,mats,dolevels_)
 
 							if toometafunc(mat2) and (unitreference["toometa"] ~= nil) then
 								mat2 = "toometa"
+								if objectlist["toometa"] == nil then
+									objectlist["toometa"] = 1
+									updatecode = 1
+								end
 								objectfound = true
 							end
 
@@ -991,7 +995,11 @@ function conversion(dolevels_)
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								if toometafunc("text_" .. object) then
 									table.insert(output, {"toometa", conds, "is"})
-								else
+                                    if objectlist["toometa"] == nil then
+                                        objectlist["toometa"] = 1
+                                        updatecode = 1
+                                    end
+                                else
 									table.insert(output, {object, conds, "write"})
 								end
 							end
@@ -999,7 +1007,11 @@ function conversion(dolevels_)
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								if toometafunc("logic_" .. object) then
 									table.insert(output, {"toometa", conds, "is"})
-								else
+                                    if objectlist["toometa"] == nil then
+                                        objectlist["toometa"] = 1
+                                        updatecode = 1
+                                    end
+                                else
 									table.insert(output, {object, conds, "log"})
 								end
 							end
@@ -1007,7 +1019,11 @@ function conversion(dolevels_)
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								if toometafunc("glyph_" .. object) then
 									table.insert(output, {"toometa", conds, "is"})
-								else
+                                    if objectlist["toometa"] == nil then
+                                        objectlist["toometa"] = 1
+                                        updatecode = 1
+                                    end
+                                else
 									table.insert(output, {object, conds, "inscribe"})
 								end
 							end
@@ -1015,7 +1031,11 @@ function conversion(dolevels_)
 							if (string.sub(object, 1, 4) ~= "not ") and (target == name) then
 								if toometafunc("event_" .. object) then
 									table.insert(output, {"toometa", conds, "is"})
-								else
+                                    if objectlist["toometa"] == nil then
+                                        objectlist["toometa"] = 1
+                                        updatecode = 1
+                                    end
+                                else
 									table.insert(output, {object, conds, "code"})
 								end
 							end

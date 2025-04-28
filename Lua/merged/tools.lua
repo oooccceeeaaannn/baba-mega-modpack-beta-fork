@@ -314,7 +314,11 @@ function create(name,x,y,dir,oldx_,oldy_,float_,skipundo_,leveldata_,customdata)
 
 	if toometafunc(name) and (not disable_toometa) and (unitreference["toometa"] ~= nil) then
 		unitname = unitreference["toometa"]
-		name = "toometa"
+        if objectlist["toometa"] == nil then
+            objectlist["toometa"] = 1
+            updatecode = 1
+        end
+        name = "toometa"
 	end
 	
 	local newunitid = MF_emptycreate(unitname,oldx,oldy)
