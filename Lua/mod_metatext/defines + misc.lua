@@ -673,6 +673,22 @@ function both_hasfeature_in_same_ref(unit1, unit2, feature) --assume unit1 has t
 	end
 	return true
 end
+
+function edit_str_meta_layer(str, layer)
+	local metalevel = getmetalevel(str)
+	local diff = metalevel - layer
+	if diff > 0 then
+		for i = 1, diff do
+			str = get_ref(str)
+		end
+	elseif diff < 0 then
+		local top_pref = get_pref(str)
+		if top_pref == "" then top_pref = "text_" end
+		str = string.rep(top_pref, -diff) .. str
+	end
+	return str
+end
+
 -- Remove lines that include "text" rules if rule1 starts with "text_".
 
 --[[ @Merge: hasfeature() was merged ]]

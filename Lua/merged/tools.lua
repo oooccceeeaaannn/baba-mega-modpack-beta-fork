@@ -512,11 +512,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 				elseif string.sub(object,1,4) == "meta" then
 					local level = string.sub(object,5)
 					if tonumber(level) ~= nil and tonumber(level) >= -1 then
-						local basename,_ = string.gsub(name,"text_","")
-						if basename == "" then
-							basename = "text_"
-						end
-						object = string.rep("text_",level + 1) .. basename
+						object = edit_str_meta_layer(name, level)
 						if findnoun(object,nlist.short,true) ~= false then
 							object = "_NONE_"
 						end

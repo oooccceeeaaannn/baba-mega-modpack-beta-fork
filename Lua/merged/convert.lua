@@ -1101,19 +1101,10 @@ function conversion(dolevels_)
 							elseif (string.sub(object,1,4) == "meta") then
 								local level = string.sub(object,5)
 								if tonumber(level) ~= nil and tonumber(level) >= -1 then
-									local basename,_ = name
-									local last = ""
-									for _,k in ipairs(special_prefixes) do
-										basename = string.gsub(basename,k,"")
-										if string.sub(name,-#k) == k then last = k end
-									end
-									if basename == "" then
-										basename = last
-									end
-									local newname = string.rep("text_",level + 1) .. basename
+									local newname = edit_str_meta_layer(name, level)
 									local valid = true -- don't attempt conversion the if object does not exist
 									if tonumber(level) >= 0 and unitreference[newname] == nil and ((unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
-										if string.sub(newname,1,5) == "text_" then
+										if is_str_special_prefixed(newname) then
 											valid = tryautogenerate(newname)
 										else
 											valid = false

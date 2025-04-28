@@ -2218,11 +2218,7 @@ function block(small_)
 					elseif (string.sub(v, 1, 4) == "meta") then
 						local level = string.sub(v, 5)
 						if tonumber(level) ~= nil and tonumber(level) >= -1 then
-							local basename = string.gsub(name, "text_", "")
-							if basename == "" then
-								basename = "text_"
-							end
-							local newname = string.rep("text_", level + 1) .. basename
+							local newname = edit_str_meta_layer(name, level)
 							for b, mat in pairs(fullunitlist) do
 								if (b == newname) and (findnoun(newname, nlist.short, true) == false) then
 									exists = true
