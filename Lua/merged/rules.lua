@@ -5,7 +5,8 @@ pasttense = { "was", "ate", "made", "had", "feared", "followed", "wrote", "mimic
 presenttense = { "is", "eat", "made", "has", "fear", "follow", "write", "mimic", "draw", "jot", "type", "act", "perform" }
 futuretense = { "will be", "will eat", "will make", "will have", "will fear", "will follow", "will write", "will mimic", "will draw", "will jot", "will type", "will act", "will perform" }
 
-function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult_,classunitresult_)
+--fixes text prefix with letters
+function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult_,classunitresult_,parse_letter)
 	--[[ 
 		@mods(turning text) - Override reason: provide a hook to reinterpret turning text names based on their direction
 	 ]]
@@ -36,7 +37,7 @@ function codecheck(unitid,ox,oy,cdir_,ignore_end_,wordunitresult_,echounitresult
 			local v = mmf.newObject(b)
 			local w = 1
 			
-			if (v.values[TYPE] ~= 5) and (v.flags[DEAD] == false) then
+			if (v.values[TYPE] ~= 5 or parse_letter) and (v.flags[DEAD] == false) then --consider letter texts when NOT a firstword
 				if (v.strings[UNITTYPE] == "text" and string.sub(v.strings[UNITNAME],1,6) ~= "event_") and not metatext_textisword then
 					--Check for Nuh Uh! here
                     if (gettilenegated(x,y) == false) then
@@ -239,7 +240,7 @@ function calculatesentences(unitid,x,y,dir,a,b,c,br_calling_calculatesentences_b
 	-- @Phase 1 - Go through units sequentially and build array of slots. Each slot contains a record of a text unit. So each slot can have stacked text.
 	-- Also record combo information to use in phase 2.
 	while (done == false) and (totalvariants < limiter) do
-		local words,letters,jletters = codecheck(unitid,ox*rstep,oy*rstep,dir,true)
+		local words,letters,jletters = codecheck(unitid,ox*rstep,oy*rstep,dir,true,nil,nil,nil,(step ~= 0))
 		
 		--MF_alert(tostring(unitid) .. ", " .. unit.strings[UNITNAME] .. ", " .. tostring(#words))
 		
@@ -1011,27 +1012,27 @@ function docode(firstwords)
 							if tiletype == 4 and (is_str_special_prefix(tilename)) and tryasnoun ~= wordid then --text_ logic starts here
 								if tryasnoun == 0 then --If this is the first
 									if wordid + 1 <= #sent then
-										if stage ~= 3 and not stage2reached then --False after infix conditions and verbs
+										if (not stage2reached) then --False after infix conditions and verbs
 											local phase = 0
 											for fwordid=wordid + 1,#sent do --Now we start looking into the future
-												if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) or (phase == 1 and is_str_special_prefix(sent[fwordid][1])) then --If this isn't a text_, unless we already encountered a noun.
+												if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) or (phase == 1) then --If this isn't a text_, unless we already encountered a noun.
 													if phase == 0 then --Move onto next phase if this is the first time
 														phase = 1
 													elseif (sent[fwordid][2] ~= 1 and sent[fwordid][2] ~= 6 and sent[fwordid][2] ~= 7 and sent[fwordid][2] ~= 4 and sent[fwordid][2] ~= pf_filler_text_type) then --Checks if this won't parse
-                            							phase = 0
+														phase = 0
 														break
 													elseif sent[fwordid][2] ~= 4 then --stop if we know it will parse
 														prefix = tilename .. prefix
-                            							phase = 0
+														phase = 0
 														break
 													end
 												elseif phase == 0 then --If we ran into a text_ first, we're gonna try it as a noun
 													tryasnoun = fwordid
 												end
 											end
-										if phase == 1 then
-											prefix = tilename .. prefix
-										elseif tryasnoun ~= 0 and prefix == "" then
+											if phase == 1 then
+												prefix = tilename .. prefix
+											elseif tryasnoun ~= 0 and prefix == "" then
 												phase = 0
 												for fwordid=wordid + 1,#sent do
 													if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) or (phase == 1 and is_str_special_prefix(sent[fwordid][1])) or (tryasnoun == fwordid) then
@@ -1052,8 +1053,9 @@ function docode(firstwords)
 												end
 												tryasnoun = 0
 											end
-										else
-											for fwordid=wordid + 1,#sent do
+										end
+										if (stage == 3 or stage2reached) then
+											for fwordid = wordid + 1, #sent do
 												if (sent[fwordid][2] ~= 4 or not is_str_special_prefix(sent[fwordid][1])) then
 													gottagoback = true
 													prefix = tilename .. prefix
@@ -1330,7 +1332,7 @@ function docode(firstwords)
 									-- MF_alert(tostring(notslot) .. ", not -> A, " .. unique_id .. ", " .. sent_id)
 									local subsent_id = string.sub(sent_id, (notslot - existing_wordid)+1)
 									if notids[1] ~= nil then
-										table.insert(firstwords, {notids, dir, notwidth, "not", 4, sent, notslot, subsent_id})
+										table.insert(firstwords, {notids, dir, notwidth, sent[notslot][1], 4, sent, notslot, subsent_id})
 									end
 								end
 							end
@@ -2735,7 +2737,7 @@ function code(alreadyrun_)
 							--MF_alert("Doing firstwords check for " .. unit.strings[UNITNAME] .. ", dir " .. tostring(i))
 							
 							local hm = codecheck(unitid,ox,oy,i,nil,wordunitresult,echounitresult,classunitresult)
-							local hm2 = codecheck(unitid,nox,noy,forward_dir,nil,wordunitresult,echounitresult,classunitresult)
+							local hm2 = codecheck(unitid,nox,noy,forward_dir,nil,wordunitresult,echounitresult,classunitresult,true) -- counts letters
 							
 							if (#hm == 0) and (#hm2 > 0) then
 								--MF_alert("Added " .. unit.strings[UNITNAME] .. " to firstwords, dir " .. tostring(i))
@@ -2745,9 +2747,9 @@ function code(alreadyrun_)
 									table.insert(firstwords, {{unitid}, i, 1, unitname, unit.values[TYPE], {}})
 								elseif (wordunitresult[unitid] == 1 and string.sub(unitname, 1, 6) == "event_") then
 									table.insert(firstwords, {{unitid}, i, 1, "text_" .. string.sub(unitname, 7), unit.values[TYPE], {}})
-								else
+                                else
 									table.insert(firstwords, {{unitid}, i, 1, get_broaded_str(unitname), 0, {}})
-								end
+                                end
 								
 								if (alreadyused[tileid] == nil) then
 									alreadyused[tileid] = {}
