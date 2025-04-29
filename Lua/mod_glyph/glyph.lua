@@ -3488,19 +3488,26 @@ function doglyphs(symbols)
 		return "stop"
 	end
     for i, v in pairs(rules) do
+		--[[
 		if (string.sub(v[1],1,6) == "glyph_") then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaglyph", v[1]})
 		elseif string.sub(v[1],1,5) == "text_" then
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metatext", "glyph_" .. string.sub(v[1],6)})
 		elseif string.sub(v[1],1,6) == "event_" then
-			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaevent", "glyph_" .. string.sub(v[1],6)})
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metaevent", "glyph_" .. string.sub(v[1],7)})
 		elseif string.sub(v[1],1,5) == "node_" then
-			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metanode", "glyph_" .. string.sub(v[1],5)})
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metanode", "glyph_" .. string.sub(v[1],6)})
 		elseif string.sub(v[1],1,6) == "logic_" then
-			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metalogic", "glyph_" .. string.sub(v[1],6)})
+			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule", "metalogic", "glyph_" .. string.sub(v[1],7)})
 		else
 			addoption({v[1], v[2], v[3]}, copyconds({}, conds[i]), ids[i], nil, nil, {"glyphrule"})
 		end
+		--[=[
+		--]]
+        addoption({ v[1], v[2], v[3] }, copyconds({}, conds[i]), ids[i], nil, nil, { "glyphrule" })
+		--[[
+		--]=]
+        --]]
     end
 end
 

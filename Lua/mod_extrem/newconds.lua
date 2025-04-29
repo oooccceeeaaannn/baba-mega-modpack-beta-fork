@@ -766,7 +766,7 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 			unitname = unit.strings[UNITNAME]
 		end
 
-		if get_pref(unitname) ~= "" then
+		if is_str_special_prefixed(unitname) then
 			if not is_param_this then
 				return get_ref(unitname) == _params, checkedconds
 			else

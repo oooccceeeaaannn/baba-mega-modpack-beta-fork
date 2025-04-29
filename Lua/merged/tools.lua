@@ -542,7 +542,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 							end
 						end
 					end
-				if not did and (get_pref(object) ~= "") then
+				if not did and (is_str_special_prefixed(object)) then
 					did = tryautogenerate(object)
 					if did then
 						local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
@@ -567,7 +567,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 						end
 					end
 				end
-				if not did and (get_pref(object) ~= "") then
+				if not did and (is_str_special_prefixed(object)) then
 					did = tryautogenerate(object)
 					if did then
 						local newunitid = create(object,x,y,dir,nil,nil,nil,nil,leveldata)
@@ -591,7 +591,7 @@ function inside(name,x,y,dir_,unitid,leveldata_)
 						end
 					end
 				end
-				if not did and (get_pref(object) ~= "") then
+				if not did and (is_str_special_prefixed(object)) then
 					did = tryautogenerate(object)
 					if did then
 						create(object,x,y,dir,nil,nil,nil,nil,leveldata)

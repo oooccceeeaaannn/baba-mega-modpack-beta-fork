@@ -1904,13 +1904,13 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			foundtag = false
 			if metatext_fixquirks then
 				for num, tag in pairs(tags) do
-					if tag == v or (string.sub(tag, 1, 4) == "meta" and tag ~= "meta-1") then
+					if tag == v then --or (is_string_metax(tag)) then
 						foundtag = true
 						break
 					end
 				end
 			end
-			if foundtag or (metatext_hasmaketextnometa and (get_pref(target) == v .. "_" or string.sub(target, 1, 4) == "meta")) then
+			if foundtag or (metatext_hasmaketextnometa and (get_pref(target) == v .. "_" or is_string_metax(target))) then
 				if effect == v then
 					if verb == "is" and foundtag then
 						effect = target
@@ -1939,7 +1939,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				rule = { { target, verb, effect }, conds, ids, tags }
 			end
 		end
-		if metatext_istextnometa and (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and verb == "is" and (get_pref(target) ~= "" or string.sub(target, 1, 4) == "meta") then
+		if metatext_istextnometa and (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and verb == "is" and (is_str_special_prefixed(target) or is_string_metax(target)) then
 			if effect == get_broaded_str(target) then
 				effect = target
 			elseif effect == "not "..get_broaded_str(target) then
@@ -1958,7 +1958,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			end
 			if tonumber(level) ~= nil and tonumber(level) >= -1 then
 				local metalevel = getmetalevel(target)
-				if metalevel == tonumber(level) and (findnoun(target, nlist.brief) == false and target ~= "text") then
+				if metalevel == tonumber(level) and (findnoun(target, nlist.brief) == false and (not is_str_broad_noun(target))) then
 					effect = target
 					if isnot then
 						effect = "not " .. target
@@ -2262,10 +2262,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or string.sub(effect,1,4) == "meta") then --@mods (metatext x extrem)
+			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or is_string_metax(effect)) then --@mods (metatext x extrem)
 				for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
-					if (get_pref(a) == effect .. "_") then
-						local stop = false
+                    if (get_pref(a) == effect .. "_") or is_string_metax(effect) then
+                        local stop = false
 						local newconds = {}
 						local newtags = {}
 
@@ -2359,7 +2359,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 					end
 				end
 			end
-			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or string.sub(effect,1,4) == "meta") then
+			if (verb == "mimic" or verb == "perform") and (is_str_broad_noun(effect) or is_string_metax(effect)) then
 				if tonumber(level) ~= nil and tonumber(level) >= -1 then
 					for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 						local metalevel = getmetalevel(a)
@@ -2395,29 +2395,31 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						end
 					end
 				end
-				if string.sub(effect,1,4) == "meta" then
-					local newconds = {}
-					local newtags = {}
+				if is_string_metax(effect) then
+					for _, metan in ipairs(extra_broad_nouns) do
+                        local newconds = {}
+                        local newtags = {}
 
-					for c,d in ipairs(conds) do
-						table.insert(newconds, d)
-					end
+                        for c, d in ipairs(conds) do
+                            table.insert(newconds, d)
+                        end
 
-					for c,d in ipairs(tags) do
-						table.insert(newtags, d)
-					end
+                        for c, d in ipairs(tags) do
+                            table.insert(newtags, d)
+                        end
 
-					table.insert(newtags, "visualmimic")
-					table.insert(newtags, "dontadd")
-					table.insert(newtags, "verbtext")
-					table.insert(newtags, "verbmeta" .. level)
+                        table.insert(newtags, "visualmimic")
+                        table.insert(newtags, "dontadd")
+                        table.insert(newtags, "verb" .. metan)
+                        table.insert(newtags, "verbmeta" .. level)
 
-					local newword1 = target
-					local newword2 = verb
-					local newword3 = "text"
+                        local newword1 = target
+                        local newword2 = verb
+                        local newword3 = metan
 
-					local newrule = {newword1, newword2, newword3}
-					addoption(newrule,newconds,ids,false,nil,newtags)
+                        local newrule = { newword1, newword2, newword3 }
+                        addoption(newrule, newconds, ids, false, nil, newtags)
+                    end
 				end
 			end
 		elseif (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
@@ -2479,8 +2481,10 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 						for c,d in ipairs(tags) do
 							table.insert(newtags, d)
 						end
-
-						table.insert(newtags, "verbtext")
+						
+						if is_str_special_prefixed(a) then
+							table.insert(newtags, "verb"..get_broaded_str(a))
+						end
 						table.insert(newtags, "verbmeta" .. level)
 
 						local newword1 = target
@@ -2499,30 +2503,32 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 			if (verb == "mimic" or verb == "perform") and isnot == false then
-				local newconds = {}
-				local newtags = {}
+				for _,metan in ipairs(extra_broad_nouns) do
+                    local newconds = {}
+                    local newtags = {}
 
-				for c,d in ipairs(conds) do
-					table.insert(newconds, d)
-				end
+                    for c, d in ipairs(conds) do
+                        table.insert(newconds, d)
+                    end
 
-				for c,d in ipairs(tags) do
-					table.insert(newtags, d)
-				end
+                    for c, d in ipairs(tags) do
+                        table.insert(newtags, d)
+                    end
 
-				table.insert(newtags, "dontadd")
-				table.insert(newtags, "verbtext")
-				table.insert(newtags, "verbmeta" .. level)
+                    table.insert(newtags, "dontadd")
+                    table.insert(newtags, "verb" .. metan)
+                    table.insert(newtags, "verbmeta" .. level)
 
-				local newword1 = target
-				local newword2 = verb
-				local newword3 = "text"
-				if fullunitlist["text"] == nil then
-					fullunitlist["text"] = 1
-				end
+                    local newword1 = target
+                    local newword2 = verb
+                    local newword3 = metan
+                    if fullunitlist[metan] == nil then
+                        fullunitlist[metan] = 1
+                    end
 
-				local newrule = {newword1, newword2, newword3}
-				addoption(newrule,newconds,ids,false,nil,newtags)
+                    local newrule = { newword1, newword2, newword3 }
+                    addoption(newrule, newconds, ids, false, nil, newtags)
+                end
 			end
 		end
 	end
@@ -4134,9 +4140,9 @@ function grouprules()
 		if (string.sub(name_, 1, 4) ~= "not ") and (metatext_fixquirks or ((not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta")) then
 			namelist = {name_}
 		elseif (name_ ~= "not all") and (metatext_fixquirks or ((not is_str_broad_noun(name_)) and string.sub(name_,1,4) ~= "meta")) then
-			if get_pref(get_ref(name_)) ~= "" then --Exceptions for NOT METATEXT and NOT META#
+			if is_str_special_prefixed(get_ref(name_)) then --Exceptions for NOT METATEXT and NOT META#
 				for a,b in pairs(fullunitlist) do
-					if (get_pref(a) ~= "") and (a ~= get_ref(name_)) then
+					if (is_str_special_prefixed(a)) and (a ~= get_ref(name_)) then
 						table.insert(namelist, a)
 					end
 				end

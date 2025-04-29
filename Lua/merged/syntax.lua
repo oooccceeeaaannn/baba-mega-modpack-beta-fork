@@ -470,7 +470,7 @@ function createall(matdata,x_,y_,id_,dolevels_,leveldata_)
 										table.insert(resultIds, nunitid) -- EDIT
 										addundo({"convert",matdata[1],mat,ningameid,vunit.values[ID],x,y,dir})
 										
-										if (is_str_broad_noun(matdata[1])) or (get_pref(matdata[1]) ~= "") or (matdata[1] == "level") then
+										if (is_str_broad_noun(matdata[1])) or (is_str_special_prefixed(matdata[1])) or (matdata[1] == "level") then
 											table.insert(delthese, v)
 										end
 									end

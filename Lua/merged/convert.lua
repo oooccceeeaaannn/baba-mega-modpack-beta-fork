@@ -919,7 +919,7 @@ function conversion(dolevels_)
 			local name = words[1]
 			local thing = words[3]
 
-			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and not is_str_metalike_prop(thing)) and unitreference[thing] == nil and (get_pref(thing) ~= "") and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
+			if (not dolevels) and (operator == "is" or operator == "become") and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and ((thing ~= "not " .. name) and (thing ~= "all") and (thing ~= "text") and (thing ~= "revert") and not is_str_metalike_prop(thing)) and unitreference[thing] == nil and (is_str_special_prefixed(thing)) and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate(thing)
 			elseif (not dolevels) and (operator == "write" or (operator == "draw")) and not is_str_special_prefix(name .. "_") and (string.sub(name,1,4)) ~= "meta" and (thing ~= "not " .. name) and unitreference["text_" .. thing] == nil and ((unitlists[name] ~= nil and #unitlists[name] > 0) or name == "empty" or name == "level") then
 				tryautogenerate("text_" .. thing)
@@ -964,7 +964,7 @@ function conversion(dolevels_)
 									if (object == "not " .. name) then
 										table.insert(output, {"error", conds, "is"})
 
-									elseif get_pref(object) ~= "" then
+									elseif is_str_special_prefixed(object) then
 										table.insert(output, {object, conds, "is"})
 									else
 										for d,mat in pairs(objectlist) do
@@ -1071,7 +1071,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmeta") and string.sub(name,1,5) == "text_" then
 								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) and not is_str_broad_noun(string.sub(name,6)) and (string.sub(name,6) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(string.sub(name,6)) then
 									valid = tryautogenerate(string.sub(name,6))
 								end
 								if valid then
@@ -1079,7 +1079,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmega") and string.sub(name,1,6) == "glyph_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(string.sub(name,7)) then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
@@ -1087,7 +1087,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmeea") and string.sub(name,1,6) == "event_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(string.sub(name,7)) then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
@@ -1095,7 +1095,7 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmena") and string.sub(name,1,5) == "node_" then
 								local valid = (getmat(string.sub(name,6)) ~= nil or unitreference[string.sub(name,6)] ~= nil) and not is_str_broad_noun(string.sub(name,6)) and (string.sub(name,6) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,6)) ~= "" then
+								if unitreference[string.sub(name,6)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(string.sub(name,6)) then
 									valid = tryautogenerate(string.sub(name,6))
 								end
 								if valid then
@@ -1103,16 +1103,16 @@ function conversion(dolevels_)
 								end
 							elseif (object == "unmela") and string.sub(name,1,6) == "logic_" then
 								local valid = (getmat(string.sub(name,7)) ~= nil or unitreference[string.sub(name,7)] ~= nil) and not is_str_broad_noun(string.sub(name,7)) and (string.sub(name,7) ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(string.sub(name,7)) ~= "" then
+								if unitreference[string.sub(name,7)] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(string.sub(name,7)) then
 									valid = tryautogenerate(string.sub(name,7))
 								end
 								if valid then
 									table.insert(conversions, {string.sub(name,7),conds})
 								end
-							elseif (object == "unmexa") and get_pref(name) ~= "" then
+							elseif (object == "unmexa") and is_str_special_prefixed(name) then
 								local unmetad = get_ref(name)
 								local valid = (getmat(unmetad) ~= nil or unitreference[unmetad] ~= nil) and not is_str_broad_noun(unmetad) and (unmetad ~= "all") -- don't attempt conversion if the object does not exist
-								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and get_pref(unmetad) ~= "" then
+								if unitreference[unmetad] == nil and unitreference[name] ~= nil and unitlists[name] ~= nil and #unitlists[name] > 0 and is_str_special_prefixed(unmetad) then
 									valid = tryautogenerate(unmetad)
 								end
 								if valid then

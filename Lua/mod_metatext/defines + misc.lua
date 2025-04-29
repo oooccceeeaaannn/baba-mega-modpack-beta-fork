@@ -684,6 +684,34 @@ function edit_str_meta_layer(str, layer)
 	return str
 end
 
+function is_string_metax(str, include_n1)
+	if string.sub(str,1,4) ~= "meta" then return false end
+	local metalevel = tonumber(string.sub(str,5))
+	if metalevel == nil then return false end
+	if metalevel < -1 then return false end
+	--check if metalevel is integer
+	--if metalevel ~= math.floor(metalevel) then return false end
+	if (not include_n1) or (include_n1 == nil) then
+		if metalevel == -1 then return false end
+	end
+	return true
+end
+
+function is_string_notted_metax(str, include_n1)
+	if string.sub(str,1,4) ~= "not " then return false end
+	str = string.sub(str,5)
+	if string.sub(str,1,4) ~= "meta" then return false end
+	local metalevel = tonumber(string.sub(str,5))
+	if metalevel == nil then return false end
+	if metalevel < -1 then return false end
+	--check if metalevel is integer
+	--if metalevel ~= math.floor(metalevel) then return false end
+	if (not include_n1) or (include_n1 == nil) then
+		if metalevel == -1 then return false end
+	end
+	return true
+end
+
 -- Remove lines that include "text" rules if rule1 starts with "text_".
 
 --[[ @Merge: hasfeature() was merged ]]
