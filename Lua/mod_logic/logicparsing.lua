@@ -436,7 +436,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,extra,extrab)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 				LOGICRULECOUNT = LOGICRULECOUNT + 1
 
 				if LOGICRULECOUNT > 200 then
@@ -472,7 +472,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,extra,extrab)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 				LOGICRULECOUNT = LOGICRULECOUNT + 1
 
 
@@ -526,7 +526,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,extra,extrab)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 				LOGICRULECOUNT = LOGICRULECOUNT + 1
 
 				if LOGICRULECOUNT > 200 then
@@ -562,7 +562,7 @@ function parselogic(unitid,prev,ids,basicrule,conds,flowunits,extra,extrab)
 			end
 
 			if hasconnect and hasboolean and unhalted then
-				addoption(nextrule,nextconds,nextids,true,nil,{"logic"})
+				addoption(nextrule,nextconds,nextids,true,nil,{"logicrule"})
 				LOGICRULECOUNT = LOGICRULECOUNT + 1
 
 				if LOGICRULECOUNT > 200 then
