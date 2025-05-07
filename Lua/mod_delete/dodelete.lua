@@ -207,10 +207,10 @@ function rekill()
     local doerror = false
     for i, unit in ipairs(units) do
         local name = getname(unit)
+        local refername = get_ref(name)
 
         local dead = get_dead_status(name)
-        local referdead = get_dead_status(get_ref(name))
-
+        local referdead = get_dead_status(refername)
         local dokill = false
         local dotextglitch = false
 
@@ -233,16 +233,18 @@ function rekill()
             else
                 if dead == "yes" then
                     objectlist[name] = nil
+                    fullunitlist[name] = nil
                 end
                 table.insert(delthese, unit.fixed)
                 killed = true
             end
         elseif dotextglitch then
             if MF_keydown("v") and editor.values[INEDITOR] == 1 then
-                MF_store("world", "deadunits", unit.strings[NAME], 0)
+                MF_store("world", "deadunits", refername, 0)
             else
-                objectlist[unit.strings[NAME]] = nil
-                MF_changesprite(unit.fixed, "text_glitch", false)
+                objectlist[refername] = nil
+                fullunitlist[refername] = nil
+                MF_changesprite(unit.fixed, get_pref(name) .. "glitch", false)
                 killed = true
             end
         end
@@ -404,10 +406,11 @@ if keys.IS_WORD_GLOSSARY_PRESENT then --@Merge: Word Glossary Support
             thumbnail_obj = "text_delete",
             display_name = "NOT property",
             author = "Emily",
-            description = [[- When X is delete, the level immediately restarts (ignoring NORESET),
+            description = [[- When X IS DELETE, the level immediately restarts (ignoring NORESET),
 EVERY instance of X is removed, and every rule containing X is considered invalid.
-- When X is not delete, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
-EVERY instance of X is added back, and every rule containing X is no longer considered invalid.]],
+- When X IS NOT DELETE, if X is removed via DELETE, the level immediately restarts (ignoring NORESET),
+EVERY instance of X is added back, and every rule containing X is no longer considered invalid.
+- In editor, if you press v when you start a level, all the objects that are removed via DELETE are added back.]],
         },
     })
 end
