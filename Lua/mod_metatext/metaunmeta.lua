@@ -215,6 +215,12 @@ function is_str_metalike_prop(str)
     return false
 end
 
+function is_str_writelike_verb(str)
+    if (str == "write" or str == "inscribe" or str == "code" or str == "log") then 
+      return true
+    end
+    return false
+end
 -- Disables if X IS X, like REVERT.
 
 --[[ @Merge: postrules() was merged ]]

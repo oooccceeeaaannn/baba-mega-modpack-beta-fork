@@ -2423,7 +2423,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif (is_str_broad_noun(effect) or is_str_notted_broad_noun(effect)) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" then
+				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" and verb ~= "code" then
 			for a,b in pairs(fullunitlist) do -- fullunitlist contains all units, is new
 				local reale = effect
 				local isnot = string.sub(effect, 1, 4) == "not "
@@ -2461,8 +2461,8 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 				end
 			end
 		elseif ((string.sub(effect,1,4) == "meta" or string.sub(effect,1,8) == "not meta")) and (targetnot ~= "not ") and verb ~= "is" and verb ~= "become" and verb ~= "make" and verb ~= "has" and verb ~= "write"
-				and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" then
-			local isnot = (string.sub(effect,1,8) == "not meta")
+            and verb ~= "inscribe" and verb ~= "scrawl" and verb ~= "print" and verb ~= "imprint" and verb ~= "scribble" and verb ~= "follow" and verb ~= "log" and verb ~= "code" then
+            local isnot = (string.sub(effect, 1, 8) == "not meta")
 			local level = string.sub(effect,5)
 			if isnot then
 				level = string.sub(effect,9)
@@ -3378,6 +3378,7 @@ function postrules(alreadyrun_)
 						  and (((targetrule[2] == "is") and (target ~= object)) 
 						  	  or ((targetrule[2] == "inscribe") and (string.sub(object, 1, 4) ~= "not "))
 						  	  or ((targetrule[2] == "write") and (string.sub(object, 1, 4) ~= "not "))
+							  or ((targetrule[2] == "code") and (string.sub(object, 1, 4) ~= "not "))
 							  or ((targetrule[2] == "log") and (string.sub(object, 1, 4) ~= "not ")))
 						  and ((getmat(object) ~= nil) or is_str_special_prefixed(object) or (object == "level") or (object == "empty")
 						  	  or (object == "revert") or (object == "morph")
@@ -4413,15 +4414,15 @@ function grouprules()
 			if (memberships[rule[3]] ~= nil) then
 				for a,b in ipairs(memberships[rule[3]]) do
 					local foundtag = false
-					if metatext_fixquirks and (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "follow") and (not is_str_broad_noun(b[1])) and string.sub(b[1],1,4) ~= "meta" then
+					if metatext_fixquirks and (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "code" or rule[2] == "follow") and (not is_str_broad_noun(b[1])) and string.sub(b[1],1,4) ~= "meta" then
 						for num,tag in ipairs(b[3]) do
 							if is_str_broad_noun(tag) or string.sub(tag,1,4) == "meta" then
 								foundtag = true
 								break
 							end
 						end
-					elseif (is_str_broad_noun(b[1]) or string.sub(b[1],1,4) == "meta") and (not (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "follow")) then
-						foundtag = true
+                    elseif (is_str_broad_noun(b[1]) or string.sub(b[1], 1, 4) == "meta") and (not (rule[2] == "become" or rule[2] == "has" or rule[2] == "make" or rule[2] == "write" or rule[2] == "inscribe" or rule[2] == "code" or rule[2] == "scrawl" or rule[2] == "scribble" or rule[2] == "print" or rule[2] == "imprint" or rule[2] == "log" or rule[2] == "follow")) then
+                        foundtag = true
 					end
 					if not foundtag then
 						table.insert(team2, b)
