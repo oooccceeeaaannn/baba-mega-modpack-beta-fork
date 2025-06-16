@@ -295,7 +295,7 @@ function tryautogenerate(want, have)
 				have = "text_" .. test
 			end
 		end
-		if get_pref(have) == "" then
+		if not is_str_special_prefixed(have) then
 			have = get_pref(want) .. have
 		end
 		print("Trying to generate " .. want .. " from " .. have .. ".")
@@ -591,7 +591,7 @@ end
 
 function equals_or_included(a,b)
 	if a == b then return true end
-	if ("meta"..getmetalevel(a) == b) then return true end
+	if ("meta"..tostring(getmetalevel(a)) == b) then return true end
 	if get_pref(a) == b .. "_" then return true end
 	return false
 end

@@ -145,7 +145,7 @@ function findpersistrules()
 		if (fullpersist == true) and ((not pe_ignoreconds) or #conds==0) then
 			--do not persist rules that are disabled
 			if not hasfeature(rules[1][1],rules[1][2],"not "..rules[1][3]) and not (objectlist[rules[1][3]] ~= nil and hasfeature(rules[1][1],"is",rules[1][1]) and (rules[1][1] ~= rules[1][3])) then
-				table.insert(persistbaserulestoadd,{rules[1][1],rules[1][2],rules[1][3]})
+				table.insert(persistbaserulestoadd,{rules[1][1],rules[1][2],rules[1][3],rules[1][4]})
 			end
 		end
 	end
@@ -307,7 +307,7 @@ table.insert(mod_hook_functions["level_start"],
 		for level,v in pairs(persistbaserules) do
 			for j,rule in ipairs(v) do
 				--need to be able to create objects that aren't already in the level
-				if (unitreference[rule[3]] ~= nil or rule[3] == "empty" or rule[3] == "text") then
+				if (unitreference[rule[3]] ~= nil or rule[3] == "empty" or is_str_broad_noun(rule[3]) or is_string_metax(rule[3])) then
 					objectlist[rule[3]] = 1
 				end
 			end

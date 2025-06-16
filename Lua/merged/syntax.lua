@@ -231,7 +231,7 @@ function addunit(id,undoing_,levelstart_)
 	local undoing = undoing_ or false
 	local levelstart = levelstart_ or false
 
-	getmetadata(unit)
+	data(unit)
 
 	local truename = unit.className
 

@@ -756,23 +756,25 @@ condlist["triggered"] = function(params,checkedconds,checkedconds_,cdata)
 end
 
 condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
+	local result = true
 	for i, j in pairs(params) do
 		local pname = j
 		local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
 		local _params = pname
 		local unit = mmf.newObject(cdata.unitid)
 		local unitname = "empty"
+		local thisresult = false
 		if unit ~= nil then
 			unitname = unit.strings[UNITNAME]
 		end
 
+		local broadname = get_broaded_str(unitname)
+
 		if is_str_special_prefixed(unitname) then
 			if not is_param_this then
-				return get_ref(unitname) == _params, checkedconds
+				thisresult = thisresult or (get_ref(unitname) == _params)
 			else
-				local ray_exists = false
 				for ray_unitid, _ in pairs(raycast_units) do
-					ray_exists = true
 					local ray_name
 					if ray_unitid == 2 then
 						ray_name = "empty"
@@ -780,31 +782,37 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 						local ray_unit = mmf.newObject(ray_unitid)
 						ray_name = ray_unit.strings[UNITNAME]
 					end
-					if not (get_ref(unitname) == ray_name) then return false end
+					thisresult = thisresult or (get_ref(unitname) == ray_name)
 				end
-				return ray_exists, checkedconds
 			end
 		end
 
 		if not is_param_this then
-			if hasfeature(unitname, "is", "word", cdata.unitid) and (unitname == _params) then
-				return true, checkedconds
-			elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (unitname == _params) then
-				return true, checkedconds
+			if hasfeature(unitname, "is", "word", cdata.unitid) and (((broadname == _params) and (broadname ~= "event"))
+			 or ((broadname == "event") and (string.sub(unitname,7) == _params))) then
+				thisresult = true
+			elseif hasfeature(unitname,"is","symbol",cdata.unitid) and (broadname == _params) then
+				thisresult = true
+			elseif hasfeature(unitname,"is","token",cdata.unitid) and (((not is_str_special_prefixed(unitname)) and (unitname == _params))
+		or (unitname == "text_" .. _params)) then
+				thisresult = true
 			end
 		else
-			local ray_exists = false
 			for ray_unitid, _ in pairs(raycast_units) do
-				ray_exists = true
-                local ray_name
                 if ray_unitid == 2 then
-                    ray_name = "empty"
+                    _params = "empty"
                 else
                     local ray_unit = mmf.newObject(ray_unitid)
-                    ray_name = ray_unit.strings[UNITNAME]
+                    _params = ray_unit.strings[UNITNAME]
                 end
-				if not ((hasfeature(unitname,"is","word",ray_unitid) or hasfeature(unitname,"is","symbol",ray_unitid)) and (unitname == ray_name)) then
-					return false, checkedconds
+				if hasfeature(unitname, "is", "word", cdata.unitid) and (((broadname == _params) and (broadname ~= "event"))
+						or ((broadname == "event") and (string.sub(unitname, 7) == _params))) then
+					thisresult = true
+				elseif hasfeature(unitname, "is", "symbol", cdata.unitid) and (broadname == _params) then
+					thisresult = true
+				elseif hasfeature(unitname, "is", "token", cdata.unitid) and (((not is_str_special_prefixed(unitname)) and (unitname == _params))
+						or (unitname == "text_" .. _params)) then
+					thisresult = true
 				end
 			end
 			return ray_exists, checkedconds

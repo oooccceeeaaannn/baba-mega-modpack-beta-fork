@@ -36,12 +36,13 @@ end
 
 function get_text_type(name)
     if is_str_special_prefixed(name) and not is_str_special_prefix(name) then return 0 end
-    name = "text_"..name
-    if objectpalette[name] ~= nil then
-        local altname = objectpalette[name]
-        return getactualdata_objlist(altname, "type")
+    local aname = "text_" .. name
+    if objectpalette[aname] ~= nil then
+        local altname = objectpalette[aname]
+        local result = getactualdata_objlist(altname, "type")
+        return result
     end
-    local result = editor_objlist[name]
+    local result = editor_objlist[aname]
     if result ~= nil then return result.type end
     return -2
 end

@@ -2114,7 +2114,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 								end
 							elseif (b == "not all") then
 								table.insert(newconds, "empty")
-								for _,v in extra_broad_nouns do
+								for _,v in ipairs(extra_broad_nouns) do
 									table.insert(newconds, v)
 								end
 							end
@@ -2201,7 +2201,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 			else
 				local mats = {"empty","text","glyph","node","event","logic"}
 				
-				for m,i in pairs(mats) do
+				for m,i in ipairs(mats) do
 					local rule = {i,verb,effect}
 					local newconds = {}
 					for a,b in ipairs(conds) do
@@ -2671,7 +2671,7 @@ function code(alreadyrun_)
 			for level,levelrules in pairs(persistbaserules) do
 				if level ~= generaldata.strings[CURRLEVEL] then
 					for j,w in ipairs(levelrules) do
-						addbaserule(w[1],w[2],w[3])
+						addbaserule(w[1],w[2],w[3],w[4])
 					end
 					baserule_added = true
 				end
