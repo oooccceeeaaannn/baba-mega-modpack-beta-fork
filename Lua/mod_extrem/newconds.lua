@@ -756,7 +756,6 @@ condlist["triggered"] = function(params,checkedconds,checkedconds_,cdata)
 end
 
 condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
-	local result = true
 	for i, j in pairs(params) do
 		local pname = j
 		local is_param_this, raycast_units, _, this_count = parse_this_param_and_get_raycast_units(pname)
@@ -815,10 +814,12 @@ condlist['refers'] = function(params, checkedconds, checkedconds_, cdata)
 					thisresult = true
 				end
 			end
-			return ray_exists, checkedconds
+		end
+		if not thisresult then
+			return false, checkedconds, true
 		end
 	end
-	return false, checkedconds
+	return true, checkedconds
 end
 
 condlist["cancel"] = function(params,checkedconds,checkedconds_,cdata)
