@@ -38,6 +38,11 @@ function dolevelconversions()
 			end
 
 			local objectfound = false
+
+			if (op == "become") and (mat2 == "level") then
+				op = "is"
+				mat2 = "revert"
+			end
 			
 			if (unitreference[mat2] ~= nil) then
 				local object = unitreference[mat2]
@@ -573,7 +578,7 @@ function doconvert(data,extrarule_)
 		end
 		
 		if delthis and (unit.flags[DEAD] == false) then
-			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,ws_extraData(unit)}) -- EDIT: keep karma, trapped, bungee when undoing
+			addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],true,unit.fixed,ws_extraData(unit),unit.holder}) -- EDIT: keep karma, trapped, bungee when undoing
 			
 			if (unit.strings[UNITTYPE] == "text" or unit.strings[UNITTYPE] == "node" or isglyph(unit)) or (unit.strings[UNITTYPE] == "logic") then
 				updatecode = 1
@@ -962,22 +967,22 @@ function conversion(dolevels_)
 							if (target == name) and (object ~= "word") and (object ~= "class") and (object ~= "echo") and (object ~= "symbol") and ((object ~= name) or (verb == "become")) then
 								if not is_str_broad_noun(object) and (object ~= "morph") and (object ~= "revert") and (object ~= "createall") and (not is_str_metalike_prop(object)) and (string.sub(object,1,4) ~= "meta") then
 									if (object == "not " .. name) then
-										table.insert(output, {"error", conds, "is"})
+										table.insert(output, {"error", conds, verb})
 
 									elseif is_str_special_prefixed(object) then
-										table.insert(output, {object, conds, "is"})
+										table.insert(output, {object, conds, verb})
 									else
 										for d,mat in pairs(objectlist) do
 											if (string.sub(d, 1, 5) ~= "group") and ((d == object)) then
-												table.insert(output, {object, conds, "is"})
+												table.insert(output, {object, conds, verb})
 											end
 										end
 									end
 								elseif (name ~= object) or (verb == "become") then
 									if (object ~= "revert") and (not is_str_metalike_prop(object)) then --Note: I don't actually think meta/unmeta needs to be placed at the front.
-										table.insert(output, {object, conds, "is"})
+										table.insert(output, {object, conds, verb})
 									else
-										table.insert(output, 1, {object, conds, "is"})
+										table.insert(output, 1, {object, conds, verb})
 									end
 								end
 							end
@@ -1051,7 +1056,7 @@ function conversion(dolevels_)
 						local conds = v3[2]
 						local op = v3[3]
 
-						if (op == "is") then
+						if (op == "is") or (op == "become") then
 							-- EDIT: add check for ECHO
 							if (findnoun(object,nlist.brief) == false) and (object ~= "word") and (object ~= "echo") and (object ~= "symbol") and not is_str_broad_noun(object) and (not is_str_metalike_prop(object)) then
 								table.insert(conversions, v3)

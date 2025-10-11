@@ -1954,6 +1954,132 @@ condlist.powered = function(params,checkedconds,checkedconds_,cdata) --To correc
 	return found,checkedconds,true
 end
 
+condlist.facedby = function(params,checkedconds,checkedconds_,cdata)
+			local allfound = 0
+			local alreadyfound = {}
+			
+			local unitid,x,y,dir,extras,surrounds,conds = cdata.unitid,cdata.x,cdata.y,cdata.dir,cdata.extras,cdata.surrounds,tostring(cdata.conds)
+			
+			if (unitid == 2) and ((checkedconds_ == nil) or (checkedconds_[conds] == nil)) then
+				dir = emptydir(x,y,checkedconds)
+			end
+			
+			for i=1,4 do
+				local ndrs = ndirs[i]
+				local ox = ndrs[1]
+				local oy = ndrs[2]
+				
+				local tileid = (x + ox) + (y + oy) * roomsizex
+				
+				if (#params > 0) then
+					for a,b in ipairs(params) do
+						local pname = b
+						local pnot = false
+						if (string.sub(b, 1, 4) == "not ") then
+							pnot = true
+							pname = string.sub(b, 5)
+						end
+						
+						local bcode = b .. "_" .. tostring(a)
+						
+						if (string.sub(pname, 1, 5) == "group") then
+							return false,checkedconds
+						end
+
+				local is_param_this, raycast_units, raycast_tileids = parse_this_param_and_get_raycast_units(pname)
+				local ray_unit_is_empty = is_param_this and raycast_units[2] -- <-- this last condition checks if empty is a
+						
+				if not ray_unit_is_empty and (((pname ~= "empty") and (b ~= "level")) or ((b == "level") and (alreadyfound[1] ~= nil))) then
+							if (unitmap[tileid] ~= nil) then
+								for c,d in ipairs(unitmap[tileid]) do
+									if (d ~= unitid) and (alreadyfound[d] == nil) then
+										local unit = mmf.newObject(d)
+										local name_ = getname(unit, pname, pnot)
+										
+										local ndrs_ = ndirs[unit.values[DIR]+1]
+										local ox_ = ndrs_[1]
+										local oy_ = ndrs_[2]
+										local x_ = unit.values[XPOS] + ox_
+										local y_ = unit.values[YPOS] + oy_
+										
+										if (pnot == false) then
+											if is_param_this then
+												if raycast_units and raycast_units[d] and (x_ == x) and (y_ == y) and (alreadyfound[bcode] == nil) then
+													alreadyfound[bcode] = 1
+													alreadyfound[d] = 1
+													allfound = allfound + 1
+												end
+											elseif (name_ == pname) and (x_ == x) and (y_ == y) and (alreadyfound[bcode] == nil) then
+												alreadyfound[bcode] = 1
+												alreadyfound[d] = 1
+												allfound = allfound + 1
+											end
+										else
+											if is_param_this then
+												if (raycast_units and not raycast_units[d]) or ((x_ ~= x) or (y_ ~= y)) and (alreadyfound[bcode] == nil) then
+													alreadyfound[bcode] = 1
+													alreadyfound[d] = 1
+													allfound = allfound + 1
+												end
+											elseif ((name_ ~= pname) or (x_ ~= x) or (y_ ~= y)) and (get_pref(unit.strings[UNITNAME]) == get_pref(pname)) and (alreadyfound[bcode] == nil) then
+												alreadyfound[bcode] = 1
+												alreadyfound[d] = 1
+												allfound = allfound + 1
+											end
+										end
+									end
+								end
+							end
+						elseif (pname == "empty" or ray_unit_is_empty) then
+							local l = map[0]
+							local tile = l:get_x(x + ox,y + oy)
+							local watching = false
+							
+							if (tile == 255) then
+								local dir_ = emptydir(x+ox,y+oy,checkedconds)
+								if (dir_ ~= 4) then
+									local ndrs_ = ndirs[dir_+1] or {}
+									local ox_ = ndrs_[1] or 0
+									local oy_ = ndrs_[2] or 0
+									local x_ = x + ox + ox_
+									local y_ = y + oy + oy_
+									
+									if (x_ == x) and (y_ == y) and ((not ray_unit_is_empty) or (raycast_tileids[tileid])) then
+										watching = true
+									end
+								end
+							end
+							
+							if (pnot == false) then
+								if ((unitmap[tileid] == nil) or (#unitmap[tileid] == 0)) and watching then
+									if (alreadyfound[bcode] == nil) then
+										alreadyfound[bcode] = 1
+										allfound = allfound + 1
+									end
+								end
+							else
+								if ((unitmap[tileid] ~= nil) and (#unitmap[tileid] > 0)) or (watching == false) then
+									if (alreadyfound[bcode] == nil) then
+										alreadyfound[bcode] = 1
+										allfound = allfound + 1
+									end
+								end
+							end
+						elseif (b == "level") and (alreadyfound[bcode] == nil) and (alreadyfound[1] == nil) then
+							alreadyfound[bcode] = 1
+							alreadyfound[1] = 1
+							allfound = allfound + 1
+						end
+					end
+				else
+					--print("no parameters given!")
+					return false,checkedconds
+				end
+			end
+			
+			return (allfound == #params),checkedconds
+		end
+
 function testcond(conds,unitid,x_,y_,autofail_,limit_,checkedconds_,ignorebroken_,subgroup_)
 	local result = true
 

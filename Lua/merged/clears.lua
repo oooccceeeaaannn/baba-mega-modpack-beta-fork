@@ -38,6 +38,7 @@ function clearunits(restore_)
 	leveldata.currcolour = 0
 	poweredstatus = {}
 	specialtiling = {}
+	backparticles = {}
 	breakunits = {}
 	breakrelatedunits = {}
 	

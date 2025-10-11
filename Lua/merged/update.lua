@@ -84,6 +84,11 @@ function doupdate()
 					local unit = mmf.newObject(tonumber(data[6]))
 					unit.values[FLOAT] = tonumber(data[4])
 					addundo({"float",data[7],data[5],data[3],data[4]})
+
+					if (unit.holder ~= nil) and (unit.holder ~= 0) then
+						addundo({ "holder", unit.values[ID], unit.holder, 0, }, unitid)
+						unit.holder = 0
+					end
 				else
 					print("No meaningful update data for object " .. tostring(data[1]) .. ", " .. data[2])
 				end

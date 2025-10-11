@@ -21,6 +21,7 @@ if keys.IS_WORD_GLOSSARY_PRESENT then
             description = [[Similar to write, it transforms objects into the glyph counterpart of the target.]],
             display_sprites = { "text_inscribe" },
         },
+        --[=[
         {
             name = "become",
             thumbnail_obj = "text_become",
@@ -33,6 +34,7 @@ LEVEL BECOME LEVEL is not an allowed statement.
 ]],
             display_sprites = { "text_become" },
         },
+        --]=]
         {
             name = "gglyphmeta",
             thumbnail_obj = "glyph_metaglyph",

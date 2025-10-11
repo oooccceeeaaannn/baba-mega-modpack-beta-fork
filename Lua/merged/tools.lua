@@ -73,7 +73,38 @@ function writerules(parent,name,x_,y_)
 				
 				if dunit.visible then
 					fullinvis = false
+					goto exit
 				end
+			end
+		end
+
+		:: exit ::
+
+		for a, b in ipairs(tags) do
+			if (string.sub(b, 1, 12) == "mimicparent_") and (featureindex["mimic"] ~= nil) then
+				local id = tonumber(string.sub(b, -1))
+				local parent = featureindex["mimic"][id]
+
+				if (parent ~= nil) then
+					local ids_ = parent[3]
+					local finvis = true
+					for a, b_ in ipairs(ids_) do
+						for c, d in ipairs(b_) do
+							local dunit = mmf.newObject(d)
+
+							if dunit.visible then
+								finvis = false
+								break
+							end
+						end
+					end
+
+					if finvis then
+						fullinvis = true
+					end
+				end
+
+				break
 			end
 		end
 		
@@ -450,7 +481,7 @@ function delete(unitid,x_,y_,total_,noinside_)
 				changevisiontarget(unit.fixed)
 			end
 			
-			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,ws_extraData(unit)},unitid)
+			addundo({"remove",unitname,x,y,dir,unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],false,unitid,ws_extraData(unit),unit.holder},unitid)
 			unit = {}
 			delunit(unitid)
 			MF_remove(unitid)

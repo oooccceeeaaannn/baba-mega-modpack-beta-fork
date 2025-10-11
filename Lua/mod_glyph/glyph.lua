@@ -239,7 +239,7 @@ table.insert(editor_objlist_order, "text_inscribe")
 table.insert(editor_objlist_order, "text_symbol")
 table.insert(editor_objlist_order, "text_metaglyph")
 table.insert(editor_objlist_order, "text_metatext")
-table.insert(editor_objlist_order, "text_become")
+--table.insert(editor_objlist_order, "text_become")
 table.insert(editor_objlist_order, "glyph_glyph")
 table.insert(editor_objlist_order, "glyph_baba")
 table.insert(editor_objlist_order, "glyph_flag")
@@ -1571,7 +1571,7 @@ editor_objlist["text_metatext"] =
 	colour = {4, 0},
 	colour_active = {4, 1},
 }
-
+--[[
 editor_objlist["text_become"] =
 {
 	name = "text_become",
@@ -1584,7 +1584,7 @@ editor_objlist["text_become"] =
 	colour = {0, 1},
 	colour_active = {0, 3},
 }
-
+--]]
 editor_objlist["glyph_feeling"] =
 {
 	name = "glyph_feeling",
@@ -3740,7 +3740,7 @@ gl_isnoun = isnoun
 
 function add_glyph_using_text(name)
 	local textname = "text_" .. name
-	local textdata = editor_objlist[textname]
+	local textdata = editor_objlist[editor_objlist_reference[textname]] or editor_objlist[textname]
 	if textdata == nil then
 		error("Glyph was attempted to be added before it's text was added")
 		return false

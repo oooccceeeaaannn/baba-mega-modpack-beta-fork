@@ -1843,7 +1843,7 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 		newconds = copyconds(newconds, conds)
 		addoption({option[3], "is", "glyph"}, newconds,ids,false,notrule,tags_)
 	end
-	--]]
+	-- Hempuli now makes LEVEL BECOME LEVEL act like LEVEL IS REVERT
 	if (option[1] == "level") and (option[2] == "become") and (option[3] == "level") then
 		visualonly = true
 	end
@@ -3717,6 +3717,7 @@ function subrules()
 								end
 							end
 							
+							table.insert(newtags, "mimicparent_" .. tostring(i))
 							table.insert(newtags, "mimic")
 							
 							local newword1 = object

@@ -1373,6 +1373,8 @@ function movecommand(ox, oy, dir_, playerid_, dir_2, no3d_)
             done = true
         end
 
+        do_mod_hook("movement_take", { moving_units, take })
+
         if enable_directional_shift and (finaltake == false) and (take == 9) then
             --@Turning Text(shift)
             moving_units = do_directional_shift_resolve_stacked_shifts(moving_units)
