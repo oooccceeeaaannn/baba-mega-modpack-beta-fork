@@ -223,6 +223,8 @@ function undo()
 							unit.ws_trapped = trapped
 							unit.ws_bungee_pos = bungee_pos
 
+							unit.holder = holder
+
 							--First override for Offset starts here.
 							unit.xoffset = line[XOFFSETUNDOLINE]
 							unit.yoffset = line[YOFFSETUNDOLINE]
