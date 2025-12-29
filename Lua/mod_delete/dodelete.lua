@@ -301,17 +301,20 @@ function addoption(option,conds_,ids,visible,notrule,tags_,visualonly_)
 
             if paramdead == "yes" then
                 conds_[a][2][b] = "$2,2NOT FOUND$0,3"
+                visualonly_ = true
             end
         end
     end
     if dead == "yes" then
         option[1] = "$2,2NOT FOUND$0,3"
+        visualonly_ = true
         if notpref then
             option[1] = "not "..option[1]
         end
     end
     if dead2 == "yes" then
         option[3] = "$2,2NOT FOUND$0,3"
+        visualonly_ = true
         if notpref2 then
             option[3] = "not "..option[3]
         end

@@ -293,7 +293,7 @@ function moveblock(onlystartblock_)
 									--MF_alert(" -- " .. bline[1] .. ", " .. tostring(bline[6]))
 
 									if (bline[1] == "remove") and (bline[6] == uid) then
-										local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init = bline[3],bline[4],bline[5],bline[8],bline[9],bline[10],bline[11],bline[12],bline[13],bline[14],bline[15],bline[16],bline[17]
+										local x,y,dir,levelfile,levelname,vislevel,complete,visstyle,maplevel,colour,clearcolour,followed,back_init,extradata = bline[3],bline[4],bline[5],bline[8],bline[9],bline[10],bline[11],bline[12],bline[13],bline[14],bline[15],bline[16],bline[17],bline[22]
 
 										local newname = bline[2]
 
@@ -322,6 +322,10 @@ function moveblock(onlystartblock_)
 
 										newunit.strings[COLOUR] = colour
 										newunit.strings[CLEARCOLOUR] = clearcolour
+
+										newunit.karma = extradata.karma
+										newunit.trapped = extradata.trapped
+										newunit.bungee_pos = extradata.bungee_pos
 
 										if (newunit.className == "level") then
 											MF_setcolourfromstring(newunitid,colour)
@@ -436,8 +440,12 @@ function moveblock(onlystartblock_)
 								end
 
 								-- EDIT: keep karma, trapped and bungee when undoing
-								addundo({"remove",unit.strings[UNITNAME],unit.values[XPOS],unit.values[YPOS],unit.values[DIR],unit.values[ID],unit.values[ID],unit.strings[U_LEVELFILE],unit.strings[U_LEVELNAME],unit.values[VISUALLEVEL],unit.values[COMPLETED],unit.values[VISUALSTYLE],unit.flags[MAPLEVEL],unit.strings[COLOUR],unit.strings[CLEARCOLOUR],unit.followed,unit.back_init,unit.originalname,unit.strings[UNITSIGNTEXT],ws_extraData(unit),unit.holder})
-
+								addundo({"remove", unit.strings[UNITNAME], unit.values[XPOS], unit.values[YPOS], unit
+									.values[DIR], unit.values[ID], unit.values[ID], unit.strings[U_LEVELFILE], unit
+									.strings[U_LEVELNAME], unit.values[VISUALLEVEL], unit.values[COMPLETED], unit.values
+									[VISUALSTYLE], unit.flags[MAPLEVEL], unit.strings[COLOUR], unit.strings[CLEARCOLOUR],
+									unit.followed, unit.back_init, unit.originalname, unit.strings[UNITSIGNTEXT], false,
+									unitid,ws_extraData(unit), unit.holder })
 								for a,b in ipairs(delname) do
 									MF_alert("added undo for " .. b[1] .. " with ID " .. tostring(b[2]))
 									addundo({"create",b[1],b[2],b[2],"back",b[3],b[4],b[5]})
@@ -1100,20 +1108,40 @@ function block(small_)
 			end
 		end
 		
-		for i,unit in ipairs(units) do
+		for i, unit in ipairs(units) do
 			if (unit.holder ~= nil) and (unit.holder ~= 0) then
 				if (holders[unit.holder] ~= nil) then
 					local unitid = getunitid(unit.holder)
 					local bunit = mmf.newObject(unitid)
-					local x,y = bunit.values[XPOS],bunit.values[YPOS]
-					
-					update(unit.fixed,x,y,unit.values[DIR])
-					if (floating(unit.fixed, unitid, x, y) == false) then
+					local x, y = bunit.values[XPOS], bunit.values[YPOS]
+
+					local name = getname(unit)
+					local hdir = 4
+					local ox = x - unit.values[XPOS]
+					local oy = y - unit.values[YPOS]
+					if (ox > 0) and (oy == 0) then
+						hdir = 0
+					elseif (ox == 0) and (oy < 0) then
+						hdir = 1
+					elseif (ox < 0) and (oy == 0) then
+						hdir = 2
+					elseif (ox == 0) and (oy > 0) then
+						hdir = 3
+					end
+
+					if (cantmove(name, unit.fixed, hdir, unit.values[XPOS], unit.values[YPOS]) == false) then
+						update(unit.fixed, x, y, unit.values[DIR])
+
+						if (floating(unit.fixed, unitid, x, y) == false) then
+							addundo({ "holder", unit.values[ID], unit.holder, 0, }, unitid)
+							unit.holder = 0
+						end
+					else
 						addundo({ "holder", unit.values[ID], unit.holder, 0, }, unitid)
 						unit.holder = 0
 					end
 				else
-					addundo({"holder",unit.values[ID],unit.holder,0,},unitid)
+					addundo({ "holder", unit.values[ID], unit.holder, 0, }, unitid)
 					unit.holder = 0
 				end
 			else
