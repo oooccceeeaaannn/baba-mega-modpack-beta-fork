@@ -76,7 +76,7 @@ end
 
 local old_delete = delete
 function delete(unitid, x_, y_, ...)
-	if not GLOBAL_disable_guard_checking then
+	if (not GLOBAL_disable_guard_checking) and (deleted[unitid] == nil) then
 		local caller_func = debug.getinfo(2).func
 		local is_guarded = handle_guard_delete_call(unitid, x_, y_, caller_func)
 		if is_guarded then
