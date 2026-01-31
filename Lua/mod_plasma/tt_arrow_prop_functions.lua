@@ -351,7 +351,7 @@ function do_directional_shift_moveblock()
 		end
 
 		if dir > -1 then
-			addundo({"update",name,data.undo_x,data.undo_y,unit.values[DIR],data.undo_x,data.undo_y,dir,unit.values[ID]})
+			addundo({"update",unit.strings[UNITNAME],data.undo_x,data.undo_y,unit.values[DIR],data.undo_x,data.undo_y,dir,unit.values[ID]})
 			unit.values[DIR] = dir
 			
 			--@ Turning text --
