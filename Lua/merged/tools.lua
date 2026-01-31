@@ -1522,40 +1522,39 @@ function destroylevel_do()
 		MF_musicstate(1)
 		generaldata2.values[NOPLAYER] = 1
 
-		local should_reparse_rules = false
-
+		local remains = false
 		destroylevel_check = false
 		local special = destroylevel_style or ""
 		destroylevel_style = ""
 
 		local dellist = {}
 		for i, unit in ipairs(units) do
-			table.insert(dellist, unit.fixed)
+			local unitid = unit.fixed
+			local c1, c2 = getcolour(unitid)
+			local pmult, sound = checkeffecthistory("destroylevel")
+
+			if (special ~= "infinity") and (special ~= "empty") and (special ~= "bonus") then
+				MF_particles("bling", unit.values[XPOS], unit.values[YPOS], 10 * pmult, c1, c2, 1, 1)
+			elseif (special == "bonus") then
+				MF_particles("win", unit.values[XPOS], unit.values[YPOS], 10 * pmult, 4, 1, 1, 1)
+			end
+
+			local name = getname(unit)
+			if hasfeature(name, "is", "secure", unitid, x, y) == nil then
+				if (((special == "infinity") or (special == "paradox")) and hasfeature(name, "is", "eternal", unitid)) then
+					remains = true
+				else
+					table.insert(dellist, unit.fixed)
+				end
+			else
+				remains = true
+				updatecode = 1
+			end
 		end
 
 		if (#dellist > 0) then
 			for i, unitid in ipairs(dellist) do
-				local unit = mmf.newObject(unitid)
-				local c1, c2 = getcolour(unitid)
-				local pmult, sound = checkeffecthistory("destroylevel")
-
-				if (special ~= "infinity") and (special ~= "empty") and (special ~= "bonus") then
-					MF_particles("bling", unit.values[XPOS], unit.values[YPOS], 10 * pmult, c1, c2, 1, 1)
-				elseif (special == "bonus") then
-					MF_particles("win", unit.values[XPOS], unit.values[YPOS], 10 * pmult, 4, 1, 1, 1)
-				end
-
-				local name = getname(unit)
-				if hasfeature(name, "is", "secure", unitid, x, y) == nil then
-					if ((special == "infinity") or (special == "paradox")) and hasfeature(name, "is", "eternal", unitid, x, y) then
-
-					else
-						delete(unitid, nil, nil, true)
-					end
-				else
-					should_reparse_rules = true
-					updatecode = 1
-				end
+				delete(unitid, nil, nil, true)
 			end
 		end
 
@@ -1602,18 +1601,18 @@ function destroylevel_do()
 		elseif (special == "bonus") then
 			MF_playsound("bonus")
 		end
-
-		et_ignoreinfloop = true
-		code()
-		et_ignoreinfloop = false
-
-		if ((special == "infinity") and (hasfeature(name, "is", "eternal", unitid, x, y) == false)) and (hasfeature(name, "is", "secure", unitid, x, y) == false) then
+		
+		updatecode = 1
+		if (not remains) then
 			MF_removeblockeffect(0)
-			updatecode = 1
 			features = {}
 			featureindex = {}
 			visualfeatures = {}
 			notfeatures = {}
+		else
+			et_ignoreinfloop = true
+			code()
+			et_ignoreinfloop = false
 		end
 
 		collectgarbage()
@@ -1621,7 +1620,6 @@ function destroylevel_do()
 		timedmessage("Destroylevel() called from editor. Report this!")
 	end
 end
-
 
 function findgroup(grouptype_,invert_,limit_,checkedconds_,notextnoun_)
 	local result = {}
