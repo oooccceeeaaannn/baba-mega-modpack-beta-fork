@@ -42,7 +42,7 @@ function get_text_type(name)
         local result = getactualdata_objlist(altname, "type")
         return result
     end
-    local result = editor_objlist[aname]
+    local result = editor_objlist[editor_objlist_reference[aname]]
     if result ~= nil then return result.type end
     return -2
 end
