@@ -37,8 +37,8 @@ end
 function get_text_type(name)
     if is_str_special_prefixed(name) and not is_str_special_prefix(name) then return 0 end
     local aname = "text_" .. name
-    if objectpalette[aname] ~= nil then
-        local altname = objectpalette[aname]
+    if unitreference[aname] ~= nil then
+        local altname = unitreference[aname]
         local result = getactualdata_objlist(altname, "type")
         return result
     end
